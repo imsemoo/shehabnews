@@ -1,0 +1,276 @@
+{
+  "today": "الخميس، 3 سبتمبر 2026",
+  "hijri": "21 ربيع الأول 1448 هـ",
+  "clock": "02:37",
+  "breakingIdx": 0,
+  "breakingItem": {
+    "t": "قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم",
+    "time": "10:32 م"
+  },
+  "breakingCounter": "1 / 3",
+  "nav": [
+    "أخبار فلسطين",
+    "القدس",
+    "غزة",
+    "الضفة",
+    "عربي ودولي",
+    "إسرائيلي",
+    "التغطيات",
+    "ملفات خاصة",
+    "فيديو",
+    "بالصور",
+    "رأي",
+    "المزيد"
+  ],
+  "footerCols": [
+    {
+      "title": "الأقسام",
+      "links": [
+        "أخبار فلسطين",
+        "القدس",
+        "غزة",
+        "الضفة",
+        "عربي ودولي"
+      ]
+    },
+    {
+      "title": "المحتوى",
+      "links": [
+        "التغطيات الحية",
+        "ملفات شهاب",
+        "عدسة شهاب",
+        "فيديو شهاب",
+        "تقارير خاصة"
+      ]
+    },
+    {
+      "title": "الوكالة",
+      "links": [
+        "من نحن",
+        "تواصل معنا",
+        "سياسة التحرير",
+        "فرص العمل",
+        "خدمة الصور"
+      ]
+    }
+  ],
+  "social": [
+    {
+      "l": "فيسبوك",
+      "fa": "fa-brands fa-facebook-f"
+    },
+    {
+      "l": "إكس",
+      "fa": "fa-brands fa-x-twitter"
+    },
+    {
+      "l": "إنستغرام",
+      "fa": "fa-brands fa-instagram"
+    },
+    {
+      "l": "تيليغرام",
+      "fa": "fa-solid fa-paper-plane"
+    }
+  ],
+  "featBg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=800\")",
+  "yearLabel": "عام 2026",
+  "years": [
+    {
+      "year": "2026",
+      "count": "42",
+      "fill": "#1b5aa6",
+      "text": "#0a1a33"
+    },
+    {
+      "year": "2025",
+      "count": "67",
+      "fill": "#fff",
+      "text": "#4a5568"
+    },
+    {
+      "year": "2024",
+      "count": "31",
+      "fill": "#fff",
+      "text": "#4a5568"
+    },
+    {
+      "year": "2023",
+      "count": "18",
+      "fill": "#fff",
+      "text": "#4a5568"
+    }
+  ],
+  "archiveList": [
+    {
+      "date": "2 سبتمبر 2026",
+      "title": "أطفال غزة والطائرات الورقية.. ذريعة جديدة للتصعيد",
+      "cat": "تقرير"
+    },
+    {
+      "date": "28 أغسطس 2026",
+      "title": "خروقات وقف إطلاق النار.. حصيلة شهر في القطاع",
+      "cat": "تحليل"
+    },
+    {
+      "date": "14 أغسطس 2026",
+      "title": "شارع الرشيد.. شريان غزة يعود للحياة",
+      "cat": "قصة"
+    },
+    {
+      "date": "3 أغسطس 2026",
+      "title": "الإعمار بالأرقام.. ماذا دُمّر وماذا يُبنى؟",
+      "cat": "تقرير"
+    }
+  ],
+  "articles": [
+    {
+      "cat": "غزة • تحليل",
+      "time": "أمس",
+      "title": "خروقات وقف إطلاق النار.. حصيلة شهر في القطاع",
+      "sub": "قراءة في مسار الاتفاق بعد 325 يومًا: ما التزم به الطرفان وما لم يُنفّذ.",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=700\")"
+    },
+    {
+      "cat": "غزة • قصة",
+      "time": "قبل 3 أيام",
+      "title": "شارع الرشيد.. شريان غزة يعود للحياة رغم الدمار",
+      "sub": "أصحاب المحال يعودون إلى الطريق الساحلي، وحركة النازحين تتحوّل إلى سوق ممتد.",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1200\")"
+    },
+    {
+      "cat": "إعمار • تقرير",
+      "time": "الأسبوع الماضي",
+      "title": "الإعمار بالأرقام.. ماذا دُمّر وماذا يُبنى؟",
+      "sub": "مؤشرات المساكن والمدارس والمستشفيات والطرق في القطاع منذ سريان الاتفاق.",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=700\")"
+    },
+    {
+      "cat": "إنساني • تقرير",
+      "time": "الأسبوع الماضي",
+      "title": "مرضى القطاع بلا علاج.. عاشر يوم على إغلاق معبر رفح",
+      "sub": "آلاف المرضى ينتظرون السفر، ووزارة الصحة تحذّر من نفاد أدوية الأمراض المزمنة.",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/UNRWA%20el-Sheikh%20Radwan%20health%20center%2C%20February%202024.jpg?width=700\")"
+    },
+    {
+      "cat": "مجتمع • قصة",
+      "time": "قبل أسبوعين",
+      "title": "شتاء الخيام.. المواسي تحت المطر مرة أخرى",
+      "sub": "المنخفض الجوي يغمر عشرات الخيام، ومناشدات لتوفير مستلزمات الإيواء.",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=800\")"
+    }
+  ],
+  "topBig": {
+    "cat": "تحقيق — الأكثر تأثيرًا",
+    "title": "العودة عبر الرشيد.. تحقيق يوثّق رحلة النازحين إلى الشمال",
+    "time": "نوفمبر 2025",
+    "reads": "412 ألف قراءة",
+    "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1200\")"
+  },
+  "topRest": [
+    {
+      "n": "02",
+      "cat": "تحقيق",
+      "time": "نوفمبر 2024",
+      "title": "شمال غزة.. حصار داخل الحصار",
+      "reads": "298 ألف قراءة"
+    },
+    {
+      "n": "03",
+      "cat": "قصة",
+      "time": "سبتمبر 2024",
+      "title": "شتاء الخيام.. النزوح حين يأتي المطر",
+      "reads": "186 ألف قراءة"
+    }
+  ],
+  "topics": [
+    {
+      "name": "غزة",
+      "count": "84"
+    },
+    {
+      "name": "الحرب",
+      "count": "61"
+    },
+    {
+      "name": "القدس",
+      "count": "22"
+    },
+    {
+      "name": "فلسطين",
+      "count": "48"
+    },
+    {
+      "name": "السياسة",
+      "count": "17"
+    },
+    {
+      "name": "المجتمع",
+      "count": "29"
+    }
+  ],
+  "mostRead": [
+    {
+      "n": "01",
+      "title": "العودة عبر الرشيد.. رحلة النازحين إلى الشمال"
+    },
+    {
+      "n": "02",
+      "title": "شمال غزة.. حصار داخل الحصار"
+    },
+    {
+      "n": "03",
+      "title": "أطفال غزة والطائرات الورقية.. ذريعة جديدة للتصعيد"
+    },
+    {
+      "n": "04",
+      "title": "الإعمار بالأرقام.. ماذا دُمّر وماذا يُبنى؟"
+    },
+    {
+      "n": "05",
+      "title": "شتاء الخيام.. المواسي تحت المطر"
+    }
+  ],
+  "sections": [
+    "غزة",
+    "فلسطين",
+    "القدس",
+    "عربي ودولي",
+    "اقتصاد",
+    "مجتمع",
+    "رياضة"
+  ],
+  "railFiles": [
+    {
+      "title": "1000 يوم على حرب الإبادة",
+      "bg": "url(\"assets/file-1000-days.png\")"
+    },
+    {
+      "title": "أقمار الطوفان.. رحلة الغياب والعودة",
+      "bg": "url(\"assets/file-aqmar-altoufan.png\")"
+    },
+    {
+      "title": "رحيل الضيف.. القائد الذي أرهق الاحتلال",
+      "bg": "url(\"assets/file-raheel-aldaif.png\")"
+    }
+  ],
+  "authorFiles": [
+    {
+      "title": "1000 يوم على حرب الإبادة",
+      "role": "محرر الملف",
+      "count": "38",
+      "bg": "url(\"assets/file-1000-days.png\")"
+    },
+    {
+      "title": "أقمار الطوفان.. رحلة الغياب والعودة",
+      "role": "مشارك — 6 شهادات",
+      "count": "25",
+      "bg": "url(\"assets/file-aqmar-altoufan.png\")"
+    },
+    {
+      "title": "خريطة الضم.. من التوسع إلى الواقع",
+      "role": "مراسل ميداني",
+      "count": "14",
+      "bg": "url(\"assets/palestine-map.png\")"
+    }
+  ]
+}

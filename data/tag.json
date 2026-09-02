@@ -1,0 +1,245 @@
+{
+  "today": "الخميس، 3 سبتمبر 2026",
+  "hijri": "21 ربيع الأول 1448 هـ",
+  "clock": "02:37",
+  "breakingIdx": 0,
+  "breakingItem": {
+    "t": "قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم",
+    "time": "10:32 م"
+  },
+  "breakingCounter": "1 / 3",
+  "nav": [
+    "أخبار فلسطين",
+    "القدس",
+    "غزة",
+    "الضفة",
+    "عربي ودولي",
+    "إسرائيلي",
+    "التغطيات",
+    "ملفات خاصة",
+    "فيديو",
+    "بالصور",
+    "رأي",
+    "المزيد"
+  ],
+  "footerCols": [
+    {
+      "title": "الأقسام",
+      "links": [
+        "أخبار فلسطين",
+        "القدس",
+        "غزة",
+        "الضفة",
+        "عربي ودولي"
+      ]
+    },
+    {
+      "title": "المحتوى",
+      "links": [
+        "التغطيات الحية",
+        "ملفات شهاب",
+        "عدسة شهاب",
+        "فيديو شهاب",
+        "تقارير خاصة"
+      ]
+    },
+    {
+      "title": "الوكالة",
+      "links": [
+        "من نحن",
+        "تواصل معنا",
+        "سياسة التحرير",
+        "فرص العمل",
+        "خدمة الصور"
+      ]
+    }
+  ],
+  "tag": "غزة",
+  "desc": "كل ما تنشره شهاب حول غزة: أخبار عاجلة من الميدان، ألبومات مصوّرة، فيديو، وتقارير معمّقة — مرتّبة من الأحدث.",
+  "hashLabel": "#غزة",
+  "lastAdd": "منذ 20 دقيقة",
+  "stats": [
+    {
+      "v": "1,284",
+      "l": "مادة مرتبطة بالوسم"
+    },
+    {
+      "v": "38",
+      "l": "مادة اليوم"
+    },
+    {
+      "v": "2023",
+      "l": "أقدم مادة في الوسم"
+    }
+  ],
+  "related": [
+    "وقف_إطلاق_النار",
+    "جباليا",
+    "المواسي",
+    "شارع_الرشيد",
+    "الأونروا"
+  ],
+  "tabs": [
+    {
+      "label": "الكل",
+      "count": 10,
+      "on": true,
+      "off": false
+    },
+    {
+      "label": "أخبار",
+      "count": 4,
+      "on": false,
+      "off": true
+    },
+    {
+      "label": "صور",
+      "count": 2,
+      "on": false,
+      "off": true
+    },
+    {
+      "label": "فيديو",
+      "count": 2,
+      "on": false,
+      "off": true
+    },
+    {
+      "label": "تقارير",
+      "count": 2,
+      "on": false,
+      "off": true
+    }
+  ],
+  "lead": {
+    "type": "news",
+    "kind": "عاجل",
+    "color": "#e0302f",
+    "cat": "غزة",
+    "time": "منذ 20 دقيقة",
+    "title": "4 شهداء وإصابات بقصف الاحتلال في جباليا شمال قطاع غزة",
+    "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=800\")",
+    "deck": "مراسلو شهاب ينقلون التطورات من الميدان، وتُضاف كل مادة جديدة إلى هذا الوسم تلقائيًا."
+  },
+  "secondary": [
+    {
+      "type": "news",
+      "kind": "خبر",
+      "color": "#1b5aa6",
+      "cat": "غزة",
+      "time": "منذ 40 دقيقة",
+      "title": "الأوقاف: الاحتلال يدمّر 3 مساجد في يومين ليصل العدد إلى 1244 مسجدًا",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Gaza%20el-mina%20view.jpg?width=800\")"
+    },
+    {
+      "type": "photo",
+      "kind": "ألبوم",
+      "color": "#1b5aa6",
+      "cat": "عدسة شهاب",
+      "time": "منذ ساعة",
+      "title": "العودة عبر شارع الرشيد.. ألبوم من أول أيام وقف إطلاق النار",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=800\")"
+    },
+    {
+      "type": "video",
+      "kind": "فيديو",
+      "color": "#1b5aa6",
+      "cat": "غزة",
+      "time": "منذ ساعتين",
+      "title": "جولة في رفح بعد انسحاب قوات الاحتلال",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=800\")"
+    }
+  ],
+  "items": [
+    {
+      "type": "report",
+      "kind": "تقرير",
+      "color": "#1b5aa6",
+      "cat": "تقارير شهاب",
+      "time": "منذ 3 ساعات",
+      "title": "80 مليار دولار.. الإبادة تمتد إلى الاقتصاد وتحوّل 15 قطاعًا إلى ركام",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Omar%20Mukhtar%20panorama%20-%20panoramio.jpg?width=1200\")",
+      "isVideo": false
+    },
+    {
+      "type": "news",
+      "kind": "خبر",
+      "color": "#1b5aa6",
+      "cat": "غزة",
+      "time": "منذ 4 ساعات",
+      "title": "أسعار الأساسيات في غزة تتراجع 12% مع فتح المعابر جزئيًا",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Fishermen%20in%20Gaza.jpg?width=800\")",
+      "isVideo": false
+    },
+    {
+      "type": "photo",
+      "kind": "صور",
+      "color": "#1b5aa6",
+      "cat": "عدسة شهاب",
+      "time": "أمس",
+      "title": "خيام المواسي تمتد على الساحل الجنوبي.. مئات آلاف النازحين بلا مأوى دائم",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=800\")",
+      "isVideo": false
+    },
+    {
+      "type": "report",
+      "kind": "شهادات",
+      "color": "#1b5aa6",
+      "cat": "تقارير شهاب",
+      "time": "أمس",
+      "title": "أطفال غزة بين فرحة اللعب وتهديد القصف.. الطائرات الورقية ذريعة جديدة للتصعيد",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/School%20Children%20in%20Hebron%20%287555041186%29.jpg?width=800\")",
+      "isVideo": false
+    },
+    {
+      "type": "video",
+      "kind": "فيديو",
+      "color": "#1b5aa6",
+      "cat": "غزة",
+      "time": "أمس",
+      "title": "العودة عبر الرشيد.. 12 دقيقة توثق رحلة النازحين إلى الشمال",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=800\")",
+      "isVideo": true
+    },
+    {
+      "type": "news",
+      "kind": "خبر",
+      "color": "#1b5aa6",
+      "cat": "مجتمع",
+      "time": "هذا الأسبوع",
+      "title": "عودة الدراسة في 40 مدرسة بعد ترميمها شمال القطاع",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem%20Old%20City%20Street.jpg?width=800\")",
+      "isVideo": false
+    }
+  ],
+  "listTitle": "كل مواد الوسم",
+  "listCount": "10 من 1,284",
+  "pageLabel": "صفحة 1 من 64",
+  "pages": [
+    {
+      "n": "1",
+      "on": true,
+      "off": false
+    },
+    {
+      "n": "2",
+      "on": false,
+      "off": true
+    },
+    {
+      "n": "3",
+      "on": false,
+      "off": true
+    },
+    {
+      "n": "4",
+      "on": false,
+      "off": true
+    },
+    {
+      "n": "5",
+      "on": false,
+      "off": true
+    }
+  ]
+}

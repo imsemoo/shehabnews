@@ -1,0 +1,414 @@
+{
+  "today": "الخميس، 3 سبتمبر 2026",
+  "hijri": "21 ربيع الأول 1448 هـ",
+  "breakingIdx": 0,
+  "breakingItem": {
+    "t": "قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم",
+    "time": "10:32 م"
+  },
+  "breakingCounter": "1 / 3",
+  "nav": [
+    "أخبار فلسطين",
+    "القدس",
+    "غزة",
+    "الضفة",
+    "عربي ودولي",
+    "إسرائيلي",
+    "التغطيات",
+    "ملفات خاصة",
+    "فيديو",
+    "بالصور",
+    "رأي",
+    "المزيد"
+  ],
+  "footerCols": [
+    {
+      "title": "الأقسام",
+      "links": [
+        "أخبار فلسطين",
+        "القدس",
+        "غزة",
+        "الضفة",
+        "عربي ودولي"
+      ]
+    },
+    {
+      "title": "المحتوى",
+      "links": [
+        "التغطيات الحية",
+        "ملفات شهاب",
+        "عدسة شهاب",
+        "فيديو شهاب",
+        "تقارير خاصة"
+      ]
+    },
+    {
+      "title": "الوكالة",
+      "links": [
+        "من نحن",
+        "تواصل معنا",
+        "سياسة التحرير",
+        "فرص العمل",
+        "خدمة الصور"
+      ]
+    }
+  ],
+  "clock": "02:37",
+  "urgent": [
+    {
+      "time": "10:32 م",
+      "cat": "الضفة",
+      "color": "#e0302f",
+      "text": "قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم"
+    },
+    {
+      "time": "10:13 م",
+      "cat": "غزة",
+      "color": "#0a1a33",
+      "text": "إطلاق نار من \"كواد كابتر\" في السطر الغربي بخانيونس"
+    },
+    {
+      "time": "10:02 م",
+      "cat": "الضفة",
+      "color": "#0a1a33",
+      "text": "مداهمة منازل خلال اقتحام بلدة نحالين غرب بيت لحم"
+    },
+    {
+      "time": "09:31 م",
+      "cat": "القدس",
+      "color": "#0a1a33",
+      "text": "نعيم: هدم مقر الأونروا بالقدس جريمة حرب"
+    },
+    {
+      "time": "09:05 م",
+      "cat": "القدس",
+      "color": "#0a1a33",
+      "text": "قنابل غاز خلال اقتحام محيط مخيم قلنديا"
+    },
+    {
+      "time": "08:51 م",
+      "cat": "غزة",
+      "color": "#0a1a33",
+      "text": "4 شهداء بقصف الاحتلال في جباليا"
+    }
+  ],
+  "brief": [
+    {
+      "time": "10:32 م",
+      "text": "اقتحام دير الغصون شمال طولكرم"
+    },
+    {
+      "time": "09:56 م",
+      "text": "1244 مسجدًا دُمّر من أصل 1275 — الأوقاف"
+    },
+    {
+      "time": "09:31 م",
+      "text": "هدم مقر الأونروا في القدس المحتلة"
+    },
+    {
+      "time": "08:51 م",
+      "text": "4 شهداء بقصف جباليا شمال القطاع"
+    }
+  ],
+  "leadFollow": [
+    {
+      "n": "02",
+      "kind": "تحليل",
+      "read": "قراءة 6 دقائق",
+      "title": "طبيعة الخلاف بين ترامب ونتنياهو.. تباين تكتيكي أم قطيعة استراتيجية؟"
+    },
+    {
+      "n": "03",
+      "kind": "شهادات",
+      "read": "قراءة 7 دقائق",
+      "title": "رصاصة في الرأس وحلم في الركام.. قصة اللاعب محمد"
+    }
+  ],
+  "topText": [
+    {
+      "cat": "إسرائيلي",
+      "title": "خلافات داخل حكومة الاحتلال حول المرحلة الثانية من الاتفاق"
+    },
+    {
+      "cat": "عربي ودولي",
+      "title": "مصر تستضيف جولة جديدة من مباحثات المرحلة الثانية"
+    },
+    {
+      "cat": "اقتصاد",
+      "title": "أسعار الأساسيات في غزة تتراجع 12% مع فتح المعابر جزئيًا"
+    }
+  ],
+  "dossiers": [
+    {
+      "num": "02",
+      "kind": "سيرة وشهادات",
+      "title": "رحيل الضيف.. القائد الذي أرهق الاحتلال",
+      "meta": "31 مادة · قراءة 48 دقيقة",
+      "bg": "url(assets/file-raheel-aldaif.png)"
+    },
+    {
+      "num": "03",
+      "kind": "سلسلة تحقيقات",
+      "title": "أقمار الطوفان.. شهداء القسام في معركة طوفان الأقصى",
+      "meta": "25 مادة · قراءة 35 دقيقة",
+      "bg": "url(assets/file-aqmar-altoufan.png)"
+    },
+    {
+      "num": "04",
+      "kind": "تغطية مستمرة",
+      "title": "كأس العالم 2026.. فلسطين حاضرة في المدرجات",
+      "meta": "19 مادة · قراءة 22 دقيقة",
+      "bg": "url(assets/file-world-cup-2026.png)"
+    }
+  ],
+  "live": [
+    {
+      "time": "10:32 م",
+      "cat": "الضفة",
+      "dot": "#e0302f",
+      "text": "قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم"
+    },
+    {
+      "time": "10:13 م",
+      "cat": "غزة",
+      "dot": "#1b5aa6",
+      "text": "مراسل شهاب: إطلاق نار من طائرة مُسيّرة في منطقة السطر الغربي شمال غربي خانيونس"
+    },
+    {
+      "time": "10:02 م",
+      "cat": "الضفة",
+      "dot": "#b8c2d0",
+      "text": "قوات الاحتلال تداهم منازل خلال اقتحامها بلدة نحالين غرب بيت لحم"
+    },
+    {
+      "time": "09:05 م",
+      "cat": "القدس",
+      "dot": "#b8c2d0",
+      "text": "قنابل غاز خلال اقتحام شارع المعهد في محيط مخيم قلنديا"
+    },
+    {
+      "time": "08:51 م",
+      "cat": "غزة",
+      "dot": "#b8c2d0",
+      "text": "4 شهداء وإصابات بقصف الاحتلال في جباليا شمال قطاع غزة"
+    }
+  ],
+  "lens": [
+    {
+      "num": "02",
+      "caption": "رفح بعد انسحاب قوات الاحتلال",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=800\")"
+    },
+    {
+      "num": "03",
+      "caption": "عائلات تعود للبحث بين الركام في مدينة غزة",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=800\")"
+    },
+    {
+      "num": "04",
+      "caption": "الأقصى تحت قيود متصاعدة على الوصول",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Dome%20of%20the%20Al-Aqsa%20Mosque%20%2820160%29.jpg?width=800\")"
+    }
+  ],
+  "reports": [
+    {
+      "n": "02",
+      "kind": "شهادات",
+      "read": "قراءة 7 دقائق",
+      "title": "رصاصة في الرأس وحلم في الركام.. قصة اللاعب محمد"
+    },
+    {
+      "n": "03",
+      "kind": "تحقيق",
+      "read": "قراءة 9 دقائق",
+      "title": "مصادر تكشف كواليس استشهاد \"أبو رعد\" خازم في جنين"
+    },
+    {
+      "n": "04",
+      "kind": "تحليل",
+      "read": "قراءة 6 دقائق",
+      "title": "طبيعة الخلاف بين ترامب ونتنياهو.. تباين تكتيكي أم قطيعة استراتيجية؟"
+    },
+    {
+      "n": "05",
+      "kind": "ملف",
+      "read": "قراءة 12 دقيقة",
+      "title": "من التوسع إلى الضم.. كيف تصنع \"إسرائيل\" واقعًا في الضفة؟"
+    }
+  ],
+  "opinions": [
+    {
+      "who": "حمزة قرقماز",
+      "title": "القدس.. حيث تلتقي المادة بالمعنى"
+    },
+    {
+      "who": "مقالات شهاب",
+      "title": "في ذكرى إحراق الأقصى: هوية لا تُطمس"
+    },
+    {
+      "who": "د. باسم نعيم",
+      "title": "هدم مقر الأونروا بالقدس جريمة حرب وانتهاك صارخ للقانون الدولي"
+    },
+    {
+      "who": "غفران زامل لـ شهاب",
+      "title": "عندما التقيتُ محمد الضيف.. شهادة عن لقاء \"رجل الظل\""
+    }
+  ],
+  "videos": [
+    {
+      "title": "لحظة إطلاق النار على شاب أعزل في مخيم قلنديا",
+      "dur": "01:12",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Dome%20of%20the%20Al-Aqsa%20Mosque%20%2820160%29.jpg?width=800\")"
+    },
+    {
+      "title": "جولة في رفح بعد انسحاب قوات الاحتلال",
+      "dur": "04:35",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=800\")"
+    },
+    {
+      "title": "خيام المواسي.. شهادات من داخل مخيمات النزوح",
+      "dur": "06:20",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=800\")"
+    }
+  ],
+  "index": [
+    {
+      "cat": "فلسطين",
+      "catColor": "#1b5aa6",
+      "time": "منذ ساعة",
+      "title": "الاحتلال يصدر 114 أمرًا عسكريًا لتوسيع نفوذ المستوطنات منذ أكتوبر 2023",
+      "img": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=800\")",
+      "hasImg": true,
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=800\")",
+      "cols": "78px 1fr"
+    },
+    {
+      "cat": "إسرائيلي",
+      "catColor": "#1b5aa6",
+      "time": "منذ ساعة",
+      "title": "خلافات داخل حكومة الاحتلال حول المرحلة الثانية من الاتفاق",
+      "hasImg": false,
+      "bg": "none",
+      "cols": "1fr"
+    },
+    {
+      "cat": "القدس",
+      "catColor": "#1b5aa6",
+      "time": "منذ ساعتين",
+      "title": "نعيم: هدم مقر الأونروا بالقدس جريمة حرب وانتهاك صارخ للقانون الدولي",
+      "img": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Dome%20of%20the%20Al-Aqsa%20Mosque%20%2820160%29.jpg?width=800\")",
+      "hasImg": true,
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Dome%20of%20the%20Al-Aqsa%20Mosque%20%2820160%29.jpg?width=800\")",
+      "cols": "78px 1fr"
+    },
+    {
+      "cat": "عربي",
+      "catColor": "#1b5aa6",
+      "time": "منذ 3 ساعات",
+      "title": "مصر تستضيف جولة جديدة من مباحثات المرحلة الثانية",
+      "hasImg": false,
+      "bg": "none",
+      "cols": "1fr"
+    },
+    {
+      "cat": "دولي",
+      "catColor": "#1b5aa6",
+      "time": "منذ 3 ساعات",
+      "title": "لبنان: ارتفاع حصيلة العدوان الإسرائيلي إلى 4350 شهيدًا و12310 جرحى",
+      "img": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=800\")",
+      "hasImg": true,
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=800\")",
+      "cols": "78px 1fr"
+    },
+    {
+      "cat": "رياضة",
+      "catColor": "#1b5aa6",
+      "time": "منذ 4 ساعات",
+      "title": "أتلتيك بيلباو يخصص مباراته أمام مايوركا لأجل فلسطين",
+      "hasImg": false,
+      "bg": "none",
+      "cols": "1fr"
+    },
+    {
+      "cat": "مجتمع",
+      "catColor": "#1b5aa6",
+      "time": "منذ 4 ساعات",
+      "title": "عودة الدراسة في 40 مدرسة بعد ترميمها شمال القطاع",
+      "img": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=800\")",
+      "hasImg": true,
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=800\")",
+      "cols": "78px 1fr"
+    },
+    {
+      "cat": "عاجل",
+      "catColor": "#e0302f",
+      "time": "منذ 5 ساعات",
+      "title": "قوات الاحتلال تقتحم بلدة بلعا شمال طولكرم",
+      "hasImg": false,
+      "bg": "none",
+      "cols": "1fr"
+    },
+    {
+      "cat": "اقتصاد",
+      "catColor": "#1b5aa6",
+      "time": "أمس",
+      "title": "أسعار الأساسيات في غزة تتراجع 12% مع فتح المعابر جزئيًا",
+      "img": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=800\")",
+      "hasImg": true,
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=800\")",
+      "cols": "78px 1fr"
+    }
+  ],
+  "sections": [
+    {
+      "name": "غزة",
+      "count": "38"
+    },
+    {
+      "name": "الضفة",
+      "count": "24"
+    },
+    {
+      "name": "القدس",
+      "count": "17"
+    },
+    {
+      "name": "عربي ودولي",
+      "count": "31"
+    },
+    {
+      "name": "إسرائيلي",
+      "count": "14"
+    },
+    {
+      "name": "اقتصاد",
+      "count": "9"
+    },
+    {
+      "name": "رياضة",
+      "count": "13"
+    },
+    {
+      "name": "منوعات",
+      "count": "11"
+    }
+  ],
+  "social": [
+    {
+      "l": "فيسبوك",
+      "fa": "fa-brands fa-facebook-f"
+    },
+    {
+      "l": "إكس",
+      "fa": "fa-brands fa-x-twitter"
+    },
+    {
+      "l": "إنستغرام",
+      "fa": "fa-brands fa-instagram"
+    },
+    {
+      "l": "تيليغرام",
+      "fa": "fa-solid fa-paper-plane"
+    }
+  ]
+}

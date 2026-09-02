@@ -1,0 +1,192 @@
+{
+  "today": "الخميس، 3 سبتمبر 2026",
+  "hijri": "21 ربيع الأول 1448 هـ",
+  "clock": "02:37",
+  "breakingIdx": 0,
+  "breakingItem": {
+    "t": "قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم",
+    "time": "10:32 م"
+  },
+  "breakingCounter": "1 / 3",
+  "nav": [
+    "أخبار فلسطين",
+    "القدس",
+    "غزة",
+    "الضفة",
+    "عربي ودولي",
+    "إسرائيلي",
+    "التغطيات",
+    "ملفات خاصة",
+    "فيديو",
+    "بالصور",
+    "رأي",
+    "المزيد"
+  ],
+  "footerCols": [
+    {
+      "title": "الأقسام",
+      "links": [
+        "أخبار فلسطين",
+        "القدس",
+        "غزة",
+        "الضفة",
+        "عربي ودولي"
+      ]
+    },
+    {
+      "title": "المحتوى",
+      "links": [
+        "التغطيات الحية",
+        "ملفات شهاب",
+        "عدسة شهاب",
+        "فيديو شهاب",
+        "تقارير خاصة"
+      ]
+    },
+    {
+      "title": "الوكالة",
+      "links": [
+        "من نحن",
+        "تواصل معنا",
+        "سياسة التحرير",
+        "فرص العمل",
+        "خدمة الصور"
+      ]
+    }
+  ],
+  "posterBg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1400\")",
+  "storyBg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=800\")",
+  "sigBg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Omar%20Mukhtar%20panorama%20-%20panoramio.jpg?width=1200\")",
+  "duration": "12:04",
+  "paused": true,
+  "playIcon": "fa-solid fa-play",
+  "progress": "0%",
+  "progressKnob": "0%",
+  "timeLabel": "00:00 / 12:04",
+  "share": [
+    {
+      "l": "فيسبوك",
+      "fa": "fa-brands fa-facebook-f"
+    },
+    {
+      "l": "إكس",
+      "fa": "fa-brands fa-x-twitter"
+    },
+    {
+      "l": "واتساب",
+      "fa": "fa-brands fa-whatsapp"
+    },
+    {
+      "l": "نسخ الرابط",
+      "fa": "fa-solid fa-link"
+    }
+  ],
+  "tags": [
+    "غزة",
+    "فلسطين",
+    "وقف_إطلاق_النار",
+    "القدس"
+  ],
+  "mostWatched": [
+    {
+      "n": "01",
+      "t": "لحظة إطلاق النار على شاب أعزل في قلنديا",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem%20Old%20City%20Street.jpg?width=800\")"
+    },
+    {
+      "n": "02",
+      "t": "رفح بعد الانسحاب.. مشهد جوي",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=800\")"
+    },
+    {
+      "n": "03",
+      "t": "العودة عبر شارع الرشيد",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1400\")"
+    },
+    {
+      "n": "04",
+      "t": "خيام المواسي على الساحل الجنوبي",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=800\")"
+    }
+  ],
+  "relLead": {
+    "t": "العودة عبر الرشيد.. 12 دقيقة توثق رحلة النازحين إلى الشمال",
+    "cat": "غزة",
+    "time": "منذ ساعتين",
+    "dur": "12:04",
+    "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1400\")"
+  },
+  "related": [
+    {
+      "t": "جولة في رفح بعد انسحاب قوات الاحتلال",
+      "cat": "غزة",
+      "time": "منذ 3 ساعات",
+      "dur": "04:35",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=800\")"
+    },
+    {
+      "t": "خيام المواسي.. شهادات من داخل مخيمات النزوح",
+      "cat": "غزة",
+      "time": "أمس",
+      "dur": "06:20",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=800\")"
+    },
+    {
+      "t": "لحظة إطلاق النار على شاب أعزل في مخيم قلنديا",
+      "cat": "القدس",
+      "time": "أمس",
+      "dur": "01:12",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem%20Old%20City%20Street.jpg?width=800\")"
+    }
+  ],
+  "sortTabs": [
+    {
+      "label": "الأحدث",
+      "on": true,
+      "off": false
+    },
+    {
+      "label": "الأكثر مشاهدة",
+      "on": false,
+      "off": true
+    }
+  ],
+  "feed": [
+    {
+      "t": "لحظة إطلاق النار على شاب أعزل في مخيم قلنديا",
+      "dur": "01:12",
+      "meta": "منذ ساعة",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem%20Old%20City%20Street.jpg?width=800\")"
+    },
+    {
+      "t": "جولة في رفح بعد انسحاب قوات الاحتلال",
+      "dur": "04:35",
+      "meta": "منذ 3 ساعات",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=800\")"
+    },
+    {
+      "t": "خيام المواسي.. شهادات من داخل مخيمات النزوح",
+      "dur": "06:20",
+      "meta": "أمس",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=800\")"
+    },
+    {
+      "t": "عائلات تعود للبحث بين الركام في مدينة غزة",
+      "dur": "02:48",
+      "meta": "أمس",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=800\")"
+    },
+    {
+      "t": "ميناء غزة.. الصيادون بين القيود والبحر",
+      "dur": "05:02",
+      "meta": "هذا الأسبوع",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Gaza%20el-mina%20view.jpg?width=800\")"
+    },
+    {
+      "t": "شارع عمر المختار بعد عام من الحرب",
+      "dur": "08:14",
+      "meta": "هذا الأسبوع",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Omar%20Mukhtar%20panorama%20-%20panoramio.jpg?width=1200\")"
+    }
+  ]
+}

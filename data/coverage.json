@@ -1,0 +1,384 @@
+{
+  "today": "الخميس، 3 سبتمبر 2026",
+  "hijri": "21 ربيع الأول 1448 هـ",
+  "clock": "02:37",
+  "breakingIdx": 0,
+  "breakingItem": {
+    "t": "قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم",
+    "time": "10:32 م"
+  },
+  "breakingCounter": "1 / 3",
+  "nav": [
+    "أخبار فلسطين",
+    "القدس",
+    "غزة",
+    "الضفة",
+    "عربي ودولي",
+    "إسرائيلي",
+    "التغطيات",
+    "ملفات خاصة",
+    "فيديو",
+    "بالصور",
+    "رأي",
+    "المزيد"
+  ],
+  "footerCols": [
+    {
+      "title": "الأقسام",
+      "links": [
+        "أخبار فلسطين",
+        "القدس",
+        "غزة",
+        "الضفة",
+        "عربي ودولي"
+      ]
+    },
+    {
+      "title": "المحتوى",
+      "links": [
+        "التغطيات الحية",
+        "ملفات شهاب",
+        "عدسة شهاب",
+        "فيديو شهاب",
+        "تقارير خاصة"
+      ]
+    },
+    {
+      "title": "الوكالة",
+      "links": [
+        "من نحن",
+        "تواصل معنا",
+        "سياسة التحرير",
+        "فرص العمل",
+        "خدمة الصور"
+      ]
+    }
+  ],
+  "social": [
+    {
+      "l": "فيسبوك",
+      "fa": "fa-brands fa-facebook-f"
+    },
+    {
+      "l": "إكس",
+      "fa": "fa-brands fa-x-twitter"
+    },
+    {
+      "l": "إنستغرام",
+      "fa": "fa-brands fa-instagram"
+    },
+    {
+      "l": "تيليغرام",
+      "fa": "fa-solid fa-paper-plane"
+    }
+  ],
+  "lastUpdate": "منذ 6 د",
+  "covNav": [
+    {
+      "label": "ملخص",
+      "color": "#8a95a6",
+      "line": "transparent"
+    },
+    {
+      "label": "آخر التطورات",
+      "color": "#0a1a33",
+      "line": "#1b5aa6"
+    },
+    {
+      "label": "التسلسل الزمني",
+      "color": "#8a95a6",
+      "line": "transparent"
+    },
+    {
+      "label": "الصور والفيديو",
+      "color": "#8a95a6",
+      "line": "transparent"
+    },
+    {
+      "label": "خلفية",
+      "color": "#8a95a6",
+      "line": "transparent"
+    },
+    {
+      "label": "مرتبط بالتغطية",
+      "color": "#8a95a6",
+      "line": "transparent"
+    }
+  ],
+  "timeline": [
+    {
+      "day": "اليوم — الثلاثاء 2 سبتمبر"
+    },
+    {
+      "time": "10:32 م",
+      "cat": "الضفة",
+      "catColor": "#1b5aa6",
+      "node": "#1b5aa6",
+      "nodeSize": "9px",
+      "size": "15.5px",
+      "breaking": true,
+      "title": "قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم",
+      "src": "مراسل شهاب",
+      "pad": "13px 0 14px",
+      "inset": "16px",
+      "accent": "3px solid #e0302f",
+      "timeColor": "#e0302f",
+      "timeWeight": 800,
+      "img": null
+    },
+    {
+      "time": "10:17 م",
+      "cat": "الضفة",
+      "catColor": "#1b5aa6",
+      "node": "#b8c2d0",
+      "nodeSize": "8px",
+      "size": "15px",
+      "title": "قوات الاحتلال تقتحم بلدة بلعا شمال طولكرم",
+      "src": "مراسل شهاب",
+      "pad": "13px 0 14px",
+      "inset": "0",
+      "accent": "none",
+      "timeColor": "#8a95a6",
+      "timeWeight": 400,
+      "img": null
+    },
+    {
+      "time": "10:13 م",
+      "cat": "غزة",
+      "catColor": "#1b5aa6",
+      "node": "#e0302f",
+      "nodeSize": "9px",
+      "size": "15.5px",
+      "breaking": true,
+      "title": "إطلاق نار من طائرة مُسيّرة \"كواد كابتر\" في منطقة السطر الغربي ومحيط مدرسة الأقصى شمال غربي خانيونس",
+      "src": "مراسل شهاب — خانيونس",
+      "pad": "13px 0 14px",
+      "inset": "16px",
+      "accent": "3px solid #e0302f",
+      "timeColor": "#e0302f",
+      "timeWeight": 800,
+      "img": null
+    },
+    {
+      "time": "10:02 م",
+      "cat": "الضفة",
+      "catColor": "#1b5aa6",
+      "node": "#b8c2d0",
+      "nodeSize": "8px",
+      "size": "15px",
+      "title": "قوات الاحتلال تداهم منازل خلال اقتحامها بلدة نحالين غرب بيت لحم",
+      "src": "مراسل شهاب",
+      "pad": "13px 0 14px",
+      "inset": "0",
+      "accent": "none",
+      "timeColor": "#8a95a6",
+      "timeWeight": 400,
+      "img": null
+    },
+    {
+      "time": "09:56 م",
+      "cat": "غزة · الأوقاف",
+      "catColor": "#1b5aa6",
+      "node": "#1b5aa6",
+      "nodeSize": "11px",
+      "size": "19px",
+      "title": "الأوقاف: الاحتلال يواصل حربه على بيوت الله ويدمر 3 مساجد في يومين ليصل العدد إلى 1244 مسجدًا من أصل 1275",
+      "body": "وفق وزارة الأوقاف والشؤون الدينية، لم يبقَ في قطاع غزة سوى 31 مسجدًا قائمًا.",
+      "img": "url(https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=1600)",
+      "credit": "ما تبقى من الأحياء بعد القصف — عدسة شهاب",
+      "src": "متابعة شهاب",
+      "pad": "22px 0 26px",
+      "inset": "16px",
+      "accent": "3px solid #1b5aa6",
+      "timeColor": "#0a1a33",
+      "timeWeight": 800
+    },
+    {
+      "time": "09:40 م",
+      "cat": "القدس",
+      "catColor": "#1b5aa6",
+      "node": "#e0302f",
+      "nodeSize": "11px",
+      "size": "19px",
+      "breaking": true,
+      "title": "لحظة إطلاق النار على شاب فلسطيني أعزل خلال استيلاء جيش الاحتلال على مبنى \"الأونروا\" في مخيم قلنديا",
+      "video": "00:11",
+      "src": "شهاب ميديا",
+      "pad": "22px 0 26px",
+      "inset": "16px",
+      "accent": "3px solid #e0302f",
+      "timeColor": "#e0302f",
+      "timeWeight": 800
+    },
+    {
+      "time": "09:05 م",
+      "cat": "القدس",
+      "catColor": "#1b5aa6",
+      "node": "#b8c2d0",
+      "nodeSize": "8px",
+      "size": "15px",
+      "title": "قوات الاحتلال تطلق قنابل الغاز خلال اقتحام شارع المعهد في محيط مخيم قلنديا شمال القدس المحتلة",
+      "src": "مراسل شهاب — القدس",
+      "pad": "13px 0 14px",
+      "inset": "0",
+      "accent": "none",
+      "timeColor": "#8a95a6",
+      "timeWeight": 400,
+      "img": null
+    },
+    {
+      "time": "08:51 م",
+      "cat": "غزة",
+      "catColor": "#1b5aa6",
+      "node": "#e0302f",
+      "nodeSize": "11px",
+      "size": "19px",
+      "breaking": true,
+      "title": "4 شهداء وإصابات بقصف الاحتلال في جباليا شمال قطاع غزة",
+      "body": "في خرق جديد لوقف إطلاق النار، استهدف القصف تجمعًا سكنيًا شمال القطاع ونُقل المصابون إلى مستشفى الشفاء.",
+      "img": "url(https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=1600)",
+      "credit": "الدمار شمال قطاع غزة — عدسة شهاب",
+      "src": "شهاب — غزة",
+      "pad": "22px 0 26px",
+      "inset": "16px",
+      "accent": "3px solid #e0302f",
+      "timeColor": "#e0302f",
+      "timeWeight": 800
+    },
+    {
+      "time": "08:49 م",
+      "cat": "القدس",
+      "catColor": "#1b5aa6",
+      "node": "#1b5aa6",
+      "nodeSize": "9px",
+      "size": "15.5px",
+      "title": "شرطة الاحتلال تقتحم معهد قلنديا قرب مخيم قلنديا شمال القدس المحتلة",
+      "src": "مراسل شهاب — القدس",
+      "pad": "13px 0 14px",
+      "inset": "0",
+      "accent": "none",
+      "timeColor": "#8a95a6",
+      "timeWeight": 400,
+      "img": null
+    },
+    {
+      "day": "أمس — الاثنين 1 سبتمبر"
+    },
+    {
+      "time": "09:31 م",
+      "cat": "فلسطين",
+      "catColor": "#1b5aa6",
+      "node": "#b8c2d0",
+      "nodeSize": "8px",
+      "size": "15px",
+      "title": "نعيم: هدم مقر الأونروا بالقدس جريمة حرب وانتهاك صارخ للقانون الدولي",
+      "src": "شهاب",
+      "pad": "13px 0 14px",
+      "inset": "0",
+      "accent": "none",
+      "timeColor": "#8a95a6",
+      "timeWeight": 400,
+      "img": null
+    },
+    {
+      "time": "09:21 م",
+      "cat": "خاص",
+      "catColor": "#1b5aa6",
+      "node": "#1b5aa6",
+      "nodeSize": "9px",
+      "size": "15.5px",
+      "title": "د. محمد مصلح لـ شهاب: الاحتلال يحاول تحويل الطائرات الورقية إلى ذريعة جديدة لإفشال وقف إطلاق النار",
+      "src": "تصريح خاص لـ شهاب",
+      "pad": "13px 0 14px",
+      "inset": "0",
+      "accent": "none",
+      "timeColor": "#8a95a6",
+      "timeWeight": 400,
+      "img": null
+    },
+    {
+      "time": "08:51 م",
+      "cat": "عربي",
+      "catColor": "#1b5aa6",
+      "node": "#b8c2d0",
+      "nodeSize": "8px",
+      "size": "15px",
+      "title": "لبنان: ارتفاع حصيلة العدوان الإسرائيلي إلى 4350 شهيدًا و12310 جرحى",
+      "src": "شهاب — متابعات",
+      "pad": "13px 0 14px",
+      "inset": "0",
+      "accent": "none",
+      "timeColor": "#8a95a6",
+      "timeWeight": 400,
+      "img": null
+    }
+  ],
+  "keyNums": [
+    {
+      "v": "4",
+      "l": "شهداء بقصف جباليا شمال قطاع غزة اليوم"
+    },
+    {
+      "v": "1,244",
+      "l": "مسجدًا مدمرًا من أصل 1,275 — وزارة الأوقاف"
+    },
+    {
+      "v": "6",
+      "l": "اقتحامات في الضفة والقدس خلال 24 ساعة"
+    },
+    {
+      "v": "325",
+      "l": "يومًا على سريان وقف إطلاق النار"
+    }
+  ],
+  "media": [
+    {
+      "bg": "url(https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=1600)",
+      "title": "آثار قصف جباليا شمال قطاع غزة",
+      "isVideo": false
+    },
+    {
+      "bg": "url(https://commons.wikimedia.org/wiki/Special:FilePath/UNRWA%20el-Sheikh%20Radwan%20health%20center%2C%20February%202024.jpg?width=1600)",
+      "title": "فيديو | من اقتحام شارع المعهد قرب مخيم قلنديا",
+      "isVideo": true,
+      "d": "00:21"
+    },
+    {
+      "bg": "url(https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20view%20of%20destruction%20in%20Beach%20refugee%20camp%2C%20Gaza%20Strip.jpg?width=1600)",
+      "title": "مشهد جوي للدمار في مخيم الشاطئ",
+      "isVideo": false
+    }
+  ],
+  "related": [
+    {
+      "cat": "تقرير",
+      "time": "10:06 م",
+      "title": "أطفال غزة بين فرحة اللعب وتهديد القصف.. الطائرات الورقية ذريعة جديدة للتصعيد"
+    },
+    {
+      "cat": "فلسطين",
+      "time": "09:31 م",
+      "title": "دعوات للمشاركة الواسعة في فعاليات اليوم الوطني لاسترداد جثامين الشهداء"
+    },
+    {
+      "cat": "إسرائيلي",
+      "time": "09:31 م",
+      "title": "قناة عبرية: وفد أمريكي يوبخ مسؤولًا إسرائيليًا بسبب عنف المستوطنين بالضفة"
+    },
+    {
+      "cat": "فلسطين",
+      "time": "09:31 م",
+      "title": "قوات الاحتلال تفرج عن القيادي رأفت ناصيف من طولكرم"
+    },
+    {
+      "cat": "خاص",
+      "time": "10:58 م",
+      "title": "مدير مركز غزة للسرطان لـ شهاب: مرضى السرطان والفشل الكلوي لا يستطيعون الانتظار"
+    },
+    {
+      "cat": "تقرير",
+      "time": "أمس",
+      "title": "من التوسع إلى الضم.. كيف تصنع \"إسرائيل\" واقعًا لا رجعة فيه في الضفة؟"
+    }
+  ]
+}
