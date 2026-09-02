@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;overflow-x:clip;background:#fff;color:#14233a;font-family:'Almarai','Noto Naskh Arabic',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+*{box-sizing:border-box}
+a{color:inherit;text-decoration:none;transition:color .16s ease,background .16s ease,border-color .16s ease,gap .16s ease,opacity .16s ease}
+a:hover{color:#1b5aa6}
+img{display:block}
+p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2.05}
+@keyframes sh-pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes sh-ring{0%{transform:scale(.55);opacity:.9}70%{opacity:.12}100%{transform:scale(1.6);opacity:0}}
+@keyframes sh-ticker{0%{transform:translateX(-100%)}100%{transform:translateX(0)}}
+@keyframes sh-meteor{0%,72%{transform:rotate(-22deg) translateX(0) scaleX(.2);opacity:0}76%{opacity:.9}88%{transform:rotate(-22deg) translateX(-640px) scaleX(1);opacity:0}100%{opacity:0}}
+@keyframes sh-meteor-head{0%,72%{transform:rotate(45deg) translate(0,0);opacity:0}75%{opacity:1}88%{transform:rotate(45deg) translate(-420px,420px);opacity:0}100%{opacity:0}}
+@keyframes sh-twinkle{0%,100%{opacity:.25;transform:rotate(45deg) scale(.8)}50%{opacity:1;transform:rotate(45deg) scale(1.15)}}
+@keyframes sh-meteor-footer{0%{transform:translate(0,0);opacity:0}10%{opacity:1}100%{transform:translate(-520px,260px);opacity:0}}
+
+.sh-menu:hover>.sh-drop,.sh-menu:focus-within>.sh-drop{opacity:1 !important;visibility:visible !important;transform:none !important}
+</style>
+</helmet>
+
+
+
+<div dir="rtl" style="background:#fff;color:#14233a;font-family:'Almarai','Noto Naskh Arabic',system-ui,sans-serif;font-size:14.5px">
+<!-- HEADER -->
+<header dir="rtl" data-screen-label="Header" style="background:#1b5aa6;color:#fff;position:relative">
+  <div style="background:#0f2a4f;font-size:12px;color:rgba(255,255,255,.8);position:relative;z-index:2">
+    <div style="max-width:1280px;margin:0 auto;padding:0 32px;height:34px;display:flex;align-items:center;justify-content:space-between">
+      <div style="display:flex;gap:10px;align-items:center;font-variant-numeric:tabular-nums"><span>{{ today }}</span><span style="opacity:.5">·</span><span>{{ hijri }}</span><span style="opacity:.5">—</span><span>القدس {{ clock }}</span></div>
+      <div style="display:flex;gap:18px;align-items:center">
+        <a href="#" style-hover="color:#fff">English</a>
+        <span style="width:1px;height:12px;background:rgba(255,255,255,.3)"></span>
+        <a href="Shehab%20Contact.dc.html" style-hover="color:#fff">تواصل معنا</a>
+      </div>
+    </div>
+  </div>
+  <div style="position:relative;z-index:3">
+    <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden">
+      <span style="position:absolute;width:1400px;height:1400px;border:1px solid rgba(255,255,255,.09);border-radius:50%;right:-520px;top:-1160px"></span>
+      <span style="position:absolute;width:1400px;height:1400px;border:1px solid rgba(255,255,255,.07);border-radius:50%;right:-560px;top:-1120px"></span>
+      <span style="position:absolute;width:1100px;height:1100px;border:1px solid rgba(255,255,255,.08);border-radius:50%;left:-620px;top:-880px"></span>
+      <span style="position:absolute;top:22px;right:38%;width:220px;height:1px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.9));transform:rotate(-22deg);transform-origin:right;animation:sh-meteor 9s cubic-bezier(.2,.6,.3,1) infinite;opacity:0"></span>
+      <span style="position:absolute;top:22px;right:38%;width:5px;height:5px;background:#fff;transform:rotate(45deg);animation:sh-meteor-head 9s cubic-bezier(.2,.6,.3,1) infinite;opacity:0"></span>
+      <span style="position:absolute;top:30px;right:22%;width:4px;height:4px;background:#fff;transform:rotate(45deg);opacity:.35;animation:sh-twinkle 5s ease-in-out infinite"></span>
+      <span style="position:absolute;top:70px;right:9%;width:3px;height:3px;background:#fff;transform:rotate(45deg);opacity:.25;animation:sh-twinkle 7s ease-in-out infinite 2s"></span>
+      <span style="position:absolute;top:44px;left:14%;width:3px;height:3px;background:#fff;transform:rotate(45deg);opacity:.3;animation:sh-twinkle 6s ease-in-out infinite 1s"></span>
+    </div>
+    <div style="max-width:1280px;margin:0 auto;padding:0 32px;position:relative">
+      <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:88px">
+        <div style="display:flex;align-items:center;gap:16px;justify-self:start">
+          <a href="Shehab%20Video%20Watch.dc.html" style="background:#fff;color:#1b5aa6;font-family:'Almarai',sans-serif;font-weight:700;font-size:13px;padding:10px 20px;display:flex;align-items:center;gap:10px;transition:transform .2s ease,background .2s ease" style-hover="background:#eef4fb;transform:translateY(-1px)"><span style="width:7px;height:7px;background:#e0302f;border-radius:50%;animation:sh-pulse 1.4s ease-in-out infinite"></span>بث مباشر</a>
+          <div style="font-size:11.5px;line-height:1.6;color:rgba(255,255,255,.75)">تغطية مستمرة<br><span style="font-variant-numeric:tabular-nums">اليوم 325</span></div>
+        </div>
+        <a href="Shehab Homepage.dc.html" style="justify-self:center;position:relative;display:block;padding:6px 18px;transition:transform .35s cubic-bezier(.2,.7,.2,1)" style-hover="transform:translateY(-2px)">
+          <img src="assets/logo-white.png" alt="شهاب" style="height:54px;width:auto;position:relative;filter:drop-shadow(0 6px 18px rgba(10,26,51,.35))" />
+          <span style="position:absolute;top:2px;left:2px;width:6px;height:6px;background:#fff;transform:rotate(45deg);animation:sh-twinkle 3.2s ease-in-out infinite"></span>
+        </a>
+        <div style="display:flex;align-items:center;gap:16px;justify-self:end">
+          <a href="Shehab%20Newsletter.dc.html" style="border:1px solid rgba(255,255,255,.55);padding:9px 16px;font-size:12px;display:flex;align-items:center;gap:8px" style-hover="background:#fff;color:#1b5aa6;border-color:#fff"><span style="width:6px;height:6px;background:currentColor;transform:rotate(45deg)"></span>موجز اليوم · 3 د</a>
+          <a href="Shehab%20Search.dc.html" aria-label="بحث" style="display:flex;align-items:center;gap:8px;font-size:13px;padding:9px 0" style-hover="opacity:.75"><span style="width:13px;height:13px;border:1.5px solid #fff;border-radius:50%;position:relative;display:block"><span style="position:absolute;width:6px;height:1.5px;background:#fff;bottom:-4px;left:-4px;transform:rotate(45deg)"></span></span>بحث</a>
+        </div>
+      </div>
+      <nav style="display:flex;align-items:center;justify-content:space-between;min-height:46px;flex-wrap:wrap;font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;border-top:1px solid rgba(255,255,255,.14)">
+        <div style="display:flex;gap:26px;flex-wrap:wrap">
+          <div class="sh-menu" style="position:relative">
+            <a href="Shehab%20Homepage.dc.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" style-hover="color:#fff;border-bottom:3px solid rgba(255,255,255,.8)">الرئيسية<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
+            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
+              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
+              <a href="Shehab%20Homepage.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الرئيسية — النسخة الأساسية</a>
+              <a href="Shehab%20Homepage%20v2.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الرئيسية — الاتجاه الثاني</a>
+              <a href="Shehab%20Homepage%20v3.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الرئيسية — الاتجاه الثالث</a>
+              <a href="Shehab%20Homepage%20v4.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الرئيسية — الاتجاه الرابع</a>
+            </div>
+          </div>
+          <div class="sh-menu" style="position:relative">
+            <a href="Shehab%20Sections.dc.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" style-hover="color:#fff;border-bottom:3px solid rgba(255,255,255,.8)">الأخبار<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
+            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
+              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
+              <a href="Shehab%20Sections.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>أقسام شهاب</a>
+              <a href="Shehab%20Category.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>صفحة قسم — غزة</a>
+              <a href="Shehab%20Article.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>صفحة الخبر / التقرير</a>
+              <a href="Shehab%20Coverage.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>التغطية الحية</a>
+              <a href="Shehab%20Tag.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>صفحة الوسم</a>
+              <a href="Shehab%20Archive.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الأرشيف</a>
+            </div>
+          </div>
+          <div class="sh-menu" style="position:relative">
+            <a href="Shehab%20Video.dc.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" style-hover="color:#fff;border-bottom:3px solid rgba(255,255,255,.8)">الوسائط<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
+            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
+              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
+              <a href="Shehab%20Video.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الفيديو</a>
+              <a href="Shehab%20Video%20Watch.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>مشاهدة فيديو</a>
+              <a href="Shehab%20Photos.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الصور</a>
+            </div>
+          </div>
+          <a href="Shehab%20Files.dc.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" style-hover="color:#fff;border-bottom:3px solid rgba(255,255,255,.8)">ملفات شهاب</a>
+          <a href="Shehab%20Author.dc.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" style-hover="color:#fff;border-bottom:3px solid rgba(255,255,255,.8)">الكاتب</a>
+          <a href="Shehab%20Search.dc.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" style-hover="color:#fff;border-bottom:3px solid rgba(255,255,255,.8)">البحث</a>
+          <div class="sh-menu" style="position:relative">
+            <a href="Shehab%20About.dc.html" style="display:flex;align-items:center;gap:7px;color:#fff;padding:13px 0 11px;border-bottom:3px solid #fff;transition:color .16s ease,border-color .22s ease" style-hover="color:#fff;border-bottom:3px solid rgba(255,255,255,.8)">الوكالة<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
+            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
+              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
+              <a href="Shehab%20About.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:800;color:#fff;background:rgba(27,90,166,.35)" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#fff;transform:rotate(45deg);flex:none"></span>من نحن</a>
+              <a href="Shehab%20Contact.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>تواصل معنا</a>
+              <a href="Shehab%20Newsletter.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>النشرة البريدية</a>
+              <a href="Shehab%20Privacy.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>سياسة الخصوصية</a>
+              <a href="Shehab%20Terms.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>شروط الاستخدام</a>
+            </div>
+          </div>
+          <div class="sh-menu" style="position:relative">
+            <a href="Shehab%20System%20States.dc.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" style-hover="color:#fff;border-bottom:3px solid rgba(255,255,255,.8)">النظام<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
+            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
+              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
+              <a href="Shehab%20System%20States.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>حالات النظام</a>
+              <a href="Shehab%20Loader.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>مؤشّر التحميل</a>
+              <a href="Shehab%20404.dc.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" style-hover="background:#1b5aa6;color:#fff"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>صفحة 404</a>
+            </div>
+          </div>
+        </div>
+        <a href="Shehab%20Coverage.dc.html" style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.9)" style-hover="color:#fff"><span style="width:6px;height:6px;background:#e0302f;border-radius:50%;animation:sh-pulse 1.8s ease-in-out infinite"></span>آخر الأخبار</a>
+      </nav>
+    </div>
+  </div>
+  <div style="background:#fff;color:#14233a;border-bottom:1px solid #eef2f7;box-shadow:0 1px 0 rgba(20,35,58,.04)">
+    <div style="max-width:1280px;margin:0 auto;padding:0 32px;height:44px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px">
+      <span style="background:#e0302f;color:#fff;font-family:'Almarai',sans-serif;font-size:12px;font-weight:700;padding:6px 14px 6px 22px;display:flex;align-items:center;gap:8px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,10px 50%)"><span style="width:6px;height:6px;background:#fff;border-radius:50%;animation:sh-pulse 1.4s ease-in-out infinite"></span>عاجل</span>
+      <a href="#" key="{{ breakingIdx }}" style="display:flex;gap:14px;align-items:baseline;min-width:0;animation:sh-fadein .45s ease both">
+        <span style="font-family:'Almarai',sans-serif;font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">{{ breakingItem.t }}</span>
+        <span style="font-size:12px;color:#8a95a6;white-space:nowrap;font-variant-numeric:tabular-nums">{{ breakingItem.time }}</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:14px;font-size:12px">
+        <span style="color:#8a95a6;font-variant-numeric:tabular-nums">{{ breakingCounter }}</span>
+        <div style="display:flex;gap:4px">
+          <button onClick="{{ breakingPrev }}" aria-label="السابق" style="width:28px;height:26px;border:1px solid #eef2f7;background:#fff;color:#14233a;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:background .15s" style-hover="background:#f3f5f8">‹</button>
+          <button onClick="{{ breakingNext }}" aria-label="التالي" style="width:28px;height:26px;border:1px solid #eef2f7;background:#fff;color:#14233a;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:background .15s" style-hover="background:#f3f5f8">›</button>
+        </div>
+        <span style="width:1px;height:14px;background:#d9e0ea"></span>
+        <a href="Shehab%20Coverage.dc.html" style="color:#1b5aa6;font-weight:700">التغطية الحية ←</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- 01 · OPENING — cinematic statement over one photograph -->
+<section data-screen-label="Opening" style="position:relative;background:#0a1a33;color:#fff;overflow:hidden">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1800" alt="العودة عبر شارع الرشيد" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%;opacity:.62" />
+  <span style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.96) 0%,rgba(10,26,51,.62) 45%,rgba(10,26,51,.5) 100%)"></span>
+  <div style="position:relative;max-width:1280px;margin:0 auto;padding:44px 32px 0;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end">
+    <span style="display:flex;align-items:center;gap:12px;font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;letter-spacing:.3em;color:#9fc2ea">SINCE 2007<span style="width:40px;height:1px;background:#1b5aa6"></span>وكالة شهاب للأنباء</span>
+    <h1 style="font-family:'Almarai',sans-serif;font-size:clamp(32px,4.6vw,60px);font-weight:800;line-height:1.14;margin:16px 0 0;max-width:20ch;text-wrap:pretty">شهاب عينٌ تحفظ اللحظة</h1>
+    <p style="font-size:15.5px;line-height:1.95;color:rgba(255,255,255,.84);margin:14px 0 0;max-width:52ch;text-wrap:pretty">منذ يناير 2007 نعمل على مدار الساعة: نرصد الحدث في لحظته، ننقله بالصوت والصورة، ثم نحفظه ليبقى شاهدًا بعد أن تمضي اللحظة.</p>
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px;margin-top:22px;padding:14px 0 16px;border-top:1px solid rgba(255,255,255,.22)">
+      <sc-for list="{{ strip }}" as="s" hint-placeholder-count="4">
+        <span style="display:block;width:104px">
+          <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:3/2;border:1px solid rgba(255,255,255,.28)">
+            <span style="position:absolute;inset:0;background-image:{{ s.bg }};background-size:cover;background-position:center 45%"></span>
+          </span>
+          <span style="display:flex;align-items:center;gap:7px;margin-top:7px;font-family:'Almarai',sans-serif;font-size:10px;font-weight:800;color:rgba(255,255,255,.6);font-variant-numeric:tabular-nums"><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>{{ s.ref }}</span>
+        </span>
+      </sc-for>
+      <span style="display:flex;align-items:center;gap:9px;margin-right:auto;padding-bottom:20px;font-size:11.5px;color:rgba(255,255,255,.55)"><span style="width:14px;height:1px;background:#1b5aa6"></span>من أرشيف الوكالة</span>
+    </div>
+  </div>
+</section>
+
+<main style="max-width:1280px;margin:0 auto;padding:0 32px">
+
+<!-- 02 · MANIFESTO — typographic, no cards -->
+<section data-screen-label="Manifesto" style="padding:34px 0 0">
+  <div style="display:grid;grid-template-columns:minmax(min(100%,300px),1fr) minmax(min(100%,320px),1.15fr);gap:52px;align-items:start">
+    <div>
+      <h2 style="font-family:'Almarai',sans-serif;font-size:clamp(23px,2.6vw,34px);font-weight:800;line-height:1.45;margin:0;color:#0a1a33;text-wrap:pretty">الخبر لا يكتمل دون صورته، والصورة لا تكتمل دون أن تُحفظ</h2>
+      <span style="display:flex;align-items:center;gap:11px;margin-top:18px;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#1b5aa6"><span style="width:34px;height:2px;background:#1b5aa6"></span>ما نعمل به منذ 2007</span>
+      <div style="margin-top:20px;border-top:1px solid #e3e8ef">
+        <sc-for list="{{ values }}" as="v" hint-placeholder-count="6">
+          <span style="display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid #eef2f7;font-family:'Almarai',sans-serif;font-size:14px;font-weight:800;color:#0a1a33"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg)"></span>{{ v }}</span>
+        </sc-for>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:15px;margin:0 0 22px;color:#2c3a4e">تأسست شهاب في يناير 2007 لتغطية الأحداث الفلسطينية والعربية والدولية، وجعلت من الصورة والفيديو ركنًا أساسيًا في عملها بجانب الخبر العاجل والتقرير المكتوب. واهتمت منذ بدايتها بمواكبة التطور التقني في الصحافة والإعلام الرقمي.</p>
+      <p style="font-size:15px;margin:0;color:#2c3a4e">إلى جانب التغطية، تقدّم الوكالة خدمات إعلامية وإنتاجية وفنية، وبنَت حضورًا واسعًا على منصات التواصل وصلت صفحاتها في فترة سابقة إلى أكثر من سبعة ملايين متابع.</p>
+      <p style="font-size:15px;margin:22px 0 0;color:#2c3a4e">وفي أكتوبر 2023 تعرّض مقر الوكالة في برج فلسطين بمدينة غزة للتدمير خلال الحرب، فأعلنت شهاب استمرار عملها وتغطيتها من الميدان.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- 03 · SIGNATURE — the journey of one moment, as frames on a single line -->
+<section data-screen-label="Journey" style="margin-top:36px;background:#f4f6f9;padding:26px 0 30px">
+  <div style="max-width:1280px;margin:0 auto;padding:0 32px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <span>
+        <span style="display:block;font-family:'Almarai',sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.32em;color:#1b5aa6">ONE MOMENT</span>
+        <h2 style="font-family:'Almarai',sans-serif;font-size:clamp(22px,2.4vw,30px);font-weight:800;margin:9px 0 0;color:#0a1a33;display:flex;align-items:center;gap:11px"><span style="width:9px;height:9px;background:#1b5aa6;transform:rotate(45deg)"></span>قبل أن يكون خبرًا كان لحظة</h2>
+      </span>
+      <span style="font-size:12px;color:#8a95a6;padding-bottom:4px">رحلة المادة من الميدان إلى الأرشيف</span>
+    </div>
+  </div>
+  <div style="position:relative;margin-top:26px;padding:0 32px">
+    <span style="position:absolute;top:118px;right:32px;left:32px;height:1px;background:#c9d4e2"></span>
+    <div style="position:relative;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.35fr) minmax(0,1fr) minmax(0,1.1fr);gap:18px;align-items:start">
+      <sc-for list="{{ journey }}" as="j" hint-placeholder-count="6">
+        <div>
+          <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:{{ j.ratio }}">
+            <span style="position:absolute;inset:0;background-image:{{ j.bg }};background-size:cover;background-position:center 45%"></span>
+            <span style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.72),rgba(10,26,51,0) 62%)"></span>
+            <span style="position:absolute;top:0;right:0;background:#0a1a33;color:#fff;font-family:'Almarai',sans-serif;font-size:10px;font-weight:800;padding:4px 9px;font-variant-numeric:tabular-nums">{{ j.n }}</span>
+          </span>
+          <span style="display:block;height:22px;position:relative">
+            <span style="position:absolute;top:0;right:14px;width:1px;height:12px;background:#c9d4e2"></span>
+            <span style="position:absolute;top:11px;right:11px;width:7px;height:7px;background:{{ j.dot }};transform:rotate(45deg)"></span>
+          </span>
+          <span style="display:block;font-family:'Almarai',sans-serif;font-size:16px;font-weight:800;color:#0a1a33;margin-top:6px">{{ j.t }}</span>
+          <span style="display:block;font-size:12.5px;color:#5d6b7d;line-height:1.9;margin-top:7px;text-wrap:pretty">{{ j.d }}</span>
+          <span style="display:flex;align-items:center;gap:8px;margin-top:9px;font-size:10.5px;color:#8a95a6;font-variant-numeric:tabular-nums"><span style="width:10px;height:1px;background:#1b5aa6"></span>{{ j.meta }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · THE PEOPLE — dark, human, full bleed -->
+<section data-screen-label="People" style="background:#0a1a33;color:#fff">
+  <div style="max-width:1280px;margin:0 auto;padding:26px 32px 30px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:14px">
+      <span>
+        <span style="display:block;font-family:'Almarai',sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.32em;color:#7ea8dd">THE FIELD</span>
+        <h2 style="font-family:'Almarai',sans-serif;font-size:clamp(22px,2.4vw,30px);font-weight:800;margin:9px 0 0;display:flex;align-items:center;gap:11px"><span style="width:9px;height:9px;background:#1b5aa6;transform:rotate(45deg)"></span>من يصنع التغطية</h2>
+      </span>
+      <span style="font-size:12px;color:rgba(255,255,255,.6);padding-bottom:4px">مكاتب الوكالة: غزة · القدس · الضفة</span>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(min(100%,300px),1.45fr) minmax(min(100%,260px),1fr);gap:26px;margin-top:26px;align-items:stretch">
+      <div style="position:relative;display:flex">
+        <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;width:100%;height:100%;min-height:250px">
+          <span style="position:absolute;inset:0;background-image:{{ fieldBg }};background-size:cover;background-position:center 48%"></span>
+          <span style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.9),rgba(10,26,51,0) 60%)"></span>
+          <span style="position:absolute;bottom:0;right:0;left:0;padding:20px">
+            <span style="display:flex;align-items:center;gap:10px;font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;color:#9fc2ea"><span style="position:relative;display:flex;align-items:center;justify-content:center;width:12px;height:12px"><span style="position:absolute;inset:0;border:1px solid #e0302f;border-radius:50%;animation:sh-ring 2.2s ease-out infinite"></span><span style="width:5px;height:5px;background:#e0302f;border-radius:50%"></span></span>الميدان أولًا</span>
+            <span style="display:block;font-family:'Almarai',sans-serif;font-size:clamp(18px,1.9vw,23px);font-weight:800;line-height:1.55;margin-top:10px;max-width:34ch;text-wrap:pretty">مراسلون ومصوّرون على الأرض هم أول من يرى الحدث — ومنهم تبدأ كل مادة تنشرها شهاب</span>
+          </span>
+        </span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:0 22px;align-content:start">
+      <sc-for list="{{ roles }}" as="r" hint-placeholder-count="4">
+        <div style="border-right:1px solid rgba(255,255,255,.16);padding:2px 18px 0 0">
+          <span style="display:flex;align-items:center;gap:10px;font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;color:#7ea8dd"><span style="font-variant-numeric:tabular-nums">{{ r.n }}</span><span style="width:14px;height:1px;background:#1b5aa6"></span>{{ r.k }}</span>
+          <span style="display:block;font-family:'Almarai',sans-serif;font-size:16px;font-weight:800;margin-top:9px">{{ r.t }}</span>
+          <span style="display:block;font-size:12.5px;color:rgba(255,255,255,.68);line-height:1.9;margin-top:6px;padding-bottom:14px;text-wrap:pretty">{{ r.d }}</span>
+        </div>
+      </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main style="max-width:1280px;margin:0 auto;padding:0 32px">
+
+<!-- 05 · SINGLE TIMELINE (the only chronology on the page) -->
+<section data-screen-label="Timeline" style="margin-top:36px">
+  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:2px solid #14233a;padding-bottom:11px">
+    <h2 style="font-family:'Almarai',sans-serif;font-size:22px;font-weight:800;margin:0;color:#0a1a33;display:flex;align-items:center;gap:10px"><span style="width:8px;height:8px;background:#1b5aa6;transform:rotate(45deg)"></span>محطات موثّقة</h2>
+    <span style="font-size:11.5px;color:#8a95a6">2007 — 2023</span>
+  </div>
+  <div style="display:grid;grid-template-columns:minmax(min(100%,300px),1.35fr) minmax(min(100%,280px),1fr);gap:44px;margin-top:24px;align-items:stretch">
+    <div style="position:relative;padding-right:20px">
+      <span style="position:absolute;top:10px;bottom:14px;right:4px;width:1px;background:#dfe6ef"></span>
+      <sc-for list="{{ milestones }}" as="m" hint-placeholder-count="4">
+        <div style="position:relative;padding:0 0 18px">
+          <span style="position:absolute;top:6px;right:-20px;width:9px;height:9px;background:{{ m.fill }};border:2px solid #1b5aa6;transform:rotate(45deg)"></span>
+          <span style="display:flex;align-items:baseline;gap:12px">
+            <span style="font-family:'Almarai',sans-serif;font-size:22px;font-weight:800;color:#0a1a33;line-height:1;font-variant-numeric:tabular-nums">{{ m.year }}</span>
+            <span style="font-family:'Almarai',sans-serif;font-size:15px;font-weight:800;color:#14233a">{{ m.t }}</span>
+          </span>
+          <span style="display:block;font-size:13px;color:#5d6b7d;line-height:1.95;margin-top:7px;max-width:56ch;text-wrap:pretty">{{ m.d }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <div style="position:relative;background:#0a1a33;color:#fff;overflow:hidden">
+      <span style="position:relative;display:block;overflow:hidden;height:100%;min-height:300px">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=1000" alt="دمار في مدينة غزة" style="width:100%;height:100%;object-fit:cover;object-position:center 55%" />
+        <span style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.94),rgba(10,26,51,0) 58%)"></span>
+        <span style="position:absolute;top:14px;right:14px;background:#0a1a33;color:#fff;font-family:'Almarai',sans-serif;font-size:10px;font-weight:800;padding:5px 10px;display:flex;align-items:center;gap:7px"><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>أرشيف — أكتوبر 2023</span>
+        <span style="position:absolute;bottom:0;right:0;left:0;padding:20px">
+          <span style="display:block;font-family:'Almarai',sans-serif;font-size:19px;font-weight:800;line-height:1.55;max-width:24ch;text-wrap:pretty">حين دُمِّر المكان لم تتوقف الصورة</span>
+          <span style="display:block;font-size:12.5px;color:rgba(255,255,255,.75);line-height:1.9;margin-top:9px;max-width:40ch">تعرّض مقر الوكالة في برج فلسطين بغزة للتدمير خلال الحرب، وأعلنت شهاب استمرار عملها وتغطيتها من الميدان.</span>
+        </span>
+      </span>
+    </div>
+  </div>
+
+  <div style="margin-top:22px;border-top:2px solid #14233a;padding-top:16px">
+    <span style="display:flex;align-items:center;gap:10px;font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;color:#0a1a33"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg)"></span>ما تعنيه هذه المحطات</span>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:0 34px;margin-top:4px">
+      <sc-for list="{{ numbers }}" as="n" hint-placeholder-count="4">
+        <span style="display:block;padding:14px 0;border-bottom:1px solid #eef2f7">
+          <span style="display:flex;align-items:baseline;gap:11px">
+            <span style="font-family:'Almarai',sans-serif;font-size:30px;font-weight:800;color:#0a1a33;line-height:1;font-variant-numeric:tabular-nums">{{ n.v }}</span>
+            <span style="font-family:'Almarai',sans-serif;font-size:12.5px;font-weight:800;color:#1b5aa6">{{ n.k }}</span>
+          </span>
+          <span style="display:block;font-size:12.5px;color:#5d6b7d;line-height:1.9;margin-top:8px;text-wrap:pretty">{{ n.d }}</span>
+        </span>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- 06 · NUMBERS IN CONTEXT -->
+
+
+<!-- 07 · THE SYSTEM — from a bulletin to an archive -->
+<section data-screen-label="System" style="margin-top:36px">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:2px solid #14233a;padding-bottom:11px">
+    <h2 style="font-family:'Almarai',sans-serif;font-size:22px;font-weight:800;margin:0;color:#0a1a33;display:flex;align-items:center;gap:10px"><span style="width:8px;height:8px;background:#1b5aa6;transform:rotate(45deg)"></span>من خبر عاجل إلى ملف كامل</h2>
+    <a href="Shehab Sections.dc.html" style="display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;color:#1b5aa6;padding-bottom:3px" style-hover="gap:15px">كل الأقسام <span style="width:15px;height:1px;background:currentColor"></span></a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0 20px;margin-top:4px">
+    <sc-for list="{{ system }}" as="s" hint-placeholder-count="6">
+      <a href="{{ s.href }}" style="display:block;padding:14px 0;border-bottom:1px solid #eef2f7" style-hover="color:#1b5aa6">
+        <span style="display:flex;align-items:center;gap:11px">
+          <span style="font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;color:#1b5aa6;font-variant-numeric:tabular-nums">{{ s.n }}</span>
+          <span style="flex:1;height:1px;background:#e3e8ef"></span>
+          <span style="font-size:10.5px;color:#8a95a6">{{ s.depth }}</span>
+        </span>
+        <span style="display:block;font-family:'Almarai',sans-serif;font-size:17px;font-weight:800;color:#0a1a33;margin-top:11px">{{ s.t }}</span>
+        <span style="display:block;font-size:12.5px;color:#5d6b7d;line-height:1.9;margin-top:7px;text-wrap:pretty">{{ s.d }}</span>
+      </a>
+    </sc-for>
+  </div>
+</section>
+</main>
+
+<!-- 08 · CLOSING -->
+<section data-screen-label="Closing" style="position:relative;margin-top:36px;background:#0a1a33;color:#fff;overflow:hidden">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=1800" alt="خيام النازحين في المواسي" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 58%;opacity:.5" />
+  <span style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.96),rgba(10,26,51,.6))"></span>
+  <div style="position:relative;max-width:1280px;margin:0 auto;padding:40px 32px 38px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:26px">
+    <div>
+      <span style="display:block;font-family:'Almarai',sans-serif;font-size:clamp(24px,2.8vw,38px);font-weight:800;line-height:1.5;max-width:22ch;text-wrap:pretty">المكان قد يتغيّر واللحظة تمرّ، لكن الصورة تبقى</span>
+      <span style="display:flex;align-items:center;gap:10px;margin-top:16px;font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;color:#9fc2ea"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>وكالة شهاب للأنباء — منذ 2007</span>
+    </div>
+    <a href="Shehab Files.dc.html" style="display:inline-flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,.45);color:#fff;font-family:'Almarai',sans-serif;font-size:12.5px;font-weight:800;padding:13px 28px" style-hover="background:#1b5aa6;border-color:#1b5aa6;color:#fff;gap:18px">استكشف أرشيف شهاب <span style="width:16px;height:1px;background:currentColor"></span></a>
+  </div>
+</section>
+<footer dir="rtl" data-screen-label="Footer" style="position:relative;overflow:hidden;background:#0a1a33;color:#fff;margin-top:24px">
+  <video src="assets/footer-city.webm" autoplay muted loop playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42"></video>
+  <span style="position:absolute;inset:0;background:#0a1a33;opacity:.55;pointer-events:none"></span>
+  <span style="position:absolute;top:0;right:0;left:0;height:2px;background:#1b5aa6"></span>
+  <div style="position:relative;max-width:1280px;margin:0 auto;padding:44px 32px 0">
+    <div style="display:flex;flex-wrap:wrap;gap:36px 40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.16)">
+      <div style="flex:1 1 280px;min-width:0">
+        <a href="Shehab Homepage.dc.html"><img src="assets/logo-white.png" alt="شهاب" style="height:46px;width:auto" /></a>
+        <p style="font-family:'Noto Naskh Arabic',serif;font-size:12.5px;line-height:1.95;color:rgba(255,255,255,.72);margin:16px 0 0;max-width:34ch">وكالة أنباء فلسطينية تعمل على مدار الساعة لنقل الصورة من الساحة الفلسطينية والعربية والدولية.</p>
+        <div style="display:flex;gap:8px;margin-top:18px">
+          <sc-for list="{{ social }}" as="s" hint-placeholder-count="4">
+            <a href="#" aria-label="{{ s.l }}" style="width:34px;height:34px;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;transition:background .18s,border-color .18s" style-hover="background:#1b5aa6;border-color:#1b5aa6">
+              <i class="{{ s.fa }}" aria-hidden="true" style="font-size:15px;color:#fff;line-height:1"></i>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+      <sc-for list="{{ footerCols }}" as="c" hint-placeholder-count="3">
+        <div style="flex:1 1 150px;min-width:0">
+          <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>{{ c.title }}</h3>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:rgba(255,255,255,.75)">
+            <sc-for list="{{ c.links }}" as="l" hint-placeholder-count="5"><a href="#" style-hover="color:#fff">{{ l }}</a></sc-for>
+          </div>
+        </div>
+      </sc-for>
+      <div style="flex:1 1 260px;min-width:0">
+        <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>النشرة البريدية</h3>
+        <p style="font-family:'Noto Naskh Arabic',serif;font-size:12.5px;line-height:1.9;color:rgba(255,255,255,.72);margin:0 0 14px">آخر الأخبار وأبرز الملفات في بريدك كل صباح.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="flex:1 1 150px;min-width:0;border:1px solid rgba(255,255,255,.3);padding:10px 13px;font-size:12px;color:rgba(255,255,255,.55);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">بريدك الإلكتروني</span>
+          <span style="background:#1b5aa6;color:#fff;font-family:'Almarai',sans-serif;font-size:12px;font-weight:700;padding:10px 20px;display:flex;align-items:center;white-space:nowrap;flex:none">اشترك</span>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;margin-top:18px;font-size:11.5px;color:rgba(255,255,255,.6)"><span style="width:5px;height:5px;background:#e0302f;border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite"></span>تغطية مستمرة على مدار الساعة</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:20px 0 26px;font-size:11.5px;color:rgba(255,255,255,.6)">
+      <span>وكالة شهاب للأنباء © 2026 — جميع الحقوق محفوظة</span>
+      <div style="display:flex;gap:22px">
+        <a href="#" style-hover="color:#fff">سياسة الخصوصية</a>
+        <a href="#" style-hover="color:#fff">شروط الاستخدام</a>
+        <a href="#" style-hover="color:#fff">خدمة RSS</a>
+        <a href="#" style-hover="color:#fff">English</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { now: Date.now(), idx: 0 };
+  componentDidMount() {
+    this._t = setInterval(() => this.setState({ now: Date.now() }), 60000);
+    this._b = setInterval(() => this.setState(s => ({ idx: (s.idx + 1) % this.breakingList().length })), 7000);
+  }
+  componentWillUnmount() { clearInterval(this._t); clearInterval(this._b); }
+  breakingList() {
+    return [
+      { t: 'قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم', time: '10:32 م' },
+      { t: 'قوات الاحتلال تقتحم بلدة بلعا شمال طولكرم', time: '10:17 م' },
+      { t: 'مراسل شهاب: إطلاق نار من طائرة مُسيّرة "كواد كابتر" في منطقة السطر الغربي شمال غربي خانيونس', time: '10:13 م' }
+    ];
+  }
+  headerVals() {
+    const d = new Date(this.state.now);
+    const fmt = (o) => new Intl.DateTimeFormat('ar-EG-u-nu-latn', o).format(d);
+    let hijri = '';
+    try { hijri = new Intl.DateTimeFormat('ar-EG-u-ca-islamic-umalqura-nu-latn', { day: 'numeric', month: 'long', year: 'numeric' }).format(d); } catch (e) {}
+    const list = this.breakingList();
+    const bn = list.length, bidx = this.state.idx % bn;
+    return {
+      today: fmt({ weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }),
+      hijri,
+      clock: fmt({ hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Jerusalem' }),
+      breakingIdx: bidx, breakingItem: list[bidx], breakingCounter: (bidx + 1) + ' / ' + bn,
+      breakingNext: () => this.setState({ idx: (bidx + 1) % bn }),
+      breakingPrev: () => this.setState({ idx: (bidx - 1 + bn) % bn }),
+      nav: ['أخبار فلسطين','القدس','غزة','الضفة','عربي ودولي','إسرائيلي','التغطيات','ملفات خاصة','فيديو','بالصور','رأي','المزيد'],
+      footerCols: [
+        { title: 'الأقسام', links: ['أخبار فلسطين','القدس','غزة','الضفة','عربي ودولي'] },
+        { title: 'المحتوى', links: ['التغطيات الحية','ملفات شهاب','عدسة شهاب','فيديو شهاب','تقارير خاصة'] },
+        { title: 'الوكالة', links: ['من نحن','تواصل معنا','سياسة التحرير','فرص العمل','خدمة الصور'] }
+      ]
+    };
+  }
+  renderVals() {
+    const hv = this.headerVals();
+    const W = (n, w) => `url("https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(n).replace(/\(/g, '%28').replace(/\)/g, '%29')}?width=${w}")`;
+    const P = {
+      mawasi: W('An aerial view of Al-Mawasi area where displaced Palestinians live in tents, Gaza Strip.jpg', 800),
+      rafah: W('An aerial view showing destruction in Rafah after Israeli forces withdrawal and as the ceasefire took hold, Gaza Strip.jpg', 800),
+      damage: W('Damage in Gaza Strip during the October 2023 - 29.jpg', 800),
+      rasheed: W('Displaced Palestinians during their journey back to Gaza and the north via Al-Rasheed Street..jpg', 800),
+      jerusalem: W('Jerusalem Old City Street.jpg', 800),
+      oldcity: W('Street of the Old City of Jerusalem.jpg', 800),
+      mina: W('Gaza el-mina view.jpg', 800),
+      omar: W('Omar Mukhtar panorama - panoramio.jpg', 1200),
+      children: W('School Children in Hebron (7555041186).jpg', 800),
+      olives: W('Palestinian farmers harvesting olives, November 2015.jpg', 800),
+      fishermen: W('Fishermen in Gaza.jpg', 800)
+    };
+    return {
+      ...hv,
+      fieldBg: P.omar,
+      strip: [
+        { bg: P.rafah, ref: 'رفح · 2025' },
+        { bg: P.damage, ref: 'غزة · 2023' },
+        { bg: P.jerusalem, ref: 'القدس · 2024' },
+        { bg: P.olives, ref: 'الضفة · 2024' }
+      ],
+      values: ['الرصد', 'الصورة', 'السبق', 'التحقّق', 'التوثيق', 'الأرشيف'],
+      journey: [
+        { n: '01', t: 'المشهد', d: 'حدث في الميدان: قصف، اقتحام، عودة نازحين، جلسة مفاوضات.', meta: 'الميدان', ratio: '16/10', dot: '#e0302f', bg: P.rasheed },
+        { n: '02', t: 'الرصد', d: 'مراسل أو مصوّر ينقل أول ما يرى — صوتًا وصورة.', meta: 'دقائق', ratio: '4/5', dot: '#1b5aa6', bg: P.omar },
+        { n: '03', t: 'التحقّق', d: 'مطابقة المعلومة مع مصادر ميدانية ورسمية قبل النشر.', meta: 'قبل النشر', ratio: '4/5', dot: '#1b5aa6', bg: P.mina },
+        { n: '04', t: 'النشر', d: 'خبر عاجل ثم تفصيل: تقرير أو ألبوم صور أو فيديو.', meta: 'على الهواء', ratio: '16/10', dot: '#1b5aa6', bg: P.jerusalem },
+        { n: '05', t: 'التوثيق', d: 'إضافة التاريخ والمكان والمصدر لكل مادة.', meta: 'بيانات المادة', ratio: '4/5', dot: '#1b5aa6', bg: P.children },
+        { n: '06', t: 'الأرشيف', d: 'انضمام المادة إلى ملف الحدث المفتوح لتُقرأ لاحقًا.', meta: 'يبقى', ratio: '1/1', dot: '#0a1a33', bg: P.mawasi }
+      ],
+      roles: [
+        { n: '01', k: 'الميدان', t: 'المراسل', d: 'يتابع الحدث من موقعه وينقل التطوّر لحظة بلحظة إلى غرفة الأخبار.' },
+        { n: '02', k: 'العدسة', t: 'المصوّر', d: 'الصورة التي تحمل الخبر: من الركام إلى شوارع العودة إلى الأقصى.' },
+        { n: '03', k: 'التحرير', t: 'محرّر العاجل', d: 'يقرّر ما يُنشر الآن وما يحتاج تحقّقًا إضافيًا، ويصوغ الخبر بلغة الوكالة قبل أن يصل إلى القارئ.' },
+        { n: '04', k: 'الحفظ', t: 'الأرشيف', d: 'يربط كل مادة بملفها وتاريخها لتصبح جزءًا من ذاكرة الحدث.' }
+      ],
+      milestones: [
+        { year: '2007', fill: '#1b5aa6', t: 'الانطلاق', d: 'تأسيس وكالة شهاب للأنباء في يناير 2007، وبدء التغطية على مدار الساعة للأحداث الفلسطينية والعربية والدولية.' },
+        { year: '2010', fill: '#fff', t: 'جائزة تقديرية', d: 'تكريم من وزارة الإعلام الفلسطينية.' },
+        { year: '2012', fill: '#fff', t: 'أفضل موقع إلكتروني', d: 'جائزة في مهرجان اتحاد الإذاعات والتلفزيونات الإسلامية، تزامنًا مع التوسّع في الصورة والفيديو والحضور الرقمي.' },
+        { year: '2023', fill: '#e0302f', t: 'تدمير المقر', d: 'في أكتوبر 2023 تعرّض مقر الوكالة في برج فلسطين بمدينة غزة للتدمير خلال الحرب — وأعلنت شهاب استمرار عملها وتغطيتها.' }
+      ],
+      numbers: [
+        { v: '2007', k: 'عام الانطلاق', d: 'أرشيف يمتد على أكثر من ثمانية عشر عامًا من التغطية المتصلة.' },
+        { v: '24/7', k: 'تغطية مستمرة', d: 'غرفة أخبار لا تتوقف: خبر عاجل ومتابعة ميدانية في أي وقت.' },
+        { v: '+7M', k: 'متابع', d: 'وصلت صفحات الوكالة في فترة سابقة إلى أكثر من سبعة ملايين متابع.' },
+        { v: '2×', k: 'جائزتان', d: 'تقدير وزارة الإعلام الفلسطينية 2010، وأفضل موقع إلكتروني 2012.' }
+      ],
+      system: [
+        { n: '01', depth: 'ثوانٍ', t: 'الخبر العاجل', d: 'أول سطر يصل من الميدان.', href: 'Shehab Category.dc.html' },
+        { n: '02', depth: 'دقائق', t: 'الصورة', d: 'لقطة واحدة قد تحمل الحدث كله.', href: 'Shehab Photos.dc.html' },
+        { n: '03', depth: 'ساعات', t: 'الفيديو', d: 'المشهد بالصوت والحركة من موقعه.', href: 'Shehab Video.dc.html' },
+        { n: '04', depth: 'يوم', t: 'التقرير', d: 'قراءة تشرح ما لا يقوله الخبر وحده.', href: 'Shehab Article.dc.html' },
+        { n: '05', depth: 'مستمر', t: 'التغطية الحية', d: 'خط زمني واحد يجمع تطورات الحدث.', href: 'Shehab Coverage.dc.html' },
+        { n: '06', depth: 'أسابيع', t: 'الملف', d: 'كل ما نُشر عن قصة كبرى في مكان واحد.', href: 'Shehab Files.dc.html' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
