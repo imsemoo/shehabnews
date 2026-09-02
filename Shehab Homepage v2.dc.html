@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;overflow-x:clip;background:#f4f5f2;color:#14233a;font-family:'Almarai','Noto Naskh Arabic',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+*{box-sizing:border-box}
+a{color:inherit;text-decoration:none;transition:color .16s ease,background .16s ease,border-color .16s ease,gap .16s ease,opacity .16s ease}
+a:hover{color:#1b5aa6}
+img{display:block}
+@keyframes sh-pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes sh-ring{0%{transform:scale(.55);opacity:.9}70%{opacity:.12}100%{transform:scale(1.6);opacity:0}}
+</style>
+</helmet>
+
+<div dir="rtl" data-screen-label="Hero Concept" style="background:#eceee9;padding:26px 22px 34px;font-size:14.5px">
+  <div style="position:relative;max-width:1320px;margin:0 auto;background:#f6f7f4;border:1px solid #dcdfd8;padding:0 0 34px">
+
+    <span style="position:absolute;top:0;right:0;width:5px;height:100%;background:#1b5aa6"></span>
+
+    <nav style="display:grid;grid-template-columns:auto 1fr auto;align-items:stretch;border-bottom:1px solid #cfd4cb;margin:0 30px">
+      <a href="Shehab Homepage.dc.html" style="display:flex;align-items:center;padding:14px 0 14px 26px;border-left:1px solid #cfd4cb">
+        <img src="assets/logo-blue.png" alt="شهاب" style="height:38px;width:auto" />
+      </a>
+      <div style="display:flex;align-items:stretch;overflow:hidden">
+        <sc-for list="{{ nav }}" as="n" hint-placeholder-count="6">
+          <a href="#" style="display:flex;align-items:center;padding:0 22px;font-family:'Almarai',sans-serif;font-size:12.5px;font-weight:700;color:{{ n.color }};background:{{ n.bg }};border-left:1px solid #cfd4cb" style-hover="background:#0a1a33;color:#fff">{{ n.label }}</a>
+        </sc-for>
+      </div>
+      <a href="Shehab Search.dc.html" aria-label="بحث" style="display:flex;align-items:center;justify-content:center;width:58px;border-right:1px solid #cfd4cb" style-hover="background:#0a1a33;color:#fff"><i class="fa-solid fa-magnifying-glass" style="font-size:14px"></i></a>
+    </nav>
+
+    <span style="display:block;width:11px;height:11px;background:#1b5aa6;transform:rotate(45deg);margin:-6px 92px 0 auto"></span>
+
+    <div style="display:grid;grid-template-columns:minmax(0,1.8fr) minmax(0,.78fr) minmax(0,.66fr);gap:0;padding:14px 30px 0">
+
+      <div style="padding:0 0 0 30px">
+        <h1 style="font-family:'Almarai',sans-serif;font-size:clamp(44px,5.4vw,72px);font-weight:800;line-height:1;margin:8px 0 0;color:#0a1a33;letter-spacing:-.02em">أخبار اليوم</h1>
+        <span style="display:flex;align-items:center;gap:10px;margin-top:14px"><span style="width:52px;height:2px;background:#1b5aa6"></span><span style="font-size:11px;font-weight:700;color:#8a95a6;font-family:'Almarai',sans-serif;font-variant-numeric:tabular-nums">{{ today }} · محدَّث {{ clock }}</span></span>
+
+        <a href="Shehab Article.dc.html" style="display:inline-flex;align-items:center;gap:9px;margin:22px 0 0;background:#0a1a33;color:#fff;font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;padding:6px 13px" style-hover="background:#1b5aa6;color:#fff"><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>قصة اليوم</a>
+        <h2 style="font-family:'Almarai',sans-serif;font-size:clamp(30px,3vw,42px);font-weight:800;line-height:1.32;margin:14px 0 0;color:#0a1a33;text-wrap:pretty">أطفال غزة بين فرحة اللعب وتهديد القصف.. الطائرات الورقية ذريعة جديدة للتصعيد</h2>
+
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:14px;padding-bottom:12px;border-bottom:1px solid #d8ddd3;font-size:11px;color:#8a95a6">
+          <span style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:1px;background:#8a95a6"></span><a href="Shehab Category.dc.html" style="color:#1b5aa6;font-weight:800">غزة</a></span>
+          <span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>
+          <span>بقلم <a href="Shehab Author.dc.html" style="color:#14233a;font-weight:700">فريق التقارير</a></span>
+          <span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>
+          <span style="font-variant-numeric:tabular-nums">قراءة 4 دقائق</span>
+        </div>
+
+        <div style="display:flex;gap:14px;margin-top:16px">
+          <span style="width:54px;height:54px;flex:none;background:#0a1a33;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Almarai',sans-serif;font-size:30px;font-weight:800;line-height:1">ف</span>
+          <p style="font-family:'Noto Naskh Arabic',serif;font-size:15.5px;line-height:2;color:#4a5568;margin:0;text-wrap:pretty">وق ركام الحيّ الغربي في خانيونس، وبين خيام المواسي المتلاصقة، تحوّلت الطائرات الورقية إلى النافذة الوحيدة المتاحة لطفولةٍ حاصرتها الحرب. لكن اللعبة وجدت طريقها فجأة إلى بيانات جيش الاحتلال <a href="Shehab Article.dc.html" style="color:#1b5aa6;font-weight:700;font-family:'Almarai',sans-serif;font-size:12px">اقرأ التقرير ←</a></p>
+        </div>
+
+        <figure style="margin:22px 0 0;background:#fff;border:1px solid #cfd4cb;padding:9px">
+          <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:15/8;border-radius:150px 150px 0 0">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=1200" alt="خيام النازحين في المواسي" style="width:100%;height:100%;object-fit:cover;object-position:center 55%" />
+            <span style="position:absolute;bottom:0;right:0;background:#0a1a33;color:#fff;font-family:'Almarai',sans-serif;font-size:10px;font-weight:800;padding:6px 11px;display:flex;align-items:center;gap:7px"><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>عدسة شهاب</span>
+          </span>
+        </figure>
+      </div>
+
+      <div style="border-right:1px solid #cfd4cb;border-left:1px solid #cfd4cb;padding:4px 26px 0">
+        <sc-for list="{{ list }}" as="s" hint-placeholder-count="4">
+          <a href="Shehab Article.dc.html" style="display:block;padding:20px 0;border-bottom:1px solid #d8ddd3" style-hover="color:#1b5aa6">
+            <span style="display:block;font-family:'Almarai',sans-serif;font-size:16.5px;font-weight:700;line-height:1.65;color:#14233a;text-wrap:pretty">{{ s.title }}</span>
+            <span style="display:flex;align-items:center;gap:12px;margin-top:12px;font-size:11px;color:#8a95a6">
+              <span style="display:flex;align-items:center;gap:8px"><span style="width:12px;height:1px;background:#8a95a6"></span><span style="color:{{ s.catColor }};font-weight:800;font-family:'Almarai',sans-serif">{{ s.cat }}</span></span>
+              <span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>
+              <span style="font-variant-numeric:tabular-nums">{{ s.time }}</span>
+            </span>
+          </a>
+        </sc-for>
+        <a href="Shehab Coverage.dc.html" style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 0 0" style-hover="color:#1b5aa6;gap:22px">
+          <span style="display:flex;align-items:center;gap:9px;font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;color:#0a1a33"><span style="width:5px;height:5px;background:#e0302f;border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite"></span>التغطية الحية</span>
+          <span style="width:34px;height:34px;border:1px solid #b9c0b3;display:flex;align-items:center;justify-content:center;color:#0a1a33" style-hover="background:#1b5aa6;border-color:#1b5aa6;color:#fff"><i class="fa-solid fa-arrow-left" style="font-size:12px"></i></span>
+        </a>
+      </div>
+
+      <div style="padding:4px 30px 0 0;display:flex;flex-direction:column">
+        <span style="display:block;height:12px;background:#dfe2db;margin:0 22px"></span>
+        <a href="Shehab Photos.dc.html" style="position:relative;display:block;background:#fff;border:1px solid #2b3a4e;padding:8px;margin-top:8px;box-shadow:14px 14px 0 #dfe2db" style-hover="color:inherit">
+          <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:3/4">
+            <span style="position:absolute;inset:0;background-image:{{ sideBg }};background-size:cover;background-position:center 35%"></span>
+            <span style="position:absolute;top:0;left:0;background:#0a1a33;color:#fff;font-family:'Almarai',sans-serif;font-size:10px;font-weight:800;padding:6px 11px;display:flex;align-items:center;gap:7px"><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>{{ slideLabel }}</span>
+          </span>
+        </a>
+        <span style="display:block;font-family:'Almarai',sans-serif;font-size:12.5px;font-weight:700;line-height:1.75;color:#14233a;margin:16px 0 0;text-wrap:pretty">{{ slideCaption }}</span>
+        <div style="margin-top:20px;border-top:1px solid #d8ddd3;padding-top:12px">
+          <span style="display:flex;align-items:center;gap:9px;font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;color:#8a95a6"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>الأكثر قراءة الآن</span>
+          <sc-for list="{{ heroRail }}" as="r" hint-placeholder-count="5">
+            <a href="Shehab Article.dc.html" style="display:grid;grid-template-columns:26px 1fr;gap:9px;align-items:start;padding:11px 0;border-bottom:1px solid #e4e7e0" style-hover="color:#1b5aa6">
+              <span style="font-family:'Almarai',sans-serif;font-size:19px;font-weight:800;color:#1b5aa6;opacity:.3;line-height:1;font-variant-numeric:tabular-nums">{{ r.n }}</span>
+              <span style="font-family:'Almarai',sans-serif;font-size:12.5px;font-weight:700;line-height:1.65;color:#14233a;text-wrap:pretty">{{ r.title }}</span>
+            </a>
+          </sc-for>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;margin-top:auto;padding-top:18px">
+          <a href="#" onClick="{{ prev }}" aria-label="السابق" style="width:34px;height:34px;border:1px solid #b9c0b3;display:flex;align-items:center;justify-content:center;color:#0a1a33;flex:none" style-hover="background:#0a1a33;border-color:#0a1a33;color:#fff"><i class="fa-solid fa-chevron-right" style="font-size:11px"></i></a>
+          <span style="flex:1;display:flex;align-items:center;gap:10px;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#0a1a33;font-variant-numeric:tabular-nums">
+            {{ idxLabel }}
+            <span style="flex:1;height:2px;background:#d8ddd3;position:relative"><span style="position:absolute;top:0;right:0;height:2px;background:#1b5aa6;width:{{ progress }}"></span></span>
+            {{ totalLabel }}
+          </span>
+          <a href="#" onClick="{{ next }}" aria-label="التالي" style="width:34px;height:34px;border:1px solid #b9c0b3;display:flex;align-items:center;justify-content:center;color:#0a1a33;flex:none" style-hover="background:#0a1a33;border-color:#0a1a33;color:#fff"><i class="fa-solid fa-chevron-left" style="font-size:11px"></i></a>
+        </div>
+      </div>
+    </div>
+
+
+    <div data-screen-label="Concept Sections" style="padding:34px 30px 0">
+
+      <section data-screen-label="Wire" style="margin-top:8px;border-top:2px solid #0a1a33;padding-top:16px">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+          <h2 style="font-family:'Almarai',sans-serif;font-size:23px;font-weight:800;line-height:1;margin:0;color:#0a1a33;display:flex;align-items:center;gap:12px">
+            <span style="display:flex;align-items:center;gap:8px;background:#e0302f;color:#fff;font-size:10.5px;font-weight:800;padding:5px 10px"><span style="width:5px;height:5px;background:#fff;border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite"></span>مباشر</span>
+            سلك شهاب — الآن
+          </h2>
+          <span style="display:flex;align-items:center;gap:14px;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#8a95a6"><span style="font-variant-numeric:tabular-nums">محدَّث {{ clock }}</span><a href="Shehab Category.dc.html" style="display:inline-flex;align-items:center;gap:9px;color:#1b5aa6" style-hover="gap:15px">كل الأخبار <span style="width:16px;height:1px;background:currentColor"></span></a></span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 30px;margin-top:6px">
+          <sc-for list="{{ wire }}" as="w" hint-placeholder-count="6">
+            <a href="Shehab Article.dc.html" style="display:grid;grid-template-columns:auto 1fr;align-items:stretch;gap:0;padding:0" style-hover="color:#1b5aa6">
+              <span style="display:flex;flex-direction:column;align-items:center;width:58px;flex:none;padding:15px 0;border-bottom:1px solid #d8ddd3">
+                <span style="font-family:'Almarai',sans-serif;font-size:13px;font-weight:800;color:{{ w.timeColor }};font-variant-numeric:tabular-nums;white-space:nowrap">{{ w.time }}</span>
+                <span style="width:5px;height:5px;background:{{ w.timeColor }};transform:rotate(45deg);margin-top:9px"></span>
+                <span style="width:1px;flex:1;background:#dfe2db;margin-top:9px"></span>
+              </span>
+              <span style="padding:15px 20px 15px 6px;border-right:1px solid #dfe2db;border-bottom:1px solid #d8ddd3">
+                <span style="display:block;font-family:'Almarai',sans-serif;font-size:15px;font-weight:700;line-height:1.7;color:#14233a;text-wrap:pretty">{{ w.text }}</span>
+                <span style="display:block;font-size:11.5px;color:#8a95a6;margin-top:8px">{{ w.cat }}</span>
+              </span>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+
+      <section data-screen-label="Top Now" style="margin-top:46px">
+      <div style="position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;border-bottom:2px solid #0a1a33;padding-bottom:9px">
+        <h2 style="font-family:'Almarai',sans-serif;font-size:26px;font-weight:800;line-height:1;margin:0;color:#0a1a33;display:flex;align-items:center;gap:11px"><span style="width:9px;height:9px;background:#1b5aa6;transform:rotate(45deg)"></span>الأبرز الآن</h2>
+        <a href="Shehab Sections.dc.html" style="display:inline-flex;align-items:center;gap:9px;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#4a5568;padding-bottom:3px" style-hover="color:#1b5aa6;gap:15px">الأرشيف <span style="width:16px;height:1px;background:currentColor"></span></a>
+        <span style="position:absolute;bottom:-2px;right:0;width:96px;height:2px;background:#1b5aa6"></span>
+      </div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:24px">
+          <sc-for list="{{ topNow }}" as="t" hint-placeholder-count="3">
+            <a href="Shehab Article.dc.html" style="display:block" style-hover="color:#1b5aa6">
+              <span style="display:block;background:#fff;border:1px solid #cfd4cb;padding:8px">
+                <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:15/8"><span style="position:absolute;inset:0;background-image:{{ t.bg }};background-size:cover;background-position:center 30%"></span></span>
+              </span>
+              <span style="display:flex;align-items:center;gap:11px;margin-top:14px;font-size:11.5px;color:#8a95a6"><span style="color:#1b5aa6;font-weight:800;font-family:'Almarai',sans-serif">{{ t.cat }}</span><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span><span style="font-variant-numeric:tabular-nums">{{ t.time }}</span></span>
+              <span style="display:block;font-family:'Almarai',sans-serif;font-size:18px;font-weight:700;line-height:1.65;margin-top:9px;color:#0a1a33;text-wrap:pretty">{{ t.title }}</span>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+
+      <section data-screen-label="Live Coverage" style="position:relative;margin-top:46px;background:#eaf1fa;border-top:2px solid #1b5aa6;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,.72fr)">
+        <div style="padding:24px 26px 24px">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;border-bottom:1px solid #cddef2;padding-bottom:12px">
+            <h2 style="font-family:'Almarai',sans-serif;font-size:24px;font-weight:800;margin:0;color:#0a1a33;display:flex;align-items:center;gap:12px">
+              <span style="position:relative;display:flex;align-items:center;justify-content:center;width:14px;height:14px"><span style="position:absolute;inset:0;border:1px solid #e0302f;border-radius:50%;animation:sh-ring 2s ease-out infinite"></span><span style="width:6px;height:6px;background:#e0302f;border-radius:50%"></span></span>
+              التغطية الحية
+            </h2>
+            <span style="display:flex;align-items:center;gap:12px;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#4a7ab5;font-variant-numeric:tabular-nums">14 تحديثًا · محدَّث {{ clock }}</span>
+          </div>
+          <div style="position:relative;padding-right:18px;margin-top:4px">
+            <span style="position:absolute;top:16px;bottom:16px;right:3px;width:1px;background:#c4d7ef"></span>
+            <sc-for list="{{ liveFeed }}" as="f" hint-placeholder-count="5">
+              <a href="Shehab Coverage.dc.html" style="position:relative;display:block;padding:14px 0;border-bottom:1px solid #d7e4f4" style-hover="color:#1b5aa6">
+                <span style="position:absolute;top:20px;right:-18px;width:7px;height:7px;background:{{ f.dot }};transform:rotate(45deg)"></span>
+                <span style="display:flex;align-items:center;gap:10px;font-size:11.5px;color:#5d7fa8"><span style="font-family:'Almarai',sans-serif;font-weight:800;color:#0a1a33;font-variant-numeric:tabular-nums">{{ f.time }}</span><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>{{ f.cat }}</span>
+                <span style="display:block;font-family:'Almarai',sans-serif;font-size:15px;font-weight:700;line-height:1.7;margin-top:7px;color:#14233a;text-wrap:pretty">{{ f.text }}</span>
+              </a>
+            </sc-for>
+          </div>
+          <a href="Shehab Coverage.dc.html" style="display:inline-flex;align-items:center;gap:11px;margin-top:18px;background:#1b5aa6;color:#fff;font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;padding:11px 24px" style-hover="background:#0a1a33;color:#fff;gap:17px">كل التطورات <span style="width:15px;height:1px;background:currentColor"></span></a>
+        </div>
+        <div style="position:relative;min-height:240px;border-right:1px solid #cddef2;overflow:hidden">
+          <img src="assets/palestine-map.png" alt="خريطة فلسطين" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92" />
+          <span style="position:absolute;inset:0;background:#1b5aa6;opacity:.14;mix-blend-mode:multiply"></span>
+          <span style="position:absolute;top:30%;left:40%;display:flex;align-items:center;justify-content:center;width:34px;height:34px;margin:-17px 0 0 -17px">
+            <span style="position:absolute;inset:0;border:1px solid rgba(224,48,47,.8);border-radius:50%;animation:sh-ring 2.4s ease-out infinite"></span>
+            <span style="width:9px;height:9px;background:#e0302f;transform:rotate(45deg)"></span>
+          </span>
+          <span style="position:absolute;top:54%;left:52%;width:7px;height:7px;background:#1b5aa6;transform:rotate(45deg)"></span>
+          <span style="position:absolute;top:70%;left:32%;width:7px;height:7px;background:#1b5aa6;transform:rotate(45deg)"></span>
+          <span style="position:absolute;bottom:0;right:0;left:0;background:#0a1a33;padding:9px 14px;font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;color:#fff;display:flex;align-items:center;gap:9px"><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>خريطة الخروقات — 1,204 حادثة موثّقة</span>
+        </div>
+      </section>
+
+      <section data-screen-label="Files" style="margin:46px -30px 0;background:#f0ece2;border-top:2px solid #0a1a33;border-bottom:1px solid #ddd7c8;padding:26px 30px 30px">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid #ddd7c8;padding-bottom:14px">
+          <span>
+            <span style="display:flex;align-items:center;gap:11px;font-family:'Almarai',sans-serif;font-size:26px;font-weight:800;line-height:1;color:#0a1a33"><span style="width:9px;height:9px;background:#1b5aa6;transform:rotate(45deg)"></span>ملفات شهاب</span>
+            <span style="display:block;font-family:'Noto Naskh Arabic',serif;font-size:13px;color:#7a7364;margin-top:9px">ملفات مفتوحة تُبنى على مدى أسابيع — أرشيف حيّ لكل قصة كبرى.</span>
+          </span>
+          <a href="Shehab Files.dc.html" style="display:inline-flex;align-items:center;gap:9px;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#0a1a33;border:1px solid #c6bfae;padding:9px 18px" style-hover="background:#0a1a33;border-color:#0a1a33;color:#fff;gap:15px">فتح الأرشيف <span style="width:15px;height:1px;background:currentColor"></span></a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:30px">
+          <sc-for list="{{ files }}" as="f" hint-placeholder-count="4">
+            <a href="Shehab Files.dc.html" style="display:block;position:relative" style-hover="color:#1b5aa6">
+              <span style="display:flex;align-items:center;justify-content:space-between;width:66%;background:#e4dece;border:1px solid #ccc5b3;border-bottom:none;padding:6px 11px;font-family:'Almarai',sans-serif;font-size:10.5px;font-weight:800;color:#5d5648;font-variant-numeric:tabular-nums">ملف {{ f.num }}<span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span></span>
+              <span style="display:block;background:#faf8f2;border:1px solid #ccc5b3;padding:11px">
+                <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:3/4">
+                  <span style="position:absolute;inset:0;background-image:{{ f.bg }};background-size:cover;background-position:center 22%;transition:transform .7s cubic-bezier(.2,.75,.2,1)" style-hover="transform:scale(1.05)"></span>
+                </span>
+                <span style="display:block;font-family:'Almarai',sans-serif;font-size:15.5px;font-weight:800;line-height:1.6;margin-top:14px;color:#0a1a33;text-wrap:pretty">{{ f.title }}</span>
+                <span style="display:flex;align-items:baseline;gap:8px;margin-top:12px;font-size:11.5px;color:#7a7364"><span>نوع الملف</span><span style="flex:1;border-bottom:1px dotted #c6bfae"></span><span style="color:#0a1a33;font-weight:700;font-family:'Almarai',sans-serif">{{ f.label }}</span></span>
+                <span style="display:flex;align-items:baseline;gap:8px;margin-top:7px;font-size:11.5px;color:#7a7364"><span>المواد</span><span style="flex:1;border-bottom:1px dotted #c6bfae"></span><span style="color:#0a1a33;font-weight:700;font-family:'Almarai',sans-serif;font-variant-numeric:tabular-nums">{{ f.count }}</span></span>
+                <span style="display:flex;align-items:baseline;gap:8px;margin-top:7px;font-size:11.5px;color:#7a7364"><span>زمن القراءة</span><span style="flex:1;border-bottom:1px dotted #c6bfae"></span><span style="color:#0a1a33;font-weight:700;font-family:'Almarai',sans-serif;font-variant-numeric:tabular-nums">{{ f.read }}</span></span>
+                <span style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;padding-top:11px;border-top:1px solid #e3ddcd">
+                  <span style="display:inline-flex;align-items:center;gap:8px;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#1b5aa6">دخول الملف <span style="width:14px;height:1px;background:currentColor"></span></span>
+                  <span style="font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;color:#b3aa96;font-variant-numeric:tabular-nums">{{ f.num }}</span>
+                </span>
+              </span>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+
+      <section data-screen-label="Video" style="margin-top:46px">
+        <div style="position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;border-bottom:2px solid #0a1a33;padding-bottom:9px">
+          <h2 style="font-family:'Almarai',sans-serif;font-size:26px;font-weight:800;line-height:1;margin:0;color:#0a1a33;display:flex;align-items:center;gap:11px"><span style="width:9px;height:9px;background:#1b5aa6;transform:rotate(45deg)"></span>فيديو شهاب <span style="font-family:'Noto Naskh Arabic',serif;font-size:12.5px;font-weight:400;color:#8a95a6">من الميدان بالصوت والصورة</span></h2>
+          <a href="Shehab Video.dc.html" style="display:inline-flex;align-items:center;gap:9px;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#4a5568;padding-bottom:3px" style-hover="color:#1b5aa6;gap:15px">كل الفيديوهات <span style="width:16px;height:1px;background:currentColor"></span></a>
+          <span style="position:absolute;bottom:-2px;right:0;width:96px;height:2px;background:#1b5aa6"></span>
+        </div>
+        <div style="margin-top:24px">
+          <a href="Shehab Video.dc.html" style="display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:26px;align-items:center" style-hover="color:#1b5aa6">
+            <span style="display:block;background:#0a1a33;padding:9px 9px 0">
+              <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:16/9">
+                <span style="position:absolute;inset:0;background-image:url(assets/gaza-coast.png);background-size:cover;background-position:center"></span>
+                <span style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.78),rgba(10,26,51,0) 58%)"></span>
+                <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="width:62px;height:62px;border:1.5px solid rgba(255,255,255,.75);display:flex;align-items:center;justify-content:center;transform:rotate(45deg);transition:background .25s ease,border-color .25s ease" style-hover="background:#1b5aa6;border-color:#1b5aa6"><i class="fa-solid fa-play" style="font-size:16px;color:#fff;transform:rotate(-45deg);margin-left:-3px"></i></span></span>
+                <span style="position:absolute;bottom:12px;left:12px;background:#0a1a33;color:#fff;font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;padding:5px 10px;font-variant-numeric:tabular-nums">12:04</span>
+              </span>
+              <span style="display:flex;align-items:center;justify-content:space-between;gap:6px;padding:7px 2px">
+                <sc-for list="{{ perfs }}" as="p" hint-placeholder-count="18"><span style="width:9px;height:5px;background:#f6f7f4;opacity:.55"></span></sc-for>
+              </span>
+            </span>
+            <span style="display:block">
+              <span style="display:flex;align-items:center;gap:11px;font-size:11.5px;color:#8a95a6"><span style="color:#1b5aa6;font-weight:800;font-family:'Almarai',sans-serif">غزة</span><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>تقرير مصوّر</span>
+              <span style="display:block;font-family:'Almarai',sans-serif;font-size:clamp(21px,2.1vw,27px);font-weight:800;line-height:1.5;margin-top:11px;color:#0a1a33;text-wrap:pretty">العودة عبر الرشيد.. 12 دقيقة توثق رحلة النازحين إلى الشمال</span>
+              <span style="display:block;font-family:'Noto Naskh Arabic',serif;font-size:13.5px;line-height:2;color:#4a5568;margin-top:12px;max-width:42ch">كاميرا شهاب ترافق قوافل العائدين شمالًا على شارع الرشيد في أول أيام وقف إطلاق النار.</span>
+              <span style="display:inline-flex;align-items:center;gap:10px;margin-top:16px;font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;color:#1b5aa6">مشاهدة التقرير <span style="width:15px;height:1px;background:currentColor"></span></span>
+            </span>
+          </a>
+          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:26px">
+            <sc-for list="{{ videoList }}" as="v" hint-placeholder-count="3">
+              <a href="Shehab Video.dc.html" style="display:block" style-hover="color:#1b5aa6">
+                <span style="display:block;background:#0a1a33;padding:6px">
+                  <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:16/9">
+                    <span style="position:absolute;inset:0;background-image:{{ v.bg }};background-size:cover;background-position:center 40%"></span>
+                    <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="width:38px;height:38px;border:1px solid rgba(255,255,255,.8);display:flex;align-items:center;justify-content:center;transform:rotate(45deg);transition:background .25s ease,border-color .25s ease" style-hover="background:#1b5aa6;border-color:#1b5aa6"><i class="fa-solid fa-play" style="font-size:11px;color:#fff;transform:rotate(-45deg);margin-left:-2px"></i></span></span>
+                    <span style="position:absolute;bottom:9px;left:9px;background:#0a1a33;color:#fff;font-family:'Almarai',sans-serif;font-size:10.5px;font-weight:800;padding:4px 9px;font-variant-numeric:tabular-nums">{{ v.dur }}</span>
+                  </span>
+                </span>
+                <span style="display:block;font-family:'Almarai',sans-serif;font-size:15.5px;font-weight:700;line-height:1.7;margin-top:13px;color:#14233a;text-wrap:pretty">{{ v.title }}</span>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 284px;gap:44px;margin-top:46px">
+        <section data-screen-label="More News">
+      <div style="position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;border-bottom:2px solid #0a1a33;padding-bottom:9px">
+        <h2 style="font-family:'Almarai',sans-serif;font-size:26px;font-weight:800;line-height:1;margin:0;color:#0a1a33;display:flex;align-items:center;gap:11px"><span style="width:9px;height:9px;background:#1b5aa6;transform:rotate(45deg)"></span>المزيد من الأخبار</h2>
+        <a href="Shehab Sections.dc.html" style="display:inline-flex;align-items:center;gap:9px;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#4a5568;padding-bottom:3px" style-hover="color:#1b5aa6;gap:15px">كل الأقسام <span style="width:16px;height:1px;background:currentColor"></span></a>
+        <span style="position:absolute;bottom:-2px;right:0;width:96px;height:2px;background:#1b5aa6"></span>
+      </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 30px;margin-top:4px">
+            <sc-for list="{{ more }}" as="m" hint-placeholder-count="12">
+              <a href="Shehab Article.dc.html" style="display:block;padding:15px 0;border-bottom:1px solid #d8ddd3" style-hover="color:#1b5aa6">
+                <span style="display:flex;align-items:center;gap:10px;font-size:11.5px;color:#8a95a6"><span style="color:#1b5aa6;font-weight:800;font-family:'Almarai',sans-serif">{{ m.cat }}</span></span>
+                <span style="display:block;font-family:'Almarai',sans-serif;font-size:15.5px;font-weight:700;line-height:1.7;margin-top:8px;color:#14233a;text-wrap:pretty">{{ m.title }}</span>
+              </a>
+            </sc-for>
+          </div>
+        </section>
+        <aside data-screen-label="Concept Rail" style="align-self:start">
+          <div style="border-bottom:2px solid #0a1a33;padding-bottom:9px;position:relative">
+            <h2 style="font-family:'Almarai',sans-serif;font-size:17px;font-weight:800;margin:0;color:#0a1a33;display:flex;align-items:center;gap:10px"><span style="width:7px;height:7px;background:#1b5aa6;transform:rotate(45deg)"></span>الأكثر قراءة</h2>
+            <span style="position:absolute;bottom:-2px;right:0;width:62px;height:2px;background:#1b5aa6"></span>
+          </div>
+          <sc-for list="{{ mostRead }}" as="r" hint-placeholder-count="5">
+            <a href="Shehab Article.dc.html" style="display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:start;padding:14px 0;border-bottom:1px solid #d8ddd3" style-hover="color:#1b5aa6">
+              <span style="font-family:'Almarai',sans-serif;font-size:30px;font-weight:800;color:#1b5aa6;opacity:.32;line-height:.95;font-variant-numeric:tabular-nums;text-align:center">{{ r.n }}</span>
+              <span style="font-family:'Almarai',sans-serif;font-size:14.5px;font-weight:700;line-height:1.65;color:#14233a;text-wrap:pretty">{{ r.title }}</span>
+            </a>
+          </sc-for>
+          <div style="margin-top:28px;border-top:2px solid #0a1a33;padding-top:14px">
+            <span style="display:flex;align-items:baseline;justify-content:space-between;gap:10px">
+              <span style="display:flex;align-items:center;gap:9px;font-family:'Almarai',sans-serif;font-size:14px;font-weight:800;color:#0a1a33"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg)"></span>اليوم بالأرقام</span>
+              <span style="font-size:11px;color:#8a95a6;font-variant-numeric:tabular-nums">{{ clock }}</span>
+            </span>
+            <sc-for list="{{ figures }}" as="g" hint-placeholder-count="3">
+              <span style="display:block;padding:14px 0;border-bottom:1px solid #d8ddd3">
+                <span style="display:flex;align-items:baseline;gap:9px">
+                  <span style="font-family:'Almarai',sans-serif;font-size:30px;font-weight:800;line-height:1;color:#0a1a33;font-variant-numeric:tabular-nums">{{ g.v }}</span>
+                  <span style="font-family:'Almarai',sans-serif;font-size:13px;font-weight:800;color:#1b5aa6">{{ g.unit }}</span>
+                </span>
+                <span style="display:block;font-size:11.5px;color:#8a95a6;line-height:1.7;margin-top:7px">{{ g.note }}</span>
+              </span>
+            </sc-for>
+            <span style="display:flex;align-items:center;gap:9px;margin-top:11px;font-size:11px;color:#8a95a6"><span style="width:11px;height:1px;background:#1b5aa6"></span>أرقام موثّقة من مصادر رسمية ومراسلي شهاب</span>
+          </div>
+        </aside>
+      </div>
+
+      <section data-screen-label="Statements" style="margin-top:46px">
+      <div style="position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;border-bottom:2px solid #0a1a33;padding-bottom:9px">
+        <h2 style="font-family:'Almarai',sans-serif;font-size:26px;font-weight:800;line-height:1;margin:0;color:#0a1a33;display:flex;align-items:center;gap:11px"><span style="width:9px;height:9px;background:#1b5aa6;transform:rotate(45deg)"></span>تصريحات خاصة</h2>
+        <a href="Shehab Category.dc.html" style="display:inline-flex;align-items:center;gap:9px;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#4a5568;padding-bottom:3px" style-hover="color:#1b5aa6;gap:15px">كل التصريحات <span style="width:16px;height:1px;background:currentColor"></span></a>
+        <span style="position:absolute;bottom:-2px;right:0;width:96px;height:2px;background:#1b5aa6"></span>
+      </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:30px;margin-top:22px;align-items:start">
+          <blockquote style="margin:0;padding:2px 22px 2px 0;border-right:3px solid #1b5aa6">
+            <span style="display:block;font-family:'Noto Naskh Arabic',serif;font-size:38px;line-height:.5;color:#1b5aa6;margin-bottom:14px">”</span>
+            <p style="font-family:'Almarai',sans-serif;font-size:21px;font-weight:700;line-height:1.85;color:#0a1a33;margin:0;text-wrap:pretty">الاحتلال يحاول تحويل الطائرات الورقية إلى ذريعة جديدة لإفشال وقف إطلاق النار وإبقاء غزة تحت التوتر</p>
+            <footer style="display:flex;align-items:center;gap:10px;margin-top:16px;font-size:11.5px;color:#8a95a6"><span style="width:16px;height:1px;background:#1b5aa6"></span>د. محمد مصلح — باحث وخبير في الشأن "الإسرائيلي"، لـ شهاب</footer>
+          </blockquote>
+          <div>
+            <sc-for list="{{ statements }}" as="s" hint-placeholder-count="3">
+              <a href="Shehab Article.dc.html" style="display:block;padding:14px 0;border-bottom:1px solid #d8ddd3" style-hover="color:#1b5aa6">
+                <span style="display:flex;align-items:center;gap:9px;font-size:10.5px;color:#8a95a6"><span style="width:11px;height:1px;background:#1b5aa6"></span>{{ s.who }}</span>
+                <span style="display:block;font-family:'Almarai',sans-serif;font-size:15px;font-weight:700;line-height:1.7;margin-top:8px;color:#14233a;text-wrap:pretty">{{ s.text }}</span>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <section data-screen-label="Lens" style="margin-top:46px">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:2px solid #0a1a33;padding-bottom:11px">
+          <span>
+            <span style="display:block;font-family:'Almarai',sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.34em;color:#1b5aa6">SHIHAB LENS</span>
+            <span style="display:flex;align-items:center;gap:11px;font-family:'Almarai',sans-serif;font-size:28px;font-weight:800;line-height:1;color:#0a1a33;margin-top:8px"><span style="width:9px;height:9px;background:#1b5aa6;transform:rotate(45deg)"></span>عدسة شهاب</span>
+          </span>
+          <span style="display:flex;align-items:center;gap:14px;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#8a95a6;padding-bottom:2px">
+            <span>لوح التصوير — 05 لقطات</span>
+            <a href="Shehab Photos.dc.html" style="display:inline-flex;align-items:center;gap:9px;color:#1b5aa6" style-hover="gap:15px">كل الصور <span style="width:15px;height:1px;background:currentColor"></span></a>
+          </span>
+        </div>
+        <div style="margin-top:20px;background:#0a1a33;padding:0">
+        <span style="display:flex;align-items:center;justify-content:space-between;gap:5px;padding:0 10px;height:14px;background:#0a1a33">
+          <sc-for list="{{ perfs }}" as="p" hint-placeholder-count="26"><span style="width:10px;height:6px;background:#f6f7f4;opacity:.5"></span></sc-for>
+        </span>
+          <div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;padding:10px">
+        <a href="Shehab Photos.dc.html" style="position:relative;display:block;background:#faf8f2;border:1px solid #cfd4cb;padding:8px 8px 0;grid-column:span 2;" style-hover="color:#1b5aa6">
+          <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:3/2">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1200" alt="العودة عبر شارع الرشيد" style="width:100%;height:100%;object-fit:cover;object-position:center 62%" />
+            <span style="position:absolute;top:0;left:0;background:#0a1a33;color:#fff;font-family:'Almarai',sans-serif;font-size:10px;font-weight:800;padding:4px 9px;font-variant-numeric:tabular-nums">01</span>
+          </span>
+          <span style="display:block;padding:10px 2px 11px">
+            <span style="display:block;font-family:'Almarai',sans-serif;font-size:15px;font-weight:700;line-height:1.6;color:#0a1a33;text-wrap:pretty">العودة عبر شارع الرشيد</span>
+            <span style="display:flex;align-items:center;gap:8px;margin-top:6px;font-size:10.5px;color:#8a95a6"><span style="width:9px;height:1px;background:#1b5aa6"></span>غزة — 10 أكتوبر</span>
+          </span>
+        </a>
+        <a href="Shehab Photos.dc.html" style="position:relative;display:block;background:#faf8f2;border:1px solid #cfd4cb;padding:8px 8px 0;" style-hover="color:#1b5aa6">
+          <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:4/3">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=1200" alt="خيام المواسي على الساحل الجنوبي" style="width:100%;height:100%;object-fit:cover;object-position:center 45%" />
+            <span style="position:absolute;top:0;left:0;background:#0a1a33;color:#fff;font-family:'Almarai',sans-serif;font-size:10px;font-weight:800;padding:4px 9px;font-variant-numeric:tabular-nums">02</span>
+          </span>
+          <span style="display:block;padding:10px 2px 11px">
+            <span style="display:block;font-family:'Almarai',sans-serif;font-size:12.5px;font-weight:700;line-height:1.6;color:#0a1a33;text-wrap:pretty">خيام المواسي على الساحل الجنوبي</span>
+            <span style="display:flex;align-items:center;gap:8px;margin-top:6px;font-size:10.5px;color:#8a95a6"><span style="width:9px;height:1px;background:#1b5aa6"></span>خانيونس</span>
+          </span>
+        </a>
+        <a href="Shehab Photos.dc.html" style="position:relative;display:block;background:#faf8f2;border:1px solid #cfd4cb;padding:8px 8px 0;" style-hover="color:#1b5aa6">
+          <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:4/3">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=800" alt="رفح بعد انسحاب قوات الاحتلال" style="width:100%;height:100%;object-fit:cover;object-position:center 50%" />
+            <span style="position:absolute;top:0;left:0;background:#0a1a33;color:#fff;font-family:'Almarai',sans-serif;font-size:10px;font-weight:800;padding:4px 9px;font-variant-numeric:tabular-nums">03</span>
+          </span>
+          <span style="display:block;padding:10px 2px 11px">
+            <span style="display:block;font-family:'Almarai',sans-serif;font-size:12.5px;font-weight:700;line-height:1.6;color:#0a1a33;text-wrap:pretty">رفح بعد انسحاب قوات الاحتلال</span>
+            <span style="display:flex;align-items:center;gap:8px;margin-top:6px;font-size:10.5px;color:#8a95a6"><span style="width:9px;height:1px;background:#1b5aa6"></span>رفح</span>
+          </span>
+        </a>
+        <a href="Shehab Photos.dc.html" style="position:relative;display:block;background:#faf8f2;border:1px solid #cfd4cb;padding:8px 8px 0;" style-hover="color:#1b5aa6">
+          <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:4/3">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=800" alt="عائلات تبحث بين ركام الأبنية" style="width:100%;height:100%;object-fit:cover;object-position:center 40%" />
+            <span style="position:absolute;top:0;left:0;background:#0a1a33;color:#fff;font-family:'Almarai',sans-serif;font-size:10px;font-weight:800;padding:4px 9px;font-variant-numeric:tabular-nums">04</span>
+          </span>
+          <span style="display:block;padding:10px 2px 11px">
+            <span style="display:block;font-family:'Almarai',sans-serif;font-size:12.5px;font-weight:700;line-height:1.6;color:#0a1a33;text-wrap:pretty">عائلات تبحث بين ركام الأبنية</span>
+            <span style="display:flex;align-items:center;gap:8px;margin-top:6px;font-size:10.5px;color:#8a95a6"><span style="width:9px;height:1px;background:#1b5aa6"></span>مدينة غزة</span>
+          </span>
+        </a>
+        <a href="Shehab Photos.dc.html" style="position:relative;display:block;background:#faf8f2;border:1px solid #cfd4cb;padding:8px 8px 0;" style-hover="color:#1b5aa6">
+          <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:4/3">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dome%20of%20the%20Al-Aqsa%20Mosque%20%2820160%29.jpg?width=800" alt="الأقصى تحت قيود الوصول" style="width:100%;height:100%;object-fit:cover;object-position:center 35%" />
+            <span style="position:absolute;top:0;left:0;background:#0a1a33;color:#fff;font-family:'Almarai',sans-serif;font-size:10px;font-weight:800;padding:4px 9px;font-variant-numeric:tabular-nums">05</span>
+          </span>
+          <span style="display:block;padding:10px 2px 11px">
+            <span style="display:block;font-family:'Almarai',sans-serif;font-size:12.5px;font-weight:700;line-height:1.6;color:#0a1a33;text-wrap:pretty">الأقصى تحت قيود الوصول</span>
+            <span style="display:flex;align-items:center;gap:8px;margin-top:6px;font-size:10.5px;color:#8a95a6"><span style="width:9px;height:1px;background:#1b5aa6"></span>القدس</span>
+          </span>
+        </a>
+          </div>
+        <span style="display:flex;align-items:center;justify-content:space-between;gap:5px;padding:0 10px;height:14px;background:#0a1a33">
+          <sc-for list="{{ perfs }}" as="p" hint-placeholder-count="26"><span style="width:10px;height:6px;background:#f6f7f4;opacity:.5"></span></sc-for>
+        </span>
+        </div>
+        <span style="display:flex;align-items:center;gap:10px;margin-top:12px;font-size:11.5px;color:#8a95a6"><span style="width:14px;height:1px;background:#1b5aa6"></span>تصوير: مراسلو شهاب في غزة والضفة والقدس — أرشيف الوكالة</span>
+      </section>
+
+      <section data-screen-label="Reports" style="margin-top:46px">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:2px solid #0a1a33;padding-bottom:11px">
+          <span>
+            <span style="display:block;font-family:'Almarai',sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.34em;color:#1b5aa6">SHIHAB REPORTS</span>
+            <span style="display:flex;align-items:center;gap:11px;font-family:'Almarai',sans-serif;font-size:28px;font-weight:800;line-height:1;color:#0a1a33;margin-top:8px"><span style="width:9px;height:9px;background:#1b5aa6;transform:rotate(45deg)"></span>تقارير شهاب</span>
+          </span>
+          <a href="Shehab Category.dc.html" style="display:inline-flex;align-items:center;gap:9px;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#4a5568;padding-bottom:2px" style-hover="color:#1b5aa6;gap:15px">كل التقارير <span style="width:16px;height:1px;background:currentColor"></span></a>
+        </div>
+
+        <div style="display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr);gap:34px;margin-top:26px;align-items:start">
+          <div>
+            <span style="display:flex;flex-wrap:wrap;align-items:center;gap:9px 12px;font-family:'Almarai',sans-serif;font-size:11px;font-weight:800">
+              <span style="background:#0a1a33;color:#fff;padding:5px 11px">تحليل معمّق</span>
+              <span style="display:flex;align-items:center;gap:7px;color:#8a95a6"><i class="fa-regular fa-clock" style="font-size:10px;color:#1b5aa6"></i>قراءة 12 دقيقة</span>
+              <span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>
+              <span style="color:#8a95a6">9 مصادر</span>
+              <span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>
+              <span style="color:#8a95a6">فريق التقارير</span>
+            </span>
+            <a href="Shehab Article.dc.html" style="display:block;margin-top:14px" style-hover="color:#1b5aa6">
+              <span style="display:block;font-family:'Almarai',sans-serif;font-size:clamp(24px,2.6vw,33px);font-weight:800;line-height:1.4;color:#0a1a33;text-wrap:pretty">من التوسع إلى الضم.. كيف تصنع "إسرائيل" واقعًا لا رجعة فيه في الضفة؟</span>
+            </a>
+            <p style="font-family:'Noto Naskh Arabic',serif;font-size:14.5px;line-height:2.05;color:#4a5568;margin:14px 0 0;max-width:52ch;text-wrap:pretty">114 أمرًا عسكريًا منذ أكتوبر 2023 تعيد رسم خريطة الضفة بهدوء: مناطق نفوذ جديدة، طرق التفافية، وبلدات تُقطع عن محيطها — قراءة في المسار وأدواته.</p>
+            <div style="margin-top:22px;border-top:1px solid #d8ddd3;padding-top:14px">
+              <span style="display:flex;align-items:center;gap:9px;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#1b5aa6"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>خلاصات التقرير</span>
+              <sc-for list="{{ findings }}" as="k" hint-placeholder-count="4">
+                <span style="display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:baseline;padding:12px 0;border-bottom:1px solid #e4e7e0">
+                  <span style="font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;color:#b3bcc9;font-variant-numeric:tabular-nums">{{ k.n }}</span>
+                  <span style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;line-height:1.75;color:#14233a;text-wrap:pretty">{{ k.t }}</span>
+                </span>
+              </sc-for>
+            </div>
+            <span style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:18px">
+              <a href="Shehab Article.dc.html" style="display:inline-flex;align-items:center;gap:11px;border:1px solid #b9c0b3;color:#0a1a33;font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;padding:11px 24px" style-hover="background:#0a1a33;border-color:#0a1a33;color:#fff;gap:17px">قراءة التقرير كاملًا <span style="width:15px;height:1px;background:currentColor"></span></a>
+              <span style="display:flex;align-items:center;gap:9px;font-size:11.5px;color:#8a95a6"><span style="width:12px;height:1px;background:#1b5aa6"></span>نُشر 2 سبتمبر 2026 · يُحدَّث مع تطورات الملف</span>
+            </span>
+          </div>
+
+          <div>
+            <span style="position:relative;display:block;background:#fff;border:1px solid #cfd4cb;padding:9px">
+              <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:1/1">
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=800" alt="ركام في قطاع غزة" style="width:100%;height:100%;object-fit:cover;object-position:center 55%" />
+                <span style="position:absolute;bottom:0;right:0;background:#0a1a33;color:#fff;font-family:'Almarai',sans-serif;font-size:10px;font-weight:800;padding:5px 10px;display:flex;align-items:center;gap:7px"><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>وثيقة مصوّرة</span>
+              </span>
+            </span>
+            <span style="display:block;font-size:11.5px;line-height:1.8;color:#8a95a6;margin-top:10px;text-wrap:pretty">الضفة وغزة تحت إعادة تشكيل قسري للمساحة — أرشيف شهاب</span>
+            <div style="margin-top:20px;background:#f0ece2;border-top:2px solid #0a1a33;padding:16px 18px 6px">
+              <span style="display:flex;align-items:center;gap:9px;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#0a1a33"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>أرقام التقرير</span>
+              <sc-for list="{{ reportFigs }}" as="g" hint-placeholder-count="3">
+                <span style="display:flex;align-items:baseline;gap:9px;padding:11px 0;border-bottom:1px solid #ddd7c8">
+                  <span style="font-family:'Almarai',sans-serif;font-size:22px;font-weight:800;color:#0a1a33;line-height:1;font-variant-numeric:tabular-nums;min-width:56px">{{ g.v }}</span>
+                  <span style="font-size:11.5px;color:#7a7364;line-height:1.7">{{ g.l }}</span>
+                </span>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:30px;border-top:1px solid #d8ddd3;padding-top:14px">
+          <span style="display:flex;align-items:center;gap:9px;font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;color:#0a1a33"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>فهرس التقارير</span>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 34px;margin-top:4px">
+            <sc-for list="{{ reports }}" as="r" hint-placeholder-count="4">
+              <a href="Shehab Article.dc.html" style="display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:baseline;padding:14px 0;border-bottom:1px solid #e4e7e0" style-hover="color:#1b5aa6">
+                <span style="font-family:'Almarai',sans-serif;font-size:13px;font-weight:800;color:#1b5aa6;opacity:.45;font-variant-numeric:tabular-nums">{{ r.n }}</span>
+                <span>
+                  <span style="display:block;font-family:'Almarai',sans-serif;font-size:15px;font-weight:700;line-height:1.7;color:#14233a;text-wrap:pretty">{{ r.title }}</span>
+                  <span style="display:flex;align-items:center;gap:9px;margin-top:7px;font-size:11px;color:#8a95a6"><span style="color:#0a1a33;font-weight:800;font-family:'Almarai',sans-serif">{{ r.kind }}</span><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span><span style="font-variant-numeric:tabular-nums">{{ r.read }}</span></span>
+                </span>
+                <span style="width:9px;height:9px;border-right:1px solid #1b5aa6;border-top:1px solid #1b5aa6;transform:rotate(-135deg)"></span>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <section data-screen-label="Columns" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:46px;border-top:2px solid #0a1a33">
+        <sc-for list="{{ columns }}" as="c" hint-placeholder-count="3">
+          <div style="padding:20px 22px 0;border-left:1px solid #cfd4cb">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+              <h2 style="font-family:'Almarai',sans-serif;font-size:19px;font-weight:800;margin:0;color:#0a1a33;display:flex;align-items:center;gap:10px"><span style="width:7px;height:7px;background:#1b5aa6;transform:rotate(45deg)"></span>{{ c.title }}</h2>
+              <span style="font-size:10.5px;color:#8a95a6;font-variant-numeric:tabular-nums">{{ c.count }}</span>
+            </div>
+            <sc-for list="{{ c.items }}" as="i" hint-placeholder-count="4">
+              <a href="Shehab Article.dc.html" style="display:block;padding:13px 0;border-bottom:1px solid #d8ddd3" style-hover="color:#1b5aa6">
+                <span style="display:block;font-family:'Almarai',sans-serif;font-size:15px;font-weight:700;line-height:1.7;color:#14233a;text-wrap:pretty">{{ i.title }}</span>
+                <span style="display:flex;align-items:center;gap:9px;margin-top:8px;font-size:11.5px;color:#8a95a6"><span style="width:11px;height:1px;background:#8a95a6"></span>{{ i.meta }}</span>
+              </a>
+            </sc-for>
+          </div>
+        </sc-for>
+      </section>
+    </div>
+    <section data-screen-label="Follow" style="margin:46px 30px 0;border-top:2px solid #0a1a33;padding-top:22px">
+      <div style="display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:40px;align-items:start">
+        <div>
+          <span style="display:flex;align-items:center;gap:11px;font-family:'Almarai',sans-serif;font-size:24px;font-weight:800;color:#0a1a33"><span style="width:8px;height:8px;background:#1b5aa6;transform:rotate(45deg)"></span>تابع شهاب</span>
+          <p style="font-family:'Noto Naskh Arabic',serif;font-size:13.5px;line-height:2;color:#4a5568;margin:12px 0 0;max-width:34ch">وكالة تعمل على مدار الساعة — اختر القناة التي تصلك منها الأخبار أولًا.</p>
+          <div style="display:flex;gap:8px;margin-top:18px">
+            <sc-for list="{{ social }}" as="s" hint-placeholder-count="4">
+              <a href="#" aria-label="{{ s.l }}" style="width:36px;height:36px;border:1px solid #b9c0b3;display:flex;align-items:center;justify-content:center;color:#0a1a33" style-hover="background:#1b5aa6;border-color:#1b5aa6;color:#fff"><i class="{{ s.fa }}" style="font-size:14px"></i></a>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <span style="display:flex;align-items:baseline;justify-content:space-between;gap:14px;border-bottom:1px solid #d8ddd3;padding-bottom:10px">
+            <span style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:800;color:#0a1a33">مختارات شهاب — الأسبوع</span>
+            <a href="Shehab Sections.dc.html" style="display:inline-flex;align-items:center;gap:9px;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#1b5aa6" style-hover="gap:15px">كل الأقسام <span style="width:15px;height:1px;background:currentColor"></span></a>
+          </span>
+          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 26px">
+            <sc-for list="{{ picks }}" as="p" hint-placeholder-count="3">
+              <a href="Shehab Article.dc.html" style="display:block;padding:15px 0" style-hover="color:#1b5aa6">
+                <span style="display:flex;align-items:center;gap:9px;font-size:11.5px;color:#8a95a6"><span style="width:11px;height:1px;background:#1b5aa6"></span>{{ p.cat }}</span>
+                <span style="display:block;font-family:'Almarai',sans-serif;font-size:15px;font-weight:700;line-height:1.7;margin-top:8px;color:#14233a;text-wrap:pretty">{{ p.title }}</span>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div style="display:flex;align-items:center;gap:14px;margin:30px 30px 0">
+      <span style="flex:1;height:1px;background:#cfd4cb"></span>
+      <span style="width:11px;height:11px;background:#1b5aa6;transform:rotate(45deg)"></span>
+      <span style="flex:1;height:1px;background:#cfd4cb"></span>
+    </div>
+
+    <footer data-screen-label="Concept Footer" style="margin:26px 30px 0;border-top:1px solid #cfd4cb">
+      <div style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.85fr) minmax(0,.95fr)">
+        <div style="padding:26px 0 24px 30px">
+          <a href="Shehab Homepage.dc.html" style="display:inline-flex"><img src="assets/logo-blue.png" alt="شهاب" style="height:40px;width:auto" /></a>
+          <p style="font-family:'Noto Naskh Arabic',serif;font-size:12.5px;line-height:2;color:#4a5568;margin:14px 0 0;max-width:32ch">وكالة أنباء فلسطينية تعمل على مدار الساعة لنقل الصورة من الساحة الفلسطينية والعربية والدولية.</p>
+          <div style="display:flex;gap:8px;margin-top:18px">
+            <sc-for list="{{ social }}" as="s" hint-placeholder-count="4">
+              <a href="#" aria-label="{{ s.l }}" style="width:34px;height:34px;border:1px solid #b9c0b3;display:flex;align-items:center;justify-content:center;color:#0a1a33" style-hover="background:#1b5aa6;border-color:#1b5aa6;color:#fff"><i class="{{ s.fa }}" style="font-size:14px"></i></a>
+            </sc-for>
+          </div>
+        </div>
+        <div style="border-right:1px solid #cfd4cb;border-left:1px solid #cfd4cb;padding:26px 26px 24px;display:grid;grid-template-columns:1fr 1fr;gap:0 22px">
+          <sc-for list="{{ footerCols }}" as="c" hint-placeholder-count="2">
+            <div>
+              <span style="display:flex;align-items:center;gap:9px;font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;color:#0a1a33"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>{{ c.title }}</span>
+              <div style="display:flex;flex-direction:column;gap:9px;margin-top:14px;font-size:12px;color:#4a5568">
+                <sc-for list="{{ c.links }}" as="l" hint-placeholder-count="5"><a href="#" style-hover="color:#1b5aa6">{{ l }}</a></sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="padding:26px 30px 24px 0">
+          <span style="display:flex;align-items:center;gap:9px;font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;color:#0a1a33"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>النشرة البريدية</span>
+          <p style="font-family:'Noto Naskh Arabic',serif;font-size:12.5px;line-height:1.95;color:#4a5568;margin:12px 0 14px">آخر الأخبار وأبرز الملفات في بريدك كل صباح.</p>
+          <div style="display:flex;background:#fff;border:1px solid #b9c0b3">
+            <span style="flex:1;padding:11px 13px;font-size:12px;color:#8a95a6">بريدك الإلكتروني</span>
+            <a href="#" style="background:#0a1a33;color:#fff;font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;padding:11px 22px;display:flex;align-items:center" style-hover="background:#1b5aa6;color:#fff">اشترك</a>
+          </div>
+          <span style="display:flex;align-items:center;gap:9px;margin-top:16px;font-size:11px;color:#8a95a6"><span style="width:5px;height:5px;background:#e0302f;border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite"></span>تغطية مستمرة على مدار الساعة</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;border-top:1px solid #cfd4cb;padding:16px 0 0;font-size:11px;color:#8a95a6">
+        <span>وكالة شهاب للأنباء © 2026 — جميع الحقوق محفوظة</span>
+        <div style="display:flex;gap:20px">
+          <a href="#" style-hover="color:#1b5aa6">سياسة الخصوصية</a>
+          <a href="#" style-hover="color:#1b5aa6">شروط الاستخدام</a>
+          <a href="#" style-hover="color:#1b5aa6">خدمة RSS</a>
+          <a href="#" style-hover="color:#1b5aa6">English</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1400,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { i: 0, now: Date.now() };
+  componentDidMount() { this._t = setInterval(() => this.setState({ now: Date.now() }), 60000); }
+  componentWillUnmount() { clearInterval(this._t); }
+  slides() {
+    const W = (n, w) => `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(n)}?width=${w}`;
+    return [
+      { label: 'صورة 01', caption: 'العودة عبر شارع الرشيد.. آلاف النازحين يسيرون شمالًا في أول أيام وقف إطلاق النار', bg: 'url("' + W('Displaced Palestinians during their journey back to Gaza and the north via Al-Rasheed Street..jpg', 900) + '")' },
+      { label: 'صورة 02', caption: 'خيام المواسي تمتد على الساحل الجنوبي.. مئات آلاف النازحين بلا مأوى دائم', bg: 'url("' + W('An aerial view of Al-Mawasi area where displaced Palestinians live in tents, Gaza Strip.jpg', 900) + '")' },
+      { label: 'صورة 03', caption: 'رفح بعد انسحاب قوات الاحتلال.. مشهد جوي لأحياء بأكملها تحوّلت إلى ركام', bg: 'url("' + W('An aerial view showing destruction in Rafah after Israeli forces withdrawal and as the ceasefire took hold, Gaza Strip.jpg', 900) + '")' },
+      { label: 'صورة 04', caption: 'بين ركام الأبنية في مدينة غزة.. عائلات تعود للبحث عما تبقّى من بيوتها', bg: 'url("' + W('Damage in Gaza Strip during the October 2023 - 29.jpg', 900) + '")' },
+      { label: 'صورة 05', caption: 'قبة المسجد الأقصى من البلدة القديمة.. القدس تحت قيود متصاعدة على الوصول', img: W('Dome of the Al-Aqsa Mosque (20160).jpg', 900) }
+    ];
+  }
+  renderVals() {
+    const sl = this.slides(), n = sl.length, i = ((this.state.i % n) + n) % n;
+    const d = new Date(this.state.now);
+    const fmt = (o) => new Intl.DateTimeFormat('ar-EG-u-nu-latn', o).format(d);
+    const navItems = ['الرئيسية', 'غزة', 'الضفة', 'القدس', 'عربي ودولي', 'الملفات', 'الفيديو'];
+    const W = (n, w) => `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(n)}?width=${w}`;
+    return {
+      today: fmt({ weekday: 'long', day: 'numeric', month: 'long' }),
+      clock: fmt({ hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Jerusalem' }),
+      nav: navItems.map((label, k) => ({ label, bg: k === 1 ? '#e4e7e0' : 'transparent', color: k === 1 ? '#0a1a33' : '#4a5568' })),
+      leadImg: `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent('An aerial view of Al-Mawasi area where displaced Palestinians live in tents, Gaza Strip.jpg')}?width=1200`,
+      list: [
+        { title: 'الأوقاف: الاحتلال يدمّر 3 مساجد في يومين ليصل العدد إلى 1244 مسجدًا في غزة', cat: 'غزة', catColor: '#1b5aa6', time: 'منذ 12 دقيقة' },
+        { title: 'فيديو | لحظة إطلاق النار على شاب فلسطيني أعزل خلال الاستيلاء على مبنى الأونروا في قلنديا', cat: 'القدس', catColor: '#e0302f', time: 'منذ 25 دقيقة' },
+        { title: 'لبنان: ارتفاع حصيلة العدوان الإسرائيلي إلى 4350 شهيدًا و12310 جرحى', cat: 'عربي ودولي', catColor: '#1b5aa6', time: 'منذ 40 دقيقة' },
+        { title: 'من التوسع إلى الضم.. كيف تصنع "إسرائيل" واقعًا لا رجعة فيه في الضفة؟', cat: 'تقرير', catColor: '#1b5aa6', time: 'منذ ساعتين' },
+        { title: 'الاحتلال يصدر 114 أمرًا عسكريًا لتوسيع نفوذ المستوطنات منذ أكتوبر 2023', cat: 'فلسطين', catColor: '#1b5aa6', time: 'منذ 3 ساعات' }
+      ],
+      heroRail: [
+        { n: '1', title: 'فيديو | لحظة إطلاق النار على شاب أعزل في قلنديا' },
+        { n: '2', title: 'الأوقاف: 1244 مسجدًا دمّرها الاحتلال في غزة' },
+        { n: '3', title: 'كواليس استشهاد "أبو رعد" خازم في جنين' },
+        { n: '4', title: 'لبنان: ارتفاع حصيلة العدوان إلى 4350 شهيدًا و12310 جرحى' },
+        { n: '5', title: 'مصر تستضيف جولة جديدة من مباحثات المرحلة الثانية' }
+      ],
+      sideBg: 'url("' + sl[i].img + '")',
+      slideLabel: sl[i].label,
+      slideCaption: sl[i].caption,
+      idxLabel: String(i + 1),
+      totalLabel: String(n),
+      progress: Math.round(((i + 1) / n) * 100) + '%',
+      wire: [
+        { time: '10:32 م', cat: 'الضفة', text: 'قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم', timeColor: '#e0302f' },
+        { time: '10:13 م', cat: 'غزة', text: 'إطلاق نار من "كواد كابتر" في السطر الغربي ومحيط مدرسة الأقصى بخانيونس', timeColor: '#0a1a33' },
+        { time: '10:02 م', cat: 'الضفة', text: 'قوات الاحتلال تداهم منازل خلال اقتحامها بلدة نحالين غرب بيت لحم', timeColor: '#0a1a33' },
+        { time: '09:31 م', cat: 'القدس', text: 'نعيم: هدم مقر الأونروا بالقدس جريمة حرب وانتهاك صارخ للقانون الدولي', timeColor: '#0a1a33' },
+        { time: '09:05 م', cat: 'القدس', text: 'قنابل غاز خلال اقتحام شارع المعهد في محيط مخيم قلنديا شمال القدس', timeColor: '#0a1a33' },
+        { time: '08:51 م', cat: 'غزة', text: '4 شهداء وإصابات بقصف الاحتلال في جباليا شمال قطاع غزة', timeColor: '#0a1a33' }
+      ],
+      topNow: [
+        { cat: 'غزة', time: 'منذ 20 دقيقة', title: 'الأوقاف: الاحتلال يدمّر 3 مساجد في يومين ليصل العدد إلى 1244 مسجدًا', bg: 'url("' + W('Damage in Gaza Strip during the October 2023 - 29.jpg', 800) + '")' },
+        { cat: 'القدس', time: 'منذ 25 دقيقة', title: 'فيديو | لحظة إطلاق النار على شاب أعزل خلال الاستيلاء على مبنى الأونروا في قلنديا', bg: 'url("' + W('Dome of the Al-Aqsa Mosque (20160).jpg', 800) + '")' },
+        { cat: 'عربي ودولي', time: 'منذ 40 دقيقة', title: 'لبنان: ارتفاع حصيلة العدوان الإسرائيلي إلى 4350 شهيدًا و12310 جرحى', bg: 'url("' + W('An aerial view showing destruction in Rafah after Israeli forces withdrawal and as the ceasefire took hold, Gaza Strip.jpg', 800) + '")' }
+      ],
+      liveFeed: [
+        { time: '10:32 م', cat: 'الضفة', text: 'قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم', dot: '#e0302f' },
+        { time: '10:13 م', cat: 'غزة', text: 'مراسل شهاب: إطلاق نار من طائرة مُسيّرة "كواد كابتر" في منطقة السطر الغربي شمال غربي خانيونس', dot: '#1b5aa6' },
+        { time: '10:02 م', cat: 'الضفة', text: 'قوات الاحتلال تداهم منازل خلال اقتحامها بلدة نحالين غرب بيت لحم', dot: '#b8c2d0' },
+        { time: '09:05 م', cat: 'القدس', text: 'قوات الاحتلال تطلق قنابل الغاز خلال اقتحام شارع المعهد في محيط مخيم قلنديا', dot: '#b8c2d0' },
+        { time: '08:51 م', cat: 'غزة', text: '4 شهداء وإصابات بقصف الاحتلال في جباليا شمال قطاع غزة', dot: '#b8c2d0' }
+      ],
+      picks: [
+        { cat: 'تقرير', title: 'من التوسع إلى الضم.. كيف تصنع "إسرائيل" واقعًا لا رجعة فيه في الضفة؟' },
+        { cat: 'ملف', title: '1000 يوم على حرب الإبادة.. الأرقام والوجوه والركام' },
+        { cat: 'عدسة', title: 'العودة عبر شارع الرشيد.. ألبوم من أول أيام وقف إطلاق النار' }
+      ],
+      files: [
+        { num: '01', title: 'رحيل الضيف.. القائد الذي أرهق الاحتلال', label: 'سيرة وشهادات', count: '31 مادة', read: '48 دقيقة', updated: 'آخر إضافة هذا الأسبوع', bg: 'url("' + 'assets/file-raheel-aldaif.png' + '")' },
+        { num: '02', title: 'أقمار الطوفان', label: 'سلسلة تحقيقات', count: '25 مادة', read: '35 دقيقة', updated: 'يتحدّث أسبوعيًا', bg: 'url("' + 'assets/file-aqmar-altoufan.png' + '")' },
+        { num: '03', title: '1000 يوم على حرب الإبادة', label: 'ملف مفتوح', count: '38 مادة', read: '52 دقيقة', updated: 'محدث يوميًا', bg: 'url("' + 'assets/file-1000-days.png' + '")' },
+        { num: '04', title: 'كأس العالم 2026', label: 'تغطية مستمرة', count: '19 مادة', read: '22 دقيقة', updated: 'آخر إضافة اليوم', bg: 'url("' + 'assets/file-world-cup-2026.png' + '")' }
+      ],
+      more: [
+        { cat: 'فلسطين', time: 'منذ ساعة', title: 'الاحتلال يصدر 114 أمرًا عسكريًا لتوسيع نفوذ المستوطنات منذ أكتوبر 2023' },
+        { cat: 'إسرائيلي', time: 'منذ ساعة', title: 'خلافات داخل حكومة الاحتلال حول المرحلة الثانية من الاتفاق' },
+        { cat: 'غزة', time: 'منذ ساعتين', title: '80 مليار دولار.. الإبادة تمتد إلى الاقتصاد وتحوّل 15 قطاعًا إلى ركام' },
+        { cat: 'القدس', time: 'منذ ساعتين', title: 'شرطة الاحتلال تقتحم معهد قلنديا قرب المخيم شمال القدس المحتلة' },
+        { cat: 'عربي', time: 'منذ 3 ساعات', title: 'مصر تستضيف جولة جديدة من مباحثات المرحلة الثانية' },
+        { cat: 'رياضة', time: 'منذ 3 ساعات', title: 'أتلتيك بيلباو يخصص مباراته أمام مايوركا لأجل فلسطين' },
+        { cat: 'منوعات', time: 'منذ 4 ساعات', title: 'عودة الدراسة في 40 مدرسة بعد ترميمها شمال القطاع' },
+        { cat: 'رأي', time: 'أمس', title: 'طبيعة الخلاف بين ترامب ونتنياهو.. تباين تكتيكي أم قطيعة استراتيجية؟' },
+        { cat: 'غزة', time: 'منذ 4 ساعات', title: 'الأوقاف: الاحتلال يدمّر 3 مساجد في يومين ليصل العدد إلى 1244 مسجدًا' },
+        { cat: 'القدس', time: 'منذ 5 ساعات', title: 'نعيم: هدم مقر الأونروا بالقدس جريمة حرب وانتهاك صارخ للقانون الدولي' },
+        { cat: 'دولي', time: 'منذ 5 ساعات', title: 'لبنان: ارتفاع حصيلة العدوان الإسرائيلي إلى 4350 شهيدًا و12310 جرحى' },
+        { cat: 'رياضة', time: 'أمس', title: 'ريال مدريد يكتسح ملقا برباعية في البرنابيو ويتصدر الليغا بالعلامة الكاملة' }
+      ],
+      mostRead: [
+        { n: '01', title: 'فيديو | لحظة إطلاق النار على شاب فلسطيني أعزل في قلنديا' },
+        { n: '02', title: 'الأوقاف: 1244 مسجدًا دمرها الاحتلال في غزة' },
+        { n: '03', title: 'مصادر تكشف كواليس استشهاد "أبو رعد" خازم في جنين' },
+        { n: '04', title: 'أطفال غزة والطائرات الورقية.. ذريعة جديدة للتصعيد' },
+        { n: '05', title: 'لبنان: ارتفاع حصيلة العدوان إلى 4350 شهيدًا' }
+      ],
+      figures: [
+        { v: '1,244', unit: 'مسجدًا مدمّرًا', note: 'من أصل 1,275 مسجدًا في القطاع — وزارة الأوقاف' },
+        { v: '325', unit: 'يومًا', note: 'على سريان وقف إطلاق النار الموقّع في 10 أكتوبر 2025' },
+        { v: '114', unit: 'أمرًا عسكريًا', note: 'لتوسيع نفوذ المستوطنات منذ أكتوبر 2023' }
+      ],
+      statements: [
+        { who: 'أكاديمي فلسطيني لـ شهاب', text: 'تحويل ألعاب الأطفال إلى "اتهام حربي" يكشف ذرائع واهية لمواصلة العدوان' },
+        { who: 'د. باسم نعيم', text: 'هدم مقر الأونروا بالقدس جريمة حرب وانتهاك صارخ للقانون الدولي' },
+        { who: 'غفران زامل لـ شهاب', text: 'عندما التقيتُ محمد الضيف.. شهادة عن لقاء "رجل الظل"' }
+      ],
+      perfs: Array.from({ length: 22 }, (_, k) => k),
+      lensRest: sl.slice(1).map((s, k) => ({ bg: 'url("' + s.img + '")', caption: s.caption, num: '0' + (k + 2) })),
+      videoLead: { title: 'العودة عبر الرشيد.. 12 دقيقة توثق رحلة النازحين إلى الشمال', cat: 'غزة', dur: '12:04', bg: 'url("' + 'assets/gaza-coast.png' + '")' },
+      videoList: [
+        { title: 'لحظة إطلاق النار على شاب أعزل في مخيم قلنديا', dur: '01:12', bg: 'url("' + W('Dome of the Al-Aqsa Mosque (20160).jpg', 400) + '")' },
+        { title: 'جولة في رفح بعد انسحاب قوات الاحتلال', dur: '04:35', bg: 'url("' + W('An aerial view showing destruction in Rafah after Israeli forces withdrawal and as the ceasefire took hold, Gaza Strip.jpg', 400) + '")' },
+        { title: 'خيام المواسي.. شهادات من داخل مخيمات النزوح', dur: '06:20', bg: 'url("' + W('An aerial view of Al-Mawasi area where displaced Palestinians live in tents, Gaza Strip.jpg', 400) + '")' }
+      ],
+      reportLead: { title: 'من التوسع إلى الضم.. كيف تصنع "إسرائيل" واقعًا لا رجعة فيه في الضفة؟', desc: '114 أمرًا عسكريًا منذ أكتوبر 2023 تعيد رسم خريطة الضفة بهدوء — قراءة في المسار وأدواته.', bg: 'url("' + W('Damage in Gaza Strip during the October 2023 - 29.jpg', 1000) + '")' },
+      findings: [
+        { n: '01', t: 'مناطق نفوذ المستوطنات تتوسّع بأوامر عسكرية لا بقرارات معلنة — 114 أمرًا منذ أكتوبر 2023' },
+        { n: '02', t: 'شبكة الطرق الالتفافية تفصل 27 بلدة عن محيطها وتحوّل التنقل إلى إجراء أمني' },
+        { n: '03', t: 'الضم يجري بالتدريج: تثبيت وقائع على الأرض قبل أي إعلان سياسي' },
+        { n: '04', t: 'الأوامر العسكرية تسبق البناء الاستيطاني بمتوسط 7 أشهر — ما يجعل الاعتراض القانوني بلا أثر' }
+      ],
+      reportFigs: [
+        { v: '114', l: 'أمرًا عسكريًا منذ أكتوبر 2023' },
+        { v: '27', l: 'بلدة معزولة عن محيطها' },
+        { v: '9', l: 'مصادر ووثائق راجعتها شهاب' }
+      ],
+      reports: [
+        { n: '02', kind: 'شهادات', read: 'قراءة 7 دقائق', title: 'رصاصة في الرأس وحلم في الركام.. قصة اللاعب محمد' },
+        { n: '03', kind: 'تحقيق', read: 'قراءة 9 دقائق', title: 'مصادر تكشف كواليس استشهاد "أبو رعد" خازم بعد اقتحام منزله في جنين' },
+        { n: '04', kind: 'تحليل', read: 'قراءة 6 دقائق', title: 'طبيعة الخلاف بين ترامب ونتنياهو.. تباين تكتيكي أم قطيعة استراتيجية؟' },
+        { n: '05', kind: 'اقتصاد', read: 'قراءة 11 دقيقة', title: '80 مليار دولار.. الإبادة تمتد إلى الاقتصاد وتحوّل 15 قطاعًا إلى ركام' }
+      ],
+      columns: [
+        { title: 'رأي', count: '6 مقالات', items: [
+          { title: 'طبيعة الخلاف بين ترامب ونتنياهو', meta: 'مقالات شهاب' },
+          { title: 'القدس.. حيث تلتقي المادة بالمعنى', meta: 'حمزة قرقماز' },
+          { title: 'في ذكرى إحراق الأقصى: هوية لا تُطمس', meta: 'مقالات شهاب' },
+          { title: 'من التوسع إلى الضم.. قراءة تحليلية', meta: 'تقارير خاصة' }
+        ] },
+        { title: 'رياضة', count: '13 خبرًا', items: [
+          { title: 'ريال مدريد يكتسح ملقا برباعية ويتصدر الليغا بالعلامة الكاملة', meta: 'الليغا' },
+          { title: 'ليونيل ميسي يعلن اعتزاله دوليًا مع منتخب الأرجنتين', meta: 'دولي' },
+          { title: 'رسميًا: برشلونة يعلن تعاقده مع غابرييل خيسوس', meta: 'انتقالات' },
+          { title: 'موعد الكلاسيكو الأول في الموسم: 25 أكتوبر', meta: 'الليغا' }
+        ] },
+        { title: 'منوعات', count: '9 أخبار', items: [
+          { title: 'عودة الدراسة في 40 مدرسة بعد ترميمها شمال القطاع', meta: 'مجتمع' },
+          { title: 'أسعار الأساسيات في غزة تتراجع 12% مع فتح المعابر جزئيًا', meta: 'اقتصاد' },
+          { title: 'الإعمار بالأرقام: ماذا دُمّر وماذا يُبنى في القطاع؟', meta: 'إنفوغرافيك' },
+          { title: 'أتلتيك بيلباو يخصص مباراته أمام مايوركا لأجل فلسطين', meta: 'رياضة' }
+        ] }
+      ],
+      footerCols: [
+        { title: 'الأقسام', links: ['أخبار فلسطين', 'القدس', 'غزة', 'الضفة', 'عربي ودولي'] },
+        { title: 'المحتوى', links: ['التغطيات الحية', 'ملفات شهاب', 'عدسة شهاب', 'فيديو شهاب', 'تقارير خاصة'] }
+      ],
+      social: [
+        { l: 'فيسبوك', fa: 'fa-brands fa-facebook-f' },
+        { l: 'إكس', fa: 'fa-brands fa-x-twitter' },
+        { l: 'إنستغرام', fa: 'fa-brands fa-instagram' },
+        { l: 'تيليغرام', fa: 'fa-solid fa-paper-plane' }
+      ],
+      next: (e) => { e.preventDefault(); this.setState(s => ({ i: s.i + 1 })); },
+      prev: (e) => { e.preventDefault(); this.setState(s => ({ i: s.i - 1 })); }
+    };
+  }
+}
+</script>
+</body>
+</html>
