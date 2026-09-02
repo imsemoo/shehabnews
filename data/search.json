@@ -1,0 +1,276 @@
+{
+  "today": "الخميس، 3 سبتمبر 2026",
+  "hijri": "21 ربيع الأول 1448 هـ",
+  "clock": "02:37",
+  "breakingIdx": 0,
+  "breakingItem": {
+    "t": "قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم",
+    "time": "10:32 م"
+  },
+  "breakingCounter": "1 / 3",
+  "nav": [
+    "أخبار فلسطين",
+    "القدس",
+    "غزة",
+    "الضفة",
+    "عربي ودولي",
+    "إسرائيلي",
+    "التغطيات",
+    "ملفات خاصة",
+    "فيديو",
+    "بالصور",
+    "رأي",
+    "المزيد"
+  ],
+  "footerCols": [
+    {
+      "title": "الأقسام",
+      "links": [
+        "أخبار فلسطين",
+        "القدس",
+        "غزة",
+        "الضفة",
+        "عربي ودولي"
+      ]
+    },
+    {
+      "title": "المحتوى",
+      "links": [
+        "التغطيات الحية",
+        "ملفات شهاب",
+        "عدسة شهاب",
+        "فيديو شهاب",
+        "تقارير خاصة"
+      ]
+    },
+    {
+      "title": "الوكالة",
+      "links": [
+        "من نحن",
+        "تواصل معنا",
+        "سياسة التحرير",
+        "فرص العمل",
+        "خدمة الصور"
+      ]
+    }
+  ],
+  "social": [
+    {
+      "l": "فيسبوك",
+      "fa": "fa-brands fa-facebook-f"
+    },
+    {
+      "l": "إكس",
+      "fa": "fa-brands fa-x-twitter"
+    },
+    {
+      "l": "إنستغرام",
+      "fa": "fa-brands fa-instagram"
+    },
+    {
+      "l": "تيليغرام",
+      "fa": "fa-solid fa-paper-plane"
+    }
+  ],
+  "adv": false,
+  "advLabel": "بحث متقدم",
+  "sections": [
+    "غزة",
+    "فلسطين",
+    "القدس",
+    "عربي ودولي",
+    "اقتصاد",
+    "مجتمع",
+    "رياضة",
+    "صور",
+    "فيديو"
+  ],
+  "years": [
+    {
+      "year": "2026",
+      "count": "412",
+      "fill": "#1b5aa6",
+      "color": "#0a1a33"
+    },
+    {
+      "year": "2025",
+      "count": "536",
+      "fill": "#fff",
+      "color": "#0a1a33"
+    },
+    {
+      "year": "2024",
+      "count": "218",
+      "fill": "#fff",
+      "color": "#0a1a33"
+    },
+    {
+      "year": "2023",
+      "count": "82",
+      "fill": "#fff",
+      "color": "#0a1a33"
+    }
+  ],
+  "topics": [
+    {
+      "name": "غزة",
+      "count": "1,248"
+    },
+    {
+      "name": "فلسطين",
+      "count": "3,102"
+    },
+    {
+      "name": "القدس",
+      "count": "864"
+    },
+    {
+      "name": "الحرب",
+      "count": "2,415"
+    },
+    {
+      "name": "السياسة",
+      "count": "731"
+    },
+    {
+      "name": "الاقتصاد",
+      "count": "286"
+    },
+    {
+      "name": "المجتمع",
+      "count": "419"
+    },
+    {
+      "name": "العالم",
+      "count": "655"
+    }
+  ],
+  "featBg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=1000\")",
+  "results": [
+    {
+      "cat": "عاجل — غزة",
+      "time": "اليوم 09:41 م",
+      "title": "4 شهداء بقصف مدفعي للاحتلال في جباليا شمال قطاع غزة",
+      "sub": "مصادر طبية أكدت لشهاب ارتقاء أربعة شهداء وإصابة آخرين في قصفٍ استهدف جباليا البلد، في أحدث خروقات وقف إطلاق النار.",
+      "meta": "خبر — مراسل شهاب",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=600\")"
+    },
+    {
+      "cat": "إنساني",
+      "time": "اليوم 08:30 م",
+      "title": "مرضى القطاع بلا علاج.. الاحتلال يواصل إغلاق معبر رفح لليوم العاشر",
+      "sub": "آلاف المرضى ينتظرون السفر للعلاج فيما تحذّر وزارة الصحة من نفاد أدوية الأمراض المزمنة في مستشفيات القطاع.",
+      "meta": "تقرير — 3 دقائق قراءة",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/UNRWA%20el-Sheikh%20Radwan%20health%20center%2C%20February%202024.jpg?width=600\")"
+    },
+    {
+      "cat": "إعمار",
+      "time": "اليوم 07:58 م",
+      "title": "بلدية غزة: فتح 60% من الطرق الرئيسية وإزالة أكثر من مليون طن ركام",
+      "sub": "جهود إعادة الإعمار تتواصل رغم شح المعدات، فيما يعود آلاف النازحين تدريجيًا إلى أحيائهم عبر شارع الرشيد.",
+      "meta": "خبر — بلدية غزة",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=600\")"
+    },
+    {
+      "cat": "قصة",
+      "time": "أمس",
+      "title": "رصاصة في الرأس وحلم في الركام.. قصة اللاعب محمد الذي أنهى الاحتلال مسيرته",
+      "sub": "من ملاعب حي الشجاعية إلى سرير العلاج — شهاب توثق رحلة لاعب كرة قدم واعد غيّرت رصاصة قناص مساره إلى الأبد.",
+      "meta": "قصة إنسانية — 6 دقائق قراءة",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=600\")"
+    },
+    {
+      "cat": "الميدان",
+      "time": "أمس",
+      "title": "توغل محدود لآليات الاحتلال شرق مدينة غزة تحت غطاء ناري",
+      "sub": "آليات عسكرية توغلت مسافة محدودة شرق حي الشجاعية وسط إطلاق نار كثيف، قبل انسحابها باتجاه \"الخط الأصفر\".",
+      "meta": "خبر — مراسل شهاب",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=600\")"
+    },
+    {
+      "cat": "إنساني",
+      "time": "قبل يومين",
+      "title": "خيام المواسي تغرق مجددًا.. منخفض جوي يفاقم معاناة النازحين",
+      "sub": "مياه الأمطار غمرت عشرات الخيام في المواسي غربي خانيونس، ومناشدات لتوفير مستلزمات الإيواء قبل ذروة الشتاء.",
+      "meta": "تقرير مصوّر — عدسة شهاب",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20view%20of%20destruction%20in%20Beach%20refugee%20camp%2C%20Gaza%20Strip.jpg?width=600\")"
+    }
+  ],
+  "mostRead": [
+    {
+      "n": "01",
+      "title": "فيديو | لحظة إطلاق النار على شاب فلسطيني أعزل في قلنديا"
+    },
+    {
+      "n": "02",
+      "title": "الأوقاف: 1244 مسجدًا دمرها الاحتلال في غزة"
+    },
+    {
+      "n": "03",
+      "title": "مصادر تكشف كواليس استشهاد \"أبو رعد\" خازم في جنين"
+    },
+    {
+      "n": "04",
+      "title": "أطفال غزة والطائرات الورقية.. ذريعة جديدة للتصعيد"
+    },
+    {
+      "n": "05",
+      "title": "لبنان: ارتفاع حصيلة العدوان إلى 4350 شهيدًا"
+    }
+  ],
+  "latest": [
+    {
+      "cat": "عاجل",
+      "time": "10:32 م",
+      "title": "قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم",
+      "dot": "#e0302f",
+      "color": "#e0302f"
+    },
+    {
+      "cat": "غزة",
+      "time": "10:13 م",
+      "title": "إطلاق نار من \"كواد كابتر\" في السطر الغربي بخانيونس",
+      "dot": "#b8c2d0",
+      "color": "#1b5aa6"
+    },
+    {
+      "cat": "القدس",
+      "time": "09:05 م",
+      "title": "قنابل غاز خلال اقتحام محيط مخيم قلنديا",
+      "dot": "#b8c2d0",
+      "color": "#1b5aa6"
+    },
+    {
+      "cat": "لبنان",
+      "time": "08:47 م",
+      "title": "غارة إسرائيلية على أطراف بلدة عيتا الشعب جنوبي لبنان",
+      "dot": "#b8c2d0",
+      "color": "#1b5aa6"
+    }
+  ],
+  "files": [
+    "1000 يوم على حرب الإبادة",
+    "أقمار الطوفان.. رحلة الغياب والعودة",
+    "رحيل الضيف.. القائد الذي أرهق الاحتلال"
+  ],
+  "interest": [
+    {
+      "cat": "تقرير",
+      "time": "هذا الأسبوع",
+      "title": "من التوسع إلى الضم.. كيف تصنع \"إسرائيل\" واقعًا لا رجعة فيه في الضفة؟",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=600\")"
+    },
+    {
+      "cat": "عدسة شهاب",
+      "time": "هذا الأسبوع",
+      "title": "شارع الرشيد.. شريان غزة يعود للحياة رغم الدمار",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=600\")"
+    },
+    {
+      "cat": "ملف",
+      "time": "مستمر",
+      "title": "1000 يوم على حرب الإبادة.. أرقام توثّق الجريمة",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=600\")"
+    }
+  ]
+}

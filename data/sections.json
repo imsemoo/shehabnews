@@ -1,0 +1,247 @@
+{
+  "today": "الخميس، 3 سبتمبر 2026",
+  "hijri": "21 ربيع الأول 1448 هـ",
+  "breakingIdx": 0,
+  "breakingItem": {
+    "t": "قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم",
+    "time": "10:32 م"
+  },
+  "breakingCounter": "1 / 3",
+  "nav": [
+    "أخبار فلسطين",
+    "القدس",
+    "غزة",
+    "الضفة",
+    "عربي ودولي",
+    "إسرائيلي",
+    "التغطيات",
+    "ملفات خاصة",
+    "فيديو",
+    "بالصور",
+    "رأي",
+    "المزيد"
+  ],
+  "footerCols": [
+    {
+      "title": "الأقسام",
+      "links": [
+        "أخبار فلسطين",
+        "القدس",
+        "غزة",
+        "الضفة",
+        "عربي ودولي"
+      ]
+    },
+    {
+      "title": "المحتوى",
+      "links": [
+        "التغطيات الحية",
+        "ملفات شهاب",
+        "عدسة شهاب",
+        "فيديو شهاب",
+        "تقارير خاصة"
+      ]
+    },
+    {
+      "title": "الوكالة",
+      "links": [
+        "من نحن",
+        "تواصل معنا",
+        "سياسة التحرير",
+        "فرص العمل",
+        "خدمة الصور"
+      ]
+    }
+  ],
+  "social": [
+    {
+      "l": "فيسبوك",
+      "fa": "fa-brands fa-facebook-f"
+    },
+    {
+      "l": "إكس",
+      "fa": "fa-brands fa-x-twitter"
+    },
+    {
+      "l": "إنستغرام",
+      "fa": "fa-brands fa-instagram"
+    },
+    {
+      "l": "تيليغرام",
+      "fa": "fa-solid fa-paper-plane"
+    }
+  ],
+  "clock": "02:37",
+  "leadBg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=1400\")",
+  "westBg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=700\")",
+  "videoBg": "url(\"assets/gaza-coast.png\")",
+  "photoBg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=900\")",
+  "mid": [
+    {
+      "bgColor": "#0a1a33",
+      "fg": "#fff",
+      "rule": "#1b5aa6",
+      "accent": "#7ea8dd",
+      "n": "03",
+      "name": "القدس",
+      "count": "17",
+      "time": "منذ 25 دقيقة",
+      "headline": "قنابل غاز خلال اقتحام محيط مخيم قلنديا واستيلاء على مبنى الأونروا",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Dome%20of%20the%20Al-Aqsa%20Mosque%20(20160731-DSC00397).jpg?width=700\")"
+    },
+    {
+      "bgColor": "#fff",
+      "fg": "#14233a",
+      "rule": "#14233a",
+      "accent": "#1b5aa6",
+      "n": "04",
+      "name": "عربي ودولي",
+      "count": "31",
+      "time": "منذ 40 دقيقة",
+      "headline": "لبنان: ارتفاع حصيلة العدوان الإسرائيلي إلى 4350 شهيدًا و12310 جرحى",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=700\")"
+    }
+  ],
+  "small": [
+    {
+      "name": "إسرائيلي",
+      "count": "14 خبرًا",
+      "headline": "خلافات داخل حكومة الاحتلال حول المرحلة الثانية من الاتفاق"
+    },
+    {
+      "name": "اقتصاد",
+      "count": "9 أخبار",
+      "headline": "أسعار الأساسيات في غزة تتراجع 12% مع فتح المعابر جزئيًا"
+    },
+    {
+      "name": "مجتمع",
+      "count": "11 خبرًا",
+      "headline": "عودة الدراسة في 40 مدرسة بعد ترميمها شمال القطاع"
+    },
+    {
+      "name": "رياضة",
+      "count": "13 خبرًا",
+      "headline": "المنتخب الفلسطيني يواصل استعداداته لتصفيات كأس آسيا"
+    },
+    {
+      "name": "رأي",
+      "count": "6 مقالات",
+      "headline": "من التوسع إلى الضم.. قراءة في المسار الإسرائيلي بالضفة"
+    },
+    {
+      "name": "إنفوغرافيك",
+      "count": "4 مواد",
+      "headline": "الإعمار بالأرقام: ماذا دُمّر وماذا يُبنى في القطاع؟"
+    }
+  ],
+  "files": [
+    {
+      "title": "1000 يوم على حرب الإبادة",
+      "count": "38",
+      "bg": "url(\"assets/file-1000-days.png\")"
+    },
+    {
+      "title": "أقمار الطوفان.. رحلة الغياب والعودة",
+      "count": "25",
+      "bg": "url(\"assets/file-aqmar-altoufan.png\")"
+    },
+    {
+      "title": "رحيل الضيف.. القائد الذي أرهق الاحتلال",
+      "count": "31",
+      "bg": "url(\"assets/file-raheel-aldaif.png\")"
+    }
+  ],
+  "years": [
+    {
+      "year": "2026",
+      "count": "4,120",
+      "fill": "#1b5aa6"
+    },
+    {
+      "year": "2025",
+      "count": "9,860",
+      "fill": "#fff"
+    },
+    {
+      "year": "2024",
+      "count": "11,204",
+      "fill": "#fff"
+    },
+    {
+      "year": "2023",
+      "count": "8,442",
+      "fill": "#fff"
+    },
+    {
+      "year": "2022",
+      "count": "5,318",
+      "fill": "#fff"
+    }
+  ],
+  "team": [
+    {
+      "initial": "م",
+      "name": "محمد أحمد",
+      "role": "محرر وصحفي — وحدة التقارير"
+    },
+    {
+      "initial": "ف",
+      "name": "فريق التقارير",
+      "role": "الصحافة المعمّقة"
+    },
+    {
+      "initial": "ع",
+      "name": "عدسة شهاب",
+      "role": "وحدة التصوير"
+    },
+    {
+      "initial": "ر",
+      "name": "وحدة الرسوم",
+      "role": "إنفوغرافيك وخرائط"
+    }
+  ],
+  "mostRead": [
+    {
+      "n": "01",
+      "title": "فيديو | لحظة إطلاق النار على شاب فلسطيني أعزل في قلنديا"
+    },
+    {
+      "n": "02",
+      "title": "الأوقاف: 1244 مسجدًا دمرها الاحتلال في غزة"
+    },
+    {
+      "n": "03",
+      "title": "مصادر تكشف كواليس استشهاد \"أبو رعد\" خازم في جنين"
+    },
+    {
+      "n": "04",
+      "title": "أطفال غزة والطائرات الورقية.. ذريعة جديدة للتصعيد"
+    },
+    {
+      "n": "05",
+      "title": "لبنان: ارتفاع حصيلة العدوان إلى 4350 شهيدًا"
+    }
+  ],
+  "services": [
+    {
+      "icon": "fa-regular fa-envelope",
+      "name": "النشرة البريدية",
+      "sub": "موجز الصباح كل يوم"
+    },
+    {
+      "icon": "fa-solid fa-rss",
+      "name": "خدمة RSS",
+      "sub": "كل الأقسام ومسارات مخصصة"
+    },
+    {
+      "icon": "fa-solid fa-mobile-screen",
+      "name": "تطبيق شهاب",
+      "sub": "iOS وأندرويد — إشعارات عاجلة"
+    },
+    {
+      "icon": "fa-solid fa-camera",
+      "name": "خدمة الصور",
+      "sub": "ترخيص صور الوكالة للمؤسسات"
+    }
+  ]
+}

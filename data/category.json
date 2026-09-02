@@ -1,0 +1,251 @@
+{
+  "today": "الخميس، 3 سبتمبر 2026",
+  "hijri": "21 ربيع الأول 1448 هـ",
+  "breakingIdx": 0,
+  "breakingItem": {
+    "t": "قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم",
+    "time": "10:32 م"
+  },
+  "breakingCounter": "1 / 3",
+  "nav": [
+    "أخبار فلسطين",
+    "القدس",
+    "غزة",
+    "الضفة",
+    "عربي ودولي",
+    "إسرائيلي",
+    "التغطيات",
+    "ملفات خاصة",
+    "فيديو",
+    "بالصور",
+    "رأي",
+    "المزيد"
+  ],
+  "footerCols": [
+    {
+      "title": "الأقسام",
+      "links": [
+        "أخبار فلسطين",
+        "القدس",
+        "غزة",
+        "الضفة",
+        "عربي ودولي"
+      ]
+    },
+    {
+      "title": "المحتوى",
+      "links": [
+        "التغطيات الحية",
+        "ملفات شهاب",
+        "عدسة شهاب",
+        "فيديو شهاب",
+        "تقارير خاصة"
+      ]
+    },
+    {
+      "title": "الوكالة",
+      "links": [
+        "من نحن",
+        "تواصل معنا",
+        "سياسة التحرير",
+        "فرص العمل",
+        "خدمة الصور"
+      ]
+    }
+  ],
+  "social": [
+    {
+      "l": "فيسبوك",
+      "fa": "fa-brands fa-facebook-f"
+    },
+    {
+      "l": "إكس",
+      "fa": "fa-brands fa-x-twitter"
+    },
+    {
+      "l": "إنستغرام",
+      "fa": "fa-brands fa-instagram"
+    },
+    {
+      "l": "تيليغرام",
+      "fa": "fa-solid fa-paper-plane"
+    }
+  ],
+  "clock": "02:37",
+  "leadSide": [
+    {
+      "cat": "الميدان",
+      "time": "منذ ساعة",
+      "title": "إطلاق نار من \"كواد كابتر\" في السطر الغربي ومحيط مدرسة الأقصى بخانيونس"
+    },
+    {
+      "cat": "إنساني",
+      "time": "منذ ساعتين",
+      "title": "الأوقاف: الاحتلال يدمر 3 مساجد في يومين ليصل العدد إلى 1244 مسجدًا"
+    },
+    {
+      "cat": "وقف إطلاق النار",
+      "time": "منذ 3 ساعات",
+      "title": "تعثر مفاوضات المرحلة الثانية حول انسحاب الاحتلال وقوة الاستقرار الدولية"
+    }
+  ],
+  "stream": [
+    {
+      "big": true,
+      "cat": "تقرير",
+      "time": "10:06 م",
+      "title": "أطفال غزة بين فرحة اللعب وتهديد القصف.. الطائرات الورقية ذريعة جديدة للتصعيد",
+      "sub": "خبراء الشأن الإسرائيلي يقرأون لشهاب توظيف لعبة الأطفال ذريعةً لإفشال وقف إطلاق النار وإبقاء غزة تحت التوتر.",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=900",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=900\")",
+      "dot": "#b8c2d0",
+      "catColor": "#1b5aa6",
+      "color": "#1b5aa6"
+    },
+    {
+      "small": true,
+      "cat": "الميدان",
+      "time": "09:41 م",
+      "title": "توغل محدود لآليات الاحتلال شرق مدينة غزة تحت غطاء ناري",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=500",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=500\")",
+      "dot": "#b8c2d0",
+      "catColor": "#1b5aa6",
+      "color": "#1b5aa6"
+    },
+    {
+      "text": true,
+      "cat": "عاجل",
+      "time": "09:12 م",
+      "title": "زوارق الاحتلال تستهدف مراكب الصيادين قبالة سواحل مدينة غزة",
+      "dot": "#e0302f",
+      "catColor": "#e0302f",
+      "color": "#e0302f"
+    },
+    {
+      "small": true,
+      "cat": "إنساني",
+      "time": "08:30 م",
+      "title": "مرضى القطاع بلا علاج.. الاحتلال يواصل إغلاق معبر رفح لليوم العاشر",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/UNRWA%20el-Sheikh%20Radwan%20health%20center%2C%20February%202024.jpg?width=500",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/UNRWA%20el-Sheikh%20Radwan%20health%20center%2C%20February%202024.jpg?width=500\")",
+      "dot": "#b8c2d0",
+      "catColor": "#1b5aa6",
+      "color": "#1b5aa6"
+    },
+    {
+      "text": true,
+      "cat": "إعمار",
+      "time": "07:58 م",
+      "title": "بلدية غزة: فتح 60% من الطرق الرئيسية وإزالة أكثر من مليون طن ركام",
+      "dot": "#b8c2d0",
+      "catColor": "#1b5aa6",
+      "color": "#1b5aa6"
+    },
+    {
+      "big": true,
+      "cat": "قصة",
+      "time": "06:20 م",
+      "title": "رصاصة في الرأس وحلم في الركام.. قصة اللاعب محمد الذي أنهى الاحتلال مسيرته",
+      "sub": "من ملاعب حي الشجاعية إلى سرير العلاج — شهاب توثق رحلة لاعب كرة قدم واعد غيّرت رصاصة قناص مساره.",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=900",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=900\")",
+      "dot": "#b8c2d0",
+      "catColor": "#1b5aa6",
+      "color": "#1b5aa6"
+    },
+    {
+      "text": true,
+      "cat": "الميدان",
+      "time": "05:44 م",
+      "title": "الاحتلال يفجّر روبوتًا مفخخًا في محيط \"الخط الأصفر\" شرق خانيونس",
+      "dot": "#b8c2d0",
+      "catColor": "#1b5aa6",
+      "color": "#1b5aa6"
+    },
+    {
+      "small": true,
+      "cat": "إنساني",
+      "time": "04:15 م",
+      "title": "خيام المواسي تغرق مجددًا.. منخفض جوي يفاقم معاناة النازحين",
+      "img": "https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=500",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=500\")",
+      "dot": "#b8c2d0",
+      "catColor": "#1b5aa6",
+      "color": "#1b5aa6"
+    }
+  ],
+  "videos": [
+    {
+      "dur": "02:14",
+      "title": "عدسة شهاب ترصد آثار القصف في جباليا البلد",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=600\")"
+    },
+    {
+      "dur": "01:38",
+      "title": "طائرات ورقية فوق خيام المواسي.. طفولة تقاوم الحصار",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=600\")"
+    },
+    {
+      "dur": "03:05",
+      "title": "شارع الرشيد.. شريان غزة يعود للحياة رغم الدمار",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=600\")"
+    }
+  ],
+  "nowWire": [
+    {
+      "cat": "عاجل",
+      "time": "10:32 م",
+      "title": "قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم",
+      "dot": "#e0302f",
+      "catColor": "#e0302f",
+      "color": "#e0302f"
+    },
+    {
+      "cat": "غزة",
+      "time": "10:13 م",
+      "title": "إطلاق نار من \"كواد كابتر\" في السطر الغربي بخانيونس",
+      "dot": "#b8c2d0",
+      "catColor": "#1b5aa6",
+      "color": "#1b5aa6"
+    },
+    {
+      "cat": "القدس",
+      "time": "09:05 م",
+      "title": "قنابل غاز خلال اقتحام محيط مخيم قلنديا",
+      "dot": "#b8c2d0",
+      "catColor": "#1b5aa6",
+      "color": "#1b5aa6"
+    },
+    {
+      "cat": "لبنان",
+      "time": "08:47 م",
+      "title": "غارة إسرائيلية على أطراف بلدة عيتا الشعب جنوبي لبنان",
+      "dot": "#b8c2d0",
+      "catColor": "#1b5aa6",
+      "color": "#1b5aa6"
+    }
+  ],
+  "mostRead": [
+    {
+      "n": "01",
+      "title": "فيديو | لحظة إطلاق النار على شاب فلسطيني أعزل في قلنديا"
+    },
+    {
+      "n": "02",
+      "title": "الأوقاف: 1244 مسجدًا دمرها الاحتلال في غزة"
+    },
+    {
+      "n": "03",
+      "title": "مصادر تكشف كواليس استشهاد \"أبو رعد\" خازم في جنين"
+    },
+    {
+      "n": "04",
+      "title": "أطفال غزة والطائرات الورقية.. ذريعة جديدة للتصعيد"
+    }
+  ],
+  "files": [
+    "1000 يوم على حرب الإبادة",
+    "أقمار الطوفان.. رحلة الغياب والعودة"
+  ]
+}

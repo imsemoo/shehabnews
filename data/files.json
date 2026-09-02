@@ -1,0 +1,252 @@
+{
+  "today": "الخميس، 3 سبتمبر 2026",
+  "hijri": "21 ربيع الأول 1448 هـ",
+  "clock": "02:37",
+  "breakingIdx": 0,
+  "breakingItem": {
+    "t": "قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم",
+    "time": "10:32 م"
+  },
+  "breakingCounter": "1 / 3",
+  "nav": [
+    "أخبار فلسطين",
+    "القدس",
+    "غزة",
+    "الضفة",
+    "عربي ودولي",
+    "إسرائيلي",
+    "التغطيات",
+    "ملفات خاصة",
+    "فيديو",
+    "بالصور",
+    "رأي",
+    "المزيد"
+  ],
+  "footerCols": [
+    {
+      "title": "الأقسام",
+      "links": [
+        "أخبار فلسطين",
+        "القدس",
+        "غزة",
+        "الضفة",
+        "عربي ودولي"
+      ]
+    },
+    {
+      "title": "المحتوى",
+      "links": [
+        "التغطيات الحية",
+        "ملفات شهاب",
+        "عدسة شهاب",
+        "فيديو شهاب",
+        "تقارير خاصة"
+      ]
+    },
+    {
+      "title": "الوكالة",
+      "links": [
+        "من نحن",
+        "تواصل معنا",
+        "سياسة التحرير",
+        "فرص العمل",
+        "خدمة الصور"
+      ]
+    }
+  ],
+  "social": [
+    {
+      "l": "فيسبوك",
+      "fa": "fa-brands fa-facebook-f"
+    },
+    {
+      "l": "إكس",
+      "fa": "fa-brands fa-x-twitter"
+    },
+    {
+      "l": "إنستغرام",
+      "fa": "fa-brands fa-instagram"
+    },
+    {
+      "l": "تيليغرام",
+      "fa": "fa-solid fa-paper-plane"
+    }
+  ],
+  "files": [
+    {
+      "bgColor": "#fff",
+      "fg": "#14233a",
+      "accent": "#1b5aa6",
+      "rule": "#14233a",
+      "gutter": "0px",
+      "padTop": "12px",
+      "padBottom": "0px",
+      "span": "2",
+      "ratio": "16/8",
+      "minH": "0",
+      "titleSize": "22px",
+      "cat": "ملف",
+      "idx": "01",
+      "title": "رحيل الضيف.. القائد الذي أرهق الاحتلال",
+      "sub": "سيرة محمد الضيف من مخيم خانيونس إلى قيادة كتائب القسام، بوثائق وشهادات لم تُنشر من قبل.",
+      "count": "31",
+      "updated": "منذ يوم",
+      "bg": "url(\"assets/file-raheel-aldaif.png\")"
+    },
+    {
+      "bgColor": "#0a1a33",
+      "fg": "#fff",
+      "accent": "#7ea8dd",
+      "rule": "#1b5aa6",
+      "gutter": "18px",
+      "padTop": "14px",
+      "padBottom": "18px",
+      "span": "1",
+      "ratio": "4/3",
+      "minH": "0",
+      "titleSize": "17px",
+      "cat": "رياضة",
+      "idx": "02",
+      "title": "كأس العالم 2026.. فلسطين في المدرجات",
+      "sub": "الحضور الفلسطيني في مونديال أمريكا الشمالية.",
+      "count": "9",
+      "updated": "منذ 3 أيام",
+      "bg": "url(\"assets/file-world-cup-2026.png\")"
+    },
+    {
+      "bgColor": "#fff",
+      "fg": "#14233a",
+      "accent": "#1b5aa6",
+      "rule": "#14233a",
+      "gutter": "0px",
+      "padTop": "12px",
+      "padBottom": "0px",
+      "span": "1",
+      "ratio": "16/9",
+      "minH": "0",
+      "titleSize": "15.5px",
+      "cat": "تحقيق",
+      "idx": "03",
+      "title": "خريطة الضم.. من التوسع إلى الواقع",
+      "sub": "كيف تُعاد هندسة الضفة الغربية قطعةً قطعة.",
+      "count": "14",
+      "updated": "منذ أسبوع",
+      "bg": "url(\"assets/palestine-map.png\")"
+    },
+    {
+      "bgColor": "#0a1a33",
+      "fg": "#fff",
+      "accent": "#7ea8dd",
+      "rule": "#1b5aa6",
+      "gutter": "18px",
+      "padTop": "14px",
+      "padBottom": "18px",
+      "span": "1",
+      "ratio": "16/9",
+      "minH": "0",
+      "titleSize": "15.5px",
+      "cat": "إنساني",
+      "idx": "04",
+      "title": "شتاء الخيام.. المواسي تحت المطر",
+      "sub": "النزوح الثاني حين يأتي الشتاء.",
+      "count": "11",
+      "updated": "منذ أسبوع",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=700\")"
+    },
+    {
+      "bgColor": "#fff",
+      "fg": "#14233a",
+      "accent": "#1b5aa6",
+      "rule": "#14233a",
+      "gutter": "0px",
+      "padTop": "12px",
+      "padBottom": "0px",
+      "span": "1",
+      "ratio": "16/9",
+      "minH": "0",
+      "titleSize": "15.5px",
+      "cat": "إعمار",
+      "idx": "05",
+      "title": "رفح بعد الانسحاب.. الطريق إلى الإعمار",
+      "sub": "ما تبقى وما يُبنى في المدينة الحدودية.",
+      "count": "8",
+      "updated": "منذ أسبوعين",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=700\")"
+    }
+  ],
+  "mostRead": [
+    {
+      "n": "01",
+      "title": "1000 يوم على حرب الإبادة.. أرقام توثّق الجريمة",
+      "reads": "412 ألف قراءة"
+    },
+    {
+      "n": "02",
+      "title": "أقمار الطوفان.. رحلة الغياب والعودة",
+      "reads": "298 ألف قراءة"
+    },
+    {
+      "n": "03",
+      "idx": "01",
+      "title": "رحيل الضيف.. القائد الذي أرهق الاحتلال",
+      "reads": "241 ألف قراءة"
+    },
+    {
+      "n": "04",
+      "title": "خريطة الضم.. من التوسع إلى الواقع",
+      "reads": "126 ألف قراءة"
+    }
+  ],
+  "interactive": [
+    {
+      "kind": "خريطة تفاعلية",
+      "icon": "fa-solid fa-map",
+      "title": "خريطة الخروقات.. أين ومتى انتُهك وقف إطلاق النار؟",
+      "sub": "كل خرق موثّق على خريطة القطاع بالتاريخ والموقع والمصدر.",
+      "updates": "325",
+      "bg": "url(\"assets/palestine-map.png\")"
+    },
+    {
+      "kind": "خط زمني",
+      "icon": "fa-solid fa-timeline",
+      "title": "1000 يوم.. الحرب يومًا بيوم",
+      "sub": "تصفّح أحداث الحرب من 7 أكتوبر حتى اليوم في خط زمني تفاعلي.",
+      "updates": "1,000",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=700\")"
+    },
+    {
+      "kind": "لوحة أرقام",
+      "icon": "fa-solid fa-chart-simple",
+      "title": "الإعمار بالأرقام.. ماذا دُمّر وماذا يُبنى؟",
+      "sub": "مؤشرات حية عن المساكن والمدارس والمستشفيات والطرق.",
+      "updates": "86",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=700\")"
+    }
+  ],
+  "archive": [
+    {
+      "year": "2025",
+      "count": "46",
+      "title": "وقف إطلاق النار.. كيف وُلد الاتفاق؟",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=500\")"
+    },
+    {
+      "year": "2024",
+      "count": "132",
+      "title": "شمال غزة.. حصار داخل الحصار",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=500\")"
+    },
+    {
+      "year": "2023",
+      "count": "88",
+      "title": "طوفان الأقصى.. الأيام الأولى",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=500\")"
+    },
+    {
+      "year": "2021",
+      "count": "29",
+      "title": "سيف القدس.. 11 يومًا غيّرت المعادلة",
+      "bg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20view%20of%20destruction%20in%20Beach%20refugee%20camp%2C%20Gaza%20Strip.jpg?width=500\")"
+    }
+  ]
+}
