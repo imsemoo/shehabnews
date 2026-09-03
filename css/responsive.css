@@ -340,6 +340,11 @@ header[data-nav-open] .sh-nav-toggle span:nth-child(3){transform:translateY(-7px
      The 10/10.5px eyebrow labels and step numbers are decorative, but on a
      phone they are the smallest thing on the page -- lifted to 12px, the
      least disturbance that still clears the floor. */
+  /* The 7px and 8px spans are deliberately NOT here: every one of them is
+     empty -- decorative dots and chevrons sized by font-size -- so raising
+     them would move layout without making anything readable. */
+  [style*="font-size:9px"]{font-size:12px!important}     /* durations, photo counts */
+  [style*="font-size:9.5px"]{font-size:12px!important}   /* video duration stamps */
   [style*="font-size:10px"]{font-size:12px!important}
   [style*="font-size:10.5px"]{font-size:12px!important}
   [style*="font-size:11px"]{font-size:12.5px!important}

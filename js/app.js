@@ -696,9 +696,24 @@
          a first visit. Markup: LOADER_VEIL. Styles: css/transition.css. ----- */
   function transition() {
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var FLAG = 'sh-nav';
-    var OUT = 680;      // time the veil is up before we leave
-    var MIN_IN = 420;   // shortest time it stays up on arrival
+    var FLAG = 'sh-nav';    // set when we leave through an internal link
+    var AT = 'sh-nav-at';   // how far the stroke had got, in animation ms
+
+    /* The loader's sequence runs 3.0s end to end (seed .42 -> stroke .4-1.75 ->
+       mark revealed 1.9 -> sweep 1.9-2.8 -> wordline 2.3 -> tagline 2.95 ->
+       dots 3.0). Playing that whole thing on each half of a navigation would
+       cost 6s, so the veil plays loader.css's own timeline FASTER rather than
+       shorter -- same shape, same easing, nothing redrawn -- and the two halves
+       resume one continuous stroke instead of each restarting from zero. */
+    var SPEED = 2.3;    // 3.0s of animation in ~1.3s of wall clock
+    var OUT = 600;      // wall time the veil is up before we leave (~46%)
+    var TOTAL = 3000;   // the sequence's own length, in animation ms
+    /* The handoff is the real playhead, not OUT * SPEED, so a timer that fires
+       late still resumes at the right frame. Cap it anyway: on a busy device
+       that timer can slip far enough to hand over a finished animation, and the
+       arriving page would then flash a completed mark and vanish. */
+    var MAX_HANDOFF = TOTAL * 0.6;
+    var FALLBACK_IN = 700;  // arrival hold where getAnimations() is missing
     var SAFETY = 4000;  // never strand a visitor behind the veil
 
     var veil = document.createElement('div');
@@ -708,13 +723,43 @@
     document.body.appendChild(veil);
 
     var stage = veil.firstElementChild;
-    function replay() {
+
+    /* Restart every inline animation, run it at SPEED, and drop the playhead at
+       `at` ms so an arriving page picks the stroke up mid-flight. Returns the
+       live animation objects; empty on browsers without getAnimations(). */
+    function replay(at) {
       var anim = [].slice.call(stage.querySelectorAll('[style*="animation"]'));
       anim.forEach(function (n) { n.__a = n.style.animation; n.style.animation = 'none'; });
       void stage.offsetWidth;
       anim.forEach(function (n) { n.style.animation = n.__a; });
+      void stage.offsetWidth;                    // flush so the new ones exist
+      if (!stage.getAnimations) return [];
+      var list = stage.getAnimations({ subtree: true });
+      /* Seek by startTime, not currentTime. These animations were created by
+         the style change two lines up, so they are still play-pending, and
+         per spec assigning currentTime to a pending animation sets a hold time
+         rather than a playhead. Anchoring startTime to the document timeline
+         positions them without that hazard. Note document.timeline.currentTime
+         is legitimately 0 this early in the page's life; a negative startTime
+         is the correct result and is what makes the stroke resume mid-flight. */
+      var now = document.timeline && document.timeline.currentTime;
+      if (now && typeof now.value === 'number') now = now.value;   // CSSNumberish
+      list.forEach(function (a) {
+        try {
+          a.playbackRate = SPEED;
+          if (at && typeof now === 'number') a.startTime = now - at / SPEED;
+        } catch (e) { /* engine refused the seek; it still plays through */ }
+      });
+      return list;
     }
-    function show() { replay(); veil.setAttribute('data-on', ''); }
+    // the three dots loop forever, so only the one-shot animations can settle
+    function oneShot(list) {
+      return list.filter(function (a) {
+        var t = a.effect && a.effect.getTiming && a.effect.getTiming();
+        return t && t.iterations !== Infinity;
+      });
+    }
+    function show(at) { var l = replay(at); veil.setAttribute('data-on', ''); return l; }
     function hide() { veil.removeAttribute('data-on'); }
 
     function flagged() {
@@ -725,18 +770,34 @@
       catch (e) { /* private mode */ }
     }
 
-    // arriving from an internal link: hold the veil briefly, then drop it
+    /* Arriving from an internal link: the veil is already opaque on the page we
+       came from, so it must not fade in again here -- that would read as a
+       flicker across the swap. Resume the stroke where it stopped and hold
+       until BOTH the animation has finished and the page has painted. */
     if (flagged() && !reduce) {
-      show();
-      var arrived = Date.now();
-      var drop = function () {
-        setTimeout(hide, Math.max(0, MIN_IN - (Date.now() - arrived)));
-      };
-      if (document.readyState === 'complete') drop();
-      else window.addEventListener('load', drop, { once: true });
+      var at = 0;
+      try { at = parseFloat(sessionStorage.getItem(AT)) || 0; } catch (e) {}
+      if (!(at > 0)) at = 0;                       // NaN, negative, or absent
+      if (at > MAX_HANDOFF) at = MAX_HANDOFF;      // stale value from an older build
+
+      veil.style.transition = 'none';
+      var list = show(at);
+      void veil.offsetWidth;
+      veil.style.transition = '';
+
+      var loaded = document.readyState === 'complete'
+        ? Promise.resolve()
+        : new Promise(function (r) { window.addEventListener('load', r, { once: true }); });
+
+      var settled = oneShot(list).map(function (a) { return a.finished; });
+      if (!settled.length) {                       // no Web Animations support
+        settled = [new Promise(function (r) { setTimeout(r, FALLBACK_IN); })];
+      }
+      Promise.all(settled.concat([loaded])).then(hide, hide);
       setTimeout(hide, SAFETY);
     }
     flag(false);
+    try { sessionStorage.removeItem(AT); } catch (e) {}
 
     if (reduce) return;   // no veil, no delay
 
@@ -756,15 +817,32 @@
 
       e.preventDefault();
       flag(true);
-      show();
-      setTimeout(function () { location.href = a.href; }, OUT);
-      setTimeout(function () { hide(); flag(false); }, SAFETY);   // navigation blocked
+      var out = show(0);
+      setTimeout(function () {
+        // hand the playhead over so the next page continues this same stroke
+        var at = 0;
+        out.forEach(function (an) {
+          var c = an.currentTime;
+          if (typeof c === 'number' && c > at) at = c;
+        });
+        at = Math.min(at || OUT * SPEED, MAX_HANDOFF);
+        try { sessionStorage.setItem(AT, String(at)); } catch (err) {}
+        location.href = a.href;
+      }, OUT);
+      setTimeout(function () {   // navigation blocked
+        hide(); flag(false);
+        try { sessionStorage.removeItem(AT); } catch (err) {}
+      }, SAFETY);
     });   // bubble phase on purpose: a component (file spine, lightbox tile,
           // pager, load-more) gets to call preventDefault first, and the
           // defaultPrevented check above then leaves that click alone.
 
     // coming back through the bfcache must never leave the veil up
-    window.addEventListener('pageshow', function (e) { if (e.persisted) { hide(); flag(false); } });
+    window.addEventListener('pageshow', function (e) {
+      if (!e.persisted) return;
+      hide(); flag(false);
+      try { sessionStorage.removeItem(AT); } catch (err) {}
+    });
   }
 
   /* 13. Category filters. [data-sh-filters] holds links carrying
