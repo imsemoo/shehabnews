@@ -7,9 +7,9 @@
    assets/images/mark-sheen.svg was traced from the logo's own alpha channel, not
    redrawn, so the mark and the masthead are literally the same geometry.
 
-   It is applied as a MASK, not as an <img>, so every existing per-instance
-   colour keeps working untouched -- `background:#1b5aa6`, `background:#fff`,
-   `background:currentColor` all still paint the mark.
+   It is applied as a CSS mask rather than as an image element, so every
+   existing per-instance colour keeps working untouched -- `background:#1b5aa6`,
+   `background:#fff`, `background:currentColor` all still paint the mark.
 
    WHY ONLY THE LARGER MARKS. The blade is a thin, calligraphic swoosh. Below
    about 12px its stroke falls under one device pixel and it renders as a faint
@@ -24,6 +24,10 @@
    Anything animated by sh-twinkle / sh-dots / sh-meteor keeps its square too:
    those keyframes set their own rotate(45deg) and would spin the blade. */
 
+/* Everything below sits in the `marks` cascade layer. These are defaults for
+   the mark; the per-element rules that replaced the old inline styles are
+   unlayered and therefore win, exactly as the inline styles used to. */
+@layer marks{
 .sh-mark{
   /* the blade is wider than tall; aspect-ratio keeps it honest if only one
      dimension is set on the element */
@@ -47,3 +51,4 @@
 /* Where the mark sits inside a flex row next to type, it must never be the
    thing that shrinks. */
 .sh-mark{flex:none}
+}

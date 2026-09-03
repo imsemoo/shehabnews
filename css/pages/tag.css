@@ -1,0 +1,86 @@
+/* شهاب — tag: page layout, one-off styles (scoped by section), and what
+   the old per-page sheet still owned (keyframes, p/input, its own a{transition}). */
+a{transition:color .16s ease,background .16s ease,border-color .16s ease,gap .16s ease}
+p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2.05}
+@keyframes sh-ring{0%{transform:scale(.55);opacity:.9}70%{opacity:.12}100%{transform:scale(1.6);opacity:0}}
+.sh-tag-body__nav-1{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--sh-mute);padding:20px 0 0}
+.sh-tag-tag-header__section-1{margin-top:12px;background:#f4f6f9;border-right:4px solid var(--sh-blue);padding:20px 22px 18px}
+.sh-tag-tag-header__div-1{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 30px}
+.sh-tag-tag-header__span-1{display:flex;align-items:center;gap:11px;font-family:var(--sh-font);font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--sh-blue)}
+.sh-tag-tag-header__span-2{width:22px;height:1px;background:var(--sh-blue)}
+.sh-tag-tag-header__span-3{color:var(--sh-mute);font-weight:400}
+.sh-tag-tag-header__h1-1{display:flex;align-items:baseline;gap:12px;font-family:var(--sh-font);font-size:clamp(30px,3.5vw,44px);font-weight:800;line-height:1.1;margin:10px 0 0;color:var(--sh-navy)}
+.sh-tag-tag-header__span-4{color:var(--sh-grey-2);font-weight:800}
+.sh-tag-tag-header__p-1{font-size:13.5px;line-height:1.9;color:var(--sh-ink-2);margin:9px 0 0;max-width:62ch;text-wrap:pretty}
+.sh-tag-tag-header__div-2{display:flex;align-items:stretch;gap:0;border-right:1px solid var(--sh-hair-2)}
+.sh-tag-tag-header__span-5{display:block;padding:2px 20px;border-left:1px solid var(--sh-hair-2)}
+.sh-tag-tag-header__span-6{display:block;font-family:var(--sh-font);font-size:22px;font-weight:800;color:var(--sh-navy);line-height:1;font-variant-numeric:tabular-nums}
+.sh-tag-tag-header__span-7{display:block;font-size:11px;color:var(--sh-mute);margin-top:6px}
+.sh-tag-tag-header__div-3{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-top:16px;padding-top:14px;border-top:1px solid #dbe2ec}
+.sh-tag-tag-header__span-8{font-family:var(--sh-font);font-size:11px;font-weight:800;color:var(--sh-mute)}
+.sh-tag-tag-header__a-1{display:inline-flex;align-items:center;gap:7px;font-family:var(--sh-font);font-size:12px;font-weight:700;color:var(--sh-blue);white-space:nowrap}
+.sh-tag-tag-header__a-1:hover{color:var(--sh-navy)}
+.sh-tag-tag-header__span-9{color:var(--sh-grey-2)}
+.sh-tag-tag-header__span-10{display:flex;align-items:center;gap:9px;margin-right:auto;font-size:11px;color:var(--sh-mute)}
+.sh-tag-tag-header__span-11{position:relative;display:flex;align-items:center;justify-content:center;width:12px;height:12px}
+.sh-tag-tag-header__span-12{position:absolute;inset:0;border:1px solid var(--sh-red);border-radius:50%;animation:sh-ring 2.2s ease-out infinite}
+.sh-tag-tag-header__span-13{width:5px;height:5px;background:var(--sh-red);border-radius:50%}
+.sh-tag-tag-tabs__div-1{display:flex;flex-wrap:wrap;align-items:center;gap:0 22px;margin-top:16px;border-bottom:1px solid var(--sh-hair-2)}
+.sh-tag-tag-tabs__span-1{display:inline-flex;align-items:center;gap:8px;font-family:var(--sh-font);font-size:13.5px;font-weight:800;color:var(--sh-navy);padding:0 0 11px;border-bottom:2px solid var(--sh-blue);margin-bottom:-1px;white-space:nowrap}
+.sh-tag-tag-tabs__span-2{font-size:11px;font-weight:700;color:var(--sh-mute);font-variant-numeric:tabular-nums}
+.sh-tag-tag-tabs__span-3{display:inline-flex;align-items:center;gap:8px;font-family:var(--sh-font);font-size:13.5px;font-weight:700;color:var(--sh-mute);padding:0 0 11px;white-space:nowrap}
+.sh-tag-tag-tabs__span-3:hover{color:var(--sh-blue)}
+.sh-tag-tag-tabs__span-4{font-size:11px;color:var(--sh-grey-2);font-variant-numeric:tabular-nums}
+.sh-tag-tag-tabs__span-5{display:flex;align-items:center;gap:9px;margin-right:auto;padding-bottom:10px;font-size:11px;color:var(--sh-mute)}
+.sh-tag-tag-lead__section-1{display:grid;grid-template-columns:minmax(min(100%,320px),1.5fr) minmax(min(100%,260px),1fr);gap:32px;padding:22px 0 0;align-items:stretch}
+.sh-tag-tag-lead__a-1{position:relative;display:block;background:var(--sh-navy);color:#fff;overflow:hidden}
+.sh-tag-tag-lead__a-1:hover{color:#fff}
+.sh-tag-tag-lead__span-1{position:relative;display:block;overflow:hidden;height:100%;min-height:330px}
+.sh-tag-tag-lead__span-2{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=800");background-size:cover;background-position:center 48%}
+.sh-tag-tag-lead__span-3{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.93),rgba(10,26,51,.15) 62%)}
+.sh-tag-tag-lead__span-4{position:absolute;top:0;right:16px;background:var(--sh-navy);color:#fff;font-family:var(--sh-font);font-size:10.5px;font-weight:800;padding:7px 11px 9px;display:flex;flex-direction:column;align-items:center;gap:7px}
+.sh-tag-tag-lead__span-5{width:1px;height:13px;background:var(--sh-blue)}
+.sh-tag-tag-lead__span-6{position:absolute;bottom:0;right:0;left:0;padding:24px 22px 20px}
+.sh-tag-tag-lead__span-7{display:flex;align-items:center;gap:11px;font-family:var(--sh-font);font-size:11px;font-weight:800;color:#9fc2ea}
+.sh-tag-tag-lead__span-8{font-weight:400;color:rgba(255,255,255,.7);font-variant-numeric:tabular-nums}
+.sh-tag-tag-lead__span-9{display:block;font-family:var(--sh-font);font-size:clamp(19px,2.1vw,26px);font-weight:800;line-height:1.45;margin-top:11px;max-width:32ch;text-wrap:pretty}
+.sh-tag-tag-lead__span-10{display:block;font-family:var(--sh-serif);font-size:13px;line-height:1.95;color:rgba(255,255,255,.78);margin-top:10px;max-width:48ch;text-wrap:pretty}
+.sh-tag-tag-lead__div-1{display:flex;flex-direction:column;gap:0}
+.sh-tag-tag-lead__a-2{display:grid;grid-template-columns:minmax(0,1fr) 104px;gap:14px;align-items:start;padding:13px 0;border-bottom:1px solid var(--sh-hair-3)}
+.sh-tag-tag-lead__a-2:hover{color:var(--sh-blue)}
+.sh-tag-tag-lead__span-11{display:flex;align-items:center;gap:9px;font-size:11px;color:var(--sh-mute)}
+.sh-tag-tag-lead__span-12{display:block;font-family:var(--sh-font);font-size:15px;font-weight:700;line-height:1.65;margin-top:7px;color:var(--sh-ink);text-wrap:pretty}
+.sh-tag-tag-lead__span-13{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:4/3}
+.sh-tag-tag-lead__span-14{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Gaza%20el-mina%20view.jpg?width=800");background-size:cover;background-position:center 40%}
+.sh-tag-tag-lead__span-15{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=800");background-size:cover;background-position:center 40%}
+.sh-tag-tag-lead__span-16{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=800");background-size:cover;background-position:center 40%}
+.sh-tag-tag-listing__section-1{margin-top:26px}
+.sh-tag-tag-listing__div-1{display:flex;align-items:baseline;justify-content:space-between;gap:14px;border-top:2px solid var(--sh-ink);padding-top:12px}
+.sh-tag-tag-listing__a-1{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--sh-hair)}
+.sh-tag-tag-listing__a-1:hover{color:var(--sh-blue)}
+.sh-tag-tag-listing__span-1{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:15/8}
+.sh-tag-tag-listing__span-2{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Omar%20Mukhtar%20panorama%20-%20panoramio.jpg?width=1200");background-size:cover;background-position:center 42%}
+.sh-tag-tag-listing__span-3{display:block;font-family:var(--sh-font);font-size:15.5px;font-weight:700;line-height:1.7;margin-top:7px;color:var(--sh-ink);text-wrap:pretty}
+.sh-tag-tag-listing__span-4{width:9px;height:9px;border-right:1px solid var(--sh-blue);border-top:1px solid var(--sh-blue);transform:rotate(-135deg)}
+.sh-tag-tag-listing__span-5{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Fishermen%20in%20Gaza.jpg?width=800");background-size:cover;background-position:center 42%}
+.sh-tag-tag-listing__span-6{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=800");background-size:cover;background-position:center 42%}
+.sh-tag-tag-listing__span-7{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/School%20Children%20in%20Hebron%20%287555041186%29.jpg?width=800");background-size:cover;background-position:center 42%}
+.sh-tag-tag-listing__span-8{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=800");background-size:cover;background-position:center 42%}
+.sh-tag-tag-listing__span-9{width:26px;height:26px;border:1px solid rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;transform:rotate(45deg)}
+.sh-tag-tag-listing__i-1{font-size:8px;color:#fff;transform:rotate(-45deg);margin-left:-2px}
+.sh-tag-tag-listing__span-10{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem%20Old%20City%20Street.jpg?width=800");background-size:cover;background-position:center 42%}
+.sh-tag-tag-listing__div-2{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:20px}
+.sh-tag-tag-listing__span-11{font-size:11.5px;color:var(--sh-mute);font-variant-numeric:tabular-nums}
+.sh-tag-tag-listing__div-3{display:flex;align-items:center;gap:8px}
+.sh-tag-tag-listing__a-2{width:34px;height:34px;border:1px solid var(--sh-grey-1);display:flex;align-items:center;justify-content:center;color:var(--sh-mute)}
+.sh-tag-tag-listing__a-2:hover{border-color:var(--sh-blue);color:var(--sh-blue)}
+.sh-tag-tag-listing__span-12{min-width:34px;height:34px;background:var(--sh-navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--sh-font);font-size:12.5px;font-weight:800;font-variant-numeric:tabular-nums;padding:0 10px}
+.sh-tag-tag-listing__span-13{min-width:34px;height:34px;border:1px solid var(--sh-grey-1);color:var(--sh-ink-2);display:flex;align-items:center;justify-content:center;font-family:var(--sh-font);font-size:12.5px;font-weight:700;font-variant-numeric:tabular-nums;padding:0 10px}
+.sh-tag-tag-listing__span-13:hover{border-color:var(--sh-blue);color:var(--sh-blue)}
+.sh-tag-tag-listing__a-3{display:inline-flex;align-items:center;gap:10px;height:34px;border:1px solid var(--sh-grey-1);color:var(--sh-navy);font-family:var(--sh-font);font-size:12px;font-weight:800;padding:0 16px;white-space:nowrap}
+.sh-tag-tag-listing__a-3:hover{background:var(--sh-navy);border-color:var(--sh-navy);color:#fff}
+.sh-tag-tag-follow__div-1{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 28px;margin:24px 0 40px;padding:16px 0;border-top:1px solid var(--sh-hair-3);border-bottom:1px solid var(--sh-hair-3)}
+.sh-tag-tag-follow__span-1{display:flex;align-items:center;gap:11px;font-size:12.5px;color:var(--sh-ink-2)}
+.sh-tag-tag-follow__a-1{display:inline-flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:12px;font-weight:800;color:var(--sh-blue);white-space:nowrap}
+.sh-tag-tag-follow__a-1:hover{gap:16px}
+.sh-tag-tag-follow__span-2{width:15px;height:1px;background:currentColor}

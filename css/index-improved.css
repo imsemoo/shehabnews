@@ -393,3 +393,34 @@ header[data-nav-open] .sh-nav-toggle span:nth-child(3){transform:translateY(-7px
   [data-sh-filter]{display:inline-flex;align-items:center;min-height:40px}
   [data-screen-label="More News"] > div > div:first-child{flex-wrap:wrap!important;gap:12px!important}
 }
+
+/* ============================================================================
+   ملفات شهاب — horizontal accordion (see css/pages/index.css for the full
+   account). This page still carries its styles inline, so the few rules that
+   compete with an inline declaration are !important.
+   ========================================================================== */
+[data-sh-files]{display:flex!important;container-type:inline-size}
+.sh-file{position:relative;display:flex;min-width:0;overflow:hidden;flex:0 0 72px;transition:flex-grow .62s cubic-bezier(.2,.7,.2,1)}
+.sh-file[data-open="true"]{flex-grow:1}
+.sh-file > [data-sh-file]{flex:none;width:72px;overflow:hidden}
+.sh-file__body{flex:none;width:calc(100cqw - 288px);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
+.sh-file[data-open="true"] > [data-sh-file]{box-shadow:12px 0 28px rgba(10,26,51,.35);z-index:3}
+[data-sh-file-part] > span[style*="sh-cover-open"]{animation:none!important;transform:none!important}
+[data-sh-file-part] div[style*="sh-paper-out"]{animation:none!important}
+[data-sh-file]::before{content:"";position:absolute;inset:0 0 auto 0;height:58px;pointer-events:none;background:rgba(255,255,255,.09);clip-path:polygon(0 0,100% 0,100% 100%,0 calc(100% - 12px))}
+.sh-file[data-open="true"] > [data-sh-file]::before{background:rgba(255,255,255,.16)}
+/* state stamp: open · live · closed · upcoming (data-sh-state on div.sh-file) */
+.sh-file__body span[style*="padding:3px 9px"]{display:inline-block;transform:rotate(-2.5deg);outline:1px solid #1b5aa6;outline-offset:2px}
+[data-sh-state="live"] .sh-file__body span[style*="padding:3px 9px"]{background:#0f2a4f!important;outline-color:#0f2a4f}
+[data-sh-state="closed"] .sh-file__body span[style*="padding:3px 9px"]{background:#5b6675!important;outline-color:#5b6675}
+[data-sh-state="upcoming"] .sh-file__body span[style*="padding:3px 9px"]{background:#fff!important;color:#1b5aa6!important}
+@media (max-width:900px){
+  [data-sh-files]{flex-direction:column;container-type:normal}
+  .sh-file{flex:none;display:block;overflow:visible}
+  .sh-file > [data-sh-file]{width:auto}
+  .sh-file__body{width:auto;grid-template-columns:minmax(0,1fr);grid-template-rows:0fr 0fr;transition:grid-template-rows .5s cubic-bezier(.2,.7,.2,1)}
+  .sh-file[data-open="true"] .sh-file__body{grid-template-rows:1fr 1fr}
+  .sh-file__body > *{min-height:0;overflow:hidden}
+  .sh-file[data-open="true"] > [data-sh-file]{box-shadow:none}
+}
+@media (prefers-reduced-motion:reduce){.sh-file,.sh-file__body{transition:none}}

@@ -5,234 +5,239 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>شهاب — Privacy</title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="css/fonts.css?v=14">
-<link rel="stylesheet" href="css/font-awesome.css?v=14">
-<link rel="stylesheet" href="css/transition.css?v=14">
-<link rel="stylesheet" href="css/privacy.css?v=14">
-<link rel="stylesheet" href="css/mark.css?v=14">
-  <link rel="stylesheet" href="css/responsive.css?v=14">
-  <link rel="stylesheet" href="css/brief.css?v=14">
+<link rel="stylesheet" href="css/fonts.css?v=55">
+<link rel="stylesheet" href="css/font-awesome.css?v=55">
+<link rel="stylesheet" href="css/transition.css?v=55">
+  <link rel="stylesheet" href="css/tokens.css?v=55">
+  <link rel="stylesheet" href="css/base.css?v=55">
+  <link rel="stylesheet" href="css/header.css?v=55">
+  <link rel="stylesheet" href="css/footer.css?v=55">
+  <link rel="stylesheet" href="css/components.css?v=55">
+<link rel="stylesheet" href="css/pages/privacy.css?v=55">
+<link rel="stylesheet" href="css/mark.css?v=55">
+  <link rel="stylesheet" href="css/responsive.css?v=55">
+  <link rel="stylesheet" href="css/brief.css?v=55">
 </head>
 <body>
 
 
 
-<div dir="rtl" style="background:#fff;color:#14233a;font-family:'Almarai','Noto Naskh Arabic',system-ui,sans-serif;font-size:14.5px">
+<div dir="rtl" class="sh-page">
 
 <!-- HEADER -->
-<header dir="rtl" data-screen-label="Header" style="background:#1b5aa6;color:#fff;position:relative">
-  <div style="background:#0f2a4f;font-size:12px;color:rgba(255,255,255,.8);position:relative;z-index:2">
-    <div style="max-width:1280px;margin:0 auto;padding:0 32px;height:34px;display:flex;align-items:center;justify-content:space-between">
-      <div style="display:flex;gap:10px;align-items:center;font-variant-numeric:tabular-nums"><span data-sh="date">الخميس، 3 سبتمبر 2026</span><span style="opacity:.5">·</span><span data-sh="hijri">21 ربيع الأول 1448 هـ</span><span style="opacity:.5">—</span><span>القدس <span data-sh="clock">02:37</span></span></div>
-      <div style="display:flex;gap:18px;align-items:center">
-        <a href="#" class="sh-x1">English</a>
-        <span style="width:1px;height:12px;background:rgba(255,255,255,.3)"></span>
-        <a href="contact.html" class="sh-x2">تواصل معنا</a>
+<header dir="rtl" data-screen-label="Header" class="sh-header">
+  <div class="sh-topbar">
+    <div class="sh-topbar__inner">
+      <div class="sh-topbar__meta"><span data-sh="date">الخميس، 3 سبتمبر 2026</span><span class="sh-dim">·</span><span data-sh="hijri">21 ربيع الأول 1448 هـ</span><span class="sh-dim">—</span><span>القدس <span data-sh="clock">02:37</span></span></div>
+      <div class="sh-topbar__links">
+        <a href="#" class="sh-topbar__link">English</a>
+        <span class="sh-topbar__sep"></span>
+        <a href="contact.html" class="sh-topbar__link">تواصل معنا</a>
       </div>
     </div>
   </div>
-  <div style="position:relative;z-index:3">
-    <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden">
-      <span style="position:absolute;width:1400px;height:1400px;border:1px solid rgba(255,255,255,.09);border-radius:50%;right:-520px;top:-1160px"></span>
-      <span style="position:absolute;width:1400px;height:1400px;border:1px solid rgba(255,255,255,.07);border-radius:50%;right:-560px;top:-1120px"></span>
-      <span style="position:absolute;width:1100px;height:1100px;border:1px solid rgba(255,255,255,.08);border-radius:50%;left:-620px;top:-880px"></span>
-      <span style="position:absolute;top:22px;right:38%;width:220px;height:1px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.9));transform:rotate(-22deg);transform-origin:right;animation:sh-meteor 9s cubic-bezier(.2,.6,.3,1) infinite;opacity:0"></span>
-      <span style="position:absolute;top:22px;right:38%;width:5px;height:5px;background:#fff;transform:rotate(45deg);animation:sh-meteor-head 9s cubic-bezier(.2,.6,.3,1) infinite;opacity:0"></span>
-      <span style="position:absolute;top:30px;right:22%;width:4px;height:4px;background:#fff;transform:rotate(45deg);opacity:.35;animation:sh-twinkle 5s ease-in-out infinite"></span>
-      <span style="position:absolute;top:70px;right:9%;width:3px;height:3px;background:#fff;transform:rotate(45deg);opacity:.25;animation:sh-twinkle 7s ease-in-out infinite 2s"></span>
-      <span style="position:absolute;top:44px;left:14%;width:3px;height:3px;background:#fff;transform:rotate(45deg);opacity:.3;animation:sh-twinkle 6s ease-in-out infinite 1s"></span>
+  <div class="sh-header__body">
+    <div class="sh-header__sky">
+      <span class="sh-header__arc sh-header__arc--1"></span>
+      <span class="sh-header__arc sh-header__arc--2"></span>
+      <span class="sh-header__arc sh-header__arc--3"></span>
+      <span class="sh-header__meteor"></span>
+      <span class="sh-header__meteor-head"></span>
+      <span class="sh-header__star sh-header__star--1"></span>
+      <span class="sh-header__star sh-header__star--2"></span>
+      <span class="sh-header__star sh-header__star--3"></span>
     </div>
-    <div style="max-width:1280px;margin:0 auto;padding:0 32px;position:relative">
-      <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:88px">
-        <div style="display:flex;align-items:center;gap:16px;justify-self:start">
-          <a href="video-watch.html" style="background:#fff;color:#1b5aa6;font-family:'Almarai',sans-serif;font-weight:700;font-size:13px;padding:10px 20px;display:flex;align-items:center;gap:10px;transition:transform .2s ease,background .2s ease" class="sh-x3"><span style="width:7px;height:7px;background:#e0302f;border-radius:50%;animation:sh-pulse 1.4s ease-in-out infinite"></span>بث مباشر</a>
-          <div style="font-size:11.5px;line-height:1.6;color:rgba(255,255,255,.75)">تغطية مستمرة<br><span style="font-variant-numeric:tabular-nums">اليوم 325</span></div>
+    <div class="sh-header__inner">
+      <div class="sh-masthead">
+        <div class="sh-masthead__lead">
+          <a href="video-watch.html" class="sh-live"><span class="sh-live__dot"></span>بث مباشر</a>
+          <div class="sh-masthead__note">تغطية مستمرة<br><span class="sh-tnum">اليوم 325</span></div>
         </div>
-        <a href="index.html" style="justify-self:center;position:relative;display:block;padding:6px 18px;transition:transform .35s cubic-bezier(.2,.7,.2,1)" class="sh-x4">
-          <img src="assets/images/logo-white.png" alt="شهاب" style="height:54px;width:auto;position:relative;filter:drop-shadow(0 6px 18px rgba(10,26,51,.35))">
-          <span style="position:absolute;top:2px;left:2px;width:6px;height:6px;background:#fff;transform:rotate(45deg);animation:sh-twinkle 3.2s ease-in-out infinite"></span>
+        <a href="index.html" class="sh-masthead__logo">
+          <img src="assets/images/logo-white.png" alt="شهاب" class="sh-masthead__logo-img">
+          <span class="sh-masthead__logo-star"></span>
         </a>
-        <div style="display:flex;align-items:center;gap:16px;justify-self:end">
-          <a href="newsletter.html" style="border:1px solid rgba(255,255,255,.55);padding:9px 16px;font-size:12px;display:flex;align-items:center;gap:8px" class="sh-x5"><span style="width:6px;height:6px;background:currentColor;transform:rotate(45deg)"></span>موجز اليوم · 3 د</a>
-          <a href="search.html" aria-label="بحث" style="display:flex;align-items:center;gap:8px;font-size:13px;padding:9px 0" class="sh-x6"><span style="width:13px;height:13px;border:1.5px solid #fff;border-radius:50%;position:relative;display:block"><span style="position:absolute;width:6px;height:1.5px;background:#fff;bottom:-4px;left:-4px;transform:rotate(45deg)"></span></span>بحث</a>
+        <div class="sh-masthead__tools">
+          <a href="newsletter.html" class="sh-brief-btn">موجز اليوم · 3 د</a>
+          <a href="search.html" aria-label="بحث" class="sh-search"><span class="sh-search__lens"><span class="sh-search__handle"></span></span>بحث</a>
         </div>
       </div>
-      <nav style="display:flex;align-items:center;justify-content:space-between;min-height:46px;flex-wrap:wrap;font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;border-top:1px solid rgba(255,255,255,.14)">
-        <div style="display:flex;gap:26px;flex-wrap:wrap">
-          <div class="sh-menu" style="position:relative">
-            <a href="index.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x7">الرئيسية<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
-            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
-              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
-              <a href="index.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x8"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الرئيسية — النسخة الأساسية</a><a href="index-improved.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x8"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الرئيسية — النسخة المحسّنة</a>
-              <a href="homepage-v2.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x9"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الرئيسية — الاتجاه الثاني</a>
-              <a href="homepage-v3.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x10"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الرئيسية — الاتجاه الثالث</a>
-              <a href="homepage-v4.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x11"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الرئيسية — الاتجاه الرابع</a>
+      <nav class="sh-nav">
+        <div class="sh-nav__list">
+          <div class="sh-menu sh-nav__item">
+            <a href="index.html" class="sh-nav__link">الرئيسية</a>
+            <div class="sh-drop sh-nav__drop">
+              <span class="sh-nav__drop-rule"></span>
+              <a href="index.html" class="sh-nav__drop-link">الرئيسية — النسخة الأساسية</a><a href="index-improved.html" class="sh-nav__drop-link">الرئيسية — النسخة المحسّنة</a>
+              <a href="homepage-v2.html" class="sh-nav__drop-link">الرئيسية — الاتجاه الثاني</a>
+              <a href="homepage-v3.html" class="sh-nav__drop-link">الرئيسية — الاتجاه الثالث</a>
+              <a href="homepage-v4.html" class="sh-nav__drop-link">الرئيسية — الاتجاه الرابع</a>
             </div>
           </div>
-          <div class="sh-menu" style="position:relative">
-            <a href="sections.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x12">الأخبار<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
-            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
-              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
-              <a href="sections.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x13"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>أقسام شهاب</a>
-              <a href="category.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x14"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>صفحة قسم — غزة</a>
-              <a href="article.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x15"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>صفحة الخبر / التقرير</a>
-              <a href="coverage.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x16"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>التغطية الحية</a>
-              <a href="tag.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x17"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>صفحة الوسم</a>
-              <a href="archive.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x18"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الأرشيف</a>
+          <div class="sh-menu sh-nav__item">
+            <a href="sections.html" class="sh-nav__link">الأخبار</a>
+            <div class="sh-drop sh-nav__drop">
+              <span class="sh-nav__drop-rule"></span>
+              <a href="sections.html" class="sh-nav__drop-link">أقسام شهاب</a>
+              <a href="category.html" class="sh-nav__drop-link">صفحة قسم — غزة</a>
+              <a href="article.html" class="sh-nav__drop-link">صفحة الخبر / التقرير</a>
+              <a href="coverage.html" class="sh-nav__drop-link">التغطية الحية</a>
+              <a href="tag.html" class="sh-nav__drop-link">صفحة الوسم</a>
+              <a href="archive.html" class="sh-nav__drop-link">الأرشيف</a>
             </div>
           </div>
-          <div class="sh-menu" style="position:relative">
-            <a href="video.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x19">الوسائط<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
-            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
-              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
-              <a href="video.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x20"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الفيديو</a>
-              <a href="video-watch.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x21"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>مشاهدة فيديو</a>
-              <a href="photos.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x22"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الصور</a>
+          <div class="sh-menu sh-nav__item">
+            <a href="video.html" class="sh-nav__link">الوسائط</a>
+            <div class="sh-drop sh-nav__drop">
+              <span class="sh-nav__drop-rule"></span>
+              <a href="video.html" class="sh-nav__drop-link">الفيديو</a>
+              <a href="video-watch.html" class="sh-nav__drop-link">مشاهدة فيديو</a>
+              <a href="photos.html" class="sh-nav__drop-link">الصور</a>
             </div>
           </div>
-          <a href="files.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x23">ملفات شهاب</a>
-          <a href="author.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x24">الكاتب</a>
-          <a href="search.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x25">البحث</a>
-          <div class="sh-menu" style="position:relative">
-            <a href="about.html" style="display:flex;align-items:center;gap:7px;color:#fff;padding:13px 0 11px;border-bottom:3px solid #fff;transition:color .16s ease,border-color .22s ease" class="sh-x26">الوكالة<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
-            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
-              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
-              <a href="about.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x27"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>من نحن</a>
-              <a href="contact.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x28"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>تواصل معنا</a>
-              <a href="newsletter.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x29"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>النشرة البريدية</a>
-              <a href="privacy.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:800;color:#fff;background:rgba(27,90,166,.35)" class="sh-x30"><span style="width:5px;height:5px;background:#fff;transform:rotate(45deg);flex:none"></span>سياسة الخصوصية</a>
-              <a href="terms.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x31"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>شروط الاستخدام</a>
+          <a href="files.html" class="sh-nav__link">ملفات شهاب</a>
+          <a href="author.html" class="sh-nav__link">الكاتب</a>
+          <a href="search.html" class="sh-nav__link">البحث</a>
+          <div class="sh-menu sh-nav__item">
+            <a href="about.html" class="sh-nav__link sh-nav__link--current">الوكالة</a>
+            <div class="sh-drop sh-nav__drop">
+              <span class="sh-nav__drop-rule"></span>
+              <a href="about.html" class="sh-nav__drop-link">من نحن</a>
+              <a href="contact.html" class="sh-nav__drop-link">تواصل معنا</a>
+              <a href="newsletter.html" class="sh-nav__drop-link">النشرة البريدية</a>
+              <a href="privacy.html" class="sh-nav__drop-link sh-nav__drop-link--current">سياسة الخصوصية</a>
+              <a href="terms.html" class="sh-nav__drop-link">شروط الاستخدام</a>
             </div>
           </div>
-          <div class="sh-menu" style="position:relative">
-            <a href="system-states.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x32">النظام<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
-            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
-              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
-              <a href="system-states.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x33"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>حالات النظام</a>
-              <a href="loader.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x34"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>مؤشّر التحميل</a>
-              <a href="404.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x35"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>صفحة 404</a>
+          <div class="sh-menu sh-nav__item">
+            <a href="system-states.html" class="sh-nav__link">النظام</a>
+            <div class="sh-drop sh-nav__drop">
+              <span class="sh-nav__drop-rule"></span>
+              <a href="system-states.html" class="sh-nav__drop-link">حالات النظام</a>
+              <a href="loader.html" class="sh-nav__drop-link">مؤشّر التحميل</a>
+              <a href="404.html" class="sh-nav__drop-link">صفحة 404</a>
             </div>
           </div>
         </div>
-        <a href="coverage.html" style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.9)" class="sh-x36"><span style="width:6px;height:6px;background:#e0302f;border-radius:50%;animation:sh-pulse 1.8s ease-in-out infinite"></span>آخر الأخبار</a>
+        <a href="coverage.html" class="sh-nav__latest"><span class="sh-nav__latest-dot"></span>آخر الأخبار</a>
       </nav>
     </div>
   </div>
-  <div style="background:#fff;color:#14233a;border-bottom:1px solid #eef2f7;box-shadow:0 1px 0 rgba(20,35,58,.04)">
-    <div style="max-width:1280px;margin:0 auto;padding:0 32px;height:44px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px">
-      <span style="background:#e0302f;color:#fff;font-family:'Almarai',sans-serif;font-size:12px;font-weight:700;padding:6px 14px 6px 22px;display:flex;align-items:center;gap:8px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,10px 50%)"><span style="width:6px;height:6px;background:#fff;border-radius:50%;animation:sh-pulse 1.4s ease-in-out infinite"></span>عاجل</span>
-      <a href="article.html" data-sh="ticker" data-items="[{&quot;t&quot;:&quot;قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم&quot;,&quot;time&quot;:&quot;10:32 م&quot;},{&quot;t&quot;:&quot;قوات الاحتلال تقتحم بلدة بلعا شمال طولكرم&quot;,&quot;time&quot;:&quot;10:17 م&quot;},{&quot;t&quot;:&quot;مراسل شهاب: إطلاق نار من طائرة مُسيّرة \&quot;كواد كابتر\&quot; في منطقة السطر الغربي شمال غربي خانيونس&quot;,&quot;time&quot;:&quot;10:13 م&quot;}]" style="display:flex;gap:14px;align-items:baseline;min-width:0">
-        <span data-sh="ticker-title" style="font-family:'Almarai',sans-serif;font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم</span>
-        <span data-sh="ticker-time" style="font-size:12px;color:#8a95a6;white-space:nowrap;font-variant-numeric:tabular-nums">10:32 م</span>
+  <div class="sh-ticker">
+    <div class="sh-ticker__inner">
+      <span class="sh-ticker__tag"><span class="sh-ticker__tag-dot"></span>عاجل</span>
+      <a href="article.html" data-sh="ticker" data-items="[{&quot;t&quot;:&quot;قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم&quot;,&quot;time&quot;:&quot;10:32 م&quot;},{&quot;t&quot;:&quot;قوات الاحتلال تقتحم بلدة بلعا شمال طولكرم&quot;,&quot;time&quot;:&quot;10:17 م&quot;},{&quot;t&quot;:&quot;مراسل شهاب: إطلاق نار من طائرة مُسيّرة \&quot;كواد كابتر\&quot; في منطقة السطر الغربي شمال غربي خانيونس&quot;,&quot;time&quot;:&quot;10:13 م&quot;}]" class="sh-ticker__item">
+        <span data-sh="ticker-title" class="sh-ticker__title">قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم</span>
+        <span data-sh="ticker-time" class="sh-ticker__time">10:32 م</span>
       </a>
-      <div style="display:flex;align-items:center;gap:14px;font-size:12px">
-        <span data-sh="ticker-count" style="color:#8a95a6;font-variant-numeric:tabular-nums">1 / 3</span>
-        <div style="display:flex;gap:4px">
-          <button aria-label="السابق" data-sh="ticker-prev" style="width:28px;height:26px;border:1px solid #eef2f7;background:#fff;color:#14233a;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:background .15s" class="sh-x37">‹</button>
-          <button aria-label="التالي" data-sh="ticker-next" style="width:28px;height:26px;border:1px solid #eef2f7;background:#fff;color:#14233a;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:background .15s" class="sh-x38">›</button>
+      <div class="sh-ticker__tools">
+        <span data-sh="ticker-count" class="sh-ticker__count">1 / 3</span>
+        <div class="sh-ticker__pager">
+          <button aria-label="السابق" data-sh="ticker-prev" class="sh-ticker__btn">‹</button>
+          <button aria-label="التالي" data-sh="ticker-next" class="sh-ticker__btn">›</button>
         </div>
-        <span style="width:1px;height:14px;background:#d9e0ea"></span>
-        <a href="coverage.html" style="color:#1b5aa6;font-weight:700">التغطية الحية ←</a>
+        <span class="sh-ticker__sep"></span>
+        <a href="coverage.html" class="sh-link">التغطية الحية ←</a>
       </div>
     </div>
   </div>
 </header>
 
-<main style="max-width:1280px;margin:0 auto;padding:0 32px">
+<main class="sh-container">
 
-<nav style="display:flex;align-items:center;gap:9px;font-size:11.5px;color:#8a95a6;padding:20px 0 0">
-  <a href="index.html" style="color:#8a95a6" class="sh-x39">الرئيسية</a>
-  <span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span>
-  <span style="color:#1b5aa6;font-weight:700">سياسة الخصوصية</span>
+<nav class="sh-privacy-body__nav-1">
+  <a href="index.html" class="sh-mute">الرئيسية</a>
+  
+  <span class="sh-link">سياسة الخصوصية</span>
 </nav>
 
-<section data-screen-label="Privacy Head" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 28px;margin-top:12px;border-bottom:2px solid #14233a;padding-bottom:14px">
-  <div style="display:flex;align-items:flex-start;gap:13px">
-    <span style="width:16px;height:13px;background:#1b5aa6;margin-top:12px;flex:none" class="sh-mark"></span>
+<section data-screen-label="Privacy Head" class="sh-privacy-privacy-head__section-1">
+  <div class="sh-privacy-privacy-head__div-1">
+    <span class="sh-mark sh-privacy-privacy-head__span-1"></span>
     <div>
-      <h1 style="font-family:'Almarai',sans-serif;font-size:clamp(24px,2.6vw,32px);font-weight:800;line-height:1.2;margin:0;color:#0a1a33">سياسة الخصوصية</h1>
-      <span style="display:block;font-size:12.5px;color:#8a95a6;margin-top:7px;font-variant-numeric:tabular-nums">آخر تحديث: [يُحدَّد التاريخ قبل النشر]</span>
+      <h1 class="sh-privacy-privacy-head__h1-1">سياسة الخصوصية</h1>
+      <span class="sh-privacy-privacy-head__span-2">آخر تحديث: [يُحدَّد التاريخ قبل النشر]</span>
     </div>
   </div>
-  <span style="display:flex;align-items:center;gap:9px;font-size:11.5px;color:#8a95a6;padding-bottom:2px"><span style="width:12px;height:1px;background:#1b5aa6"></span>نصّ مبدئي يحتاج مراجعة قانونية قبل النشر</span>
+  <span class="sh-privacy-privacy-head__span-3"><span class="sh-more__arrow sh-more__arrow--12"></span>نصّ مبدئي يحتاج مراجعة قانونية قبل النشر</span>
 </section>
 
-<div data-screen-label="Privacy Body" style="display:grid;grid-template-columns:minmax(min(100%,220px),.3fr) minmax(min(100%,320px),1fr);gap:52px;padding:24px 0 0;align-items:start">
+<div data-screen-label="Privacy Body" class="sh-privacy-privacy-body__div-1">
 
-  <aside data-screen-label="Privacy Index" style="align-self:start;position:sticky;top:22px">
-    <span style="display:flex;align-items:center;gap:10px;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#8a95a6;border-bottom:1px solid #d5dde8;padding-bottom:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg)"></span>فهرس السياسة</span>
+  <aside data-screen-label="Privacy Index" class="sh-privacy-privacy-index__aside-1">
+    <span class="sh-privacy-privacy-index__span-1">فهرس السياسة</span>
     
-      <a href="#scope" style="display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #f1f4f8" class="sh-x40">
-        <span style="font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;color:#b9c6d8;font-variant-numeric:tabular-nums">01</span>
-        <span style="font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.65;color:#14233a">نطاق السياسة</span>
+      <a href="#scope" class="sh-list__row sh-list__row--26">
+        <span class="sh-list__num">01</span>
+        <span class="sh-list__title">نطاق السياسة</span>
       </a>
     
-      <a href="#collect" style="display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #f1f4f8" class="sh-x41">
-        <span style="font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;color:#b9c6d8;font-variant-numeric:tabular-nums">02</span>
-        <span style="font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.65;color:#14233a">المعلومات التي نجمعها</span>
+      <a href="#collect" class="sh-list__row sh-list__row--26">
+        <span class="sh-list__num">02</span>
+        <span class="sh-list__title">المعلومات التي نجمعها</span>
       </a>
     
-      <a href="#use" style="display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #f1f4f8" class="sh-x42">
-        <span style="font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;color:#b9c6d8;font-variant-numeric:tabular-nums">03</span>
-        <span style="font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.65;color:#14233a">كيفية استخدام المعلومات</span>
+      <a href="#use" class="sh-list__row sh-list__row--26">
+        <span class="sh-list__num">03</span>
+        <span class="sh-list__title">كيفية استخدام المعلومات</span>
       </a>
     
-      <a href="#cookies" style="display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #f1f4f8" class="sh-x43">
-        <span style="font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;color:#b9c6d8;font-variant-numeric:tabular-nums">04</span>
-        <span style="font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.65;color:#14233a">ملفات تعريف الارتباط</span>
+      <a href="#cookies" class="sh-list__row sh-list__row--26">
+        <span class="sh-list__num">04</span>
+        <span class="sh-list__title">ملفات تعريف الارتباط</span>
       </a>
     
-      <a href="#third" style="display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #f1f4f8" class="sh-x44">
-        <span style="font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;color:#b9c6d8;font-variant-numeric:tabular-nums">05</span>
-        <span style="font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.65;color:#14233a">خدمات الطرف الثالث</span>
+      <a href="#third" class="sh-list__row sh-list__row--26">
+        <span class="sh-list__num">05</span>
+        <span class="sh-list__title">خدمات الطرف الثالث</span>
       </a>
     
-      <a href="#protect" style="display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #f1f4f8" class="sh-x45">
-        <span style="font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;color:#b9c6d8;font-variant-numeric:tabular-nums">06</span>
-        <span style="font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.65;color:#14233a">حماية البيانات</span>
+      <a href="#protect" class="sh-list__row sh-list__row--26">
+        <span class="sh-list__num">06</span>
+        <span class="sh-list__title">حماية البيانات</span>
       </a>
     
-      <a href="#rights" style="display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #f1f4f8" class="sh-x46">
-        <span style="font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;color:#b9c6d8;font-variant-numeric:tabular-nums">07</span>
-        <span style="font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.65;color:#14233a">حقوق المستخدم</span>
+      <a href="#rights" class="sh-list__row sh-list__row--26">
+        <span class="sh-list__num">07</span>
+        <span class="sh-list__title">حقوق المستخدم</span>
       </a>
     
-      <a href="#retention" style="display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #f1f4f8" class="sh-x47">
-        <span style="font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;color:#b9c6d8;font-variant-numeric:tabular-nums">08</span>
-        <span style="font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.65;color:#14233a">الاحتفاظ بالبيانات</span>
+      <a href="#retention" class="sh-list__row sh-list__row--26">
+        <span class="sh-list__num">08</span>
+        <span class="sh-list__title">الاحتفاظ بالبيانات</span>
       </a>
     
-      <a href="#contact" style="display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #f1f4f8" class="sh-x48">
-        <span style="font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;color:#b9c6d8;font-variant-numeric:tabular-nums">09</span>
-        <span style="font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.65;color:#14233a">التواصل معنا</span>
+      <a href="#contact" class="sh-list__row sh-list__row--26">
+        <span class="sh-list__num">09</span>
+        <span class="sh-list__title">التواصل معنا</span>
       </a>
     
-      <a href="#changes" style="display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #f1f4f8" class="sh-x49">
-        <span style="font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;color:#b9c6d8;font-variant-numeric:tabular-nums">10</span>
-        <span style="font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.65;color:#14233a">التعديلات على السياسة</span>
+      <a href="#changes" class="sh-list__row sh-list__row--26">
+        <span class="sh-list__num">10</span>
+        <span class="sh-list__title">التعديلات على السياسة</span>
       </a>
     
-    <a href="contact.html" style="display:inline-flex;align-items:center;gap:10px;margin-top:16px;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#1b5aa6" class="sh-x50">تواصل مع الوكالة <span style="width:14px;height:1px;background:currentColor"></span></a>
+    <a href="contact.html" class="sh-privacy-privacy-index__a-1">تواصل مع الوكالة <span class="sh-more__arrow sh-more__arrow--14 sh-more__arrow--cc"></span></a>
   </aside>
 
-  <article style="max-width:74ch;font-size:15px;color:#2c3a4e">
-    <p style="margin-bottom:22px">توضّح هذه السياسة كيف تتعامل وكالة شهاب للأنباء مع بيانات مستخدمي موقعها وتطبيقاتها. النصّ التالي مسوّدة مبدئية أُعدّت لأغراض التصميم، ويجب مراجعتها قانونيًا وتحديثها ببيانات الوكالة الفعلية قبل النشر.</p>
+  <article class="sh-privacy-privacy-body__article-1">
+    <p class="sh-privacy-privacy-body__p-1">توضّح هذه السياسة كيف تتعامل وكالة شهاب للأنباء مع بيانات مستخدمي موقعها وتطبيقاتها. النصّ التالي مسوّدة مبدئية أُعدّت لأغراض التصميم، ويجب مراجعتها قانونيًا وتحديثها ببيانات الوكالة الفعلية قبل النشر.</p>
 
-    <h2 id="scope" style="font-family:'Almarai',sans-serif;font-size:19px;font-weight:800;line-height:1.6;margin:26px 0 12px;color:#0a1a33;display:flex;align-items:center;gap:11px;border-top:1px solid #e3e8ef;padding-top:20px"><span style="font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;color:#1b5aa6;font-variant-numeric:tabular-nums">01</span>نطاق السياسة</h2>
+    <h2 id="scope" class="sh-privacy-privacy-body__h2-1"><span class="sh-doc__num">01</span>نطاق السياسة</h2>
     <p>تنطبق هذه السياسة على موقع وكالة شهاب للأنباء وما يتبعه من صفحات وخدمات رقمية تديرها الوكالة. ولا تنطبق على المواقع أو المنصّات الخارجية التي قد تصل إليها عبر روابط منشورة في المحتوى.</p>
     <p>باستخدامك الموقع فإنك توافق على الممارسات الموضّحة في هذه السياسة.</p>
 
-    <h2 id="collect" style="font-family:'Almarai',sans-serif;font-size:19px;font-weight:800;line-height:1.6;margin:26px 0 12px;color:#0a1a33;display:flex;align-items:center;gap:11px;border-top:1px solid #e3e8ef;padding-top:20px"><span style="font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;color:#1b5aa6;font-variant-numeric:tabular-nums">02</span>المعلومات التي نجمعها</h2>
+    <h2 id="collect" class="sh-privacy-privacy-body__h2-1"><span class="sh-doc__num">02</span>المعلومات التي نجمعها</h2>
     <p>قد تُجمع البيانات التالية:</p>
-    <ul style="margin:0 0 16px;padding-right:20px">
+    <ul class="sh-privacy-privacy-body__ul-1">
       <li>بيانات ترسلها بنفسك عبر نموذج التواصل، مثل الاسم والبريد الإلكتروني ونصّ الرسالة والمواد المرفقة.</li>
       <li>بيانات تقنية أساسية يرسلها متصفحك عند الزيارة، مثل نوع المتصفح والجهاز والصفحات التي زرتها.</li>
       <li>بيانات الاشتراك في النشرة البريدية إن اخترت الاشتراك.</li>
     </ul>
     <p>لا تطلب الوكالة بيانات حسّاسة غير ضرورية، ويُفضَّل عدم إرسال أي معلومات قد تُعرّض المُرسل للخطر.</p>
 
-    <h2 id="use" style="font-family:'Almarai',sans-serif;font-size:19px;font-weight:800;line-height:1.6;margin:26px 0 12px;color:#0a1a33;display:flex;align-items:center;gap:11px;border-top:1px solid #e3e8ef;padding-top:20px"><span style="font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;color:#1b5aa6;font-variant-numeric:tabular-nums">03</span>كيفية استخدام المعلومات</h2>
-    <ul style="margin:0 0 16px;padding-right:20px">
+    <h2 id="use" class="sh-privacy-privacy-body__h2-1"><span class="sh-doc__num">03</span>كيفية استخدام المعلومات</h2>
+    <ul class="sh-privacy-privacy-body__ul-1">
       <li>الردّ على الرسائل والاستفسارات الواردة من المستخدمين.</li>
       <li>التحقّق من المواد الصحفية المرسلة قبل استخدامها، ونسبتها إلى مصدرها عند النشر.</li>
       <li>تحسين المحتوى وتجربة الاستخدام داخل الموقع.</li>
@@ -240,100 +245,100 @@
     </ul>
     <p>لا تُستخدم البيانات لأغراض تجارية أو تُباع لأي طرف.</p>
 
-    <h2 id="cookies" style="font-family:'Almarai',sans-serif;font-size:19px;font-weight:800;line-height:1.6;margin:26px 0 12px;color:#0a1a33;display:flex;align-items:center;gap:11px;border-top:1px solid #e3e8ef;padding-top:20px"><span style="font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;color:#1b5aa6;font-variant-numeric:tabular-nums">04</span>ملفات تعريف الارتباط</h2>
+    <h2 id="cookies" class="sh-privacy-privacy-body__h2-1"><span class="sh-doc__num">04</span>ملفات تعريف الارتباط</h2>
     <p>قد يستخدم الموقع ملفات تعريف ارتباط أساسية لتشغيل الصفحات وتذكّر تفضيلات العرض. يمكنك ضبط متصفحك لرفض هذه الملفات، مع العلم أن بعض وظائف الموقع قد تتأثر.</p>
-    <p style="background:#f4f6f9;border-right:3px solid #1b5aa6;padding:13px 16px;font-size:14px">[تُحدَّد قائمة ملفات تعريف الارتباط المستخدمة فعليًا وأغراضها ومدّتها قبل النشر.]</p>
+    <p class="sh-privacy-privacy-body__p-2">[تُحدَّد قائمة ملفات تعريف الارتباط المستخدمة فعليًا وأغراضها ومدّتها قبل النشر.]</p>
 
-    <h2 id="third" style="font-family:'Almarai',sans-serif;font-size:19px;font-weight:800;line-height:1.6;margin:26px 0 12px;color:#0a1a33;display:flex;align-items:center;gap:11px;border-top:1px solid #e3e8ef;padding-top:20px"><span style="font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;color:#1b5aa6;font-variant-numeric:tabular-nums">05</span>خدمات الطرف الثالث</h2>
+    <h2 id="third" class="sh-privacy-privacy-body__h2-1"><span class="sh-doc__num">05</span>خدمات الطرف الثالث</h2>
     <p>قد يعتمد الموقع على خدمات خارجية لتشغيل بعض عناصره، مثل استضافة المحتوى أو تشغيل الفيديو أو قياس الزيارات. تخضع هذه الخدمات لسياسات الخصوصية الخاصة بمشغّليها.</p>
-    <p style="background:#f4f6f9;border-right:3px solid #1b5aa6;padding:13px 16px;font-size:14px">[تُدرَج أسماء الخدمات المستخدمة فعليًا في النسخة النهائية — ولا تُذكر أي خدمة غير مُستخدمة.]</p>
+    <p class="sh-privacy-privacy-body__p-2">[تُدرَج أسماء الخدمات المستخدمة فعليًا في النسخة النهائية — ولا تُذكر أي خدمة غير مُستخدمة.]</p>
 
-    <h2 id="protect" style="font-family:'Almarai',sans-serif;font-size:19px;font-weight:800;line-height:1.6;margin:26px 0 12px;color:#0a1a33;display:flex;align-items:center;gap:11px;border-top:1px solid #e3e8ef;padding-top:20px"><span style="font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;color:#1b5aa6;font-variant-numeric:tabular-nums">06</span>حماية البيانات</h2>
+    <h2 id="protect" class="sh-privacy-privacy-body__h2-1"><span class="sh-doc__num">06</span>حماية البيانات</h2>
     <p>تتّخذ الوكالة تدابير تقنية وتنظيمية معقولة لحماية البيانات من الوصول غير المصرّح به أو الفقدان. ومع ذلك لا يمكن ضمان أمان مطلق لأي نقل للبيانات عبر الإنترنت.</p>
     <p>تُعالج المواد الواردة من الميدان بحذر خاص، ويُراعى عدم نشر ما قد يكشف هوية مُرسليها دون موافقتهم.</p>
 
-    <h2 id="rights" style="font-family:'Almarai',sans-serif;font-size:19px;font-weight:800;line-height:1.6;margin:26px 0 12px;color:#0a1a33;display:flex;align-items:center;gap:11px;border-top:1px solid #e3e8ef;padding-top:20px"><span style="font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;color:#1b5aa6;font-variant-numeric:tabular-nums">07</span>حقوق المستخدم</h2>
-    <ul style="margin:0 0 16px;padding-right:20px">
+    <h2 id="rights" class="sh-privacy-privacy-body__h2-1"><span class="sh-doc__num">07</span>حقوق المستخدم</h2>
+    <ul class="sh-privacy-privacy-body__ul-1">
       <li>طلب الوصول إلى بياناتك المحفوظة لدى الوكالة.</li>
       <li>طلب تصحيح بياناتك أو حذفها.</li>
       <li>إلغاء الاشتراك في النشرة البريدية في أي وقت.</li>
       <li>الاعتراض على استخدام مادة أرسلتها قبل نشرها.</li>
     </ul>
-    <p>لتنفيذ أي من هذه الطلبات يمكنك التواصل مع الوكالة عبر <a href="contact.html" style="color:#1b5aa6;font-weight:700;font-family:'Almarai',sans-serif;font-size:14px">صفحة التواصل</a>.</p>
+    <p>لتنفيذ أي من هذه الطلبات يمكنك التواصل مع الوكالة عبر <a href="contact.html" class="sh-privacy-privacy-body__a-1">صفحة التواصل</a>.</p>
 
-    <h2 id="retention" style="font-family:'Almarai',sans-serif;font-size:19px;font-weight:800;line-height:1.6;margin:26px 0 12px;color:#0a1a33;display:flex;align-items:center;gap:11px;border-top:1px solid #e3e8ef;padding-top:20px"><span style="font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;color:#1b5aa6;font-variant-numeric:tabular-nums">08</span>الاحتفاظ بالبيانات</h2>
+    <h2 id="retention" class="sh-privacy-privacy-body__h2-1"><span class="sh-doc__num">08</span>الاحتفاظ بالبيانات</h2>
     <p>تُحفظ البيانات للمدّة اللازمة لتحقيق الغرض الذي جُمعت من أجله، أو للمدّة التي تقتضيها الالتزامات القانونية والتحريرية. أما المواد الصحفية المنشورة فتبقى جزءًا من أرشيف الوكالة.</p>
 
-    <h2 id="contact" style="font-family:'Almarai',sans-serif;font-size:19px;font-weight:800;line-height:1.6;margin:26px 0 12px;color:#0a1a33;display:flex;align-items:center;gap:11px;border-top:1px solid #e3e8ef;padding-top:20px"><span style="font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;color:#1b5aa6;font-variant-numeric:tabular-nums">09</span>التواصل معنا</h2>
-    <p>لأي سؤال يتعلّق بهذه السياسة أو بمعالجة بياناتك، يمكنك مراسلة الوكالة عبر القنوات المذكورة في <a href="contact.html" style="color:#1b5aa6;font-weight:700;font-family:'Almarai',sans-serif;font-size:14px">صفحة تواصل معنا</a>.</p>
-    <p style="background:#f4f6f9;border-right:3px solid #1b5aa6;padding:13px 16px;font-size:14px">[يُضاف بريد التواصل الرسمي وبيانات الجهة المسؤولة عن حماية البيانات قبل النشر.]</p>
+    <h2 id="contact" class="sh-privacy-privacy-body__h2-1"><span class="sh-doc__num">09</span>التواصل معنا</h2>
+    <p>لأي سؤال يتعلّق بهذه السياسة أو بمعالجة بياناتك، يمكنك مراسلة الوكالة عبر القنوات المذكورة في <a href="contact.html" class="sh-privacy-privacy-body__a-1">صفحة تواصل معنا</a>.</p>
+    <p class="sh-privacy-privacy-body__p-2">[يُضاف بريد التواصل الرسمي وبيانات الجهة المسؤولة عن حماية البيانات قبل النشر.]</p>
 
-    <h2 id="changes" style="font-family:'Almarai',sans-serif;font-size:19px;font-weight:800;line-height:1.6;margin:26px 0 12px;color:#0a1a33;display:flex;align-items:center;gap:11px;border-top:1px solid #e3e8ef;padding-top:20px"><span style="font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;color:#1b5aa6;font-variant-numeric:tabular-nums">10</span>التعديلات على السياسة</h2>
+    <h2 id="changes" class="sh-privacy-privacy-body__h2-1"><span class="sh-doc__num">10</span>التعديلات على السياسة</h2>
     <p>قد تُحدَّث هذه السياسة عند تغيّر الخدمات أو المتطلّبات القانونية. يُعلَن تاريخ آخر تحديث في أعلى الصفحة، ويُعدّ استمرار استخدام الموقع بعد التحديث موافقةً على النسخة المعمول بها.</p>
 
-    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:28px;padding-top:16px;border-top:2px solid #14233a">
-      <span style="display:flex;align-items:center;gap:10px;font-size:12px;color:#8a95a6"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>هذه مسوّدة تصميمية — تُستبدل بالنصّ القانوني المعتمد قبل النشر.</span>
-      <a href="contact.html" style="display:inline-flex;align-items:center;gap:11px;border:1px solid #cbd4e0;color:#0a1a33;font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;padding:11px 22px;white-space:nowrap" class="sh-x51">تواصل مع شهاب <span style="width:15px;height:1px;background:currentColor"></span></a>
+    <div class="sh-privacy-privacy-body__div-2">
+      <span class="sh-privacy-privacy-body__span-1">هذه مسوّدة تصميمية — تُستبدل بالنصّ القانوني المعتمد قبل النشر.</span>
+      <a href="contact.html" class="sh-privacy-privacy-body__a-2">تواصل مع شهاب <span class="sh-privacy-privacy-body__span-2"></span></a>
     </div>
   </article>
 </div>
 
-<div style="height:40px"></div>
+<div class="sh-privacy-body__div-1"></div>
 
 </main>
 
-<footer dir="rtl" data-screen-label="Footer" style="position:relative;overflow:hidden;background:#0a1a33;color:#fff;margin-top:24px">
-  <video src="assets/video/footer-city.webm" autoplay="" muted="" loop="" playsinline="" preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42"></video>
-  <span style="position:absolute;inset:0;background:#0a1a33;opacity:.55;pointer-events:none"></span>
-  <span style="position:absolute;top:0;right:0;left:0;height:2px;background:#1b5aa6"></span>
-  <div style="position:relative;max-width:1280px;margin:0 auto;padding:44px 32px 0">
-    <div style="display:flex;flex-wrap:wrap;gap:36px 40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.16)">
-      <div style="flex:1 1 280px;min-width:0">
-        <a href="index.html"><img src="assets/images/logo-white.png" alt="شهاب" style="height:46px;width:auto"></a>
-        <p style="font-family:'Noto Naskh Arabic',serif;font-size:12.5px;line-height:1.95;color:rgba(255,255,255,.72);margin:16px 0 0;max-width:34ch">وكالة أنباء فلسطينية تعمل على مدار الساعة لنقل الصورة من الساحة الفلسطينية والعربية والدولية.</p>
-        <div style="display:flex;gap:8px;margin-top:18px">
+<footer dir="rtl" data-screen-label="Footer" class="sh-footer">
+  <video src="assets/video/footer-city.webm" autoplay="" muted="" loop="" playsinline="" preload="auto" class="sh-footer__video"></video>
+  <span class="sh-footer__veil"></span>
+  <span class="sh-footer__rule"></span>
+  <div class="sh-footer__inner">
+    <div class="sh-footer__cols">
+      <div class="sh-footer__col sh-footer__col--brand">
+        <a href="index.html"><img src="assets/images/logo-white.png" alt="شهاب" class="sh-footer__logo"></a>
+        <p class="sh-footer__about">وكالة أنباء فلسطينية تعمل على مدار الساعة لنقل الصورة من الساحة الفلسطينية والعربية والدولية.</p>
+        <div class="sh-footer__social">
           
         </div>
       </div>
       
-        <div style="flex:1 1 150px;min-width:0">
-          <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الأقسام</h3>
-          <div style="display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:rgba(255,255,255,.75)">
-            <a href="category.html" class="sh-x52">أخبار فلسطين</a><a href="category.html" class="sh-x53">القدس</a><a href="category.html" class="sh-x54">غزة</a><a href="category.html" class="sh-x55">الضفة</a><a href="category.html" class="sh-x56">عربي ودولي</a>
+        <div class="sh-footer__col">
+          <h3 class="sh-footer__title">الأقسام</h3>
+          <div class="sh-footer__links">
+            <a href="category.html" class="sh-footer__link">أخبار فلسطين</a><a href="category.html" class="sh-footer__link">القدس</a><a href="category.html" class="sh-footer__link">غزة</a><a href="category.html" class="sh-footer__link">الضفة</a><a href="category.html" class="sh-footer__link">عربي ودولي</a>
           </div>
         </div>
       
-        <div style="flex:1 1 150px;min-width:0">
-          <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>المحتوى</h3>
-          <div style="display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:rgba(255,255,255,.75)">
-            <a href="coverage.html" class="sh-x57">التغطيات الحية</a><a href="files.html" class="sh-x58">ملفات شهاب</a><a href="photos.html" class="sh-x59">عدسة شهاب</a><a href="video.html" class="sh-x60">فيديو شهاب</a><a href="category.html" class="sh-x61">تقارير خاصة</a>
+        <div class="sh-footer__col">
+          <h3 class="sh-footer__title">المحتوى</h3>
+          <div class="sh-footer__links">
+            <a href="coverage.html" class="sh-footer__link">التغطيات الحية</a><a href="files.html" class="sh-footer__link">ملفات شهاب</a><a href="photos.html" class="sh-footer__link">عدسة شهاب</a><a href="video.html" class="sh-footer__link">فيديو شهاب</a><a href="category.html" class="sh-footer__link">تقارير خاصة</a>
           </div>
         </div>
       
-        <div style="flex:1 1 150px;min-width:0">
-          <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الوكالة</h3>
-          <div style="display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:rgba(255,255,255,.75)">
-            <a href="about.html" class="sh-x62">من نحن</a><a href="contact.html" class="sh-x63">تواصل معنا</a><a href="#" class="sh-x64">سياسة التحرير</a><a href="#" class="sh-x65">فرص العمل</a><a href="#" class="sh-x66">خدمة الصور</a>
+        <div class="sh-footer__col">
+          <h3 class="sh-footer__title">الوكالة</h3>
+          <div class="sh-footer__links">
+            <a href="about.html" class="sh-footer__link">من نحن</a><a href="contact.html" class="sh-footer__link">تواصل معنا</a><a href="#" class="sh-footer__link">سياسة التحرير</a><a href="#" class="sh-footer__link">فرص العمل</a><a href="#" class="sh-footer__link">خدمة الصور</a>
           </div>
         </div>
       
-      <div style="flex:1 1 260px;min-width:0">
-        <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>النشرة البريدية</h3>
-        <p style="font-family:'Noto Naskh Arabic',serif;font-size:12.5px;line-height:1.9;color:rgba(255,255,255,.72);margin:0 0 14px">آخر الأخبار وأبرز الملفات في بريدك كل صباح.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <span style="flex:1 1 150px;min-width:0;border:1px solid rgba(255,255,255,.3);padding:10px 13px;font-size:12px;color:rgba(255,255,255,.55);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">بريدك الإلكتروني</span>
-          <span style="background:#1b5aa6;color:#fff;font-family:'Almarai',sans-serif;font-size:12px;font-weight:700;padding:10px 20px;display:flex;align-items:center;white-space:nowrap;flex:none">اشترك</span>
+      <div class="sh-footer__col sh-footer__col--wide">
+        <h3 class="sh-footer__title">النشرة البريدية</h3>
+        <p class="sh-footer__lead">آخر الأخبار وأبرز الملفات في بريدك كل صباح.</p>
+        <div class="sh-footer__form">
+          <span class="sh-footer__input">بريدك الإلكتروني</span>
+          <span class="sh-footer__submit">اشترك</span>
         </div>
-        <div style="display:flex;gap:10px;align-items:center;margin-top:18px;font-size:11.5px;color:rgba(255,255,255,.6)"><span style="width:5px;height:5px;background:#e0302f;border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite"></span>تغطية مستمرة على مدار الساعة</div>
+        <div class="sh-footer__live"><span class="sh-footer__live-dot"></span>تغطية مستمرة على مدار الساعة</div>
       </div>
     </div>
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:20px 0 26px;font-size:11.5px;color:rgba(255,255,255,.6)">
+    <div class="sh-footer__legal">
       <span>وكالة شهاب للأنباء © 2026 — جميع الحقوق محفوظة</span>
-      <div style="display:flex;gap:22px">
-        <a href="privacy.html" class="sh-x67">سياسة الخصوصية</a>
-        <a href="terms.html" class="sh-x68">شروط الاستخدام</a>
-        <a href="#" class="sh-x69">خدمة RSS</a>
-        <a href="#" class="sh-x70">English</a>
+      <div class="sh-footer__legal-links">
+        <a href="privacy.html" class="sh-footer__legal-link">سياسة الخصوصية</a>
+        <a href="terms.html" class="sh-footer__legal-link">شروط الاستخدام</a>
+        <a href="#" class="sh-footer__legal-link">خدمة RSS</a>
+        <a href="#" class="sh-footer__legal-link">English</a>
       </div>
     </div>
   </div>
@@ -341,8 +346,8 @@
 
 </div>
 
-<script src="js/app.js?v=14" defer></script>
-<script src="js/responsive.js?v=14" defer></script>
-  <script src="js/brief.js?v=14" defer></script>
+<script src="js/app.js?v=55" defer></script>
+<script src="js/responsive.js?v=55" defer></script>
+  <script src="js/brief.js?v=55" defer></script>
 </body>
 </html>

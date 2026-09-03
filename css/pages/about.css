@@ -1,0 +1,134 @@
+/* شهاب — about: page layout, one-off styles (scoped by section), and what
+   the old per-page sheet still owned (keyframes, p/input, its own a{transition}). */
+a{transition:color .16s ease,background .16s ease,border-color .16s ease,gap .16s ease,opacity .16s ease}
+p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2.05}
+@keyframes sh-ring{0%{transform:scale(.55);opacity:.9}70%{opacity:.12}100%{transform:scale(1.6);opacity:0}}
+.sh-about-opening__section-1{position:relative;background:var(--sh-navy);color:#fff;overflow:hidden}
+.sh-about-opening__img-1{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%;opacity:.62}
+.sh-about-opening__span-1{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.96) 0%,rgba(10,26,51,.62) 45%,rgba(10,26,51,.5) 100%)}
+.sh-about-opening__div-1{position:relative;max-width:var(--sh-container);margin:0 auto;padding:44px 32px 0;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end}
+.sh-about-opening__span-2{display:flex;align-items:center;gap:12px;font-family:var(--sh-font);font-size:11px;font-weight:800;letter-spacing:.3em;color:#9fc2ea}
+.sh-about-opening__span-3{width:40px;height:1px;background:var(--sh-blue)}
+.sh-about-opening__h1-1{font-family:var(--sh-font);font-size:clamp(32px,4.6vw,60px);font-weight:800;line-height:1.14;margin:16px 0 0;max-width:20ch;text-wrap:pretty}
+.sh-about-opening__p-1{font-size:15.5px;line-height:1.95;color:rgba(255,255,255,.84);margin:14px 0 0;max-width:52ch;text-wrap:pretty}
+.sh-about-opening__div-2{display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px;margin-top:22px;padding:14px 0 16px;border-top:1px solid rgba(255,255,255,.22)}
+.sh-about-opening__span-4{display:block;width:104px}
+.sh-about-opening__span-5{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:3/2;border:1px solid rgba(255,255,255,.28)}
+.sh-about-opening__span-6{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=800");background-size:cover;background-position:center 45%}
+.sh-about-opening__span-7{display:flex;align-items:center;gap:7px;margin-top:7px;font-family:var(--sh-font);font-size:10px;font-weight:800;color:var(--sh-on-dark-60);font-variant-numeric:tabular-nums}
+.sh-about-opening__span-8{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=800");background-size:cover;background-position:center 45%}
+.sh-about-opening__span-9{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem%20Old%20City%20Street.jpg?width=800");background-size:cover;background-position:center 45%}
+.sh-about-opening__span-10{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Palestinian%20farmers%20harvesting%20olives%2C%20November%202015.jpg?width=800");background-size:cover;background-position:center 45%}
+.sh-about-opening__span-11{display:flex;align-items:center;gap:9px;margin-right:auto;padding-bottom:20px;font-size:11.5px;color:var(--sh-on-dark-55)}
+.sh-about-manifesto__section-1{padding:34px 0 0}
+.sh-about-manifesto__div-1{display:grid;grid-template-columns:minmax(min(100%,300px),1fr) minmax(min(100%,320px),1.15fr);gap:52px;align-items:start}
+.sh-about-manifesto__h2-1{font-family:var(--sh-font);font-size:clamp(23px,2.6vw,34px);font-weight:800;line-height:1.45;margin:0;color:var(--sh-navy);text-wrap:pretty}
+.sh-about-manifesto__span-1{display:flex;align-items:center;gap:11px;margin-top:18px;font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:var(--sh-blue)}
+.sh-about-manifesto__span-2{width:34px;height:2px;background:var(--sh-blue)}
+.sh-about-manifesto__div-2{margin-top:20px;border-top:1px solid var(--sh-hair-3)}
+.sh-about-manifesto__span-3{display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid var(--sh-hair);font-family:var(--sh-font);font-size:14px;font-weight:800;color:var(--sh-navy)}
+.sh-about-manifesto__p-1{font-size:15px;margin:0 0 22px;color:#2c3a4e}
+.sh-about-manifesto__p-2{font-size:15px;margin:0;color:#2c3a4e}
+.sh-about-manifesto__p-3{font-size:15px;margin:22px 0 0;color:#2c3a4e}
+.sh-about-journey__section-1{margin-top:36px;background:#f4f6f9;padding:26px 0 30px}
+.sh-about-journey__div-1{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.sh-about-journey__span-1{display:block;font-family:var(--sh-font);font-size:10.5px;font-weight:800;letter-spacing:.32em;color:var(--sh-blue)}
+.sh-about-journey__h2-1{font-family:var(--sh-font);font-size:clamp(22px,2.4vw,30px);font-weight:800;margin:9px 0 0;color:var(--sh-navy);display:flex;align-items:center;gap:11px}
+.sh-about-journey__div-2{position:relative;margin-top:26px;padding:0 32px}
+.sh-about-journey__span-2{position:absolute;top:118px;right:32px;left:32px;height:1px;background:#c9d4e2}
+.sh-about-journey__div-3{position:relative;max-width:var(--sh-container);margin:0 auto;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.35fr) minmax(0,1fr) minmax(0,1.1fr);gap:18px;align-items:start}
+.sh-about-journey__span-3{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:16/10}
+.sh-about-journey__span-4{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=800");background-size:cover;background-position:center 45%}
+.sh-about-journey__span-5{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.72),rgba(10,26,51,0) 62%)}
+.sh-about-journey__span-6{position:absolute;top:0;right:0;background:var(--sh-navy);color:#fff;font-family:var(--sh-font);font-size:10px;font-weight:800;padding:4px 9px;font-variant-numeric:tabular-nums}
+.sh-about-journey__span-7{display:block;height:22px;position:relative}
+.sh-about-journey__span-8{position:absolute;top:0;right:14px;width:1px;height:12px;background:#c9d4e2}
+.sh-about-journey__span-9{position:absolute;top:11px;right:11px;width:7px;height:7px;background:var(--sh-red);transform:rotate(45deg)}
+.sh-about-journey__span-10{display:block;font-family:var(--sh-font);font-size:16px;font-weight:800;color:var(--sh-navy);margin-top:6px}
+.sh-about-journey__span-11{display:block;font-size:12.5px;color:var(--sh-mute-2);line-height:1.9;margin-top:7px;text-wrap:pretty}
+.sh-about-journey__span-12{display:flex;align-items:center;gap:8px;margin-top:9px;font-size:10.5px;color:var(--sh-mute);font-variant-numeric:tabular-nums}
+.sh-about-journey__span-13{width:10px;height:1px;background:var(--sh-blue)}
+.sh-about-journey__span-14{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:4/5}
+.sh-about-journey__span-15{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Omar%20Mukhtar%20panorama%20-%20panoramio.jpg?width=1200");background-size:cover;background-position:center 45%}
+.sh-about-journey__span-16{position:absolute;top:11px;right:11px;width:7px;height:7px;background:var(--sh-blue);transform:rotate(45deg)}
+.sh-about-journey__span-17{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Gaza%20el-mina%20view.jpg?width=800");background-size:cover;background-position:center 45%}
+.sh-about-journey__span-18{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem%20Old%20City%20Street.jpg?width=800");background-size:cover;background-position:center 45%}
+.sh-about-journey__span-19{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/School%20Children%20in%20Hebron%20%287555041186%29.jpg?width=800");background-size:cover;background-position:center 45%}
+.sh-about-journey__span-20{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:1/1}
+.sh-about-journey__span-21{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=800");background-size:cover;background-position:center 45%}
+.sh-about-journey__span-22{position:absolute;top:11px;right:11px;width:7px;height:7px;background:var(--sh-navy);transform:rotate(45deg)}
+.sh-about-people__section-1{background:var(--sh-navy);color:#fff}
+.sh-about-people__div-1{max-width:var(--sh-container);margin:0 auto;padding:26px 32px 30px}
+.sh-about-people__div-2{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:14px}
+.sh-about-people__span-1{display:block;font-family:var(--sh-font);font-size:10.5px;font-weight:800;letter-spacing:.32em;color:var(--sh-sky)}
+.sh-about-people__h2-1{font-family:var(--sh-font);font-size:clamp(22px,2.4vw,30px);font-weight:800;margin:9px 0 0;display:flex;align-items:center;gap:11px}
+.sh-about-people__span-2{font-size:12px;color:var(--sh-on-dark-60);padding-bottom:4px}
+.sh-about-people__div-3{display:grid;grid-template-columns:minmax(min(100%,300px),1.45fr) minmax(min(100%,260px),1fr);gap:26px;margin-top:26px;align-items:stretch}
+.sh-about-people__div-4{position:relative;display:flex}
+.sh-about-people__span-3{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);width:100%;height:100%;min-height:250px}
+.sh-about-people__span-4{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Omar%20Mukhtar%20panorama%20-%20panoramio.jpg?width=1200");background-size:cover;background-position:center 48%}
+.sh-about-people__span-5{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.9),rgba(10,26,51,0) 60%)}
+.sh-about-people__span-6{position:absolute;bottom:0;right:0;left:0;padding:20px}
+.sh-about-people__span-7{display:flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:11px;font-weight:800;color:#9fc2ea}
+.sh-about-people__span-8{position:relative;display:flex;align-items:center;justify-content:center;width:12px;height:12px}
+.sh-about-people__span-9{position:absolute;inset:0;border:1px solid var(--sh-red);border-radius:50%;animation:sh-ring 2.2s ease-out infinite}
+.sh-about-people__span-10{width:5px;height:5px;background:var(--sh-red);border-radius:50%}
+.sh-about-people__span-11{display:block;font-family:var(--sh-font);font-size:clamp(18px,1.9vw,23px);font-weight:800;line-height:1.55;margin-top:10px;max-width:34ch;text-wrap:pretty}
+.sh-about-people__div-5{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:0 22px;align-content:start}
+.sh-about-people__div-6{border-right:1px solid var(--sh-on-dark-16);padding:2px 18px 0 0}
+.sh-about-people__span-12{display:flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:11px;font-weight:800;color:var(--sh-sky)}
+.sh-about-people__span-13{display:block;font-family:var(--sh-font);font-size:16px;font-weight:800;margin-top:9px}
+.sh-about-people__span-14{display:block;font-size:12.5px;color:rgba(255,255,255,.68);line-height:1.9;margin-top:6px;padding-bottom:14px;text-wrap:pretty}
+.sh-about-timeline__section-1{margin-top:36px}
+.sh-about-timeline__div-1{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:2px solid var(--sh-ink);padding-bottom:11px}
+.sh-about-timeline__h2-1{font-family:var(--sh-font);font-size:22px;font-weight:800;margin:0;color:var(--sh-navy);display:flex;align-items:center;gap:10px}
+.sh-about-timeline__span-1{font-size:11.5px;color:var(--sh-mute)}
+.sh-about-timeline__div-2{display:grid;grid-template-columns:minmax(min(100%,300px),1.35fr) minmax(min(100%,280px),1fr);gap:44px;margin-top:24px;align-items:stretch}
+.sh-about-timeline__div-3{position:relative;padding-right:20px}
+.sh-about-timeline__span-2{position:absolute;top:10px;bottom:14px;right:4px;width:1px;background:#dfe6ef}
+.sh-about-timeline__div-4{position:relative;padding:0 0 18px}
+.sh-about-timeline__span-3{position:absolute;top:6px;right:-20px;width:16px;height:13px;background:var(--sh-blue);border:2px solid var(--sh-blue)}
+.sh-about-timeline__span-4{display:flex;align-items:baseline;gap:12px}
+.sh-about-timeline__span-5{font-family:var(--sh-font);font-size:22px;font-weight:800;color:var(--sh-navy);line-height:1;font-variant-numeric:tabular-nums}
+.sh-about-timeline__span-6{font-family:var(--sh-font);font-size:15px;font-weight:800;color:var(--sh-ink)}
+.sh-about-timeline__span-7{display:block;font-size:13px;color:var(--sh-mute-2);line-height:1.95;margin-top:7px;max-width:56ch;text-wrap:pretty}
+.sh-about-timeline__span-8{position:absolute;top:6px;right:-20px;width:16px;height:13px;background:#fff;border:2px solid var(--sh-blue)}
+.sh-about-timeline__span-9{position:absolute;top:6px;right:-20px;width:16px;height:13px;background:var(--sh-red);border:2px solid var(--sh-blue)}
+.sh-about-timeline__div-5{position:relative;background:var(--sh-navy);color:#fff;overflow:hidden}
+.sh-about-timeline__span-10{position:relative;display:block;overflow:hidden;height:100%;min-height:300px}
+.sh-about-timeline__img-1{width:100%;height:100%;object-fit:cover;object-position:center 55%}
+.sh-about-timeline__span-11{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.94),rgba(10,26,51,0) 58%)}
+.sh-about-timeline__span-12{position:absolute;top:14px;right:14px;background:var(--sh-navy);color:#fff;font-family:var(--sh-font);font-size:10px;font-weight:800;padding:5px 10px;display:flex;align-items:center;gap:7px}
+.sh-about-timeline__span-13{position:absolute;bottom:0;right:0;left:0;padding:20px}
+.sh-about-timeline__span-14{display:block;font-family:var(--sh-font);font-size:19px;font-weight:800;line-height:1.55;max-width:24ch;text-wrap:pretty}
+.sh-about-timeline__span-15{display:block;font-size:12.5px;color:var(--sh-on-dark-75);line-height:1.9;margin-top:9px;max-width:40ch}
+.sh-about-timeline__div-6{margin-top:22px;border-top:2px solid var(--sh-ink);padding-top:16px}
+.sh-about-timeline__span-16{display:flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:12px;font-weight:800;color:var(--sh-navy)}
+.sh-about-timeline__div-7{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:0 34px;margin-top:4px}
+.sh-about-timeline__span-17{display:block;padding:14px 0;border-bottom:1px solid var(--sh-hair)}
+.sh-about-timeline__span-18{display:flex;align-items:baseline;gap:11px}
+.sh-about-timeline__span-19{font-family:var(--sh-font);font-size:30px;font-weight:800;color:var(--sh-navy);line-height:1;font-variant-numeric:tabular-nums}
+.sh-about-timeline__span-20{font-family:var(--sh-font);font-size:12.5px;font-weight:800;color:var(--sh-blue)}
+.sh-about-timeline__span-21{display:block;font-size:12.5px;color:var(--sh-mute-2);line-height:1.9;margin-top:8px;text-wrap:pretty}
+.sh-about-system__section-1{margin-top:36px}
+.sh-about-system__div-1{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:2px solid var(--sh-ink);padding-bottom:11px}
+.sh-about-system__h2-1{font-family:var(--sh-font);font-size:22px;font-weight:800;margin:0;color:var(--sh-navy);display:flex;align-items:center;gap:10px}
+.sh-about-system__a-1{display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;color:var(--sh-blue);padding-bottom:3px}
+.sh-about-system__a-1:hover{gap:15px}
+.sh-about-system__span-1{width:15px;height:1px;background:currentColor}
+.sh-about-system__div-2{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0 20px;margin-top:4px}
+.sh-about-system__a-2{display:block;padding:14px 0;border-bottom:1px solid var(--sh-hair)}
+.sh-about-system__a-2:hover{color:var(--sh-blue)}
+.sh-about-system__span-2{display:flex;align-items:center;gap:11px}
+.sh-about-system__span-3{flex:1;height:1px;background:var(--sh-hair-3)}
+.sh-about-system__span-4{font-size:10.5px;color:var(--sh-mute)}
+.sh-about-system__span-5{display:block;font-family:var(--sh-font);font-size:17px;font-weight:800;color:var(--sh-navy);margin-top:11px}
+.sh-about-system__span-6{display:block;font-size:12.5px;color:var(--sh-mute-2);line-height:1.9;margin-top:7px;text-wrap:pretty}
+.sh-about-closing__section-1{position:relative;margin-top:36px;background:var(--sh-navy);color:#fff;overflow:hidden}
+.sh-about-closing__img-1{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 58%;opacity:.5}
+.sh-about-closing__span-1{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.96),rgba(10,26,51,.6))}
+.sh-about-closing__div-1{position:relative;max-width:var(--sh-container);margin:0 auto;padding:40px 32px 38px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:26px}
+.sh-about-closing__span-2{display:block;font-family:var(--sh-font);font-size:clamp(24px,2.8vw,38px);font-weight:800;line-height:1.5;max-width:22ch;text-wrap:pretty}
+.sh-about-closing__span-3{display:flex;align-items:center;gap:10px;margin-top:16px;font-family:var(--sh-font);font-size:12px;font-weight:800;color:#9fc2ea}
+.sh-about-closing__a-1{display:inline-flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,.45);color:#fff;font-family:var(--sh-font);font-size:12.5px;font-weight:800;padding:13px 28px}
+.sh-about-closing__a-1:hover{background:var(--sh-blue);border-color:var(--sh-blue);color:#fff;gap:18px}

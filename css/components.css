@@ -1,0 +1,276 @@
+/* شهاب — shared components. Generated from the markup; hover states folded
+   from the per-page sheets. Names per the approved dictionary. */
+.sh-page{background:#fff;color:var(--sh-ink);font-family:var(--sh-font-stack);font-size:14.5px}
+.sh-more__arrow.sh-more__arrow--16.sh-more__arrow--cc{width:16px;height:1px;background:currentColor}
+.sh-chevron{width:8px;height:8px;border-right:1px solid var(--sh-grey-1);border-top:1px solid var(--sh-grey-1);transform:rotate(-135deg)}
+.sh-more__arrow.sh-more__arrow--14{width:14px;height:1px;background:var(--sh-blue)}
+.sh-container{max-width:var(--sh-container);margin:0 auto;padding:0 32px}
+.sh-mark--md{width:16px;height:13px;background:var(--sh-blue)}
+.sh-doc__num.sh-doc__num--sm{font-family:var(--sh-font);font-size:11px;font-weight:800;color:var(--sh-blue);font-variant-numeric:tabular-nums}
+.sh-mute{color:var(--sh-mute)}
+.sh-mute:hover{color:var(--sh-blue)}
+.sh-inline-flex{display:inline-flex}
+.sh-min0{min-width:0}
+.sh-meta.sh-meta--wrap{display:flex;flex-wrap:wrap;align-items:center;gap:9px;font-size:11px;color:var(--sh-mute)}
+.sh-fs-10{font-size:10px}
+.sh-meta__count{font-size:11px;color:var(--sh-mute);font-variant-numeric:tabular-nums}
+.sh-more__arrow.sh-more__arrow--12{width:12px;height:1px;background:var(--sh-blue)}
+.sh-section__head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:10px}
+.sh-section__title.sh-section__title--sm{font-family:var(--sh-font);font-size:14px;font-weight:800;margin:0;color:var(--sh-navy);display:flex;align-items:center;gap:9px}
+.sh-meta__note{font-size:11px;color:var(--sh-mute)}
+.sh-list__row.sh-list__row--34{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;padding:13px 0;border-bottom:1px solid var(--sh-hair-6)}
+.sh-list__row.sh-list__row--34:hover{color:var(--sh-blue)}
+.sh-card__title{font-family:var(--sh-font);font-size:13px;font-weight:700;line-height:1.7;color:var(--sh-ink);text-wrap:pretty}
+.sh-rail__item{display:block;padding:12px 14px 12px 0}
+.sh-rail__item:hover{color:var(--sh-blue)}
+.sh-meta{display:flex;gap:9px;align-items:center;font-size:11px}
+.sh-meta__time{color:var(--sh-mute);font-variant-numeric:tabular-nums}
+.sh-rail__title{display:block;font-family:var(--sh-font);font-size:13px;font-weight:700;line-height:1.7;margin-top:5px;color:var(--sh-ink);text-wrap:pretty}
+.sh-section__title{font-family:var(--sh-font);font-size:19px;font-weight:700;margin:0;color:var(--sh-navy);display:flex;align-items:center;gap:10px}
+.sh-more{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--sh-blue);font-weight:700}
+.sh-more:hover{gap:14px}
+.sh-more__arrow.sh-more__arrow--16{width:16px;height:1px;background:var(--sh-blue)}
+.sh-meta.sh-meta--blue{display:flex;gap:9px;align-items:center;font-size:11.5px;color:var(--sh-blue);font-weight:700;font-family:var(--sh-font)}
+.sh-meta__time.sh-meta__time--plain{color:var(--sh-mute);font-weight:400;font-variant-numeric:tabular-nums}
+.sh-rule{flex:1;height:1px;background:#e3e9f1}
+.sh-section__title.sh-section__title--md{font-family:var(--sh-font);font-size:16px;font-weight:800;margin:0;color:var(--sh-navy);display:flex;align-items:center;gap:10px}
+.sh-tile.sh-tile--16x9{position:relative;display:block;background:var(--sh-navy-2);overflow:hidden;aspect-ratio:16/9}
+.sh-meta__cat{color:var(--sh-blue);font-weight:700;font-family:var(--sh-font)}
+.sh-pager__btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--sh-ink-2);border:1px solid var(--sh-hair-4);font-variant-numeric:tabular-nums}
+.sh-pager__btn:hover{border-color:var(--sh-blue);color:var(--sh-blue)}
+.sh-eyebrow{display:flex;align-items:center;gap:9px;font-family:var(--sh-font);font-size:10.5px;font-weight:800;letter-spacing:.06em;color:var(--sh-sky)}
+.sh-timeline__tick{position:absolute;top:9px;right:9px;width:26px;height:1px;background:var(--sh-blue);opacity:.35}
+.sh-archive__count{display:block;font-size:11px;color:var(--sh-mute);margin-top:7px;font-variant-numeric:tabular-nums}
+.sh-timeline__node{position:absolute;top:5px;right:0;width:16px;height:13px;background:#fff;border:2px solid var(--sh-blue)}
+.sh-list__num.sh-list__num--big{font-family:var(--sh-font);font-size:22px;font-weight:800;color:#c9d8ec;line-height:1.1;font-variant-numeric:tabular-nums;text-align:center}
+.sh-mt-28{margin-top:28px}
+.sh-rail__link{color:var(--sh-ink-2);padding:6px 0}
+.sh-rail__link:hover{color:var(--sh-blue)}
+.sh-tile.sh-tile--4x3{position:relative;display:block;background:var(--sh-navy-2);overflow:hidden;aspect-ratio:4/3}
+.sh-more__arrow.sh-more__arrow--14.sh-more__arrow--cc{width:14px;height:1px;background:currentColor}
+.sh-block{display:block}
+.sh-block:hover{color:var(--sh-blue)}
+.sh-tile.sh-tile--15x8{position:relative;display:block;background:var(--sh-navy-2);overflow:hidden;aspect-ratio:15/8}
+.sh-tile__center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.sh-tabs__link{color:#6b7688;padding:14px 0 12px}
+.sh-tabs__link:hover{color:var(--sh-blue)}
+.sh-card__title.sh-card__title--lg{display:block;font-family:var(--sh-font);font-size:15.5px;font-weight:700;line-height:1.65;color:var(--sh-ink);text-wrap:pretty}
+.sh-list__num{font-family:var(--sh-font);font-size:11px;font-weight:800;color:var(--sh-grey-2);font-variant-numeric:tabular-nums}
+.sh-rail__link.sh-rail__link--pad{color:var(--sh-ink-2);padding:6px 16px}
+.sh-rail__link.sh-rail__link--pad:hover{color:var(--sh-blue)}
+.sh-list__row.sh-list__row--26{display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--sh-hair-6)}
+.sh-list__row.sh-list__row--26:hover{color:var(--sh-blue)}
+.sh-list__title{font-family:var(--sh-font);font-size:13px;font-weight:700;line-height:1.65;color:var(--sh-ink)}
+.sh-doc__num{font-family:var(--sh-font);font-size:12px;font-weight:800;color:var(--sh-blue);font-variant-numeric:tabular-nums}
+.sh-timeline__item{position:relative;display:block;padding:28px 0 4px}
+.sh-timeline__item:hover{color:var(--sh-blue)}
+.sh-meta__cat.sh-meta__cat--bold{color:var(--sh-blue);font-weight:800;font-family:var(--sh-font)}
+
+/* ============================================================================
+   sh-hub — «محاور اليوم» as collections. One cover per hub: the newest
+   story's photograph, portrait, with two sheets fanned behind it (a pile of
+   pictures, the way a real collection sits on a desk), a count plate in the
+   corner and the ش blade. Under it the name and the meta, in type. Hover
+   fans the pile. Photographs, counts and headlines come from the section's
+   <template data-sh-hub-source> through js/app.js; a hub with nothing in it
+   today hides.
+   ========================================================================== */
+.sh-hubs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:26px;margin-top:22px}
+.sh-hub{position:relative;display:block;color:var(--sh-ink);outline-offset:6px}
+.sh-hub:hover{color:var(--sh-ink)}
+.sh-hub:focus-visible{outline:2px solid var(--sh-blue)}
+.sh-hub[data-sh-empty]{display:none}
+.sh-hub__stack{position:relative;display:block;margin:10px 0 0 10px}   /* room for the fan, which opens toward the top-left */
+.sh-hub__sheet{
+  position:absolute;inset:0;background:#e7eaef;border:1px solid var(--sh-hair-2);
+  transition:transform .45s cubic-bezier(.2,.7,.2,1);
+}
+.sh-hub__sheet--1{transform:translate(-5px,-5px);z-index:1}
+.sh-hub__sheet--2{transform:translate(-10px,-10px);background:#f1f3f6;z-index:0}
+.sh-hub:hover .sh-hub__sheet--1{transform:translate(-8px,-8px) rotate(-1.5deg)}
+.sh-hub:hover .sh-hub__sheet--2{transform:translate(-16px,-16px) rotate(-3deg)}
+.sh-hub__cover{
+  position:relative;z-index:2;display:block;aspect-ratio:4/5;overflow:hidden;
+  background:var(--sh-navy);box-shadow:0 10px 24px rgba(10,26,51,.16);
+  transition:transform .45s cubic-bezier(.2,.7,.2,1);
+}
+.sh-hub:hover .sh-hub__cover{transform:translateY(-3px)}
+.sh-hub__art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.sh-hub:hover .sh-hub__art{transform:scale(1.05)}
+.sh-hub__num{
+  position:absolute;top:0;inset-inline-start:0;z-index:2;min-width:28px;height:28px;padding:0 7px;
+  display:grid;place-items:center;background:#fff;color:var(--sh-navy);
+  font-family:var(--sh-font);font-size:13px;font-weight:800;font-variant-numeric:tabular-nums;direction:ltr;
+}
+.sh-hub__mark{position:absolute;bottom:10px;inset-inline-end:10px;z-index:2;width:16px;height:13px;background:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))}
+.sh-hub__body{display:flex;flex-direction:column;gap:4px;padding:12px 2px 0}
+.sh-hub__name{font-family:var(--sh-font);font-size:15px;font-weight:800;line-height:1.35;color:var(--sh-navy);transition:color .18s ease}
+.sh-hub:hover .sh-hub__name{color:var(--sh-blue)}
+.sh-hub__meta{font-size:11.5px;color:var(--sh-mute);font-variant-numeric:tabular-nums}
+.sh-hub__meta span{direction:ltr;unicode-bidi:isolate}
+@media (max-width:640px){
+  .sh-hubs{display:flex;overflow-x:auto;gap:18px;padding:0 0 6px;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .sh-hubs::-webkit-scrollbar{display:none}
+  .sh-hub{flex:0 0 38%;scroll-snap-align:start}
+}
+
+/* ============================================================================
+   sh-hubview — the collection opened: ONE story on screen, nothing else. The
+   stories are a physical deck -- the ones still to come peek out of the right
+   edge, the way the files shelf keeps its unopened spines -- and going
+   forward throws the top card off to the left and brings the next into its
+   place. Drag it, tap its sides, or use the arrows; the strip under the card
+   always names what is coming next, so no index is needed to know where you
+   are. Built once by js/app.js and reused for every hub on the page.
+   ========================================================================== */
+html[data-sh-hubview-open]{overflow:hidden}
+.sh-hubview{
+  position:fixed;inset:0;z-index:1200;display:grid;place-items:center;padding:26px;
+  /* minmax(0,…) or the tracks would size to the longest headline in the
+     next strip -- max-content ignores the min-width:0 on it -- and the
+     frame would grow past a phone's viewport */
+  grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr);
+}
+.sh-hubview[hidden]{display:none}
+.sh-hubview__veil{
+  position:absolute;inset:0;background:rgba(10,26,51,.72);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  animation:sh-hubview-veil .3s ease both;
+}
+.sh-hubview[data-closing] .sh-hubview__veil{animation:sh-hubview-veil .22s ease reverse both}
+@keyframes sh-hubview-veil{from{opacity:0}}
+
+/* the frame: the hub's name and the counter sit outside the card, on the
+   veil, so the card itself carries nothing but the story */
+.sh-hubview__frame{
+  position:relative;width:min(760px,100%);max-width:100%;height:min(720px,100%);
+  display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto;gap:12px;
+  /* the column too: an auto track would take the width of the longest
+     headline in the next strip and push the deck past the frame */
+  animation:sh-hubview-in .45s cubic-bezier(.2,.7,.2,1) both;
+}
+.sh-hubview[data-closing] .sh-hubview__frame{animation:sh-hubview-in .22s ease reverse both}
+@keyframes sh-hubview-in{from{opacity:0;transform:translateY(20px) scale(.97)}}
+
+.sh-hubview__bar{display:flex;align-items:center;gap:12px;min-width:0;color:#fff}
+.sh-hubview__brand{display:inline-flex;align-items:center;gap:8px;font-family:var(--sh-font);font-size:12px;font-weight:800;color:rgba(255,255,255,.6)}
+.sh-hubview__brand .sh-mark{width:14px;height:12px;background:rgba(255,255,255,.6)}
+.sh-hubview__name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--sh-font);font-size:18px;font-weight:800}
+.sh-hubview__pos{font-size:12px;color:rgba(255,255,255,.6);font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
+.sh-hubview__listen{
+  margin-inline-start:auto;display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--sh-font);font-size:12.5px;font-weight:800;color:var(--sh-navy);
+  background:#fff;border:0;padding:8px 14px;cursor:pointer;transition:background .18s ease,color .18s ease;
+}
+.sh-hubview__listen:hover{background:var(--sh-blue);color:#fff}
+.sh-hubview__listen .sh-mark{width:13px;height:11px;background:currentColor}
+.sh-hubview__close{
+  width:36px;height:36px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.35);
+  background:none;color:#fff;font-size:22px;line-height:1;cursor:pointer;transition:background .18s ease;
+}
+.sh-hubview__close:hover{background:rgba(255,255,255,.14)}
+
+/* the progress of the whole collection, one hairline per story */
+.sh-hubview__segs{position:absolute;top:52px;inset-inline:0;display:flex;gap:4px;z-index:5}
+.sh-hubview__seg{flex:1;height:2px;background:rgba(255,255,255,.28);overflow:hidden}
+.sh-hubview__seg::before{content:"";display:block;height:100%;background:#fff;transform:scaleX(0);transform-origin:100% 50%}
+.sh-hubview__seg--done::before{transform:scaleX(1)}
+.sh-hubview__seg--on::before{animation:sh-hubview-seg var(--sh-hub-dur,7s) linear forwards}
+@keyframes sh-hubview-seg{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.sh-hubview[data-paused] .sh-hubview__seg--on::before{animation-play-state:paused}
+
+/* the deck */
+.sh-hubview__deck{position:relative;min-height:0;touch-action:pan-y;cursor:grab}
+.sh-hubview__deck[data-drag]{cursor:grabbing}
+.sh-hubcard{
+  position:absolute;inset:0;display:grid;grid-template-rows:minmax(0,1fr) auto;
+  background:#fff;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.3);
+  transform:translateX(calc(var(--o) * 22px)) scale(calc(1 - var(--o) * .035));
+  transform-origin:100% 50%;
+  transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .5s ease;
+  will-change:transform;
+}
+.sh-hubview__deck[data-drag] .sh-hubcard{transition:none}
+.sh-hubcard[data-state="past"]{transform:translateX(-115%) rotate(-3deg);opacity:0;pointer-events:none}
+.sh-hubcard[data-state="deep"]{opacity:0;pointer-events:none}     /* deeper than the two showing edges */
+.sh-hubcard[data-state="next"]{cursor:pointer}
+.sh-hubcard[data-state="on"]{cursor:auto}
+.sh-hubcard__photo{position:relative;overflow:hidden;background:var(--sh-navy);min-height:0}
+.sh-hubcard__art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sh-hubcard[data-state="on"] .sh-hubcard__art{animation:sh-hubview-kb var(--sh-hub-dur,7s) linear both}
+@keyframes sh-hubview-kb{from{transform:scale(1)}to{transform:scale(1.06)}}
+.sh-hubview[data-paused] .sh-hubcard__art{animation-play-state:paused}
+.sh-hubcard__photo::after{content:"";position:absolute;inset:auto 0 0 0;height:70px;background:linear-gradient(to top,rgba(10,26,51,.4),transparent);pointer-events:none}
+.sh-hubcard__credit{position:absolute;bottom:9px;inset-inline-start:14px;z-index:2;font-size:10.5px;color:rgba(255,255,255,.82);direction:ltr}
+.sh-hubcard__no{
+  position:absolute;top:0;inset-inline-start:0;z-index:2;min-width:34px;height:30px;padding:0 9px;
+  display:grid;place-items:center;background:#fff;color:var(--sh-navy);
+  font-family:var(--sh-font);font-size:14px;font-weight:800;font-variant-numeric:tabular-nums;direction:ltr;
+}
+.sh-hubcard__body{position:relative;padding:20px 30px 24px}
+.sh-hubcard__line{display:flex;align-items:center;gap:12px}
+.sh-hubcard__cat{display:inline-flex;align-items:center;font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:#fff;background:var(--sh-blue);padding:3px 9px}
+.sh-hubcard__time{font-size:12px;color:var(--sh-mute);font-variant-numeric:tabular-nums}
+.sh-hubcard__time span{direction:ltr;unicode-bidi:isolate}
+.sh-hubcard__title{font-family:var(--sh-font);font-size:clamp(20px,2.2vw,27px);font-weight:800;line-height:1.5;margin:12px 0 14px;color:var(--sh-navy);text-wrap:balance}
+.sh-hubcard__read{display:inline-flex;align-items:center;gap:10px;color:var(--sh-blue);font-family:var(--sh-font);font-weight:800;font-size:12.5px;transition:gap .25s ease}
+.sh-hubcard__read:hover{color:var(--sh-navy);gap:16px}
+.sh-hubcard__read .sh-mark{width:13px;height:11px;background:currentColor}
+/* the two halves of the photograph are the page turn */
+.sh-hubview__tap{position:absolute;top:0;height:100%;width:32%;z-index:4;background:none;border:0;cursor:pointer;color:var(--sh-navy);opacity:0;transition:opacity .2s ease}
+.sh-hubcard[data-state="on"] .sh-hubview__tap:hover,.sh-hubcard[data-state="on"] .sh-hubview__tap:focus-visible{opacity:1}
+.sh-hubview__tap--prev{inset-inline-start:0}
+.sh-hubview__tap--next{inset-inline-end:0}
+/* the chip is the icon itself. The single angle quotation marks that used to
+   draw these arrows are mirrored characters: the bidi algorithm flipped them
+   on this RTL page and they pointed the wrong way. Font Awesome's chevrons
+   are glyphs, not quotation marks, so they point where they are drawn --
+   right for the previous story, left for the next, the same pairing the
+   archive pager uses. */
+.sh-hubview__tap i{
+  position:absolute;top:50%;width:40px;height:40px;margin-top:-20px;border-radius:50%;
+  background:#fff;box-shadow:0 4px 16px rgba(10,26,51,.3);color:var(--sh-navy);
+  display:grid;place-items:center;font-size:14px;line-height:1;
+}
+.sh-hubview__tap--prev i{inset-inline-start:16px}
+.sh-hubview__tap--next i{inset-inline-end:16px}
+
+/* what is coming next, always named: the collection's own table of contents,
+   one line long */
+.sh-hubview__next{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:start;
+  background:none;border:0;border-top:1px solid rgba(255,255,255,.18);padding:12px 2px 0;
+  color:rgba(255,255,255,.92);cursor:pointer;font:inherit;transition:color .18s ease;
+}
+.sh-hubview__next:hover{color:#fff}
+.sh-hubview__next[hidden]{display:none}
+.sh-hubview__nlabel{flex:none;display:inline-flex;align-items:center;gap:7px;font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:rgba(255,255,255,.55)}
+.sh-hubview__nlabel .sh-mark{width:12px;height:10px;background:rgba(255,255,255,.55)}
+.sh-hubview__ntitle{min-width:0;font-family:var(--sh-font);font-size:13.5px;font-weight:700;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sh-hubview__ntime{flex:none;margin-inline-start:auto;font-size:11.5px;color:rgba(255,255,255,.55);font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
+
+@media (max-width:760px){
+  .sh-hubview{padding:14px}
+  .sh-hubview__frame{height:100%;gap:10px}
+  .sh-hubview__name{font-size:16px}
+  .sh-hubview__listen{padding:8px 11px;font-size:12px}
+  .sh-hubview__segs{top:46px}
+  .sh-hubcard{transform:translateX(calc(var(--o) * 14px)) scale(calc(1 - var(--o) * .03))}
+  .sh-hubcard__body{padding:16px 18px 20px}
+  .sh-hubcard__title{font-size:19px;margin:10px 0 12px}
+  .sh-hubview__tap{width:40%}
+  .sh-hubview__tap i{display:none}
+  .sh-hubview__ntime{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .sh-hubview__veil,.sh-hubview__frame{animation:none}
+  .sh-hubcard{transition:none}
+  .sh-hubcard[data-state="on"] .sh-hubcard__art{animation:none}
+  .sh-hubview__seg--on::before{animation:none;transform:scaleX(1)}
+  .sh-hub__sheet,.sh-hub__cover,.sh-hub__art{transition:none}
+}
+
+/* «تصريحات خاصة» sits inside the collections column, under the covers: it
+   keeps its own head and rail, but not the page-level padding it had as a
+   section of its own. */
+.sh-index-statements__section-1--in-hubs{padding:0!important;margin-top:34px}

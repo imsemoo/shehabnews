@@ -1,0 +1,69 @@
+/* شهاب — contact: page layout, one-off styles (scoped by section), and what
+   the old per-page sheet still owned (keyframes, p/input, its own a{transition}). */
+a{transition:color .16s ease,background .16s ease,border-color .16s ease,gap .16s ease}
+p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2.05}
+input,textarea,button,select{font-family:inherit;font-size:inherit;color:inherit}
+input:focus,textarea:focus{outline:none;border-color:#1b5aa6}
+@keyframes sh-ring{0%{transform:scale(.55);opacity:.9}70%{opacity:.12}100%{transform:scale(1.6);opacity:0}}
+.sh-contact-body__nav-1{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--sh-mute);padding:20px 0 0}
+.sh-contact-contact-intro__section-1{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px 32px;margin-top:14px;border-bottom:2px solid var(--sh-ink);padding-bottom:16px}
+.sh-contact-contact-intro__div-1{display:flex;align-items:flex-start;gap:15px}
+.sh-contact-contact-intro__span-1{width:16px;height:13px;background:var(--sh-blue);margin-top:14px;flex:none}
+.sh-contact-contact-intro__h1-1{font-family:var(--sh-font);font-size:clamp(27px,3vw,38px);font-weight:800;line-height:1.15;margin:0;color:var(--sh-navy)}
+.sh-contact-contact-intro__p-1{font-size:14.5px;line-height:1.95;color:var(--sh-ink-2);margin:10px 0 0;max-width:62ch;text-wrap:pretty}
+.sh-contact-contact-intro__span-2{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--sh-mute);padding-bottom:3px}
+.sh-contact-contact-intro__span-3{position:relative;display:flex;align-items:center;justify-content:center;width:12px;height:12px}
+.sh-contact-contact-intro__span-4{position:absolute;inset:0;border:1px solid var(--sh-red);border-radius:50%;animation:sh-ring 2.2s ease-out infinite}
+.sh-contact-contact-intro__span-5{width:5px;height:5px;background:var(--sh-red);border-radius:50%}
+.sh-contact-contact__section-1{display:grid;grid-template-columns:minmax(min(100%,300px),1.3fr) minmax(min(100%,260px),.85fr);gap:40px;padding:22px 0 0;align-items:stretch}
+.sh-contact-contact-form__div-1{display:flex;align-items:baseline;justify-content:space-between;gap:14px;border-bottom:1px solid var(--sh-hair-2);padding-bottom:10px}
+.sh-contact-contact-form__h2-1{font-family:var(--sh-font);font-size:18px;font-weight:800;margin:0;color:var(--sh-navy);display:flex;align-items:center;gap:10px}
+.sh-contact-contact-form__span-1{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:var(--sh-mute);margin:14px 0 9px}
+.sh-contact-contact-form__span-2{font-weight:400;font-size:11px}
+.sh-contact-contact-form__div-2{display:flex;flex-wrap:wrap;gap:8px}
+.sh-contact-contact-form__span-3{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--sh-navy);background:var(--sh-navy);color:#fff;font-family:var(--sh-font);font-size:12px;font-weight:800;padding:9px 15px;white-space:nowrap}
+.sh-contact-contact-form__span-4{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--sh-grey-1);background:#fff;color:var(--sh-ink-2);font-family:var(--sh-font);font-size:12px;font-weight:800;padding:9px 15px;white-space:nowrap}
+.sh-contact-contact-form__span-4:hover{border-color:var(--sh-blue);color:var(--sh-blue)}
+.sh-contact-contact-form__div-3{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px;margin-top:18px}
+.sh-contact-contact-form__label-1{display:block;padding-bottom:14px}
+.sh-contact-contact-form__span-5{display:block;font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:var(--sh-mute);margin-bottom:7px}
+.sh-contact-contact-form__input-1{width:100%;border:none;border-bottom:1px solid var(--sh-grey-1);background:transparent;padding:9px 2px;font-size:14px}
+.sh-contact-contact-form__input-2{width:100%;border:none;border-bottom:1px solid var(--sh-grey-1);background:transparent;padding:9px 2px;font-size:14px;direction:ltr;text-align:right}
+.sh-contact-contact-form__div-4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px}
+.sh-contact-contact-form__span-6{font-weight:400}
+.sh-contact-contact-form__span-7{display:block;font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:var(--sh-mute);margin:4px 0 7px}
+.sh-contact-contact-form__textarea-1{width:100%;border:none;border-bottom:1px solid var(--sh-grey-1);background:transparent;padding:9px 2px;font-size:14px;line-height:1.95;resize:vertical}
+.sh-contact-contact-form__div-5{display:flex;align-items:center;gap:12px;margin-top:14px;border-bottom:1px solid var(--sh-grey-1);padding:0 2px 12px}
+.sh-contact-contact-form__i-1{font-size:13px;color:var(--sh-blue)}
+.sh-contact-contact-form__span-8{font-size:12.5px;color:var(--sh-ink-2)}
+.sh-contact-contact-form__span-9{margin-right:auto;font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:var(--sh-blue)}
+.sh-contact-contact-form__div-6{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:16px}
+.sh-contact-contact-form__span-10{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--sh-mute)}
+.sh-contact-contact-form__button-1{display:inline-flex;align-items:center;gap:12px;background:var(--sh-navy);color:#fff;border:none;font-family:var(--sh-font);font-size:12.5px;font-weight:800;padding:13px 28px;cursor:pointer;white-space:nowrap;flex:none}
+.sh-contact-contact-form__button-1:hover{background:var(--sh-blue)}
+.sh-contact-contact-info__aside-1{display:flex;flex-direction:column}
+.sh-contact-contact-info__div-1{position:relative;overflow:hidden;background:var(--sh-navy);color:#fff;flex:1;min-height:190px;display:flex;align-items:flex-end}
+.sh-contact-contact-info__span-1{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Omar%20Mukhtar%20panorama%20-%20panoramio.jpg?width=1200");background-size:cover;background-position:center 42%;opacity:.5}
+.sh-contact-contact-info__span-2{position:absolute;inset:0;background:var(--sh-blue);opacity:.34;mix-blend-mode:multiply}
+.sh-contact-contact-info__span-3{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.9),rgba(10,26,51,.25))}
+.sh-contact-contact-info__div-2{position:relative;padding:18px 18px 17px;width:100%}
+.sh-contact-contact-info__span-4{display:flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:10px;font-weight:800;letter-spacing:.3em;color:#9fc2ea}
+.sh-contact-contact-info__span-5{flex:1;height:1px;background:var(--sh-on-dark-30)}
+.sh-contact-contact-info__span-6{display:block;font-family:var(--sh-font);font-size:clamp(18px,1.9vw,22px);font-weight:800;line-height:1.5;margin-top:11px;max-width:20ch;text-wrap:pretty}
+.sh-contact-contact-info__span-7{display:flex;align-items:center;gap:9px;margin-top:9px;font-size:11.5px;color:var(--sh-on-dark-72)}
+.sh-contact-contact-info__div-3{margin-top:18px}
+.sh-contact-contact-info__span-8{display:flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:var(--sh-mute);border-bottom:1px solid var(--sh-hair-2);padding-bottom:9px}
+.sh-contact-contact-info__div-4{display:grid;grid-template-columns:minmax(0,1fr);gap:11px;align-items:start;padding:11px 0;border-bottom:1px solid var(--sh-hair)}
+.sh-contact-contact-info__i-1{font-size:13px;color:var(--sh-blue);margin-top:3px}
+.sh-contact-contact-info__span-9{display:block;font-family:var(--sh-font);font-size:13px;font-weight:800;color:var(--sh-navy)}
+.sh-contact-contact-info__span-10{display:block;font-size:11.5px;color:var(--sh-mute);margin-top:4px;line-height:1.75;direction:ltr;text-align:right}
+.sh-contact-contact-info__span-11{display:block;font-size:11.5px;color:var(--sh-mute);margin-top:4px;line-height:1.75;direction:rtl;text-align:right}
+.sh-contact-contact-info__div-5{margin-top:16px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.sh-contact-contact-info__a-1{width:34px;height:34px;border:1px solid var(--sh-grey-1);display:flex;align-items:center;justify-content:center;color:var(--sh-navy)}
+.sh-contact-contact-info__a-1:hover{background:var(--sh-blue);border-color:var(--sh-blue);color:#fff}
+.sh-contact-contact-info__i-2{font-size:13px}
+.sh-contact-contact-note__div-1{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 30px;margin:26px 0 36px;padding:15px 0;border-top:1px solid var(--sh-hair-3);border-bottom:1px solid var(--sh-hair-3)}
+.sh-contact-contact-note__span-1{display:flex;align-items:center;gap:12px;font-size:12.5px;color:var(--sh-ink-2)}
+.sh-contact-contact-note__a-1{display:inline-flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:12px;font-weight:800;color:var(--sh-blue)}
+.sh-contact-contact-note__a-1:hover{gap:16px}
+.sh-contact-contact-note__span-2{width:15px;height:1px;background:currentColor}

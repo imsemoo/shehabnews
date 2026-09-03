@@ -1,0 +1,128 @@
+/* شهاب — photos: page layout, one-off styles (scoped by section), and what
+   the old per-page sheet still owned (keyframes, p/input, its own a{transition}). */
+a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background .16s ease,gap .16s ease}
+.sh-photos-photos-intro__div-1{padding:26px 0 0}
+.sh-photos-photos-intro__nav-1{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--sh-mute)}
+.sh-photos-photos-intro__div-2{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 32px;margin-top:16px;border-bottom:2px solid var(--sh-ink);padding-bottom:18px;position:relative}
+.sh-photos-photos-intro__span-1{position:absolute;bottom:-2px;right:0;width:120px;height:2px;background:var(--sh-blue)}
+.sh-photos-photos-intro__span-2{position:absolute;bottom:-4px;right:118px;width:6px;height:6px;background:var(--sh-blue);transform:rotate(45deg)}
+.sh-photos-photos-intro__div-3{display:flex;align-items:flex-start;gap:16px}
+.sh-photos-photos-intro__span-3{width:16px;height:13px;background:var(--sh-blue);margin-top:16px;flex:none}
+.sh-photos-photos-intro__h1-1{font-family:var(--sh-font);font-size:clamp(30px,3.6vw,42px);font-weight:800;line-height:1.15;margin:0;color:var(--sh-navy)}
+.sh-photos-photos-intro__p-1{font-family:var(--sh-serif);font-size:13.5px;line-height:1.9;color:var(--sh-ink-2);margin:10px 0 0;max-width:52ch}
+.sh-photos-photos-intro__span-4{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--sh-mute);padding-bottom:4px}
+.sh-photos-photos-intro__i-1{font-size:11px;color:var(--sh-blue)}
+.sh-photos-photo-mosaic__section-1{display:grid;grid-template-columns:minmax(0,2.4fr) minmax(0,1fr);grid-template-rows:repeat(2,minmax(0,1fr));gap:14px;padding:24px 0 0;min-height:560px}
+.sh-photos-photo-mosaic__a-1{position:relative;display:block;overflow:hidden;background:var(--sh-navy);grid-row:span 2;color:#fff}
+.sh-photos-photo-mosaic__a-1:hover{color:#fff}
+.sh-photos-photo-mosaic__img-1{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+.sh-photos-photo-mosaic__img-1:hover{transform:scale(1.03)}
+.sh-photos-photo-mosaic__span-1{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.85) 0%,rgba(10,26,51,.25) 45%,rgba(10,26,51,0) 70%)}
+.sh-photos-photo-mosaic__span-2{position:absolute;top:0;right:22px;background:var(--sh-navy);color:#fff;font-size:10.5px;font-weight:800;padding:8px 12px 10px;font-family:var(--sh-font);display:flex;flex-direction:column;align-items:center;gap:8px;letter-spacing:.05em}
+.sh-photos-photo-mosaic__span-3{width:1px;height:14px;background:var(--sh-blue)}
+.sh-photos-photo-mosaic__span-4{position:absolute;bottom:0;right:0;left:0;padding:26px 22px 22px}
+.sh-photos-photo-mosaic__span-5{display:block;width:56px;height:2px;background:var(--sh-blue);margin-bottom:14px}
+.sh-photos-photo-mosaic__span-6{display:flex;gap:9px;align-items:center;font-size:11.5px;color:rgba(255,255,255,.85)}
+.sh-photos-photo-mosaic__span-7{color:var(--sh-sky);font-weight:700;font-family:var(--sh-font)}
+.sh-photos-photo-mosaic__span-8{display:block;font-family:var(--sh-font);font-size:28px;font-weight:800;line-height:1.55;margin-top:10px;text-wrap:pretty;max-width:26ch}
+.sh-photos-photo-mosaic__a-2{position:relative;display:block;overflow:hidden;background:var(--sh-navy);color:#fff}
+.sh-photos-photo-mosaic__a-2:hover{color:#fff}
+.sh-photos-photo-mosaic__img-2{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+.sh-photos-photo-mosaic__img-2:hover{transform:scale(1.04)}
+.sh-photos-photo-mosaic__span-9{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.8),rgba(10,26,51,0) 55%)}
+.sh-photos-photo-mosaic__span-10{position:absolute;bottom:0;right:0;left:0;padding:14px}
+.sh-photos-photo-mosaic__span-11{font-size:10.5px;color:var(--sh-sky);font-weight:700}
+.sh-photos-photo-mosaic__span-12{display:block;font-family:var(--sh-font);font-size:14px;font-weight:700;line-height:1.6;margin-top:4px}
+.sh-photos-photo-mosaic__span-13{position:absolute;top:12px;left:12px;background:rgba(10,26,51,.85);font-size:10.5px;padding:3px 9px;display:flex;align-items:center;gap:6px}
+.sh-photos-photo-mosaic__i-1{font-size:9px}
+.sh-photos-photo-categories__nav-1{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin-top:28px;border-top:1px solid var(--sh-hair-4);border-bottom:1px solid var(--sh-hair-4);padding:12px 0;font-size:12.5px;font-weight:700;font-family:var(--sh-font)}
+.sh-photos-photo-categories__a-1{color:#fff;background:var(--sh-blue);padding:6px 16px}
+.sh-photos-photo-grid__section-1{padding:28px 0 0}
+.sh-photos-photo-grid__div-1{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 20px}
+.sh-photos-photo-grid__a-1{display:block;grid-column:span 2;position:relative}
+.sh-photos-photo-grid__a-1:hover{color:var(--sh-blue)}
+.sh-photos-photo-grid__span-1{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=1000");background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+.sh-photos-photo-grid__span-1:hover{transform:scale(1.04)}
+.sh-photos-photo-grid__span-2{position:absolute;inset:0;background:rgba(27,90,166,0);display:flex;align-items:center;justify-content:center;opacity:0;transition:background .3s ease,opacity .3s ease}
+.sh-photos-photo-grid__span-2:hover{background:rgba(27,90,166,.3);opacity:1}
+.sh-photos-photo-grid__span-3{width:40px;height:40px;background:rgba(10,26,51,.85);display:flex;align-items:center;justify-content:center}
+.sh-photos-photo-grid__i-1{font-size:14px;color:#fff}
+.sh-photos-photo-grid__span-4{position:absolute;top:12px;left:12px;background:rgba(10,26,51,.85);color:#fff;font-size:10.5px;padding:3px 9px;display:flex;align-items:center;gap:6px}
+.sh-photos-photo-grid__i-2{font-size:9px}
+.sh-photos-photo-grid__span-5{display:flex;gap:9px;align-items:center;font-size:11px;margin-top:11px}
+.sh-photos-photo-grid__span-6{display:block;font-family:var(--sh-font);font-size:15px;font-weight:700;line-height:1.7;margin-top:6px;color:var(--sh-navy);text-wrap:pretty}
+.sh-photos-photo-grid__a-2{display:block;grid-column:span 1;position:relative}
+.sh-photos-photo-grid__a-2:hover{color:var(--sh-blue)}
+.sh-photos-photo-grid__span-7{position:relative;display:block;background:var(--sh-navy-2);overflow:hidden;aspect-ratio:3/4}
+.sh-photos-photo-grid__span-8{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/UNRWA%20el-Sheikh%20Radwan%20health%20center%2C%20February%202024.jpg?width=600");background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+.sh-photos-photo-grid__span-8:hover{transform:scale(1.04)}
+.sh-photos-photo-grid__span-9{position:relative;display:block;background:var(--sh-navy-2);overflow:hidden;aspect-ratio:1/1}
+.sh-photos-photo-grid__span-10{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=600");background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+.sh-photos-photo-grid__span-10:hover{transform:scale(1.04)}
+.sh-photos-photo-grid__span-11{position:absolute;inset:0;background-image:url("../../assets/images/palestine-map.png");background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+.sh-photos-photo-grid__span-11:hover{transform:scale(1.04)}
+.sh-photos-photo-grid__span-12{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/The%20field%20at%20Azteca%20Stadium%20in%20Mexico%20City%20during%20the%20opening%20ceremony%20of%20the%202026%20World%20Cup.jpg?width=600");background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+.sh-photos-photo-grid__span-12:hover{transform:scale(1.04)}
+.sh-photos-photo-grid__a-3{display:block;grid-column:span 3;position:relative}
+.sh-photos-photo-grid__a-3:hover{color:var(--sh-blue)}
+.sh-photos-photo-grid__span-13{position:relative;display:block;background:var(--sh-navy-2);overflow:hidden;aspect-ratio:21/8}
+.sh-photos-photo-grid__span-14{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=1400");background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+.sh-photos-photo-grid__span-14:hover{transform:scale(1.04)}
+.sh-photos-photo-grid__span-15{position:relative;display:block;background:var(--sh-navy-2);overflow:hidden;aspect-ratio:16/8}
+.sh-photos-photo-grid__span-16{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20view%20of%20destruction%20in%20Beach%20refugee%20camp%2C%20Gaza%20Strip.jpg?width=1000");background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+.sh-photos-photo-grid__span-16:hover{transform:scale(1.04)}
+.sh-photos-photo-grid__span-17{position:relative;display:block;background:var(--sh-navy-2);overflow:hidden;aspect-ratio:4/5}
+.sh-photos-editors-picks__section-1{background:var(--sh-navy);color:#fff;margin-top:40px;padding:26px 28px 30px}
+.sh-photos-editors-picks__div-1{display:flex;align-items:baseline;justify-content:space-between}
+.sh-photos-editors-picks__h2-1{font-family:var(--sh-font);font-size:18px;font-weight:800;margin:0;display:flex;align-items:center;gap:10px}
+.sh-photos-editors-picks__span-1{font-size:11.5px;color:var(--sh-on-dark-55);font-weight:400}
+.sh-photos-editors-picks__a-1{font-size:11.5px;color:var(--sh-sky);font-weight:700}
+.sh-photos-editors-picks__a-1:hover{color:#fff}
+.sh-photos-editors-picks__div-2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:20px}
+.sh-photos-editors-picks__a-2{display:block;color:#fff}
+.sh-photos-editors-picks__a-2:hover{color:var(--sh-sky)}
+.sh-photos-editors-picks__span-2{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:10px}
+.sh-photos-editors-picks__span-3{flex:none;width:24px;height:1px;background:var(--sh-blue)}
+.sh-photos-editors-picks__span-4{font-size:10.5px;color:rgba(255,255,255,.5);font-variant-numeric:tabular-nums}
+.sh-photos-editors-picks__span-5{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=700");background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+.sh-photos-editors-picks__span-5:hover{transform:scale(1.04)}
+.sh-photos-editors-picks__span-6{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.92),rgba(10,26,51,0) 52%)}
+.sh-photos-editors-picks__span-7{position:absolute;top:-14px;left:6px;font-family:var(--sh-font);font-size:88px;font-weight:800;line-height:1;color:var(--sh-on-dark-08);font-variant-numeric:tabular-nums;pointer-events:none}
+.sh-photos-editors-picks__span-8{position:absolute;bottom:0;right:0;left:0;padding:16px}
+.sh-photos-editors-picks__span-9{display:flex;align-items:center;gap:8px;font-size:10.5px;color:var(--sh-sky);font-weight:700}
+.sh-photos-editors-picks__span-10{display:block;font-family:var(--sh-font);font-size:15.5px;font-weight:800;line-height:1.65;margin-top:6px;text-wrap:pretty}
+.sh-photos-editors-picks__span-11{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=700");background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+.sh-photos-editors-picks__span-11:hover{transform:scale(1.04)}
+.sh-photos-editors-picks__span-12{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=700");background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+.sh-photos-editors-picks__span-12:hover{transform:scale(1.04)}
+.sh-photos-pagination__nav-1{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:36px;font-family:var(--sh-font);font-size:13px;font-weight:700}
+.sh-photos-pagination__a-1{display:inline-flex;align-items:center;gap:7px;color:var(--sh-grey-3);padding:8px 14px;cursor:default}
+.sh-photos-pagination__a-2{width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--sh-blue);color:#fff;font-variant-numeric:tabular-nums}
+.sh-photos-pagination__span-1{width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--sh-mute)}
+.sh-photos-pagination__a-3{display:inline-flex;align-items:center;gap:7px;color:var(--sh-blue);padding:8px 14px}
+.sh-photos-pagination__a-3:hover{gap:11px}
+.sh-photos-from-the-lens__section-1{margin-top:44px}
+.sh-photos-from-the-lens__div-1{display:flex;align-items:center;gap:10px}
+.sh-photos-from-the-lens__span-1{font-size:11px;font-weight:800;color:var(--sh-mute);font-family:var(--sh-font);letter-spacing:.05em}
+.sh-photos-from-the-lens__div-2{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);grid-template-rows:repeat(2,minmax(0,1fr));gap:14px;margin-top:20px;min-height:380px}
+.sh-photos-from-the-lens__a-1{position:relative;display:block;overflow:hidden;background:var(--sh-navy);grid-row:span 2;color:#fff}
+.sh-photos-from-the-lens__a-1:hover{color:#fff}
+.sh-photos-from-the-lens__img-1{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+.sh-photos-from-the-lens__img-1:hover{transform:scale(1.03)}
+.sh-photos-from-the-lens__span-2{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.8),rgba(10,26,51,0) 55%)}
+.sh-photos-from-the-lens__span-3{position:absolute;bottom:0;right:0;left:0;padding:20px}
+.sh-photos-from-the-lens__span-4{display:block;width:44px;height:2px;background:var(--sh-blue);margin-bottom:12px}
+.sh-photos-from-the-lens__span-5{display:block;font-family:var(--sh-font);font-size:19px;font-weight:800;line-height:1.6;text-wrap:pretty}
+.sh-photos-from-the-lens__a-2{position:relative;display:block;overflow:hidden;background:var(--sh-navy);color:#fff}
+.sh-photos-from-the-lens__a-2:hover{color:#fff}
+.sh-photos-from-the-lens__span-6{position:absolute;inset:0;background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=700');background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+.sh-photos-from-the-lens__span-6:hover{transform:scale(1.04)}
+.sh-photos-from-the-lens__span-7{position:absolute;bottom:0;right:0;left:0;padding:14px}
+.sh-photos-from-the-lens__span-8{display:block;font-family:var(--sh-font);font-size:13.5px;font-weight:700;line-height:1.6}
+.sh-photos-from-the-lens__span-9{position:absolute;inset:0;background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20view%20of%20destruction%20in%20Beach%20refugee%20camp%2C%20Gaza%20Strip.jpg?width=700');background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+.sh-photos-from-the-lens__span-9:hover{transform:scale(1.04)}
+.sh-photos-photos-closing__div-1{border-top:1px solid var(--sh-hair-4);margin-top:32px;padding:20px 0 6px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-bottom:48px}
+.sh-photos-photos-closing__span-1{display:flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:13px;font-weight:800;color:var(--sh-navy)}
+.sh-photos-photos-closing__i-1{font-size:12px;color:var(--sh-blue)}
+.sh-photos-photos-closing__a-1{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--sh-grey-2);color:var(--sh-navy);font-family:var(--sh-font);font-size:12.5px;font-weight:800;padding:9px 24px}
+.sh-photos-photos-closing__a-1:hover{background:var(--sh-navy);color:#fff;border-color:var(--sh-navy)}

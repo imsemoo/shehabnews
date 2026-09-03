@@ -1,0 +1,66 @@
+/* شهاب — design tokens.
+
+   Every value here is bound 1:1 to a literal that already exists in the
+   markup; nothing is rounded, merged, or re-tuned. Two greys that differ by a
+   shade keep two tokens, because collapsing them would be a visual change and
+   that is a separate, approved step. Spacing is deliberately not tokenised:
+   62 distinct gaps and 176 paddings would gain names without gaining meaning,
+   so they stay as values inside the component rules that own them.
+
+   Usage counts are from the 20 shipping pages at the time of extraction. */
+
+/* cascade layers, in order: defaults for the mark, then the responsive layer.
+   Unlayered rules (tokens, base, header, footer, components, pages/*) beat both
+   for normal declarations, which reproduces inline-over-stylesheet exactly. */
+@layer marks, responsive;
+
+:root{
+  /* --- brand ------------------------------------------------------------ */
+  --sh-blue:#1b5aa6;           /* 1006 — links, chips, rules, live tag */
+  --sh-navy:#0a1a33;           /*  704 — dark ground, dropdowns, footer */
+  --sh-navy-2:#0f2a4f;         /*  196 — topbar, image ground */
+  --sh-sky:#7ea8dd;            /*   54 — accent on navy */
+  --sh-red:#e0302f;            /*  162 — عاجل / مباشر */
+
+  /* --- ink -------------------------------------------------------------- */
+  --sh-ink:#14233a;            /*  426 — body text */
+  --sh-ink-2:#4a5568;          /*  186 */
+  --sh-mute:#8a95a6;           /*  583 — meta, times, sub-labels */
+  --sh-mute-2:#5d6b7d;         /*   28 */
+
+  /* --- hairlines & surfaces --------------------------------------------- */
+  --sh-hair:#eef2f7;           /*  286 — the default 1px rule */
+  --sh-hair-2:#d5dde8;         /*  100 — section heads */
+  --sh-hair-3:#e3e8ef;         /*   44 */
+  --sh-hair-4:#e6ebf2;         /*   36 */
+  --sh-hair-5:#d9e0ea;         /*   28 — ticker separator */
+  --sh-hair-6:#f1f4f8;         /*   86 — list rows */
+  --sh-grey-1:#cbd4e0;         /*   55 */
+  --sh-grey-2:#b9c6d8;         /*   51 — list numerals */
+  --sh-grey-3:#b8c2d0;         /*   42 */
+
+  /* --- text on dark, by opacity ----------------------------------------- */
+  --sh-on-dark-90:rgba(255,255,255,.9);
+  --sh-on-dark-86:rgba(255,255,255,.86);   /* 140 — nav links */
+  --sh-on-dark-82:rgba(255,255,255,.82);   /* 422 — dropdown links */
+  --sh-on-dark-80:rgba(255,255,255,.8);    /* topbar */
+  --sh-on-dark-75:rgba(255,255,255,.75);   /*  94 */
+  --sh-on-dark-72:rgba(255,255,255,.72);   /*  49 — footer copy */
+  --sh-on-dark-60:rgba(255,255,255,.6);    /*  54 */
+  --sh-on-dark-55:rgba(255,255,255,.55);   /*  55 — brief button border */
+  --sh-on-dark-30:rgba(255,255,255,.3);    /*  89 — hairlines on navy */
+  --sh-on-dark-16:rgba(255,255,255,.16);   /* footer rule */
+  --sh-on-dark-14:rgba(255,255,255,.14);
+  --sh-on-dark-08:rgba(255,255,255,.08);
+
+  /* --- veils ------------------------------------------------------------ */
+  --sh-navy-a28:rgba(10,26,51,.28);        /* 100 — image scrim */
+
+  /* --- type ------------------------------------------------------------- */
+  --sh-font:'Almarai',sans-serif;                          /* 1600 */
+  --sh-serif:'Noto Naskh Arabic',serif;                    /*   99 */
+  --sh-font-stack:'Almarai','Noto Naskh Arabic',system-ui,sans-serif;  /* html,body */
+
+  /* --- layout ----------------------------------------------------------- */
+  --sh-container:1280px;
+}

@@ -8,6 +8,23 @@
      from file:// too, where fetch() of a sibling file is blocked. */
   var LOADER_VEIL = "<div class=\"sh-anim\" style=\"position:absolute;inset:0;background:#0a1a33;display:flex;align-items:center;justify-content:center;animation:none\">\n      <span style=\"position:absolute;top:0;bottom:0;right:22%;width:1px;background:rgba(126,168,221,.1)\"></span>\n      <span style=\"position:absolute;top:0;bottom:0;left:22%;width:1px;background:rgba(126,168,221,.1)\"></span>\n      <span style=\"position:absolute;top:-170px;left:-130px;width:480px;height:480px;border:1px solid rgba(126,168,221,.1);border-radius:50%;pointer-events:none\"></span>\n\n      <div style=\"position:relative;display:flex;flex-direction:column;align-items:center;gap:22px;animation:none\">\n        <!-- 01 seed diamond (center) → hands over to the nib -->\n        <span class=\"sh-hide-static\" style=\"position:absolute;top:calc(50% - 40px);width:12px;height:12px;background:#1b5aa6;opacity:0;animation:sh-seed .42s cubic-bezier(.2,.7,.2,1) forwards, sh-fade .28s .5s reverse forwards\"></span>\n\n        <!-- 02–03 the mark draws itself along its own calligraphic stroke -->\n        <span style=\"position:relative;width:300px;aspect-ratio:583/377\">\n          <svg viewBox=\"0 0 583 377\" style=\"position:absolute;inset:0;width:100%;height:100%;overflow:visible\">\n            <defs>\n              <mask id=\"mFinal\" maskUnits=\"userSpaceOnUse\" x=\"-60\" y=\"-60\" width=\"703\" height=\"497\">\n                <path class=\"sh-static\" pathLength=\"1000\" d=\"M 505 28 C 530 60, 470 88, 452 118 C 432 150, 470 170, 440 205 C 405 245, 360 225, 335 195 C 305 160, 300 110, 275 100 C 268 170, 282 250, 300 320 C 330 342, 360 300, 330 268 C 280 215, 190 280, 120 300 C 55 315, 20 270, 22 200 C 25 120, 90 55, 170 42 C 205 38, 235 45, 262 60\" fill=\"none\" stroke=\"#fff\" stroke-width=\"118\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"1000\" stroke-dashoffset=\"1000\" style=\"animation:sh-draw 1.35s cubic-bezier(.45,0,.2,1) .4s forwards\"></path>\n                <rect class=\"sh-static\" x=\"-60\" y=\"-60\" width=\"703\" height=\"497\" fill=\"#fff\" opacity=\"0\" style=\"animation:sh-fade .35s ease 1.55s forwards\"></rect>\n              </mask>\n            </defs>\n            <image href=\"assets/images/logo-white.png\" width=\"583\" height=\"377\" mask=\"url(#mFinal)\"></image>\n          </svg>\n          <span class=\"sh-hide-static\" style=\"position:absolute;top:0;left:0;width:15px;height:15px;background:#1b5aa6;transform:rotate(45deg);offset-path:path('M 259.9 14.4 C 272.7 30.9, 241.9 45.3, 232.6 60.7 C 222.3 77.2, 241.9 87.5, 226.4 105.5 C 208.4 126.1, 185.2 115.8, 172.4 100.3 C 156.9 82.3, 154.4 56.6, 141.5 51.5 C 137.9 87.5, 145.1 128.6, 154.4 164.7 C 169.8 176.0, 185.2 154.4, 169.8 137.9 C 144.1 110.6, 97.8 144.1, 61.7 154.4 C 28.3 162.1, 10.3 138.9, 11.3 102.9 C 12.9 61.7, 46.3 28.3, 87.5 21.6 C 105.5 19.6, 120.9 23.2, 134.8 30.9');offset-rotate:0deg;opacity:0;animation:sh-nib-travel 1.35s cubic-bezier(.45,0,.2,1) .4s forwards\"></span>\n          <!-- 06 one light sweep once the mark is complete -->\n          <span class=\"sh-hide-static\" style=\"position:absolute;top:-10%;bottom:-10%;left:0;width:14%;background:#fff;opacity:0;mix-blend-mode:overlay;animation:sh-sweep .9s cubic-bezier(.45,0,.2,1) 1.9s forwards\"></span>\n        </span>\n\n        <!-- 04–05 wordline rises, softer tagline fades -->\n        <span style=\"display:flex;flex-direction:column;align-items:center;gap:8px\">\n          <span class=\"sh-static\" style=\"display:flex;align-items:center;gap:10px;font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;letter-spacing:.22em;color:#fff;opacity:0;animation:sh-rise .55s cubic-bezier(.2,.7,.2,1) 1.75s forwards\"><span style=\"width:16px;height:1px;background:#1b5aa6\"></span>وكالة شهاب للأنباء<span style=\"width:16px;height:1px;background:#1b5aa6\"></span></span>\n          <span class=\"sh-static\" style=\"font-family:'Noto Naskh Arabic',serif;font-size:12.5px;color:#7ea8dd;opacity:0;animation:sh-fade .8s ease 2.15s forwards\">نرصد اللحظة ونحفظ أثرها</span>\n        </span>\n\n        <!-- 07 loading indicator: three diamonds — the only element that loops -->\n        <span class=\"sh-hide-static\" style=\"display:flex;align-items:center;gap:9px;margin-top:6px;opacity:0;animation:sh-fade .5s ease 2.5s forwards\">\n          <span style=\"width:7px;height:7px;background:#1b5aa6;animation:sh-dots 1.1s ease-in-out infinite\"></span>\n          <span style=\"width:7px;height:7px;background:#1b5aa6;animation:sh-dots 1.1s ease-in-out infinite .18s\"></span>\n          <span style=\"width:7px;height:7px;background:#1b5aa6;animation:sh-dots 1.1s ease-in-out infinite .36s\"></span>\n        </span>\n      </div>\n      <!-- exit: the diamond leaves first -->\n      <span style=\"position:absolute;bottom:18%;width:10px;height:10px;background:#1b5aa6;transform:rotate(45deg);opacity:0;animation:none\"></span>\n    </div>";
 
+  /* The markup used to carry every display value inline, and these routines
+     read it back to remember/restore/copy it. Once styles live in classes
+     `el.style.display` is empty, so read the computed value instead -- the
+     same number whenever an inline style did exist. */
+  function disp(el) { return window.getComputedStyle(el).display; }
+
+  /* Two-state controls (tabs, filters, pager) used to copy the active/idle
+     look from the markup as style-attribute strings and swap them. Those
+     looks now live in class lists, so snapshot both and swap both. */
+  function snapState(el) {
+    return el ? { style: el.getAttribute('style'), cls: el.className } : { style: null, cls: '' };
+  }
+  function applyState(el, st) {
+    el.className = st.cls;
+    if (st.style !== null) el.setAttribute('style', st.style); else el.removeAttribute('style');
+  }
+
   /* 1. Header clock + Gregorian/Hijri date -------------------------------- */
   function paintDate() {
     var d = new Date();
@@ -73,22 +90,22 @@
       // the design stays the single source of truth.
       var on = btns.filter(function (b) { return b.getAttribute('aria-selected') === 'true'; })[0] || btns[0];
       var off = btns.filter(function (b) { return b !== on; })[0];
-      var STYLE_ON = on.getAttribute('style');
-      var STYLE_OFF = off ? off.getAttribute('style') : STYLE_ON;
+      var STYLE_ON = snapState(on);
+      var STYLE_OFF = off ? snapState(off) : STYLE_ON;
 
       // The panels carry an inline display (grid), which beats the [hidden]
       // attribute's UA display:none — so visibility has to be driven through
       // that same inline display. The markup ships the inactive panels with
       // display:none already, so read the live value off the visible one.
       var live = panels.filter(function (p) { return !p.hidden; })[0] || panels[0];
-      var DISPLAY = live.style.display && live.style.display !== 'none' ? live.style.display : '';
+      var DISPLAY = disp(live) !== 'none' ? disp(live) : '';
 
       function select(btn) {
         var val = btn.getAttribute('data-sh-tab');
         btns.forEach(function (b) {
           var active = b === btn;
           b.setAttribute('aria-selected', String(active));
-          b.setAttribute('style', active ? STYLE_ON : STYLE_OFF);
+          applyState(b, active ? STYLE_ON : STYLE_OFF);
         });
         panels.forEach(function (p) {
           var show = p.getAttribute('data-sh-panel') === val;
@@ -157,12 +174,18 @@
       if (panels.length < 2) return;
 
       var open = 0;
-      panels.forEach(function (p, i) { if (p.style.flexGrow === '1') open = i; });
+      // which slide ships open: its flex-grow is 1. That value used to be inline
+      // and now comes from a class, so read it computed -- otherwise every slide
+      // reads '' here, `open` stays 0, and the OPEN/SHUT caption templates are
+      // snapped from the wrong panels: the first hover then shows the captions
+      // on the collapsed slides and hides them on the open one.
+      panels.forEach(function (p, i) { if (window.getComputedStyle(p).flexGrow === '1') open = i; });
       var closed = open === 0 ? 1 : 0;
 
       var snap = function (p) {
         return [].slice.call(p.children).map(function (c) {
-          return { opacity: c.style.opacity, transform: c.style.transform };
+          var cc = window.getComputedStyle(c);
+          return { opacity: c.style.opacity || cc.opacity, transform: c.style.transform || cc.transform };
         });
       };
       var OPEN = snap(panels[open]);
@@ -311,12 +334,12 @@
     }
 
     function onKey(e) {
-      if (!box || box.style.display === 'none') return;
+      if (!box || disp(box) === 'none') return;
       if (e.key === 'Escape') { e.preventDefault(); close(); }
       else if (e.key === 'ArrowLeft') { e.preventDefault(); go(idx + 1); }   // RTL: left = forward
       else if (e.key === 'ArrowRight') { e.preventDefault(); go(idx - 1); }
       else if (e.key === 'Tab') {                                            // keep focus inside
-        var f = [closeEl, prevEl, nextEl].concat(storyEl.style.display !== 'none' ? [storyEl] : []);
+        var f = [closeEl, prevEl, nextEl].concat(disp(storyEl) !== 'none' ? [storyEl] : []);
         var at = f.indexOf(document.activeElement);
         e.preventDefault();
         f[(at + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
@@ -541,19 +564,27 @@
 
       // A batch inside a CSS grid must keep its own display value (typically
       // display:contents, so the rows stay direct grid items). Remember it.
-      var shown = pages.filter(function (p) { return p.style.display !== 'none'; })[0] || pages[0];
-      var DISPLAY = shown.style.display && shown.style.display !== 'none' ? shown.style.display : '';
+      var shown = pages.filter(function (p) { return disp(p) !== 'none'; })[0] || pages[0];
+      var DISPLAY = disp(shown) !== 'none' ? disp(shown) : '';
 
       var nums = [].slice.call(nav.querySelectorAll('[data-sh-goto]'));
       var prev = nav.querySelector('[data-sh-prev-page]');
       var next = nav.querySelector('[data-sh-next-page]');
 
-      // read the three states the design already ships
-      var ON = nums[0].getAttribute('style');
-      var OFF = (nums[1] || nums[0]).getAttribute('style');
-      var DEAD = OFF.replace('color:#4a5568', 'color:#c3cbd7') + ';cursor:default';
-      var LINK_ON = next ? next.getAttribute('style') : '';
-      var LINK_OFF = prev ? prev.getAttribute('style') : '';
+      /* Read the states the design already ships. They used to live in the
+         style attribute; now they live in the class list. Snapshot both and
+         swap both, so the code is exact whichever the markup carries. */
+      var ON = snapState(nums[0]), OFF = snapState(nums[1] || nums[0]);
+      var LINK_ON = snapState(next), LINK_OFF = snapState(prev);
+      function apply(el, st, dead) {
+        applyState(el, st);
+        if (dead) {
+          // a page number beyond the real count: the shipped build swapped the
+          // OFF colour for #c3cbd7 and added cursor:default
+          if (!st.style || st.style.indexOf('color:#4a5568') !== -1) el.style.color = '#c3cbd7';
+          el.style.cursor = 'default';
+        }
+      }
 
       var cur = available[0];
 
@@ -568,19 +599,19 @@
         nums.forEach(function (a) {
           var v = a.getAttribute('data-sh-goto');
           var real = available.indexOf(v) !== -1;
-          a.setAttribute('style', v === page ? ON : (real ? OFF : DEAD));
+          apply(a, v === page ? ON : OFF, !real);
           a.setAttribute('aria-current', v === page ? 'page' : 'false');
           if (!real) a.setAttribute('aria-disabled', 'true');
         });
         var i = available.indexOf(page);
         if (prev) {
           var canPrev = i > 0;
-          prev.setAttribute('style', canPrev ? LINK_ON.replace('#1b5aa6', '#1b5aa6') : LINK_OFF);
+          apply(prev, canPrev ? LINK_ON : LINK_OFF, false);
           prev.setAttribute('aria-disabled', String(!canPrev));
         }
         if (next) {
           var canNext = i < available.length - 1;
-          next.setAttribute('style', canNext ? LINK_ON : LINK_OFF);
+          apply(next, canNext ? LINK_ON : LINK_OFF, false);
           next.setAttribute('aria-disabled', String(!canNext));
         }
         var top = list.getBoundingClientRect().top + window.pageYOffset - 90;
@@ -619,12 +650,15 @@
          design already uses (#1b5aa6 open, #0f2a4f closed). --------------- */
   function files() {
     document.querySelectorAll('[data-sh-files]').forEach(function (shelf) {
-      var spines = [].slice.call(shelf.querySelectorAll('[data-sh-file]'));
-      if (spines.length < 2) return;
-      var keys = spines.map(function (s) { return s.getAttribute('data-sh-file'); });
+      // one div.sh-file per file: its spine first, then its body (cover + paper)
+      var wraps = [].slice.call(shelf.querySelectorAll('[data-sh-file-wrap]'));
+      if (wraps.length < 2) return;
+      var keys = wraps.map(function (w) { return w.getAttribute('data-sh-file-wrap'); });
+      var spines = wraps.map(function (w) { return w.querySelector('[data-sh-file]'); });
+      if (spines.some(function (s) { return !s; })) return;
 
       // the open and closed spine colours, read off the markup as shipped
-      var read = function (el, prop) { return el.style[prop]; };
+      var read = function (el, prop) { return el.style[prop] || window.getComputedStyle(el)[prop === 'background' ? 'backgroundColor' : prop]; };
       var OPEN_BG = read(spines[0], 'background') || '#1b5aa6';
       var SHUT_BG = read(spines[1], 'background') || '#0f2a4f';
       var current = null;
@@ -632,11 +666,15 @@
       function partsOf(k) {
         return [].slice.call(shelf.querySelectorAll('[data-sh-file-part="' + k + '"]'));
       }
+      // The accordion clips a closed file at its spine, so every body stays in
+      // the layout; a page that ships files 02-04 with display:none (the
+      // inline-styled comparison page) has that cleared here.
+      keys.forEach(function (k) { partsOf(k).forEach(function (p) { if (getComputedStyle(p).display === 'none') p.style.display = ''; }); });
 
       function replay(el) {
         var anim = [el].concat([].slice.call(el.querySelectorAll('*')))
-          .filter(function (n) { return n.style && n.style.animation; });
-        anim.forEach(function (n) { n.__anim = n.style.animation; n.style.animation = 'none'; });
+          .filter(function (n) { return n.style && (n.style.animation || window.getComputedStyle(n).animationName !== 'none'); });
+        anim.forEach(function (n) { n.__anim = n.style.animation || ''; n.style.animation = 'none'; });
         void el.offsetWidth;
         anim.forEach(function (n) { n.style.animation = n.__anim; });
       }
@@ -644,6 +682,9 @@
       function open(k, animate) {
         if (k === current || keys.indexOf(k) === -1) return;
         current = k;
+        /* The width hand-off itself is CSS (flex-grow transitions on
+           .sh-file[data-open]); this only flips the state. */
+        wraps.forEach(function (w, i) { w.setAttribute('data-open', String(keys[i] === k)); });
         spines.forEach(function (s, i) {
           var on = keys[i] === k;
           s.style.transition = 'background .2s';
@@ -659,15 +700,15 @@
           [].slice.call(s.children).forEach(function (o) {
             var cs = getComputedStyle(o);
             if (cs.position !== 'absolute' || cs.left !== '0px' || cs.right !== '0px') return;
-            if (o.__op === undefined) o.__op = o.style.opacity || '1';
+            if (o.__op === undefined) o.__op = o.style.opacity || getComputedStyle(o).opacity || '1';
             o.style.transition = 'opacity .2s ease';
             o.style.opacity = on ? '0' : o.__op;
           });
         });
         keys.forEach(function (key) {
           partsOf(key).forEach(function (p) {
-            p.style.display = key === k ? '' : 'none';
             p.setAttribute('aria-hidden', String(key !== k));
+            p.tabIndex = key === k ? 0 : -1;     // a clipped file is not a tab stop
           });
         });
         if (animate) partsOf(k).forEach(replay);
@@ -860,11 +901,11 @@
 
       var on = links.filter(function (a) { return a.getAttribute('aria-current') === 'true'; })[0] || links[0];
       var off = links.filter(function (a) { return a !== on; })[0];
-      var STYLE_ON = on.getAttribute('style');
-      var STYLE_OFF = off ? off.getAttribute('style') : STYLE_ON;
+      var STYLE_ON = snapState(on);
+      var STYLE_OFF = off ? snapState(off) : STYLE_ON;
 
       items.forEach(function (it) {
-        it.__display = it.style.display || '';
+        it.__display = it.style.display || disp(it) || '';
         it.style.transition = 'opacity .28s ease';
       });
 
@@ -883,7 +924,7 @@
 
         links.forEach(function (a) {
           var active = a === link;
-          a.setAttribute('style', active ? STYLE_ON : STYLE_OFF);
+          applyState(a, active ? STYLE_ON : STYLE_OFF);
           a.setAttribute('aria-current', String(active));
         });
 
@@ -905,9 +946,315 @@
     });
   }
 
+  /* 14. «محاور» — collections and the collection viewer. [data-sh-hubs] holds
+         one [data-sh-hub] per topic (data-sh-filter="cat|cat"); the stories
+         live in the section's <template data-sh-hub-source> as
+         <a data-sh-item data-sh-cat data-sh-time data-sh-image href>headline</a>.
+         A hub's cover is its newest story's photograph unless the tile names
+         one with data-sh-cover. The viewer shows ONE story at a time as a deck
+         of cards: the ones still to come peek out of the right edge, going
+         forward throws the top card off to the left. Drag it, tap its sides,
+         or use the arrows; the strip under the card names what is next, and
+         at the end of a hub it names the next hub. «اسمع المحور» hands the
+         hub to the brief player. ------------------------------------------ */
+  function hubs() {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var PEEK = 2;                   // how many upcoming cards show an edge
+
+    function minutes(t) {           // "09:31 م" -> minutes since midnight, for sorting
+      var m = /(\d{1,2}):(\d{2})\s*([صم])?/.exec(t || '');
+      if (!m) return -1;
+      var h = +m[1] % 12, mi = +m[2];
+      if (m[3] === 'م') h += 12;
+      return h * 60 + mi;
+    }
+    function count(n) {
+      if (n === 1) return 'خبر واحد';
+      if (n === 2) return 'خبران';
+      if (n <= 10) return n + ' أخبار';
+      return n + ' خبرًا';
+    }
+    function two(n) { return (n < 10 ? '0' : '') + n; }
+    function esc(t) { return String(t).replace(/[<>&"]/g, function (c) { return { '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]; }); }
+
+    document.querySelectorAll('[data-sh-hubs]').forEach(function (grid) {
+      var tiles = [].slice.call(grid.querySelectorAll('[data-sh-hub]'));
+      var scope = grid.closest('section') || document;
+      var src = scope.querySelector('[data-sh-hub-source]');
+      var pool = src ? (src.content || src) : scope;
+      var all = [].slice.call(pool.querySelectorAll('[data-sh-item]')).map(function (a) {
+        var time = (a.getAttribute('data-sh-time') || '').replace(/\s+/g, ' ').trim();
+        return { c: a.getAttribute('data-sh-cat') || '', time: time, m: minutes(time),
+                 img: a.getAttribute('data-sh-image') || '', credit: a.getAttribute('data-sh-credit') || '',
+                 href: a.getAttribute('href') || '#', t: a.textContent.replace(/\s+/g, ' ').trim() };
+      }).filter(function (i) { return i.t; });          // a story without a headline is not a story
+      if (!tiles.length || !all.length) return;
+
+      var hubs = tiles.map(function (tile) {
+        var accept = (tile.getAttribute('data-sh-filter') || '').split('|');
+        var items = all.filter(function (i) { return accept.indexOf(i.c) !== -1; })
+          .sort(function (a, b) { return b.m - a.m; });
+        var withPic = items.filter(function (i) { return i.img; })[0];
+        return {
+          tile: tile, items: items, accept: accept,
+          name: (tile.querySelector('.sh-hub__name') || tile).textContent.trim(),
+          cover: tile.getAttribute('data-sh-cover') || (withPic ? withPic.img : '')
+        };
+      }).filter(function (h) {
+        if (h.items.length) return true;
+        h.tile.setAttribute('data-sh-empty', '');        // nothing in this hub today
+        return false;
+      });
+      if (!hubs.length) return;
+
+      hubs.forEach(function (h, hi) {
+        var c = h.tile.querySelector('[data-sh-hub-count]'), m = h.tile.querySelector('[data-sh-hub-meta]');
+        var cover = h.tile.querySelector('.sh-hub__cover');
+        var newest = h.items[0];
+        if (c) c.textContent = String(h.items.length);
+        if (m) m.innerHTML = esc(count(h.items.length)) + (newest.time ? ' · <span>' + esc(newest.time) + '</span>' : '');
+        if (cover && h.cover && !cover.querySelector('img')) {
+          var im = document.createElement('img');
+          im.className = 'sh-hub__art'; im.alt = ''; im.loading = 'lazy'; im.decoding = 'async';
+          im.src = h.cover;
+          cover.insertBefore(im, cover.firstChild);
+        }
+        h.tile.setAttribute('aria-haspopup', 'dialog');
+        h.tile.addEventListener('click', function (e) {
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.button > 0) return;   // a new tab still gets the section page
+          e.preventDefault();
+          open(hi, 0, h.tile);
+        });
+      });
+
+      /* the viewer, built once */
+      var view = null, els = {}, cards = [], cur = { h: -1, i: -1 }, opener = null, closing = 0;
+      function build() {
+        view = document.createElement('div');
+        view.className = 'sh-hubview';
+        view.setAttribute('role', 'dialog');
+        view.setAttribute('aria-modal', 'true');
+        view.setAttribute('aria-label', 'محور');
+        view.hidden = true;
+        view.innerHTML =
+          '<div class="sh-hubview__veil" data-sh-hv-close></div>' +
+          '<div class="sh-hubview__frame">' +
+            '<div class="sh-hubview__bar">' +
+              '<span class="sh-hubview__brand"><span class="sh-mark"></span>محور</span>' +
+              '<span class="sh-hubview__name" data-sh-hv-name></span>' +
+              '<span class="sh-hubview__pos" data-sh-hv-pos></span>' +
+              '<button type="button" class="sh-hubview__listen" data-sh-hv-listen><span class="sh-mark"></span>اسمع المحور</button>' +
+              '<button type="button" class="sh-hubview__close" data-sh-hv-close aria-label="إغلاق">&times;</button>' +
+            '</div>' +
+            '<div class="sh-hubview__segs" data-sh-hv-segs></div>' +
+            '<div class="sh-hubview__deck" data-sh-hv-deck></div>' +
+            '<button type="button" class="sh-hubview__next" data-sh-hv-nextbar>' +
+              '<span class="sh-hubview__nlabel"><span class="sh-mark"></span><span data-sh-hv-nlabel>التالي</span></span>' +
+              '<span class="sh-hubview__ntitle" data-sh-hv-ntitle></span>' +
+              '<span class="sh-hubview__ntime" data-sh-hv-ntime></span>' +
+            '</button>' +
+          '</div>';
+        document.body.appendChild(view);
+        var q = function (s) { return view.querySelector(s); };
+        els = { name: q('[data-sh-hv-name]'), pos: q('[data-sh-hv-pos]'), segs: q('[data-sh-hv-segs]'),
+                deck: q('[data-sh-hv-deck]'), nextbar: q('[data-sh-hv-nextbar]'), nlabel: q('[data-sh-hv-nlabel]'),
+                ntitle: q('[data-sh-hv-ntitle]'), ntime: q('[data-sh-hv-ntime]'),
+                close: q('.sh-hubview__close'), listen: q('[data-sh-hv-listen]') };
+
+        [].slice.call(view.querySelectorAll('[data-sh-hv-close]')).forEach(function (b) { b.addEventListener('click', close); });
+        els.nextbar.addEventListener('click', next);
+        els.listen.addEventListener('click', function () {
+          var h = hubs[cur.h];
+          document.dispatchEvent(new CustomEvent('sh-brief:play', { detail: {
+            id: 'hub:' + h.name, edition: 'محور ' + h.name,
+            items: h.items.map(function (r) { return { c: r.c, time: r.time, href: r.href, t: r.t, say: r.t }; })
+          } }));
+          close();
+        });
+        // one handler for the whole deck: the tap zones, and the peeking edges
+        els.deck.addEventListener('click', function (e) {
+          if (e.target.closest('a')) return;                       // the story's own link
+          if (e.target.closest('[data-sh-hv-prev]')) { prev(); return; }
+          if (e.target.closest('[data-sh-hv-next]')) { next(); return; }
+          var card = e.target.closest('.sh-hubcard');
+          if (card && card.getAttribute('data-state') === 'next') next();
+        });
+        drag(els.deck);
+        // the story's clock stops while the pointer or the focus is on the deck
+        els.deck.addEventListener('mouseenter', function () { view.setAttribute('data-paused', ''); });
+        els.deck.addEventListener('mouseleave', function () { view.removeAttribute('data-paused'); });
+        els.deck.addEventListener('focusin', function () { view.setAttribute('data-paused', ''); });
+        els.deck.addEventListener('focusout', function () { view.removeAttribute('data-paused'); });
+        // the filling segment is the clock: when its animation ends, move on
+        els.segs.addEventListener('animationend', function (e) {
+          if (e.animationName === 'sh-hubview-seg' && !view.hidden) next();
+        });
+        document.addEventListener('visibilitychange', function () {
+          if (view.hidden) return;
+          if (document.hidden) view.setAttribute('data-paused', ''); else view.removeAttribute('data-paused');
+        });
+        document.addEventListener('keydown', function (e) {
+          if (view.hidden) return;
+          if (e.key === 'Escape') { e.preventDefault(); close(); }
+          else if (e.key === 'ArrowLeft') { e.preventDefault(); next(); }     // RTL: forward is leftward
+          else if (e.key === 'ArrowRight') { e.preventDefault(); prev(); }
+          else if (e.key === 'Tab') trap(e);
+        });
+      }
+
+      /* dragging the top card: it follows the pointer, and past a third of
+         the deck's width the release turns the page */
+      function drag(deck) {
+        var id = null, x0 = 0, dx = 0, top = null, moved = 0;
+        deck.addEventListener('pointerdown', function (e) {
+          if (e.button > 0 || e.target.closest('a')) return;
+          top = cards[cur.i];
+          if (!top) return;
+          id = e.pointerId; x0 = e.clientX; dx = 0; moved = 0;
+          deck.setAttribute('data-drag', '');
+          view.setAttribute('data-paused', '');
+          if (deck.setPointerCapture) { try { deck.setPointerCapture(id); } catch (err) {} }
+        });
+        deck.addEventListener('pointermove', function (e) {
+          if (id === null || e.pointerId !== id) return;
+          dx = e.clientX - x0;
+          if (Math.abs(dx) > 4) moved = 1;
+          top.style.transform = 'translateX(' + dx + 'px) rotate(' + (dx / 60).toFixed(2) + 'deg)';
+          var nx = cards[cur.i + 1];
+          if (nx) {
+            var p = Math.min(1, Math.max(0, -dx / 220));           // only a forward drag pulls it in
+            nx.style.transform = 'translateX(' + (22 * (1 - p)) + 'px) scale(' + (1 - .035 * (1 - p)).toFixed(3) + ')';
+          }
+        });
+        function end(e) {
+          if (id === null || (e && e.pointerId !== id)) return;
+          id = null;
+          deck.removeAttribute('data-drag');
+          view.removeAttribute('data-paused');
+          var w = deck.getBoundingClientRect().width || 1;
+          var far = Math.abs(dx) > Math.min(140, w / 3);
+          top.style.transform = '';
+          if (cards[cur.i + 1]) cards[cur.i + 1].style.transform = '';
+          if (far && dx < 0) next();
+          else if (far && dx > 0) prev();
+          dx = 0;
+        }
+        deck.addEventListener('pointerup', end);
+        deck.addEventListener('pointercancel', end);
+        // a drag must not also fire the click that turns the page
+        deck.addEventListener('click', function (e) { if (moved) { e.stopPropagation(); moved = 0; } }, true);
+      }
+
+      function trap(e) {
+        var f = [].slice.call(view.querySelectorAll('button, a[href]')).filter(function (n) { return n.offsetParent !== null && n.tabIndex !== -1; });
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+      function wrap(i) { return (i + hubs.length) % hubs.length; }
+
+      function card(r, i) {
+        var el = document.createElement('article');
+        el.className = 'sh-hubcard';
+        el.innerHTML =
+          '<span class="sh-hubcard__photo">' +
+            (r.img ? '<img class="sh-hubcard__art" src="' + esc(r.img) + '" alt="" decoding="async">' : '') +
+            '<span class="sh-hubcard__no">' + two(i + 1) + '</span>' +
+            (r.credit ? '<span class="sh-hubcard__credit">' + esc(r.credit) + '</span>' : '') +
+            '<button type="button" class="sh-hubview__tap sh-hubview__tap--prev" data-sh-hv-prev aria-label="الخبر السابق">' +
+              '<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>' +
+            '<button type="button" class="sh-hubview__tap sh-hubview__tap--next" data-sh-hv-next aria-label="الخبر التالي">' +
+              '<i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>' +
+          '</span>' +
+          '<span class="sh-hubcard__body">' +
+            '<span class="sh-hubcard__line"><span class="sh-hubcard__cat">' + esc(r.c) + '</span>' +
+            (r.time ? '<span class="sh-hubcard__time"><span>' + esc(r.time) + '</span></span>' : '') + '</span>' +
+            '<h3 class="sh-hubcard__title">' + esc(r.t) + '</h3>' +
+            '<a class="sh-hubcard__read" href="' + esc(r.href) + '">اقرأ الخبر كاملًا <span class="sh-mark"></span></a>' +
+          '</span>';
+        return el;
+      }
+
+      function open(hi, si, from) {
+        if (!view) build();
+        if (from) opener = from;
+        var h = hubs[hi];
+        cur.h = hi;
+        els.name.textContent = h.name;
+        els.segs.innerHTML = h.items.map(function () { return '<span class="sh-hubview__seg"></span>'; }).join('');
+        els.deck.innerHTML = '';
+        cards = h.items.map(function (r, i) { return card(r, i); });
+        // painted back to front, so the first story ends up on top of the deck
+        cards.slice().reverse().forEach(function (el) { els.deck.appendChild(el); });
+        if (view.hidden) {
+          view.hidden = false;
+          view.removeAttribute('data-closing');
+          document.documentElement.setAttribute('data-sh-hubview-open', '');
+          els.close.focus();
+        }
+        cur.i = -1;
+        show(si < 0 ? h.items.length - 1 : si);
+      }
+
+      function show(i) {
+        var h = hubs[cur.h], r = h.items[i];
+        if (!r) return;
+        cur.i = i;
+        cards.forEach(function (el, k) {
+          var o = k - i;
+          var state = o < 0 ? 'past' : o === 0 ? 'on' : o <= PEEK ? 'next' : 'deep';
+          el.setAttribute('data-state', state);
+          el.style.setProperty('--o', String(Math.min(o < 0 ? 0 : o, PEEK)));
+          el.setAttribute('aria-hidden', String(o !== 0));
+          el.style.zIndex = String(cards.length - Math.abs(o));
+          [].slice.call(el.querySelectorAll('a, button')).forEach(function (n) { n.tabIndex = o === 0 ? 0 : -1; });
+        });
+        [].slice.call(els.segs.children).forEach(function (s, k) {
+          s.className = 'sh-hubview__seg' + (k < i ? ' sh-hubview__seg--done' : k === i && !reduce ? ' sh-hubview__seg--on' : '');
+        });
+        els.pos.textContent = two(i + 1) + ' / ' + two(h.items.length);
+        // what is coming: the next story, or -- at the end -- the next hub
+        var nx = h.items[i + 1], last = !nx && hubs.length > 1;
+        var nh = last ? hubs[wrap(cur.h + 1)] : null;
+        els.nextbar.hidden = !nx && !last;
+        els.nlabel.textContent = nx ? 'التالي' : 'المحور التالي';
+        els.ntitle.textContent = nx ? nx.t : nh ? nh.name + ' · ' + count(nh.items.length) : '';
+        els.ntime.textContent = nx ? (nx.time || '') : '';
+      }
+      function next() {
+        var h = hubs[cur.h];
+        if (cur.i + 1 < h.items.length) show(cur.i + 1);
+        else if (hubs.length > 1) open(wrap(cur.h + 1), 0);
+        else close();
+      }
+      function prev() {
+        if (cur.i > 0) show(cur.i - 1);
+        else if (hubs.length > 1) open(wrap(cur.h - 1), -1);
+      }
+      function close() {
+        if (!view || view.hidden || closing) return;
+        closing = 1;
+        view.setAttribute('data-closing', '');
+        setTimeout(function () {
+          view.hidden = true;
+          view.removeAttribute('data-closing');
+          view.removeAttribute('data-paused');
+          document.documentElement.removeAttribute('data-sh-hubview-open');
+          els.segs.innerHTML = '';
+          els.deck.innerHTML = '';
+          cards = [];
+          cur = { h: -1, i: -1 };
+          closing = 0;
+          if (opener && opener.focus) opener.focus();
+        }, reduce ? 0 : 230);
+      }
+    });
+  }
+
   function init() {
     paintDate(); ticker(); tabs(); galleries(); menus(); hero();
-    lightbox(); player(); loadMore(); pager(); files(); filters(); transition();
+    lightbox(); player(); loadMore(); pager(); files(); filters(); hubs(); transition();
     setInterval(paintDate, 60000);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
