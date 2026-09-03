@@ -1,0 +1,49 @@
+/* شهاب — علامة الشين.
+
+   The theme's recurring mark used to be a rotated square. This replaces it with
+   the ش from the wordmark itself: the three dots of the ش, which the calligrapher
+   drew as one bold blade, and which is the only element of the logotype that is
+   a separate shape rather than ligatured into its neighbour. The path in
+   assets/images/mark-sheen.svg was traced from the logo's own alpha channel, not
+   redrawn, so the mark and the masthead are literally the same geometry.
+
+   It is applied as a MASK, not as an <img>, so every existing per-instance
+   colour keeps working untouched -- `background:#1b5aa6`, `background:#fff`,
+   `background:currentColor` all still paint the mark.
+
+   WHY ONLY THE LARGER MARKS. The blade is a thin, calligraphic swoosh. Below
+   about 12px its stroke falls under one device pixel and it renders as a faint
+   hair -- measurably weaker than the square it replaced. The theme uses this
+   mark at 3px through 76px, so a blanket swap would have degraded roughly 1,500
+   of them. Instead the identity is tiered, the way a real reduced mark works:
+
+     >= 8px   the blade, scaled up to 13px so its stroke survives  (~150 marks)
+     <  8px   the rotated square stays; at that size it is a bullet, not a mark
+     >  15px  large rotated squares are background ornament, left alone
+
+   Anything animated by sh-twinkle / sh-dots / sh-meteor keeps its square too:
+   those keyframes set their own rotate(45deg) and would spin the blade. */
+
+.sh-mark{
+  /* the blade is wider than tall; aspect-ratio keeps it honest if only one
+     dimension is set on the element */
+  aspect-ratio:100/82.76;
+  -webkit-mask-image:url(../assets/images/mark-sheen.svg);
+          mask-image:url(../assets/images/mark-sheen.svg);
+  -webkit-mask-repeat:no-repeat;
+          mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+          mask-position:center;
+  -webkit-mask-size:contain;
+          mask-size:contain;
+  /* the square's rotation must not survive the swap */
+  transform:none;
+}
+
+/* The blade reads as a rising stroke, so it wants its optical weight on the
+   text baseline rather than dead-centre of the line box. */
+.sh-mark{position:relative;top:.5px}
+
+/* Where the mark sits inside a flex row next to type, it must never be the
+   thing that shrinks. */
+.sh-mark{flex:none}
