@@ -7,6 +7,7 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/font-awesome.css">
+<link rel="stylesheet" href="css/transition.css">
 <link rel="stylesheet" href="css/video-watch.css">
 </head>
 <body>
@@ -117,7 +118,7 @@
   <div style="background:#fff;color:#14233a;border-bottom:1px solid #eef2f7;box-shadow:0 1px 0 rgba(20,35,58,.04)">
     <div style="max-width:1280px;margin:0 auto;padding:0 32px;height:44px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px">
       <span style="background:#e0302f;color:#fff;font-family:'Almarai',sans-serif;font-size:12px;font-weight:700;padding:6px 14px 6px 22px;display:flex;align-items:center;gap:8px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,10px 50%)"><span style="width:6px;height:6px;background:#fff;border-radius:50%;animation:sh-pulse 1.4s ease-in-out infinite"></span>عاجل</span>
-      <a href="#" data-sh="ticker" data-items="[{&quot;t&quot;:&quot;قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم&quot;,&quot;time&quot;:&quot;10:32 م&quot;},{&quot;t&quot;:&quot;قوات الاحتلال تقتحم بلدة بلعا شمال طولكرم&quot;,&quot;time&quot;:&quot;10:17 م&quot;},{&quot;t&quot;:&quot;مراسل شهاب: إطلاق نار من طائرة مُسيّرة \&quot;كواد كابتر\&quot; في منطقة السطر الغربي شمال غربي خانيونس&quot;,&quot;time&quot;:&quot;10:13 م&quot;}]" style="display:flex;gap:14px;align-items:baseline;min-width:0">
+      <a href="article.html" data-sh="ticker" data-items="[{&quot;t&quot;:&quot;قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم&quot;,&quot;time&quot;:&quot;10:32 م&quot;},{&quot;t&quot;:&quot;قوات الاحتلال تقتحم بلدة بلعا شمال طولكرم&quot;,&quot;time&quot;:&quot;10:17 م&quot;},{&quot;t&quot;:&quot;مراسل شهاب: إطلاق نار من طائرة مُسيّرة \&quot;كواد كابتر\&quot; في منطقة السطر الغربي شمال غربي خانيونس&quot;,&quot;time&quot;:&quot;10:13 م&quot;}]" style="display:flex;gap:14px;align-items:baseline;min-width:0">
         <span data-sh="ticker-title" style="font-family:'Almarai',sans-serif;font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم</span>
         <span data-sh="ticker-time" style="font-size:12px;color:#8a95a6;white-space:nowrap;font-variant-numeric:tabular-nums">10:32 م</span>
       </a>
@@ -147,28 +148,31 @@
 
     <div style="display:grid;grid-template-columns:minmax(min(100%,340px),1fr) minmax(min(100%,250px),.32fr);gap:26px;align-items:start">
       <div>
-        <div style="position:relative;background:#000;overflow:hidden;aspect-ratio:16/9">
-          <span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1400&quot;);background-size:cover;background-position:center 46%;opacity:.9"></span>
+        <div data-sh-player style="position:relative;background:#000;overflow:hidden;aspect-ratio:16/9">
+          <video data-sh-video playsinline preload="metadata" poster="https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1400" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000;display:block">
+            <source src="assets/video/footer-city.webm" type="video/webm">
+          </video>
+          <span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1400&quot;);background-size:cover;background-position:center 46%;opacity:.9" data-sh-poster></span>
           <span style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.72),rgba(10,26,51,0) 55%)"></span>
           <span style="position:absolute;top:14px;right:14px;display:flex;align-items:center;gap:8px;background:#e0302f;color:#fff;font-family:'Almarai',sans-serif;font-size:11px;font-weight:800;padding:6px 12px"><span style="width:5px;height:5px;background:#fff;border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite"></span>مباشر</span>
-          <a href="#" aria-label="تشغيل" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff" class="sh-x41">
+          <a href="#" data-sh-bigplay aria-label="تشغيل" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff" class="sh-x41">
             
               <span style="width:74px;height:74px;border:1.5px solid rgba(255,255,255,.8);display:flex;align-items:center;justify-content:center;transform:rotate(45deg);transition:background .25s ease,border-color .25s ease" class="sh-x42"><i class="fa-solid fa-play" style="font-size:19px;color:#fff;transform:rotate(-45deg);margin-left:-4px"></i></span>
             
           </a>
           <!-- clean controls -->
           <div style="position:absolute;bottom:0;right:0;left:0;padding:0 14px 12px">
-            <span style="display:block;height:3px;background:rgba(255,255,255,.28);position:relative">
-              <span style="position:absolute;top:0;right:0;height:3px;background:#1b5aa6;width:0%"></span>
-              <span style="position:absolute;top:-3px;right:0%;width:9px;height:9px;background:#fff;transform:rotate(45deg)"></span>
+            <span data-sh-track role="slider" aria-label="موضع التشغيل" tabindex="0" style="display:block;height:3px;background:rgba(255,255,255,.28);position:relative;cursor:pointer">
+              <span data-sh-fill style="position:absolute;top:0;right:0;height:3px;background:#1b5aa6;width:0%"></span>
+              <span data-sh-knob style="position:absolute;top:-3px;right:0%;width:9px;height:9px;background:#fff;transform:rotate(45deg)"></span>
             </span>
             <span style="display:flex;align-items:center;gap:16px;margin-top:11px">
-              <a href="#" aria-label="تشغيل/إيقاف" style="color:#fff;font-size:14px" class="sh-x43"><i class="fa-solid fa-play"></i></a>
-              <span style="font-family:'Almarai',sans-serif;font-size:11.5px;color:rgba(255,255,255,.85);font-variant-numeric:tabular-nums">00:00 / 12:04</span>
+              <a href="#" data-sh-toggle aria-label="تشغيل/إيقاف" style="color:#fff;font-size:14px" class="sh-x43"><i class="fa-solid fa-play"></i></a>
+              <span data-sh-time style="font-family:'Almarai',sans-serif;font-size:11.5px;color:rgba(255,255,255,.85);font-variant-numeric:tabular-nums">00:00 / 12:04</span>
               <span style="flex:1"></span>
-              <a href="#" aria-label="الصوت" style="color:#fff;font-size:13px" class="sh-x44"><i class="fa-solid fa-volume-high"></i></a>
+              <a href="#" data-sh-mute aria-label="الصوت" style="color:#fff;font-size:13px" class="sh-x44"><i class="fa-solid fa-volume-high"></i></a>
               <a href="#" aria-label="جودة" style="color:#fff;font-size:12px;font-family:'Almarai',sans-serif;font-weight:800" class="sh-x45">HD</a>
-              <a href="#" aria-label="ملء الشاشة" style="color:#fff;font-size:13px" class="sh-x46"><i class="fa-solid fa-expand"></i></a>
+              <a href="#" data-sh-fs aria-label="ملء الشاشة" style="color:#fff;font-size:13px" class="sh-x46"><i class="fa-solid fa-expand"></i></a>
             </span>
           </div>
         </div>
@@ -182,7 +186,7 @@
       <aside style="border-right:1px solid rgba(255,255,255,.18);padding-right:22px">
         <span style="display:flex;align-items:center;gap:10px;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#9fc2ea;border-bottom:1px solid rgba(255,255,255,.18);padding-bottom:10px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg)"></span>الأكثر مشاهدة</span>
         
-          <a href="#" style="display:grid;grid-template-columns:26px 74px minmax(0,1fr);gap:11px;align-items:center;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.1);color:#fff" class="sh-x47">
+          <a href="article.html" style="display:grid;grid-template-columns:26px 74px minmax(0,1fr);gap:11px;align-items:center;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.1);color:#fff" class="sh-x47">
             <span style="font-family:'Almarai',sans-serif;font-size:16px;font-weight:800;color:rgba(255,255,255,.32);font-variant-numeric:tabular-nums">01</span>
             <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:16/9">
               <span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem%20Old%20City%20Street.jpg?width=800&quot;);background-size:cover;background-position:center 45%"></span>
@@ -190,7 +194,7 @@
             <span style="font-family:'Almarai',sans-serif;font-size:12.5px;font-weight:700;line-height:1.6;text-wrap:pretty">لحظة إطلاق النار على شاب أعزل في قلنديا</span>
           </a>
         
-          <a href="#" style="display:grid;grid-template-columns:26px 74px minmax(0,1fr);gap:11px;align-items:center;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.1);color:#fff" class="sh-x48">
+          <a href="article.html" style="display:grid;grid-template-columns:26px 74px minmax(0,1fr);gap:11px;align-items:center;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.1);color:#fff" class="sh-x48">
             <span style="font-family:'Almarai',sans-serif;font-size:16px;font-weight:800;color:rgba(255,255,255,.32);font-variant-numeric:tabular-nums">02</span>
             <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:16/9">
               <span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=800&quot;);background-size:cover;background-position:center 45%"></span>
@@ -198,7 +202,7 @@
             <span style="font-family:'Almarai',sans-serif;font-size:12.5px;font-weight:700;line-height:1.6;text-wrap:pretty">رفح بعد الانسحاب.. مشهد جوي</span>
           </a>
         
-          <a href="#" style="display:grid;grid-template-columns:26px 74px minmax(0,1fr);gap:11px;align-items:center;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.1);color:#fff" class="sh-x49">
+          <a href="article.html" style="display:grid;grid-template-columns:26px 74px minmax(0,1fr);gap:11px;align-items:center;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.1);color:#fff" class="sh-x49">
             <span style="font-family:'Almarai',sans-serif;font-size:16px;font-weight:800;color:rgba(255,255,255,.32);font-variant-numeric:tabular-nums">03</span>
             <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:16/9">
               <span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1400&quot;);background-size:cover;background-position:center 45%"></span>
@@ -206,7 +210,7 @@
             <span style="font-family:'Almarai',sans-serif;font-size:12.5px;font-weight:700;line-height:1.6;text-wrap:pretty">العودة عبر شارع الرشيد</span>
           </a>
         
-          <a href="#" style="display:grid;grid-template-columns:26px 74px minmax(0,1fr);gap:11px;align-items:center;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.1);color:#fff" class="sh-x50">
+          <a href="article.html" style="display:grid;grid-template-columns:26px 74px minmax(0,1fr);gap:11px;align-items:center;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.1);color:#fff" class="sh-x50">
             <span style="font-family:'Almarai',sans-serif;font-size:16px;font-weight:800;color:rgba(255,255,255,.32);font-variant-numeric:tabular-nums">04</span>
             <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:16/9">
               <span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=800&quot;);background-size:cover;background-position:center 45%"></span>
@@ -286,7 +290,7 @@
     <a href="video.html" style="display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;color:#1b5aa6" class="sh-x60">كل الفيديوهات <span style="width:15px;height:1px;background:currentColor"></span></a>
   </div>
   <div style="display:grid;grid-template-columns:minmax(min(100%,320px),1.5fr) minmax(min(100%,260px),1fr);gap:28px;margin-top:20px;align-items:start">
-    <a href="#" style="display:block" class="sh-x61">
+    <a href="article.html" style="display:block" class="sh-x61">
       <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:16/9">
         <span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1400&quot;);background-size:cover;background-position:center 48%"></span>
         <span style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.6),rgba(10,26,51,0) 60%)"></span>
@@ -298,7 +302,7 @@
     </a>
     <div>
       
-        <a href="#" style="display:grid;grid-template-columns:132px minmax(0,1fr);gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid #eef2f7" class="sh-x63">
+        <a href="article.html" style="display:grid;grid-template-columns:132px minmax(0,1fr);gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid #eef2f7" class="sh-x63">
           <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:16/9">
             <span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=800&quot;);background-size:cover;background-position:center 45%"></span>
             <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="width:28px;height:28px;border:1px solid rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;transform:rotate(45deg)"><i class="fa-solid fa-play" style="font-size:8px;color:#fff;transform:rotate(-45deg);margin-left:-2px"></i></span></span>
@@ -310,7 +314,7 @@
           </span>
         </a>
       
-        <a href="#" style="display:grid;grid-template-columns:132px minmax(0,1fr);gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid #eef2f7" class="sh-x64">
+        <a href="article.html" style="display:grid;grid-template-columns:132px minmax(0,1fr);gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid #eef2f7" class="sh-x64">
           <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:16/9">
             <span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=800&quot;);background-size:cover;background-position:center 45%"></span>
             <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="width:28px;height:28px;border:1px solid rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;transform:rotate(45deg)"><i class="fa-solid fa-play" style="font-size:8px;color:#fff;transform:rotate(-45deg);margin-left:-2px"></i></span></span>
@@ -322,7 +326,7 @@
           </span>
         </a>
       
-        <a href="#" style="display:grid;grid-template-columns:132px minmax(0,1fr);gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid #eef2f7" class="sh-x65">
+        <a href="article.html" style="display:grid;grid-template-columns:132px minmax(0,1fr);gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid #eef2f7" class="sh-x65">
           <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:16/9">
             <span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem%20Old%20City%20Street.jpg?width=800&quot;);background-size:cover;background-position:center 45%"></span>
             <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="width:28px;height:28px;border:1px solid rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;transform:rotate(45deg)"><i class="fa-solid fa-play" style="font-size:8px;color:#fff;transform:rotate(-45deg);margin-left:-2px"></i></span></span>
@@ -361,7 +365,7 @@
   </div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 30px">
     
-      <a href="#" style="display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid #eef2f7" class="sh-x67">
+      <a href="article.html" style="display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid #eef2f7" class="sh-x67">
         <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:16/9">
           <span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem%20Old%20City%20Street.jpg?width=800&quot;);background-size:cover;background-position:center 45%"></span>
           <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="width:24px;height:24px;border:1px solid rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;transform:rotate(45deg)"><i class="fa-solid fa-play" style="font-size:7px;color:#fff;transform:rotate(-45deg);margin-left:-2px"></i></span></span>
@@ -372,7 +376,7 @@
         </span>
       </a>
     
-      <a href="#" style="display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid #eef2f7" class="sh-x68">
+      <a href="article.html" style="display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid #eef2f7" class="sh-x68">
         <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:16/9">
           <span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=800&quot;);background-size:cover;background-position:center 45%"></span>
           <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="width:24px;height:24px;border:1px solid rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;transform:rotate(45deg)"><i class="fa-solid fa-play" style="font-size:7px;color:#fff;transform:rotate(-45deg);margin-left:-2px"></i></span></span>
@@ -383,7 +387,7 @@
         </span>
       </a>
     
-      <a href="#" style="display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid #eef2f7" class="sh-x69">
+      <a href="article.html" style="display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid #eef2f7" class="sh-x69">
         <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:16/9">
           <span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=800&quot;);background-size:cover;background-position:center 45%"></span>
           <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="width:24px;height:24px;border:1px solid rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;transform:rotate(45deg)"><i class="fa-solid fa-play" style="font-size:7px;color:#fff;transform:rotate(-45deg);margin-left:-2px"></i></span></span>
@@ -394,7 +398,7 @@
         </span>
       </a>
     
-      <a href="#" style="display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid #eef2f7" class="sh-x70">
+      <a href="article.html" style="display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid #eef2f7" class="sh-x70">
         <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:16/9">
           <span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=800&quot;);background-size:cover;background-position:center 45%"></span>
           <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="width:24px;height:24px;border:1px solid rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;transform:rotate(45deg)"><i class="fa-solid fa-play" style="font-size:7px;color:#fff;transform:rotate(-45deg);margin-left:-2px"></i></span></span>
@@ -405,7 +409,7 @@
         </span>
       </a>
     
-      <a href="#" style="display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid #eef2f7" class="sh-x71">
+      <a href="article.html" style="display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid #eef2f7" class="sh-x71">
         <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:16/9">
           <span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Gaza%20el-mina%20view.jpg?width=800&quot;);background-size:cover;background-position:center 45%"></span>
           <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="width:24px;height:24px;border:1px solid rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;transform:rotate(45deg)"><i class="fa-solid fa-play" style="font-size:7px;color:#fff;transform:rotate(-45deg);margin-left:-2px"></i></span></span>
@@ -416,7 +420,7 @@
         </span>
       </a>
     
-      <a href="#" style="display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid #eef2f7" class="sh-x72">
+      <a href="article.html" style="display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid #eef2f7" class="sh-x72">
         <span style="position:relative;display:block;overflow:hidden;background:#0f2a4f;aspect-ratio:16/9">
           <span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Omar%20Mukhtar%20panorama%20-%20panoramio.jpg?width=1200&quot;);background-size:cover;background-position:center 45%"></span>
           <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="width:24px;height:24px;border:1px solid rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;transform:rotate(45deg)"><i class="fa-solid fa-play" style="font-size:7px;color:#fff;transform:rotate(-45deg);margin-left:-2px"></i></span></span>
@@ -464,21 +468,21 @@
         <div style="flex:1 1 150px;min-width:0">
           <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الأقسام</h3>
           <div style="display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:rgba(255,255,255,.75)">
-            <a href="#" class="sh-x73">أخبار فلسطين</a><a href="#" class="sh-x74">القدس</a><a href="#" class="sh-x75">غزة</a><a href="#" class="sh-x76">الضفة</a><a href="#" class="sh-x77">عربي ودولي</a>
+            <a href="category.html" class="sh-x73">أخبار فلسطين</a><a href="category.html" class="sh-x74">القدس</a><a href="category.html" class="sh-x75">غزة</a><a href="category.html" class="sh-x76">الضفة</a><a href="category.html" class="sh-x77">عربي ودولي</a>
           </div>
         </div>
       
         <div style="flex:1 1 150px;min-width:0">
           <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>المحتوى</h3>
           <div style="display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:rgba(255,255,255,.75)">
-            <a href="#" class="sh-x78">التغطيات الحية</a><a href="#" class="sh-x79">ملفات شهاب</a><a href="#" class="sh-x80">عدسة شهاب</a><a href="#" class="sh-x81">فيديو شهاب</a><a href="#" class="sh-x82">تقارير خاصة</a>
+            <a href="coverage.html" class="sh-x78">التغطيات الحية</a><a href="files.html" class="sh-x79">ملفات شهاب</a><a href="photos.html" class="sh-x80">عدسة شهاب</a><a href="video.html" class="sh-x81">فيديو شهاب</a><a href="category.html" class="sh-x82">تقارير خاصة</a>
           </div>
         </div>
       
         <div style="flex:1 1 150px;min-width:0">
           <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الوكالة</h3>
           <div style="display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:rgba(255,255,255,.75)">
-            <a href="#" class="sh-x83">من نحن</a><a href="#" class="sh-x84">تواصل معنا</a><a href="#" class="sh-x85">سياسة التحرير</a><a href="#" class="sh-x86">فرص العمل</a><a href="#" class="sh-x87">خدمة الصور</a>
+            <a href="about.html" class="sh-x83">من نحن</a><a href="contact.html" class="sh-x84">تواصل معنا</a><a href="#" class="sh-x85">سياسة التحرير</a><a href="#" class="sh-x86">فرص العمل</a><a href="#" class="sh-x87">خدمة الصور</a>
           </div>
         </div>
       
@@ -495,8 +499,8 @@
     <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:20px 0 26px;font-size:11.5px;color:rgba(255,255,255,.6)">
       <span>وكالة شهاب للأنباء © 2026 — جميع الحقوق محفوظة</span>
       <div style="display:flex;gap:22px">
-        <a href="#" class="sh-x88">سياسة الخصوصية</a>
-        <a href="#" class="sh-x89">شروط الاستخدام</a>
+        <a href="privacy.html" class="sh-x88">سياسة الخصوصية</a>
+        <a href="terms.html" class="sh-x89">شروط الاستخدام</a>
         <a href="#" class="sh-x90">خدمة RSS</a>
         <a href="#" class="sh-x91">English</a>
       </div>
