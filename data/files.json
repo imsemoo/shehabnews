@@ -91,7 +91,7 @@
       "sub": "سيرة محمد الضيف من مخيم خانيونس إلى قيادة كتائب القسام، بوثائق وشهادات لم تُنشر من قبل.",
       "count": "31",
       "updated": "منذ يوم",
-      "bg": "url(\"assets/file-raheel-aldaif.png\")"
+      "bg": "url(\"assets/images/file-raheel-aldaif.png\")"
     },
     {
       "bgColor": "#0a1a33",
@@ -111,7 +111,7 @@
       "sub": "الحضور الفلسطيني في مونديال أمريكا الشمالية.",
       "count": "9",
       "updated": "منذ 3 أيام",
-      "bg": "url(\"assets/file-world-cup-2026.png\")"
+      "bg": "url(\"assets/images/file-world-cup-2026.png\")"
     },
     {
       "bgColor": "#fff",
@@ -131,7 +131,7 @@
       "sub": "كيف تُعاد هندسة الضفة الغربية قطعةً قطعة.",
       "count": "14",
       "updated": "منذ أسبوع",
-      "bg": "url(\"assets/palestine-map.png\")"
+      "bg": "url(\"assets/images/palestine-map.png\")"
     },
     {
       "bgColor": "#0a1a33",
@@ -204,7 +204,7 @@
       "title": "خريطة الخروقات.. أين ومتى انتُهك وقف إطلاق النار؟",
       "sub": "كل خرق موثّق على خريطة القطاع بالتاريخ والموقع والمصدر.",
       "updates": "325",
-      "bg": "url(\"assets/palestine-map.png\")"
+      "bg": "url(\"assets/images/palestine-map.png\")"
     },
     {
       "kind": "خط زمني",

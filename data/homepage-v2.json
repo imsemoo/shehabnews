@@ -211,7 +211,7 @@
       "count": "31 مادة",
       "read": "48 دقيقة",
       "updated": "آخر إضافة هذا الأسبوع",
-      "bg": "url(\"assets/file-raheel-aldaif.png\")"
+      "bg": "url(\"assets/images/file-raheel-aldaif.png\")"
     },
     {
       "num": "02",
@@ -220,7 +220,7 @@
       "count": "25 مادة",
       "read": "35 دقيقة",
       "updated": "يتحدّث أسبوعيًا",
-      "bg": "url(\"assets/file-aqmar-altoufan.png\")"
+      "bg": "url(\"assets/images/file-aqmar-altoufan.png\")"
     },
     {
       "num": "03",
@@ -229,7 +229,7 @@
       "count": "38 مادة",
       "read": "52 دقيقة",
       "updated": "محدث يوميًا",
-      "bg": "url(\"assets/file-1000-days.png\")"
+      "bg": "url(\"assets/images/file-1000-days.png\")"
     },
     {
       "num": "04",
@@ -238,7 +238,7 @@
       "count": "19 مادة",
       "read": "22 دقيقة",
       "updated": "آخر إضافة اليوم",
-      "bg": "url(\"assets/file-world-cup-2026.png\")"
+      "bg": "url(\"assets/images/file-world-cup-2026.png\")"
     }
   ],
   "more": [
@@ -406,7 +406,7 @@
     "title": "العودة عبر الرشيد.. 12 دقيقة توثق رحلة النازحين إلى الشمال",
     "cat": "غزة",
     "dur": "12:04",
-    "bg": "url(\"assets/gaza-coast.png\")"
+    "bg": "url(\"assets/images/gaza-coast.png\")"
   },
   "videoList": [
     {

@@ -1,0 +1,103 @@
+<!--
+  Contact Form - نموذج التواصل
+
+  SOURCE : contact.html  lines 158-242   (extracted verbatim, 85 lines)
+  STATUS : REFERENCE ONLY. Nothing loads this file at runtime.
+           The live copies still sit inside each *.html page, untouched.
+           Treat partials/ as build output: if you edit a page, this file goes
+           stale. Re-extract from the source above instead of editing here.
+  PURPOSE: a ready-made starting point for resources/views/partials/*.blade.php
+
+  The only full form in the theme (contact.html:158-242). Static markup: no
+  action, no method, no JS handler. Fields: name, email, subject <select>,
+  message <textarea>, attachment note, submit button.
+
+  For the Blade port this is where @csrf, the action route and the validation
+  error slots go. The field states (focus / error / success) are already
+  designed - see system-states.html, section data-screen-label="Form Validation".
+-->
+  <form data-screen-label="Contact Form" style="display:block">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:14px;border-bottom:1px solid #d5dde8;padding-bottom:10px">
+      <h2 style="font-family:'Almarai',sans-serif;font-size:18px;font-weight:800;margin:0;color:#0a1a33;display:flex;align-items:center;gap:10px"><span style="width:7px;height:7px;background:#1b5aa6;transform:rotate(45deg)"></span>أرسل رسالتك</h2>
+      <span style="font-size:11px;color:#8a95a6">نردّ خلال ساعات العمل</span>
+    </div>
+
+    <span style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#8a95a6;margin:14px 0 9px">نوع التواصل<span style="font-weight:400;font-size:11px">يوجّه رسالتك إلى القسم المختصّ</span></span>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      
+        <a href="#" style="display:inline-flex">
+          
+            <span style="display:inline-flex;align-items:center;gap:8px;border:1px solid #0a1a33;background:#0a1a33;color:#fff;font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;padding:9px 15px;white-space:nowrap"><span style="width:5px;height:5px;background:#7ea8dd;transform:rotate(45deg)"></span>إرسال خبر</span>
+          
+          
+        </a>
+      
+        <a href="#" style="display:inline-flex">
+          
+          
+            <span style="display:inline-flex;align-items:center;gap:8px;border:1px solid #cbd4e0;background:#fff;color:#4a5568;font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;padding:9px 15px;white-space:nowrap" class="sh-x40"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>مادة صحفية</span>
+          
+        </a>
+      
+        <a href="#" style="display:inline-flex">
+          
+          
+            <span style="display:inline-flex;align-items:center;gap:8px;border:1px solid #cbd4e0;background:#fff;color:#4a5568;font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;padding:9px 15px;white-space:nowrap" class="sh-x41"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>استفسار</span>
+          
+        </a>
+      
+        <a href="#" style="display:inline-flex">
+          
+          
+            <span style="display:inline-flex;align-items:center;gap:8px;border:1px solid #cbd4e0;background:#fff;color:#4a5568;font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;padding:9px 15px;white-space:nowrap" class="sh-x42"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>شراكة إعلامية</span>
+          
+        </a>
+      
+        <a href="#" style="display:inline-flex">
+          
+          
+            <span style="display:inline-flex;align-items:center;gap:8px;border:1px solid #cbd4e0;background:#fff;color:#4a5568;font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;padding:9px 15px;white-space:nowrap" class="sh-x43"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>فريق التحرير</span>
+          
+        </a>
+      
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px;margin-top:18px">
+      <label style="display:block;padding-bottom:14px">
+        <span style="display:block;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#8a95a6;margin-bottom:7px">الاسم</span>
+        <input type="text" placeholder="اسمك الكامل" style="width:100%;border:none;border-bottom:1px solid #cbd4e0;background:transparent;padding:9px 2px;font-size:14px">
+      </label>
+      <label style="display:block;padding-bottom:14px">
+        <span style="display:block;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#8a95a6;margin-bottom:7px">البريد الإلكتروني</span>
+        <input type="email" placeholder="name@example.com" style="width:100%;border:none;border-bottom:1px solid #cbd4e0;background:transparent;padding:9px 2px;font-size:14px;direction:ltr;text-align:right">
+      </label>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px">
+      <label style="display:block;padding-bottom:14px">
+        <span style="display:block;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#8a95a6;margin-bottom:7px">الجهة أو المؤسسة <span style="font-weight:400">— اختياري</span></span>
+        <input type="text" placeholder="اسم المؤسسة إن وُجد" style="width:100%;border:none;border-bottom:1px solid #cbd4e0;background:transparent;padding:9px 2px;font-size:14px">
+      </label>
+      <label style="display:block;padding-bottom:14px">
+        <span style="display:block;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#8a95a6;margin-bottom:7px">مكان الحدث <span style="font-weight:400">— للمواد الميدانية</span></span>
+        <input type="text" placeholder="المدينة أو الحيّ" style="width:100%;border:none;border-bottom:1px solid #cbd4e0;background:transparent;padding:9px 2px;font-size:14px">
+      </label>
+    </div>
+
+    <label style="display:block">
+      <span style="display:block;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#8a95a6;margin:4px 0 7px">الرسالة</span>
+      <textarea rows="5" placeholder="اكتب تفاصيل الخبر أو الاستفسار — والمكان والزمان إن كانت مادة ميدانية." style="width:100%;border:none;border-bottom:1px solid #cbd4e0;background:transparent;padding:9px 2px;font-size:14px;line-height:1.95;resize:vertical"></textarea>
+    </label>
+
+    <div style="display:flex;align-items:center;gap:12px;margin-top:14px;border-bottom:1px solid #cbd4e0;padding:0 2px 12px">
+      <i class="fa-solid fa-paperclip" style="font-size:13px;color:#1b5aa6"></i>
+      <span style="font-size:12.5px;color:#4a5568">إرفاق صور أو فيديو من الميدان</span>
+      <span style="margin-right:auto;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#1b5aa6">اختيار ملف</span>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:16px">
+      <span style="display:flex;align-items:center;gap:9px;font-size:11.5px;color:#8a95a6"><span style="width:12px;height:1px;background:#1b5aa6"></span>أرفق المكان والزمان واسم المصدر إن أمكن.</span>
+      <button type="submit" style="display:inline-flex;align-items:center;gap:12px;background:#0a1a33;color:#fff;border:none;font-family:'Almarai',sans-serif;font-size:12.5px;font-weight:800;padding:13px 28px;cursor:pointer;white-space:nowrap;flex:none" class="sh-x44">إرسال الرسالة <span style="width:16px;height:1px;background:currentColor"></span></button>
+    </div>
+    
+  </form>

@@ -1,0 +1,26 @@
+<!--
+  Pagination - ترقيم الصفحات
+
+  SOURCE : search.html  lines 249-258   (extracted verbatim, 10 lines)
+  STATUS : REFERENCE ONLY. Nothing loads this file at runtime.
+           The live copies still sit inside each *.html page, untouched.
+           Treat partials/ as build output: if you edit a page, this file goes
+           stale. Re-extract from the source above instead of editing here.
+  PURPOSE: a ready-made starting point for resources/views/partials/*.blade.php
+
+  Appears on 4 pages only (author, photos, search, video). The margin-top
+  differs on each of them (28 / 36 / 32 / 36 px), as does the page-number list.
+  This file is search.html's copy.
+
+  PROPS: $current, $pages, $prevHref, $nextHref, and the wrapper margin.
+-->
+    <nav data-screen-label="Pagination" style="display:flex;align-items:center;justify-content:center;gap:6px;margin-top:32px;font-family:'Almarai',sans-serif;font-size:13px;font-weight:700">
+      <a href="#" style="display:inline-flex;align-items:center;gap:7px;color:#b8c2d0;padding:8px 14px;cursor:default">السابق</a>
+      <a href="#" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:#1b5aa6;color:#fff;font-variant-numeric:tabular-nums">1</a>
+      <a href="#" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#4a5568;border:1px solid #e6ebf2;font-variant-numeric:tabular-nums" class="sh-x53">2</a>
+      <a href="#" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#4a5568;border:1px solid #e6ebf2;font-variant-numeric:tabular-nums" class="sh-x54">3</a>
+      <a href="#" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#4a5568;border:1px solid #e6ebf2;font-variant-numeric:tabular-nums" class="sh-x55">4</a>
+      <span style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#8a95a6">…</span>
+      <a href="#" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#4a5568;border:1px solid #e6ebf2;font-variant-numeric:tabular-nums" class="sh-x56">20</a>
+      <a href="#" style="display:inline-flex;align-items:center;gap:7px;color:#1b5aa6;padding:8px 14px" class="sh-x57">التالي <span style="width:12px;height:1px;background:#1b5aa6"></span></a>
+    </nav>

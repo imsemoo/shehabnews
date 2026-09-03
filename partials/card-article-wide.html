@@ -1,0 +1,27 @@
+<!--
+  Article Card (wide) - كارت خبر عريض بصورة 300px
+
+  SOURCE : category.html  lines 212-220   (extracted verbatim, 9 lines)
+  STATUS : REFERENCE ONLY. Nothing loads this file at runtime.
+           The live copies still sit inside each *.html page, untouched.
+           Treat partials/ as build output: if you edit a page, this file goes
+           stale. Re-extract from the source above instead of editing here.
+  PURPOSE: a ready-made starting point for resources/views/partials/*.blade.php
+
+  REPRESENTATIVE SAMPLE, not a shared block. Article cards across the theme fall
+  into 122 structurally distinct shapes, and all but 5 of them appear on a single
+  page only. Do not try to unify them in the static build.
+
+  This is the widest listing card: image column 300px, aspect-ratio 15/8.
+
+  PROPS: $href, $time, $category, $title, $excerpt, $image.
+-->
+          <a href="#" style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:start;padding:20px 18px 20px 0;margin:0 -18px 0 0;background:#f8fafd;border-bottom:1px solid #f1f4f8" class="sh-x45">
+            <span style="position:absolute;top:26px;right:-8.5px;width:8px;height:8px;background:#1b5aa6;transform:rotate(45deg);box-shadow:0 0 0 3px #fff"></span>
+            <span>
+              <span style="display:flex;gap:9px;align-items:center;font-size:11px"><span style="color:#8a95a6;font-variant-numeric:tabular-nums;font-weight:700">10:06 م</span><span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span><span style="color:#1b5aa6;font-weight:700">تقرير</span></span>
+              <span style="display:block;font-family:'Almarai',sans-serif;font-size:19px;font-weight:800;line-height:1.65;margin-top:8px;color:#0a1a33;text-wrap:pretty">أطفال غزة بين فرحة اللعب وتهديد القصف.. الطائرات الورقية ذريعة جديدة للتصعيد</span>
+              <span style="display:block;font-family:'Noto Naskh Arabic',serif;font-size:13px;line-height:1.9;color:#4a5568;margin-top:8px;max-width:58ch">خبراء الشأن الإسرائيلي يقرأون لشهاب توظيف لعبة الأطفال ذريعةً لإفشال وقف إطلاق النار وإبقاء غزة تحت التوتر.</span>
+            </span>
+            <span style="position:relative;display:block;background:#0f2a4f;overflow:hidden;aspect-ratio:15/8"><span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=900&quot;);background-size:cover;background-position:center"></span></span>
+          </a>

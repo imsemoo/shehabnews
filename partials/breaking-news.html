@@ -1,0 +1,43 @@
+<!--
+  Breaking News - شريط الأخبار العاجلة (آخر جزء داخل الهيدر)
+
+  SOURCE : article.html  lines 117-134   (extracted verbatim, 18 lines)
+  STATUS : REFERENCE ONLY. Nothing loads this file at runtime.
+           The live copies still sit inside each *.html page, untouched.
+           Treat partials/ as build output: if you edit a page, this file goes
+           stale. Re-extract from the source above instead of editing here.
+  PURPOSE: a ready-made starting point for resources/views/partials/*.blade.php
+
+  Present on 23 of 24 pages (all except homepage-v2.html), byte-identical.
+
+  Driven entirely by js/app.js. Required hooks:
+    data-sh="ticker"       plus data-items with a JSON array of {t, time}
+    data-sh="ticker-title"  the rotating headline
+    data-sh="ticker-time"   the timestamp
+    data-sh="ticker-count"  the 1 / 3 counter
+    data-sh="ticker-prev"   and  data-sh="ticker-next"   the arrows
+
+  app.js rotates every 7s and pauses on mouseenter.
+
+  PROPS: $items - the array currently hard-coded in the data-items attribute.
+  In Blade this becomes one shared variable instead of 23 copies of the same
+  JSON string.
+-->
+  <div style="background:#fff;color:#14233a;border-bottom:1px solid #eef2f7;box-shadow:0 1px 0 rgba(20,35,58,.04)">
+    <div style="max-width:1280px;margin:0 auto;padding:0 32px;height:44px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px">
+      <span style="background:#e0302f;color:#fff;font-family:'Almarai',sans-serif;font-size:12px;font-weight:700;padding:6px 14px 6px 22px;display:flex;align-items:center;gap:8px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,10px 50%)"><span style="width:6px;height:6px;background:#fff;border-radius:50%;animation:sh-pulse 1.4s ease-in-out infinite"></span>عاجل</span>
+      <a href="#" data-sh="ticker" data-items="[{&quot;t&quot;:&quot;قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم&quot;,&quot;time&quot;:&quot;10:32 م&quot;},{&quot;t&quot;:&quot;قوات الاحتلال تقتحم بلدة بلعا شمال طولكرم&quot;,&quot;time&quot;:&quot;10:17 م&quot;},{&quot;t&quot;:&quot;مراسل شهاب: إطلاق نار من طائرة مُسيّرة \&quot;كواد كابتر\&quot; في منطقة السطر الغربي شمال غربي خانيونس&quot;,&quot;time&quot;:&quot;10:13 م&quot;}]" style="display:flex;gap:14px;align-items:baseline;min-width:0">
+        <span data-sh="ticker-title" style="font-family:'Almarai',sans-serif;font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم</span>
+        <span data-sh="ticker-time" style="font-size:12px;color:#8a95a6;white-space:nowrap;font-variant-numeric:tabular-nums">10:32 م</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:14px;font-size:12px">
+        <span data-sh="ticker-count" style="color:#8a95a6;font-variant-numeric:tabular-nums">1 / 3</span>
+        <div style="display:flex;gap:4px">
+          <button aria-label="السابق" data-sh="ticker-prev" style="width:28px;height:26px;border:1px solid #eef2f7;background:#fff;color:#14233a;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:background .15s" class="sh-x37">‹</button>
+          <button aria-label="التالي" data-sh="ticker-next" style="width:28px;height:26px;border:1px solid #eef2f7;background:#fff;color:#14233a;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:background .15s" class="sh-x38">›</button>
+        </div>
+        <span style="width:1px;height:14px;background:#d9e0ea"></span>
+        <a href="coverage.html" style="color:#1b5aa6;font-weight:700">التغطية الحية ←</a>
+      </div>
+    </div>
+  </div>

@@ -322,7 +322,7 @@
     "count": "ملف الذكرى",
     "label": "ملف الذكرى الثانية",
     "updated": "آخر إضافة هذا الأسبوع",
-    "bg": "url(assets/file-raheel-aldaif.png)",
+    "bg": "url(assets/images/file-raheel-aldaif.png)",
     "heading": "رحيل الضيف | القائد العام محمد الضيف",
     "desc": "سيرة \"رجل الظل\" أبو خالد الضيف، محطاته وعملياته وشهادات من عرفوه — في ذكرى رحيله الثانية.",
     "stories": [
@@ -338,7 +338,7 @@
       "count": "سلسلة",
       "label": "سلسلة شهداء القسام",
       "updated": "يتحدّث أسبوعيًا",
-      "bg": "url(assets/file-aqmar-altoufan.png)",
+      "bg": "url(assets/images/file-aqmar-altoufan.png)",
       "heading": "أقمار الطوفان | سلسلة شهداء القسام في معركة طوفان الأقصى",
       "desc": "حلقات تتتبع سيرة قادة ومقاتلي القسام الذين ارتقوا خلال المعركة، من الميدان إلى الذاكرة.",
       "stories": [
@@ -353,7 +353,7 @@
       "count": "ملف",
       "label": "ألف يوم من الإبادة",
       "updated": "محدث يوميًا",
-      "bg": "url(assets/file-1000-days.png)",
+      "bg": "url(assets/images/file-1000-days.png)",
       "heading": "1000 يوم على حرب الإبادة | الأرقام والوجوه والركام",
       "desc": "ألف يوم من القصف والتجويع والتهجير في قطاع غزة — ما الذي تغيّر وما الذي بقي.",
       "stories": [
@@ -368,7 +368,7 @@
       "count": "رياضة",
       "label": "تغطية المونديال",
       "updated": "آخر إضافة اليوم",
-      "bg": "url(assets/file-world-cup-2026.png)",
+      "bg": "url(assets/images/file-world-cup-2026.png)",
       "heading": "كأس العالم 2026 | فلسطين حاضرة في المدرجات",
       "desc": "متابعة شهاب لمونديال أمريكا الشمالية: النتائج، والأعلام الفلسطينية في المدرجات، وسياسة الملاعب.",
       "stories": [
@@ -526,27 +526,27 @@
     {
       "name": "سين صريح",
       "sub": "تقديم محمد هنية",
-      "bg": "url(assets/prog-seen-sareeh.png)"
+      "bg": "url(assets/images/prog-seen-sareeh.png)"
     },
     {
       "name": "أخبار شلومو",
       "sub": "قراءة ساخرة في الإعلام العبري",
-      "bg": "url(assets/prog-akhbar-shlomo.png)"
+      "bg": "url(assets/images/prog-akhbar-shlomo.png)"
     },
     {
       "name": "قصة صورة",
       "sub": "حكاية خلف كل لقطة",
-      "bg": "url(assets/prog-qissat-soura.png)"
+      "bg": "url(assets/images/prog-qissat-soura.png)"
     },
     {
       "name": "الحكاية",
       "sub": "مع إسلام بدر",
-      "bg": "url(assets/prog-alhikaya.png)"
+      "bg": "url(assets/images/prog-alhikaya.png)"
     },
     {
       "name": "حديث اليوم",
       "sub": "قراءة يومية في الحدث",
-      "bg": "url(assets/prog-hadith-alyawm.png)"
+      "bg": "url(assets/images/prog-hadith-alyawm.png)"
     }
   ],
   "reportsIdx": [
