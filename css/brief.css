@@ -1,0 +1,242 @@
+/* شهاب — موجز اليوم (AI briefing player).
+
+   Opened from the masthead's «موجز اليوم» button on every page. The visual
+   language is the theme's own, not a stock media player: navy ground, sharp
+   corners everywhere, the rotated 45deg diamond as the recurring mark, the
+   hairline verticals at 22% lifted from the loader veil, and a travelling
+   diamond nib for progress instead of a bar -- the same gesture the loader
+   makes when it draws the wordmark.
+
+   Nothing here needs !important: the player is injected by js/brief.js with
+   class names only, so it never fights the theme's inline styles. */
+
+:root{
+  --brief-navy:#0a1a33;
+  --brief-deep:#08172d;
+  --brief-blue:#1b5aa6;
+  --brief-sky:#7ea8dd;
+  --brief-hair:rgba(126,168,221,.16);
+  --brief-hair-soft:rgba(126,168,221,.09);
+}
+
+/* ---------------------------------------------------------------- scrim -- */
+/* below the page-transition veil (z 10000) so navigating away still covers it */
+[data-sh-brief-ui]{
+  position:fixed; inset:0; z-index:9900;
+  display:flex; align-items:center; justify-content:center;
+  padding:24px;
+  background:rgba(5,13,26,.82);
+  -webkit-backdrop-filter:blur(6px) saturate(.9);
+          backdrop-filter:blur(6px) saturate(.9);
+  opacity:0; visibility:hidden;
+  transition:opacity .3s ease, visibility 0s linear .3s;
+}
+[data-sh-brief-ui][data-on]{
+  opacity:1; visibility:visible;
+  transition:opacity .3s ease, visibility 0s;
+}
+
+/* ---------------------------------------------------------------- panel -- */
+.sh-brief{
+  position:relative; overflow:hidden;
+  width:100%; max-width:780px; max-height:100%;
+  display:flex; flex-direction:column;
+  background:var(--brief-navy); color:#fff;
+  border:1px solid var(--brief-hair);
+  box-shadow:0 30px 80px rgba(3,9,20,.6);
+  transform:translateY(14px) scale(.985);
+  transition:transform .34s cubic-bezier(.2,.7,.2,1);
+}
+[data-sh-brief-ui][data-on] .sh-brief{transform:none}
+
+/* the loader's own hairlines and corner arc, so the two read as one system */
+.sh-brief-rule{position:absolute;top:0;bottom:0;width:1px;background:var(--brief-hair-soft);pointer-events:none}
+.sh-brief-rule-a{inset-inline-end:22%}
+.sh-brief-rule-b{inset-inline-start:22%}
+.sh-brief-arc{
+  position:absolute; top:-190px; inset-inline-start:-150px;
+  width:460px; height:460px; border:1px solid var(--brief-hair-soft);
+  border-radius:50%; pointer-events:none;
+}
+.sh-brief-mark{                       /* logo watermark, barely there */
+  position:absolute; bottom:-30px; inset-inline-end:-20px;
+  width:220px; opacity:.05; pointer-events:none;
+}
+
+/* --------------------------------------------------------------- header -- */
+.sh-brief-head{
+  position:relative; z-index:1;
+  display:flex; align-items:center; gap:12px;
+  padding:16px 20px; border-bottom:1px solid var(--brief-hair);
+}
+.sh-brief-dia{width:9px;height:9px;background:var(--brief-blue);transform:rotate(45deg);flex:none}
+.sh-brief-title{
+  font-family:'Almarai',sans-serif; font-size:15px; font-weight:800; letter-spacing:.01em;
+}
+.sh-brief-chip{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:4px 9px; font-family:'Almarai',sans-serif; font-size:12px; font-weight:800;
+  color:var(--brief-sky); border:1px solid var(--brief-hair);
+  background:rgba(27,90,166,.18);
+}
+.sh-brief-chip i{
+  width:5px;height:5px;background:var(--brief-sky);transform:rotate(45deg);flex:none;
+  animation:sh-brief-pulse 2.4s ease-in-out infinite;
+}
+.sh-brief-edition{
+  margin-inline-start:auto; font-size:12px; color:rgba(255,255,255,.55);
+  white-space:nowrap;
+}
+.sh-brief-x{
+  flex:none; width:34px; height:34px; display:grid; place-items:center;
+  background:transparent; border:1px solid var(--brief-hair); color:#fff;
+  cursor:pointer; transition:background .18s ease, border-color .18s ease;
+}
+.sh-brief-x:hover{background:rgba(255,255,255,.08); border-color:var(--brief-sky)}
+.sh-brief-x svg{width:13px;height:13px;stroke:currentColor;stroke-width:1.7;fill:none}
+
+/* ---------------------------------------------------------------- stage -- */
+.sh-brief-stage{position:relative;z-index:1;padding:26px 22px 20px;text-align:center}
+
+/* the waveform is built from the theme's diamond, never from generic bars */
+.sh-brief-wave{
+  display:flex; align-items:center; justify-content:center; gap:5px;
+  height:56px; margin-bottom:22px;
+}
+.sh-brief-wave b{
+  display:block; width:7px; height:7px; flex:none;
+  background:var(--brief-blue); transform:rotate(45deg) scaleY(1);
+  transform-origin:center; opacity:.5;
+  transition:opacity .2s ease;
+}
+.sh-brief-wave[data-live] b{opacity:1}
+
+.sh-brief-cat{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'Almarai',sans-serif; font-size:12px; font-weight:800;
+  color:var(--brief-sky); margin-bottom:12px;
+}
+.sh-brief-cat s{width:5px;height:5px;background:currentColor;transform:rotate(45deg);flex:none;text-decoration:none}
+.sh-brief-cat u{text-decoration:none;color:rgba(255,255,255,.5);font-variant-numeric:tabular-nums}
+
+.sh-brief-line{
+  font-family:'Almarai',sans-serif; font-weight:700;
+  font-size:clamp(17px,2.6vw,22px); line-height:1.62; text-wrap:pretty;
+  margin:0 auto; max-width:34ch; min-height:2.2em;
+}
+.sh-brief-say{
+  font-family:'Noto Naskh Arabic',serif; font-size:14px; line-height:1.95;
+  color:rgba(255,255,255,.62); margin:12px auto 0; max-width:46ch; text-wrap:pretty;
+}
+
+/* ------------------------------------------------------------- progress -- */
+/* a hairline with a diamond nib travelling it -- the loader's gesture, flattened */
+.sh-brief-track{
+  position:relative; z-index:1; height:1px; margin:4px 22px 0;
+  background:var(--brief-hair);
+}
+.sh-brief-fill{
+  position:absolute; inset-block:0; inset-inline-start:0; width:0;
+  background:linear-gradient(to left,var(--brief-blue),var(--brief-sky));
+}
+.sh-brief-nib{
+  position:absolute; top:50%; inset-inline-start:0;
+  width:9px; height:9px; margin-top:-4.5px; margin-inline-start:-4.5px;
+  background:var(--brief-sky); transform:rotate(45deg);
+  box-shadow:0 0 0 4px rgba(126,168,221,.14);
+}
+
+/* -------------------------------------------------------------- controls -- */
+.sh-brief-foot{
+  position:relative; z-index:1;
+  display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  padding:16px 22px; border-top:1px solid var(--brief-hair); margin-top:18px;
+}
+.sh-brief-dots{display:flex; align-items:center; gap:7px; flex:none}
+.sh-brief-dots b{
+  width:7px; height:7px; flex:none; transform:rotate(45deg); cursor:pointer;
+  background:transparent; box-shadow:inset 0 0 0 1px rgba(126,168,221,.5);
+  transition:background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.sh-brief-dots b[data-done]{background:rgba(126,168,221,.55); box-shadow:none}
+.sh-brief-dots b[data-now]{background:var(--brief-sky); transform:rotate(45deg) scale(1.5); box-shadow:none}
+
+.sh-brief-btns{display:flex; align-items:center; gap:8px; margin-inline-start:auto}
+.sh-brief-b{
+  width:42px; height:42px; flex:none; display:grid; place-items:center;
+  background:transparent; border:1px solid var(--brief-hair); color:#fff;
+  cursor:pointer; transition:background .18s ease, border-color .18s ease, opacity .18s ease;
+}
+.sh-brief-b:hover:not(:disabled){background:rgba(255,255,255,.08); border-color:var(--brief-sky)}
+.sh-brief-b:disabled{opacity:.32; cursor:default}
+.sh-brief-b svg{width:15px;height:15px;fill:currentColor}
+.sh-brief-b-main{width:52px;height:52px;background:var(--brief-blue);border-color:var(--brief-blue)}
+.sh-brief-b-main:hover:not(:disabled){background:#2468bd;border-color:#2468bd}
+.sh-brief-b-main svg{width:17px;height:17px}
+.sh-brief-rate{
+  min-width:46px; height:42px; padding:0 10px;
+  font-family:'Almarai',sans-serif; font-size:12px; font-weight:800;
+  font-variant-numeric:tabular-nums;
+  background:transparent; border:1px solid var(--brief-hair); color:#fff; cursor:pointer;
+  transition:background .18s ease, border-color .18s ease;
+}
+.sh-brief-rate:hover{background:rgba(255,255,255,.08); border-color:var(--brief-sky)}
+
+/* ------------------------------------------------------------ transcript -- */
+.sh-brief-list{
+  position:relative; z-index:1;
+  margin:0; padding:0 8px 8px; list-style:none;
+  overflow-y:auto; border-top:1px solid var(--brief-hair);
+  max-height:min(30vh,220px);
+}
+.sh-brief-list li{margin:0}
+.sh-brief-list button{
+  width:100%; display:grid; grid-template-columns:26px 1fr auto; gap:10px; align-items:baseline;
+  padding:11px 12px; text-align:start; cursor:pointer;
+  background:transparent; border:0; border-bottom:1px solid var(--brief-hair-soft);
+  color:rgba(255,255,255,.72); font-family:'Almarai',sans-serif; font-size:13px; line-height:1.65;
+  transition:background .16s ease, color .16s ease;
+}
+.sh-brief-list button:hover{background:rgba(126,168,221,.09); color:#fff}
+.sh-brief-list button[data-now]{background:rgba(27,90,166,.24); color:#fff}
+.sh-brief-list i{
+  font-style:normal; font-weight:800; font-variant-numeric:tabular-nums;
+  color:var(--brief-sky); opacity:.6; font-size:12px;
+}
+.sh-brief-list em{font-style:normal; color:rgba(255,255,255,.4); font-size:12px; white-space:nowrap}
+
+/* ----------------------------------------------------------------- note -- */
+.sh-brief-note{
+  position:relative; z-index:1;
+  padding:10px 22px; font-size:12px; line-height:1.7;
+  color:rgba(255,255,255,.5); border-top:1px solid var(--brief-hair-soft);
+}
+.sh-brief-note b{color:var(--brief-sky); font-weight:800}
+
+@keyframes sh-brief-pulse{0%,100%{opacity:.35;transform:rotate(45deg) scale(.8)}50%{opacity:1;transform:rotate(45deg) scale(1)}}
+
+/* ----------------------------------------------------------- the button -- */
+/* the masthead entry point gains a state while the brief is open */
+[data-sh-brief-open]{position:relative}
+[data-sh-brief-open][aria-expanded="true"]{background:rgba(255,255,255,.14)}
+
+/* --------------------------------------------------------------- mobile -- */
+@media (max-width:640px){
+  [data-sh-brief-ui]{padding:0; align-items:stretch}
+  .sh-brief{max-width:none; max-height:none; height:100%; border:0}
+  .sh-brief-stage{padding:22px 16px 16px}
+  .sh-brief-wave{height:46px; gap:4px}
+  .sh-brief-foot{padding:14px 16px; gap:12px}
+  .sh-brief-track{margin-inline:16px}
+  .sh-brief-list{max-height:none; flex:1}
+  .sh-brief-note{padding:10px 16px}
+  .sh-brief-rule-a{inset-inline-end:16%}
+  .sh-brief-rule-b{inset-inline-start:16%}
+}
+
+/* the sequence carries meaning, so it still advances -- only the motion stops */
+@media (prefers-reduced-motion:reduce){
+  [data-sh-brief-ui],.sh-brief{transition:none}
+  .sh-brief-chip i{animation:none}
+  .sh-brief-wave b{transform:rotate(45deg)!important}
+}
