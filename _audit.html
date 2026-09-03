@@ -1,35 +1,33 @@
 <!doctype html><meta charset="utf-8"><title>audit</title>
-<style>html,body{margin:0}iframe{border:0}</style>
 <script>
-window.PAGES=null;
-window.runAudit=async function(pages,w,h){
-  const out={};
-  for(const p of pages){
-    const f=document.createElement('iframe');
-    f.style.cssText='position:fixed;left:-99999px;top:0';
-    f.width=w; f.height=h; f.src=p+'?a='+Math.floor(performance.now());
-    document.body.appendChild(f);
-    await new Promise(r=>{f.onload=r; setTimeout(r,6000)});
-    await new Promise(r=>setTimeout(r,450));
-    try{
-      const d=f.contentDocument, wv=f.contentWindow;
-      const inAbs=e=>{for(let n=e.parentElement;n;n=n.parentElement){
-        const p=wv.getComputedStyle(n).position; if(p==='absolute'||p==='fixed')return true;} return false;};
-      const clipped=[];
-      d.querySelectorAll('body *').forEach(e=>{
-        const cs=wv.getComputedStyle(e);
-        if(cs.display==='none'||cs.visibility==='hidden')return;
-        if(cs.position==='absolute'||cs.position==='fixed')return;
-        if(inAbs(e))return;
-        const r=e.getBoundingClientRect();
-        if(r.width===0||r.height===0)return;
-        if(r.right>w+1||r.left<-1) clipped.push(e.tagName+'.'+(e.className||'').toString().slice(0,24)+' @'+Math.round(r.left)+'->'+Math.round(r.right));
-      });
-      out[p]={docW:d.documentElement.scrollWidth, overflow:d.documentElement.scrollWidth>w+1,
-              clipped:clipped.length, worst:clipped.slice(0,3)};
-    }catch(err){out[p]='ERR '+err.message}
-    f.remove();
-  }
-  return out;
+window.audit2=async function(page,w){
+  const f=document.createElement('iframe');
+  f.style.cssText='position:fixed;left:-99999px;top:0';f.width=w;f.height=760;
+  f.src=page+'?x='+Math.floor(performance.now());
+  document.body.appendChild(f);
+  await new Promise(r=>{f.onload=r;setTimeout(r,6000)});
+  await new Promise(r=>setTimeout(r,450));
+  const d=f.contentDocument,wv=f.contentWindow;
+  const bb=d.body.getBoundingClientRect(),L=bb.left,R=bb.right;
+  let unc=[],tiny=[];
+  d.querySelectorAll('body *').forEach(e=>{
+    const cs=wv.getComputedStyle(e);
+    if(cs.display==='none'||cs.visibility==='hidden')return;
+    const r=e.getBoundingClientRect();
+    if(r.width===0||r.height===0)return;
+    const hasText=[...e.childNodes].some(n=>n.nodeType===3&&n.textContent.trim());
+    if(hasText&&parseFloat(cs.fontSize)<12)tiny.push(parseFloat(cs.fontSize)+':'+e.textContent.trim().slice(0,14));
+    if(cs.position==='absolute'||cs.position==='fixed')return;
+    if(r.right<=R+1&&r.left>=L-1)return;
+    let clipped=false;
+    for(let n=e.parentElement;n;n=n.parentElement){
+      const c=wv.getComputedStyle(n);
+      if(c.position==='absolute'||c.position==='fixed'){clipped=true;break}
+      if(/hidden|clip|auto|scroll/.test(c.overflowX)){clipped=true;break}
+    }
+    if(!clipped)unc.push(e.tagName+' @'+Math.round(r.left)+'->'+Math.round(r.right));
+  });
+  const res={ovf:d.documentElement.scrollWidth>d.documentElement.clientWidth+1,unc:unc.length,rows:unc.slice(0,3),tiny:tiny.length,tinyRows:tiny.slice(0,3)};
+  f.remove(); return res;
 };
 </script>
