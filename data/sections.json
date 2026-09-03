@@ -74,7 +74,7 @@
   "clock": "02:37",
   "leadBg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=1400\")",
   "westBg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=700\")",
-  "videoBg": "url(\"assets/gaza-coast.png\")",
+  "videoBg": "url(\"assets/images/gaza-coast.png\")",
   "photoBg": "url(\"https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=900\")",
   "mid": [
     {
@@ -138,17 +138,17 @@
     {
       "title": "1000 يوم على حرب الإبادة",
       "count": "38",
-      "bg": "url(\"assets/file-1000-days.png\")"
+      "bg": "url(\"assets/images/file-1000-days.png\")"
     },
     {
       "title": "أقمار الطوفان.. رحلة الغياب والعودة",
       "count": "25",
-      "bg": "url(\"assets/file-aqmar-altoufan.png\")"
+      "bg": "url(\"assets/images/file-aqmar-altoufan.png\")"
     },
     {
       "title": "رحيل الضيف.. القائد الذي أرهق الاحتلال",
       "count": "31",
-      "bg": "url(\"assets/file-raheel-aldaif.png\")"
+      "bg": "url(\"assets/images/file-raheel-aldaif.png\")"
     }
   ],
   "years": [

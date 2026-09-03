@@ -1,0 +1,79 @@
+<!--
+  Navbar - شريط التنقل الرئيسي بالقوائم المنسدلة (جزء من الهيدر)
+
+  SOURCE : article.html  lines 56-114   (extracted verbatim, 59 lines)
+  STATUS : REFERENCE ONLY. Nothing loads this file at runtime.
+           The live copies still sit inside each *.html page, untouched.
+           Treat partials/ as build output: if you edit a page, this file goes
+           stale. Re-extract from the source above instead of editing here.
+  PURPOSE: a ready-made starting point for resources/views/partials/*.blade.php
+
+  This is the <nav> that lives INSIDE header.html (article.html:56-114).
+  Extracted separately because it is the piece most likely to become its own
+  Blade component, and it is the only part of the header that varies per page.
+
+  Behaviour: the dropdowns open on hover / focus through the CSS rule
+    .sh-menu:hover > .sh-drop, .sh-menu:focus-within > .sh-drop { ... }
+  which is present in every css/<page>.css. js/app.js only adds Escape-to-close.
+
+  PROPS: $active (see header.html).
+-->
+      <nav style="display:flex;align-items:center;justify-content:space-between;min-height:46px;flex-wrap:wrap;font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;border-top:1px solid rgba(255,255,255,.14)">
+        <div style="display:flex;gap:26px;flex-wrap:wrap">
+          <div class="sh-menu" style="position:relative">
+            <a href="index.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x7">الرئيسية<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
+            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
+              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
+              <a href="index.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x8"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الرئيسية — النسخة الأساسية</a>
+              <a href="homepage-v2.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x9"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الرئيسية — الاتجاه الثاني</a>
+              <a href="homepage-v3.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x10"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الرئيسية — الاتجاه الثالث</a>
+              <a href="homepage-v4.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x11"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الرئيسية — الاتجاه الرابع</a>
+            </div>
+          </div>
+          <div class="sh-menu" style="position:relative">
+            <a href="sections.html" style="display:flex;align-items:center;gap:7px;color:#fff;padding:13px 0 11px;border-bottom:3px solid #fff;transition:color .16s ease,border-color .22s ease" class="sh-x12">الأخبار<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
+            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
+              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
+              <a href="sections.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x13"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>أقسام شهاب</a>
+              <a href="category.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x14"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>صفحة قسم — غزة</a>
+              <a href="article.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:800;color:#fff;background:rgba(27,90,166,.35)" class="sh-x15"><span style="width:5px;height:5px;background:#fff;transform:rotate(45deg);flex:none"></span>صفحة الخبر / التقرير</a>
+              <a href="coverage.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x16"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>التغطية الحية</a>
+              <a href="tag.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x17"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>صفحة الوسم</a>
+              <a href="archive.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x18"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الأرشيف</a>
+            </div>
+          </div>
+          <div class="sh-menu" style="position:relative">
+            <a href="video.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x19">الوسائط<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
+            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
+              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
+              <a href="video.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x20"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الفيديو</a>
+              <a href="video-watch.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x21"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>مشاهدة فيديو</a>
+              <a href="photos.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x22"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الصور</a>
+            </div>
+          </div>
+          <a href="files.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x23">ملفات شهاب</a>
+          <a href="author.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x24">الكاتب</a>
+          <a href="search.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x25">البحث</a>
+          <div class="sh-menu" style="position:relative">
+            <a href="about.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x26">الوكالة<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
+            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
+              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
+              <a href="about.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x27"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>من نحن</a>
+              <a href="contact.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x28"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>تواصل معنا</a>
+              <a href="newsletter.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x29"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>النشرة البريدية</a>
+              <a href="privacy.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x30"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>سياسة الخصوصية</a>
+              <a href="terms.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x31"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>شروط الاستخدام</a>
+            </div>
+          </div>
+          <div class="sh-menu" style="position:relative">
+            <a href="system-states.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x32">النظام<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
+            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
+              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
+              <a href="system-states.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x33"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>حالات النظام</a>
+              <a href="loader.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x34"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>مؤشّر التحميل</a>
+              <a href="404.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x35"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>صفحة 404</a>
+            </div>
+          </div>
+        </div>
+        <a href="coverage.html" style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.9)" class="sh-x36"><span style="width:6px;height:6px;background:#e0302f;border-radius:50%;animation:sh-pulse 1.8s ease-in-out infinite"></span>آخر الأخبار</a>
+      </nav>

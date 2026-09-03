@@ -136,19 +136,19 @@
       "num": "02",
       "kind": "سيرة وشهادات",
       "title": "رحيل الضيف.. القائد الذي أرهق الاحتلال",
-      "bg": "url(assets/file-raheel-aldaif.png)"
+      "bg": "url(assets/images/file-raheel-aldaif.png)"
     },
     {
       "num": "03",
       "kind": "سلسلة تحقيقات",
       "title": "أقمار الطوفان.. شهداء القسام في معركة طوفان الأقصى",
-      "bg": "url(assets/file-aqmar-altoufan.png)"
+      "bg": "url(assets/images/file-aqmar-altoufan.png)"
     },
     {
       "num": "04",
       "kind": "تغطية مستمرة",
       "title": "كأس العالم 2026.. فلسطين حاضرة في المدرجات",
-      "bg": "url(assets/file-world-cup-2026.png)"
+      "bg": "url(assets/images/file-world-cup-2026.png)"
     }
   ],
   "live": [

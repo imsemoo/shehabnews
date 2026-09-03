@@ -1,0 +1,109 @@
+<!--
+  Footer - فوتر الموقع الكامل
+
+  SOURCE : article.html  lines 325-396   (extracted verbatim, 72 lines)
+  STATUS : REFERENCE ONLY. Nothing loads this file at runtime.
+           The live copies still sit inside each *.html page, untouched.
+           Treat partials/ as build output: if you edit a page, this file goes
+           stale. Re-extract from the source above instead of editing here.
+  PURPOSE: a ready-made starting point for resources/views/partials/*.blade.php
+
+  Present on 12 of 24 pages. homepage-v2.html has its own light-theme
+  Concept Footer instead - do not merge the two.
+
+  Two content variants exist:
+
+    A (this file, 72 lines) - 13 pages: article, author, category, contact,
+        coverage, files, homepage-v3, homepage-v4, index, photos, search,
+        sections, video. Has the 4-icon social row.
+
+    B (56 lines) - 10 pages: 404, about, archive, loader, newsletter, privacy,
+        system-states, tag, terms, video-watch. Identical markup MINUS the four
+        social <a> tags. The wrapper <div> around them is still present, empty.
+
+  PROPS for the future Blade component:
+    $social   - the 4 icons, or an empty list for variant B.
+                IMPORTANT: emit the wrapper <div ... margin-top:18px> always and
+                put only the <a> tags inside the loop. Dropping the empty wrapper
+                changes the rendered height by 18px on the 10 variant-B pages.
+    $logoLink - index.html has a bare <img>; every other page wraps the logo in
+                <a href="index.html">.
+
+  NOTE: unlike the header, the .sh-xN hover classes in the footer are
+  position-indexed and DIFFER per page (404.html uses x45..x63, index.html uses
+  x137..x159). A shared Blade footer therefore needs its own stable class names
+  plus one small stylesheet, decided at port time. Nothing was renumbered in the
+  static build.
+-->
+<footer data-screen-label="Footer" style="position:relative;overflow:hidden;background:#0a1a33;color:#fff;margin-top:24px">
+  <video src="assets/video/footer-city.webm" autoplay="" muted="" loop="" playsinline="" preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42"></video>
+  <span style="position:absolute;inset:0;background:#0a1a33;opacity:.55;pointer-events:none"></span>
+  <span style="position:absolute;top:0;right:0;left:0;height:2px;background:#1b5aa6"></span>
+  <div style="position:relative;max-width:1280px;margin:0 auto;padding:44px 32px 0">
+    <div style="display:flex;flex-wrap:wrap;gap:36px 40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.16)">
+      <div style="flex:1 1 280px;min-width:0">
+        <a href="index.html"><img src="assets/images/logo-white.png" alt="شهاب" style="height:46px;width:auto"></a>
+        <p style="font-family:'Noto Naskh Arabic',serif;font-size:12.5px;line-height:1.95;color:rgba(255,255,255,.72);margin:16px 0 0;max-width:34ch">وكالة أنباء فلسطينية تعمل على مدار الساعة لنقل الصورة من الساحة الفلسطينية والعربية والدولية.</p>
+        <div style="display:flex;gap:8px;margin-top:18px">
+          
+            <a href="#" aria-label="فيسبوك" style="width:34px;height:34px;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;transition:background .18s,border-color .18s" class="sh-x61">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true" style="font-size:15px;color:#fff;line-height:1"></i>
+            </a>
+          
+            <a href="#" aria-label="إكس" style="width:34px;height:34px;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;transition:background .18s,border-color .18s" class="sh-x62">
+              <i class="fa-brands fa-x-twitter" aria-hidden="true" style="font-size:15px;color:#fff;line-height:1"></i>
+            </a>
+          
+            <a href="#" aria-label="إنستغرام" style="width:34px;height:34px;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;transition:background .18s,border-color .18s" class="sh-x63">
+              <i class="fa-brands fa-instagram" aria-hidden="true" style="font-size:15px;color:#fff;line-height:1"></i>
+            </a>
+          
+            <a href="#" aria-label="تيليغرام" style="width:34px;height:34px;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;transition:background .18s,border-color .18s" class="sh-x64">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true" style="font-size:15px;color:#fff;line-height:1"></i>
+            </a>
+          
+        </div>
+      </div>
+      
+        <div style="flex:1 1 150px;min-width:0">
+          <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الأقسام</h3>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:rgba(255,255,255,.75)">
+            <a href="#" class="sh-x65">أخبار فلسطين</a><a href="#" class="sh-x66">القدس</a><a href="#" class="sh-x67">غزة</a><a href="#" class="sh-x68">الضفة</a><a href="#" class="sh-x69">عربي ودولي</a>
+          </div>
+        </div>
+      
+        <div style="flex:1 1 150px;min-width:0">
+          <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>المحتوى</h3>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:rgba(255,255,255,.75)">
+            <a href="#" class="sh-x70">التغطيات الحية</a><a href="#" class="sh-x71">ملفات شهاب</a><a href="#" class="sh-x72">عدسة شهاب</a><a href="#" class="sh-x73">فيديو شهاب</a><a href="#" class="sh-x74">تقارير خاصة</a>
+          </div>
+        </div>
+      
+        <div style="flex:1 1 150px;min-width:0">
+          <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الوكالة</h3>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:rgba(255,255,255,.75)">
+            <a href="#" class="sh-x75">من نحن</a><a href="#" class="sh-x76">تواصل معنا</a><a href="#" class="sh-x77">سياسة التحرير</a><a href="#" class="sh-x78">فرص العمل</a><a href="#" class="sh-x79">خدمة الصور</a>
+          </div>
+        </div>
+      
+      <div style="flex:1 1 260px;min-width:0">
+        <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>النشرة البريدية</h3>
+        <p style="font-family:'Noto Naskh Arabic',serif;font-size:12.5px;line-height:1.9;color:rgba(255,255,255,.72);margin:0 0 14px">آخر الأخبار وأبرز الملفات في بريدك كل صباح.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="flex:1 1 150px;min-width:0;border:1px solid rgba(255,255,255,.3);padding:10px 13px;font-size:12px;color:rgba(255,255,255,.55);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">بريدك الإلكتروني</span>
+          <span style="background:#1b5aa6;color:#fff;font-family:'Almarai',sans-serif;font-size:12px;font-weight:700;padding:10px 20px;display:flex;align-items:center;white-space:nowrap;flex:none">اشترك</span>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;margin-top:18px;font-size:11.5px;color:rgba(255,255,255,.6)"><span style="width:5px;height:5px;background:#e0302f;border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite"></span>تغطية مستمرة على مدار الساعة</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:20px 0 26px;font-size:11.5px;color:rgba(255,255,255,.6)">
+      <span>وكالة شهاب للأنباء © 2026 — جميع الحقوق محفوظة</span>
+      <div style="display:flex;gap:22px">
+        <a href="#" class="sh-x80">سياسة الخصوصية</a>
+        <a href="#" class="sh-x81">شروط الاستخدام</a>
+        <a href="#" class="sh-x82">خدمة RSS</a>
+        <a href="#" class="sh-x83">English</a>
+      </div>
+    </div>
+  </div>
+</footer>

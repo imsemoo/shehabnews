@@ -242,15 +242,15 @@
   "railFiles": [
     {
       "title": "1000 يوم على حرب الإبادة",
-      "bg": "url(\"assets/file-1000-days.png\")"
+      "bg": "url(\"assets/images/file-1000-days.png\")"
     },
     {
       "title": "أقمار الطوفان.. رحلة الغياب والعودة",
-      "bg": "url(\"assets/file-aqmar-altoufan.png\")"
+      "bg": "url(\"assets/images/file-aqmar-altoufan.png\")"
     },
     {
       "title": "رحيل الضيف.. القائد الذي أرهق الاحتلال",
-      "bg": "url(\"assets/file-raheel-aldaif.png\")"
+      "bg": "url(\"assets/images/file-raheel-aldaif.png\")"
     }
   ],
   "authorFiles": [
@@ -258,19 +258,19 @@
       "title": "1000 يوم على حرب الإبادة",
       "role": "محرر الملف",
       "count": "38",
-      "bg": "url(\"assets/file-1000-days.png\")"
+      "bg": "url(\"assets/images/file-1000-days.png\")"
     },
     {
       "title": "أقمار الطوفان.. رحلة الغياب والعودة",
       "role": "مشارك — 6 شهادات",
       "count": "25",
-      "bg": "url(\"assets/file-aqmar-altoufan.png\")"
+      "bg": "url(\"assets/images/file-aqmar-altoufan.png\")"
     },
     {
       "title": "خريطة الضم.. من التوسع إلى الواقع",
       "role": "مراسل ميداني",
       "count": "14",
-      "bg": "url(\"assets/palestine-map.png\")"
+      "bg": "url(\"assets/images/palestine-map.png\")"
     }
   ]
 }

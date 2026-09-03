@@ -1,0 +1,37 @@
+<!--
+  Newsletter Form - نموذج الاشتراك في النشرة
+
+  SOURCE : newsletter.html  lines 197-219   (extracted verbatim, 23 lines)
+  STATUS : REFERENCE ONLY. Nothing loads this file at runtime.
+           The live copies still sit inside each *.html page, untouched.
+           Treat partials/ as build output: if you edit a page, this file goes
+           stale. Re-extract from the source above instead of editing here.
+  PURPOSE: a ready-made starting point for resources/views/partials/*.blade.php
+
+  From newsletter.html:197-219. A second, smaller signup box also appears inside
+  footer.html - the two are NOT the same markup.
+  Static: no action, no method, no JS handler.
+-->
+  <form style="display:block">
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px">
+      <label style="display:block;padding-bottom:14px">
+        <span style="display:block;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#8a95a6;margin-bottom:7px">الاسم</span>
+        <input type="text" placeholder="اسمك" style="width:100%;border:none;border-bottom:1px solid #cbd4e0;background:transparent;padding:9px 2px;font-size:14px">
+      </label>
+      <label style="display:block;padding-bottom:14px">
+        <span style="display:block;font-family:'Almarai',sans-serif;font-size:11.5px;font-weight:800;color:#8a95a6;margin-bottom:7px">البريد الإلكتروني</span>
+        <input type="email" placeholder="name@example.com" style="width:100%;border:none;border-bottom:1px solid #cbd4e0;background:transparent;padding:9px 2px;font-size:14px;direction:ltr;text-align:right">
+      </label>
+    </div>
+    <a href="#" style="display:flex;align-items:center;gap:11px;margin-top:8px;font-size:13px;color:#4a5568">
+      
+      
+        <span style="width:17px;height:17px;border:1px solid #cbd4e0;flex:none"></span>
+      
+      أوافق على استلام النشرة البريدية من شهاب
+    </a>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:16px">
+      <button type="submit" style="display:inline-flex;align-items:center;gap:12px;background:#0a1a33;color:#fff;border:none;font-family:'Almarai',sans-serif;font-size:12.5px;font-weight:800;padding:13px 28px;cursor:pointer;white-space:nowrap;flex:none" class="sh-x40">اشترك الآن <span style="width:16px;height:1px;background:currentColor"></span></button>
+      
+    </div>
+  </form>

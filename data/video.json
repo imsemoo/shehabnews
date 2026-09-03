@@ -81,7 +81,7 @@
       "wash": "#f5f8fc",
       "dur": "12:48",
       "title": "ليل غزة.. المدينة التي لا تنام تحت أزيز الطائرات",
-      "bg": "url(\"assets/gaza-coast.png\")"
+      "bg": "url(\"assets/images/gaza-coast.png\")"
     },
     {
       "cat": "غزة",
@@ -204,13 +204,13 @@
       "n": "01",
       "dur": "00:48",
       "title": "لحظة إطلاق النار على شاب أعزل في قلنديا",
-      "bg": "url(\"assets/coverage-hero2.png\")"
+      "bg": "url(\"assets/images/coverage-hero2.png\")"
     },
     {
       "n": "02",
       "dur": "12:48",
       "title": "ليل غزة.. المدينة التي لا تنام",
-      "bg": "url(\"assets/gaza-coast.png\")"
+      "bg": "url(\"assets/images/gaza-coast.png\")"
     },
     {
       "n": "03",
