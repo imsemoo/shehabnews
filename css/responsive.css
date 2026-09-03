@@ -1,0 +1,501 @@
+/* ============================================================================
+   شهاب — Responsive layer (shared by all pages)
+
+   WHY THIS FILE EXISTS
+   The theme was exported from a design tool as one fixed desktop layout: every
+   page carries `max-width:1280px;padding:0 32px` containers, fixed sidebar
+   columns, and hover-only dropdown menus — and 23 of the 24 per-page
+   stylesheets contained zero viewport @media rules. Below ~1024px the page did
+   not adapt; it was simply amputated by `html,body{overflow-x:clip}` (measured:
+   up to 1679px of content cut off at 320px).
+
+   ARCHITECTURE
+   All 24 pages share the same header, footer, section-head and card markup, so
+   this is one shared layer keyed to those shared structures rather than 24
+   copies of per-page queries. Selectors match the *authored* inline styles
+   (e.g. [style*="minmax(0,1fr) 300px"]), which is what lets a single file
+   restructure every page without editing markup.
+
+   `!important` is used deliberately and only here: the incumbent markup keeps
+   its layout in inline style attributes, which outrank any normal rule. This is
+   a constraint of the export, not a preference.
+
+   Breakpoints are content-driven, taken from where the measured layout breaks:
+     1200  container needs its gutters back
+     1024  fixed-width sidebars stop fitting beside content
+      900  the nav bar stops fitting on one line  → touch navigation
+      640  every multi-column grid becomes one column
+      380  smallest supported width (320px device minus UA chrome)
+   ========================================================================== */
+
+:root{
+  --sh-blue:#1b5aa6; --sh-navy:#0a1a33; --sh-navy-2:#0f2a4f;
+  --sh-line:#d5dde8; --sh-line-2:#eef2f7;
+  --sh-gutter:32px;
+}
+
+/* ---------------------------------------------------------------- container */
+/* 102 elements across the project carry this exact container declaration. */
+[style*="max-width:1280px"]{
+  padding-left:var(--sh-gutter)!important;
+  padding-right:var(--sh-gutter)!important;
+}
+@media (max-width:1200px){ :root{ --sh-gutter:24px; } }
+@media (max-width:640px){  :root{ --sh-gutter:16px; } }
+@media (max-width:380px){  :root{ --sh-gutter:12px; } }
+
+/* Nothing may push the page wider than the viewport. */
+img,video,svg,iframe{max-width:100%}
+
+/* ============================================================================
+   NAVIGATION  — the P0
+   The 5 dropdowns per page open on :hover only and are min-width:250px. On a
+   touch device they can never open, so 14 secondary destinations per page were
+   unreachable; when forced open they overflowed the viewport. Below 900px the
+   bar becomes a disclosure list driven by js/responsive.js.
+   ========================================================================== */
+.sh-nav-toggle{
+  display:none; width:44px; height:44px; padding:0; flex:none;
+  border:1px solid rgba(255,255,255,.55); background:transparent; color:#fff;
+  cursor:pointer; flex-direction:column; align-items:center; justify-content:center; gap:5px;
+}
+.sh-nav-toggle span{display:block;width:18px;height:2px;background:#fff;transition:transform .2s ease,opacity .2s ease}
+header[data-nav-open] .sh-nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+header[data-nav-open] .sh-nav-toggle span:nth-child(2){opacity:0}
+header[data-nav-open] .sh-nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+@media (max-width:900px){
+  .sh-nav-toggle{display:flex}
+
+  header nav{
+    display:none!important; flex-direction:column!important; align-items:stretch!important;
+    border-top:1px solid rgba(255,255,255,.14); padding:4px 0 10px!important;
+  }
+  header[data-nav-open] nav{display:flex!important}
+  header nav > div{flex-direction:column!important;gap:0!important;align-items:stretch!important}
+
+  /* top-level rows: full-width, comfortable target */
+  header nav .sh-menu, header nav > div > a, header nav > a{width:100%}
+  header nav .sh-menu > a, header nav > div > a, header nav > a{
+    min-height:48px; padding:12px 0!important; border-bottom:0!important;
+    border-block-end:1px solid rgba(255,255,255,.12)!important;
+    font-size:15px!important; justify-content:space-between!important;
+  }
+
+  /* the dropdown becomes an in-flow disclosure panel, never an overlay */
+  header nav .sh-drop{
+    position:static!important; min-width:0!important; width:auto!important;
+    box-shadow:none!important; background:rgba(0,0,0,.16)!important;
+    opacity:1!important; visibility:visible!important; transform:none!important;
+    padding:2px 0 6px!important; display:none!important;
+    inset:auto!important;
+  }
+  header nav .sh-menu[data-open] > .sh-drop{display:block!important}
+  header nav .sh-drop > span{display:none}          /* the 2px accent bar */
+  header nav .sh-drop a{
+    min-height:44px; padding:11px 22px 11px 0!important;
+    font-size:14px!important; background:transparent!important;
+  }
+  /* the chevron on a parent row flips when its panel is open (RTL-safe: it is
+     a rotated square, so we rotate rather than mirror) */
+  header nav .sh-menu > a > span:last-child{transition:transform .2s ease}
+  header nav .sh-menu[data-open] > a > span:last-child{transform:rotate(225deg) translateY(-2px)}
+}
+
+/* ---------------------------------------------------------------- masthead */
+@media (max-width:900px){
+  /* logo row: live badge · logo · toggle+search */
+  header [style*="grid-template-columns:1fr auto 1fr"]{
+    grid-template-columns:auto 1fr auto!important; height:72px!important; gap:10px!important;
+  }
+  header [style*="grid-template-columns:1fr auto 1fr"] img{height:40px!important}
+  /* the running-coverage counter and the newsletter button are the two lowest
+     value items in a 375px masthead; they remain in the nav and the footer */
+  header [style*="justify-self:start"] > div{display:none!important}
+  header a[href="newsletter.html"][style*="border:1px solid"]{display:none!important}
+
+  /* date strip: keep the clock, drop the long Gregorian + Hijri strings */
+  header [style*="height:34px"] > div:first-child > span:nth-child(-n+4){display:none!important}
+  header [style*="height:34px"]{height:auto!important;min-height:34px;padding-block:4px!important}
+  header [style*="height:34px"] > div{flex-wrap:wrap!important;gap:4px 10px!important}
+}
+
+/* ------------------------------------------------------------ breaking bar */
+@media (max-width:900px){
+  header [style*="height:44px"]{
+    grid-template-columns:auto minmax(0,1fr) auto!important;
+    height:auto!important; min-height:48px; gap:10px!important; padding-block:6px!important;
+  }
+  [data-sh="ticker-count"]{display:none!important}
+  [data-sh="ticker-prev"],[data-sh="ticker-next"]{width:40px!important;height:40px!important}
+  header [style*="height:44px"] a[href="coverage.html"]{display:none!important}
+}
+@media (max-width:640px){
+  [data-sh="ticker-title"]{font-size:14px!important}
+}
+
+/* ============================================================================
+   LAYOUT GRIDS
+   Targeted by the authored track lists so one rule restructures every page.
+   ========================================================================== */
+
+/* Content + fixed sidebar → stack once the sidebar no longer fits.
+   These are the ONLY genuinely non-responsive two-column track lists in the
+   project: an unbounded `minmax(0,1fr)` beside a hard pixel column. Below the
+   sum of the two the content track collapses to 0px and the rail overhangs
+   (measured on coverage.html at 320: computed `0px 260px`).
+   The full set of pixel values in use is enumerated here — all 11 of them.
+   Deliberately NOT touched: `minmax(min(100%,Npx),Xfr)` and
+   `repeat(auto-fit,minmax(min(100%,Npx),1fr))`, which were authored to wrap on
+   their own and already behave correctly. */
+@media (max-width:1024px){
+  [style*="minmax(0,1fr) 380px"],
+  [style*="minmax(0,1fr) 320px"],
+  [style*="minmax(0,1fr) 300px"],
+  [style*="minmax(0,1fr) 284px"],
+  [style*="minmax(0,1fr) 280px"],
+  [style*="minmax(0,1fr) 260px"],
+  [style*="minmax(0,1fr) 220px"],
+  [style*="minmax(0,1fr) 190px"],
+  [style*="minmax(0,1fr) 180px"],
+  [style*="minmax(0,1fr) 148px"],
+  [style*="minmax(0,1fr) 104px"],
+  [style*="grid-template-columns:300px minmax(0,1fr)"]{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:32px!important;
+  }
+  /* a sticky rail is wrong once it is a stacked block */
+  [style*="position:sticky"]{position:static!important}
+}
+
+/* `minmax(min(100%,Npx),Xfr)` track lists — ~45 of them.
+   These LOOK self-collapsing but are not: the `100%` resolves against the grid
+   container, not the space left over, so every track holds its own minimum and
+   the row overflows. Measured on video-watch.html at 375: a
+   `minmax(min(100%,320px),1fr) minmax(min(100%,240px),.4fr)` row computed to
+   `320px 240px` — 560px of tracks plus a 44px gap inside a 375px viewport.
+   Tiered so a tablet keeps two columns wherever they genuinely fit. */
+@media (max-width:900px){
+  [style*="minmax(min(100%,300px)"],
+  [style*="minmax(min(100%,320px)"],
+  [style*="minmax(min(100%,330px)"],
+  [style*="minmax(min(100%,340px)"],
+  [style*="minmax(min(100%,350px)"],
+  [style*="minmax(min(100%,400px)"],
+  [style*="minmax(min(100%,420px)"],
+  /* three-track lists whose FIRST track is under 300px still total more than a
+     tablet: 280+280+220 = 780px inside 768 (system-states, "Loading"). Matched
+     on the pair so genuine two-column 280px rows keep both columns at 768. */
+  [style*="minmax(min(100%,280px),1fr) minmax(min(100%,280px)"]{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:28px!important;
+  }
+}
+@media (max-width:640px){
+  [style*="minmax(min(100%,"]{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:24px!important;
+  }
+}
+
+/* proportional two-column editorial splits */
+@media (max-width:900px){
+  [style*="minmax(0,1.15fr) minmax(0,1fr)"],
+  [style*="minmax(0,1.35fr) minmax(0,1fr)"],
+  [style*="minmax(0,1.5fr) minmax(0,1fr)"],
+  [style*="minmax(0,1.55fr) minmax(0,1fr)"],
+  [style*="minmax(0,1.7fr) minmax(0,1fr)"],
+  [style*="minmax(0,2fr) minmax(0,1fr)"],
+  [style*="minmax(0,1.05fr) minmax(0,.95fr)"],
+  [style*="minmax(min(100%,320px),1.5fr)"],
+  [style*="minmax(min(100%,340px),1fr)"],
+  [style*="minmax(min(100%,280px),.72fr)"]{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+}
+
+/* card grids step down rather than jumping straight to one column */
+@media (max-width:1024px){
+  [style*="repeat(5,1fr)"],[style*="repeat(5,minmax(0,1fr))"]{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  [style*="repeat(4,minmax(0,1fr))"],[style*="repeat(4,1fr)"]{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media (max-width:900px){
+  [style*="repeat(3,minmax(0,1fr))"],[style*="repeat(3,1fr)"]{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media (max-width:640px){
+  [style*="repeat(5,1fr)"],[style*="repeat(5,minmax(0,1fr))"],
+  [style*="repeat(4,minmax(0,1fr))"],[style*="repeat(4,1fr)"],
+  [style*="repeat(3,minmax(0,1fr))"],[style*="repeat(3,1fr)"],
+  [style*="repeat(2,minmax(0,1fr))"],
+  [style*="grid-template-columns:1fr 1fr"]{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+}
+
+/* two-up rows that are not declared with repeat() */
+@media (max-width:640px){
+  [style*="grid-template-columns:1fr 1fr 1fr"]{grid-template-columns:minmax(0,1fr)!important}
+}
+
+/* every grid child must be allowed to shrink; without this a long Arabic
+   headline sets the track's min-content width and pushes the row wider */
+[style*="grid-template-columns"] > *{min-width:0}
+
+/* ============================================================================
+   HERO — the accordion (index, homepage-v3/v4)
+   Three panels share 500px on desktop, each collapsed to a 64px vertical spine.
+   A spine cannot be read on a phone, so below 900px the panels become stacked
+   cards with their captions revealed.
+   ========================================================================== */
+@media (max-width:900px){
+  [data-sh-hero]{height:auto!important;flex-direction:column!important}
+  [data-sh-hero-panel]{
+    flex:0 0 auto!important; min-width:0!important; min-height:0!important;
+    height:230px!important; transition:none!important;
+  }
+  [data-sh-hero-panel] > span[style*="writing-mode"],
+  [data-sh-hero-panel] > span > span[style*="writing-mode"]{display:none!important}
+  [data-sh-hero-panel] > span[style*="width:64px"]{display:none!important}
+  [data-sh-hero-panel] > div{opacity:1!important;transform:none!important;padding:12px 16px 0!important}
+  [data-sh-hero-panel] > span[style*="top:20px"]{opacity:1!important}
+  [data-sh-hero-panel] h1,[data-sh-hero-panel] h2{font-size:17px!important;line-height:1.5!important}
+}
+@media (max-width:640px){
+  [data-sh-hero-panel]{height:205px!important}
+  /* the caption's meta row is `white-space:nowrap`; at 320 the trailing
+     "01 / 03" counter is pushed past the edge by its `margin-right:auto`.
+     Let the row wrap instead of dropping the counter. */
+  [data-sh-hero-panel] > div > div:first-child{
+    white-space:normal!important; flex-wrap:wrap!important; gap:4px 10px!important;
+  }
+  [data-sh-hero-panel] > div > div:first-child > span[style*="margin-right:auto"]{
+    margin-inline-start:0!important;
+  }
+}
+
+/* ============================================================================
+   FILES SHELF — six columns of 72px spines + cover + paper
+   ========================================================================== */
+@media (max-width:900px){
+  [data-sh-files],
+  [style*="grid-template-columns:72px minmax(0,1.05fr) minmax(0,.95fr) 72px 72px 72px"]{
+    grid-template-columns:minmax(0,1fr)!important; min-height:0!important;
+  }
+  [data-sh-file]{
+    flex-direction:row!important; justify-content:flex-start!important; align-items:center!important;
+    gap:14px; height:56px; padding:0 16px!important;
+    border-right:0!important; border-block-end:1px solid rgba(255,255,255,.14)!important;
+  }
+  [data-sh-file] span[style*="writing-mode"]{
+    writing-mode:horizontal-tb!important; transform:none!important;
+    max-height:none!important; padding:0!important; border:0!important;
+  }
+  [data-sh-file-part][style*="perspective"]{aspect-ratio:16/9}
+}
+
+/* ============================================================================
+   TABS / FILTER STRIPS
+   Horizontal scroll inside the strip only — never the page.
+   ========================================================================== */
+@media (max-width:900px){
+  [data-sh-tabs],[data-sh-filters]{
+    display:flex!important; flex-wrap:nowrap!important; overflow-x:auto;
+    gap:20px!important; scrollbar-width:none; -webkit-overflow-scrolling:touch;
+  }
+  [data-sh-tabs]::-webkit-scrollbar,[data-sh-filters]::-webkit-scrollbar{display:none}
+  [data-sh-tab],[data-sh-filter]{flex:none;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center}
+}
+
+/* ============================================================================
+   SECTION HEADS — title + "all X" link rows
+   These are non-wrapping flex rows; at narrow widths the trailing link is what
+   pushed content past the edge.
+   ========================================================================== */
+@media (max-width:640px){
+  section[data-screen-label] > div:first-child,
+  [data-screen-label] > div[style*="justify-content:space-between"][style*="border-bottom"]{
+    flex-wrap:wrap!important; gap:8px 16px!important;
+  }
+}
+
+/* ============================================================================
+   TYPOGRAPHY
+   Fluid where the value is genuinely size-dependent; a floor everywhere else.
+   Nothing is shrunk merely to make a layout fit.
+   ========================================================================== */
+@media (max-width:900px){
+  /* display headlines scale with the viewport instead of stepping */
+  [style*="font-size:40px"]{font-size:clamp(26px,6.4vw,40px)!important}
+  [style*="font-size:36px"]{font-size:clamp(24px,6vw,36px)!important}
+  [style*="font-size:30px"]{font-size:clamp(22px,5.4vw,30px)!important}
+  [style*="font-size:26px"]{font-size:clamp(20px,4.8vw,26px)!important}
+  [style*="font-size:24px"]{font-size:clamp(19px,4.4vw,24px)!important}
+  [style*="font-size:23px"]{font-size:clamp(18px,4.2vw,23px)!important}
+  [style*="font-size:22px"]{font-size:clamp(18px,4vw,22px)!important}
+  [style*="font-size:21px"]{font-size:clamp(17.5px,3.8vw,21px)!important}
+  [style*="font-size:20px"]{font-size:clamp(17px,3.6vw,20px)!important}
+  [style*="font-size:19px"]{font-size:clamp(16.5px,3.4vw,19px)!important}
+
+  /* raise everything that was below the Arabic legibility floor.
+     The 10/10.5px eyebrow labels and step numbers are decorative, but on a
+     phone they are the smallest thing on the page -- lifted to 12px, the
+     least disturbance that still clears the floor. */
+  [style*="font-size:10px"]{font-size:12px!important}
+  [style*="font-size:10.5px"]{font-size:12px!important}
+  [style*="font-size:11px"]{font-size:12.5px!important}
+  [style*="font-size:11.5px"]{font-size:12.5px!important}
+
+  /* long unbroken tokens (URLs, hashtags) must never set the width */
+  h1,h2,h3,p,li,a,span{overflow-wrap:anywhere}
+  /* measure stays readable when a paragraph goes full-bleed */
+  p{max-width:none}
+}
+
+/* ============================================================================
+   homepage-v2 — the concept layout
+   This page has its own header and wrapper and shares none of the standard
+   chrome, so it needs its two non-wrapping flex rows handled directly: a chip
+   strip (4 chips ran 212px past the edge at 320) and the byline/social row.
+   ========================================================================== */
+@media (max-width:900px){
+  /* wrap, don't scroll: these are content chips, not a tab strip, and
+     `flex:none` on them only pushes the row further out */
+  [data-screen-label="Hero Concept"] [style*="align-items:stretch"]{
+    flex-wrap:wrap!important; overflow:visible!important;
+  }
+  [data-screen-label="Hero Concept"] [style*="align-items:stretch"] > a{
+    flex:0 1 auto!important; padding-inline:14px!important; min-height:40px;
+  }
+  [data-screen-label="Hero Concept"] [style*="margin-top:auto"]{
+    flex-wrap:wrap!important; gap:10px 12px!important;
+  }
+}
+
+/* ============================================================================
+   PAGINATION
+   A centred, non-wrapping flex row: page numbers plus السابق / التالي exceed
+   320px and push both end links past the edge.
+   ========================================================================== */
+@media (max-width:640px){
+  [data-screen-label="Pagination"]{
+    flex-wrap:wrap!important; gap:6px 8px!important; row-gap:8px!important;
+  }
+}
+
+/* Fixed-width media rails inside flex rows. `flex:none` forbids shrinking, so
+   at 320 a 150px thumbnail plus its gap pushes the row past the gutter
+   (measured on sections.html: 52px over). Let them scale instead of removing
+   the image. */
+@media (max-width:640px){
+  [style*="width:150px"][style*="flex:none"],
+  [style*="width:148px"][style*="flex:none"],
+  [style*="width:132px"][style*="flex:none"],
+  [style*="width:120px"][style*="flex:none"]{
+    width:clamp(88px,28vw,150px)!important;
+  }
+}
+
+/* Negative-margin bleeds. Several cards are pulled outside their column on
+   purpose (e.g. the featured search result at margin-right:-20px) so they sit
+   flush with the page gutter. Once the gutter is smaller than the bleed the
+   card hangs off the edge — measured 8px over at 320. Neutralise the bleed
+   rather than the design: above 640 it still reads exactly as authored. */
+@media (max-width:640px){
+  /* both spacings occur in the export: `margin-right:-20px` and
+     `margin-right: -20px`. Attribute matching is literal, so cover both. */
+  [data-screen-label] [style*="margin-right:-"],
+  [data-screen-label] [style*="margin-right: -"],
+  [data-screen-label] [style*="margin-inline-start:-"],
+  [data-screen-label] [style*="margin-inline-start: -"]{margin-right:0!important;margin-inline-start:0!important}
+  [data-screen-label] [style*="margin-left:-"],
+  [data-screen-label] [style*="margin-left: -"]{margin-left:0!important;margin-inline-end:0!important}
+  /* the bleed is also written as a shorthand — e.g. `margin:0 -20px 4px 0` on
+     the featured search result, which no longhand selector can see */
+  [data-screen-label] [style*="margin:0 -"],
+  [data-screen-label] [style*="margin: 0 -"],
+  [data-screen-label] [style*="margin:-"],
+  [data-screen-label] [style*="margin: -"]{margin-inline:0!important}
+}
+
+/* Nothing inside a section may exceed its container. Applied to the section and
+   its first two levels, because the overflowing box is often the wrapper rather
+   than the card that reports the overhang. */
+@media (max-width:640px){
+  [data-screen-label] > *,
+  [data-screen-label] > * > *{max-width:100%}
+  [data-screen-label] a[style*="display:grid"],
+  [data-screen-label] div[style*="display:grid"]{max-width:100%}
+}
+
+/* ============================================================================
+   TOUCH TARGETS
+   ========================================================================== */
+@media (pointer:coarse),(max-width:900px){
+  footer a[aria-label]{width:44px!important;height:44px!important}
+  footer nav a,footer [style*="display:flex"] > a{min-height:40px;display:inline-flex;align-items:center}
+  [data-screen-label="Pagination"] a{min-width:44px!important;min-height:44px!important}
+  [data-sh="ticker-prev"],[data-sh="ticker-next"]{min-width:40px;min-height:40px}
+}
+
+/* hover-only affordances must have a touch equivalent */
+@media (hover:none){
+  [style*="transition:transform"]:hover{transform:none}
+}
+
+/* ============================================================================
+   FORMS — contact.html, newsletter.html, search
+   ========================================================================== */
+@media (max-width:900px){
+  input,select,textarea{
+    max-width:100%!important; width:100%!important;
+    min-height:46px; font-size:16px!important;   /* 16px stops iOS zoom-on-focus */
+  }
+  textarea{min-height:120px}
+  button[type="submit"],[style*="padding:14px 34px"]{width:100%!important;min-height:48px}
+  form [style*="display:grid"]{grid-template-columns:minmax(0,1fr)!important;gap:14px!important}
+}
+
+/* ============================================================================
+   MEDIA
+   ========================================================================== */
+@media (max-width:900px){
+  /* tall editorial crops become unreadable slivers on a phone */
+  [style*="aspect-ratio:3/4"]{aspect-ratio:4/3!important}
+  [style*="aspect-ratio:1/1"]{aspect-ratio:4/3!important}
+  [style*="height:500px"]{height:auto!important}
+  [style*="height:420px"]{height:auto!important;min-height:260px}
+  [style*="min-height:340px"]{min-height:0!important}
+}
+
+/* ============================================================================
+   FOOTER
+   ========================================================================== */
+@media (max-width:640px){
+  footer [style*="flex:1 1 280px"],footer [style*="flex:1 1 260px"],
+  footer [style*="flex:1 1 150px"]{flex:1 1 100%!important}
+  footer [style*="display:flex"][style*="gap:36px"]{gap:24px!important}
+}
+
+/* ============================================================================
+   RTL correctness
+   The page is RTL; anything with directional meaning must follow the text
+   direction rather than a hard-coded side.
+   ========================================================================== */
+[dir="rtl"] [style*="margin-right:auto"]{margin-inline-start:auto}
+@media (max-width:900px){
+  /* absolute offsets that assumed a wide canvas */
+  [style*="right:-16px"]{inset-inline-end:0!important}
+  [style*="left:-16px"]{inset-inline-start:0!important}
+}
+
+/* ============================================================================
+   Very small screens (320px devices)
+   ========================================================================== */
+@media (max-width:380px){
+  [style*="height:88px"]{height:64px!important}
+  header [style*="grid-template-columns:1fr auto 1fr"] img{height:34px!important}
+  [data-sh-hero-panel]{height:190px!important}
+  [data-screen-label] [style*="padding:32px"]{padding:20px!important}
+  [style*="padding:26px 28px"]{padding:18px 16px!important}
+  [style*="padding:22px 24px"]{padding:16px 14px!important}
+}
