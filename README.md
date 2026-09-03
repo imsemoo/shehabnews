@@ -53,10 +53,31 @@ shehabnews/
 كل صفحة تحمّل ثلاثة ملفات CSS بهذا الترتيب:
 
 ```html
-<link rel="stylesheet" href="css/fonts.css">
-<link rel="stylesheet" href="css/font-awesome.css">
-<link rel="stylesheet" href="css/<page>.css">
+<link rel="stylesheet" href="css/fonts.css?v=3">
+<link rel="stylesheet" href="css/font-awesome.css?v=3">
+<link rel="stylesheet" href="css/transition.css?v=3">
+<link rel="stylesheet" href="css/<page>.css?v=3">
+<link rel="stylesheet" href="css/responsive.css?v=3">   <!-- آخر واحد دائمًا -->
 ```
+
+`responsive.css` مشترك بين كل الصفحات ويجب أن يبقى **آخر** ملف، لأن التخطيط في
+الثيم يعيش داخل `style` inline، فالتجاوز يحتاج `!important` وترتيبًا متأخرًا.
+الـ`?v=N` موجود لأن كروم يكاش الأصول بعناد؛ ارفع الرقم بعد أي تعديل CSS/JS.
+
+## نسخة المقارنة — `index-improved.html`
+
+نسخة ثانية من الرئيسية لغرض المقارنة جنبًا إلى جنب. **`index.html` لم يُمسّ.**
+نفس الأقسام الخمسة عشر، نفس المحتوى والصور والمكوّنات، ونفس `js/app.js`؛ الفرق
+طبقة تحسين UX فقط:
+
+| الملف | الدور |
+|---|---|
+| `index-improved.html` | نسخة الرئيسية بالتعديلات (مولَّدة من `index.html` بسكربت، لا بإعادة كتابة) |
+| `css/index-improved.css` | `css/index.css` كما هو + طبقة: مقياس خطوط، حالات تركيز، إيقاع الأقسام، و`@media` |
+| `js/index-improved.js` | **غير مربوط بالصفحة** — منطق القائمة انتقل إلى `js/responsive.js` المشترك، وربط الاثنين معًا كان يسجّل نفس الـhandler مرتين. الملف باقٍ كمرجع. |
+
+الوصول إليها من الموقع: قائمة **الرئيسية** في الهيدر ← الخيار الثاني
+«الرئيسية — النسخة المحسّنة». كل صفحة من الاثنتين تُبرِز خيارها هي فقط.
 
 ## الصفحات
 
