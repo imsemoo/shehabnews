@@ -5,547 +5,552 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>شهاب — Search</title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="css/fonts.css?v=14">
-<link rel="stylesheet" href="css/font-awesome.css?v=14">
-<link rel="stylesheet" href="css/transition.css?v=14">
-<link rel="stylesheet" href="css/search.css?v=14">
-<link rel="stylesheet" href="css/mark.css?v=14">
-  <link rel="stylesheet" href="css/responsive.css?v=14">
-  <link rel="stylesheet" href="css/brief.css?v=14">
+<link rel="stylesheet" href="css/fonts.css?v=55">
+<link rel="stylesheet" href="css/font-awesome.css?v=55">
+<link rel="stylesheet" href="css/transition.css?v=55">
+  <link rel="stylesheet" href="css/tokens.css?v=55">
+  <link rel="stylesheet" href="css/base.css?v=55">
+  <link rel="stylesheet" href="css/header.css?v=55">
+  <link rel="stylesheet" href="css/footer.css?v=55">
+  <link rel="stylesheet" href="css/components.css?v=55">
+<link rel="stylesheet" href="css/pages/search.css?v=55">
+<link rel="stylesheet" href="css/mark.css?v=55">
+  <link rel="stylesheet" href="css/responsive.css?v=55">
+  <link rel="stylesheet" href="css/brief.css?v=55">
 </head>
 <body>
 
 
 
-<div dir="rtl" style="background:#fff;color:#14233a;font-family:'Almarai','Noto Naskh Arabic',system-ui,sans-serif;font-size:14.5px">
+<div dir="rtl" class="sh-page">
 
 <!-- HEADER -->
-<header data-screen-label="Header" style="background:#1b5aa6;color:#fff;position:relative">
-  <div style="background:#0f2a4f;font-size:12px;color:rgba(255,255,255,.8);position:relative;z-index:2">
-    <div style="max-width:1280px;margin:0 auto;padding:0 32px;height:34px;display:flex;align-items:center;justify-content:space-between">
-      <div style="display:flex;gap:10px;align-items:center;font-variant-numeric:tabular-nums"><span data-sh="date">الخميس، 3 سبتمبر 2026</span><span style="opacity:.5">·</span><span data-sh="hijri">21 ربيع الأول 1448 هـ</span><span style="opacity:.5">—</span><span>القدس <span data-sh="clock">02:37</span></span></div>
-      <div style="display:flex;gap:18px;align-items:center">
-        <a href="#" class="sh-x1">English</a>
-        <span style="width:1px;height:12px;background:rgba(255,255,255,.3)"></span>
-        <a href="contact.html" class="sh-x2">تواصل معنا</a>
+<header data-screen-label="Header" class="sh-header">
+  <div class="sh-topbar">
+    <div class="sh-topbar__inner">
+      <div class="sh-topbar__meta"><span data-sh="date">الخميس، 3 سبتمبر 2026</span><span class="sh-dim">·</span><span data-sh="hijri">21 ربيع الأول 1448 هـ</span><span class="sh-dim">—</span><span>القدس <span data-sh="clock">02:37</span></span></div>
+      <div class="sh-topbar__links">
+        <a href="#" class="sh-topbar__link">English</a>
+        <span class="sh-topbar__sep"></span>
+        <a href="contact.html" class="sh-topbar__link">تواصل معنا</a>
       </div>
     </div>
   </div>
-  <div style="position:relative;z-index:3">
-    <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden">
-      <span style="position:absolute;width:1400px;height:1400px;border:1px solid rgba(255,255,255,.09);border-radius:50%;right:-520px;top:-1160px"></span>
-      <span style="position:absolute;width:1400px;height:1400px;border:1px solid rgba(255,255,255,.07);border-radius:50%;right:-560px;top:-1120px"></span>
-      <span style="position:absolute;width:1100px;height:1100px;border:1px solid rgba(255,255,255,.08);border-radius:50%;left:-620px;top:-880px"></span>
-      <span style="position:absolute;top:22px;right:38%;width:220px;height:1px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.9));transform:rotate(-22deg);transform-origin:right;animation:sh-meteor 9s cubic-bezier(.2,.6,.3,1) infinite;opacity:0"></span>
-      <span style="position:absolute;top:22px;right:38%;width:5px;height:5px;background:#fff;transform:rotate(45deg);animation:sh-meteor-head 9s cubic-bezier(.2,.6,.3,1) infinite;opacity:0"></span>
-      <span style="position:absolute;top:30px;right:22%;width:4px;height:4px;background:#fff;transform:rotate(45deg);opacity:.35;animation:sh-twinkle 5s ease-in-out infinite"></span>
-      <span style="position:absolute;top:70px;right:9%;width:3px;height:3px;background:#fff;transform:rotate(45deg);opacity:.25;animation:sh-twinkle 7s ease-in-out infinite 2s"></span>
-      <span style="position:absolute;top:44px;left:14%;width:3px;height:3px;background:#fff;transform:rotate(45deg);opacity:.3;animation:sh-twinkle 6s ease-in-out infinite 1s"></span>
+  <div class="sh-header__body">
+    <div class="sh-header__sky">
+      <span class="sh-header__arc sh-header__arc--1"></span>
+      <span class="sh-header__arc sh-header__arc--2"></span>
+      <span class="sh-header__arc sh-header__arc--3"></span>
+      <span class="sh-header__meteor"></span>
+      <span class="sh-header__meteor-head"></span>
+      <span class="sh-header__star sh-header__star--1"></span>
+      <span class="sh-header__star sh-header__star--2"></span>
+      <span class="sh-header__star sh-header__star--3"></span>
     </div>
-    <div style="max-width:1280px;margin:0 auto;padding:0 32px;position:relative">
-      <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:88px">
-        <div style="display:flex;align-items:center;gap:16px;justify-self:start">
-          <a href="video-watch.html" style="background:#fff;color:#1b5aa6;font-family:'Almarai',sans-serif;font-weight:700;font-size:13px;padding:10px 20px;display:flex;align-items:center;gap:10px;transition:transform .2s ease,background .2s ease" class="sh-x3"><span style="width:7px;height:7px;background:#e0302f;border-radius:50%;animation:sh-pulse 1.4s ease-in-out infinite"></span>بث مباشر</a>
-          <div style="font-size:11.5px;line-height:1.6;color:rgba(255,255,255,.75)">تغطية مستمرة<br><span style="font-variant-numeric:tabular-nums">اليوم 325</span></div>
+    <div class="sh-header__inner">
+      <div class="sh-masthead">
+        <div class="sh-masthead__lead">
+          <a href="video-watch.html" class="sh-live"><span class="sh-live__dot"></span>بث مباشر</a>
+          <div class="sh-masthead__note">تغطية مستمرة<br><span class="sh-tnum">اليوم 325</span></div>
         </div>
-        <a href="index.html" style="justify-self:center;position:relative;display:block;padding:6px 18px;transition:transform .35s cubic-bezier(.2,.7,.2,1)" class="sh-x4">
-          <img src="assets/images/logo-white.png" alt="شهاب" style="height:54px;width:auto;position:relative;filter:drop-shadow(0 6px 18px rgba(10,26,51,.35))">
-          <span style="position:absolute;top:2px;left:2px;width:6px;height:6px;background:#fff;transform:rotate(45deg);animation:sh-twinkle 3.2s ease-in-out infinite"></span>
+        <a href="index.html" class="sh-masthead__logo">
+          <img src="assets/images/logo-white.png" alt="شهاب" class="sh-masthead__logo-img">
+          <span class="sh-masthead__logo-star"></span>
         </a>
-        <div style="display:flex;align-items:center;gap:16px;justify-self:end">
-          <a href="newsletter.html" style="border:1px solid rgba(255,255,255,.55);padding:9px 16px;font-size:12px;display:flex;align-items:center;gap:8px" class="sh-x5"><span style="width:6px;height:6px;background:currentColor;transform:rotate(45deg)"></span>موجز اليوم · 3 د</a>
-          <a href="search.html" aria-label="بحث" style="display:flex;align-items:center;gap:8px;font-size:13px;padding:9px 0" class="sh-x6"><span style="width:13px;height:13px;border:1.5px solid #fff;border-radius:50%;position:relative;display:block"><span style="position:absolute;width:6px;height:1.5px;background:#fff;bottom:-4px;left:-4px;transform:rotate(45deg)"></span></span>بحث</a>
+        <div class="sh-masthead__tools">
+          <a href="newsletter.html" class="sh-brief-btn">موجز اليوم · 3 د</a>
+          <a href="search.html" aria-label="بحث" class="sh-search"><span class="sh-search__lens"><span class="sh-search__handle"></span></span>بحث</a>
         </div>
       </div>
-      <nav style="display:flex;align-items:center;justify-content:space-between;min-height:46px;flex-wrap:wrap;font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;border-top:1px solid rgba(255,255,255,.14)">
-        <div style="display:flex;gap:26px;flex-wrap:wrap">
-          <div class="sh-menu" style="position:relative">
-            <a href="index.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x7">الرئيسية<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
-            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
-              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
-              <a href="index.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x8"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الرئيسية — النسخة الأساسية</a><a href="index-improved.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x8"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الرئيسية — النسخة المحسّنة</a>
-              <a href="homepage-v2.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x9"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الرئيسية — الاتجاه الثاني</a>
-              <a href="homepage-v3.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x10"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الرئيسية — الاتجاه الثالث</a>
-              <a href="homepage-v4.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x11"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الرئيسية — الاتجاه الرابع</a>
+      <nav class="sh-nav">
+        <div class="sh-nav__list">
+          <div class="sh-menu sh-nav__item">
+            <a href="index.html" class="sh-nav__link">الرئيسية</a>
+            <div class="sh-drop sh-nav__drop">
+              <span class="sh-nav__drop-rule"></span>
+              <a href="index.html" class="sh-nav__drop-link">الرئيسية — النسخة الأساسية</a><a href="index-improved.html" class="sh-nav__drop-link">الرئيسية — النسخة المحسّنة</a>
+              <a href="homepage-v2.html" class="sh-nav__drop-link">الرئيسية — الاتجاه الثاني</a>
+              <a href="homepage-v3.html" class="sh-nav__drop-link">الرئيسية — الاتجاه الثالث</a>
+              <a href="homepage-v4.html" class="sh-nav__drop-link">الرئيسية — الاتجاه الرابع</a>
             </div>
           </div>
-          <div class="sh-menu" style="position:relative">
-            <a href="sections.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x12">الأخبار<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
-            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
-              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
-              <a href="sections.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x13"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>أقسام شهاب</a>
-              <a href="category.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x14"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>صفحة قسم — غزة</a>
-              <a href="article.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x15"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>صفحة الخبر / التقرير</a>
-              <a href="coverage.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x16"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>التغطية الحية</a>
-              <a href="tag.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x17"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>صفحة الوسم</a>
-              <a href="archive.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x18"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الأرشيف</a>
+          <div class="sh-menu sh-nav__item">
+            <a href="sections.html" class="sh-nav__link">الأخبار</a>
+            <div class="sh-drop sh-nav__drop">
+              <span class="sh-nav__drop-rule"></span>
+              <a href="sections.html" class="sh-nav__drop-link">أقسام شهاب</a>
+              <a href="category.html" class="sh-nav__drop-link">صفحة قسم — غزة</a>
+              <a href="article.html" class="sh-nav__drop-link">صفحة الخبر / التقرير</a>
+              <a href="coverage.html" class="sh-nav__drop-link">التغطية الحية</a>
+              <a href="tag.html" class="sh-nav__drop-link">صفحة الوسم</a>
+              <a href="archive.html" class="sh-nav__drop-link">الأرشيف</a>
             </div>
           </div>
-          <div class="sh-menu" style="position:relative">
-            <a href="video.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x19">الوسائط<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
-            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
-              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
-              <a href="video.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x20"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الفيديو</a>
-              <a href="video-watch.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x21"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>مشاهدة فيديو</a>
-              <a href="photos.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x22"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الصور</a>
+          <div class="sh-menu sh-nav__item">
+            <a href="video.html" class="sh-nav__link">الوسائط</a>
+            <div class="sh-drop sh-nav__drop">
+              <span class="sh-nav__drop-rule"></span>
+              <a href="video.html" class="sh-nav__drop-link">الفيديو</a>
+              <a href="video-watch.html" class="sh-nav__drop-link">مشاهدة فيديو</a>
+              <a href="photos.html" class="sh-nav__drop-link">الصور</a>
             </div>
           </div>
-          <a href="files.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x23">ملفات شهاب</a>
-          <a href="author.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x24">الكاتب</a>
-          <a href="search.html" style="display:flex;align-items:center;gap:7px;color:#fff;padding:13px 0 11px;border-bottom:3px solid #fff;transition:color .16s ease,border-color .22s ease" class="sh-x25">البحث</a>
-          <div class="sh-menu" style="position:relative">
-            <a href="about.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x26">الوكالة<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
-            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
-              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
-              <a href="about.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x27"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>من نحن</a>
-              <a href="contact.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x28"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>تواصل معنا</a>
-              <a href="newsletter.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x29"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>النشرة البريدية</a>
-              <a href="privacy.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x30"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>سياسة الخصوصية</a>
-              <a href="terms.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x31"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>شروط الاستخدام</a>
+          <a href="files.html" class="sh-nav__link">ملفات شهاب</a>
+          <a href="author.html" class="sh-nav__link">الكاتب</a>
+          <a href="search.html" class="sh-nav__link sh-nav__link--current">البحث</a>
+          <div class="sh-menu sh-nav__item">
+            <a href="about.html" class="sh-nav__link">الوكالة</a>
+            <div class="sh-drop sh-nav__drop">
+              <span class="sh-nav__drop-rule"></span>
+              <a href="about.html" class="sh-nav__drop-link">من نحن</a>
+              <a href="contact.html" class="sh-nav__drop-link">تواصل معنا</a>
+              <a href="newsletter.html" class="sh-nav__drop-link">النشرة البريدية</a>
+              <a href="privacy.html" class="sh-nav__drop-link">سياسة الخصوصية</a>
+              <a href="terms.html" class="sh-nav__drop-link">شروط الاستخدام</a>
             </div>
           </div>
-          <div class="sh-menu" style="position:relative">
-            <a href="system-states.html" style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease" class="sh-x32">النظام<span style="width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75"></span></a>
-            <div class="sh-drop" style="position:absolute;top:100%;right:-16px;min-width:250px;background:#0a1a33;color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px rgba(10,26,51,.28)">
-              <span style="position:absolute;top:0;right:16px;left:16px;height:2px;background:#1b5aa6"></span>
-              <a href="system-states.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x33"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>حالات النظام</a>
-              <a href="loader.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x34"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>مؤشّر التحميل</a>
-              <a href="404.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:rgba(255,255,255,.82);background:transparent" class="sh-x35"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>صفحة 404</a>
+          <div class="sh-menu sh-nav__item">
+            <a href="system-states.html" class="sh-nav__link">النظام</a>
+            <div class="sh-drop sh-nav__drop">
+              <span class="sh-nav__drop-rule"></span>
+              <a href="system-states.html" class="sh-nav__drop-link">حالات النظام</a>
+              <a href="loader.html" class="sh-nav__drop-link">مؤشّر التحميل</a>
+              <a href="404.html" class="sh-nav__drop-link">صفحة 404</a>
             </div>
           </div>
         </div>
-        <a href="coverage.html" style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.9)" class="sh-x36"><span style="width:6px;height:6px;background:#e0302f;border-radius:50%;animation:sh-pulse 1.8s ease-in-out infinite"></span>آخر الأخبار</a>
+        <a href="coverage.html" class="sh-nav__latest"><span class="sh-nav__latest-dot"></span>آخر الأخبار</a>
       </nav>
     </div>
   </div>
-  <div style="background:#fff;color:#14233a;border-bottom:1px solid #eef2f7;box-shadow:0 1px 0 rgba(20,35,58,.04)">
-    <div style="max-width:1280px;margin:0 auto;padding:0 32px;height:44px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px">
-      <span style="background:#e0302f;color:#fff;font-family:'Almarai',sans-serif;font-size:12px;font-weight:700;padding:6px 14px 6px 22px;display:flex;align-items:center;gap:8px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,10px 50%)"><span style="width:6px;height:6px;background:#fff;border-radius:50%;animation:sh-pulse 1.4s ease-in-out infinite"></span>عاجل</span>
-      <a href="article.html" data-sh="ticker" data-items="[{&quot;t&quot;:&quot;قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم&quot;,&quot;time&quot;:&quot;10:32 م&quot;},{&quot;t&quot;:&quot;قوات الاحتلال تقتحم بلدة بلعا شمال طولكرم&quot;,&quot;time&quot;:&quot;10:17 م&quot;},{&quot;t&quot;:&quot;مراسل شهاب: إطلاق نار من طائرة مُسيّرة \&quot;كواد كابتر\&quot; في منطقة السطر الغربي شمال غربي خانيونس&quot;,&quot;time&quot;:&quot;10:13 م&quot;}]" style="display:flex;gap:14px;align-items:baseline;min-width:0">
-        <span data-sh="ticker-title" style="font-family:'Almarai',sans-serif;font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم</span>
-        <span data-sh="ticker-time" style="font-size:12px;color:#8a95a6;white-space:nowrap;font-variant-numeric:tabular-nums">10:32 م</span>
+  <div class="sh-ticker">
+    <div class="sh-ticker__inner">
+      <span class="sh-ticker__tag"><span class="sh-ticker__tag-dot"></span>عاجل</span>
+      <a href="article.html" data-sh="ticker" data-items="[{&quot;t&quot;:&quot;قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم&quot;,&quot;time&quot;:&quot;10:32 م&quot;},{&quot;t&quot;:&quot;قوات الاحتلال تقتحم بلدة بلعا شمال طولكرم&quot;,&quot;time&quot;:&quot;10:17 م&quot;},{&quot;t&quot;:&quot;مراسل شهاب: إطلاق نار من طائرة مُسيّرة \&quot;كواد كابتر\&quot; في منطقة السطر الغربي شمال غربي خانيونس&quot;,&quot;time&quot;:&quot;10:13 م&quot;}]" class="sh-ticker__item">
+        <span data-sh="ticker-title" class="sh-ticker__title">قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم</span>
+        <span data-sh="ticker-time" class="sh-ticker__time">10:32 م</span>
       </a>
-      <div style="display:flex;align-items:center;gap:14px;font-size:12px">
-        <span data-sh="ticker-count" style="color:#8a95a6;font-variant-numeric:tabular-nums">1 / 3</span>
-        <div style="display:flex;gap:4px">
-          <button aria-label="السابق" data-sh="ticker-prev" style="width:28px;height:26px;border:1px solid #eef2f7;background:#fff;color:#14233a;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:background .15s" class="sh-x37">‹</button>
-          <button aria-label="التالي" data-sh="ticker-next" style="width:28px;height:26px;border:1px solid #eef2f7;background:#fff;color:#14233a;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:background .15s" class="sh-x38">›</button>
+      <div class="sh-ticker__tools">
+        <span data-sh="ticker-count" class="sh-ticker__count">1 / 3</span>
+        <div class="sh-ticker__pager">
+          <button aria-label="السابق" data-sh="ticker-prev" class="sh-ticker__btn">‹</button>
+          <button aria-label="التالي" data-sh="ticker-next" class="sh-ticker__btn">›</button>
         </div>
-        <span style="width:1px;height:14px;background:#d9e0ea"></span>
-        <a href="coverage.html" style="color:#1b5aa6;font-weight:700">التغطية الحية ←</a>
+        <span class="sh-ticker__sep"></span>
+        <a href="coverage.html" class="sh-link">التغطية الحية ←</a>
       </div>
     </div>
   </div>
 </header>
 
-<main style="max-width:1280px;margin:0 auto;padding:0 32px">
+<main class="sh-container">
 
-<div data-screen-label="Search Hero" style="padding:26px 0 0">
-  <nav style="display:flex;align-items:center;gap:9px;font-size:11.5px;color:#8a95a6">
-    <a href="index.html" style="color:#8a95a6" class="sh-x39">الرئيسية</a>
-    <span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span>
-    <span style="color:#1b5aa6;font-weight:700">البحث</span>
+<div data-screen-label="Search Hero" class="sh-search-search-hero__div-1">
+  <nav class="sh-search-search-hero__nav-1">
+    <a href="index.html" class="sh-mute">الرئيسية</a>
+    
+    <span class="sh-link">البحث</span>
   </nav>
-  <div style="max-width:760px;margin:26px auto 0;text-align:center">
-    <h1 style="font-family:'Almarai',sans-serif;font-size:clamp(26px,3vw,34px);font-weight:800;line-height:1.2;margin:0;color:#0a1a33;display:inline-flex;align-items:center;gap:14px"><span style="width:16px;height:13px;background:#1b5aa6" class="sh-mark"></span>نتائج البحث<span style="width:16px;height:13px;background:#1b5aa6" class="sh-mark"></span></h1>
-    <p style="font-family:'Noto Naskh Arabic',serif;font-size:13.5px;line-height:1.9;color:#4a5568;margin:10px 0 0">ابحث في أخبار وتقارير وصور وفيديوهات شهاب</p>
-    <div style="display:flex;margin-top:20px;border:1px solid #1b5aa6;background:#fff">
-      <span style="display:flex;align-items:center;padding:0 16px;color:#1b5aa6"><i class="fa-solid fa-magnifying-glass" style="font-size:15px"></i></span>
-      <input type="text" value="غزة" placeholder="ابحث في شهاب عن خبر أو موضوع أو اسم..." style="flex:1;min-width:0;border:none;background:none;font-size:15px;font-weight:700;color:#0a1a33;padding:15px 0">
-      <button type="button" style="background:#1b5aa6;color:#fff;border:none;font-family:'Almarai',sans-serif;font-size:14px;font-weight:800;padding:0 34px;cursor:pointer;transition:background .18s" class="sh-x40">بحث</button>
+  <div class="sh-search-search-hero__div-2">
+    <h1 class="sh-search-search-hero__h1-1"><span class="sh-mark sh-mark--md"></span>نتائج البحث<span class="sh-mark sh-mark--md"></span></h1>
+    <p class="sh-search-search-hero__p-1">ابحث في أخبار وتقارير وصور وفيديوهات شهاب</p>
+    <div class="sh-search-search-hero__div-3">
+      <span class="sh-search-search-hero__span-1"><i class="fa-solid fa-magnifying-glass sh-search-search-hero__i-1"></i></span>
+      <input type="text" value="غزة" placeholder="ابحث في شهاب عن خبر أو موضوع أو اسم..." class="sh-search-search-hero__input-1">
+      <button type="button" class="sh-search-search-hero__button-1">بحث</button>
     </div>
-    <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px;font-size:13px;color:#4a5568">
-      <span>نتائج البحث عن: <strong style="color:#0a1a33;font-family:'Almarai',sans-serif">«غزة»</strong></span>
-      <span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span>
-      <span style="font-variant-numeric:tabular-nums;color:#1b5aa6;font-weight:700">1,248 نتيجة</span>
+    <div class="sh-search-search-hero__div-4">
+      <span>نتائج البحث عن: <strong class="sh-search-search-hero__strong-1">«غزة»</strong></span>
+      
+      <span class="sh-search-search-hero__span-2">1,248 نتيجة</span>
     </div>
-    <a href="#" style="display:inline-flex;align-items:center;gap:9px;margin-top:14px;font-family:'Almarai',sans-serif;font-size:12px;font-weight:800;color:#1b5aa6;border-bottom:1px solid #c9d8ec;padding-bottom:4px" class="sh-x41"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>بحث متقدم</a>
+    <a href="#" class="sh-search-search-hero__a-1">بحث متقدم</a>
   </div>
   
-  <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-top:28px;border-top:1px solid #e6ebf2;border-bottom:1px solid #e6ebf2;padding:12px 0">
-    <div style="display:flex;gap:4px;font-size:12.5px;font-weight:700;font-family:'Almarai',sans-serif">
-      <a href="#" style="color:#fff;background:#1b5aa6;padding:6px 16px">الكل</a>
-      <a href="#" style="color:#4a5568;padding:6px 16px" class="sh-x42">الأخبار</a>
-      <a href="#" style="color:#4a5568;padding:6px 16px" class="sh-x43">التقارير</a>
-      <a href="video.html" style="color:#4a5568;padding:6px 16px" class="sh-x44">الفيديو</a>
-      <a href="photos.html" style="color:#4a5568;padding:6px 16px" class="sh-x45">الصور</a>
+  <div class="sh-search-search-hero__div-5">
+    <div class="sh-search-search-hero__div-6">
+      <a href="#" class="sh-search-search-hero__a-2">الكل</a>
+      <a href="#" class="sh-rail__link sh-rail__link--pad">الأخبار</a>
+      <a href="#" class="sh-rail__link sh-rail__link--pad">التقارير</a>
+      <a href="video.html" class="sh-rail__link sh-rail__link--pad">الفيديو</a>
+      <a href="photos.html" class="sh-rail__link sh-rail__link--pad">الصور</a>
     </div>
-    <a href="#" style="display:inline-flex;align-items:center;gap:8px;font-size:12px;color:#4a5568">ترتيب حسب: <strong style="color:#0a1a33">الأحدث</strong> <i class="fa-solid fa-chevron-down" style="font-size:9px;color:#8a95a6"></i></a>
+    <a href="#" class="sh-search-search-hero__a-3">ترتيب حسب: <strong class="sh-search-search-hero__strong-2">الأحدث</strong> <i class="fa-solid fa-chevron-down sh-search-search-hero__i-2"></i></a>
   </div>
 </div>
 
-<div data-screen-label="Search Body" style="display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;padding:24px 0 0">
-  <div style="min-width:0" data-sh-pager-list>
+<div data-screen-label="Search Body" class="sh-search-search-body__div-1">
+  <div data-sh-pager-list class="sh-min0">
 
-    <a data-screen-label="Featured Result" href="article.html" style="display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:28px;align-items:start;background:#f6f9fd;border-right:2px solid #1b5aa6;padding:20px 20px 22px;margin:0 -20px 4px 0" class="sh-x46">
+    <a data-screen-label="Featured Result" href="article.html" class="sh-search-featured-result__a-1">
       <span>
-        <span style="display:inline-flex;align-items:center;gap:8px;font-size:10.5px;font-weight:800;font-family:'Almarai',sans-serif;color:#1b5aa6;border:1px solid #c9d8ec;padding:3px 10px">النتيجة الأبرز</span>
-        <span style="display:flex;gap:9px;align-items:center;font-size:11.5px;margin-top:12px"><span style="color:#1b5aa6;font-weight:700">تقرير — غزة</span><span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">اليوم 10:06 م</span></span>
-        <span style="display:block;font-family:'Almarai',sans-serif;font-size:23px;font-weight:800;line-height:1.6;margin-top:10px;color:#0a1a33;text-wrap:pretty">أطفال غزة بين فرحة اللعب وتهديد القصف.. الطائرات الورقية ذريعة جديدة للتصعيد</span>
-        <span style="display:block;font-family:'Noto Naskh Arabic',serif;font-size:13.5px;line-height:1.95;color:#4a5568;margin-top:10px;max-width:56ch">خبراء الشأن الإسرائيلي يقرأون لشهاب توظيف لعبة الأطفال ذريعةً لإفشال وقف إطلاق النار وإبقاء قطاع غزة تحت التوتر المستمر.</span>
-        <span style="display:flex;gap:9px;align-items:center;font-size:11.5px;color:#8a95a6;margin-top:12px"><i class="fa-regular fa-clock" style="font-size:10px"></i>قراءة 4 دقائق<span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span>فريق التقارير</span>
+        <span class="sh-search-featured-result__span-1">النتيجة الأبرز</span>
+        <span class="sh-search-featured-result__span-2"><span class="sh-link">تقرير — غزة</span><span class="sh-meta__time">اليوم 10:06 م</span></span>
+        <span class="sh-search-featured-result__span-3">أطفال غزة بين فرحة اللعب وتهديد القصف.. الطائرات الورقية ذريعة جديدة للتصعيد</span>
+        <span class="sh-search-featured-result__span-4">خبراء الشأن الإسرائيلي يقرأون لشهاب توظيف لعبة الأطفال ذريعةً لإفشال وقف إطلاق النار وإبقاء قطاع غزة تحت التوتر المستمر.</span>
+        <span class="sh-search-featured-result__span-5"><i class="fa-regular fa-clock sh-fs-10"></i>قراءة 4 دقائقفريق التقارير</span>
       </span>
-      <span style="position:relative;display:block;background:#0f2a4f;overflow:hidden;aspect-ratio:16/9"><span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=1000&quot;);background-size:cover;background-position:center"></span></span>
+      <span class="sh-tile sh-tile--16x9"><span class="sh-search-featured-result__span-6"></span></span>
     </a>
 
     
       <div data-sh-page="1">
-<a href="article.html" style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:start;padding:22px 0;border-bottom:1px solid #eef2f7" class="sh-x47">
+<a href="article.html" class="sh-search-search-body__a-1">
         <span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px"><span style="color:#1b5aa6;font-weight:700">عاجل — غزة</span><span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">اليوم 09:41 م</span></span>
-          <span style="display:block;font-family:'Almarai',sans-serif;font-size:17px;font-weight:800;line-height:1.7;margin-top:7px;color:#0a1a33;text-wrap:pretty">4 شهداء بقصف مدفعي للاحتلال في جباليا شمال قطاع غزة</span>
-          <span style="display:block;font-family:'Noto Naskh Arabic',serif;font-size:13px;line-height:1.9;color:#4a5568;margin-top:7px;max-width:58ch">مصادر طبية أكدت لشهاب ارتقاء أربعة شهداء وإصابة آخرين في قصفٍ استهدف جباليا البلد، في أحدث خروقات وقف إطلاق النار.</span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px;color:#8a95a6;margin-top:9px"><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>خبر — مراسل شهاب</span>
+          <span class="sh-meta"><span class="sh-link">عاجل — غزة</span><span class="sh-meta__time">اليوم 09:41 م</span></span>
+          <span class="sh-search-search-body__span-1">4 شهداء بقصف مدفعي للاحتلال في جباليا شمال قطاع غزة</span>
+          <span class="sh-search-search-body__span-2">مصادر طبية أكدت لشهاب ارتقاء أربعة شهداء وإصابة آخرين في قصفٍ استهدف جباليا البلد، في أحدث خروقات وقف إطلاق النار.</span>
+          <span class="sh-search-search-body__span-3">خبر — مراسل شهاب</span>
         </span>
-        <span style="position:relative;display:block;background:#0f2a4f;overflow:hidden;aspect-ratio:16/9"><span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=600&quot;);background-size:cover;background-position:center"></span></span>
+        <span class="sh-tile sh-tile--16x9"><span class="sh-search-search-body__span-4"></span></span>
       </a>
     
-      <a href="article.html" style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:start;padding:22px 0;border-bottom:1px solid #eef2f7" class="sh-x48">
+      <a href="article.html" class="sh-search-search-body__a-1">
         <span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px"><span style="color:#1b5aa6;font-weight:700">إنساني</span><span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">اليوم 08:30 م</span></span>
-          <span style="display:block;font-family:'Almarai',sans-serif;font-size:17px;font-weight:800;line-height:1.7;margin-top:7px;color:#0a1a33;text-wrap:pretty">مرضى القطاع بلا علاج.. الاحتلال يواصل إغلاق معبر رفح لليوم العاشر</span>
-          <span style="display:block;font-family:'Noto Naskh Arabic',serif;font-size:13px;line-height:1.9;color:#4a5568;margin-top:7px;max-width:58ch">آلاف المرضى ينتظرون السفر للعلاج فيما تحذّر وزارة الصحة من نفاد أدوية الأمراض المزمنة في مستشفيات القطاع.</span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px;color:#8a95a6;margin-top:9px"><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>تقرير — 3 دقائق قراءة</span>
+          <span class="sh-meta"><span class="sh-link">إنساني</span><span class="sh-meta__time">اليوم 08:30 م</span></span>
+          <span class="sh-search-search-body__span-1">مرضى القطاع بلا علاج.. الاحتلال يواصل إغلاق معبر رفح لليوم العاشر</span>
+          <span class="sh-search-search-body__span-2">آلاف المرضى ينتظرون السفر للعلاج فيما تحذّر وزارة الصحة من نفاد أدوية الأمراض المزمنة في مستشفيات القطاع.</span>
+          <span class="sh-search-search-body__span-3">تقرير — 3 دقائق قراءة</span>
         </span>
-        <span style="position:relative;display:block;background:#0f2a4f;overflow:hidden;aspect-ratio:16/9"><span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/UNRWA%20el-Sheikh%20Radwan%20health%20center%2C%20February%202024.jpg?width=600&quot;);background-size:cover;background-position:center"></span></span>
+        <span class="sh-tile sh-tile--16x9"><span class="sh-search-search-body__span-5"></span></span>
       </a>
     
-      <a href="article.html" style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:start;padding:22px 0;border-bottom:1px solid #eef2f7" class="sh-x49">
+      <a href="article.html" class="sh-search-search-body__a-1">
         <span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px"><span style="color:#1b5aa6;font-weight:700">إعمار</span><span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">اليوم 07:58 م</span></span>
-          <span style="display:block;font-family:'Almarai',sans-serif;font-size:17px;font-weight:800;line-height:1.7;margin-top:7px;color:#0a1a33;text-wrap:pretty">بلدية غزة: فتح 60% من الطرق الرئيسية وإزالة أكثر من مليون طن ركام</span>
-          <span style="display:block;font-family:'Noto Naskh Arabic',serif;font-size:13px;line-height:1.9;color:#4a5568;margin-top:7px;max-width:58ch">جهود إعادة الإعمار تتواصل رغم شح المعدات، فيما يعود آلاف النازحين تدريجيًا إلى أحيائهم عبر شارع الرشيد.</span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px;color:#8a95a6;margin-top:9px"><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>خبر — بلدية غزة</span>
+          <span class="sh-meta"><span class="sh-link">إعمار</span><span class="sh-meta__time">اليوم 07:58 م</span></span>
+          <span class="sh-search-search-body__span-1">بلدية غزة: فتح 60% من الطرق الرئيسية وإزالة أكثر من مليون طن ركام</span>
+          <span class="sh-search-search-body__span-2">جهود إعادة الإعمار تتواصل رغم شح المعدات، فيما يعود آلاف النازحين تدريجيًا إلى أحيائهم عبر شارع الرشيد.</span>
+          <span class="sh-search-search-body__span-3">خبر — بلدية غزة</span>
         </span>
-        <span style="position:relative;display:block;background:#0f2a4f;overflow:hidden;aspect-ratio:16/9"><span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=600&quot;);background-size:cover;background-position:center"></span></span>
+        <span class="sh-tile sh-tile--16x9"><span class="sh-search-search-body__span-6"></span></span>
       </a>
     
-      <a href="article.html" style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:start;padding:22px 0;border-bottom:1px solid #eef2f7" class="sh-x50">
+      <a href="article.html" class="sh-search-search-body__a-1">
         <span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px"><span style="color:#1b5aa6;font-weight:700">قصة</span><span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">أمس</span></span>
-          <span style="display:block;font-family:'Almarai',sans-serif;font-size:17px;font-weight:800;line-height:1.7;margin-top:7px;color:#0a1a33;text-wrap:pretty">رصاصة في الرأس وحلم في الركام.. قصة اللاعب محمد الذي أنهى الاحتلال مسيرته</span>
-          <span style="display:block;font-family:'Noto Naskh Arabic',serif;font-size:13px;line-height:1.9;color:#4a5568;margin-top:7px;max-width:58ch">من ملاعب حي الشجاعية إلى سرير العلاج — شهاب توثق رحلة لاعب كرة قدم واعد غيّرت رصاصة قناص مساره إلى الأبد.</span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px;color:#8a95a6;margin-top:9px"><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>قصة إنسانية — 6 دقائق قراءة</span>
+          <span class="sh-meta"><span class="sh-link">قصة</span><span class="sh-meta__time">أمس</span></span>
+          <span class="sh-search-search-body__span-1">رصاصة في الرأس وحلم في الركام.. قصة اللاعب محمد الذي أنهى الاحتلال مسيرته</span>
+          <span class="sh-search-search-body__span-2">من ملاعب حي الشجاعية إلى سرير العلاج — شهاب توثق رحلة لاعب كرة قدم واعد غيّرت رصاصة قناص مساره إلى الأبد.</span>
+          <span class="sh-search-search-body__span-3">قصة إنسانية — 6 دقائق قراءة</span>
         </span>
-        <span style="position:relative;display:block;background:#0f2a4f;overflow:hidden;aspect-ratio:16/9"><span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=600&quot;);background-size:cover;background-position:center"></span></span>
+        <span class="sh-tile sh-tile--16x9"><span class="sh-search-search-body__span-7"></span></span>
       </a>
     
-      <a href="article.html" style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:start;padding:22px 0;border-bottom:1px solid #eef2f7" class="sh-x51">
+      <a href="article.html" class="sh-search-search-body__a-1">
         <span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px"><span style="color:#1b5aa6;font-weight:700">الميدان</span><span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">أمس</span></span>
-          <span style="display:block;font-family:'Almarai',sans-serif;font-size:17px;font-weight:800;line-height:1.7;margin-top:7px;color:#0a1a33;text-wrap:pretty">توغل محدود لآليات الاحتلال شرق مدينة غزة تحت غطاء ناري</span>
-          <span style="display:block;font-family:'Noto Naskh Arabic',serif;font-size:13px;line-height:1.9;color:#4a5568;margin-top:7px;max-width:58ch">آليات عسكرية توغلت مسافة محدودة شرق حي الشجاعية وسط إطلاق نار كثيف، قبل انسحابها باتجاه "الخط الأصفر".</span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px;color:#8a95a6;margin-top:9px"><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>خبر — مراسل شهاب</span>
+          <span class="sh-meta"><span class="sh-link">الميدان</span><span class="sh-meta__time">أمس</span></span>
+          <span class="sh-search-search-body__span-1">توغل محدود لآليات الاحتلال شرق مدينة غزة تحت غطاء ناري</span>
+          <span class="sh-search-search-body__span-2">آليات عسكرية توغلت مسافة محدودة شرق حي الشجاعية وسط إطلاق نار كثيف، قبل انسحابها باتجاه "الخط الأصفر".</span>
+          <span class="sh-search-search-body__span-3">خبر — مراسل شهاب</span>
         </span>
-        <span style="position:relative;display:block;background:#0f2a4f;overflow:hidden;aspect-ratio:16/9"><span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=600&quot;);background-size:cover;background-position:center"></span></span>
+        <span class="sh-tile sh-tile--16x9"><span class="sh-search-search-body__span-8"></span></span>
       </a>
     
-      <a href="article.html" style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:start;padding:22px 0;border-bottom:1px solid #eef2f7" class="sh-x52">
+      <a href="article.html" class="sh-search-search-body__a-1">
         <span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px"><span style="color:#1b5aa6;font-weight:700">إنساني</span><span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">قبل يومين</span></span>
-          <span style="display:block;font-family:'Almarai',sans-serif;font-size:17px;font-weight:800;line-height:1.7;margin-top:7px;color:#0a1a33;text-wrap:pretty">خيام المواسي تغرق مجددًا.. منخفض جوي يفاقم معاناة النازحين</span>
-          <span style="display:block;font-family:'Noto Naskh Arabic',serif;font-size:13px;line-height:1.9;color:#4a5568;margin-top:7px;max-width:58ch">مياه الأمطار غمرت عشرات الخيام في المواسي غربي خانيونس، ومناشدات لتوفير مستلزمات الإيواء قبل ذروة الشتاء.</span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px;color:#8a95a6;margin-top:9px"><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>تقرير مصوّر — عدسة شهاب</span>
+          <span class="sh-meta"><span class="sh-link">إنساني</span><span class="sh-meta__time">قبل يومين</span></span>
+          <span class="sh-search-search-body__span-1">خيام المواسي تغرق مجددًا.. منخفض جوي يفاقم معاناة النازحين</span>
+          <span class="sh-search-search-body__span-2">مياه الأمطار غمرت عشرات الخيام في المواسي غربي خانيونس، ومناشدات لتوفير مستلزمات الإيواء قبل ذروة الشتاء.</span>
+          <span class="sh-search-search-body__span-3">تقرير مصوّر — عدسة شهاب</span>
         </span>
-        <span style="position:relative;display:block;background:#0f2a4f;overflow:hidden;aspect-ratio:16/9"><span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20view%20of%20destruction%20in%20Beach%20refugee%20camp%2C%20Gaza%20Strip.jpg?width=600&quot;);background-size:cover;background-position:center"></span></span>
+        <span class="sh-tile sh-tile--16x9"><span class="sh-search-search-body__span-9"></span></span>
       </a>
 </div>
-<div data-sh-page="2" style="display:none">
-<a href="article.html" style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:start;padding:22px 0;border-bottom:1px solid #eef2f7" class="sh-x47">
+<div data-sh-page="2" class="sh-search-search-body__div-2">
+<a href="article.html" class="sh-search-search-body__a-1">
         <span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px"><span style="color:#1b5aa6;font-weight:700">تقرير — المواسي</span><span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">أمس 07:20 م</span></span>
-          <span style="display:block;font-family:'Almarai',sans-serif;font-size:17px;font-weight:800;line-height:1.7;margin-top:7px;color:#0a1a33;text-wrap:pretty">عائلات في المواسي تعيد نصب الخيام للمرة الرابعة هذا الشتاء</span>
-          <span style="display:block;font-family:'Noto Naskh Arabic',serif;font-size:13px;line-height:1.9;color:#4a5568;margin-top:7px;max-width:58ch">جولة لمراسل شهاب بين مخيمات النزوح الغربية ترصد أثر الأمطار على مئات الخيام المتهالكة.</span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px;color:#8a95a6;margin-top:9px"><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>تقرير — عدسة شهاب</span>
+          <span class="sh-meta"><span class="sh-link">تقرير — المواسي</span><span class="sh-meta__time">أمس 07:20 م</span></span>
+          <span class="sh-search-search-body__span-1">عائلات في المواسي تعيد نصب الخيام للمرة الرابعة هذا الشتاء</span>
+          <span class="sh-search-search-body__span-2">جولة لمراسل شهاب بين مخيمات النزوح الغربية ترصد أثر الأمطار على مئات الخيام المتهالكة.</span>
+          <span class="sh-search-search-body__span-3">تقرير — عدسة شهاب</span>
         </span>
-        <span style="position:relative;display:block;background:#0f2a4f;overflow:hidden;aspect-ratio:16/9"><span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=600&quot;);background-size:cover;background-position:center"></span></span>
+        <span class="sh-tile sh-tile--16x9"><span class="sh-search-search-body__span-4"></span></span>
       </a>
-<a href="article.html" style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:start;padding:22px 0;border-bottom:1px solid #eef2f7" class="sh-x47">
+<a href="article.html" class="sh-search-search-body__a-1">
         <span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px"><span style="color:#1b5aa6;font-weight:700">خبر — رفح</span><span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">أمس 04:05 م</span></span>
-          <span style="display:block;font-family:'Almarai',sans-serif;font-size:17px;font-weight:800;line-height:1.7;margin-top:7px;color:#0a1a33;text-wrap:pretty">تعليق مؤقت لتوزيع الطرود الغذائية في رفح لأسباب لوجستية</span>
-          <span style="display:block;font-family:'Noto Naskh Arabic',serif;font-size:13px;line-height:1.9;color:#4a5568;margin-top:7px;max-width:58ch">الوكالة أوضحت أن التوزيع سيُستأنف فور تأمين مسار بديل للشاحنات من المعبر.</span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px;color:#8a95a6;margin-top:9px"><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>خبر — مراسل شهاب</span>
+          <span class="sh-meta"><span class="sh-link">خبر — رفح</span><span class="sh-meta__time">أمس 04:05 م</span></span>
+          <span class="sh-search-search-body__span-1">تعليق مؤقت لتوزيع الطرود الغذائية في رفح لأسباب لوجستية</span>
+          <span class="sh-search-search-body__span-2">الوكالة أوضحت أن التوزيع سيُستأنف فور تأمين مسار بديل للشاحنات من المعبر.</span>
+          <span class="sh-search-search-body__span-3">خبر — مراسل شهاب</span>
         </span>
-        <span style="position:relative;display:block;background:#0f2a4f;overflow:hidden;aspect-ratio:16/9"><span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=600&quot;);background-size:cover;background-position:center"></span></span>
+        <span class="sh-tile sh-tile--16x9"><span class="sh-search-search-body__span-4"></span></span>
       </a>
-<a href="article.html" style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:start;padding:22px 0;border-bottom:1px solid #eef2f7" class="sh-x47">
+<a href="article.html" class="sh-search-search-body__a-1">
         <span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px"><span style="color:#1b5aa6;font-weight:700">تقرير — خرائط</span><span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">قبل يومين</span></span>
-          <span style="display:block;font-family:'Almarai',sans-serif;font-size:17px;font-weight:800;line-height:1.7;margin-top:7px;color:#0a1a33;text-wrap:pretty">كيف تغيّر خط الانسحاب في جنوب القطاع خلال شهر؟</span>
-          <span style="display:block;font-family:'Noto Naskh Arabic',serif;font-size:13px;line-height:1.9;color:#4a5568;margin-top:7px;max-width:58ch">قراءة بصرية تقارن مواقع الانتشار المعلنة بين مطلع الشهر ونهايته اعتمادًا على صور جوية.</span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px;color:#8a95a6;margin-top:9px"><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>تقرير — وحدة البيانات</span>
+          <span class="sh-meta"><span class="sh-link">تقرير — خرائط</span><span class="sh-meta__time">قبل يومين</span></span>
+          <span class="sh-search-search-body__span-1">كيف تغيّر خط الانسحاب في جنوب القطاع خلال شهر؟</span>
+          <span class="sh-search-search-body__span-2">قراءة بصرية تقارن مواقع الانتشار المعلنة بين مطلع الشهر ونهايته اعتمادًا على صور جوية.</span>
+          <span class="sh-search-search-body__span-3">تقرير — وحدة البيانات</span>
         </span>
-        <span style="position:relative;display:block;background:#0f2a4f;overflow:hidden;aspect-ratio:16/9"><span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=600&quot;);background-size:cover;background-position:center"></span></span>
+        <span class="sh-tile sh-tile--16x9"><span class="sh-search-search-body__span-4"></span></span>
       </a>
-<a href="article.html" style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:start;padding:22px 0;border-bottom:1px solid #eef2f7" class="sh-x47">
+<a href="article.html" class="sh-search-search-body__a-1">
         <span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px"><span style="color:#1b5aa6;font-weight:700">خبر — صحة</span><span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">قبل يومين</span></span>
-          <span style="display:block;font-family:'Almarai',sans-serif;font-size:17px;font-weight:800;line-height:1.7;margin-top:7px;color:#0a1a33;text-wrap:pretty">الصحة: 32 حالة بتر بين الأطفال منذ سريان وقف إطلاق النار</span>
-          <span style="display:block;font-family:'Noto Naskh Arabic',serif;font-size:13px;line-height:1.9;color:#4a5568;margin-top:7px;max-width:58ch">الوزارة أشارت إلى نقص مستمر في أطقم الجراحة التخصصية داخل مستشفيات الشمال.</span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px;color:#8a95a6;margin-top:9px"><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>خبر — مراسل شهاب</span>
+          <span class="sh-meta"><span class="sh-link">خبر — صحة</span><span class="sh-meta__time">قبل يومين</span></span>
+          <span class="sh-search-search-body__span-1">الصحة: 32 حالة بتر بين الأطفال منذ سريان وقف إطلاق النار</span>
+          <span class="sh-search-search-body__span-2">الوزارة أشارت إلى نقص مستمر في أطقم الجراحة التخصصية داخل مستشفيات الشمال.</span>
+          <span class="sh-search-search-body__span-3">خبر — مراسل شهاب</span>
         </span>
-        <span style="position:relative;display:block;background:#0f2a4f;overflow:hidden;aspect-ratio:16/9"><span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=600&quot;);background-size:cover;background-position:center"></span></span>
+        <span class="sh-tile sh-tile--16x9"><span class="sh-search-search-body__span-4"></span></span>
       </a>
-<a href="article.html" style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:start;padding:22px 0;border-bottom:1px solid #eef2f7" class="sh-x47">
+<a href="article.html" class="sh-search-search-body__a-1">
         <span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px"><span style="color:#1b5aa6;font-weight:700">تحليل — سياسة</span><span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">هذا الأسبوع</span></span>
-          <span style="display:block;font-family:'Almarai',sans-serif;font-size:17px;font-weight:800;line-height:1.7;margin-top:7px;color:#0a1a33;text-wrap:pretty">ما الذي يعنيه تمديد آلية المراقبة الدولية ثلاثة أشهر؟</span>
-          <span style="display:block;font-family:'Noto Naskh Arabic',serif;font-size:13px;line-height:1.9;color:#4a5568;margin-top:7px;max-width:58ch">قراءة في بنود التمديد وصلاحيات فريق التحقق، وما تغيّر عن الصيغة الأولى للاتفاق.</span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px;color:#8a95a6;margin-top:9px"><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>تحليل — مكتب شهاب</span>
+          <span class="sh-meta"><span class="sh-link">تحليل — سياسة</span><span class="sh-meta__time">هذا الأسبوع</span></span>
+          <span class="sh-search-search-body__span-1">ما الذي يعنيه تمديد آلية المراقبة الدولية ثلاثة أشهر؟</span>
+          <span class="sh-search-search-body__span-2">قراءة في بنود التمديد وصلاحيات فريق التحقق، وما تغيّر عن الصيغة الأولى للاتفاق.</span>
+          <span class="sh-search-search-body__span-3">تحليل — مكتب شهاب</span>
         </span>
-        <span style="position:relative;display:block;background:#0f2a4f;overflow:hidden;aspect-ratio:16/9"><span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=600&quot;);background-size:cover;background-position:center"></span></span>
+        <span class="sh-tile sh-tile--16x9"><span class="sh-search-search-body__span-4"></span></span>
       </a>
-<a href="article.html" style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:start;padding:22px 0;border-bottom:1px solid #eef2f7" class="sh-x47">
+<a href="article.html" class="sh-search-search-body__a-1">
         <span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px"><span style="color:#1b5aa6;font-weight:700">تقرير — اقتصاد</span><span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">هذا الأسبوع</span></span>
-          <span style="display:block;font-family:'Almarai',sans-serif;font-size:17px;font-weight:800;line-height:1.7;margin-top:7px;color:#0a1a33;text-wrap:pretty">أسواق مؤقتة ونقص حاد في السيولة.. الاقتصاد المحلي بعد الحرب</span>
-          <span style="display:block;font-family:'Noto Naskh Arabic',serif;font-size:13px;line-height:1.9;color:#4a5568;margin-top:7px;max-width:58ch">التجار يتحدثون عن اعتماد شبه كامل على التحويلات الرقمية مع غياب النقد الورقي.</span>
-          <span style="display:flex;gap:9px;align-items:center;font-size:11px;color:#8a95a6;margin-top:9px"><span style="width:4px;height:4px;background:#1b5aa6;transform:rotate(45deg)"></span>تقرير — مراسل شهاب</span>
+          <span class="sh-meta"><span class="sh-link">تقرير — اقتصاد</span><span class="sh-meta__time">هذا الأسبوع</span></span>
+          <span class="sh-search-search-body__span-1">أسواق مؤقتة ونقص حاد في السيولة.. الاقتصاد المحلي بعد الحرب</span>
+          <span class="sh-search-search-body__span-2">التجار يتحدثون عن اعتماد شبه كامل على التحويلات الرقمية مع غياب النقد الورقي.</span>
+          <span class="sh-search-search-body__span-3">تقرير — مراسل شهاب</span>
         </span>
-        <span style="position:relative;display:block;background:#0f2a4f;overflow:hidden;aspect-ratio:16/9"><span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=600&quot;);background-size:cover;background-position:center"></span></span>
+        <span class="sh-tile sh-tile--16x9"><span class="sh-search-search-body__span-4"></span></span>
       </a>
 </div>
 
     
 
-    <nav data-sh-pager data-screen-label="Pagination" style="display:flex;align-items:center;justify-content:center;gap:6px;margin-top:32px;font-family:'Almarai',sans-serif;font-size:13px;font-weight:700">
-      <a href="#" style="display:inline-flex;align-items:center;gap:7px;color:#b8c2d0;padding:8px 14px;cursor:default" data-sh-prev-page>السابق</a>
-      <a data-sh-goto="1" href="#" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:#1b5aa6;color:#fff;font-variant-numeric:tabular-nums">1</a>
-      <a data-sh-goto="2" href="#" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#4a5568;border:1px solid #e6ebf2;font-variant-numeric:tabular-nums" class="sh-x53">2</a>
-      <a data-sh-goto="3" href="#" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#4a5568;border:1px solid #e6ebf2;font-variant-numeric:tabular-nums" class="sh-x54">3</a>
-      <a data-sh-goto="4" href="#" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#4a5568;border:1px solid #e6ebf2;font-variant-numeric:tabular-nums" class="sh-x55">4</a>
-      <span style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#8a95a6">…</span>
-      <a data-sh-goto="20" href="#" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#4a5568;border:1px solid #e6ebf2;font-variant-numeric:tabular-nums" class="sh-x56">20</a>
-      <a href="#" style="display:inline-flex;align-items:center;gap:7px;color:#1b5aa6;padding:8px 14px" data-sh-next-page class="sh-x57">التالي <span style="width:12px;height:1px;background:#1b5aa6"></span></a>
+    <nav data-sh-pager data-screen-label="Pagination" class="sh-search-pagination__nav-1">
+      <a href="#" data-sh-prev-page class="sh-search-pagination__a-1">السابق</a>
+      <a data-sh-goto="1" href="#" class="sh-search-pagination__a-2">1</a>
+      <a data-sh-goto="2" href="#" class="sh-pager__btn">2</a>
+      <a data-sh-goto="3" href="#" class="sh-pager__btn">3</a>
+      <a data-sh-goto="4" href="#" class="sh-pager__btn">4</a>
+      <span class="sh-search-pagination__span-1">…</span>
+      <a data-sh-goto="20" href="#" class="sh-pager__btn">20</a>
+      <a href="#" data-sh-next-page class="sh-search-pagination__a-3">التالي <span class="sh-more__arrow sh-more__arrow--12"></span></a>
     </nav>
   </div>
 
-  <aside data-screen-label="Search Rail" style="align-self:start;position:sticky;top:24px">
+  <aside data-screen-label="Search Rail" class="sh-search-search-rail__aside-1">
     <div>
-      <div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid #d5dde8;padding-bottom:10px">
-        <h2 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:800;margin:0;color:#0a1a33;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg)"></span>الأكثر قراءة الآن</h2>
-        <span style="font-size:11px;color:#8a95a6">آخر 24 ساعة</span>
+      <div class="sh-section__head">
+        <h2 class="sh-section__title sh-section__title--sm">الأكثر قراءة الآن</h2>
+        <span class="sh-meta__note">آخر 24 ساعة</span>
       </div>
       
-        <a href="article.html" style="display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;padding:13px 0;border-bottom:1px solid #f1f4f8" class="sh-x58">
-          <span style="font-family:'Almarai',sans-serif;font-size:22px;font-weight:800;color:#c9d8ec;line-height:1.1;font-variant-numeric:tabular-nums;text-align:center">01</span>
-          <span style="font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.7;color:#14233a;text-wrap:pretty">فيديو | لحظة إطلاق النار على شاب فلسطيني أعزل في قلنديا</span>
+        <a href="article.html" class="sh-list__row sh-list__row--34">
+          <span class="sh-list__num sh-list__num--big">01</span>
+          <span class="sh-card__title">فيديو | لحظة إطلاق النار على شاب فلسطيني أعزل في قلنديا</span>
         </a>
       
-        <a href="article.html" style="display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;padding:13px 0;border-bottom:1px solid #f1f4f8" class="sh-x59">
-          <span style="font-family:'Almarai',sans-serif;font-size:22px;font-weight:800;color:#c9d8ec;line-height:1.1;font-variant-numeric:tabular-nums;text-align:center">02</span>
-          <span style="font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.7;color:#14233a;text-wrap:pretty">الأوقاف: 1244 مسجدًا دمرها الاحتلال في غزة</span>
+        <a href="article.html" class="sh-list__row sh-list__row--34">
+          <span class="sh-list__num sh-list__num--big">02</span>
+          <span class="sh-card__title">الأوقاف: 1244 مسجدًا دمرها الاحتلال في غزة</span>
         </a>
       
-        <a href="article.html" style="display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;padding:13px 0;border-bottom:1px solid #f1f4f8" class="sh-x60">
-          <span style="font-family:'Almarai',sans-serif;font-size:22px;font-weight:800;color:#c9d8ec;line-height:1.1;font-variant-numeric:tabular-nums;text-align:center">03</span>
-          <span style="font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.7;color:#14233a;text-wrap:pretty">مصادر تكشف كواليس استشهاد "أبو رعد" خازم في جنين</span>
+        <a href="article.html" class="sh-list__row sh-list__row--34">
+          <span class="sh-list__num sh-list__num--big">03</span>
+          <span class="sh-card__title">مصادر تكشف كواليس استشهاد "أبو رعد" خازم في جنين</span>
         </a>
       
-        <a href="article.html" style="display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;padding:13px 0;border-bottom:1px solid #f1f4f8" class="sh-x61">
-          <span style="font-family:'Almarai',sans-serif;font-size:22px;font-weight:800;color:#c9d8ec;line-height:1.1;font-variant-numeric:tabular-nums;text-align:center">04</span>
-          <span style="font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.7;color:#14233a;text-wrap:pretty">أطفال غزة والطائرات الورقية.. ذريعة جديدة للتصعيد</span>
+        <a href="article.html" class="sh-list__row sh-list__row--34">
+          <span class="sh-list__num sh-list__num--big">04</span>
+          <span class="sh-card__title">أطفال غزة والطائرات الورقية.. ذريعة جديدة للتصعيد</span>
         </a>
       
-        <a href="article.html" style="display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;padding:13px 0;border-bottom:1px solid #f1f4f8" class="sh-x62">
-          <span style="font-family:'Almarai',sans-serif;font-size:22px;font-weight:800;color:#c9d8ec;line-height:1.1;font-variant-numeric:tabular-nums;text-align:center">05</span>
-          <span style="font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.7;color:#14233a;text-wrap:pretty">لبنان: ارتفاع حصيلة العدوان إلى 4350 شهيدًا</span>
+        <a href="article.html" class="sh-list__row sh-list__row--34">
+          <span class="sh-list__num sh-list__num--big">05</span>
+          <span class="sh-card__title">لبنان: ارتفاع حصيلة العدوان إلى 4350 شهيدًا</span>
         </a>
       
     </div>
-    <div style="margin-top:28px">
-      <div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid #d5dde8;padding-bottom:10px">
-        <h2 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:800;margin:0;color:#0a1a33;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg)"></span>الأقسام</h2>
+    <div class="sh-mt-28">
+      <div class="sh-section__head">
+        <h2 class="sh-section__title sh-section__title--sm">الأقسام</h2>
       </div>
-      <div style="display:flex;flex-wrap:wrap;gap:0 18px;padding-top:12px;font-size:12.5px;font-weight:700;font-family:'Almarai',sans-serif">
-        <a href="category.html" style="color:#4a5568;padding:6px 0" class="sh-x63">غزة</a><a href="category.html" style="color:#4a5568;padding:6px 0" class="sh-x64">فلسطين</a><a href="category.html" style="color:#4a5568;padding:6px 0" class="sh-x65">القدس</a><a href="category.html" style="color:#4a5568;padding:6px 0" class="sh-x66">عربي ودولي</a><a href="category.html" style="color:#4a5568;padding:6px 0" class="sh-x67">اقتصاد</a><a href="category.html" style="color:#4a5568;padding:6px 0" class="sh-x68">مجتمع</a><a href="category.html" style="color:#4a5568;padding:6px 0" class="sh-x69">رياضة</a><a href="category.html" style="color:#4a5568;padding:6px 0" class="sh-x70">صور</a><a href="category.html" style="color:#4a5568;padding:6px 0" class="sh-x71">فيديو</a>
-      </div>
-    </div>
-    <div style="margin-top:28px">
-      <div style="display:flex;align-items:center;justify-content:space-between;background:#0a1a33;color:#fff;padding:10px 14px">
-        <h2 style="font-family:'Almarai',sans-serif;font-size:13px;font-weight:800;margin:0;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#e0302f;border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite"></span>آخر الأخبار</h2>
-        <a href="coverage.html" style="font-size:11px;color:#7ea8dd;font-weight:700" class="sh-x72">التغطية الحية ←</a>
-      </div>
-      <div style="border-right:1px solid #e6ebf2;margin-right:2px">
-        
-          <a href="article.html" style="display:block;padding:12px 14px 12px 0" class="sh-x73">
-            <span style="display:flex;gap:9px;align-items:center;font-size:11px"><span style="width:5px;height:5px;background:#e0302f;transform:rotate(45deg);margin-right:-17px"></span><span style="color:#e0302f;font-weight:700">عاجل</span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">10:32 م</span></span>
-            <span style="display:block;font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.7;margin-top:5px;color:#14233a;text-wrap:pretty">قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم</span>
-          </a>
-        
-          <a href="article.html" style="display:block;padding:12px 14px 12px 0" class="sh-x74">
-            <span style="display:flex;gap:9px;align-items:center;font-size:11px"><span style="width:5px;height:5px;background:#b8c2d0;transform:rotate(45deg);margin-right:-17px"></span><span style="color:#1b5aa6;font-weight:700">غزة</span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">10:13 م</span></span>
-            <span style="display:block;font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.7;margin-top:5px;color:#14233a;text-wrap:pretty">إطلاق نار من "كواد كابتر" في السطر الغربي بخانيونس</span>
-          </a>
-        
-          <a href="article.html" style="display:block;padding:12px 14px 12px 0" class="sh-x75">
-            <span style="display:flex;gap:9px;align-items:center;font-size:11px"><span style="width:5px;height:5px;background:#b8c2d0;transform:rotate(45deg);margin-right:-17px"></span><span style="color:#1b5aa6;font-weight:700">القدس</span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">09:05 م</span></span>
-            <span style="display:block;font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.7;margin-top:5px;color:#14233a;text-wrap:pretty">قنابل غاز خلال اقتحام محيط مخيم قلنديا</span>
-          </a>
-        
-          <a href="article.html" style="display:block;padding:12px 14px 12px 0" class="sh-x76">
-            <span style="display:flex;gap:9px;align-items:center;font-size:11px"><span style="width:5px;height:5px;background:#b8c2d0;transform:rotate(45deg);margin-right:-17px"></span><span style="color:#1b5aa6;font-weight:700">لبنان</span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">08:47 م</span></span>
-            <span style="display:block;font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.7;margin-top:5px;color:#14233a;text-wrap:pretty">غارة إسرائيلية على أطراف بلدة عيتا الشعب جنوبي لبنان</span>
-          </a>
-        
+      <div class="sh-search-search-rail__div-1">
+        <a href="category.html" class="sh-rail__link">غزة</a><a href="category.html" class="sh-rail__link">فلسطين</a><a href="category.html" class="sh-rail__link">القدس</a><a href="category.html" class="sh-rail__link">عربي ودولي</a><a href="category.html" class="sh-rail__link">اقتصاد</a><a href="category.html" class="sh-rail__link">مجتمع</a><a href="category.html" class="sh-rail__link">رياضة</a><a href="category.html" class="sh-rail__link">صور</a><a href="category.html" class="sh-rail__link">فيديو</a>
       </div>
     </div>
-    <div style="margin-top:28px">
-      <div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid #d5dde8;padding-bottom:10px">
-        <h2 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:800;margin:0;color:#0a1a33;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg)"></span>ملفات شهاب</h2>
+    <div class="sh-mt-28">
+      <div class="sh-search-search-rail__div-2">
+        <h2 class="sh-search-search-rail__h2-1"><span class="sh-search-search-rail__span-1"></span>آخر الأخبار</h2>
+        <a href="coverage.html" class="sh-search-search-rail__a-1">التغطية الحية ←</a>
+      </div>
+      <div class="sh-search-search-rail__div-3">
+        
+          <a href="article.html" class="sh-rail__item">
+            <span class="sh-meta"><span class="sh-search-search-rail__span-2">عاجل</span><span class="sh-meta__time">10:32 م</span></span>
+            <span class="sh-rail__title">قوات الاحتلال تقتحم بلدة دير الغصون شمال طولكرم</span>
+          </a>
+        
+          <a href="article.html" class="sh-rail__item">
+            <span class="sh-meta"><span class="sh-link">غزة</span><span class="sh-meta__time">10:13 م</span></span>
+            <span class="sh-rail__title">إطلاق نار من "كواد كابتر" في السطر الغربي بخانيونس</span>
+          </a>
+        
+          <a href="article.html" class="sh-rail__item">
+            <span class="sh-meta"><span class="sh-link">القدس</span><span class="sh-meta__time">09:05 م</span></span>
+            <span class="sh-rail__title">قنابل غاز خلال اقتحام محيط مخيم قلنديا</span>
+          </a>
+        
+          <a href="article.html" class="sh-rail__item">
+            <span class="sh-meta"><span class="sh-link">لبنان</span><span class="sh-meta__time">08:47 م</span></span>
+            <span class="sh-rail__title">غارة إسرائيلية على أطراف بلدة عيتا الشعب جنوبي لبنان</span>
+          </a>
+        
+      </div>
+    </div>
+    <div class="sh-mt-28">
+      <div class="sh-section__head">
+        <h2 class="sh-section__title sh-section__title--sm">ملفات شهاب</h2>
       </div>
       
-        <a href="files.html" style="display:block;padding:13px 0;border-bottom:1px solid #f1f4f8" class="sh-x77">
-          <span style="display:block;font-size:11px;color:#1b5aa6;font-weight:700">ملف</span>
-          <span style="display:block;font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.7;margin-top:5px;color:#14233a">1000 يوم على حرب الإبادة</span>
+        <a href="files.html" class="sh-search-search-rail__a-2">
+          <span class="sh-search-search-rail__span-3">ملف</span>
+          <span class="sh-search-search-rail__span-4">1000 يوم على حرب الإبادة</span>
         </a>
       
-        <a href="files.html" style="display:block;padding:13px 0;border-bottom:1px solid #f1f4f8" class="sh-x78">
-          <span style="display:block;font-size:11px;color:#1b5aa6;font-weight:700">ملف</span>
-          <span style="display:block;font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.7;margin-top:5px;color:#14233a">أقمار الطوفان.. رحلة الغياب والعودة</span>
+        <a href="files.html" class="sh-search-search-rail__a-2">
+          <span class="sh-search-search-rail__span-3">ملف</span>
+          <span class="sh-search-search-rail__span-4">أقمار الطوفان.. رحلة الغياب والعودة</span>
         </a>
       
-        <a href="files.html" style="display:block;padding:13px 0;border-bottom:1px solid #f1f4f8" class="sh-x79">
-          <span style="display:block;font-size:11px;color:#1b5aa6;font-weight:700">ملف</span>
-          <span style="display:block;font-family:'Almarai',sans-serif;font-size:13px;font-weight:700;line-height:1.7;margin-top:5px;color:#14233a">رحيل الضيف.. القائد الذي أرهق الاحتلال</span>
+        <a href="files.html" class="sh-search-search-rail__a-2">
+          <span class="sh-search-search-rail__span-3">ملف</span>
+          <span class="sh-search-search-rail__span-4">رحيل الضيف.. القائد الذي أرهق الاحتلال</span>
         </a>
       
     </div>
   </aside>
 </div>
 
-<section data-screen-label="Search By Date" style="margin-top:44px;padding-top:26px;border-top:1px solid #d5dde8">
-  <div style="display:flex;align-items:baseline;justify-content:space-between">
-    <h2 style="font-family:'Almarai',sans-serif;font-size:16px;font-weight:800;margin:0;color:#0a1a33;display:flex;align-items:center;gap:10px"><span style="width:7px;height:7px;background:#1b5aa6;transform:rotate(45deg)"></span>استكشف الأخبار حسب التاريخ</h2>
-    <span style="font-size:11px;color:#8a95a6">أرشيف شهاب</span>
+<section data-screen-label="Search By Date" class="sh-search-search-by-date__section-1">
+  <div class="sh-search-search-by-date__div-1">
+    <h2 class="sh-section__title sh-section__title--md">استكشف الأخبار حسب التاريخ</h2>
+    <span class="sh-meta__note">أرشيف شهاب</span>
   </div>
-  <div style="position:relative;margin-top:28px">
-    <span style="position:absolute;top:9px;right:0;left:0;height:1px;background:#dfe6ef"></span>
-    <span style="position:absolute;top:6px;right:0;width:7px;height:7px;background:#1b5aa6;transform:rotate(45deg)"></span>
-    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 28px">
+  <div class="sh-search-search-by-date__div-2">
+    <span class="sh-search-search-by-date__span-1"></span>
+    <span class="sh-search-search-by-date__span-2"></span>
+    <div class="sh-search-search-by-date__div-3">
       
-        <a href="#" style="position:relative;display:block;padding:28px 0 4px" class="sh-x80">
-          <span style="position:absolute;top:5px;right:0;width:16px;height:13px;background:#1b5aa6;border:2px solid #1b5aa6" class="sh-mark"></span>
-          <span style="position:absolute;top:9px;right:9px;width:26px;height:1px;background:#1b5aa6;opacity:.35"></span>
-          <span style="display:block;font-family:'Almarai',sans-serif;font-size:28px;font-weight:800;color:#0a1a33;line-height:.9;font-variant-numeric:tabular-nums">2026</span>
-          <span style="display:block;font-size:11px;color:#8a95a6;margin-top:7px;font-variant-numeric:tabular-nums">412 نتيجة</span>
+        <a href="#" class="sh-timeline__item">
+          <span class="sh-mark sh-search-search-by-date__span-3"></span>
+          <span class="sh-timeline__tick"></span>
+          <span class="sh-search-search-by-date__span-4">2026</span>
+          <span class="sh-archive__count">412 نتيجة</span>
         </a>
       
-        <a href="#" style="position:relative;display:block;padding:28px 0 4px" class="sh-x81">
-          <span style="position:absolute;top:5px;right:0;width:16px;height:13px;background:#fff;border:2px solid #1b5aa6" class="sh-mark"></span>
-          <span style="position:absolute;top:9px;right:9px;width:26px;height:1px;background:#1b5aa6;opacity:.35"></span>
-          <span style="display:block;font-family:'Almarai',sans-serif;font-size:28px;font-weight:800;color:#0a1a33;line-height:.9;font-variant-numeric:tabular-nums">2025</span>
-          <span style="display:block;font-size:11px;color:#8a95a6;margin-top:7px;font-variant-numeric:tabular-nums">536 نتيجة</span>
+        <a href="#" class="sh-timeline__item">
+          <span class="sh-mark sh-timeline__node"></span>
+          <span class="sh-timeline__tick"></span>
+          <span class="sh-search-search-by-date__span-4">2025</span>
+          <span class="sh-archive__count">536 نتيجة</span>
         </a>
       
-        <a href="#" style="position:relative;display:block;padding:28px 0 4px" class="sh-x82">
-          <span style="position:absolute;top:5px;right:0;width:16px;height:13px;background:#fff;border:2px solid #1b5aa6" class="sh-mark"></span>
-          <span style="position:absolute;top:9px;right:9px;width:26px;height:1px;background:#1b5aa6;opacity:.35"></span>
-          <span style="display:block;font-family:'Almarai',sans-serif;font-size:28px;font-weight:800;color:#0a1a33;line-height:.9;font-variant-numeric:tabular-nums">2024</span>
-          <span style="display:block;font-size:11px;color:#8a95a6;margin-top:7px;font-variant-numeric:tabular-nums">218 نتيجة</span>
+        <a href="#" class="sh-timeline__item">
+          <span class="sh-mark sh-timeline__node"></span>
+          <span class="sh-timeline__tick"></span>
+          <span class="sh-search-search-by-date__span-4">2024</span>
+          <span class="sh-archive__count">218 نتيجة</span>
         </a>
       
-        <a href="#" style="position:relative;display:block;padding:28px 0 4px" class="sh-x83">
-          <span style="position:absolute;top:5px;right:0;width:16px;height:13px;background:#fff;border:2px solid #1b5aa6" class="sh-mark"></span>
-          <span style="position:absolute;top:9px;right:9px;width:26px;height:1px;background:#1b5aa6;opacity:.35"></span>
-          <span style="display:block;font-family:'Almarai',sans-serif;font-size:28px;font-weight:800;color:#0a1a33;line-height:.9;font-variant-numeric:tabular-nums">2023</span>
-          <span style="display:block;font-size:11px;color:#8a95a6;margin-top:7px;font-variant-numeric:tabular-nums">82 نتيجة</span>
+        <a href="#" class="sh-timeline__item">
+          <span class="sh-mark sh-timeline__node"></span>
+          <span class="sh-timeline__tick"></span>
+          <span class="sh-search-search-by-date__span-4">2023</span>
+          <span class="sh-archive__count">82 نتيجة</span>
         </a>
       
     </div>
   </div>
 </section>
 
-<section data-screen-label="Discovery Strip" style="position:relative;background:#0a1a33;color:#fff;margin-top:44px;padding:30px 32px 34px;overflow:hidden">
-  <span style="position:absolute;top:-280px;left:-160px;width:640px;height:640px;border:1px solid rgba(126,168,221,.16);border-radius:50%;pointer-events:none"></span>
-  <span style="position:absolute;top:-200px;left:-80px;width:460px;height:460px;border:1px solid rgba(126,168,221,.1);border-radius:50%;pointer-events:none"></span>
-  <div style="position:relative;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px">
+<section data-screen-label="Discovery Strip" class="sh-search-discovery-strip__section-1">
+  <span class="sh-search-discovery-strip__span-1"></span>
+  <span class="sh-search-discovery-strip__span-2"></span>
+  <div class="sh-search-discovery-strip__div-1">
     <div>
-      <span style="display:flex;align-items:center;gap:9px;font-family:'Almarai',sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.06em;color:#7ea8dd">استكشاف<span style="width:24px;height:1px;background:#1b5aa6"></span></span>
-      <h2 style="font-family:'Almarai',sans-serif;font-size:24px;font-weight:800;margin:8px 0 0;display:flex;align-items:center;gap:10px"><span style="width:16px;height:13px;background:#1b5aa6" class="sh-mark"></span>ما الذي تبحث عنه؟</h2>
+      <span class="sh-eyebrow">استكشاف<span class="sh-search-discovery-strip__span-3"></span></span>
+      <h2 class="sh-search-discovery-strip__h2-1"><span class="sh-mark sh-mark--md"></span>ما الذي تبحث عنه؟</h2>
     </div>
-    <span style="font-size:11.5px;color:rgba(255,255,255,.5)">الموضوعات الأكثر بحثًا في شهاب</span>
+    <span class="sh-search-discovery-strip__span-4">الموضوعات الأكثر بحثًا في شهاب</span>
   </div>
-  <div style="position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 28px;margin-top:24px">
+  <div class="sh-search-discovery-strip__div-2">
     
-      <a href="#" style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14);color:#fff" class="sh-x84">
-        <span style="display:flex;align-items:center;gap:10px;font-family:'Almarai',sans-serif;font-size:16px;font-weight:800"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>غزة</span>
-        <span style="font-size:11px;color:rgba(255,255,255,.45);font-variant-numeric:tabular-nums">1,248</span>
+      <a href="#" class="sh-search-discovery-strip__a-1">
+        <span class="sh-search-discovery-strip__span-5">غزة</span>
+        <span class="sh-search-discovery-strip__span-6">1,248</span>
       </a>
     
-      <a href="#" style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14);color:#fff" class="sh-x85">
-        <span style="display:flex;align-items:center;gap:10px;font-family:'Almarai',sans-serif;font-size:16px;font-weight:800"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>فلسطين</span>
-        <span style="font-size:11px;color:rgba(255,255,255,.45);font-variant-numeric:tabular-nums">3,102</span>
+      <a href="#" class="sh-search-discovery-strip__a-1">
+        <span class="sh-search-discovery-strip__span-5">فلسطين</span>
+        <span class="sh-search-discovery-strip__span-6">3,102</span>
       </a>
     
-      <a href="#" style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14);color:#fff" class="sh-x86">
-        <span style="display:flex;align-items:center;gap:10px;font-family:'Almarai',sans-serif;font-size:16px;font-weight:800"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>القدس</span>
-        <span style="font-size:11px;color:rgba(255,255,255,.45);font-variant-numeric:tabular-nums">864</span>
+      <a href="#" class="sh-search-discovery-strip__a-1">
+        <span class="sh-search-discovery-strip__span-5">القدس</span>
+        <span class="sh-search-discovery-strip__span-6">864</span>
       </a>
     
-      <a href="#" style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14);color:#fff" class="sh-x87">
-        <span style="display:flex;align-items:center;gap:10px;font-family:'Almarai',sans-serif;font-size:16px;font-weight:800"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>الحرب</span>
-        <span style="font-size:11px;color:rgba(255,255,255,.45);font-variant-numeric:tabular-nums">2,415</span>
+      <a href="#" class="sh-search-discovery-strip__a-1">
+        <span class="sh-search-discovery-strip__span-5">الحرب</span>
+        <span class="sh-search-discovery-strip__span-6">2,415</span>
       </a>
     
-      <a href="#" style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14);color:#fff" class="sh-x88">
-        <span style="display:flex;align-items:center;gap:10px;font-family:'Almarai',sans-serif;font-size:16px;font-weight:800"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>السياسة</span>
-        <span style="font-size:11px;color:rgba(255,255,255,.45);font-variant-numeric:tabular-nums">731</span>
+      <a href="#" class="sh-search-discovery-strip__a-1">
+        <span class="sh-search-discovery-strip__span-5">السياسة</span>
+        <span class="sh-search-discovery-strip__span-6">731</span>
       </a>
     
-      <a href="#" style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14);color:#fff" class="sh-x89">
-        <span style="display:flex;align-items:center;gap:10px;font-family:'Almarai',sans-serif;font-size:16px;font-weight:800"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>الاقتصاد</span>
-        <span style="font-size:11px;color:rgba(255,255,255,.45);font-variant-numeric:tabular-nums">286</span>
+      <a href="#" class="sh-search-discovery-strip__a-1">
+        <span class="sh-search-discovery-strip__span-5">الاقتصاد</span>
+        <span class="sh-search-discovery-strip__span-6">286</span>
       </a>
     
-      <a href="#" style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14);color:#fff" class="sh-x90">
-        <span style="display:flex;align-items:center;gap:10px;font-family:'Almarai',sans-serif;font-size:16px;font-weight:800"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>المجتمع</span>
-        <span style="font-size:11px;color:rgba(255,255,255,.45);font-variant-numeric:tabular-nums">419</span>
+      <a href="#" class="sh-search-discovery-strip__a-1">
+        <span class="sh-search-discovery-strip__span-5">المجتمع</span>
+        <span class="sh-search-discovery-strip__span-6">419</span>
       </a>
     
-      <a href="#" style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14);color:#fff" class="sh-x91">
-        <span style="display:flex;align-items:center;gap:10px;font-family:'Almarai',sans-serif;font-size:16px;font-weight:800"><span style="width:5px;height:5px;background:#1b5aa6;transform:rotate(45deg)"></span>العالم</span>
-        <span style="font-size:11px;color:rgba(255,255,255,.45);font-variant-numeric:tabular-nums">655</span>
+      <a href="#" class="sh-search-discovery-strip__a-1">
+        <span class="sh-search-discovery-strip__span-5">العالم</span>
+        <span class="sh-search-discovery-strip__span-6">655</span>
       </a>
     
   </div>
 </section>
 
-<div data-screen-label="Search Closing" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;margin-top:44px;padding:26px 0;border-top:1px solid #e6ebf2;border-bottom:1px solid #e6ebf2">
-  <div style="display:flex;align-items:flex-start;gap:14px">
-    <span style="width:7px;height:7px;background:#1b5aa6;transform:rotate(45deg);margin-top:9px;flex:none"></span>
+<div data-screen-label="Search Closing" class="sh-search-search-closing__div-1">
+  <div class="sh-search-search-closing__div-2">
+    
     <div>
-      <span style="display:block;font-family:'Almarai',sans-serif;font-size:17px;font-weight:800;color:#0a1a33">تابع القصة كاملة</span>
-      <span style="display:block;font-family:'Noto Naskh Arabic',serif;font-size:13.5px;color:#4a5568;margin-top:5px;line-height:1.8">استكشف ملفات شهاب وتقاريرنا الخاصة التي تجمع تفاصيل القصة في مكان واحد.</span>
+      <span class="sh-search-search-closing__span-1">تابع القصة كاملة</span>
+      <span class="sh-search-search-closing__span-2">استكشف ملفات شهاب وتقاريرنا الخاصة التي تجمع تفاصيل القصة في مكان واحد.</span>
     </div>
   </div>
-  <a href="files.html" style="display:inline-flex;align-items:center;gap:12px;border:1px solid #b9c6d8;color:#0a1a33;font-family:'Almarai',sans-serif;font-size:13px;font-weight:800;padding:11px 26px" class="sh-x92">استكشف ملفات شهاب <span style="width:16px;height:1px;background:currentColor"></span></a>
+  <a href="files.html" class="sh-search-search-closing__a-1">استكشف ملفات شهاب <span class="sh-more__arrow sh-more__arrow--16 sh-more__arrow--cc"></span></a>
 </div>
 
-<section data-screen-label="May Interest You" style="padding:36px 0 48px;margin-top:36px;border-top:1px solid #d5dde8">
-  <div style="display:flex;align-items:baseline;justify-content:space-between">
-    <h2 style="font-family:'Almarai',sans-serif;font-size:19px;font-weight:700;margin:0;color:#0a1a33;display:flex;align-items:center;gap:10px"><span style="width:16px;height:13px;background:#1b5aa6" class="sh-mark"></span>قد يهمك أيضًا</h2>
-    <a href="category.html" style="display:inline-flex;align-items:center;gap:8px;font-size:12px;color:#1b5aa6;font-weight:700" class="sh-x93">كل التقارير <span style="width:14px;height:1px;background:#1b5aa6"></span></a>
+<section data-screen-label="May Interest You" class="sh-search-may-interest-you__section-1">
+  <div class="sh-search-may-interest-you__div-1">
+    <h2 class="sh-section__title"><span class="sh-mark sh-mark--md"></span>قد يهمك أيضًا</h2>
+    <a href="category.html" class="sh-search-may-interest-you__a-1">كل التقارير <span class="sh-more__arrow sh-more__arrow--14"></span></a>
   </div>
-  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px;padding-top:12px">
+  <div class="sh-search-may-interest-you__div-2">
     
-      <a href="article.html" style="display:block;padding:12px 0" class="sh-x94">
-        <span style="position:relative;display:block;background:#0f2a4f;overflow:hidden;aspect-ratio:16/9"><span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=600&quot;);background-size:cover;background-position:center"></span></span>
-        <span style="display:flex;gap:9px;align-items:center;font-size:11px;margin-top:12px"><span style="color:#1b5aa6;font-weight:700;font-family:'Almarai',sans-serif">تقرير</span><span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">هذا الأسبوع</span></span>
-        <span style="display:block;font-family:'Almarai',sans-serif;font-size:15.5px;font-weight:700;line-height:1.7;margin-top:8px;color:#0a1a33;text-wrap:pretty">من التوسع إلى الضم.. كيف تصنع "إسرائيل" واقعًا لا رجعة فيه في الضفة؟</span>
+      <a href="article.html" class="sh-search-may-interest-you__a-2">
+        <span class="sh-tile sh-tile--16x9"><span class="sh-search-may-interest-you__span-1"></span></span>
+        <span class="sh-search-may-interest-you__span-2"><span class="sh-meta__cat">تقرير</span><span class="sh-meta__time">هذا الأسبوع</span></span>
+        <span class="sh-search-may-interest-you__span-3">من التوسع إلى الضم.. كيف تصنع "إسرائيل" واقعًا لا رجعة فيه في الضفة؟</span>
       </a>
     
-      <a href="article.html" style="display:block;padding:12px 0" class="sh-x95">
-        <span style="position:relative;display:block;background:#0f2a4f;overflow:hidden;aspect-ratio:16/9"><span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=600&quot;);background-size:cover;background-position:center"></span></span>
-        <span style="display:flex;gap:9px;align-items:center;font-size:11px;margin-top:12px"><span style="color:#1b5aa6;font-weight:700;font-family:'Almarai',sans-serif">عدسة شهاب</span><span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">هذا الأسبوع</span></span>
-        <span style="display:block;font-family:'Almarai',sans-serif;font-size:15.5px;font-weight:700;line-height:1.7;margin-top:8px;color:#0a1a33;text-wrap:pretty">شارع الرشيد.. شريان غزة يعود للحياة رغم الدمار</span>
+      <a href="article.html" class="sh-search-may-interest-you__a-2">
+        <span class="sh-tile sh-tile--16x9"><span class="sh-search-may-interest-you__span-4"></span></span>
+        <span class="sh-search-may-interest-you__span-2"><span class="sh-meta__cat">عدسة شهاب</span><span class="sh-meta__time">هذا الأسبوع</span></span>
+        <span class="sh-search-may-interest-you__span-3">شارع الرشيد.. شريان غزة يعود للحياة رغم الدمار</span>
       </a>
     
-      <a href="files.html" style="display:block;padding:12px 0" class="sh-x96">
-        <span style="position:relative;display:block;background:#0f2a4f;overflow:hidden;aspect-ratio:16/9"><span style="position:absolute;inset:0;background-image:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=600&quot;);background-size:cover;background-position:center"></span></span>
-        <span style="display:flex;gap:9px;align-items:center;font-size:11px;margin-top:12px"><span style="color:#1b5aa6;font-weight:700;font-family:'Almarai',sans-serif">ملف</span><span style="width:3px;height:3px;background:#b8c2d0;transform:rotate(45deg)"></span><span style="color:#8a95a6;font-variant-numeric:tabular-nums">مستمر</span></span>
-        <span style="display:block;font-family:'Almarai',sans-serif;font-size:15.5px;font-weight:700;line-height:1.7;margin-top:8px;color:#0a1a33;text-wrap:pretty">1000 يوم على حرب الإبادة.. أرقام توثّق الجريمة</span>
+      <a href="files.html" class="sh-search-may-interest-you__a-2">
+        <span class="sh-tile sh-tile--16x9"><span class="sh-search-may-interest-you__span-5"></span></span>
+        <span class="sh-search-may-interest-you__span-2"><span class="sh-meta__cat">ملف</span><span class="sh-meta__time">مستمر</span></span>
+        <span class="sh-search-may-interest-you__span-3">1000 يوم على حرب الإبادة.. أرقام توثّق الجريمة</span>
       </a>
     
   </div>
@@ -553,74 +558,74 @@
 
 </main>
 
-<footer data-screen-label="Footer" style="position:relative;overflow:hidden;background:#0a1a33;color:#fff;margin-top:24px">
-  <video src="assets/video/footer-city.webm" autoplay="" muted="" loop="" playsinline="" preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42"></video>
-  <span style="position:absolute;inset:0;background:#0a1a33;opacity:.55;pointer-events:none"></span>
-  <span style="position:absolute;top:0;right:0;left:0;height:2px;background:#1b5aa6"></span>
-  <div style="position:relative;max-width:1280px;margin:0 auto;padding:44px 32px 0">
-    <div style="display:flex;flex-wrap:wrap;gap:36px 40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.16)">
-      <div style="flex:1 1 280px;min-width:0">
-        <a href="index.html"><img src="assets/images/logo-white.png" alt="شهاب" style="height:46px;width:auto"></a>
-        <p style="font-family:'Noto Naskh Arabic',serif;font-size:12.5px;line-height:1.95;color:rgba(255,255,255,.72);margin:16px 0 0;max-width:34ch">وكالة أنباء فلسطينية تعمل على مدار الساعة لنقل الصورة من الساحة الفلسطينية والعربية والدولية.</p>
-        <div style="display:flex;gap:8px;margin-top:18px">
+<footer data-screen-label="Footer" class="sh-footer">
+  <video src="assets/video/footer-city.webm" autoplay="" muted="" loop="" playsinline="" preload="auto" class="sh-footer__video"></video>
+  <span class="sh-footer__veil"></span>
+  <span class="sh-footer__rule"></span>
+  <div class="sh-footer__inner">
+    <div class="sh-footer__cols">
+      <div class="sh-footer__col sh-footer__col--brand">
+        <a href="index.html"><img src="assets/images/logo-white.png" alt="شهاب" class="sh-footer__logo"></a>
+        <p class="sh-footer__about">وكالة أنباء فلسطينية تعمل على مدار الساعة لنقل الصورة من الساحة الفلسطينية والعربية والدولية.</p>
+        <div class="sh-footer__social">
           
-            <a href="#" aria-label="فيسبوك" style="width:34px;height:34px;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;transition:background .18s,border-color .18s" class="sh-x97">
-              <i class="fa-brands fa-facebook-f" aria-hidden="true" style="font-size:15px;color:#fff;line-height:1"></i>
+            <a href="#" aria-label="فيسبوك" class="sh-footer__social-btn">
+              <i aria-hidden="true" class="fa-brands fa-facebook-f sh-footer__social-icon"></i>
             </a>
           
-            <a href="#" aria-label="إكس" style="width:34px;height:34px;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;transition:background .18s,border-color .18s" class="sh-x98">
-              <i class="fa-brands fa-x-twitter" aria-hidden="true" style="font-size:15px;color:#fff;line-height:1"></i>
+            <a href="#" aria-label="إكس" class="sh-footer__social-btn">
+              <i aria-hidden="true" class="fa-brands fa-x-twitter sh-footer__social-icon"></i>
             </a>
           
-            <a href="#" aria-label="إنستغرام" style="width:34px;height:34px;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;transition:background .18s,border-color .18s" class="sh-x99">
-              <i class="fa-brands fa-instagram" aria-hidden="true" style="font-size:15px;color:#fff;line-height:1"></i>
+            <a href="#" aria-label="إنستغرام" class="sh-footer__social-btn">
+              <i aria-hidden="true" class="fa-brands fa-instagram sh-footer__social-icon"></i>
             </a>
           
-            <a href="#" aria-label="تيليغرام" style="width:34px;height:34px;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;transition:background .18s,border-color .18s" class="sh-x100">
-              <i class="fa-solid fa-paper-plane" aria-hidden="true" style="font-size:15px;color:#fff;line-height:1"></i>
+            <a href="#" aria-label="تيليغرام" class="sh-footer__social-btn">
+              <i aria-hidden="true" class="fa-solid fa-paper-plane sh-footer__social-icon"></i>
             </a>
           
         </div>
       </div>
       
-        <div style="flex:1 1 150px;min-width:0">
-          <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الأقسام</h3>
-          <div style="display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:rgba(255,255,255,.75)">
-            <a href="category.html" class="sh-x101">أخبار فلسطين</a><a href="category.html" class="sh-x102">القدس</a><a href="category.html" class="sh-x103">غزة</a><a href="category.html" class="sh-x104">الضفة</a><a href="category.html" class="sh-x105">عربي ودولي</a>
+        <div class="sh-footer__col">
+          <h3 class="sh-footer__title">الأقسام</h3>
+          <div class="sh-footer__links">
+            <a href="category.html" class="sh-footer__link">أخبار فلسطين</a><a href="category.html" class="sh-footer__link">القدس</a><a href="category.html" class="sh-footer__link">غزة</a><a href="category.html" class="sh-footer__link">الضفة</a><a href="category.html" class="sh-footer__link">عربي ودولي</a>
           </div>
         </div>
       
-        <div style="flex:1 1 150px;min-width:0">
-          <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>المحتوى</h3>
-          <div style="display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:rgba(255,255,255,.75)">
-            <a href="coverage.html" class="sh-x106">التغطيات الحية</a><a href="files.html" class="sh-x107">ملفات شهاب</a><a href="photos.html" class="sh-x108">عدسة شهاب</a><a href="video.html" class="sh-x109">فيديو شهاب</a><a href="category.html" class="sh-x110">تقارير خاصة</a>
+        <div class="sh-footer__col">
+          <h3 class="sh-footer__title">المحتوى</h3>
+          <div class="sh-footer__links">
+            <a href="coverage.html" class="sh-footer__link">التغطيات الحية</a><a href="files.html" class="sh-footer__link">ملفات شهاب</a><a href="photos.html" class="sh-footer__link">عدسة شهاب</a><a href="video.html" class="sh-footer__link">فيديو شهاب</a><a href="category.html" class="sh-footer__link">تقارير خاصة</a>
           </div>
         </div>
       
-        <div style="flex:1 1 150px;min-width:0">
-          <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الوكالة</h3>
-          <div style="display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:rgba(255,255,255,.75)">
-            <a href="about.html" class="sh-x111">من نحن</a><a href="contact.html" class="sh-x112">تواصل معنا</a><a href="#" class="sh-x113">سياسة التحرير</a><a href="#" class="sh-x114">فرص العمل</a><a href="#" class="sh-x115">خدمة الصور</a>
+        <div class="sh-footer__col">
+          <h3 class="sh-footer__title">الوكالة</h3>
+          <div class="sh-footer__links">
+            <a href="about.html" class="sh-footer__link">من نحن</a><a href="contact.html" class="sh-footer__link">تواصل معنا</a><a href="#" class="sh-footer__link">سياسة التحرير</a><a href="#" class="sh-footer__link">فرص العمل</a><a href="#" class="sh-footer__link">خدمة الصور</a>
           </div>
         </div>
       
-      <div style="flex:1 1 260px;min-width:0">
-        <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>النشرة البريدية</h3>
-        <p style="font-family:'Noto Naskh Arabic',serif;font-size:12.5px;line-height:1.9;color:rgba(255,255,255,.72);margin:0 0 14px">آخر الأخبار وأبرز الملفات في بريدك كل صباح.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <span style="flex:1 1 150px;min-width:0;border:1px solid rgba(255,255,255,.3);padding:10px 13px;font-size:12px;color:rgba(255,255,255,.55);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">بريدك الإلكتروني</span>
-          <span style="background:#1b5aa6;color:#fff;font-family:'Almarai',sans-serif;font-size:12px;font-weight:700;padding:10px 20px;display:flex;align-items:center;white-space:nowrap;flex:none">اشترك</span>
+      <div class="sh-footer__col sh-footer__col--wide">
+        <h3 class="sh-footer__title">النشرة البريدية</h3>
+        <p class="sh-footer__lead">آخر الأخبار وأبرز الملفات في بريدك كل صباح.</p>
+        <div class="sh-footer__form">
+          <span class="sh-footer__input">بريدك الإلكتروني</span>
+          <span class="sh-footer__submit">اشترك</span>
         </div>
-        <div style="display:flex;gap:10px;align-items:center;margin-top:18px;font-size:11.5px;color:rgba(255,255,255,.6)"><span style="width:5px;height:5px;background:#e0302f;border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite"></span>تغطية مستمرة على مدار الساعة</div>
+        <div class="sh-footer__live"><span class="sh-footer__live-dot"></span>تغطية مستمرة على مدار الساعة</div>
       </div>
     </div>
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:20px 0 26px;font-size:11.5px;color:rgba(255,255,255,.6)">
+    <div class="sh-footer__legal">
       <span>وكالة شهاب للأنباء © 2026 — جميع الحقوق محفوظة</span>
-      <div style="display:flex;gap:22px">
-        <a href="privacy.html" class="sh-x116">سياسة الخصوصية</a>
-        <a href="terms.html" class="sh-x117">شروط الاستخدام</a>
-        <a href="#" class="sh-x118">خدمة RSS</a>
-        <a href="#" class="sh-x119">English</a>
+      <div class="sh-footer__legal-links">
+        <a href="privacy.html" class="sh-footer__legal-link">سياسة الخصوصية</a>
+        <a href="terms.html" class="sh-footer__legal-link">شروط الاستخدام</a>
+        <a href="#" class="sh-footer__legal-link">خدمة RSS</a>
+        <a href="#" class="sh-footer__legal-link">English</a>
       </div>
     </div>
   </div>
@@ -628,8 +633,8 @@
 
 </div>
 
-<script src="js/app.js?v=14" defer></script>
-<script src="js/responsive.js?v=14" defer></script>
-  <script src="js/brief.js?v=14" defer></script>
+<script src="js/app.js?v=55" defer></script>
+<script src="js/responsive.js?v=55" defer></script>
+  <script src="js/brief.js?v=55" defer></script>
 </body>
 </html>

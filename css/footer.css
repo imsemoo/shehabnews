@@ -1,0 +1,27 @@
+/* شهاب — footer. */
+.sh-footer{position:relative;overflow:hidden;background:var(--sh-navy);color:#fff;margin-top:24px}
+.sh-footer__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42}
+.sh-footer__veil{position:absolute;inset:0;background:var(--sh-navy);opacity:.55;pointer-events:none}
+.sh-footer__rule{position:absolute;top:0;right:0;left:0;height:2px;background:var(--sh-blue)}
+.sh-footer__inner{position:relative;max-width:var(--sh-container);margin:0 auto;padding:44px 32px 0}
+.sh-footer__cols{display:flex;flex-wrap:wrap;gap:36px 40px;padding-bottom:36px;border-bottom:1px solid var(--sh-on-dark-16)}
+.sh-footer__col.sh-footer__col--brand{flex:1 1 280px;min-width:0}
+.sh-footer__logo{height:46px;width:auto}
+.sh-footer__about{font-family:var(--sh-serif);font-size:12.5px;line-height:1.95;color:var(--sh-on-dark-72);margin:16px 0 0;max-width:34ch}
+.sh-footer__social{display:flex;gap:8px;margin-top:18px}
+.sh-footer__col{flex:1 1 150px;min-width:0}
+.sh-footer__title{font-family:var(--sh-font);font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px}
+.sh-footer__links{display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:var(--sh-on-dark-75)}
+.sh-footer__col.sh-footer__col--wide{flex:1 1 260px;min-width:0}
+.sh-footer__lead{font-family:var(--sh-serif);font-size:12.5px;line-height:1.9;color:var(--sh-on-dark-72);margin:0 0 14px}
+.sh-footer__form{display:flex;flex-wrap:wrap;gap:8px}
+.sh-footer__input{flex:1 1 150px;min-width:0;border:1px solid var(--sh-on-dark-30);padding:10px 13px;font-size:12px;color:var(--sh-on-dark-55);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sh-footer__submit{background:var(--sh-blue);color:#fff;font-family:var(--sh-font);font-size:12px;font-weight:700;padding:10px 20px;display:flex;align-items:center;white-space:nowrap;flex:none}
+.sh-footer__live{display:flex;gap:10px;align-items:center;margin-top:18px;font-size:11.5px;color:var(--sh-on-dark-60)}
+.sh-footer__live-dot{width:5px;height:5px;background:var(--sh-red);border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite}
+.sh-footer__legal{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:20px 0 26px;font-size:11.5px;color:var(--sh-on-dark-60)}
+.sh-footer__legal-links{display:flex;gap:22px}
+.sh-footer__social-btn{width:34px;height:34px;border:1px solid var(--sh-on-dark-30);display:flex;align-items:center;justify-content:center;transition:background .18s,border-color .18s}
+.sh-footer__social-btn:hover{background:var(--sh-blue);border-color:var(--sh-blue)}
+.sh-footer__social-icon{font-size:15px;color:#fff;line-height:1}
+@keyframes sh-meteor-footer{0%{transform:translate(0,0);opacity:0}10%{opacity:1}100%{transform:translate(-520px,260px);opacity:0}}

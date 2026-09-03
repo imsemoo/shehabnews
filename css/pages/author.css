@@ -1,0 +1,126 @@
+/* شهاب — author: page layout, one-off styles (scoped by section), and what
+   the old per-page sheet still owned (keyframes, p/input, its own a{transition}). */
+a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background .16s ease,gap .16s ease,transform .3s ease}
+.sh-author-body__nav-1{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--sh-mute);padding:22px 0 0}
+.sh-author-author-hero__section-1{position:relative;background:#fbfcfe;margin-top:16px;overflow:hidden;display:grid;grid-template-columns:300px minmax(0,1fr);gap:44px;padding:40px;align-items:center}
+.sh-author-author-hero__span-1{position:absolute;top:-220px;right:-140px;width:560px;height:560px;border:1px solid rgba(27,90,166,.12);border-radius:50%;pointer-events:none}
+.sh-author-author-hero__span-2{position:absolute;top:-150px;right:-70px;width:420px;height:420px;border:1px solid rgba(27,90,166,.08);border-radius:50%;pointer-events:none}
+.sh-author-author-hero__div-1{position:relative}
+.sh-author-author-hero__span-3{position:relative;display:block;background:var(--sh-navy);aspect-ratio:3/4;overflow:hidden}
+.sh-author-author-hero__img-1{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;filter:grayscale(.15)}
+.sh-author-author-hero__span-4{position:absolute;bottom:0;right:0;left:0;height:3px;background:var(--sh-blue)}
+.sh-author-author-hero__span-5{position:absolute;top:-8px;left:32px;width:56px;height:56px;border:1px solid rgba(27,90,166,.35);transform:rotate(45deg);pointer-events:none}
+.sh-author-author-hero__span-6{display:flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--sh-blue)}
+.sh-author-author-hero__span-7{width:28px;height:1px;background:var(--sh-blue)}
+.sh-author-author-hero__h1-1{font-family:var(--sh-font);font-size:clamp(34px,4.2vw,52px);font-weight:800;line-height:1.15;margin:14px 0 0;color:var(--sh-navy)}
+.sh-author-author-hero__span-8{display:block;font-family:var(--sh-font);font-size:15px;font-weight:700;color:var(--sh-blue);margin-top:8px}
+.sh-author-author-hero__p-1{font-family:var(--sh-serif);font-size:14.5px;line-height:2;color:var(--sh-ink-2);margin:14px 0 0;max-width:56ch;text-wrap:pretty}
+.sh-author-author-hero__div-2{display:flex;flex-wrap:wrap;gap:14px 28px;margin-top:22px;padding-top:18px;border-top:1px solid #e3e9f1;font-size:12px;color:var(--sh-ink-2)}
+.sh-author-author-hero__span-9{display:flex;align-items:center;gap:9px}
+.sh-author-author-hero__span-10{width:5px;height:5px;background:var(--sh-red);border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite}
+.sh-author-author-hero__span-11{display:flex;align-items:center;gap:14px;margin-right:auto}
+.sh-author-author-hero__a-1{width:30px;height:30px;border:1px solid var(--sh-hair-2);display:flex;align-items:center;justify-content:center;color:var(--sh-ink-2)}
+.sh-author-author-hero__a-1:hover{background:var(--sh-navy);border-color:var(--sh-navy);color:#fff}
+.sh-author-author-hero__i-1{font-size:12px}
+.sh-author-author-signature__div-1{display:flex;flex-direction:column;align-items:center;margin-top:34px}
+.sh-author-author-signature__div-2{display:flex;align-items:center;gap:14px;width:100%}
+.sh-author-author-signature__span-1{display:block;font-family:var(--sh-font);font-size:13px;font-weight:800;letter-spacing:.08em;color:var(--sh-navy);margin-top:16px}
+.sh-author-author-signature__span-2{display:block;font-family:var(--sh-serif);font-size:13px;color:var(--sh-mute);margin-top:6px}
+.sh-author-author-body__div-1{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;padding:36px 0 0}
+.sh-author-latest-by-author__a-1{display:block;padding:22px 0 24px;border-bottom:1px solid var(--sh-hair)}
+.sh-author-latest-by-author__a-1:hover{color:var(--sh-blue)}
+.sh-author-latest-by-author__span-1{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=800");background-size:cover;background-position:center 55%;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
+.sh-author-latest-by-author__span-1:hover{transform:scale(1.03)}
+.sh-author-latest-by-author__span-2{position:absolute;top:14px;right:14px;background:var(--sh-navy);color:#fff;font-size:10.5px;font-weight:800;padding:4px 11px;font-family:var(--sh-font);display:flex;align-items:center;gap:7px}
+.sh-author-latest-by-author__span-3{display:flex;gap:9px;align-items:center;font-size:11.5px;margin-top:14px}
+.sh-author-latest-by-author__span-4{display:block;font-family:var(--sh-font);font-size:24px;font-weight:800;line-height:1.55;margin-top:9px;color:var(--sh-navy);text-wrap:pretty;max-width:34ch}
+.sh-author-latest-by-author__span-5{display:block;font-family:var(--sh-serif);font-size:14px;line-height:1.95;color:var(--sh-ink-2);margin-top:10px;max-width:60ch}
+.sh-author-latest-by-author__span-6{display:flex;gap:9px;align-items:center;font-size:11.5px;color:var(--sh-mute);margin-top:12px}
+.sh-author-latest-by-author__a-2{display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:22px;align-items:center;padding:18px 0;border-bottom:1px solid var(--sh-hair)}
+.sh-author-latest-by-author__a-2:hover{color:var(--sh-blue)}
+.sh-author-latest-by-author__span-7{display:block;font-family:var(--sh-font);font-size:16.5px;font-weight:700;line-height:1.7;margin-top:7px;color:var(--sh-navy);text-wrap:pretty}
+.sh-author-latest-by-author__span-8{display:block;font-family:var(--sh-serif);font-size:12.5px;line-height:1.85;color:var(--sh-ink-2);margin-top:6px;max-width:56ch}
+.sh-author-latest-by-author__span-9{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=700");background-size:cover;background-position:center}
+.sh-author-latest-by-author__span-10{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1200");background-size:cover;background-position:center}
+.sh-author-latest-by-author__span-11{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=700");background-size:cover;background-position:center}
+.sh-author-latest-by-author__span-12{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/UNRWA%20el-Sheikh%20Radwan%20health%20center%2C%20February%202024.jpg?width=700");background-size:cover;background-position:center}
+.sh-author-latest-by-author__span-13{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=800");background-size:cover;background-position:center}
+.sh-author-pagination__nav-1{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:28px;font-family:var(--sh-font);font-size:13px;font-weight:700}
+.sh-author-pagination__a-1{display:inline-flex;align-items:center;gap:7px;color:var(--sh-grey-3);padding:8px 14px;cursor:default}
+.sh-author-pagination__a-2{width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--sh-blue);color:#fff;font-variant-numeric:tabular-nums}
+.sh-author-pagination__span-1{width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--sh-mute)}
+.sh-author-pagination__a-3{display:inline-flex;align-items:center;gap:7px;color:var(--sh-blue);padding:8px 14px}
+.sh-author-pagination__a-3:hover{gap:11px}
+.sh-author-top-stories__section-1{margin-top:44px}
+.sh-author-top-stories__a-1{position:relative;display:block;background:var(--sh-navy);color:#fff;overflow:hidden;margin-top:22px;aspect-ratio:21/9}
+.sh-author-top-stories__a-1:hover{color:#fff}
+.sh-author-top-stories__span-1{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1200");background-size:cover;background-position:center 40%;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
+.sh-author-top-stories__span-1:hover{transform:scale(1.03)}
+.sh-author-top-stories__span-2{position:absolute;inset:0;background:linear-gradient(to left,rgba(10,26,51,.92) 0%,rgba(10,26,51,.5) 50%,rgba(27,90,166,.2) 100%)}
+.sh-author-top-stories__span-3{position:absolute;top:-20px;left:14px;font-family:var(--sh-font);font-size:120px;font-weight:800;line-height:1;color:var(--sh-on-dark-08);font-variant-numeric:tabular-nums;pointer-events:none}
+.sh-author-top-stories__span-4{position:absolute;top:0;bottom:0;right:0;display:flex;flex-direction:column;justify-content:center;padding:28px;max-width:520px}
+.sh-author-top-stories__span-5{width:24px;height:1px;background:var(--sh-blue)}
+.sh-author-top-stories__span-6{display:block;font-family:var(--sh-font);font-size:23px;font-weight:800;line-height:1.55;margin-top:12px;text-wrap:pretty}
+.sh-author-top-stories__span-7{display:flex;gap:9px;align-items:center;font-size:11.5px;color:rgba(255,255,255,.7);margin-top:12px}
+.sh-author-top-stories__div-1{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:22px}
+.sh-author-top-stories__a-2{display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:start;padding-top:14px;border-top:2px solid var(--sh-ink)}
+.sh-author-top-stories__a-2:hover{color:var(--sh-blue)}
+.sh-author-top-stories__span-8{font-family:var(--sh-font);font-size:38px;font-weight:800;color:#dfe8f3;line-height:.85;font-variant-numeric:tabular-nums}
+.sh-author-top-stories__span-9{display:block;font-family:var(--sh-font);font-size:16px;font-weight:700;line-height:1.7;margin-top:7px;color:var(--sh-navy);text-wrap:pretty}
+.sh-author-top-stories__span-10{display:block;font-size:11.5px;color:var(--sh-mute);margin-top:7px;font-variant-numeric:tabular-nums}
+.sh-author-author-archive__section-1{margin-top:44px}
+.sh-author-author-archive__div-1{position:relative;margin-top:28px}
+.sh-author-author-archive__span-1{position:absolute;top:9px;right:0;left:0;height:1px;background:#dfe6ef}
+.sh-author-author-archive__span-2{position:absolute;top:6px;right:0;width:7px;height:7px;background:var(--sh-blue);transform:rotate(45deg)}
+.sh-author-author-archive__div-2{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 28px}
+.sh-author-author-archive__a-1{position:relative;display:block;padding:28px 0 4px;color:var(--sh-navy)}
+.sh-author-author-archive__span-3{position:absolute;top:5px;right:0;width:16px;height:13px;background:var(--sh-blue);border:2px solid var(--sh-blue)}
+.sh-author-author-archive__span-4{display:block;font-family:var(--sh-font);font-size:28px;font-weight:800;line-height:.9;font-variant-numeric:tabular-nums}
+.sh-author-author-archive__a-2{position:relative;display:block;padding:28px 0 4px;color:var(--sh-ink-2)}
+.sh-author-author-archive__div-3{display:flex;flex-direction:column;margin-top:24px;border-top:1px solid var(--sh-hair)}
+.sh-author-author-archive__a-3{display:grid;grid-template-columns:96px 1fr auto;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--sh-hair-6)}
+.sh-author-author-archive__a-3:hover{color:var(--sh-blue)}
+.sh-author-author-archive__span-5{font-size:11.5px;color:var(--sh-mute);font-variant-numeric:tabular-nums}
+.sh-author-author-archive__span-6{font-family:var(--sh-font);font-size:14.5px;font-weight:700;line-height:1.7;color:var(--sh-ink);text-wrap:pretty}
+.sh-author-author-archive__span-7{font-size:11px;color:var(--sh-blue);font-weight:700;font-family:var(--sh-font)}
+.sh-author-author-topics__section-1{margin-top:44px}
+.sh-author-author-topics__div-1{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px;margin-top:6px}
+.sh-author-author-topics__a-1{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:15px 0;border-bottom:1px solid var(--sh-hair)}
+.sh-author-author-topics__a-1:hover{color:var(--sh-blue)}
+.sh-author-author-topics__span-1{display:flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:15.5px;font-weight:800;color:var(--sh-navy)}
+.sh-author-author-rail__aside-1{align-self:start;position:sticky;top:24px}
+.sh-author-author-rail__div-1{display:flex;flex-wrap:wrap;gap:0 18px;padding-top:12px;font-size:12.5px;font-weight:700;font-family:var(--sh-font)}
+.sh-author-author-rail__a-1{display:grid;grid-template-columns:78px 1fr;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--sh-hair-6)}
+.sh-author-author-rail__a-1:hover{color:var(--sh-blue)}
+.sh-author-author-rail__span-1{position:absolute;inset:0;background-image:url("../../assets/images/file-1000-days.png");background-size:cover;background-position:center}
+.sh-author-author-rail__span-2{display:block;font-size:10.5px;color:var(--sh-blue);font-weight:700}
+.sh-author-author-rail__span-3{display:block;font-family:var(--sh-font);font-size:12.5px;font-weight:700;line-height:1.6;margin-top:4px;color:var(--sh-ink);text-wrap:pretty}
+.sh-author-author-rail__span-4{position:absolute;inset:0;background-image:url("../../assets/images/file-aqmar-altoufan.png");background-size:cover;background-position:center}
+.sh-author-author-rail__span-5{position:absolute;inset:0;background-image:url("../../assets/images/file-raheel-aldaif.png");background-size:cover;background-position:center}
+.sh-author-author-files__section-1{position:relative;background:var(--sh-navy);color:#fff;margin-top:48px;padding:30px 32px 34px;overflow:hidden}
+.sh-author-author-files__span-1{position:absolute;top:-260px;right:-180px;width:620px;height:620px;border:1px solid rgba(126,168,221,.16);border-radius:50%;pointer-events:none}
+.sh-author-author-files__div-1{position:relative;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
+.sh-author-author-files__span-2{width:24px;height:1px;background:var(--sh-blue)}
+.sh-author-author-files__h2-1{font-family:var(--sh-font);font-size:24px;font-weight:800;margin:8px 0 0;display:flex;align-items:center;gap:10px}
+.sh-author-author-files__span-3{font-size:11.5px;color:rgba(255,255,255,.5)}
+.sh-author-author-files__div-2{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:24px}
+.sh-author-author-files__a-1{display:flex;flex-direction:column;background:var(--sh-navy-2);color:#fff;overflow:hidden;border-top:2px solid var(--sh-blue)}
+.sh-author-author-files__a-1:hover{color:#fff;transform:translateY(-3px)}
+.sh-author-author-files__span-4{position:relative;display:block;overflow:hidden;aspect-ratio:16/9;background:#061024}
+.sh-author-author-files__span-5{position:absolute;inset:0;background-image:url("../../assets/images/file-1000-days.png");background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
+.sh-author-author-files__span-5:hover{transform:scale(1.04)}
+.sh-author-author-files__span-6{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,42,79,.95),rgba(15,42,79,0) 60%)}
+.sh-author-author-files__span-7{display:flex;flex-direction:column;flex:1;padding:14px 18px 18px}
+.sh-author-author-files__span-8{display:block;font-family:var(--sh-font);font-size:17px;font-weight:800;line-height:1.55;text-wrap:pretty}
+.sh-author-author-files__span-9{display:flex;gap:9px;align-items:center;font-size:11.5px;color:rgba(255,255,255,.65);margin-top:8px}
+.sh-author-author-files__span-10{display:inline-flex;align-items:center;gap:10px;margin-top:auto;padding-top:16px;color:var(--sh-sky);font-weight:800;font-family:var(--sh-font);font-size:12px}
+.sh-author-author-files__span-11{position:absolute;inset:0;background-image:url("../../assets/images/file-aqmar-altoufan.png");background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
+.sh-author-author-files__span-11:hover{transform:scale(1.04)}
+.sh-author-author-files__span-12{position:absolute;inset:0;background-image:url("../../assets/images/palestine-map.png");background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
+.sh-author-author-files__span-12:hover{transform:scale(1.04)}
+.sh-author-author-closing__div-1{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;margin:44px 0 52px;padding:26px 0;border-top:1px solid var(--sh-hair-4);border-bottom:1px solid var(--sh-hair-4)}
+.sh-author-author-closing__div-2{display:flex;align-items:flex-start;gap:14px}
+.sh-author-author-closing__span-1{display:block;font-family:var(--sh-font);font-size:17px;font-weight:800;color:var(--sh-navy)}
+.sh-author-author-closing__span-2{display:block;font-family:var(--sh-serif);font-size:13.5px;color:var(--sh-ink-2);margin-top:5px;line-height:1.8}
+.sh-author-author-closing__a-1{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--sh-grey-2);color:var(--sh-navy);font-family:var(--sh-font);font-size:13px;font-weight:800;padding:11px 26px}
+.sh-author-author-closing__a-1:hover{background:var(--sh-navy);color:#fff;border-color:var(--sh-navy);gap:18px}

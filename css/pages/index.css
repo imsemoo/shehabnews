@@ -1,0 +1,465 @@
+/* شهاب — index: page layout, one-off styles (scoped by section), and what
+   the old per-page sheet still owned (keyframes, p/input, its own a{transition}). */
+p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:1.95;letter-spacing:0}
+h1,h2,h3{letter-spacing:-.005em}
+a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
+@keyframes sh-progress{0%{width:0}100%{width:100%}}
+@keyframes sh-cover-open{0%{transform:perspective(1400px) rotateY(-88deg);opacity:.2}55%{opacity:1}100%{transform:perspective(1400px) rotateY(0);opacity:1}}
+@keyframes sh-paper-out{0%{transform:translateX(28%);opacity:0}100%{transform:translateX(0);opacity:1}}
+@keyframes sh-lens-in{0%{opacity:0;transform:scale(1.04)}100%{opacity:1;transform:none}}
+@keyframes sh-line-in{0%{transform:translateY(10px);opacity:0}100%{transform:none;opacity:1}}
+@keyframes sh-fadein{0%{opacity:0;transform:translateY(6px)}100%{opacity:1;transform:none}}
+.sh-index-hero__section-1{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:40px;padding:32px 0 0;align-items:stretch}
+.sh-index-hero__div-1{display:flex;height:500px;background:var(--sh-navy);color:#fff;position:relative;overflow:hidden}
+.sh-index-hero__a-1{position:relative;overflow:hidden;display:block;color:#fff;flex-basis:64px;flex-grow:0;min-width:64px;transition:flex-grow .8s cubic-bezier(.2,.75,.2,1);cursor:pointer;border-right:1px solid rgba(255,255,255,.22);background:var(--sh-navy-2)}
+.sh-index-hero__a-1:hover{color:#fff}
+.sh-index-hero__span-1{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=1800);background-size:cover;background-position:center 30%;opacity:0.3;transform:scale(1);filter:none;transition:transform 9s linear,opacity .8s ease,filter .8s ease}
+.sh-index-hero__span-2{position:absolute;inset:0;background:var(--sh-navy-2);opacity:0.4;transition:opacity .8s ease;pointer-events:none}
+.sh-index-hero__span-3{position:absolute;top:0;right:0;bottom:0;width:64px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:22px 0 20px;opacity:1;transition:opacity .4s ease;pointer-events:none}
+.sh-index-hero__span-4{font-family:var(--sh-font);font-size:13px;font-weight:700;color:#fff;font-variant-numeric:tabular-nums;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.35);width:22px;text-align:center}
+.sh-index-hero__span-5{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--sh-font);font-size:13.5px;font-weight:700;line-height:1.3;max-height:300px;overflow:hidden;color:#fff;letter-spacing:.01em}
+.sh-index-hero__span-6{position:absolute;top:20px;right:24px;background:var(--sh-navy);color:#fff;font-size:11.5px;padding:5px 10px;opacity:0;transition:opacity .5s ease .3s;white-space:nowrap;display:flex;align-items:center;gap:8px}
+.sh-index-hero__div-2{position:absolute;inset:auto 0 0 0;background:var(--sh-navy);padding:14px 24px 0;opacity:0;transform:translateY(24px);transition:opacity .5s ease .25s,transform .6s cubic-bezier(.2,.7,.2,1) .2s;min-width:min(640px,100%);pointer-events:none}
+.sh-index-hero__div-3{display:flex;align-items:center;gap:12px;font-size:11.5px;color:var(--sh-on-dark-72);white-space:nowrap}
+.sh-index-hero__span-7{background:var(--sh-blue);color:#fff;padding:3px 9px;font-weight:700;font-family:var(--sh-font);font-size:11.5px}
+.sh-index-hero__span-8{color:#fff}
+.sh-index-hero__span-9{margin-right:auto;font-variant-numeric:tabular-nums;color:var(--sh-on-dark-55)}
+.sh-index-hero__div-4{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:8px 24px;margin:8px 0 12px}
+.sh-index-hero__h1-1{flex:1 1 360px;min-width:0;font-family:var(--sh-font);font-size:23px;font-weight:700;line-height:1.5;margin:0;text-wrap:pretty;color:#fff}
+.sh-index-hero__span-10{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;color:#fff;font-family:var(--sh-font);white-space:nowrap;padding-bottom:4px}
+.sh-index-hero__span-11{width:22px;height:1px;background:#fff}
+.sh-index-hero__span-12{display:block;height:3px;background:var(--sh-on-dark-14);position:relative}
+.sh-index-hero__span-13{position:absolute;right:0;top:0;height:100%;background:var(--sh-blue);width:0;animation:none;animation-play-state:running}
+.sh-index-hero__a-2{position:relative;overflow:hidden;display:block;color:#fff;flex-basis:64px;flex-grow:1;min-width:64px;transition:flex-grow .8s cubic-bezier(.2,.75,.2,1);cursor:pointer;border-right:1px solid rgba(255,255,255,.22);background:var(--sh-navy-2)}
+.sh-index-hero__a-2:hover{color:#fff}
+.sh-index-hero__span-14{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=1800);background-size:cover;background-position:center 40%;opacity:1;transform:scale(1.06);filter:contrast(1.14) brightness(1.1) saturate(1.08);transition:transform 9s linear,opacity .8s ease,filter .8s ease}
+.sh-index-hero__span-15{position:absolute;inset:0;background:var(--sh-navy-2);opacity:0;transition:opacity .8s ease;pointer-events:none}
+.sh-index-hero__span-16{position:absolute;top:0;right:0;bottom:0;width:64px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:22px 0 20px;opacity:0;transition:opacity .4s ease;pointer-events:none}
+.sh-index-hero__span-17{position:absolute;top:20px;right:24px;background:var(--sh-navy);color:#fff;font-size:11.5px;padding:5px 10px;opacity:1;transition:opacity .5s ease .3s;white-space:nowrap;display:flex;align-items:center;gap:8px}
+.sh-index-hero__div-5{position:absolute;inset:auto 0 0 0;background:var(--sh-navy);padding:14px 24px 0;opacity:1;transform:translateY(0px);transition:opacity .5s ease .25s,transform .6s cubic-bezier(.2,.7,.2,1) .2s;min-width:min(640px,100%);pointer-events:none}
+.sh-index-hero__span-18{background:var(--sh-red);color:#fff;padding:3px 9px;font-weight:700;font-family:var(--sh-font);font-size:11.5px}
+.sh-index-hero__span-19{position:absolute;right:0;top:0;height:100%;background:var(--sh-blue);width:0;animation:sh-progress 9s linear forwards;animation-play-state:running}
+.sh-index-hero__span-20{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/Dome%20of%20the%20Al-Aqsa%20Mosque%20%2820160%29.jpg?width=1800);background-size:cover;background-position:center 40%;opacity:0.3;transform:scale(1);filter:none;transition:transform 9s linear,opacity .8s ease,filter .8s ease}
+.sh-index-hero__div-6{position:absolute;bottom:22px;left:28px;display:flex;gap:8px;z-index:2}
+.sh-index-hero__aside-1{display:flex;flex-direction:column;height:500px;overflow:hidden;border-top:2px solid var(--sh-blue)}
+.sh-index-hero__div-7{display:flex;align-items:baseline;justify-content:space-between;padding:12px 0 10px;border-bottom:1px solid var(--sh-hair)}
+.sh-index-hero__h2-1{font-family:var(--sh-font);font-size:17px;font-weight:700;margin:0;display:flex;align-items:center;gap:10px;color:var(--sh-navy)}
+.sh-index-hero__span-21{width:8px;height:8px;background:var(--sh-red);border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite}
+.sh-index-hero__div-8{flex:1;min-height:0;overflow:hidden}
+.sh-index-hero__a-3{display:block;padding:11px 0 12px;border-bottom:1px solid var(--sh-hair)}
+.sh-index-hero__div-9{display:flex;gap:10px;align-items:center;font-size:11.5px}
+.sh-index-hero__div-10{font-family:var(--sh-font);font-size:14px;font-weight:700;line-height:1.6;margin-top:5px;text-wrap:pretty;color:var(--sh-ink)}
+.sh-index-hero__a-4{display:flex;align-items:center;gap:8px;padding:12px 0 0;font-size:12px;color:var(--sh-blue);font-weight:700;border-top:1px solid var(--sh-hair);margin-top:auto}
+.sh-index-hero__a-4:hover{gap:14px}
+.sh-index-top-now__section-1{padding:48px 0 40px}
+.sh-index-top-now__div-1{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--sh-hair);padding-bottom:10px}
+.sh-index-top-now__span-1{width:22px;height:3px;background:var(--sh-blue)}
+.sh-index-top-now__h2-1{font-family:var(--sh-font);font-size:20px;font-weight:700;margin:0}
+.sh-index-top-now__span-2{margin-right:auto;font-size:12px;color:var(--sh-mute)}
+.sh-index-top-now__ol-1{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr)}
+.sh-index-top-now__li-1{padding:18px 18px 18px 0;margin-right:-1px}
+.sh-index-top-now__div-2{font-family:var(--sh-font);font-size:22px;font-weight:700;color:var(--sh-blue);line-height:1}
+.sh-index-top-now__a-1{display:block;font-family:var(--sh-font);font-size:15px;font-weight:700;line-height:1.6;margin-top:10px;text-wrap:pretty}
+.sh-index-live-coverage__section-1{padding:8px 0 64px}
+.sh-index-live-coverage__div-1{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding-bottom:14px;border-bottom:1px solid var(--sh-hair-2)}
+.sh-index-live-coverage__div-2{display:flex;align-items:center;gap:12px}
+.sh-index-live-coverage__h2-1{font-family:var(--sh-font);font-size:24px;font-weight:700;margin:0;line-height:1}
+.sh-index-live-coverage__span-1{display:inline-flex;align-items:center;gap:7px;background:var(--sh-red);color:#fff;font-size:11.5px;font-weight:700;padding:3px 9px;font-family:var(--sh-font)}
+.sh-index-live-coverage__span-2{width:6px;height:6px;background:#fff;border-radius:50%;animation:sh-pulse 1.4s ease-in-out infinite}
+.sh-index-live-coverage__a-1{display:inline-flex;align-items:center;gap:10px;background:var(--sh-blue);color:#fff;font-size:13px;font-weight:700;padding:11px 18px;font-family:var(--sh-font);transition:background .18s,gap .2s}
+.sh-index-live-coverage__a-1:hover{background:var(--sh-navy-2);gap:16px}
+.sh-index-live-coverage__span-3{width:18px;height:1px;background:#fff}
+.sh-index-live-coverage__div-3{display:flex;gap:32px;border-bottom:1px solid var(--sh-hair);font-family:var(--sh-font);font-size:13.5px}
+.sh-index-live-coverage__button-1{background:none;border:none;cursor:pointer;padding:14px 0 12px;font-family:inherit;font-size:inherit;font-weight:600;color:var(--sh-ink);border-bottom:2px solid var(--sh-blue);margin-bottom:-1px;display:flex;align-items:center;gap:8px;transition:color .16s,border-color .2s}
+.sh-index-live-coverage__button-1:hover{color:var(--sh-blue)}
+.sh-index-live-coverage__span-4{font-size:11.5px;color:#a3aec0;font-weight:400;font-variant-numeric:tabular-nums}
+.sh-index-live-coverage__button-2{background:none;border:none;cursor:pointer;padding:14px 0 12px;font-family:inherit;font-size:inherit;font-weight:400;color:#7b8798;border-bottom:2px solid transparent;margin-bottom:-1px;display:flex;align-items:center;gap:8px;transition:color .16s,border-color .2s}
+.sh-index-live-coverage__button-2:hover{color:var(--sh-blue)}
+.sh-index-live-coverage__div-4{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:0;padding-top:28px}
+.sh-index-live-coverage__a-2{display:block;padding-left:36px}
+.sh-index-live-coverage__div-5{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--sh-mute)}
+.sh-index-live-coverage__span-5{background:var(--sh-red);color:#fff;padding:3px 9px;font-weight:700;font-family:var(--sh-font)}
+.sh-index-live-coverage__h3-1{font-family:var(--sh-font);font-size:23px;font-weight:700;line-height:1.6;margin:14px 0 12px;text-wrap:pretty}
+.sh-index-live-coverage__p-1{font-size:13.5px;line-height:1.8;color:var(--sh-ink-2);margin:0 0 18px;text-wrap:pretty;max-width:60ch}
+.sh-index-live-coverage__div-6{position:relative;overflow:hidden;background:var(--sh-navy-2)}
+.sh-index-live-coverage__img-1{width:100%;aspect-ratio:15/8;object-fit:cover;object-position:center 40%;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.sh-index-live-coverage__img-1:hover{transform:scale(1.03)}
+.sh-index-live-coverage__span-6{position:absolute;top:0;right:0;width:1px;height:70px;background:#fff;opacity:.6;transform:rotate(-35deg);transform-origin:top right}
+.sh-index-live-coverage__div-7{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--sh-mute);margin-top:10px}
+.sh-index-live-coverage__div-8{padding-right:36px;display:flex;flex-direction:column}
+.sh-index-live-coverage__div-9{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--sh-mute);padding-bottom:12px;border-bottom:1px solid var(--sh-hair)}
+.sh-index-live-coverage__span-7{font-weight:700;color:var(--sh-ink);font-family:var(--sh-font)}
+.sh-index-live-coverage__span-8{display:flex;align-items:center;gap:6px}
+.sh-index-live-coverage__span-9{width:6px;height:6px;background:var(--sh-blue);border-radius:50%;animation:sh-pulse 1.8s ease-in-out infinite}
+.sh-index-live-coverage__div-10{position:relative;flex:1;padding-top:6px}
+.sh-index-live-coverage__span-10{position:absolute;right:70px;top:14px;bottom:8px;width:1px;background:var(--sh-hair-5)}
+.sh-index-live-coverage__a-3{display:grid;grid-template-columns:56px 28px 1fr;align-items:start;padding:12px 0 14px;animation:sh-fadein .4s ease both;border-bottom:1px solid var(--sh-hair)}
+.sh-index-live-coverage__a-3:hover{color:var(--sh-blue)}
+.sh-index-live-coverage__span-11{font-size:12px;color:var(--sh-mute);font-variant-numeric:tabular-nums;padding-top:4px;white-space:nowrap}
+.sh-index-live-coverage__span-12{display:flex;justify-content:center;padding-top:5px}
+.sh-index-live-coverage__span-13{width:16px;height:13px;background:var(--sh-red);outline:3px solid #fff}
+.sh-index-live-coverage__span-14{display:flex;gap:8px;align-items:center;font-size:11.5px;color:var(--sh-blue);font-weight:700;flex-wrap:wrap}
+.sh-index-live-coverage__span-15{background:var(--sh-blue);color:#fff;padding:1px 7px;font-size:11.5px}
+.sh-index-live-coverage__span-16{display:block;font-family:var(--sh-font);font-size:14.5px;font-weight:700;line-height:1.7;margin-top:4px;text-wrap:pretty;color:var(--sh-ink)}
+.sh-index-live-coverage__span-17{width:16px;height:13px;background:var(--sh-grey-3);outline:3px solid #fff}
+.sh-index-live-coverage__div-11{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:18px;border-top:1px solid var(--sh-hair);padding-top:14px}
+.sh-index-live-coverage__div-12{padding:0 16px 0 0;margin-right:-1px;padding-right:16px}
+.sh-index-live-coverage__div-13{font-family:var(--sh-font);font-size:22px;font-weight:700;color:var(--sh-blue);line-height:1;font-variant-numeric:tabular-nums}
+.sh-index-live-coverage__div-14{font-size:12px;color:var(--sh-mute);margin-top:6px;line-height:1.5}
+.sh-index-live-coverage__a-4{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--sh-blue);font-weight:700;margin-top:16px}
+.sh-index-live-coverage__a-4:hover{gap:14px}
+.sh-index-live-coverage__div-15{display:none;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:0;padding-top:28px}
+.sh-index-files__section-1{padding:0 0 64px}
+.sh-index-files__div-1{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:12px}
+.sh-index-files__div-2{display:flex;align-items:center;gap:12px}
+.sh-index-files__h2-1{font-family:var(--sh-font);font-size:24px;font-weight:700;margin:0;line-height:1;color:var(--sh-navy)}
+.sh-index-files__div-3{display:grid;grid-template-columns:72px minmax(0,1.05fr) minmax(0,.95fr) 72px 72px 72px;min-height:420px;margin-top:20px;background:var(--sh-navy)}
+.sh-index-files__a-1{background:var(--sh-blue);color:#fff;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:20px 0 18px;position:relative;cursor:default;animation:sh-fadein .5s ease both;z-index:3}
+.sh-index-files__a-1:hover{background:var(--sh-blue)}
+.sh-index-files__span-1{position:absolute;top:0;right:0;bottom:0;width:4px;background:#fff}
+.sh-index-files__span-2{font-family:var(--sh-font);font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.4);width:26px;text-align:center}
+.sh-index-files__span-3{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--sh-font);font-size:15px;font-weight:700;letter-spacing:.01em}
+.sh-index-files__a-2{position:relative;display:block;background:var(--sh-navy);color:#fff;perspective:1400px;z-index:2}
+.sh-index-files__a-2:hover{color:#fff}
+.sh-index-files__span-4{position:absolute;inset:0;transform-origin:right center;animation:sh-cover-open .9s cubic-bezier(.2,.75,.2,1) both;background:var(--sh-navy);box-shadow:-18px 0 40px rgba(10,26,51,.45)}
+.sh-index-files__span-5{position:absolute;inset:0;background-image:url(../../assets/images/file-raheel-aldaif.png);background-size:cover;background-position:center 30%}
+.sh-index-files__span-6{position:absolute;top:18px;right:18px;background:var(--sh-navy);color:#fff;font-size:11.5px;font-weight:700;padding:5px 10px;display:flex;align-items:center;gap:8px;font-family:var(--sh-font)}
+.sh-index-files__a-3{position:relative;overflow:hidden;display:flex;flex-direction:column;color:var(--sh-ink);background:#efece6}
+.sh-index-files__a-3:hover{color:var(--sh-ink)}
+.sh-index-files__img-1{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right bottom;opacity:.22}
+.sh-index-files__div-4{position:relative;display:flex;flex-direction:column;flex:1;padding:26px 28px 24px;animation:sh-paper-out .7s cubic-bezier(.2,.75,.2,1) .15s both}
+.sh-index-files__div-5{display:flex;align-items:center;gap:10px;font-size:11.5px;color:#6b7280}
+.sh-index-files__span-7{background:var(--sh-blue);color:#fff;padding:3px 9px;font-weight:700;font-family:var(--sh-font)}
+.sh-index-files__h3-1{font-family:var(--sh-font);font-size:22px;font-weight:700;line-height:1.5;margin:14px 0 8px;color:var(--sh-navy);text-wrap:pretty;animation:sh-line-in .5s ease .45s both}
+.sh-index-files__p-1{font-size:13px;line-height:1.75;color:#3b4656;margin:0 0 18px;text-wrap:pretty;animation:sh-line-in .5s ease .55s both}
+.sh-index-files__div-6{display:flex;flex-direction:column;border-top:1px solid var(--sh-hair)}
+.sh-index-files__span-8{display:grid;grid-template-columns:1fr;gap:10px;align-items:start;padding:11px 0;border-bottom:1px solid rgba(10,26,51,.08);font-family:var(--sh-font);font-size:14px;font-weight:700;line-height:1.6;color:var(--sh-navy);animation:sh-line-in .5s ease both;animation-delay:0.65s}
+.sh-index-files__span-9{display:grid;grid-template-columns:1fr;gap:10px;align-items:start;padding:11px 0;border-bottom:1px solid rgba(10,26,51,.08);font-family:var(--sh-font);font-size:14px;font-weight:700;line-height:1.6;color:var(--sh-navy);animation:sh-line-in .5s ease both;animation-delay:0.75s}
+.sh-index-files__span-10{display:grid;grid-template-columns:1fr;gap:10px;align-items:start;padding:11px 0;border-bottom:1px solid rgba(10,26,51,.08);font-family:var(--sh-font);font-size:14px;font-weight:700;line-height:1.6;color:var(--sh-navy);animation:sh-line-in .5s ease both;animation-delay:0.8500000000000001s}
+.sh-index-files__span-11{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--sh-blue);font-weight:700;margin-top:auto;padding-top:16px;font-family:var(--sh-font)}
+.sh-index-files__span-12{width:18px;height:1px;background:var(--sh-blue)}
+.sh-index-files__a-4{display:none;position:relative;display:block;background:var(--sh-navy);color:#fff;perspective:1400px;z-index:2}
+.sh-index-files__a-4:hover{color:#fff}
+.sh-index-files__span-13{position:absolute;inset:0;background-image:url(../../assets/images/file-aqmar-altoufan.png);background-size:cover;background-position:center 30%}
+.sh-index-files__a-5{display:none;position:relative;overflow:hidden;display:flex;flex-direction:column;color:var(--sh-ink);background:#efece6}
+.sh-index-files__a-5:hover{color:var(--sh-ink)}
+.sh-index-files__span-14{position:absolute;inset:0;background-image:url(../../assets/images/file-1000-days.png);background-size:cover;background-position:center 30%}
+.sh-index-files__span-15{position:absolute;inset:0;background-image:url(../../assets/images/file-world-cup-2026.png);background-size:cover;background-position:center 30%}
+.sh-index-files__a-6{position:relative;overflow:hidden;color:#fff;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:20px 0 18px;border-right:1px solid rgba(255,255,255,.18);background:var(--sh-navy-2);transition:background .2s;cursor:pointer}
+.sh-index-files__a-6:hover{color:#fff;background:#163a6b}
+.sh-index-files__span-16{position:absolute;inset:0;background-image:url(../../assets/images/file-aqmar-altoufan.png);background-size:cover;background-position:center;opacity:.28}
+.sh-index-files__span-17{position:absolute;inset:0;background:var(--sh-navy);opacity:.35}
+.sh-index-files__span-18{position:relative;font-family:var(--sh-font);font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.35);width:26px;text-align:center}
+.sh-index-files__span-19{position:relative;writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--sh-font);font-size:14.5px;font-weight:700;line-height:1.3}
+.sh-index-files__span-20{position:relative;writing-mode:vertical-rl;font-size:11.5px;color:rgba(255,255,255,.7)}
+.sh-index-files__span-21{position:absolute;inset:0;background-image:url(../../assets/images/file-1000-days.png);background-size:cover;background-position:center;opacity:.28}
+.sh-index-files__span-22{position:absolute;inset:0;background-image:url(../../assets/images/file-world-cup-2026.png);background-size:cover;background-position:center;opacity:.28}
+.sh-index-more-news__section-1{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:48px;padding:0 0 64px}
+.sh-index-more-news__div-1{display:flex;align-items:baseline;justify-content:space-between;gap:24px;border-bottom:1px solid var(--sh-hair);padding-bottom:10px}
+.sh-index-more-news__aside-1{padding:0;align-self:start}
+.sh-index-more-news__div-5{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:9px}
+.sh-index-more-news__h2-1{font-family:var(--sh-font);font-size:17px;font-weight:700;margin:0;color:var(--sh-navy)}
+.sh-index-more-news__span-6{font-size:12px;color:var(--sh-mute)}
+.sh-index-more-news__a-6{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;padding:14px 0}
+.sh-index-more-news__a-6:hover{color:var(--sh-blue)}
+.sh-index-more-news__span-7{font-family:var(--sh-font);font-size:26px;font-weight:700;color:var(--sh-blue);line-height:.9;opacity:.35;font-variant-numeric:tabular-nums}
+.sh-index-more-news__span-8{font-family:var(--sh-font);font-size:15px;font-weight:700;line-height:1.65;color:var(--sh-ink);text-wrap:pretty}
+.sh-index-more-news__a-7{display:block;margin-top:20px;background:var(--sh-navy);color:#fff;overflow:hidden}
+.sh-index-more-news__a-7:hover{color:#fff}
+.sh-index-more-news__span-9{position:relative;display:block;overflow:hidden;background:#08172d;aspect-ratio:4/3;border-bottom:1px solid rgba(255,255,255,.09)}
+.sh-index-more-news__span-10{position:absolute;inset:0;background:linear-gradient(to left top,transparent 49.5%,rgba(126,168,221,.18) 49.8%,rgba(126,168,221,.18) 50.2%,transparent 50.5%)}
+.sh-index-more-news__img-1{position:absolute;top:50%;left:50%;width:32%;transform:translate(-50%,-50%);opacity:.13}
+.sh-index-more-news__span-11{position:absolute;top:10px;inset-inline-start:12px;display:flex;align-items:center;gap:7px;font-family:var(--sh-font);font-size:10.5px;font-weight:800;letter-spacing:.02em;color:var(--sh-on-dark-55)}
+.sh-index-more-news__span-12{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 18px 15px}
+.sh-index-more-news__span-13{display:block;font-family:var(--sh-font);font-size:15px;font-weight:700}
+.sh-index-more-news__span-14{display:block;font-size:11.5px;color:rgba(255,255,255,.7);margin-top:4px}
+.sh-index-more-news__span-15{width:16px;height:13px;background:#fff;flex:none}
+.sh-index-statements__section-1{padding:0 0 64px}
+.sh-index-statements__div-1{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:12px}
+.sh-index-statements__div-2{display:flex;align-items:center;gap:12px}
+.sh-index-statements__h2-1{font-family:var(--sh-font);font-size:24px;font-weight:700;margin:0;line-height:1;color:var(--sh-navy)}
+.sh-index-statements__div-3{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);margin-top:24px;gap:40px;align-items:start}
+.sh-index-statements__a-1{position:relative;display:flex;flex-wrap:wrap;background:#f5f7fa;min-height:340px;color:var(--sh-ink)}
+.sh-index-statements__a-1:hover{color:var(--sh-ink)}
+.sh-index-statements__span-1{position:absolute;top:0;right:0;bottom:0;width:4px;background:var(--sh-blue)}
+.sh-index-statements__div-4{flex:1 1 320px;min-width:0;display:flex;flex-direction:column;justify-content:space-between;padding:32px 36px 28px}
+.sh-index-statements__span-2{display:inline-flex;align-items:center;gap:8px;color:var(--sh-blue);font-family:var(--sh-font);font-size:11.5px;font-weight:700}
+.sh-index-statements__h3-1{font-family:var(--sh-font);font-size:clamp(18px,1.6vw,24px);font-weight:700;line-height:1.7;margin:18px 0 0;text-wrap:pretty;color:var(--sh-navy)}
+.sh-index-statements__div-5{display:flex;align-items:center;gap:12px;margin-top:28px;padding-top:16px;border-top:1px solid var(--sh-hair)}
+.sh-index-statements__span-3{display:block;font-family:var(--sh-font);font-size:15px;font-weight:700;color:var(--sh-navy)}
+.sh-index-statements__span-4{display:block;font-size:12px;color:var(--sh-mute);margin-top:3px}
+.sh-index-statements__span-5{flex:1 1 240px;position:relative;overflow:hidden;display:block;background:#e6eaf0;min-height:220px;aspect-ratio:15/8}
+.sh-index-statements__img-1{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%}
+.sh-index-statements__div-6{display:flex;flex-direction:column;gap:22px}
+.sh-index-statements__a-2{display:grid;grid-template-columns:84px 1fr;gap:18px;align-items:start;padding:0 0 8px;color:var(--sh-ink)}
+.sh-index-statements__a-2:hover{color:var(--sh-blue)}
+.sh-index-statements__span-6{position:relative;aspect-ratio:1/1;overflow:hidden;display:block;background:#e6eaf0}
+.sh-index-statements__span-7{position:absolute;inset:0;background-image:url(https://cdn4.telesco.pe/file/JeK4h41Ub1I62C62qMoowuUDaGDXds0iNvwIkW1IyCGpc7F1l6Z7-stDpB71laMScl7kA34POh7a3ivazKE31Fr_pCfTXSULHT9vY8Ge-OQVJKjoJ_2L67fV9zDLVqyb_hD9on8-uFqvTntuUVD25nek48XP_6QxBc0TTKaY_1jb4KbeVQ9KQUc6rHs56yMd_AN5t80pyG_Qk8mzL2Q8GMhxpnD7YYTh8zIsyQev4VeTEdM0IYuwacuE55a698p6W3Ep7BY5e2HRYLvr1GKhGWA7oj7LUav1HnnpEwN8QLB5uyYxs6utSUnylwO-m5HPOuxK8J6aIdcHQWLRPGeV_Q.jpg);background-size:cover;background-position:center 20%}
+.sh-index-statements__span-8{display:block;font-family:var(--sh-font);font-size:14.5px;font-weight:700;line-height:1.85;text-wrap:pretty;color:var(--sh-ink)}
+.sh-index-statements__span-9{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin-top:12px;font-size:12px;color:var(--sh-mute)}
+.sh-index-statements__span-10{font-weight:700;color:var(--sh-navy);font-size:12.5px;font-family:var(--sh-font);white-space:nowrap}
+.sh-index-statements__span-11{white-space:nowrap}
+.sh-index-statements__span-12{position:absolute;inset:0;background-image:url(https://cdn4.telesco.pe/file/olsCvuctP3WPLnGu7ETphvR2kzHZsw4AaQMH7Vh80sQytLtdT-BgvRntiluXHAQQOwnTD7jR47ynzGg0X18cqO91c_tHotRwPnzociwjY5eHkrpCCfoMWod_eOUBB6JYDiVEXLy3Ouj4zfk33bI7rOL_n0odsBoYYQbU_R_FOl3ghO6plkMJdvYC_Kts0tChXhbMdbiJy1hJIbiPAHySuv-opsL089wMkvkSRUuYgNjMaQAaVmmWMfhT9j7SvJIRfzIVFvsKqzjNUJfxs3-sD8KVyRewP-nbuNAf_Br1eD-F9UZ8zkCkfHegQphp2clQqJJ0uKe0qa_abeiqmsW2kw.jpg);background-size:cover;background-position:center 20%}
+.sh-index-gaza-banner__section-1{position:relative;height:200px;overflow:hidden;background:var(--sh-navy-2);color:#fff}
+.sh-index-gaza-banner__img-1{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;opacity:.55}
+.sh-index-gaza-banner__div-1{position:absolute;inset:0;background:var(--sh-navy-2);opacity:.45}
+.sh-index-gaza-banner__div-2{position:relative;max-width:var(--sh-container);margin:0 auto;padding:0 32px;height:100%;display:flex;align-items:flex-end;justify-content:space-between;padding-bottom:22px}
+.sh-index-gaza-banner__h2-1{font-family:var(--sh-font);font-size:20px;font-weight:700;margin:0}
+.sh-index-gaza-banner__span-1{font-size:11.5px;color:var(--sh-on-dark-75)}
+.sh-index-lens__section-1{padding:56px 0 64px}
+.sh-index-lens__div-1{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:11px}
+.sh-index-lens__div-2{display:flex;align-items:center;gap:12px}
+.sh-index-lens__div-3{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);margin-top:20px;align-items:stretch}
+.sh-index-lens__a-1{position:relative;overflow:hidden;display:block;background:var(--sh-navy);cursor:pointer;aspect-ratio:15/8}
+.sh-index-lens__span-1{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=1800);background-size:cover;background-position:center 40%;animation:sh-lens-in .8s cubic-bezier(.2,.75,.2,1) both}
+.sh-index-lens__span-2{position:absolute;bottom:0;right:0;left:0;padding:16px 22px;background:var(--sh-navy);opacity:.92;color:#fff;font-size:11.5px;display:flex;justify-content:space-between;align-items:center}
+.sh-index-lens__span-3{display:flex;align-items:center;gap:8px;font-variant-numeric:tabular-nums}
+.sh-index-lens__div-4{padding:24px 26px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.sh-index-lens__div-5{font-size:12px;color:var(--sh-mute)}
+.sh-index-lens__div-6{display:flex;align-items:baseline;gap:8px;font-family:var(--sh-font);border-bottom:1px solid var(--sh-hair);padding:4px 0 14px}
+.sh-index-lens__span-4{font-size:40px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.sh-index-lens__span-5{font-size:14px;color:var(--sh-grey-3)}
+.sh-index-lens__h3-1{font-family:var(--sh-font);font-size:21px;font-weight:700;margin:18px 0 8px;animation:sh-line-in .5s ease both}
+.sh-index-lens__p-1{font-size:13px;line-height:1.95;color:var(--sh-ink-2);margin:0;text-wrap:pretty}
+.sh-index-lens__div-7{display:flex;gap:8px}
+.sh-index-lens__span-6{width:58px;height:44px;position:relative;overflow:hidden;cursor:pointer;outline:2px solid var(--sh-blue);outline-offset:-2px;transition:opacity .2s;opacity:1}
+.sh-index-lens__span-7{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=1800);background-size:cover;background-position:center}
+.sh-index-lens__span-8{width:58px;height:44px;position:relative;overflow:hidden;cursor:pointer;outline:2px solid transparent;outline-offset:-2px;transition:opacity .2s;opacity:0.55}
+.sh-index-lens__span-9{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1800);background-size:cover;background-position:center}
+.sh-index-lens__span-10{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=1800);background-size:cover;background-position:center}
+.sh-index-lens__span-11{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=1800);background-size:cover;background-position:center}
+.sh-index-lens__div-8{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px}
+.sh-index-lens__div-9{display:flex;gap:6px}
+.sh-index-lens__button-1{width:36px;height:32px;border:1px solid var(--sh-hair);background:#fff;cursor:pointer;font-size:13px;color:var(--sh-ink);transition:background .15s}
+.sh-index-lens__button-1:hover{background:#f3f5f8}
+.sh-index-lens__span-12{flex:1;height:2px;background:#e6eaf0;position:relative}
+.sh-index-lens__span-13{position:absolute;right:0;top:0;height:100%;width:25%;background:var(--sh-blue);transition:width .5s ease}
+.sh-index-video__section-1{padding:0 0 64px}
+.sh-index-video__div-1{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:11px}
+.sh-index-video__div-2{display:flex;align-items:center;gap:12px}
+.sh-index-video__a-1{font-size:12px;color:var(--sh-blue);font-weight:700}
+.sh-index-video__div-3{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);background:var(--sh-navy-2);color:#fff;margin-top:20px;align-items:stretch}
+.sh-index-video__a-2{position:relative;overflow:hidden;display:block;color:#fff}
+.sh-index-video__a-2:hover{color:#fff}
+.sh-index-video__video-1{width:100%;height:100%;aspect-ratio:15/8;object-fit:cover;display:block}
+.sh-index-video__span-1{position:absolute;top:50%;left:50%;width:60px;height:60px;margin:-30px 0 0 -30px;background:var(--sh-blue);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:.95}
+.sh-index-video__span-2{width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-right:14px solid #fff;margin-left:2px}
+.sh-index-video__div-4{position:absolute;inset:auto 0 0 0;padding:16px 24px 20px;background:var(--sh-navy);opacity:.94}
+.sh-index-video__div-5{display:flex;gap:10px;align-items:center;font-size:11.5px;color:rgba(255,255,255,.7)}
+.sh-index-video__span-3{background:var(--sh-red);padding:2px 8px;font-weight:700;color:#fff}
+.sh-index-video__h3-1{font-family:var(--sh-font);font-size:20px;font-weight:700;line-height:1.6;margin:8px 0 0;text-wrap:pretty}
+.sh-index-video__div-6{background:var(--sh-navy-2);display:flex;flex-direction:column;border-right:1px solid rgba(255,255,255,.12)}
+.sh-index-video__div-7{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.12);font-size:13px;font-weight:700;font-family:var(--sh-font)}
+.sh-index-video__span-4{font-size:11.5px;color:var(--sh-on-dark-55);font-weight:400}
+.sh-index-video__a-3{display:grid;grid-template-columns:84px 1fr;gap:12px;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.1);color:#fff;align-items:center}
+.sh-index-video__a-3:hover{background:var(--sh-navy);color:#fff}
+.sh-index-video__span-5{position:relative;aspect-ratio:15/8;background:var(--sh-navy);overflow:hidden;display:block}
+.sh-index-video__span-6{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/UNRWA%20el-Sheikh%20Radwan%20health%20center%2C%20February%202024.jpg?width=1600);background-size:cover;background-position:center;opacity:.6}
+.sh-index-video__span-7{position:absolute;bottom:4px;left:4px;font-size:11.5px;background:var(--sh-navy);padding:1px 5px}
+.sh-index-video__span-8{font-family:var(--sh-font);font-size:13px;font-weight:700;line-height:1.6;text-wrap:pretty}
+.sh-index-video__span-9{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1600);background-size:cover;background-position:center;opacity:.6}
+.sh-index-video__span-10{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20view%20of%20destruction%20in%20Beach%20refugee%20camp%2C%20Gaza%20Strip.jpg?width=1600);background-size:cover;background-position:center;opacity:.6}
+.sh-index-video__span-11{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=1600);background-size:cover;background-position:center;opacity:.6}
+.sh-index-video__a-4{margin-top:auto;padding:12px 18px;font-size:12px;color:var(--sh-on-dark-75)}
+.sh-index-video__a-4:hover{color:#fff}
+.sh-index-video__div-8{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:14px}
+.sh-index-video__span-12{display:block;aspect-ratio:4/3;background:var(--sh-navy-2);position:relative;overflow:hidden}
+.sh-index-video__span-13{position:absolute;inset:0;background-image:url(../../assets/images/prog-seen-sareeh.png);background-size:cover;background-position:center top}
+.sh-index-video__span-14{display:block;font-family:var(--sh-font);font-size:15px;font-weight:700;margin-top:10px}
+.sh-index-video__span-15{display:block;font-size:12px;color:var(--sh-mute);margin-top:3px}
+.sh-index-video__span-16{position:absolute;inset:0;background-image:url(../../assets/images/prog-akhbar-shlomo.png);background-size:cover;background-position:center top}
+.sh-index-video__span-17{position:absolute;inset:0;background-image:url(../../assets/images/prog-qissat-soura.png);background-size:cover;background-position:center top}
+.sh-index-video__span-18{position:absolute;inset:0;background-image:url(../../assets/images/prog-alhikaya.png);background-size:cover;background-position:center top}
+.sh-index-video__span-19{position:absolute;inset:0;background-image:url(../../assets/images/prog-hadith-alyawm.png);background-size:cover;background-position:center top}
+.sh-index-video__a-5{display:block;font-size:12px;color:var(--sh-blue);font-weight:700;margin-top:14px}
+.sh-index-reports__section-1{padding:0 0 64px}
+.sh-index-reports__div-1{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:11px}
+.sh-index-reports__div-2{display:flex;align-items:center;gap:12px}
+.sh-index-reports__div-3{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px;margin-top:20px;align-items:stretch}
+.sh-index-reports__a-1{display:flex;flex-direction:column}
+.sh-index-reports__div-4{flex:1;min-height:200px;background:var(--sh-navy-2);overflow:hidden}
+.sh-index-reports__img-1{width:100%;height:100%;object-fit:cover;object-position:center 50%}
+.sh-index-reports__div-5{display:flex;gap:10px;align-items:center;font-size:12px;color:var(--sh-mute);margin-top:12px}
+.sh-index-reports__span-1{background:var(--sh-blue);color:#fff;padding:2px 8px;font-weight:700}
+.sh-index-reports__h3-1{font-family:var(--sh-font);font-size:26px;font-weight:700;line-height:1.55;margin:12px 0 10px;text-wrap:pretty;color:var(--sh-navy)}
+.sh-index-reports__p-1{font-size:13px;line-height:1.75;color:var(--sh-ink-2);margin:0;text-wrap:pretty}
+.sh-index-reports__span-2{display:block;font-size:12px;color:var(--sh-blue);font-weight:700;margin-top:12px}
+.sh-index-reports__div-6{padding-right:36px;display:flex;flex-direction:column}
+.sh-index-reports__a-2{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:14px 0;align-items:start;flex:1;min-width:0;color:var(--sh-ink)}
+.sh-index-reports__a-2:hover{color:var(--sh-blue)}
+.sh-index-reports__span-3{font-family:var(--sh-font);font-size:24px;font-weight:800;color:var(--sh-blue);opacity:.3;line-height:1;font-variant-numeric:tabular-nums;padding-top:3px}
+.sh-index-reports__span-4{display:block;font-size:11.5px;color:var(--sh-blue);font-weight:700;font-family:var(--sh-font)}
+.sh-index-reports__span-5{display:block;font-family:var(--sh-font);font-size:15.5px;font-weight:700;line-height:1.7;margin-top:5px;text-wrap:pretty}
+.sh-index-opinion-sports__section-1{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:48px;padding:0 0 64px;align-items:stretch}
+.sh-index-opinion-sports__div-1{display:flex;flex-direction:column}
+.sh-index-opinion-sports__div-2{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:11px}
+.sh-index-opinion-sports__a-1{display:block;padding:22px 0 24px;border-bottom:1px solid var(--sh-hair)}
+.sh-index-opinion-sports__a-1:hover{color:var(--sh-blue)}
+.sh-index-opinion-sports__span-1{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--sh-blue);font-weight:700;font-family:var(--sh-font)}
+.sh-index-opinion-sports__span-2{font-family:var(--sh-serif);font-size:30px;line-height:.4;color:var(--sh-blue)}
+.sh-index-opinion-sports__h3-1{font-family:var(--sh-font);font-size:26px;font-weight:700;line-height:1.6;margin:14px 0 10px;color:var(--sh-navy);text-wrap:pretty}
+.sh-index-opinion-sports__p-1{font-size:13px;line-height:1.95;color:var(--sh-ink-2);margin:0;text-wrap:pretty}
+.sh-index-opinion-sports__span-3{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sh-mute);margin-top:14px}
+.sh-index-opinion-sports__span-4{font-weight:700;color:var(--sh-navy);font-family:var(--sh-font);font-size:13px}
+.sh-index-opinion-sports__div-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 32px}
+.sh-index-opinion-sports__a-2{display:flex;flex-direction:column;gap:12px;padding:20px 0 4px}
+.sh-index-opinion-sports__a-2:hover{color:var(--sh-blue)}
+.sh-index-opinion-sports__span-5{font-family:var(--sh-serif);font-size:26px;line-height:.4;color:var(--sh-grey-3)}
+.sh-index-opinion-sports__h3-2{font-family:var(--sh-font);font-size:16.5px;font-weight:700;line-height:1.65;margin:0;color:var(--sh-navy);text-wrap:pretty}
+.sh-index-opinion-sports__p-2{font-size:12px;line-height:1.85;color:var(--sh-mute);margin:0;text-wrap:pretty}
+.sh-index-opinion-sports__span-6{font-size:12px;color:var(--sh-mute);margin-top:auto}
+.sh-index-opinion-sports__span-7{font-weight:700;color:var(--sh-ink);font-family:var(--sh-font);font-size:12.5px}
+.sh-index-opinion-sports__a-3{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;border-top:1px solid var(--sh-hair);padding-top:16px;font-family:var(--sh-font);font-size:13px;font-weight:700;color:var(--sh-navy)}
+.sh-index-opinion-sports__a-3:hover{color:var(--sh-blue)}
+.sh-index-opinion-sports__span-8{display:inline-flex;align-items:center;gap:8px;color:var(--sh-blue);font-size:12px}
+.sh-index-opinion-sports__a-4{display:block;padding-top:22px}
+.sh-index-opinion-sports__a-4:hover{color:var(--sh-blue)}
+.sh-index-opinion-sports__span-9{position:relative;display:block;aspect-ratio:15/8;background:var(--sh-navy-2);overflow:hidden}
+.sh-index-opinion-sports__img-1{width:100%;height:100%;object-fit:cover;object-position:center 30%;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.sh-index-opinion-sports__img-1:hover{transform:scale(1.03)}
+.sh-index-opinion-sports__span-10{position:absolute;top:14px;right:14px;background:var(--sh-blue);color:#fff;font-family:var(--sh-font);font-size:11.5px;font-weight:700;padding:4px 10px}
+.sh-index-opinion-sports__h3-3{font-family:var(--sh-font);font-size:20px;font-weight:700;line-height:1.6;margin:14px 0 6px;color:var(--sh-navy);text-wrap:pretty}
+.sh-index-opinion-sports__span-11{font-size:12px;color:var(--sh-mute);font-variant-numeric:tabular-nums}
+.sh-index-opinion-sports__div-4{margin-top:12px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.sh-index-opinion-sports__a-5{display:flex;align-items:center;font-family:var(--sh-font);font-size:15px;font-weight:700;line-height:1.7;padding:12px 0;text-wrap:pretty;color:var(--sh-ink);flex:1}
+.sh-index-opinion-sports__a-5:hover{color:var(--sh-blue)}
+.sh-index-brief-numbers-map__section-1{padding:0 0 64px}
+.sh-index-brief-numbers-map__div-1{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:11px}
+.sh-index-brief-numbers-map__h2-1{font-family:var(--sh-font);font-size:16px;font-weight:700;margin:0;color:var(--sh-navy);display:flex;align-items:center;gap:10px}
+.sh-index-brief-numbers-map__div-2{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) minmax(0,1fr);gap:0;margin-top:4px}
+.sh-index-brief-numbers-map__div-3{padding:20px 0 0;padding-left:36px}
+.sh-index-brief-numbers-map__h3-1{font-family:var(--sh-font);font-size:13px;font-weight:700;margin:0;color:var(--sh-mute);letter-spacing:.02em}
+.sh-index-brief-numbers-map__a-1{display:grid;grid-template-columns:1fr;gap:10px;align-items:start;font-family:var(--sh-font);font-size:15px;font-weight:700;line-height:1.7;padding:12px 0;color:var(--sh-ink)}
+.sh-index-brief-numbers-map__a-1:hover{color:var(--sh-blue)}
+.sh-index-brief-numbers-map__span-1{text-wrap:pretty}
+.sh-index-brief-numbers-map__div-4{padding:20px 36px 0}
+.sh-index-brief-numbers-map__div-5{padding:16px 0 4px}
+.sh-index-brief-numbers-map__span-2{display:block;font-family:var(--sh-font);font-size:36px;font-weight:800;color:var(--sh-blue);line-height:1;font-variant-numeric:tabular-nums}
+.sh-index-brief-numbers-map__span-3{display:block;font-size:12.5px;line-height:1.75;color:var(--sh-ink-2);margin-top:8px;text-wrap:pretty}
+.sh-index-brief-numbers-map__div-6{padding:20px 36px 0 0;display:flex;flex-direction:column}
+.sh-index-brief-numbers-map__div-7{display:flex;justify-content:space-between;align-items:baseline}
+.sh-index-brief-numbers-map__a-2{font-size:11.5px;color:var(--sh-blue);font-weight:700}
+.sh-index-brief-numbers-map__a-3{display:block;margin-top:16px}
+.sh-index-brief-numbers-map__a-3:hover{color:var(--sh-blue)}
+.sh-index-brief-numbers-map__span-4{display:block;aspect-ratio:15/8;overflow:hidden;background:var(--sh-navy)}
+.sh-index-brief-numbers-map__img-1{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.sh-index-brief-numbers-map__img-1:hover{transform:scale(1.03)}
+.sh-index-brief-numbers-map__h3-2{font-family:var(--sh-font);font-size:14.5px;font-weight:700;line-height:1.65;margin:12px 0 4px;color:var(--sh-navy)}
+.sh-index-brief-numbers-map__span-5{font-size:12px;color:var(--sh-mute)}
+.sh-index-brief-numbers-map__div-8{margin-top:auto;padding-top:14px;border-top:1px solid var(--sh-hair)}
+.sh-index-brief-numbers-map__a-4{display:grid;grid-template-columns:1fr;gap:10px;align-items:start;font-family:var(--sh-font);font-size:13.5px;font-weight:700;line-height:1.7;padding:12px 0;color:var(--sh-ink)}
+.sh-index-brief-numbers-map__a-4:hover{color:var(--sh-blue)}
+.sh-index-social__section-1{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,1.6fr);gap:0 24px;padding:0 0 56px;border-top:1px solid var(--sh-hair-2)}
+.sh-index-social__a-1{padding:26px 0 0;display:flex;align-items:center;gap:14px;color:var(--sh-ink);transition:color .2s ease}
+.sh-index-social__a-1:hover{color:var(--sh-blue)}
+.sh-index-social__i-1{font-size:18px;color:var(--sh-blue);line-height:1;width:22px;text-align:center;transition:transform .3s cubic-bezier(.2,.75,.2,1)}
+.sh-index-social__i-1:hover{transform:translateY(-2px)}
+.sh-index-social__span-1{display:block;font-family:var(--sh-font);font-size:20px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.sh-index-social__span-2{display:block;font-size:12px;color:var(--sh-mute);margin-top:6px}
+.sh-index-social__div-1{padding:26px 0 0;display:flex;flex-direction:column;gap:14px}
+.sh-index-social__div-2{display:flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:14px;font-weight:700;color:var(--sh-navy)}
+.sh-index-social__i-2{color:var(--sh-blue);font-size:16px}
+.sh-index-social__div-3{font-size:12px;color:var(--sh-mute);margin-top:6px}
+.sh-index-social__div-4{display:flex;flex-wrap:wrap;gap:0}
+.sh-index-social__span-3{flex:1 1 160px;min-width:0;border:1px solid var(--sh-hair);padding:10px 14px;font-size:12px;color:var(--sh-mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sh-index-social__span-4{background:var(--sh-blue);color:#fff;font-family:var(--sh-font);font-size:12px;font-weight:700;padding:10px 20px;display:flex;align-items:center;white-space:nowrap;flex:none;transition:background .18s}
+.sh-index-social__span-4:hover{background:var(--sh-navy-2)}
+
+/* ============================================================================
+   ملفات شهاب — the shelf is a horizontal accordion.
+   Every file is one flex item: its spine (72px) plus its body (cover + paper)
+   side by side, clipped by the item. A closed file is 72px wide and shows its
+   spine only; the open file grows to take the rest of the row, so opening one
+   file and closing another is a single width hand-off, not a swap. The body
+   keeps a fixed width (the room the open file will have: the shelf minus four
+   spines) so nothing inside re-wraps while the width animates -- the sheet
+   is revealed, leftward, out of its own spine. Markup: div.sh-file wrappers.
+   ========================================================================== */
+.sh-index-files__div-3{display:flex;container-type:inline-size}
+.sh-file{
+  position:relative;display:flex;min-width:0;overflow:hidden;
+  flex:0 0 72px;
+  transition:flex-grow .62s cubic-bezier(.2,.7,.2,1);
+}
+.sh-file[data-open="true"]{flex-grow:1}
+.sh-file > [data-sh-file]{flex:none;width:72px}
+.sh-file__body{
+  flex:none;width:calc(100cqw - 288px);
+  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+}
+/* the closed file's spine reads as a folder edge; the open one lifts */
+.sh-file[data-open="true"] > [data-sh-file]{box-shadow:12px 0 28px rgba(10,26,51,.35);z-index:3}
+/* the old door swing, the slide-in and the pull-out are all retired: the
+   accordion's own width motion is the opening */
+.sh-index-files__span-4{animation:none;transform:none;transform-origin:center}
+.sh-index-files__div-4{animation:none}
+/* the lines settle only once the sheet is out */
+.sh-index-files__h3-1{animation-delay:.42s}
+.sh-index-files__p-1{animation-delay:.5s}
+.sh-index-files__span-8{animation-delay:.58s}
+.sh-index-files__span-9{animation-delay:.66s}
+.sh-index-files__span-10{animation-delay:.74s}
+
+/* -- folder tabs: the top of every spine is a tab, cut on the diagonal like a
+   physical folder, with the file number sitting in it. -- */
+[data-sh-file]{overflow:hidden}
+[data-sh-file]::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:58px;pointer-events:none;
+  background:rgba(255,255,255,.09);
+  clip-path:polygon(0 0,100% 0,100% 100%,0 calc(100% - 12px));
+}
+.sh-file[data-open="true"] > [data-sh-file]::before{background:rgba(255,255,255,.16)}
+.sh-index-files__span-2,.sh-index-files__span-18{position:relative;z-index:1}
+
+/* -- the paper reads as a dossier: two sheet edges showing at the top, and a
+   binding edge where it meets the folder. -- */
+.sh-index-files__a-3::before,.sh-index-files__a-5::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:7px;pointer-events:none;z-index:1;
+  background:
+    linear-gradient(to bottom,rgba(10,26,51,.12) 0,rgba(10,26,51,.12) 1px,transparent 1px) 0 2px/100% 1px no-repeat,
+    linear-gradient(to bottom,rgba(10,26,51,.08) 0,rgba(10,26,51,.08) 1px,transparent 1px) 0 5px/100% 1px no-repeat;
+}
+.sh-index-files__a-3::after,.sh-index-files__a-5::after{
+  content:"";position:absolute;inset:0 0 0 auto;width:18px;pointer-events:none;z-index:1;
+  border-inline-start:1px dashed rgba(10,26,51,.22);
+  background:linear-gradient(to left,rgba(10,26,51,.05),transparent);
+}
+.sh-index-files__div-4{padding-inline-end:44px}   /* copy clears the binding edge on the folder side */
+
+/* -- the state stamp. Four states, set per file in the markup
+   (data-sh-state on div.sh-file): open · live · closed · upcoming -- */
+.sh-index-files__span-7{display:inline-block;transform:rotate(-2.5deg);outline:1px solid var(--sh-blue);outline-offset:2px}
+[data-sh-state="live"] .sh-index-files__span-7{background:var(--sh-navy);outline-color:var(--sh-navy);padding-inline-start:20px;position:relative}
+[data-sh-state="live"] .sh-index-files__span-7::before{
+  content:"";position:absolute;inset-inline-start:8px;top:50%;width:6px;height:6px;margin-top:-3px;
+  border-radius:50%;background:#fff;animation:sh-file-live 1.6s ease-in-out infinite;
+}
+@keyframes sh-file-live{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+[data-sh-state="closed"] .sh-index-files__span-7{background:#5b6675;outline-color:#5b6675}
+[data-sh-state="upcoming"] .sh-index-files__span-7{background:#fff;color:var(--sh-blue)}
+/* a live file also pulses on its spine, so the state reads while closed */
+[data-sh-state="live"] > [data-sh-file] .sh-index-files__span-18::after,
+[data-sh-state="live"] > [data-sh-file] .sh-index-files__span-2::after{
+  content:"";position:absolute;top:2px;inset-inline-end:-10px;width:6px;height:6px;border-radius:50%;
+  background:var(--sh-red);animation:sh-file-live 1.6s ease-in-out infinite;
+}
+
+/* -- narrow: the accordion turns vertical. The spine is a 56px bar (see
+   responsive.css), the body folds out under it. -- */
+@media (max-width:900px){
+  .sh-index-files__div-3{flex-direction:column;container-type:normal}
+  .sh-file{flex:none;display:block;overflow:visible}
+  .sh-file > [data-sh-file]{width:auto}
+  .sh-file__body{
+    width:auto;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:0fr 0fr;
+    transition:grid-template-rows .5s cubic-bezier(.2,.7,.2,1);
+  }
+  .sh-file[data-open="true"] .sh-file__body{grid-template-rows:1fr 1fr}
+  .sh-file__body > *{min-height:0;overflow:hidden}
+  .sh-file[data-open="true"] > [data-sh-file]{box-shadow:none}
+  .sh-index-files__span-2::after,.sh-index-files__span-18::after{inset-inline-end:auto;inset-inline-start:-10px}
+}
+@media (prefers-reduced-motion:reduce){
+  .sh-file,.sh-file__body{transition:none}
+  .sh-index-files__span-7::before,.sh-index-files__span-2::after,.sh-index-files__span-18::after{animation:none}
+}

@@ -67,12 +67,12 @@
   var KEY = 'sh-brief-state';
   var RATES = [1, 1.15, 1.3, 0.85];
   var WORD_MS = 375;          // read-along pace per word at rate 1
-  var AR = '٠١٢٣٤٥٦٧٨٩';
-
+  /* The theme sets every numeral in Latin digits -- "03 / 01", "10:32 م",
+     "1244 مسجدًا" -- so the player does too. Arabic-Indic numerals here would
+     read as a different product. */
   function pad2(n) {
     n = String(n);
-    if (n.length < 2) n = '0' + n;
-    return n.replace(/\d/g, function (d) { return AR[+d]; });
+    return n.length < 2 ? '0' + n : n;
   }
   function clock(ms) {
     var s = Math.round(ms / 1000);
@@ -92,16 +92,20 @@
       if (p && p.items && p.items.length) data = p;
     } catch (e) { /* malformed payload: keep the built-in edition */ }
   }
-  var items = data.items;
-
-  // sentences are the resume unit, so split once up front
-  items.forEach(function (it) {
-    var txt = (it.say || it.t).trim();
-    it.parts = txt.split(/(?<=[.!؟])\s+/).filter(Boolean);
-    if (!it.parts.length) it.parts = [txt];
-    it.words = txt.trim().split(/\s+/).length;
-  });
-  var TOTAL_MS = items.reduce(function (a, it) { return a + it.words * WORD_MS; }, 0);
+  var items, TOTAL_MS, EID;
+  function prepare(d) {
+    // sentences are the resume unit, so split once up front
+    d.items.forEach(function (it) {
+      var txt = (it.say || it.t).trim();
+      it.parts = txt.split(/(?<=[.!؟])\s+/).filter(Boolean);
+      if (!it.parts.length) it.parts = [txt];
+      it.words = txt.trim().split(/\s+/).length;
+    });
+    data = d; items = d.items;
+    TOTAL_MS = items.reduce(function (a, it) { return a + it.words * WORD_MS; }, 0);
+    EID = d.id || ('edition:' + (d.edition || ''));
+  }
+  prepare(data);
 
   var synth = window.speechSynthesis || null;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -110,7 +114,7 @@
   var st = { on: false, i: 0, s: 0, playing: false, rate: 0, mode: 'bar' };
   try {
     var saved = JSON.parse(sessionStorage.getItem(KEY) || 'null');
-    if (saved && saved.n === items.length) {
+    if (saved && saved.n === items.length && (!saved.eid || saved.eid === EID)) {   // a topic thread is page-local
       st.on = !!saved.on; st.i = saved.i | 0; st.s = saved.s | 0;
       st.playing = !!saved.playing; st.rate = saved.rate | 0;
       st.mode = saved.mode === 'panel' ? 'panel' : 'bar';
@@ -121,7 +125,7 @@
   function save() {
     try {
       sessionStorage.setItem(KEY, JSON.stringify({
-        n: items.length, on: st.on, i: st.i, s: st.s,
+        n: items.length, on: st.on, i: st.i, s: st.s, eid: EID,
         playing: st.playing, rate: st.rate, mode: st.mode
       }));
     } catch (e) {}
@@ -181,7 +185,7 @@
 
       '<div class="bf-stage">' +
         '<span class="bf-figure" data-bf-fig></span>' +
-        '<span class="bf-kind"><span data-bf-cat></span><s></s><u data-bf-time></u></span>' +
+        '<span class="bf-kind"><span data-bf-cat></span><u data-bf-time></u></span>' +
         '<h2 class="bf-line" data-bf-line aria-live="polite"></h2>' +
         '<p class="bf-say" data-bf-say></p>' +
       '</div>' +
@@ -206,22 +210,39 @@
   var $ = function (k) { return root.querySelector('[data-bf-' + k + ']'); };
   var elIndex = $('index'), elSpineNib = $('spinenib');
 
-  $('edition').textContent = data.edition || '';
-  $('len').textContent = items.length.toString().replace(/\d/g, function (d) { return AR[+d]; }) +
-                         ' مواد · ' + clock(TOTAL_MS);
+  var rows = [];
+  function buildRows() {
+    [].slice.call(elIndex.querySelectorAll('li')).forEach(function (li) { li.remove(); });
+    rows = items.map(function (it, i) {
+      var li = document.createElement('li');
+      var bt = document.createElement('button');
+      bt.type = 'button';
+      bt.innerHTML = '<i></i><span></span><em></em>';
+      bt.children[0].textContent = pad2(i + 1);
+      bt.children[1].textContent = it.t;
+      bt.children[2].textContent = it.time || '';
+      bt.addEventListener('click', function () { go(i, true); });
+      li.appendChild(bt);
+      elIndex.appendChild(li);
+      return bt;
+    });
+    $('edition').textContent = data.edition || '';
+    $('len').textContent = items.length + ' مواد · ' + clock(TOTAL_MS);
+  }
+  buildRows();
 
-  var rows = items.map(function (it, i) {
-    var li = document.createElement('li');
-    var bt = document.createElement('button');
-    bt.type = 'button';
-    bt.innerHTML = '<i></i><span></span><em></em>';
-    bt.children[0].textContent = pad2(i + 1);
-    bt.children[1].textContent = it.t;
-    bt.children[2].textContent = it.time || '';
-    bt.addEventListener('click', function () { go(i, true); });
-    li.appendChild(bt);
-    elIndex.appendChild(li);
-    return bt;
+  /* A page component (the topic threads under «المزيد من الأخبار») can hand
+     the player a different edition at runtime and start it. */
+  function setEdition(d) {
+    if (!d || !d.items || !d.items.length) return;
+    clearAll();
+    prepare(d);
+    st.i = 0; st.s = 0; st.playing = false;
+    buildRows();
+  }
+  document.addEventListener('sh-brief:play', function (e) {
+    setEdition(e.detail);
+    dock(true); mode('panel'); play();
   });
 
   /* ---------------------------------------------------------------- voice -- */
