@@ -1,0 +1,29 @@
+/* شهاب — page transition.
+   The approved loader is variant A, "الضربة الضوئية": a diamond nib travels
+   along the calligraphic path while a masked stroke draws the wordmark.
+
+   This file carries ONLY what the veil needs, copied verbatim from
+   css/loader.css so the two never drift apart in appearance. The veil markup
+   lives in partials/loader-veil.html and is injected by js/app.js. */
+
+@keyframes sh-seed{0%{transform:rotate(45deg) scale(0);opacity:0}60%{transform:rotate(45deg) scale(1.15);opacity:1}100%{transform:rotate(45deg) scale(1);opacity:1}}
+@keyframes sh-draw{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}
+@keyframes sh-fade{0%{opacity:0}100%{opacity:1}}
+@keyframes sh-nib-travel{0%{offset-distance:0%;opacity:0}4%{opacity:1}96%{opacity:1}100%{offset-distance:100%;opacity:0}}
+@keyframes sh-sweep{0%{transform:translateX(-140%) skewX(-18deg);opacity:0}12%{opacity:.75}100%{transform:translateX(160%) skewX(-18deg);opacity:0}}
+@keyframes sh-rise{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:none}}
+@keyframes sh-dots{0%,100%{transform:rotate(45deg) scale(.55);opacity:.35}50%{transform:rotate(45deg) scale(1);opacity:1}}
+
+/* the veil itself */
+[data-sh-veil]{position:fixed;inset:0;z-index:10000;opacity:0;visibility:hidden;
+  pointer-events:none;transition:opacity .28s ease,visibility 0s linear .28s}
+[data-sh-veil][data-on]{opacity:1;visibility:visible;pointer-events:auto;
+  transition:opacity .28s ease,visibility 0s}
+
+/* the reduced-motion contract loader.css already defines, kept identical */
+@media (prefers-reduced-motion: reduce){
+  .sh-anim [style*="animation"]{animation:none !important}
+  .sh-anim .sh-static{opacity:1 !important;transform:none !important;stroke-dashoffset:0 !important;clip-path:none !important}
+  .sh-anim .sh-hide-static{display:none !important}
+  .sh-anim mask rect.sh-static{opacity:1 !important}
+}
