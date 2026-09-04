@@ -627,3 +627,76 @@ html[data-sh-bo-open]{overflow:hidden}
   .sh-bo__cover,.sh-bo__sheet,.sh-bo__pages::after{transition:none}
   .sh-bo__stamp--live::before,.sh-bo__facts dd[data-sh-binder-state="live"]::before{animation:none}
 }
+
+/* ============================================================================
+   sh-say — «تصريحات خاصة». A statement is a person saying something, so every
+   one is built the same way: the face, the words between «», the name and
+   what the person is. The lead runs large with the speaker's photograph
+   beside it and an oversized « behind the words; the side column and the
+   row under it repeat the pattern smaller. Content from the site's own
+   category; the photographs are the posts' own.
+   ========================================================================== */
+.sh-say{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:26px 40px;margin-top:24px;align-items:start}
+.sh-say__lead{
+  position:relative;display:grid;grid-template-columns:minmax(0,1fr) 300px;min-height:360px;
+  background:#f5f7fa;color:var(--sh-ink);overflow:hidden;
+}
+.sh-say__lead:hover{color:var(--sh-ink)}
+.sh-say__lead::before{content:"";position:absolute;top:0;right:0;bottom:0;width:4px;background:var(--sh-blue);z-index:2}
+.sh-say__photo{position:relative;display:block;overflow:hidden;background:var(--sh-navy);order:2}
+.sh-say__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.sh-say__lead:hover .sh-say__photo img{transform:scale(1.04)}
+.sh-say__photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to left,rgba(245,247,250,.9),rgba(245,247,250,0) 18%)}   /* the print bleeds into the paper */
+.sh-say__body{position:relative;display:flex;flex-direction:column;padding:30px 36px 26px;min-width:0}
+.sh-say__tag{display:inline-flex;align-items:center;gap:8px;color:var(--sh-blue);font-family:var(--sh-font);font-size:11.5px;font-weight:800}
+.sh-say__tag .sh-mark{width:14px;height:12px;background:var(--sh-blue)}
+.sh-say__glyph{
+  position:absolute;top:34px;inset-inline-start:22px;pointer-events:none;
+  font-family:var(--sh-font);font-size:150px;font-weight:800;line-height:1;color:var(--sh-blue);opacity:.12;
+}
+.sh-say__quote{
+  position:relative;font-family:var(--sh-font);font-size:clamp(20px,1.8vw,27px);font-weight:800;line-height:1.7;
+  margin:22px 0 0;color:var(--sh-navy);text-wrap:pretty;
+}
+.sh-say__quote::before{content:"«"}
+.sh-say__quote::after{content:"»"}
+.sh-say__who{display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:22px}
+.sh-say__avatar{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:center 20%;background:var(--sh-navy);box-shadow:0 0 0 2px #fff,0 0 0 3px var(--sh-hair-2);flex:none}
+.sh-say__id{display:flex;flex-direction:column;gap:3px;min-width:0}
+.sh-say__name{font-family:var(--sh-font);font-size:15px;font-weight:800;color:var(--sh-navy)}
+.sh-say__role{font-size:12px;color:var(--sh-mute)}
+.sh-say__time{font-variant-numeric:tabular-nums}
+
+.sh-say__side{display:flex;flex-direction:column}
+.sh-say__item{
+  display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;align-items:start;
+  padding:16px 0;border-bottom:1px solid var(--sh-hair);color:var(--sh-ink);transition:color .16s ease;
+}
+.sh-say__side .sh-say__item:first-child{padding-top:4px}
+.sh-say__item:hover{color:var(--sh-blue)}
+.sh-say__face{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:center 20%;background:var(--sh-navy);box-shadow:0 0 0 2px #fff,0 0 0 3px var(--sh-hair-2)}
+.sh-say__text{display:flex;flex-direction:column;gap:9px;min-width:0}
+.sh-say__q{font-family:var(--sh-font);font-size:14.5px;font-weight:700;line-height:1.8;text-wrap:pretty}
+.sh-say__by{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px}
+.sh-say__by .sh-say__name{font-size:12.5px;white-space:nowrap}
+.sh-say__by .sh-say__role{font-size:11.5px}
+
+/* the row under the lead: three more, as cards on the paper */
+.sh-say__row{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px;border-top:1px solid var(--sh-hair-2)}
+.sh-say__item--card{grid-template-columns:56px minmax(0,1fr);gap:14px;padding:20px 0 4px;border-bottom:0}
+.sh-say__item--card .sh-say__face{width:56px;height:56px}
+.sh-say__item--card + .sh-say__item--card{border-inline-start:1px solid var(--sh-hair);padding-inline-start:24px}
+
+@media (max-width:900px){
+  .sh-say{grid-template-columns:minmax(0,1fr);gap:8px}
+  .sh-say__lead{grid-template-columns:minmax(0,1fr);min-height:0}
+  .sh-say__photo{order:0;aspect-ratio:16/9}
+  .sh-say__photo::after{background:linear-gradient(to top,rgba(245,247,250,.9),rgba(245,247,250,0) 24%)}
+  .sh-say__body{padding:20px 22px 22px}
+  .sh-say__glyph{font-size:110px;top:18px}
+  .sh-say__quote{font-size:19px;margin-top:14px}
+  .sh-say__row{grid-template-columns:minmax(0,1fr);gap:0}
+  .sh-say__item--card{padding:16px 0;border-bottom:1px solid var(--sh-hair)}
+  .sh-say__item--card + .sh-say__item--card{border-inline-start:0;padding-inline-start:0}
+}
+@media (prefers-reduced-motion:reduce){.sh-say__photo img{transition:none}}
