@@ -273,4 +273,357 @@ html[data-sh-hubview-open]{overflow:hidden}
 /* «تصريحات خاصة» sits inside the collections column, under the covers: it
    keeps its own head and rail, but not the page-level padding it had as a
    section of its own. */
-.sh-index-statements__section-1--in-hubs{padding:0!important;margin-top:34px}
+/* «ملفات خاصة» now sits inside the collections column, under the covers: it
+   keeps its head and its shelf, but not the page-level padding it had as a
+   section of its own, and the shelf is scaled to the narrower column. */
+.sh-index-special-files__section-1--in-hubs{padding:0!important;margin-top:34px}
+.sh-index-special-files__section-1--in-hubs .sh-binders{--bw:54px;--bd:190px;--bh:286px}
+.sh-index-special-files__section-1--in-hubs .sh-binders__shelf{gap:30px;padding:44px 24px 38px}
+
+/* ============================================================================
+   sh-binders — «ملفات خاصة»: lever-arch binders standing on a shelf, seen
+   from the three-quarter angle a desk gives them. Every binder is a real box
+   in CSS 3D -- a spine facing us, a front cover receding to the right, a top
+   edge showing the pages -- with the spine label, the finger hole and the
+   cover rivets of the thing itself. Hover pulls one toward you; the spine
+   opens it (sh-bo, further down). Colours are per modifier class, so the
+   markup carries no style.
+   ========================================================================== */
+.sh-binders__head{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:12px}
+.sh-binders{--bw:72px;--bd:250px;--bh:340px;--tilt:-34deg;position:relative;margin-top:18px}
+.sh-binder--charcoal{--c:#232a36;--c2:#2d3543;--c3:#161b24;--label:#f5f6f8}
+.sh-binder--navy{--c:#0f2a4f;--c2:#163660;--c3:#0a1a33;--label:#f5f6f8}
+.sh-binder--blue{--c:#1b5aa6;--c2:#2466b6;--c3:#134587;--label:#f5f6f8}
+.sh-binder--red{--c:#c4282a;--c2:#d43536;--c3:#9e1f21;--label:#f5f6f8}
+.sh-binder--green{--c:#1f6b4d;--c2:#26805c;--c3:#154d37;--label:#f5f6f8}
+.sh-binder--maroon{--c:#7d2230;--c2:#93293a;--c3:#5c1723;--label:#f5f6f8}
+.sh-binder--stone{--c:#47536b;--c2:#54627e;--c3:#333c4e;--label:#f5f6f8}
+.sh-binder--sand{--c:#7a6a45;--c2:#8d7c53;--c3:#5b4f33;--label:#f5f6f8}
+.sh-binders__shelf{
+  position:relative;display:flex;justify-content:center;align-items:flex-end;gap:58px;
+  padding:56px 40px 44px;perspective:1900px;perspective-origin:50% -12%;
+  /* one 3D space for the whole row, so a cover receding behind the next
+     spine is really behind it -- flattened per binder, DOM order would paint
+     the later (left) binder's cover over the earlier spine */
+  transform-style:preserve-3d;
+}
+/* the shelf board: a hairline the binders stand on, and their pooled shadow */
+.sh-binders__shelf::before{
+  content:"";position:absolute;left:8%;right:8%;bottom:26px;height:34px;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 100%,rgba(10,26,51,.22),transparent 68%);
+}
+.sh-binders__shelf::after{content:"";position:absolute;left:0;right:0;bottom:36px;height:1px;background:var(--sh-hair-2)}
+.sh-binder{
+  position:relative;width:var(--bw);height:var(--bh);
+  transform-style:preserve-3d;transform:rotateY(var(--tilt));
+  transition:transform .5s cubic-bezier(.2,.7,.2,1);
+}
+.sh-binder:hover,.sh-binder:focus-within{transform:rotateY(calc(var(--tilt) + 9deg)) translateY(-10px) translateZ(14px)}
+/* the spine: what faces you */
+.sh-binder__spine{
+  position:absolute;inset:0;margin:0;padding:0;border:0;cursor:pointer;text-align:inherit;font:inherit;color:inherit;
+  background:linear-gradient(90deg,var(--c3) 0,var(--c) 18%,var(--c2) 50%,var(--c) 82%,var(--c3) 100%);
+  border-radius:5px 5px 5px 5px / 12px 12px 12px 12px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14),inset 0 -2px 0 rgba(0,0,0,.28);
+  outline-offset:4px;
+}
+.sh-binder__spine:focus-visible{outline:2px solid var(--sh-blue)}
+.sh-binder__label{
+  position:absolute;top:22px;left:9px;right:9px;height:172px;
+  display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:9px 0 8px;
+  background:var(--label);border-radius:2px;color:var(--sh-navy);
+  box-shadow:inset 0 0 0 1px rgba(10,26,51,.12),0 1px 1px rgba(0,0,0,.25);
+}
+.sh-binder__no{font-family:var(--sh-font);font-size:11px;font-weight:800;letter-spacing:.04em;padding-bottom:5px;border-bottom:1px solid rgba(10,26,51,.25);width:24px;text-align:center;direction:ltr}
+.sh-binder__title{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--sh-font);font-size:13.5px;font-weight:800;line-height:1.1;max-height:112px;overflow:hidden;text-align:center}
+.sh-binder__blade{width:12px;height:10px;background:var(--sh-blue)}
+/* the finger hole, an eyelet */
+.sh-binder__hole{
+  position:absolute;bottom:38px;left:50%;width:22px;height:22px;margin-left:-11px;border-radius:50%;
+  background:radial-gradient(circle,#070c16 0 42%,#d3d8df 44% 58%,#7f8792 60% 100%);
+  box-shadow:0 1px 1px rgba(255,255,255,.18);
+}
+/* the front cover: hinged on the spine's right edge, receding into the shelf */
+.sh-binder__cover{
+  position:absolute;top:0;right:0;width:var(--bd);height:100%;
+  transform-origin:right center;transform:rotateY(-90deg);
+  background:linear-gradient(to left,var(--c2),var(--c) 60%,var(--c3));
+  border-radius:0 0 0 3px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.1);
+}
+.sh-binder__window{
+  position:absolute;top:24px;right:34px;width:96px;height:40px;padding:6px 8px;
+  background:rgba(255,255,255,.92);color:var(--sh-navy);border-radius:2px;
+  font-family:var(--sh-font);font-size:10px;font-weight:800;line-height:1.4;direction:rtl;text-align:start;
+  box-shadow:inset 0 0 0 1px rgba(10,26,51,.12);
+}
+.sh-binder__window::after{content:"";position:absolute;left:8px;right:8px;bottom:8px;height:1px;background:rgba(10,26,51,.2)}
+/* From the shelf we look at the cover's OUTSIDE, which in CSS terms is the
+   back of the face (it was turned -90° about the spine, so its front points
+   into the shelf). A face seen from behind shows its text mirrored; flipping
+   the label once more sets it right. The opened binder's cover (sh-bo) is a
+   different element and is seen from the front, so it stays as it is. */
+.sh-binder__cover .sh-binder__window{transform:scaleX(-1)}
+.sh-binder__rivet{
+  position:absolute;right:16px;width:12px;height:12px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#f2f4f7,#a9b0ba 55%,#5d6570);
+  box-shadow:0 1px 2px rgba(0,0,0,.45);
+}
+.sh-binder__rivet--1{top:34%}
+.sh-binder__rivet--2{top:62%}
+/* the top edge: two covers and the pages between them */
+.sh-binder__top{
+  position:absolute;top:0;left:0;width:var(--bw);height:var(--bd);
+  transform-origin:top center;transform:rotateX(-90deg);
+  background:
+    linear-gradient(to bottom,var(--c) 0 9px,transparent 9px),
+    linear-gradient(to right,var(--c3) 0 5px,#ece8dd 5px calc(100% - 5px),var(--c3) calc(100% - 5px));
+}
+.sh-binder__top::before{
+  content:"";position:absolute;inset:9px 5px 0 5px;pointer-events:none;
+  background:repeating-linear-gradient(to bottom,rgba(10,26,51,.09) 0 1px,transparent 1px 3px);
+}
+/* only the spine is a control. Chrome hit-tests a 3D face against its whole
+   plane, so a cover receding behind the spine would still catch the clicks
+   meant for the spine in front of it. */
+.sh-binder__cover,.sh-binder__top{pointer-events:none}
+.sh-binder__inside{display:none}
+
+@media (max-width:900px){
+  .sh-binders{--bw:58px;--bd:190px;--bh:270px}
+  .sh-binders__shelf{justify-content:flex-start;gap:44px;padding:40px 24px 40px 60px;overflow-x:auto;scrollbar-width:none}
+  .sh-binders__shelf::-webkit-scrollbar{display:none}
+  .sh-binder{flex:none}
+  .sh-binder__label{height:150px}
+  .sh-binder__title{font-size:12.5px;max-height:96px}
+}
+@media (prefers-reduced-motion:reduce){
+  .sh-binder{transition:none}
+}
+
+/* ============================================================================
+   sh-bo — the binder opened. The chosen binder comes off the shelf to the
+   centre of the screen, closed, and its front cover swings open around the
+   spine, toward you, to lie flat on the right; the pages are on the left,
+   punched on the ring side, and turn over one at a time onto the cover the
+   way sheets on a lever arch do. Sheet 1 is the file's card; the rest are its
+   documents. Built once by js/app.js from the binder's own hidden content.
+   ========================================================================== */
+html[data-sh-bo-open]{overflow:hidden}
+.sh-bo{position:fixed;inset:0;z-index:1200;display:grid;place-items:center;padding:24px;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr)}
+.sh-bo[hidden]{display:none}
+.sh-bo__veil{
+  position:absolute;inset:0;background:rgba(10,26,51,.74);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  animation:sh-bo-veil .3s ease both;
+}
+.sh-bo[data-closing] .sh-bo__veil{animation:sh-bo-veil .25s ease reverse both}
+@keyframes sh-bo-veil{from{opacity:0}}
+.sh-bo__frame{
+  position:relative;width:min(1080px,100%);max-width:100%;
+  display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto;gap:14px;
+  perspective:2400px;perspective-origin:50% 45%;
+  transition:transform .42s cubic-bezier(.2,.7,.2,1),opacity .3s ease;
+}
+.sh-bo[data-closing] .sh-bo__frame{opacity:0}
+.sh-bo__bar{display:flex;align-items:center;gap:12px;min-width:0;color:#fff}
+.sh-bo__brand{display:inline-flex;align-items:center;gap:8px;font-family:var(--sh-font);font-size:12px;font-weight:800;color:rgba(255,255,255,.62)}
+.sh-bo__brand .sh-mark{width:14px;height:12px;background:rgba(255,255,255,.62)}
+.sh-bo__name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--sh-font);font-size:18px;font-weight:800}
+.sh-bo__count{font-size:12px;color:rgba(255,255,255,.62);font-variant-numeric:tabular-nums}
+.sh-bo__close{
+  margin-inline-start:auto;width:36px;height:36px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.35);
+  background:none;color:#fff;font-size:22px;line-height:1;cursor:pointer;transition:background .18s ease;
+}
+.sh-bo__close:hover{background:rgba(255,255,255,.14)}
+
+/* the book: pages | spine | cover, in one 3D space */
+.sh-bo__book{
+  --sp:46px;position:relative;height:min(600px,calc(100vh - 170px));
+  display:grid;grid-template-columns:minmax(0,1fr) var(--sp) minmax(0,1fr);
+  transform-style:preserve-3d;
+}
+.sh-bo__spine{
+  /* a hair in front of the sheets: a turned sheet slides under the arch,
+     threaded on the rings, instead of lying over the metal */
+  position:relative;z-index:20;transform:translateZ(3px);
+  background:linear-gradient(90deg,var(--c3),var(--c) 35%,var(--c2) 60%,var(--c3));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.18);
+}
+/* the lever arch: a bar and two rings the sheets hang on */
+.sh-bo__arch{position:absolute;top:12%;bottom:12%;width:12px;border-radius:6px;background:linear-gradient(to right,#8f97a2,#eef1f5 45%,#8f97a2);box-shadow:0 1px 3px rgba(0,0,0,.45)}
+.sh-bo__ring{
+  position:absolute;left:-22px;width:38px;height:38px;border-radius:50%;   /* reaches into the page, through its hole */
+  border:7px solid #cfd4db;box-shadow:inset 0 0 0 1px #79818c,0 2px 3px rgba(0,0,0,.45);
+  background:none;
+}
+.sh-bo__ring--1{top:24%}
+.sh-bo__ring--2{bottom:24%}
+/* the cover, hinged on the spine (its left edge); closed = folded over the pages */
+.sh-bo__cover{
+  position:relative;transform-style:preserve-3d;transform-origin:left center;
+  transform:rotateY(0deg);transition:transform 1s cubic-bezier(.32,.72,.22,1);
+}
+.sh-bo__book[data-closed] .sh-bo__cover{transform:rotateY(-180deg)}
+.sh-bo__face{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.sh-bo__cover-in{
+  background:linear-gradient(to right,var(--c3),var(--c) 30%);
+  box-shadow:inset 6px 0 14px rgba(0,0,0,.28);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:28px;
+}
+.sh-bo__cover-out{
+  transform:rotateY(180deg);
+  background:linear-gradient(to left,var(--c2),var(--c) 55%,var(--c3));
+  box-shadow:inset -8px 0 18px rgba(0,0,0,.28);
+}
+/* on the closed cover the spine is on its right, so the label window and the
+   rivets sit right, as on the shelf binder */
+.sh-bo__cover-out .sh-binder__window{top:26px;right:30px;width:118px;height:48px;font-size:11px}
+.sh-bo__cover-out .sh-binder__rivet{right:18px}
+/* the pocket on the inside cover, and the slip in it */
+.sh-bo__pocket{
+  position:relative;padding:20px 20px 22px;background:rgba(255,255,255,.08);border-top:1px solid rgba(255,255,255,.22);
+}
+.sh-bo__pocket::before{content:"";position:absolute;inset:-1px 0 auto 0;height:10px;background:linear-gradient(to bottom,rgba(0,0,0,.28),transparent)}
+.sh-bo__slip{
+  position:relative;background:#fbfaf7;color:var(--sh-navy);padding:16px 18px;
+  box-shadow:0 8px 20px rgba(0,0,0,.35);transform:rotate(-1.2deg);
+}
+.sh-bo__slip-no{font-family:var(--sh-font);font-size:38px;font-weight:700;line-height:1;color:var(--sh-blue);opacity:.35;direction:ltr;display:block}
+.sh-bo__slip-name{display:block;font-family:var(--sh-font);font-size:15px;font-weight:800;margin-top:6px}
+.sh-bo__slip-meta{display:block;font-size:11.5px;color:var(--sh-mute);margin-top:4px}
+.sh-bo__slip .sh-mark{position:absolute;top:14px;inset-inline-start:16px;width:16px;height:13px;background:var(--sh-blue)}
+.sh-bo__watermark{
+  position:absolute;top:26px;right:26px;   /* the outer corner; the spine is on the cover's left */
+  font-family:var(--sh-font);font-size:12px;font-weight:800;color:rgba(255,255,255,.55);letter-spacing:.02em;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.sh-bo__watermark .sh-mark{width:16px;height:13px;background:rgba(255,255,255,.55)}
+.sh-bo__stamp{
+  position:absolute;top:70px;right:26px;padding:5px 12px;
+  font-family:var(--sh-font);font-size:12px;font-weight:800;color:#fff;
+  border:2px solid rgba(255,255,255,.8);transform:rotate(-6deg);letter-spacing:.04em;
+}
+.sh-bo__stamp--live::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#fff;margin-inline-end:7px;vertical-align:middle;animation:sh-file-live 1.6s ease-in-out infinite}
+
+/* the pages: a stack of sheets on the left, hinged on the spine (their right edge) */
+.sh-bo__pages{position:relative;transform-style:preserve-3d}
+.sh-bo__pages::after{   /* the cover's shadow across the pages while it is still closing/opening */
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:5;
+  background:linear-gradient(to left,rgba(0,0,0,.42),rgba(0,0,0,.08) 45%,transparent 70%);
+  opacity:0;transition:opacity 1s ease;
+}
+.sh-bo__book[data-closed] .sh-bo__pages::after{opacity:1}
+.sh-bo__sheet{
+  position:absolute;inset:0;transform-style:preserve-3d;transform-origin:right center;
+  transform:rotateY(0deg) translateZ(calc(var(--k) * -0.6px));
+  transition:transform .9s cubic-bezier(.32,.72,.22,1);
+}
+.sh-bo__sheet[data-turned]{transform:rotateY(180deg) translateZ(calc(var(--k) * 0.6px))}
+.sh-bo__sheet-front,.sh-bo__sheet-back{
+  position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;
+  background:#fbfaf7;color:var(--sh-ink);overflow:hidden;
+}
+.sh-bo__sheet-front{
+  padding:30px 58px 26px 32px;display:flex;flex-direction:column;
+  box-shadow:inset -14px 0 22px -14px rgba(10,26,51,.35);   /* the curl into the rings */
+}
+.sh-bo__sheet-back{
+  transform:rotateY(180deg);
+  background:#f4f2ec;box-shadow:inset 14px 0 22px -14px rgba(10,26,51,.35);
+  display:flex;align-items:flex-end;justify-content:flex-start;padding:22px 32px;
+  color:var(--sh-mute);font-size:11.5px;font-variant-numeric:tabular-nums;
+}
+/* the two punched holes, ring side */
+.sh-bo__sheet-front::before,.sh-bo__sheet-front::after{
+  content:"";position:absolute;right:12px;width:13px;height:13px;border-radius:50%;
+  background:#e6e2d8;box-shadow:inset 0 1px 2px rgba(0,0,0,.35),0 1px 0 rgba(255,255,255,.8);
+}
+.sh-bo__sheet-front::before{top:calc(24% + 12px)}
+.sh-bo__sheet-front::after{bottom:calc(24% + 12px)}
+.sh-bo__sheet-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:10px;border-bottom:1px solid var(--sh-hair-2);font-size:11.5px;color:var(--sh-mute)}
+.sh-bo__sheet-head b{font-family:var(--sh-font);font-weight:800;color:var(--sh-navy)}
+.sh-bo__sheet-head span{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+/* sheet 1: the file card */
+.sh-bo__card{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:0 26px;align-items:start;padding-top:22px;min-height:0}
+.sh-bo__card > *{grid-column:1}
+.sh-bo__card-photo{
+  grid-column:2;grid-row:1/span 6;align-self:stretch;position:relative;overflow:hidden;
+  background:var(--sh-navy);box-shadow:0 8px 22px rgba(10,26,51,.28);transform:rotate(1.2deg);
+}
+.sh-bo__card-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sh-bo__card-photo::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 6px #fbfaf7}   /* a print, taped to the sheet */
+.sh-bo__card-photo[hidden]{display:none}
+.sh-bo__card-no{font-family:var(--sh-font);font-size:56px;font-weight:700;line-height:.9;color:var(--sh-blue);opacity:.28;direction:ltr}
+.sh-bo__card-title{font-family:var(--sh-font);font-size:clamp(22px,2.4vw,30px);font-weight:800;line-height:1.4;color:var(--sh-navy);margin:0;text-wrap:balance}
+.sh-bo__card-desc{font-size:14.5px;line-height:1.85;color:var(--sh-ink-2);margin:0;text-wrap:pretty}
+.sh-bo__facts{display:grid;grid-template-columns:auto minmax(0,1fr);gap:7px 16px;margin:6px 0 0;font-size:12.5px}
+.sh-bo__facts dt{color:var(--sh-mute)}
+.sh-bo__facts dd{margin:0;font-weight:700;color:var(--sh-navy);font-variant-numeric:tabular-nums}
+.sh-bo__facts dd[data-sh-binder-state="live"]::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--sh-red);margin-inline-end:6px;vertical-align:middle;animation:sh-file-live 1.6s ease-in-out infinite}
+.sh-bo__card-foot{margin-top:auto;padding-top:14px;display:flex;align-items:center;gap:12px;font-size:12px;color:var(--sh-mute)}
+.sh-bo__card-foot .sh-more{font-size:12.5px}
+/* the document sheets */
+.sh-bo__docs{list-style:none;margin:0;padding:0}
+.sh-bo__doc{
+  display:grid;grid-template-columns:30px 92px minmax(0,1fr);gap:0 12px;align-items:start;
+  padding:13px 0;border-bottom:1px solid var(--sh-hair-2);
+}
+.sh-bo__doc-thumb{display:block;width:92px;aspect-ratio:16/10;object-fit:cover;background:var(--sh-navy)}
+.sh-bo__doc--noimg{grid-template-columns:30px minmax(0,1fr)}
+.sh-bo__doc i{
+  width:30px;height:30px;display:grid;place-items:center;background:var(--sh-hair-6);color:var(--sh-blue);font-size:12px;
+}
+.sh-bo__doc a{font-family:var(--sh-font);font-size:14.5px;font-weight:700;line-height:1.55;color:var(--sh-ink);transition:color .16s ease}
+.sh-bo__doc a:hover{color:var(--sh-blue)}
+.sh-bo__doc-meta{display:flex;gap:10px;margin-top:4px;font-size:11.5px;color:var(--sh-mute)}
+.sh-bo__doc-meta b{font-weight:800;color:var(--sh-blue)}
+.sh-bo__sheet-foot{margin-top:auto;padding-top:12px;display:flex;justify-content:space-between;font-size:11.5px;color:var(--sh-mute);font-variant-numeric:tabular-nums}
+.sh-bo__sheet-foot span{direction:ltr;unicode-bidi:isolate}
+
+/* the strip under the book: where you are, and the turn buttons */
+.sh-bo__foot{display:flex;align-items:center;gap:14px;color:#fff;min-width:0}
+.sh-bo__pos{font-size:12.5px;color:rgba(255,255,255,.7);font-variant-numeric:tabular-nums}
+.sh-bo__pos span{direction:ltr;unicode-bidi:isolate}
+.sh-bo__turn{
+  display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.35);background:none;color:#fff;
+  font-family:var(--sh-font);font-size:12.5px;font-weight:800;padding:8px 14px;cursor:pointer;transition:background .18s ease;
+}
+.sh-bo__turn:hover{background:rgba(255,255,255,.14)}
+.sh-bo__turn[disabled]{opacity:.35;cursor:default}
+.sh-bo__turn[disabled]:hover{background:none}
+.sh-bo__foot .sh-more{margin-inline-start:auto;color:#fff}
+.sh-bo__foot .sh-more .sh-more__arrow{background:#fff}
+
+@media (max-width:760px){
+  .sh-bo{padding:0}
+  .sh-bo__frame{height:100%;grid-template-rows:auto minmax(0,1fr) auto;gap:10px;padding:12px 12px 14px;perspective:none}
+  .sh-bo__name{font-size:16px}
+  .sh-bo__book{height:auto;min-height:0;display:block;overflow:auto;transform-style:flat}
+  .sh-bo__spine{display:none}
+  .sh-bo__cover{transform:none!important;transform-style:flat;margin-bottom:10px}
+  .sh-bo__cover-out{display:none}
+  .sh-bo__cover-in{position:relative;padding:18px;padding-top:56px}
+  .sh-bo__pocket{padding:12px}
+  .sh-bo__slip{transform:none}
+  .sh-bo__slip-no{font-size:28px}
+  .sh-bo__pages{position:relative;transform-style:flat}
+  .sh-bo__pages::after{display:none}
+  .sh-bo__sheet{position:relative;display:none;transform:none!important;transition:none}
+  .sh-bo__sheet[data-current]{display:block}
+  .sh-bo__sheet-front{position:relative;padding:22px 44px 20px 18px;min-height:0}
+  .sh-bo__sheet-back{display:none}
+  .sh-bo__card{grid-template-columns:minmax(0,1fr);gap:12px}
+  .sh-bo__card > *,.sh-bo__card-photo{grid-column:1}
+  .sh-bo__card-photo{grid-row:auto;height:150px;transform:none}
+  .sh-bo__doc{grid-template-columns:30px 68px minmax(0,1fr);gap:0 10px}
+  .sh-bo__doc-thumb{width:68px}
+  .sh-bo__card-title{font-size:22px}
+  .sh-bo__foot{flex-wrap:wrap;gap:10px}
+}
+@media (prefers-reduced-motion:reduce){
+  .sh-bo__veil,.sh-bo__frame{animation:none;transition:none}
+  .sh-bo__cover,.sh-bo__sheet,.sh-bo__pages::after{transition:none}
+  .sh-bo__stamp--live::before,.sh-bo__facts dd[data-sh-binder-state="live"]::before{animation:none}
+}
