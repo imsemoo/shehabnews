@@ -9,7 +9,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 @keyframes sh-lens-in{0%{opacity:0;transform:scale(1.04)}100%{opacity:1;transform:none}}
 @keyframes sh-line-in{0%{transform:translateY(10px);opacity:0}100%{transform:none;opacity:1}}
 @keyframes sh-fadein{0%{opacity:0;transform:translateY(6px)}100%{opacity:1;transform:none}}
-.sh-index-hero__section-1{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:40px;padding:32px 0 0;align-items:stretch}
+.sh-index-hero__section-1{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:48px;padding:32px 0 0;align-items:stretch}   /* the rail matches the More News aside (320/48) */
 .sh-index-hero__div-1{display:flex;height:500px;background:var(--sh-navy);color:#fff;position:relative;overflow:hidden}
 .sh-index-hero__a-1{position:relative;overflow:hidden;display:block;color:#fff;flex-basis:64px;flex-grow:0;min-width:64px;transition:flex-grow .8s cubic-bezier(.2,.75,.2,1);cursor:pointer;border-right:1px solid rgba(255,255,255,.22);background:var(--sh-navy-2)}
 .sh-index-hero__a-1:hover{color:#fff}
@@ -42,11 +42,18 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-index-hero__span-20{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/Dome%20of%20the%20Al-Aqsa%20Mosque%20%2820160%29.jpg?width=1800);background-size:cover;background-position:center 40%;opacity:0.3;transform:scale(1);filter:none;transition:transform 9s linear,opacity .8s ease,filter .8s ease}
 .sh-index-hero__div-6{position:absolute;bottom:22px;left:28px;display:flex;gap:8px;z-index:2}
 .sh-index-hero__aside-1{display:flex;flex-direction:column;height:500px;overflow:hidden;border-top:2px solid var(--sh-blue)}
+/* at the container's full 1400 the slides are ~970 wide; 540 tall keeps the
+   open picture near the 1.8:1 it was designed at instead of a 2:1 letterbox */
+@media (min-width:1400px){
+  .sh-index-hero__div-1,.sh-index-hero__aside-1{height:540px}
+}
 .sh-index-hero__div-7{display:flex;align-items:baseline;justify-content:space-between;padding:12px 0 10px;border-bottom:1px solid var(--sh-hair)}
 .sh-index-hero__h2-1{font-family:var(--sh-font);font-size:17px;font-weight:700;margin:0;display:flex;align-items:center;gap:10px;color:var(--sh-navy)}
 .sh-index-hero__span-21{width:8px;height:8px;background:var(--sh-red);border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite}
-.sh-index-hero__div-8{flex:1;min-height:0;overflow:hidden}
-.sh-index-hero__a-3{display:block;padding:11px 0 12px;border-bottom:1px solid var(--sh-hair)}
+/* the rows share the column's height, so the wire always reaches the footer
+   link instead of leaving a gap under the last item */
+.sh-index-hero__div-8{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column}
+.sh-index-hero__a-3{flex:1 1 auto;display:flex;flex-direction:column;justify-content:center;padding:11px 0 12px;border-bottom:1px solid var(--sh-hair)}
 .sh-index-hero__div-9{display:flex;gap:10px;align-items:center;font-size:11.5px}
 .sh-index-hero__div-10{font-family:var(--sh-font);font-size:14px;font-weight:700;line-height:1.6;margin-top:5px;text-wrap:pretty;color:var(--sh-ink)}
 .sh-index-hero__a-4{display:flex;align-items:center;gap:8px;padding:12px 0 0;font-size:12px;color:var(--sh-blue);font-weight:700;border-top:1px solid var(--sh-hair);margin-top:auto}
@@ -195,7 +202,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
    entering picture drifts from 1.04 to 1 over six seconds. RTL: the first
    thumb sits on the right, the rule fills from the right, forward is leftward.
    ========================================================================== */
-.sh-lens{padding:56px 0 64px}
+.sh-lens{padding:56px 0 56px}   /* 56 white above the video band */
 .sh-lens__head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:11px}
 .sh-lens__grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);margin-top:20px;align-items:stretch}
 .sh-lens__stage{position:relative;overflow:hidden;background:var(--sh-navy);aspect-ratio:15/8;touch-action:pan-y;user-select:none;-webkit-user-select:none}
@@ -234,7 +241,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
   .sh-lens__num b{font-size:32px}
 }
 @media (max-width:640px){
-  .sh-lens{padding:40px 0 48px}
+  .sh-lens{padding:40px 0 40px}
   .sh-lens__bar{padding:10px 14px;font-size:11.5px}
   .sh-lens__title{font-size:18px}
 }
@@ -249,13 +256,19 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
    on a snap rail with arrows; under the stage the programmes. Same player
    contract as video-watch.html (data-sh-player / data-sh-video / the controls).
    ========================================================================== */
-.sh-vid{padding:0 0 64px}
-.sh-vid__head{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:12px}
+.sh-vid{position:relative;z-index:0;padding:56px 0 56px;color:#fff}   /* the band breathes 56 inside, and the neighbours give it 56 white outside */
+/* the band: a pseudo-element behind the section reaches the viewport edges
+   (html clips at the edge, the container does not), so the navy is full-bleed
+   while the content keeps the container's width */
+.sh-vid::before{content:"";position:absolute;inset:0 calc(50% - 50vw);z-index:-1;background:var(--sh-navy)}
+.sh-vid .sh-section__title{color:#fff}
+.sh-vid .sh-section__title .sh-mark{background:var(--sh-sky)}
+.sh-vid__head{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:12px}
 .sh-vid__stage{
   position:relative;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:0;align-items:stretch;
-  margin-top:16px;background:var(--sh-navy);color:#fff;isolation:isolate;
+  margin-top:16px;background:transparent;color:#fff;isolation:isolate;
 }
-.sh-vid__stage::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 85% 0,rgba(27,90,166,.28),transparent 55%)}
+.sh-vid::after{content:"";position:absolute;inset:0 calc(50% - 50vw);z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 85% 0,rgba(27,90,166,.28),transparent 55%)}
 /* the player */
 .sh-vid__main{position:relative;padding:16px 16px 18px;min-width:0}
 .sh-vid__player{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000;box-shadow:0 18px 40px -20px rgba(0,0,0,.7)}
@@ -352,18 +365,18 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-vid__reel-time{font-size:11px;color:var(--sh-on-dark-60);font-variant-numeric:tabular-nums}
 /* the programmes */
 .sh-vid__progs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:16px}
-.sh-vid__prog{display:flex;flex-direction:column;gap:9px;color:var(--sh-ink);min-width:0}
-.sh-vid__prog:hover{color:var(--sh-blue)}
+.sh-vid__prog{display:flex;flex-direction:column;gap:9px;color:#fff;min-width:0}
+.sh-vid__prog:hover{color:var(--sh-sky)}
 .sh-vid__prog-art{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--sh-navy-2)}
 .sh-vid__prog-art img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
 .sh-vid__prog:hover .sh-vid__prog-art img{transform:scale(1.04)}
 .sh-vid__prog-body{display:flex;flex-direction:column;gap:3px}
-.sh-vid__prog-name{font-family:var(--sh-font);font-size:14px;font-weight:800;color:var(--sh-navy)}
-.sh-vid__prog:hover .sh-vid__prog-name{color:var(--sh-blue)}
-.sh-vid__prog-by{font-size:12px;color:var(--sh-mute)}
-.sh-vid__prog-all{display:grid;place-items:center;aspect-ratio:4/3;background:var(--sh-hair-6);border:1px dashed var(--sh-hair-2);color:var(--sh-navy);font-family:var(--sh-font);font-size:13px;font-weight:800;gap:2px}
-.sh-vid__prog-all b{font-size:30px;line-height:1;color:var(--sh-blue)}
-.sh-vid__prog--all .sh-vid__prog-by{display:inline-flex;align-items:center;gap:6px;color:var(--sh-blue);font-weight:700}
+.sh-vid__prog-name{font-family:var(--sh-font);font-size:14px;font-weight:800;color:#fff}
+.sh-vid__prog:hover .sh-vid__prog-name{color:var(--sh-sky)}
+.sh-vid__prog-by{font-size:12px;color:var(--sh-on-dark-72)}
+.sh-vid__prog-all{display:grid;place-items:center;aspect-ratio:4/3;background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.3);color:#fff;font-family:var(--sh-font);font-size:13px;font-weight:800;gap:2px}
+.sh-vid__prog-all b{font-size:30px;line-height:1;color:var(--sh-sky)}
+.sh-vid__prog--all .sh-vid__prog-by{display:inline-flex;align-items:center;gap:6px;color:var(--sh-sky);font-weight:700}
 .sh-vid__prog--all .sh-more__arrow{background:currentColor}
 
 @media (max-width:900px){
@@ -391,7 +404,11 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
    and carries its title on the picture; the four beside it carry theirs under
    the picture, on paper, with the desk as a kicker. Titles only.
    ========================================================================== */
-.sh-rep{padding:0 0 56px}
+.sh-rep{padding:56px 0 56px}   /* 56 white below the video band before the title */
+@media (max-width:640px){
+  .sh-vid{padding:40px 0 40px}
+  .sh-rep{padding-top:40px}
+}
 .sh-rep__head{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:12px}
 .sh-rep__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:auto auto;gap:22px 18px;margin-top:20px}
 .sh-rep__lead{grid-column:span 2;grid-row:span 2;position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);color:#fff;min-height:100%}

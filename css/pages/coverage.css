@@ -100,7 +100,7 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:1.95}
 .sh-coverage-timeline__a-4{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:12px;color:var(--sh-blue);font-weight:700}
 .sh-coverage-timeline__a-4:hover{gap:13px}
 .sh-coverage-background__section-1{background:#f7f9fc;margin:0 -32px;padding:0 32px}
-.sh-coverage-background__div-1{max-width:1216px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:56px;padding:44px 0 48px;align-items:start}
+.sh-coverage-background__div-1{max-width:calc(var(--sh-container) - 64px);margin:0 auto;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:56px;padding:44px 0 48px;align-items:start}
 .sh-coverage-background__div-2{display:flex;align-items:center;gap:12px;border-right:3px solid var(--sh-blue);padding-right:14px}
 .sh-coverage-background__h2-1{font-family:var(--sh-font);font-size:17px;font-weight:800;margin:0;color:var(--sh-navy)}
 .sh-coverage-background__span-1{font-size:11.5px;color:var(--sh-mute)}

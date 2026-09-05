@@ -103,6 +103,8 @@ shehabnews/
 ```
 css/
   tokens.css        --color-* نظام الألوان (قماش/علامة/أحمر/مكاتب/نص) + --sh-* كـaliases
+                    + الحاوية --sh-container: 1400px (المحتوى 1336px؛ كانت 1280) — مرنة تحتها,
+                    مفيش بريكبوينت عندها، والأعمدة الثابتة (280/320/72px) ما بتتغيّرش
                     + إعلان ترتيب الطبقات: @layer marks, responsive;
   base.css          html,body · * · a (النواة) · a:hover · img
   header.css        topbar + masthead + nav + ticker   (sh-header, sh-nav__link…)
