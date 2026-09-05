@@ -202,30 +202,50 @@ header[data-nav-open] .sh-nav-toggle span:nth-child(3){transform:translateY(-7px
 /* ============================================================================
    HERO — the accordion (index, homepage-v3/v4)
    Three panels share 500px on desktop, each collapsed to a 64px vertical spine.
-   A spine cannot be read on a phone, so below 900px the panels become stacked
-   cards with their captions revealed.
+   A spine cannot be read on a phone, and neither can a caption laid over a
+   fixed-height panel: long headlines spill out of it. Below 900px the whole
+   thing stops being an accordion and becomes three plain cards — picture on
+   top at a fixed ratio, caption beneath it in normal flow, every card equally
+   bright. The !important values also fence off app.js, which keeps applying the
+   open/closed inline styles (image opacity .3, caption translateY) on tap.
    ========================================================================== */
 @media (max-width:900px){
-  [data-sh-hero]{height:auto!important;flex-direction:column!important}
+  [data-sh-hero]{height:auto!important;flex-direction:column!important;gap:2px;overflow:visible!important;background:transparent!important}
   [data-sh-hero-panel]{
-    flex:0 0 auto!important; min-width:0!important; min-height:0!important;
-    height:230px!important; transition:none!important;
+    display:flex!important; flex-direction:column!important;
+    flex:0 0 auto!important; min-width:0!important; min-height:0!important; height:auto!important;
+    border-right:0!important; transition:none!important; background:var(--sh-navy)!important;
   }
-  [data-sh-hero-panel] > span[style*="writing-mode"],[data-sh-hero-panel] > span.sh-index-files__span-19,[data-sh-hero-panel] > span.sh-index-files__span-20,[data-sh-hero-panel] > span.sh-index-files__span-3,[data-sh-hero-panel] > span.sh-index-hero__span-5,[data-sh-hero-panel] > span > span[style*="writing-mode"],[data-sh-hero-panel] > span > span.sh-index-files__span-19,[data-sh-hero-panel] > span > span.sh-index-files__span-20,[data-sh-hero-panel] > span > span.sh-index-files__span-3,[data-sh-hero-panel] > span > span.sh-index-hero__span-5{display:none!important}
-  [data-sh-hero-panel] > span[style*="width:64px"],[data-sh-hero-panel] > span.sh-index-hero__a-1,[data-sh-hero-panel] > span.sh-index-hero__a-2,[data-sh-hero-panel] > span.sh-index-hero__span-16,[data-sh-hero-panel] > span.sh-index-hero__span-3,[data-sh-hero-panel] > span.sh-video-live-now__span-7{display:none!important}
-  [data-sh-hero-panel] > div{opacity:1!important;transform:none!important;padding:12px 16px 0!important}
-  [data-sh-hero-panel] > span[style*="top:20px"],[data-sh-hero-panel] > span.sh-about-manifesto__div-2,[data-sh-hero-panel] > span.sh-archive-archive-rail__span-4,[data-sh-hero-panel] > span.sh-article-article-end__div-3,[data-sh-hero-panel] > span.sh-files-featured-special__section-1,[data-sh-hero-panel] > span.sh-files-files-hero__a-1,[data-sh-hero-panel] > span.sh-index-files__div-3,[data-sh-hero-panel] > span.sh-index-hero__span-17,[data-sh-hero-panel] > span.sh-index-hero__span-6,[data-sh-hero-panel] > span[data-sh-hero-panel] > span.sh-photos-editors-picks__div-2,[data-sh-hero-panel] > span.sh-photos-from-the-lens__div-2,[data-sh-hero-panel] > span.sh-privacy-privacy-body__h2-1,[data-sh-hero-panel] > span.sh-search-search-hero__div-3,[data-sh-hero-panel] > span.sh-sections-files-rail__div-1,[data-sh-hero-panel] > span.sh-sections-interactive-map__div-2,[data-sh-hero-panel] > span.sh-tag-tag-listing__div-2,[data-sh-hero-panel] > span.sh-terms-terms-body__h2-1,[data-sh-hero-panel] > span.sh-video-latest-videos__div-1,[data-sh-hero-panel] > span.sh-video-watch-related-videos__div-2{opacity:1!important}
+  /* 1. the picture: a block at the head of the card, never dimmed */
+  [data-sh-hero-panel] > span:first-child{
+    position:relative!important; inset:auto!important; width:100%!important; height:auto!important;
+    aspect-ratio:16/9; opacity:1!important; transform:none!important; filter:none!important;
+  }
+  /* 2. the tint veil and the vertical spine have no job here */
+  [data-sh-hero-panel] > span:nth-child(2),
+  [data-sh-hero-panel] > span[style*="writing-mode"],[data-sh-hero-panel] > span.sh-index-hero__span-3,[data-sh-hero-panel] > span.sh-index-hero__span-16{display:none!important}
+  /* 3. the source chip stays over the picture's top corner */
+  [data-sh-hero-panel] > span.sh-index-hero__span-6,[data-sh-hero-panel] > span.sh-index-hero__span-17{
+    position:absolute!important; top:12px!important; right:12px!important; left:auto!important; opacity:1!important; z-index:2;
+  }
+  /* 4. the caption drops out of the overlay and into the flow */
+  [data-sh-hero-panel] > div{
+    position:relative!important; inset:auto!important; opacity:1!important; transform:none!important;
+    background:transparent!important; min-width:0!important; padding:12px 16px 14px!important; pointer-events:auto!important;
+  }
   [data-sh-hero-panel] h1,[data-sh-hero-panel] h2{font-size:17px!important;line-height:1.5!important}
+  [data-sh-hero-panel] > div > div:last-of-type{margin-bottom:0!important}
+  /* 5. the desktop autoplay bar means nothing once the panels are all open */
+  [data-sh-hero-panel] > div > span:last-child{display:none!important}
 }
 @media (max-width:640px){
-  [data-sh-hero-panel]{height:205px!important}
   /* the caption's meta row is `white-space:nowrap`; at 320 the trailing
      "01 / 03" counter is pushed past the edge by its `margin-right:auto`.
      Let the row wrap instead of dropping the counter. */
   [data-sh-hero-panel] > div > div:first-child{
     white-space:normal!important; flex-wrap:wrap!important; gap:4px 10px!important;
   }
-  [data-sh-hero-panel] > div > div:first-child > span[style*="margin-right:auto"],[data-sh-hero-panel] > div > div:first-child > span.sh-about-opening__span-11,[data-sh-hero-panel] > div > div:first-child > span.sh-author-author-hero__span-11,[data-sh-hero-panel] > div > div:first-child > span.sh-contact-contact-form__span-9,[data-sh-hero-panel] > div > div:first-child > span.sh-index-hero__span-9,[data-sh-hero-panel] > div > div:first-child > span.sh-index-top-now__span-2,[data-sh-hero-panel] > div > div:first-child > span.sh-tag-tag-header__span-10,[data-sh-hero-panel] > div > div:first-child > span.sh-tag-tag-tabs__span-5,[data-sh-hero-panel] > div > div:first-child > span.sh-video-watch-player__span-15{
+  [data-sh-hero-panel] > div > div:first-child > span[style*="margin-right:auto"],[data-sh-hero-panel] > div > div:first-child > span.sh-about-opening__span-11,[data-sh-hero-panel] > div > div:first-child > span.sh-author-author-hero__span-11,[data-sh-hero-panel] > div > div:first-child > span.sh-contact-contact-form__span-9,[data-sh-hero-panel] > div > div:first-child > span.sh-index-hero__span-9,[data-sh-hero-panel] > div > div:first-child > span.sh-index-top-now__span-2{
     margin-inline-start:0!important;
   }
 }
@@ -419,7 +439,7 @@ header[data-nav-open] .sh-nav-toggle span:nth-child(3){transform:translateY(-7px
 @media (max-width:380px){
   [style*="height:88px"],.sh-masthead{height:64px!important}
   header [style*="grid-template-columns:1fr auto 1fr"] img,header .sh-masthead img{height:34px!important}
-  [data-sh-hero-panel]{height:190px!important}
+  /* (the hero panels size to their content now — no fixed height at any width) */
   [data-screen-label] [style*="padding:32px"],[data-screen-label] .sh-coverage-summary__section-1,[data-screen-label] .sh-files-files-body__div-1,[data-screen-label] .sh-index-hero__section-1,[data-screen-label] .sh-index-statements__div-4{padding:20px!important}
   [style*="padding:26px 28px"],.sh-index-files__div-4,.sh-photos-editors-picks__section-1,.sh-video-coverage-collections__section-1{padding:18px 16px!important}
   [style*="padding:22px 24px"],.sh-article-context-block__aside-1,.sh-category-video-module__section-1,.sh-video-live-now__section-1{padding:16px 14px!important}

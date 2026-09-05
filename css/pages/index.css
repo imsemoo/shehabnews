@@ -47,17 +47,61 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 @media (min-width:1400px){
   .sh-index-hero__div-1,.sh-index-hero__aside-1{height:540px}
 }
-.sh-index-hero__div-7{display:flex;align-items:baseline;justify-content:space-between;padding:12px 0 10px;border-bottom:1px solid var(--sh-hair)}
+.sh-index-hero__div-7{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0 10px;border-bottom:1px solid var(--sh-hair)}
 .sh-index-hero__h2-1{font-family:var(--sh-font);font-size:17px;font-weight:700;margin:0;display:flex;align-items:center;gap:10px;color:var(--sh-navy)}
 .sh-index-hero__span-21{width:8px;height:8px;background:var(--sh-red);border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite}
+.sh-upd__pulse{font-family:var(--sh-font);font-size:10.5px;font-weight:800;letter-spacing:.04em;color:var(--color-red-soft);border:1px solid var(--color-red-soft);padding:2px 7px}
 /* the rows share the column's height, so the wire always reaches the footer
    link instead of leaving a gap under the last item */
-.sh-index-hero__div-8{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column}
-.sh-index-hero__a-3{flex:1 1 auto;display:flex;flex-direction:column;justify-content:center;padding:11px 0 12px;border-bottom:1px solid var(--sh-hair)}
-.sh-index-hero__div-9{display:flex;gap:10px;align-items:center;font-size:11.5px}
-.sh-index-hero__div-10{font-family:var(--sh-font);font-size:14px;font-weight:700;line-height:1.6;margin-top:5px;text-wrap:pretty;color:var(--sh-ink)}
-.sh-index-hero__a-4{display:flex;align-items:center;gap:8px;padding:12px 0 0;font-size:12px;color:var(--sh-blue);font-weight:700;border-top:1px solid var(--sh-hair);margin-top:auto}
-.sh-index-hero__a-4:hover{gap:14px}
+/* ---- «آخر التحديثات»: a timeline, not a list. The clock is the spine — the
+       times run down a hairline with a node per update, so the eye reads the
+       sequence before it reads any headline. The newest node is red and beats;
+       the rest are hollow and fill blue on hover. --sh-upd-spine keeps the
+       line, the nodes and the text column derived from one number. ---- */
+.sh-index-hero__div-8{
+  --sh-upd-spine:54px;
+  position:relative;flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;
+}
+.sh-index-hero__div-8::before{content:"";position:absolute;top:14px;bottom:14px;inset-inline-start:var(--sh-upd-spine);width:1px;background:var(--sh-hair-2)}
+.sh-upd{
+  position:relative;display:grid;grid-template-columns:var(--sh-upd-spine) minmax(0,1fr);align-items:start;column-gap:16px;
+  flex:0 0 auto;padding:9px 0 10px;border-bottom:1px solid var(--sh-hair);color:var(--sh-ink);
+  transition:background .16s ease;
+}
+.sh-upd:last-of-type{border-bottom:0}
+.sh-upd::after{content:"";position:absolute;inset:-1px -10px;z-index:-1;background:transparent;transition:background .16s ease}
+.sh-upd:hover::after{background:var(--color-surface-soft)}
+.sh-upd:hover{color:var(--sh-ink)}
+.sh-upd:focus-visible{outline:2px solid var(--sh-blue);outline-offset:2px}
+/* the time: the row's anchor, tabular so the column never jitters */
+.sh-upd__time{display:flex;align-items:baseline;gap:4px;padding-top:1px;font-family:var(--sh-font);color:var(--color-text-muted);transition:color .16s ease}
+.sh-upd__time b{font-size:13px;font-weight:800;font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;color:var(--sh-ink-2)}
+.sh-upd__time small{font-size:10px;font-weight:700}
+.sh-upd:hover .sh-upd__time b{color:var(--sh-blue)}
+/* the node sits on the spine */
+.sh-upd__node{
+  position:absolute;top:13px;inset-inline-start:var(--sh-upd-spine);margin-inline-start:-4px;width:9px;height:9px;
+  background:#fff;border:1.5px solid var(--sh-hair-2);transform:rotate(45deg);transition:background .16s ease,border-color .16s ease;
+}
+.sh-upd:hover .sh-upd__node{background:var(--sh-blue);border-color:var(--sh-blue)}
+.sh-upd--live .sh-upd__node{background:var(--sh-red);border-color:var(--sh-red);animation:sh-pulse 1.6s ease-in-out infinite}
+.sh-upd--live:hover .sh-upd__node{background:var(--color-red-soft);border-color:var(--color-red-soft)}
+.sh-upd__body{display:flex;flex-direction:column;gap:4px;min-width:0}
+.sh-upd__cat{align-self:flex-start;font-family:var(--sh-font);font-size:10.5px;font-weight:800;letter-spacing:.02em;color:var(--sh-blue)}
+.sh-upd__cat--breaking{background:var(--sh-red);color:#fff;padding:2px 7px}
+.sh-upd__t{
+  font-family:var(--sh-font);font-size:14px;font-weight:700;line-height:1.6;text-wrap:pretty;transition:color .16s ease;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;   /* the rail is a fixed column: two lines keeps every row the same shape */
+}
+.sh-upd:hover .sh-upd__t{color:var(--sh-blue)}
+.sh-upd--live .sh-upd__t{font-size:14.5px}
+.sh-index-hero__a-4{
+  display:flex;align-items:center;gap:8px;padding:12px 0 0;font-size:12px;color:var(--sh-blue);font-weight:700;
+  border-top:1px solid var(--sh-hair);margin-top:auto;
+}
+.sh-index-hero__a-4 b{padding:1px 7px;background:var(--color-surface-blue);font-size:11px;font-weight:800;font-variant-numeric:tabular-nums}
+.sh-index-hero__a-4:hover{gap:14px;color:var(--color-brand-blue-deep)}
+.sh-index-hero__a-4:hover b{background:var(--sh-blue);color:#fff}
 .sh-index-top-now__section-1{padding:48px 0 40px}
 .sh-index-top-now__div-1{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--sh-hair);padding-bottom:10px}
 .sh-index-top-now__span-1{width:22px;height:3px;background:var(--sh-blue)}
@@ -116,7 +160,10 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-index-live-coverage__a-4{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--sh-blue);font-weight:700;margin-top:16px}
 .sh-index-live-coverage__a-4:hover{gap:14px}
 .sh-index-live-coverage__div-15{display:none;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:0;padding-top:28px}
-.sh-index-files__section-1{padding:0 0 64px}
+.sh-index-files__section-1{padding:56px 0 56px}   /* sits in the band rhythm: 56 white above and below, like .sh-lens/.sh-vid/.sh-rep */
+@media (max-width:640px){
+  .sh-index-files__section-1{padding:40px 0 40px}
+}
 .sh-index-files__div-1{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:12px}
 .sh-index-files__div-2{display:flex;align-items:center;gap:12px}
 .sh-index-files__h2-1{font-family:var(--sh-font);font-size:24px;font-weight:700;margin:0;line-height:1;color:var(--sh-navy)}
@@ -196,57 +243,58 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-index-statements__h2-1{font-family:var(--sh-font);font-size:24px;font-weight:700;margin:0;line-height:1;color:var(--sh-navy)}
 .sh-index-special-files__section-1{padding:0 0 64px}
 /* ============================================================================
-   عدسة شهاب — one photo report, one picture at a time. The stage is the
-   picture with its caption bar; beside it the album: label, the big number,
-   title, text, the strip of thumbs, and the arrows with a progress rule. The
-   entering picture drifts from 1.04 to 1 over six seconds. RTL: the first
-   thumb sits on the right, the rule fills from the right, forward is leftward.
+   عدسة شهاب — one photo story, one picture at a time. The stage is the
+   picture, clean, at 3:2 so nothing is cropped off the top; beside it the
+   story: a label with the count, title, text, then the caption of the picture
+   on the stage (place, sentence), the four pictures as a contact sheet, and
+   the arrows with the counter. One position cue: the counter and the lit
+   thumb. The entering picture drifts from 1.04 to 1 over six seconds. RTL:
+   the first thumb sits on the right, forward is leftward.
    ========================================================================== */
 .sh-lens{padding:56px 0 56px}   /* 56 white above the video band */
 .sh-lens__head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:11px}
 .sh-lens__grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);margin-top:20px;align-items:stretch}
-.sh-lens__stage{position:relative;overflow:hidden;background:var(--sh-navy);aspect-ratio:15/8;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.sh-lens__stage{position:relative;overflow:hidden;background:var(--sh-navy);aspect-ratio:3/2;touch-action:pan-y;user-select:none;-webkit-user-select:none}
 .sh-lens__slide{position:absolute;inset:0;display:block;opacity:0;visibility:hidden;transition:opacity .55s ease,visibility 0s linear .55s}
 .sh-lens__slide[aria-current="true"]{opacity:1;visibility:visible;transition:opacity .55s ease,visibility 0s}
 .sh-lens__slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.04);transition:transform 6s cubic-bezier(.2,.6,.2,1);-webkit-user-drag:none}
 .sh-lens__slide[aria-current="true"] img{transform:none}
-.sh-lens__bar{position:absolute;inset:auto 0 0 0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 20px;background:rgba(10,26,51,.9);color:#fff;font-size:12px;pointer-events:none}
-.sh-lens__cap{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.sh-lens__pos{flex:none;font-family:var(--sh-font);font-size:12px;font-weight:800;font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;color:rgba(255,255,255,.85)}
-.sh-lens__panel{display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:22px 26px;min-width:0}
+.sh-lens__panel{display:flex;flex-direction:column;justify-content:space-between;gap:14px;padding:20px 24px;min-width:0}
+.sh-lens__story{display:flex;flex-direction:column;gap:8px}
 .sh-lens__label{font-family:var(--sh-font);font-size:12px;font-weight:800;color:var(--sh-blue)}
-.sh-lens__num{display:flex;align-items:baseline;justify-content:flex-end;gap:8px;font-family:var(--sh-font);border-bottom:1px solid var(--sh-hair);padding:4px 0 14px;direction:ltr;unicode-bidi:isolate}
-.sh-lens__num b{font-size:40px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums;color:var(--sh-navy)}
-.sh-lens__num span{font-size:14px;color:var(--sh-mute)}
-.sh-lens__title{font-family:var(--sh-font);font-size:21px;font-weight:700;line-height:1.5;margin:16px 0 8px;color:var(--sh-navy);text-wrap:balance}
+.sh-lens__label b{font-weight:800;font-variant-numeric:tabular-nums}
+.sh-lens__title{font-family:var(--sh-font);font-size:21px;font-weight:700;line-height:1.5;margin:0;color:var(--sh-navy);text-wrap:balance}
 .sh-lens__title a{color:inherit;transition:color .18s ease}
 .sh-lens__title a:hover{color:var(--sh-blue)}
-.sh-lens__text{font-size:13px;line-height:1.95;color:var(--sh-ink-2);margin:0;text-wrap:pretty}
-.sh-lens__thumbs{display:flex;gap:8px}
-.sh-lens__thumb{position:relative;width:64px;aspect-ratio:3/2;flex:none;padding:0;border:0;background:var(--sh-navy-2);cursor:pointer;overflow:hidden;opacity:.5;outline:2px solid transparent;outline-offset:-2px;transition:opacity .2s ease,outline-color .2s ease}
+.sh-lens__text{font-size:13px;line-height:1.95;color:var(--sh-ink-2);margin:0;text-wrap:pretty;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+/* the caption of the picture on the stage: the place, then the sentence; follows the picture */
+.sh-lens__caption{display:flex;flex-direction:column;gap:4px;padding-top:12px;border-top:1px solid var(--sh-hair)}
+.sh-lens__loc{font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:var(--sh-blue)}
+.sh-lens__cap{font-size:13.5px;line-height:1.7;color:var(--sh-ink);text-wrap:pretty;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+/* the contact sheet: the four pictures, two by two, the lit one is the one on the stage */
+.sh-lens__thumbs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.sh-lens__thumb{position:relative;aspect-ratio:16/9;padding:0;border:0;background:var(--sh-navy-2);cursor:pointer;overflow:hidden;opacity:.55;outline:2px solid transparent;outline-offset:-2px;transition:opacity .2s ease,outline-color .2s ease}
 .sh-lens__thumb img{display:block;width:100%;height:100%;object-fit:cover}
 .sh-lens__thumb:hover{opacity:.85}
 .sh-lens__thumb[aria-current="true"]{opacity:1;outline-color:var(--sh-blue)}
 .sh-lens__thumb:focus-visible{outline-color:var(--sh-blue);opacity:1}
-.sh-lens__nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px}
+.sh-lens__nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
 .sh-lens__btns{display:flex;gap:6px}
 .sh-lens__btn{width:36px;height:34px;display:grid;place-items:center;border:1px solid var(--sh-hair-2);background:#fff;color:var(--sh-navy);font-size:12px;cursor:pointer;transition:background .18s ease,border-color .18s ease,color .18s ease}
 .sh-lens__btn:hover{background:var(--sh-navy);border-color:var(--sh-navy);color:#fff}
 .sh-lens__btn:focus-visible{outline:2px solid var(--sh-blue);outline-offset:2px}
-.sh-lens__rule{flex:1;height:2px;background:var(--sh-hair-2);position:relative}
-.sh-lens__fill{position:absolute;inset-block:0;inset-inline-start:0;width:25%;background:var(--sh-blue);transition:width .5s cubic-bezier(.2,.75,.2,1)}
+.sh-lens__pos{font-family:var(--sh-font);font-size:12.5px;font-weight:800;font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;color:var(--sh-mute)}
 @media (max-width:900px){
   .sh-lens__grid{grid-template-columns:minmax(0,1fr)}
-  .sh-lens__panel{padding:18px 0 0;gap:16px}
-  .sh-lens__num b{font-size:32px}
+  .sh-lens__panel{padding:18px 0 0;gap:14px}
+  .sh-lens__thumbs{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
 @media (max-width:640px){
   .sh-lens{padding:40px 0 40px}
-  .sh-lens__bar{padding:10px 14px;font-size:11.5px}
   .sh-lens__title{font-size:18px}
 }
 @media (prefers-reduced-motion:reduce){
-  .sh-lens__slide,.sh-lens__slide img,.sh-lens__fill{transition:none}
+  .sh-lens__slide,.sh-lens__slide img{transition:none}
   .sh-lens__slide img{transform:none}
 }
 /* ============================================================================
@@ -511,6 +559,8 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
    ========================================================================== */
 .sh-gal{padding:0 0 64px}
 .sh-gal__head{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:12px}
+.sh-gal__lead{display:flex;align-items:baseline;gap:12px;min-width:0}
+.sh-gal__note{font-size:12px;color:var(--sh-mute);white-space:nowrap}   /* the same lens as the story above */
 .sh-gal__cat{color:inherit;transition:color .18s ease}
 .sh-gal__cat:hover{color:var(--sh-blue)}
 .sh-gal__sep{color:var(--sh-mute);font-weight:400;opacity:.7}

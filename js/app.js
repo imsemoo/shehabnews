@@ -1611,18 +1611,18 @@
   }
 
   /* 19. عدسة شهاب — one album, one picture at a time. The stage crossfades and
-         the thumbs, the big number, the counter, the caption and the progress
-         rule all follow. Arrows, the thumbs, the keyboard arrows while the
-         block has focus, and a swipe on the stage; RTL, so forward is leftward
-         (ArrowLeft = next, a drag to the left = next). Slides are links, so a
-         drag must not count as a click. ------------------------------------ */
+         the thumbs, the counter and the caption (its place, its sentence)
+         follow; the label carries the count. Arrows, the thumbs, the keyboard
+         arrows while the block has focus, and a swipe on the stage; RTL, so
+         forward is leftward (ArrowLeft = next, a drag to the left = next).
+         Slides are links, so a drag must not count as a click. ------------- */
   function lens() {
     document.querySelectorAll('[data-sh-lens]').forEach(function (root) {
       var stage = root.querySelector('[data-sh-lens-stage]');
       var slides = [].slice.call(root.querySelectorAll('[data-sh-lens-slide]'));
       var thumbs = [].slice.call(root.querySelectorAll('[data-sh-lens-thumb]'));
-      var cap = root.querySelector('[data-sh-lens-cap]'), pos = root.querySelector('[data-sh-lens-pos]');
-      var num = root.querySelector('[data-sh-lens-num]'), fill = root.querySelector('[data-sh-lens-fill]');
+      var cap = root.querySelector('[data-sh-lens-cap]'), loc = root.querySelector('[data-sh-lens-loc]');
+      var pos = root.querySelector('[data-sh-lens-pos]'), count = root.querySelector('[data-sh-lens-count]');
       var prev = root.querySelector('[data-sh-lens-prev]'), next = root.querySelector('[data-sh-lens-next]');
       if (!stage || slides.length < 2) return;
       var i = 0;
@@ -1634,10 +1634,12 @@
           s.tabIndex = k === i ? 0 : -1;
         });
         thumbs.forEach(function (t, k) { t.setAttribute('aria-current', k === i ? 'true' : 'false'); });
-        if (cap) cap.textContent = slides[i].getAttribute('data-sh-cap') || '';
+        // "القدس المحتلة · من أداء صلاة الجمعة…": the place before the dot, the sentence after
+        var full = slides[i].getAttribute('data-sh-cap') || '', dot = full.indexOf(' · ');
+        if (loc) loc.textContent = dot > -1 ? full.slice(0, dot) : '';
+        if (cap) cap.textContent = dot > -1 ? full.slice(dot + 3) : full;
         if (pos) pos.textContent = two(i + 1) + ' / ' + two(slides.length);
-        if (num) num.textContent = two(i + 1);
-        if (fill) fill.style.width = ((i + 1) / slides.length * 100) + '%';
+        if (count) count.textContent = two(slides.length);
       }
       function go(k) {
         var n = slides.length;

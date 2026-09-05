@@ -5,8 +5,24 @@
 .sh-topbar__inner{max-width:var(--sh-container);margin:0 auto;padding:0 32px;height:34px;display:flex;align-items:center;justify-content:space-between}
 .sh-topbar__meta{display:flex;gap:10px;align-items:center;font-variant-numeric:tabular-nums}
 .sh-dim{opacity:.5}
-.sh-topbar__links{display:flex;gap:18px;align-items:center}
+.sh-topbar__links{display:flex;gap:14px;align-items:center}
 .sh-topbar__sep{width:1px;height:12px;background:var(--sh-on-dark-30)}
+
+/* base.css hovers every link to the house blue, which on the navy topbar and the
+   blue masthead means the link vanishes. Everything on that chrome hovers to
+   white instead; :where() keeps the specificity at zero so each component below
+   still overrides it (the brief button, for one, hovers to blue on white). */
+:where(.sh-topbar,.sh-header__body) a:hover{color:#fff}
+
+/* ---- language switch: a segmented control, not a bare word ---- */
+.sh-lang{display:inline-flex;align-items:stretch;border:1px solid var(--sh-on-dark-30);line-height:1}
+.sh-lang__opt{
+  display:flex;align-items:center;padding:4px 9px;font-family:var(--sh-font);font-size:11px;font-weight:800;
+  color:var(--sh-on-dark-72);transition:background .16s ease,color .16s ease;
+}
+.sh-lang__opt--on{background:#fff;color:var(--sh-navy);cursor:default}
+a.sh-lang__opt:hover{background:var(--sh-on-dark-16);color:#fff}
+.sh-lang__opt:focus-visible{outline:2px solid var(--sh-sky);outline-offset:1px}
 .sh-header__body{position:relative;z-index:3}
 .sh-header__sky{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .sh-header__arc.sh-header__arc--1{position:absolute;width:1400px;height:1400px;border:1px solid rgba(255,255,255,.09);border-radius:50%;right:-520px;top:-1160px}
@@ -20,27 +36,70 @@
 .sh-header__inner{max-width:var(--sh-container);margin:0 auto;padding:0 32px;position:relative}
 .sh-masthead{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:88px}
 .sh-masthead__lead{display:flex;align-items:center;gap:16px;justify-self:start}
-.sh-live{background:#fff;color:var(--sh-blue);font-family:var(--sh-font);font-weight:700;font-size:13px;padding:10px 20px;display:flex;align-items:center;gap:10px;transition:transform .2s ease,background .2s ease}
-.sh-live:hover{background:var(--color-surface-blue);transform:translateY(-1px)}
+/* ---- live: the one red thing in the masthead, so it reads as broadcast ---- */
+.sh-live{
+  display:inline-flex;align-items:center;gap:9px;height:38px;padding:0 16px;background:var(--color-red-soft);color:#fff;
+  font-family:var(--sh-font);font-size:13px;font-weight:800;line-height:1;
+  transition:background .18s ease;
+}
+.sh-live:hover{background:#a52629;color:#fff}
+.sh-live:active{background:#8f2125}
+.sh-live:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.sh-live i{font-size:13px;animation:sh-live-on 2.2s ease-in-out infinite}
+@keyframes sh-live-on{0%,100%{opacity:1}50%{opacity:.5}}
+@media (prefers-reduced-motion:reduce){.sh-live i{animation:none}}
 .sh-live__dot{width:7px;height:7px;background:var(--sh-red);border-radius:50%;animation:sh-pulse 1.4s ease-in-out infinite}
-.sh-masthead__note{font-size:11.5px;line-height:1.6;color:var(--sh-on-dark-75)}
 .sh-tnum{font-variant-numeric:tabular-nums}
 .sh-masthead__logo{justify-self:center;position:relative;display:block;padding:6px 18px;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
 .sh-masthead__logo:hover{transform:translateY(-2px)}
 .sh-masthead__logo-img{height:54px;width:auto;position:relative;filter:drop-shadow(0 6px 18px rgba(10,26,51,.35))}
 .sh-masthead__logo-star{position:absolute;top:2px;left:2px;width:6px;height:6px;background:#fff;transform:rotate(45deg);animation:sh-twinkle 3.2s ease-in-out infinite}
-.sh-masthead__tools{display:flex;align-items:center;gap:16px;justify-self:end}
-.sh-brief-btn{border:1px solid var(--sh-on-dark-55);padding:9px 16px;font-size:12px;display:flex;align-items:center;gap:8px}
-.sh-brief-btn:hover{background:#fff;color:var(--sh-blue);border-color:#fff}
-.sh-search{display:flex;align-items:center;gap:8px;font-size:13px;padding:9px 0}
-.sh-search:hover{opacity:.75}
-.sh-search__lens{width:13px;height:13px;border:1.5px solid #fff;border-radius:50%;position:relative;display:block}
-.sh-search__handle{position:absolute;width:6px;height:1.5px;background:#fff;bottom:-4px;left:-4px;transform:rotate(45deg)}
+.sh-masthead__tools{display:flex;align-items:center;gap:12px;justify-self:end}
+/* ---- the audio brief: same chrome as the search field beside it ---- */
+.sh-brief-btn{
+  display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px;border:1px solid var(--sh-on-dark-30);background:var(--sh-on-dark-08);
+  color:#fff;font-family:var(--sh-font);font-size:12.5px;font-weight:700;line-height:1;white-space:nowrap;
+  transition:background .18s ease,border-color .18s ease;
+}
+.sh-brief-btn:hover{background:var(--sh-on-dark-14);border-color:var(--sh-on-dark-55);color:#fff}
+.sh-brief-btn:focus-visible{outline:2px solid var(--sh-sky);outline-offset:2px}
+.sh-brief-btn i{font-size:13px;color:var(--sh-sky)}
+.sh-brief-btn__meta{padding-inline-start:8px;border-inline-start:1px solid var(--sh-on-dark-30);font-size:11px;font-weight:700;color:var(--sh-on-dark-60);font-variant-numeric:tabular-nums}
+.sh-brief-btn[data-sh-brief-open][aria-expanded="true"]{background:#fff;border-color:#fff;color:var(--sh-navy)}
+.sh-brief-btn[data-sh-brief-open][aria-expanded="true"] i{color:var(--sh-blue)}
+/* ---- search: a real field that posts to search.html, white on focus ---- */
+.sh-search{
+  display:flex;align-items:center;height:38px;border:1px solid var(--sh-on-dark-30);background:var(--sh-on-dark-08);
+  transition:background .18s ease,border-color .18s ease;
+}
+.sh-search:hover{background:var(--sh-on-dark-14);border-color:var(--sh-on-dark-55)}
+.sh-search:focus-within{background:#fff;border-color:#fff}
+.sh-search__input{
+  width:190px;height:100%;padding:0 12px;border:0;background:transparent;color:#fff;outline:none;
+  font-family:var(--sh-font);font-size:12.5px;font-weight:700;
+}
+.sh-search__input::placeholder{color:var(--sh-on-dark-60);font-weight:700}
+.sh-search__input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
+.sh-search:focus-within .sh-search__input{color:var(--sh-navy)}
+.sh-search:focus-within .sh-search__input::placeholder{color:var(--color-text-faint)}
+.sh-search__btn{
+  width:38px;height:100%;flex:none;border:0;background:transparent;color:#fff;font-size:13px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:background .18s ease,color .18s ease;
+}
+.sh-search__btn:hover{background:var(--sh-on-dark-16)}
+.sh-search__btn:focus-visible{outline:2px solid var(--sh-sky);outline-offset:-2px}
+.sh-search:focus-within .sh-search__btn{color:var(--sh-blue)}
+.sh-search:focus-within .sh-search__btn:hover{background:var(--color-surface-blue)}
 .sh-nav{display:flex;align-items:center;justify-content:space-between;min-height:46px;flex-wrap:wrap;font-family:var(--sh-font);font-size:14px;font-weight:700;border-top:1px solid var(--sh-on-dark-14)}
 .sh-nav__list{display:flex;gap:26px;flex-wrap:wrap}
 .sh-nav__item{position:relative}
 .sh-nav__link{display:flex;align-items:center;gap:7px;color:var(--sh-on-dark-86);padding:13px 0 11px;border-bottom:3px solid transparent;transition:color .16s ease,border-color .22s ease}
 .sh-nav__link:hover{color:#fff;border-bottom:3px solid var(--sh-on-dark-80)}
+.sh-nav__caret{
+  width:7px;height:7px;flex:none;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;   /* physical, not logical: right+bottom rotated 45° is a ∨ in any direction */
+  transform:rotate(45deg) translateY(-2px);opacity:.7;transition:transform .2s ease,opacity .16s ease;
+}
+.sh-menu:hover > .sh-nav__link > .sh-nav__caret,.sh-menu:focus-within > .sh-nav__link > .sh-nav__caret{transform:rotate(225deg) translateY(-1px);opacity:1}
 .sh-nav__drop{position:absolute;top:100%;right:-16px;min-width:250px;background:var(--sh-navy);color:#fff;padding:8px 0;z-index:60;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;box-shadow:0 14px 30px var(--sh-navy-a28)}
 .sh-nav__drop-rule{position:absolute;top:0;right:16px;left:16px;height:2px;background:var(--sh-blue)}
 .sh-nav__drop-link{display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:700;color:var(--sh-on-dark-82);background:transparent}
@@ -49,9 +108,10 @@
 .sh-nav__link.sh-nav__link--current:hover{color:#fff;border-bottom:3px solid var(--sh-on-dark-80)}
 .sh-nav__drop-link.sh-nav__drop-link--current{display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:800;color:#fff;background:rgba(27,90,166,.35)}
 .sh-nav__drop-link.sh-nav__drop-link--current:hover{background:var(--sh-blue);color:#fff}
-.sh-nav__latest{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sh-on-dark-90)}
-.sh-nav__latest:hover{color:#fff}
-.sh-nav__latest-dot{width:6px;height:6px;background:var(--sh-red);border-radius:50%;animation:sh-pulse 1.8s ease-in-out infinite}
+/* ---- the nav's trailing slot: contact, styled as any other nav link (the old
+       «آخر الأخبار» duplicated the ticker's live-coverage link right under it) ---- */
+.sh-nav__link--last{margin-inline-start:auto}
+.sh-nav__link:focus-visible{outline:2px solid var(--sh-sky);outline-offset:3px}
 .sh-ticker{background:#fff;color:var(--sh-ink);border-bottom:1px solid var(--sh-hair);box-shadow:0 1px 0 rgba(20,35,58,.04)}
 .sh-ticker__inner{max-width:var(--sh-container);margin:0 auto;padding:0 32px;height:44px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px}
 .sh-ticker__tag{background:var(--sh-red);color:#fff;font-family:var(--sh-font);font-size:12px;font-weight:700;padding:6px 14px 6px 22px;display:flex;align-items:center;gap:8px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,10px 50%)}
@@ -65,6 +125,18 @@
 .sh-ticker__btn{width:28px;height:26px;border:1px solid var(--sh-hair);background:#fff;color:var(--sh-ink);cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:background .15s}
 .sh-ticker__btn:hover{background:var(--color-surface-soft)}
 .sh-ticker__sep{width:1px;height:14px;background:var(--sh-hair-5)}
+/* ---- live-coverage CTA: the ticker's one button, balancing the red tag ---- */
+.sh-ticker__cta{
+  display:inline-flex;align-items:center;gap:9px;padding:7px 14px;background:var(--sh-blue);color:#fff;
+  font-family:var(--sh-font);font-size:12px;font-weight:800;line-height:1;white-space:nowrap;
+  transition:background .18s ease,gap .18s ease;
+}
+.sh-ticker__cta:hover{background:var(--color-brand-blue-deep);color:#fff;gap:13px}
+.sh-ticker__cta:focus-visible{outline:2px solid var(--sh-blue);outline-offset:2px}
+.sh-ticker__cta-arrow{
+  width:13px;aspect-ratio:100/41.59;height:auto;flex:none;background:currentColor;
+  -webkit-mask:url(../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../assets/images/mark-arrow.svg) center/contain no-repeat;
+}
 .sh-link{color:var(--sh-blue);font-weight:700}
 .sh-nav__drop-link.sh-nav__drop-link--bold{display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:800;color:#fff}
 .sh-nav__drop-link.sh-nav__drop-link--bold:hover{background:var(--sh-blue);color:#fff}
@@ -74,3 +146,24 @@
 @keyframes sh-meteor{0%,72%{transform:rotate(-22deg)translateX(0)scaleX(.2);opacity:0}76%{opacity:.9}88%{transform:rotate(-22deg)translateX(-640px)scaleX(1);opacity:0}100%{opacity:0}}
 @keyframes sh-meteor-head{0%,72%{transform:rotate(45deg)translate(0,0);opacity:0}75%{opacity:1}88%{transform:rotate(45deg)translate(-420px,420px);opacity:0}100%{opacity:0}}
 @keyframes sh-twinkle{0%,100%{opacity:.25;transform:rotate(45deg)scale(.8)}50%{opacity:1;transform:rotate(45deg)scale(1.15)}}
+
+/* ---- compact: the search collapses to its button, the live label to its icon
+       (the nav toggle is injected next to the search by js/responsive.js) ---- */
+@media (max-width:900px){
+  .sh-menu:hover > .sh-nav__link > .sh-nav__caret{transform:rotate(45deg) translateY(-2px)}   /* hover means nothing on touch; data-open drives it */
+  .sh-menu[data-open] > .sh-nav__link > .sh-nav__caret{transform:rotate(225deg) translateY(-2px);opacity:1}
+  .sh-search__input{display:none}
+  .sh-search{height:36px;flex:none}
+}
+/* responsive.css makes every submit button full-width and 48px tall for the
+   forms (an !important inside the responsive layer). The search button is a
+   submit too; the override has to live in the same layer to win. */
+@layer responsive{
+  @media (max-width:900px){
+    .sh-search .sh-search__btn{width:36px!important;min-height:0!important;height:100%!important}
+  }
+}
+@media (max-width:640px){
+  .sh-live{padding:9px 12px;font-size:12px;gap:7px}
+  .sh-ticker__cta{padding:6px 11px;font-size:11.5px}
+}
