@@ -92,11 +92,11 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 .sh-author-author-rail__div-1{display:flex;flex-wrap:wrap;gap:0 18px;padding-top:12px;font-size:12.5px;font-weight:700;font-family:var(--sh-font)}
 .sh-author-author-rail__a-1{display:grid;grid-template-columns:78px 1fr;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--sh-hair-6)}
 .sh-author-author-rail__a-1:hover{color:var(--sh-blue)}
-.sh-author-author-rail__span-1{position:absolute;inset:0;background-image:url("../../assets/images/file-1000-days.png");background-size:cover;background-position:center}
+.sh-author-author-rail__span-1{position:absolute;inset:0;background-image:url("../../assets/images/file-1000-days.webp");background-size:cover;background-position:center}
 .sh-author-author-rail__span-2{display:block;font-size:10.5px;color:var(--sh-blue);font-weight:700}
 .sh-author-author-rail__span-3{display:block;font-family:var(--sh-font);font-size:12.5px;font-weight:700;line-height:1.6;margin-top:4px;color:var(--sh-ink);text-wrap:pretty}
-.sh-author-author-rail__span-4{position:absolute;inset:0;background-image:url("../../assets/images/file-aqmar-altoufan.png");background-size:cover;background-position:center}
-.sh-author-author-rail__span-5{position:absolute;inset:0;background-image:url("../../assets/images/file-raheel-aldaif.png");background-size:cover;background-position:center}
+.sh-author-author-rail__span-4{position:absolute;inset:0;background-image:url("../../assets/images/file-aqmar-altoufan.webp");background-size:cover;background-position:center}
+.sh-author-author-rail__span-5{position:absolute;inset:0;background-image:url("../../assets/images/file-raheel-aldaif.webp");background-size:cover;background-position:center}
 .sh-author-author-files__section-1{position:relative;background:var(--sh-navy);color:#fff;margin-top:48px;padding:30px 32px 34px;overflow:hidden}
 .sh-author-author-files__span-1{position:absolute;top:-260px;right:-180px;width:620px;height:620px;border:1px solid rgba(126,168,221,.16);border-radius:50%;pointer-events:none}
 .sh-author-author-files__div-1{position:relative;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
@@ -107,16 +107,16 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 .sh-author-author-files__a-1{display:flex;flex-direction:column;background:var(--sh-navy-2);color:#fff;overflow:hidden;border-top:2px solid var(--sh-blue)}
 .sh-author-author-files__a-1:hover{color:#fff;transform:translateY(-3px)}
 .sh-author-author-files__span-4{position:relative;display:block;overflow:hidden;aspect-ratio:16/9;background:#061024}
-.sh-author-author-files__span-5{position:absolute;inset:0;background-image:url("../../assets/images/file-1000-days.png");background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
+.sh-author-author-files__span-5{position:absolute;inset:0;background-image:url("../../assets/images/file-1000-days.webp");background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
 .sh-author-author-files__span-5:hover{transform:scale(1.04)}
 .sh-author-author-files__span-6{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,42,79,.95),rgba(15,42,79,0) 60%)}
 .sh-author-author-files__span-7{display:flex;flex-direction:column;flex:1;padding:14px 18px 18px}
 .sh-author-author-files__span-8{display:block;font-family:var(--sh-font);font-size:17px;font-weight:800;line-height:1.55;text-wrap:pretty}
 .sh-author-author-files__span-9{display:flex;gap:9px;align-items:center;font-size:11.5px;color:rgba(255,255,255,.65);margin-top:8px}
 .sh-author-author-files__span-10{display:inline-flex;align-items:center;gap:10px;margin-top:auto;padding-top:16px;color:var(--sh-sky);font-weight:800;font-family:var(--sh-font);font-size:12px}
-.sh-author-author-files__span-11{position:absolute;inset:0;background-image:url("../../assets/images/file-aqmar-altoufan.png");background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
+.sh-author-author-files__span-11{position:absolute;inset:0;background-image:url("../../assets/images/file-aqmar-altoufan.webp");background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
 .sh-author-author-files__span-11:hover{transform:scale(1.04)}
-.sh-author-author-files__span-12{position:absolute;inset:0;background-image:url("../../assets/images/palestine-map.png");background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
+.sh-author-author-files__span-12{position:absolute;inset:0;background-image:url("../../assets/images/palestine-map.webp");background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
 .sh-author-author-files__span-12:hover{transform:scale(1.04)}
 .sh-author-author-closing__div-1{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;margin:44px 0 52px;padding:26px 0;border-top:1px solid var(--sh-hair-4);border-bottom:1px solid var(--sh-hair-4)}
 .sh-author-author-closing__div-2{display:flex;align-items:flex-start;gap:14px}

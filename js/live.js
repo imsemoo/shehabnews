@@ -72,29 +72,12 @@
   paintElapsed();
   setInterval(paintElapsed, 30000);
 
-  /* ------------------------------------------------ viewers (demo counter) */
-  var viewers = parseInt((viewersEl && viewersEl.textContent || '3218').replace(/[^\d]/g, ''), 10) || 3218;
-  if (viewersEl) setInterval(function () {
-    viewers = Math.max(800, viewers + Math.round((Math.random() - 0.45) * 40));
-    viewersEl.textContent = fmtInt(viewers);
-  }, 6000);
-
-  /* ------------------------------------------------ copy link */
-  if (copy) copy.addEventListener('click', function (e) {
-    e.preventDefault();
-    var url = location.href.replace(/#.*$/, '');
-    var done = function () { toast('اتنسخ رابط البث'); };
-    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, function () { toast(url); });
-    else toast(url);
+  /* ------------------------------------------------ viewers: only what the feed reports */
+  var viewersWrap = root.querySelector('[data-sh-live-viewers-wrap]');
+  document.addEventListener('sh-feed:live-state', function (e) {
+    var d = e.detail || {};
+    if (viewersEl && typeof d.viewers === 'number') { viewersEl.textContent = fmtInt(d.viewers); if (viewersWrap) viewersWrap.hidden = false; }
   });
-  function toast(text) {
-    var t = document.querySelector('.sh-live__toast');
-    if (!t) { t = document.createElement('span'); t.className = 'sh-live__toast sh-watch__toast'; t.setAttribute('role', 'status'); document.body.appendChild(t); }
-    t.textContent = text;
-    t.setAttribute('data-on', '');
-    clearTimeout(t._h);
-    t._h = setTimeout(function () { t.removeAttribute('data-on'); }, 1600);
-  }
 
   /* ------------------------------------------------ player-bound UI */
   ShPlayer.ready.then(function () {

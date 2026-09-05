@@ -1,0 +1,24 @@
+/* شهاب — المحفوظات (saved.html). */
+a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background .16s ease}
+p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2}
+.sh-saved-hero{padding:30px 0 18px;border-bottom:1px solid var(--color-border)}
+.sh-saved-hero__crumbs{display:flex;gap:10px;font-size:12.5px;margin-bottom:16px}
+.sh-saved-hero__row{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.sh-saved-hero__h1{display:flex;align-items:center;gap:12px;font-family:var(--sh-font);font-size:clamp(26px,3vw,34px);font-weight:800;margin:0 0 8px;color:var(--sh-navy)}
+.sh-saved-hero__p{margin:0;font-size:14.5px;color:var(--sh-ink-2)}
+.sh-saved-hero__tools{display:flex;align-items:center;gap:14px}
+.sh-saved-hero__clear{min-height:36px;padding:0 14px;border:1px solid var(--color-border);background:#fff;color:var(--color-red-soft);font-family:var(--sh-font);font-size:12.5px;font-weight:800;cursor:pointer}
+.sh-saved-hero__clear:hover{border-color:var(--color-red-soft)}
+.sh-saved-hero__clear[hidden]{display:none}
+.sh-saved-body{padding:8px 0 48px;max-width:820px}
+.sh-saved__row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:start;padding:16px 0;border-bottom:1px solid var(--color-border-soft)}
+.sh-saved__body{display:flex;flex-direction:column;gap:6px;min-width:0}
+.sh-saved__body .sh-card__title{font-size:16px}
+.sh-saved__rm{width:36px;height:36px;border:1px solid var(--color-border);background:#fff;color:var(--sh-mute);cursor:pointer;display:grid;place-items:center}
+.sh-saved__rm:hover{color:var(--color-red-soft);border-color:var(--color-red-soft)}
+.sh-saved-empty{display:flex;flex-direction:column;align-items:center;gap:10px;padding:48px 24px;margin-top:20px;text-align:center;border:1px dashed var(--color-border);background:var(--color-surface-soft)}
+.sh-saved-empty[hidden]{display:none}
+.sh-saved-empty__i{font-size:34px;color:var(--sh-blue)}
+.sh-saved-empty b{font-family:var(--sh-font);font-size:16px;font-weight:800;color:var(--sh-navy)}
+.sh-saved-empty span{font-size:13.5px;color:var(--sh-mute)}
+.sh-saved-empty .sh-more{margin-top:8px}

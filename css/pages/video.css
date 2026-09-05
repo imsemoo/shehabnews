@@ -37,7 +37,7 @@ img,video{display:block}
 .sh-video-featured-video__div-2{display:flex;align-items:baseline;justify-content:space-between;padding:12px 0 10px;border-bottom:1px solid var(--sh-hair-4)}
 .sh-video-featured-video__a-2{display:grid;grid-template-columns:104px 1fr;gap:12px;align-items:center;padding:12px 0 12px 0;border-bottom:1px solid var(--sh-hair-6);border-right:2px solid var(--sh-blue);padding-right:12px;margin-right:-2px;background:#f5f8fc}
 .sh-video-featured-video__a-2:hover{color:var(--sh-blue)}
-.sh-video-featured-video__span-13{position:absolute;inset:0;background-image:url("../../assets/images/gaza-coast.png");background-size:cover;background-position:center}
+.sh-video-featured-video__span-13{position:absolute;inset:0;background-image:url("../../assets/images/gaza-coast.webp");background-size:cover;background-position:center}
 .sh-video-featured-video__span-14{position:absolute;bottom:5px;left:5px;background:rgba(10,26,51,.9);color:#fff;font-size:9.5px;padding:1px 6px;font-variant-numeric:tabular-nums}
 .sh-video-featured-video__span-15{display:block;font-size:10.5px;color:var(--sh-blue);font-weight:700}
 .sh-video-featured-video__span-16{display:block;font-family:var(--sh-font);font-size:12.5px;font-weight:700;line-height:1.6;margin-top:4px;color:var(--sh-ink);text-wrap:pretty}
@@ -169,10 +169,10 @@ img,video{display:block}
 .sh-video-video-rail__a-1{display:grid;grid-template-columns:30px 88px 1fr;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid var(--sh-hair-6)}
 .sh-video-video-rail__a-1:hover{color:var(--sh-blue)}
 .sh-video-video-rail__span-1{font-family:var(--sh-font);font-size:22px;font-weight:800;color:#c9d8ec;line-height:1;font-variant-numeric:tabular-nums;text-align:center}
-.sh-video-video-rail__span-2{position:absolute;inset:0;background-image:url("../../assets/images/coverage-hero2.png");background-size:cover;background-position:center}
+.sh-video-video-rail__span-2{position:absolute;inset:0;background-image:url("../../assets/images/coverage-hero2.webp");background-size:cover;background-position:center}
 .sh-video-video-rail__span-3{position:absolute;bottom:4px;left:4px;background:rgba(10,26,51,.9);color:#fff;font-size:9px;padding:1px 5px;font-variant-numeric:tabular-nums}
 .sh-video-video-rail__span-4{font-family:var(--sh-font);font-size:12.5px;font-weight:700;line-height:1.6;color:var(--sh-ink);text-wrap:pretty}
-.sh-video-video-rail__span-5{position:absolute;inset:0;background-image:url("../../assets/images/gaza-coast.png");background-size:cover;background-position:center}
+.sh-video-video-rail__span-5{position:absolute;inset:0;background-image:url("../../assets/images/gaza-coast.webp");background-size:cover;background-position:center}
 .sh-video-video-rail__span-6{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=600");background-size:cover;background-position:center}
 .sh-video-video-rail__span-7{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=600");background-size:cover;background-position:center}
 .sh-video-video-rail__span-8{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/The%20field%20at%20Azteca%20Stadium%20in%20Mexico%20City%20during%20the%20opening%20ceremony%20of%20the%202026%20World%20Cup.jpg?width=600");background-size:cover;background-position:center}

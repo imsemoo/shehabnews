@@ -1,6 +1,6 @@
 /* شهاب — header: topbar, masthead, nav, ticker. Generated from the markup by
    the extraction script; hover states folded from the per-page sheets. */
-.sh-header{background:var(--sh-blue);color:#fff;position:relative}
+.sh-header{background:var(--sh-blue);color:#fff;position:relative;z-index:900}   /* the header is one layer above every section: the compact body (fixed inside it), the breaking bar and the nav drops all ride on it; overlays live at 1200+ */
 .sh-topbar{background:var(--sh-navy-2);font-size:12px;color:var(--sh-on-dark-80);position:relative;z-index:2}
 .sh-topbar__inner{max-width:var(--sh-container);margin:0 auto;padding:0 32px;height:34px;display:flex;align-items:center;justify-content:space-between}
 .sh-topbar__meta{display:flex;gap:10px;align-items:center;font-variant-numeric:tabular-nums}
@@ -45,9 +45,9 @@ a.sh-lang__opt:hover{background:var(--sh-on-dark-16);color:#fff}
 .sh-live:hover{background:#a52629;color:#fff}
 .sh-live:active{background:#8f2125}
 .sh-live:focus-visible{outline:2px solid #fff;outline-offset:2px}
-.sh-live i{font-size:13px;animation:sh-live-on 2.2s ease-in-out infinite}
+.sh-live .sh-i{font-size:13px;animation:sh-live-on 2.2s ease-in-out infinite}
 @keyframes sh-live-on{0%,100%{opacity:1}50%{opacity:.5}}
-@media (prefers-reduced-motion:reduce){.sh-live i{animation:none}}
+@media (prefers-reduced-motion:reduce){.sh-live .sh-i{animation:none}}
 .sh-live__dot{width:7px;height:7px;background:var(--sh-red);border-radius:50%;animation:sh-pulse 1.4s ease-in-out infinite}
 .sh-tnum{font-variant-numeric:tabular-nums}
 .sh-masthead__logo{justify-self:center;position:relative;display:block;padding:6px 18px;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
@@ -63,10 +63,10 @@ a.sh-lang__opt:hover{background:var(--sh-on-dark-16);color:#fff}
 }
 .sh-brief-btn:hover{background:var(--sh-on-dark-14);border-color:var(--sh-on-dark-55);color:#fff}
 .sh-brief-btn:focus-visible{outline:2px solid var(--sh-sky);outline-offset:2px}
-.sh-brief-btn i{font-size:13px;color:var(--sh-sky)}
+.sh-brief-btn .sh-i{font-size:13px;color:var(--sh-sky)}
 .sh-brief-btn__meta{padding-inline-start:8px;border-inline-start:1px solid var(--sh-on-dark-30);font-size:11px;font-weight:700;color:var(--sh-on-dark-60);font-variant-numeric:tabular-nums}
 .sh-brief-btn[data-sh-brief-open][aria-expanded="true"]{background:#fff;border-color:#fff;color:var(--sh-navy)}
-.sh-brief-btn[data-sh-brief-open][aria-expanded="true"] i{color:var(--sh-blue)}
+.sh-brief-btn[data-sh-brief-open][aria-expanded="true"] .sh-i{color:var(--sh-blue)}
 /* ---- search: a real field that posts to search.html, white on focus ---- */
 .sh-search{
   display:flex;align-items:center;height:38px;border:1px solid var(--sh-on-dark-30);background:var(--sh-on-dark-08);

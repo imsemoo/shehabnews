@@ -41,38 +41,7 @@
   }
 
   /* 2. Breaking-news ticker ---------------------------------------------- */
-  function ticker() {
-    var box = document.querySelector('[data-sh="ticker"]');
-    if (!box) return;
-    var titleEl = box.querySelector('[data-sh="ticker-title"]');
-    var timeEl = box.querySelector('[data-sh="ticker-time"]');
-    var countEl = document.querySelector('[data-sh="ticker-count"]');
-    var items = [];
-    try { items = JSON.parse(box.getAttribute('data-items') || '[]'); } catch (e) { return; }
-    if (!items.length || !titleEl) return;
-    var i = 0, timer = null;
-    function show(n) {
-      i = (n + items.length) % items.length;
-      titleEl.textContent = items[i].t;
-      if (timeEl) timeEl.textContent = items[i].time || '';
-      if (countEl) countEl.textContent = (i + 1) + ' / ' + items.length;
-      titleEl.style.animation = 'none';
-      void titleEl.offsetWidth;
-      titleEl.style.animation = 'sh-fadein .45s ease both';
-    }
-    function start() { stop(); timer = setInterval(function () { show(i + 1); }, 7000); }
-    function stop() { if (timer) clearInterval(timer); timer = null; }
-    document.querySelectorAll('[data-sh="ticker-next"]').forEach(function (b) {
-      b.addEventListener('click', function (e) { e.preventDefault(); show(i + 1); start(); });
-    });
-    document.querySelectorAll('[data-sh="ticker-prev"]').forEach(function (b) {
-      b.addEventListener('click', function (e) { e.preventDefault(); show(i - 1); start(); });
-    });
-    box.addEventListener('mouseenter', stop);
-    box.addEventListener('mouseleave', start);
-    show(0);
-    start();
-  }
+  function ticker() { /* moved to js/chrome.js */ }
 
   /* 3. Tab groups: [data-sh-tabs] wraps [data-sh-tab] buttons and
         [data-sh-panel] panels sharing the same value. ----------------------- */
@@ -241,7 +210,7 @@
     }
 
     function ghost(label, icon) {
-      var b = el('button', GHOST, '<i class="' + icon + '" style="font-size:15px"></i>');
+      var b = el('button', GHOST, '<span style="font-size:15px;display:inline-flex">' + ShUI.icon(icon) + '</span>');
       b.type = 'button';
       b.setAttribute('aria-label', label);
       b.addEventListener('mouseenter', function () {
@@ -265,14 +234,14 @@
         'gap:16px;padding:18px 22px;flex:none');
       countEl = el('span', 'font-size:12.5px;font-weight:700;color:#fff;' +
         'font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:9px');
-      closeEl = ghost('إغلاق', 'fa-solid fa-xmark');
+      closeEl = ghost('إغلاق', 'xmark');
       bar.appendChild(countEl);
       bar.appendChild(closeEl);
 
       var stage = el('div', 'flex:1;min-height:0;display:flex;align-items:center;' +
         'justify-content:center;gap:18px;padding:0 22px');
-      prevEl = ghost('السابق', 'fa-solid fa-chevron-right');
-      nextEl = ghost('التالي', 'fa-solid fa-chevron-left');
+      prevEl = ghost('السابق', 'chevron-right');
+      nextEl = ghost('التالي', 'chevron-left');
       imgEl = el('img', 'max-width:100%;max-height:100%;object-fit:contain;display:block;' +
         'background:#0f2a4f;opacity:0;transition:opacity .25s ease');
       imgEl.alt = '';
@@ -405,8 +374,7 @@
       var fs = stage.querySelector('[data-sh-fs]');
 
       function icon(host, name) {
-        var i = host && host.querySelector('i');
-        if (i) i.className = name;
+        ShUI.setIcon(host && host.querySelector('.sh-i'), name);
       }
       function mmss(s) {
         if (!isFinite(s) || s < 0) s = 0;
@@ -425,7 +393,7 @@
         }
       }
       function playing(on) {
-        icon(toggle, 'fa-solid fa-' + (on ? 'pause' : 'play'));
+        icon(toggle, on ? 'pause' : 'play');
         if (poster) poster.style.opacity = on ? '0' : '.9';
         if (big) {
           big.style.opacity = on ? '0' : '1';
@@ -479,7 +447,7 @@
         mute.addEventListener('click', function (e) {
           e.preventDefault();
           v.muted = !v.muted;
-          icon(mute, 'fa-solid fa-volume-' + (v.muted ? 'xmark' : 'high'));
+          icon(mute, 'volume-' + (v.muted ? 'xmark' : 'high'));
           mute.setAttribute('aria-label', v.muted ? 'إلغاء الكتم' : 'كتم الصوت');
         });
       }
@@ -491,7 +459,7 @@
           else if (stage.requestFullscreen) stage.requestFullscreen();
         });
         document.addEventListener('fullscreenchange', function () {
-          icon(fs, 'fa-solid fa-' + (document.fullscreenElement === stage ? 'compress' : 'expand'));
+          icon(fs, document.fullscreenElement === stage ? 'compress' : 'expand');
         });
       }
 
@@ -1163,9 +1131,9 @@
             '<span class="sh-hubcard__no">' + two(i + 1) + '</span>' +
             (r.credit ? '<span class="sh-hubcard__credit">' + esc(r.credit) + '</span>' : '') +
             '<button type="button" class="sh-hubview__tap sh-hubview__tap--prev" data-sh-hv-prev aria-label="الخبر السابق">' +
-              '<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>' +
+              '' + ShUI.icon('chevron-right', 'solid') + '</button>' +
             '<button type="button" class="sh-hubview__tap sh-hubview__tap--next" data-sh-hv-next aria-label="الخبر التالي">' +
-              '<i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>' +
+              '' + ShUI.icon('chevron-left', 'solid') + '</button>' +
           '</span>' +
           '<span class="sh-hubcard__body">' +
             '<span class="sh-hubcard__line"><span class="sh-hubcard__cat">' + esc(r.c) + '</span>' +
@@ -1289,10 +1257,10 @@
           stateText: stateEl ? stateEl.textContent.trim() : '',
           updated: updated,
           docs: inside ? [].slice.call(inside.querySelectorAll('.sh-binder__docs a')).map(function (a) {
-            var i = a.querySelector('i');
+            var i = a.querySelector('.sh-i use');
             return { href: a.getAttribute('href') || '#', type: a.getAttribute('data-type') || '', date: a.getAttribute('data-date') || '',
                      img: a.getAttribute('data-image') || '',
-                     icon: i ? i.className : 'fa-solid fa-file-lines', t: a.textContent.replace(/\s+/g, ' ').trim() };
+                     icon: i ? i.getAttribute('href') : 'assets/images/icons.svg#s-file-lines', t: a.textContent.replace(/\s+/g, ' ').trim() };
           }) : []
         };
       });
@@ -1328,8 +1296,8 @@
       var view = null, els = {}, cur = -1, opener = null, closing = 0;
       function nav(id) {
         return '<div class="sh-bo__nav">' +
-          '<button type="button" class="sh-bo__turn" data-sh-bo-prev aria-label="الملف السابق"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span>السابق</span></button>' +
-          '<button type="button" class="sh-bo__turn" data-sh-bo-next aria-label="الملف التالي"><span>التالي</span><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>' +
+          '<button type="button" class="sh-bo__turn" data-sh-bo-prev aria-label="الملف السابق">' + ShUI.icon('chevron-right', 'solid') + '<span>السابق</span></button>' +
+          '<button type="button" class="sh-bo__turn" data-sh-bo-next aria-label="الملف التالي"><span>التالي</span>' + ShUI.icon('chevron-left', 'solid') + '</button>' +
         '</div>';
       }
       function build() {
@@ -1366,9 +1334,9 @@
               '<ol class="sh-bo__list" data-sh-bo-list></ol>' +
             '</div>' +
             '<div class="sh-bo__foot">' +
-              '<button type="button" class="sh-bo__turn" data-sh-bo-prev aria-label="الملف السابق"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span>الملف السابق</span></button>' +
+              '<button type="button" class="sh-bo__turn" data-sh-bo-prev aria-label="الملف السابق">' + ShUI.icon('chevron-right', 'solid') + '<span>الملف السابق</span></button>' +
               '<span class="sh-bo__pos" data-sh-bo-pos></span>' +
-              '<button type="button" class="sh-bo__turn" data-sh-bo-next aria-label="الملف التالي"><span>الملف التالي</span><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>' +
+              '<button type="button" class="sh-bo__turn" data-sh-bo-next aria-label="الملف التالي"><span>الملف التالي</span>' + ShUI.icon('chevron-left', 'solid') + '</button>' +
             '</div>' +
             '<div class="sh-bo__rail" aria-hidden="true"><span class="sh-bo__ring sh-bo__ring--1"></span><span class="sh-bo__ring sh-bo__ring--2"></span></div>' +
           '</div>';
@@ -1429,7 +1397,7 @@
         els.list.innerHTML = f.docs.length ? f.docs.map(function (d, k) {
           return '<li class="sh-bo__doc' + (d.img ? '' : ' sh-bo__doc--noimg') + '">' +
             '<span class="sh-bo__doc-n">' + two(k + 1) + '</span>' +
-            (d.img ? '<img class="sh-bo__doc-thumb" src="' + esc(d.img) + '" alt="" loading="lazy" decoding="async">' : '<i class="' + esc(d.icon) + '" aria-hidden="true"></i>') +
+            (d.img ? '<img class="sh-bo__doc-thumb" src="' + esc(d.img) + '" alt="" loading="lazy" decoding="async">' : '<svg class="sh-i" aria-hidden="true" focusable="false"><use href="' + esc(d.icon) + '"></use></svg>') +
             '<span><a href="' + esc(d.href) + '">' + esc(d.t) + '</a>' +
             '<span class="sh-bo__doc-meta">' + (d.type ? '<b>' + esc(d.type) + '</b>' : '') + (d.date ? '<span>' + esc(d.date) + '</span>' : '') + '</span></span>' +
           '</li>';
@@ -1672,8 +1640,9 @@
   }
 
   function init() {
-    paintDate(); ticker(); tabs(); galleries(); menus(); hero();
-    lightbox(); player(); loadMore(); pager(); files(); filters(); hubs(); binders(); since(); videoDeck(); carica(); lens(); transition();
+    paintDate(); tabs(); galleries(); menus(); hero();
+    lightbox(); player(); loadMore(); pager(); files(); filters(); hubs(); binders(); since(); videoDeck(); carica(); lens();
+    if (document.documentElement.hasAttribute('data-sh-veil')) transition();   // the logo veil is opt-in; View Transitions do the page change now
     setInterval(paintDate, 60000);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

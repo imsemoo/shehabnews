@@ -1,0 +1,27 @@
+{
+  "name": "وكالة شهاب للأنباء",
+  "short_name": "شهاب",
+  "description": "آخر أخبار فلسطين لحظة بلحظة: تغطية حية، تقارير، فيديو، وبث مباشر.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "index.html?utm_source=pwa",
+  "scope": "./",
+  "id": "shehab-news",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "orientation": "portrait",
+  "background_color": "#0a1a33",
+  "theme_color": "#1b5aa6",
+  "categories": ["news"],
+  "icons": [
+    { "src": "assets/images/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/images/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/images/icon-192-maskable.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "assets/images/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "التغطية الحية", "url": "coverage.html?utm_source=pwa", "icons": [{ "src": "assets/images/icon-192.png", "sizes": "192x192" }] },
+    { "name": "البث المباشر", "url": "live.html?utm_source=pwa", "icons": [{ "src": "assets/images/icon-192.png", "sizes": "192x192" }] },
+    { "name": "ريلز شهاب", "url": "reels.html?utm_source=pwa", "icons": [{ "src": "assets/images/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

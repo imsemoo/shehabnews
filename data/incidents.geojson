@@ -1,0 +1,1518 @@
+{
+"type": "FeatureCollection",
+"_note": "نقاط توضيحية للنموذج على إحداثيات حقيقية للأماكن. تُستبدل بتصدير الـCMS بنفس الخصائص.",
+"features": [
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.4518,
+31.5349
+]
+},
+"properties": {
+"id": "i020",
+"t": "حملة مداهمات في الشيخ رضوان",
+"type": "اقتحام",
+"area": "غزة",
+"place": "الشيخ رضوان",
+"at": "2026-09-05T17:07:06+03:00",
+"source": "مراسل شهاب",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.2784,
+32.4624
+]
+},
+"properties": {
+"id": "i012",
+"t": "تجريف أراضٍ في مخيم جنين",
+"type": "هدم",
+"area": "الضفة",
+"place": "مخيم جنين",
+"at": "2026-09-05T16:58:23+03:00",
+"source": "وزارة الصحة",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.1041,
+31.5282
+]
+},
+"properties": {
+"id": "i029",
+"t": "إقامة بؤرة استيطانية على أراضي الخليل",
+"type": "استيطان",
+"area": "الضفة",
+"place": "الخليل",
+"at": "2026-09-05T16:56:34+03:00",
+"source": "الدفاع المدني",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.0299,
+32.3123
+]
+},
+"properties": {
+"id": "i024",
+"t": "إطلاق نار من «كواد كابتر» في طولكرم",
+"type": "إطلاق نار",
+"area": "الضفة",
+"place": "طولكرم",
+"at": "2026-09-05T16:38:00+03:00",
+"source": "الدفاع المدني",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.4747,
+31.5192
+]
+},
+"properties": {
+"id": "i044",
+"t": "غارة من مسيّرة على تجمع مواطنين في جباليا",
+"type": "قصف",
+"area": "غزة",
+"place": "جباليا",
+"at": "2026-09-05T15:38:40+03:00",
+"source": "الدفاع المدني",
+"href": "article.html",
+"casualties": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.3561,
+31.335
+]
+},
+"properties": {
+"id": "i027",
+"t": "إطلاق نار من «كواد كابتر» في عبسان",
+"type": "إطلاق نار",
+"area": "غزة",
+"place": "عبسان",
+"at": "2026-09-05T15:31:25+03:00",
+"source": "مصادر محلية",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.2125,
+31.9015
+]
+},
+"properties": {
+"id": "i026",
+"t": "اعتداء مستوطنين على رعاة في رام الله",
+"type": "استيطان",
+"area": "الضفة",
+"place": "رام الله",
+"at": "2026-09-05T14:00:29+03:00",
+"source": "الدفاع المدني",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.4522,
+31.4921
+]
+},
+"properties": {
+"id": "i008",
+"t": "قصف مدفعي يستهدف الزيتون",
+"type": "قصف",
+"area": "غزة",
+"place": "الزيتون",
+"at": "2026-09-05T10:49:49+03:00",
+"source": "مراسل شهاب",
+"href": "article.html",
+"casualties": 1
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.2353,
+31.8299
+]
+},
+"properties": {
+"id": "i022",
+"t": "إقامة بؤرة استيطانية على أراضي شعفاط",
+"type": "استيطان",
+"area": "القدس",
+"place": "شعفاط",
+"at": "2026-09-05T09:43:34+03:00",
+"source": "أوتشا",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.4894,
+31.4933
+]
+},
+"properties": {
+"id": "i053",
+"t": "قصف منزل في الشجاعية",
+"type": "قصف",
+"area": "غزة",
+"place": "الشجاعية",
+"at": "2026-09-05T09:26:55+03:00",
+"source": "مراسل شهاب",
+"href": "article.html",
+"casualties": 5
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.3375,
+31.3329
+]
+},
+"properties": {
+"id": "i054",
+"t": "إطلاق نار من آليات الاحتلال شرق بني سهيلا",
+"type": "إطلاق نار",
+"area": "غزة",
+"place": "بني سهيلا",
+"at": "2026-09-05T09:02:39+03:00",
+"source": "الدفاع المدني",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.2614,
+32.2123
+]
+},
+"properties": {
+"id": "i037",
+"t": "إطلاق نار من آليات الاحتلال شرق نابلس",
+"type": "إطلاق نار",
+"area": "الضفة",
+"place": "نابلس",
+"at": "2026-09-05T08:43:30+03:00",
+"source": "مصادر محلية",
+"href": "article.html",
+"casualties": 2
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.3526,
+31.32
+]
+},
+"properties": {
+"id": "i007",
+"t": "قصف منزل في عبسان",
+"type": "قصف",
+"area": "غزة",
+"place": "عبسان",
+"at": "2026-09-05T07:34:26+03:00",
+"source": "الدفاع المدني",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.2994,
+32.4746
+]
+},
+"properties": {
+"id": "i018",
+"t": "اعتداء مستوطنين على رعاة في مخيم جنين",
+"type": "استيطان",
+"area": "الضفة",
+"place": "مخيم جنين",
+"at": "2026-09-05T06:07:40+03:00",
+"source": "أوتشا",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.2904,
+32.2155
+]
+},
+"properties": {
+"id": "i045",
+"t": "اعتقالات في بلاطة بعد اقتحام فجرًا",
+"type": "اعتقال",
+"area": "الضفة",
+"place": "بلاطة",
+"at": "2026-09-05T04:01:27+03:00",
+"source": "مصادر محلية",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.2246,
+31.8148
+]
+},
+"properties": {
+"id": "i003",
+"t": "اعتقال 3 شبان من شعفاط",
+"type": "اعتقال",
+"area": "القدس",
+"place": "شعفاط",
+"at": "2026-09-05T03:56:40+03:00",
+"source": "وزارة الصحة",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.2317,
+31.7766
+]
+},
+"properties": {
+"id": "i072",
+"t": "اعتقال 3 شبان من المسجد الأقصى",
+"type": "اعتقال",
+"area": "القدس",
+"place": "المسجد الأقصى",
+"at": "2026-09-05T03:45:20+03:00",
+"source": "مراسل شهاب",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.2595,
+31.292
+]
+},
+"properties": {
+"id": "i064",
+"t": "قصف مدفعي يستهدف رفح",
+"type": "قصف",
+"area": "غزة",
+"place": "رفح",
+"at": "2026-09-05T03:42:39+03:00",
+"source": "نادي الأسير",
+"href": "article.html",
+"casualties": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.202,
+31.894
+]
+},
+"properties": {
+"id": "i011",
+"t": "إطلاق نار على صيادين قبالة رام الله",
+"type": "إطلاق نار",
+"area": "الضفة",
+"place": "رام الله",
+"at": "2026-09-05T03:30:04+03:00",
+"source": "الدفاع المدني",
+"href": "article.html",
+"casualties": 5
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.2363,
+31.2854
+]
+},
+"properties": {
+"id": "i032",
+"t": "إطلاق نار من «كواد كابتر» في الشابورة",
+"type": "إطلاق نار",
+"area": "غزة",
+"place": "الشابورة",
+"at": "2026-09-05T01:47:08+03:00",
+"source": "نادي الأسير",
+"href": "article.html",
+"casualties": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.4843,
+31.5118
+]
+},
+"properties": {
+"id": "i061",
+"t": "اقتحام الشجاعية وسط انتشار واسع",
+"type": "اقتحام",
+"area": "غزة",
+"place": "الشجاعية",
+"at": "2026-09-04T23:31:37+03:00",
+"source": "وزارة الصحة",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.361,
+31.3286
+]
+},
+"properties": {
+"id": "i047",
+"t": "إطلاق نار من «كواد كابتر» في عبسان",
+"type": "إطلاق نار",
+"area": "غزة",
+"place": "عبسان",
+"at": "2026-09-04T22:32:16+03:00",
+"source": "مصادر محلية",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.2563,
+31.7937
+]
+},
+"properties": {
+"id": "i048",
+"t": "هدم منزل في العيسوية بحجة عدم الترخيص",
+"type": "هدم",
+"area": "القدس",
+"place": "العيسوية",
+"at": "2026-09-04T21:36:16+03:00",
+"source": "مصادر محلية",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.2591,
+31.2778
+]
+},
+"properties": {
+"id": "i070",
+"t": "إطلاق نار من آليات الاحتلال شرق رفح",
+"type": "إطلاق نار",
+"area": "غزة",
+"place": "رفح",
+"at": "2026-09-04T20:09:10+03:00",
+"source": "مراسل شهاب",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.3582,
+32.3193
+]
+},
+"properties": {
+"id": "i066",
+"t": "اعتقال 3 شبان من طوباس",
+"type": "اعتقال",
+"area": "الضفة",
+"place": "طوباس",
+"at": "2026-09-04T19:30:53+03:00",
+"source": "مصادر محلية",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.2337,
+31.2817
+]
+},
+"properties": {
+"id": "i071",
+"t": "حملة مداهمات في الشابورة",
+"type": "اقتحام",
+"area": "غزة",
+"place": "الشابورة",
+"at": "2026-09-04T13:32:03+03:00",
+"source": "مصادر محلية",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.1271,
+31.693
+]
+},
+"properties": {
+"id": "i042",
+"t": "اقتحام نحالين وسط انتشار واسع",
+"type": "اقتحام",
+"area": "الضفة",
+"place": "نحالين",
+"at": "2026-09-04T09:31:23+03:00",
+"source": "الدفاع المدني",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.4803,
+31.5382
+]
+},
+"properties": {
+"id": "i006",
+"t": "قصف منزل في جباليا",
+"type": "قصف",
+"area": "غزة",
+"place": "جباليا",
+"at": "2026-09-04T03:28:16+03:00",
+"source": "مراسل شهاب",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.05,
+32.3232
+]
+},
+"properties": {
+"id": "i004",
+"t": "إخطارات هدم في مخيم نور شمس",
+"type": "هدم",
+"area": "الضفة",
+"place": "مخيم نور شمس",
+"at": "2026-09-03T14:53:11+03:00",
+"source": "أوتشا",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.2979,
+32.455
+]
+},
+"properties": {
+"id": "i017",
+"t": "اعتقال 3 شبان من جنين",
+"type": "اعتقال",
+"area": "الضفة",
+"place": "جنين",
+"at": "2026-09-03T13:38:23+03:00",
+"source": "مصادر محلية",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.0614,
+32.3149
+]
+},
+"properties": {
+"id": "i065",
+"t": "حملة مداهمات في مخيم نور شمس",
+"type": "اقتحام",
+"area": "الضفة",
+"place": "مخيم نور شمس",
+"at": "2026-09-03T10:47:57+03:00",
+"source": "مراسل شهاب",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.4812,
+31.5095
+]
+},
+"properties": {
+"id": "i015",
+"t": "قصف منزل في الشجاعية",
+"type": "قصف",
+"area": "غزة",
+"place": "الشجاعية",
+"at": "2026-09-03T06:16:01+03:00",
+"source": "وزارة الصحة",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.3362,
+31.3412
+]
+},
+"properties": {
+"id": "i060",
+"t": "حملة مداهمات في بني سهيلا",
+"type": "اقتحام",
+"area": "غزة",
+"place": "بني سهيلا",
+"at": "2026-09-03T05:46:49+03:00",
+"source": "نادي الأسير",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.2506,
+31.2792
+]
+},
+"properties": {
+"id": "i043",
+"t": "اقتحام رفح وسط انتشار واسع",
+"type": "اقتحام",
+"area": "غزة",
+"place": "رفح",
+"at": "2026-09-02T18:05:55+03:00",
+"source": "نادي الأسير",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.2247,
+31.7848
+]
+},
+"properties": {
+"id": "i030",
+"t": "قوات الاحتلال تقتحم الشيخ جراح وتداهم منازل",
+"type": "اقتحام",
+"area": "القدس",
+"place": "الشيخ جراح",
+"at": "2026-09-02T08:39:55+03:00",
+"source": "أوتشا",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.1981,
+31.8961
+]
+},
+"properties": {
+"id": "i055",
+"t": "إطلاق نار على صيادين قبالة رام الله",
+"type": "إطلاق نار",
+"area": "الضفة",
+"place": "رام الله",
+"at": "2026-09-01T18:23:42+03:00",
+"source": "مصادر محلية",
+"href": "article.html",
+"casualties": 5
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.2316,
+31.8558
+]
+},
+"properties": {
+"id": "i068",
+"t": "مستوطنون يهاجمون مركبات قرب قلنديا",
+"type": "استيطان",
+"area": "الضفة",
+"place": "قلنديا",
+"at": "2026-09-01T14:34:56+03:00",
+"source": "نادي الأسير",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.401,
+31.4527
+]
+},
+"properties": {
+"id": "i031",
+"t": "قوات الاحتلال تقتحم النصيرات وتداهم منازل",
+"type": "اقتحام",
+"area": "غزة",
+"place": "النصيرات",
+"at": "2026-09-01T13:54:59+03:00",
+"source": "وزارة الصحة",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.2544,
+32.221
+]
+},
+"properties": {
+"id": "i058",
+"t": "اعتقال 3 شبان من نابلس",
+"type": "اعتقال",
+"area": "الضفة",
+"place": "نابلس",
+"at": "2026-09-01T08:59:38+03:00",
+"source": "أوتشا",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.1908,
+32.089
+]
+},
+"properties": {
+"id": "i019",
+"t": "إطلاق نار من آليات الاحتلال شرق سلفيت",
+"type": "إطلاق نار",
+"area": "الضفة",
+"place": "سلفيت",
+"at": "2026-09-01T06:04:14+03:00",
+"source": "مراسل شهاب",
+"href": "article.html",
+"casualties": 2
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.3491,
+31.4185
+]
+},
+"properties": {
+"id": "i062",
+"t": "حملة مداهمات في دير البلح",
+"type": "اقتحام",
+"area": "غزة",
+"place": "دير البلح",
+"at": "2026-09-01T05:06:28+03:00",
+"source": "الدفاع المدني",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.9738,
+32.1888
+]
+},
+"properties": {
+"id": "i025",
+"t": "مستوطنون يهاجمون مركبات قرب قلقيلية",
+"type": "استيطان",
+"area": "الضفة",
+"place": "قلقيلية",
+"at": "2026-09-01T02:55:10+03:00",
+"source": "الدفاع المدني",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.9739,
+32.195
+]
+},
+"properties": {
+"id": "i063",
+"t": "إطلاق نار من آليات الاحتلال شرق قلقيلية",
+"type": "إطلاق نار",
+"area": "الضفة",
+"place": "قلقيلية",
+"at": "2026-08-31T20:40:36+03:00",
+"source": "مراسل شهاب",
+"href": "article.html",
+"casualties": 5
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.4738,
+31.5291
+]
+},
+"properties": {
+"id": "i050",
+"t": "غارة من مسيّرة على تجمع مواطنين في جباليا",
+"type": "قصف",
+"area": "غزة",
+"place": "جباليا",
+"at": "2026-08-31T16:44:58+03:00",
+"source": "نادي الأسير",
+"href": "article.html",
+"casualties": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.4137,
+31.4296
+]
+},
+"properties": {
+"id": "i021",
+"t": "غارة من مسيّرة على تجمع مواطنين في البريج",
+"type": "قصف",
+"area": "غزة",
+"place": "البريج",
+"at": "2026-08-31T16:21:06+03:00",
+"source": "نادي الأسير",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.2621,
+32.2127
+]
+},
+"properties": {
+"id": "i023",
+"t": "تجريف أراضٍ في نابلس",
+"type": "هدم",
+"area": "الضفة",
+"place": "نابلس",
+"at": "2026-08-31T15:03:15+03:00",
+"source": "مراسل شهاب",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.2098,
+31.9019
+]
+},
+"properties": {
+"id": "i056",
+"t": "اعتقالات في رام الله بعد اقتحام فجرًا",
+"type": "اعتقال",
+"area": "الضفة",
+"place": "رام الله",
+"at": "2026-08-30T12:18:56+03:00",
+"source": "مصادر محلية",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.3442,
+31.3431
+]
+},
+"properties": {
+"id": "i014",
+"t": "إطلاق نار من «كواد كابتر» في بني سهيلا",
+"type": "إطلاق نار",
+"area": "غزة",
+"place": "بني سهيلا",
+"at": "2026-08-30T03:35:40+03:00",
+"source": "مراسل شهاب",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.1824,
+32.092
+]
+},
+"properties": {
+"id": "i016",
+"t": "اعتقالات في سلفيت بعد اقتحام فجرًا",
+"type": "اعتقال",
+"area": "الضفة",
+"place": "سلفيت",
+"at": "2026-08-29T22:17:56+03:00",
+"source": "مراسل شهاب",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.1015,
+31.5402
+]
+},
+"properties": {
+"id": "i034",
+"t": "إخطارات هدم في الخليل",
+"type": "هدم",
+"area": "الضفة",
+"place": "الخليل",
+"at": "2026-08-29T15:17:58+03:00",
+"source": "وزارة الصحة",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.0385,
+32.307
+]
+},
+"properties": {
+"id": "i036",
+"t": "إطلاق نار من آليات الاحتلال شرق طولكرم",
+"type": "إطلاق نار",
+"area": "الضفة",
+"place": "طولكرم",
+"at": "2026-08-23T18:27:11+03:00",
+"source": "مراسل شهاب",
+"href": "article.html",
+"casualties": 1
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.0354,
+32.314
+]
+},
+"properties": {
+"id": "i069",
+"t": "إطلاق نار من آليات الاحتلال شرق طولكرم",
+"type": "إطلاق نار",
+"area": "الضفة",
+"place": "طولكرم",
+"at": "2026-08-23T13:08:17+03:00",
+"source": "أوتشا",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.3803,
+31.4402
+]
+},
+"properties": {
+"id": "i052",
+"t": "إطلاق نار على صيادين قبالة النصيرات",
+"type": "إطلاق نار",
+"area": "غزة",
+"place": "النصيرات",
+"at": "2026-08-23T06:44:40+03:00",
+"source": "وزارة الصحة",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.3947,
+31.4472
+]
+},
+"properties": {
+"id": "i013",
+"t": "حملة مداهمات في البريج",
+"type": "اقتحام",
+"area": "غزة",
+"place": "البريج",
+"at": "2026-08-20T21:53:13+03:00",
+"source": "مصادر محلية",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.1907,
+32.0767
+]
+},
+"properties": {
+"id": "i033",
+"t": "إطلاق نار على صيادين قبالة سلفيت",
+"type": "إطلاق نار",
+"area": "الضفة",
+"place": "سلفيت",
+"at": "2026-08-20T17:47:30+03:00",
+"source": "وزارة الصحة",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.1003,
+31.536
+]
+},
+"properties": {
+"id": "i028",
+"t": "تجريف أراضٍ في الخليل",
+"type": "هدم",
+"area": "الضفة",
+"place": "الخليل",
+"at": "2026-08-20T06:29:35+03:00",
+"source": "نادي الأسير",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.534,
+31.54
+]
+},
+"properties": {
+"id": "i067",
+"t": "قصف منزل في بيت حانون",
+"type": "قصف",
+"area": "غزة",
+"place": "بيت حانون",
+"at": "2026-08-19T14:33:06+03:00",
+"source": "نادي الأسير",
+"href": "article.html",
+"casualties": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.0924,
+31.5387
+]
+},
+"properties": {
+"id": "i001",
+"t": "إطلاق نار من «كواد كابتر» في الخليل",
+"type": "إطلاق نار",
+"area": "الضفة",
+"place": "الخليل",
+"at": "2026-08-19T09:36:04+03:00",
+"source": "أوتشا",
+"href": "article.html",
+"casualties": 2
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.1235,
+31.6854
+]
+},
+"properties": {
+"id": "i009",
+"t": "اعتقال أسير محرر من نحالين",
+"type": "اعتقال",
+"area": "الضفة",
+"place": "نحالين",
+"at": "2026-08-18T02:07:08+03:00",
+"source": "مراسل شهاب",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.3092,
+31.3419
+]
+},
+"properties": {
+"id": "i002",
+"t": "غارة من مسيّرة على تجمع مواطنين في خانيونس",
+"type": "قصف",
+"area": "غزة",
+"place": "خانيونس",
+"at": "2026-08-17T09:39:14+03:00",
+"source": "وزارة الصحة",
+"href": "article.html",
+"casualties": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.3837,
+31.4479
+]
+},
+"properties": {
+"id": "i059",
+"t": "حملة مداهمات في النصيرات",
+"type": "اقتحام",
+"area": "غزة",
+"place": "النصيرات",
+"at": "2026-08-15T15:18:50+03:00",
+"source": "مراسل شهاب",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.3354,
+31.3424
+]
+},
+"properties": {
+"id": "i051",
+"t": "قصف مدفعي يستهدف بني سهيلا",
+"type": "قصف",
+"area": "غزة",
+"place": "بني سهيلا",
+"at": "2026-08-12T06:23:25+03:00",
+"source": "مصادر محلية",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.041,
+32.3148
+]
+},
+"properties": {
+"id": "i035",
+"t": "اعتقال أسير محرر من مخيم نور شمس",
+"type": "اعتقال",
+"area": "الضفة",
+"place": "مخيم نور شمس",
+"at": "2026-08-11T10:20:51+03:00",
+"source": "مراسل شهاب",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.1728,
+32.0791
+]
+},
+"properties": {
+"id": "i046",
+"t": "تجريف أراضٍ في سلفيت",
+"type": "هدم",
+"area": "الضفة",
+"place": "سلفيت",
+"at": "2026-08-10T19:30:48+03:00",
+"source": "نادي الأسير",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.4643,
+31.4885
+]
+},
+"properties": {
+"id": "i039",
+"t": "إطلاق نار على صيادين قبالة الزيتون",
+"type": "إطلاق نار",
+"area": "غزة",
+"place": "الزيتون",
+"at": "2026-08-10T16:12:45+03:00",
+"source": "الدفاع المدني",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.2941,
+32.4652
+]
+},
+"properties": {
+"id": "i005",
+"t": "تجريف أراضٍ في جنين",
+"type": "هدم",
+"area": "الضفة",
+"place": "جنين",
+"at": "2026-08-10T11:12:49+03:00",
+"source": "الدفاع المدني",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.1987,
+31.9115
+]
+},
+"properties": {
+"id": "i010",
+"t": "هدم منزل في رام الله بحجة عدم الترخيص",
+"type": "هدم",
+"area": "الضفة",
+"place": "رام الله",
+"at": "2026-08-09T21:54:01+03:00",
+"source": "مصادر محلية",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.4717,
+31.525
+]
+},
+"properties": {
+"id": "i057",
+"t": "غارة من مسيّرة على تجمع مواطنين في الشيخ رضوان",
+"type": "قصف",
+"area": "غزة",
+"place": "الشيخ رضوان",
+"at": "2026-08-09T08:48:36+03:00",
+"source": "أوتشا",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.2622,
+32.2248
+]
+},
+"properties": {
+"id": "i038",
+"t": "اعتقال أسير محرر من نابلس",
+"type": "اعتقال",
+"area": "الضفة",
+"place": "نابلس",
+"at": "2026-08-09T01:53:58+03:00",
+"source": "نادي الأسير",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+34.468,
+31.4805
+]
+},
+"properties": {
+"id": "i049",
+"t": "غارة من مسيّرة على تجمع مواطنين في الزيتون",
+"type": "قصف",
+"area": "غزة",
+"place": "الزيتون",
+"at": "2026-08-08T03:28:32+03:00",
+"source": "أوتشا",
+"href": "article.html",
+"casualties": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.0246,
+32.215
+]
+},
+"properties": {
+"id": "i040",
+"t": "إطلاق نار من «كواد كابتر» في كفر قدوم",
+"type": "إطلاق نار",
+"area": "الضفة",
+"place": "كفر قدوم",
+"at": "2026-08-07T12:26:01+03:00",
+"source": "نادي الأسير",
+"href": "article.html",
+"casualties": 0
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+35.067,
+32.1749
+]
+},
+"properties": {
+"id": "i041",
+"t": "حملة مداهمات في عزون",
+"type": "اقتحام",
+"area": "الضفة",
+"place": "عزون",
+"at": "2026-08-07T11:54:04+03:00",
+"source": "مراسل شهاب",
+"href": "article.html",
+"casualties": 0
+}
+}
+]
+}

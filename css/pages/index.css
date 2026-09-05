@@ -176,7 +176,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-index-files__a-2{position:relative;display:block;background:var(--sh-navy);color:#fff;perspective:1400px;z-index:2}
 .sh-index-files__a-2:hover{color:#fff}
 .sh-index-files__span-4{position:absolute;inset:0;transform-origin:right center;animation:sh-cover-open .9s cubic-bezier(.2,.75,.2,1) both;background:var(--sh-navy);box-shadow:-18px 0 40px rgba(10,26,51,.45)}
-.sh-index-files__span-5{position:absolute;inset:0;background-image:url(../../assets/images/file-raheel-aldaif.png);background-size:cover;background-position:center 30%}
+.sh-index-files__span-5{position:absolute;inset:0;background-image:url(../../assets/images/file-raheel-aldaif.webp);background-size:cover;background-position:center 30%}
 .sh-index-files__span-6{position:absolute;top:18px;right:18px;background:var(--sh-navy);color:#fff;font-size:11.5px;font-weight:700;padding:5px 10px;display:flex;align-items:center;gap:8px;font-family:var(--sh-font)}
 .sh-index-files__a-3{position:relative;overflow:hidden;display:flex;flex-direction:column;color:var(--sh-ink);background:var(--color-surface)}
 .sh-index-files__a-3:hover{color:var(--sh-ink)}
@@ -194,20 +194,20 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-index-files__span-12{width:18px;aspect-ratio:100/41.59;height:auto;background:var(--sh-blue);-webkit-mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat}
 .sh-index-files__a-4{display:none;position:relative;display:block;background:var(--sh-navy);color:#fff;perspective:1400px;z-index:2}
 .sh-index-files__a-4:hover{color:#fff}
-.sh-index-files__span-13{position:absolute;inset:0;background-image:url(../../assets/images/file-aqmar-altoufan.png);background-size:cover;background-position:center 30%}
+.sh-index-files__span-13{position:absolute;inset:0;background-image:url(../../assets/images/file-aqmar-altoufan.webp);background-size:cover;background-position:center 30%}
 .sh-index-files__a-5{display:none;position:relative;overflow:hidden;display:flex;flex-direction:column;color:var(--sh-ink);background:var(--color-surface)}
 .sh-index-files__a-5:hover{color:var(--sh-ink)}
-.sh-index-files__span-14{position:absolute;inset:0;background-image:url(../../assets/images/file-1000-days.png);background-size:cover;background-position:center 30%}
-.sh-index-files__span-15{position:absolute;inset:0;background-image:url(../../assets/images/file-world-cup-2026.png);background-size:cover;background-position:center 30%}
+.sh-index-files__span-14{position:absolute;inset:0;background-image:url(../../assets/images/file-1000-days.webp);background-size:cover;background-position:center 30%}
+.sh-index-files__span-15{position:absolute;inset:0;background-image:url(../../assets/images/file-world-cup-2026.webp);background-size:cover;background-position:center 30%}
 .sh-index-files__a-6{position:relative;overflow:hidden;color:#fff;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:20px 0 18px;border-right:1px solid rgba(255,255,255,.18);background:var(--sh-navy-2);transition:background .2s;cursor:pointer}
 .sh-index-files__a-6:hover{color:#fff;background:var(--color-brand-blue-deep)}
-.sh-index-files__span-16{position:absolute;inset:0;background-image:url(../../assets/images/file-aqmar-altoufan.png);background-size:cover;background-position:center;opacity:.28}
+.sh-index-files__span-16{position:absolute;inset:0;background-image:url(../../assets/images/file-aqmar-altoufan.webp);background-size:cover;background-position:center;opacity:.28}
 .sh-index-files__span-17{position:absolute;inset:0;background:var(--sh-navy);opacity:.35}
 .sh-index-files__span-18{position:relative;font-family:var(--sh-font);font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.35);width:26px;text-align:center}
 .sh-index-files__span-19{position:relative;writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--sh-font);font-size:14.5px;font-weight:700;line-height:1.3}
 .sh-index-files__span-20{position:relative;writing-mode:vertical-rl;font-size:11.5px;color:var(--color-on-dark-2)}
-.sh-index-files__span-21{position:absolute;inset:0;background-image:url(../../assets/images/file-1000-days.png);background-size:cover;background-position:center;opacity:.28}
-.sh-index-files__span-22{position:absolute;inset:0;background-image:url(../../assets/images/file-world-cup-2026.png);background-size:cover;background-position:center;opacity:.28}
+.sh-index-files__span-21{position:absolute;inset:0;background-image:url(../../assets/images/file-1000-days.webp);background-size:cover;background-position:center;opacity:.28}
+.sh-index-files__span-22{position:absolute;inset:0;background-image:url(../../assets/images/file-world-cup-2026.webp);background-size:cover;background-position:center;opacity:.28}
 .sh-index-more-news__section-1{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:48px;padding:0 0 64px}
 .sh-index-more-news__div-1{display:flex;align-items:baseline;justify-content:space-between;gap:24px;border-bottom:1px solid var(--sh-hair);padding-bottom:10px}
 .sh-index-more-news__aside-1{padding:0;align-self:start}
@@ -334,7 +334,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
   display:grid;place-items:center;background:var(--sh-blue);color:#fff;font-size:18px;
   box-shadow:0 10px 30px rgba(0,0,0,.4);transition:transform .2s ease,background .2s ease;
 }
-.sh-vid__big i{margin-inline-start:-3px}
+.sh-vid__big .sh-i{margin-inline-start:-3px}
 .sh-vid__big:hover{transform:scale(1.06);color:#fff;background:var(--color-brand-blue-deep)}
 .sh-vid__controls{position:absolute;inset:auto 0 0 0;z-index:3;padding:0 14px 10px;background:linear-gradient(to top,rgba(0,0,0,.6),transparent)}
 .sh-vid__track{position:relative;display:block;height:14px;cursor:pointer}
@@ -398,13 +398,13 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-vid__reel:hover .sh-vid__reel-img{transform:scale(1.05)}
 .sh-vid__reel::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.94) 0,rgba(10,26,51,.55) 34%,rgba(10,26,51,0) 62%);pointer-events:none}
 .sh-vid__reel-len{position:absolute;top:10px;inset-inline-start:10px;z-index:2;display:inline-flex;align-items:center;gap:5px;padding:3px 7px;background:rgba(10,26,51,.72);font-size:11px;font-variant-numeric:tabular-nums;direction:ltr}
-.sh-vid__reel-len i{font-size:10px}
+.sh-vid__reel-len .sh-i{font-size:10px}
 .sh-vid__reel-play{
   position:absolute;bottom:92px;inset-inline-end:12px;z-index:2;width:40px;height:40px;border-radius:50%;
   display:grid;place-items:center;border:1.5px solid rgba(255,255,255,.85);background:rgba(10,26,51,.45);font-size:12px;
   transition:background .18s ease,border-color .18s ease;
 }
-.sh-vid__reel-play i{margin-inline-start:-2px}
+.sh-vid__reel-play .sh-i{margin-inline-start:-2px}
 .sh-vid__reel:hover .sh-vid__reel-play{background:var(--sh-blue);border-color:var(--sh-blue)}
 .sh-vid__reel-body{position:absolute;inset:auto 0 0 0;z-index:2;display:flex;flex-direction:column;gap:6px;padding:0 12px 12px}
 .sh-vid__reel-chip{align-self:flex-start;padding:2px 8px;background:var(--sh-blue);font-family:var(--sh-font);font-size:10.5px;font-weight:800}

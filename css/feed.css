@@ -1,0 +1,58 @@
+/* شهاب — the live channel (js/feed.js): new-item highlight, the «تحديثات
+   جديدة» pill, the docked live bar, the story-update banner, the feed status.
+   Plus the touch-target fixes the Phase 1 mobile pass found. */
+
+/* ---- a row that just arrived ---- */
+[data-new]{animation:sh-feed-in .6s ease both;position:relative}
+[data-new]::after{content:"";position:absolute;inset:-4px -8px;background:var(--color-surface-blue);z-index:-1;animation:sh-feed-glow 4s ease both}
+[data-breaking] .sh-upd__cat,[data-breaking] .sh-index-live-coverage__span-14 > span:first-child{color:var(--sh-red)}
+@keyframes sh-feed-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@keyframes sh-feed-glow{0%,60%{opacity:1}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){[data-new],[data-new]::after{animation:none}[data-new]::after{display:none}}
+
+/* ---- the pill: held updates wait behind one button ---- */
+.sh-feed-pill{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:40px;margin:0 0 10px;border:0;background:var(--sh-blue);color:#fff;font-family:var(--sh-font);font-size:13px;font-weight:800;cursor:pointer;animation:sh-feed-in .3s ease both}
+.sh-feed-pill:hover{background:var(--color-brand-blue-deep)}
+.sh-feed-pill:focus-visible{outline:2px solid var(--sh-navy);outline-offset:2px}
+.sh-feed-pill .sh-i{font-size:11px}
+
+/* ---- status line ---- */
+[data-sh-feed-status]{font-variant-numeric:tabular-nums}
+[data-sh-feed-status][data-bad]{color:var(--color-red-soft)}
+
+/* ---- the docked live bar (every page but live.html) ---- */
+.sh-livedock{position:fixed;bottom:16px;inset-inline-end:16px;z-index:840;display:flex;align-items:center;gap:12px;max-width:min(92vw,420px);padding:10px 12px;background:var(--sh-navy);color:#fff;box-shadow:0 14px 40px rgba(10,26,51,.38);border-inline-start:3px solid var(--sh-red);animation:sh-feed-in .3s ease both}
+.sh-livedock[hidden]{display:none}
+.sh-livedock__thumb{position:relative;flex:none;width:88px;aspect-ratio:16/9;background:var(--sh-navy-2) center/cover no-repeat;overflow:hidden}
+.sh-livedock__badge{position:absolute;top:5px;inset-inline-start:5px;display:inline-flex;align-items:center;gap:5px;padding:2px 6px;background:var(--sh-red);color:#fff;font-family:var(--sh-font);font-size:9.5px;font-weight:800;line-height:1.4}
+.sh-livedock__badge::before{content:"";width:5px;height:5px;border-radius:50%;background:#fff;animation:sh-pulse 1.4s ease-in-out infinite}
+.sh-livedock__body{min-width:0;flex:1 1 auto}
+.sh-livedock__kicker{display:block;font-family:var(--sh-font);font-size:10.5px;font-weight:800;color:var(--sh-sky)}
+.sh-livedock__title{display:block;font-family:var(--sh-font);font-size:13px;font-weight:800;line-height:1.5;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sh-livedock__title:hover{color:#fff;text-decoration:underline}
+.sh-livedock__meta{display:block;font-size:11px;color:var(--sh-on-dark-60);font-variant-numeric:tabular-nums}
+.sh-livedock__close{flex:none;width:32px;height:32px;border:0;background:transparent;color:var(--sh-on-dark-72);cursor:pointer;display:grid;place-items:center}
+.sh-livedock__close:hover{color:#fff;background:var(--sh-on-dark-14)}
+body[data-bf-on] .sh-livedock{bottom:84px}
+@media (max-width:640px){.sh-livedock{inset-inline:12px;bottom:12px;max-width:none}}
+
+/* ---- the story-update banner inside an article ---- */
+.sh-story{margin:22px 0 0;padding:16px 18px;background:var(--color-surface-blue);border-inline-start:3px solid var(--sh-red)}
+.sh-story[hidden]{display:none}
+.sh-story__head{display:flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:12.5px;font-weight:800;color:var(--sh-navy)}
+.sh-story__dot{width:7px;height:7px;border-radius:50%;background:var(--sh-red);animation:sh-pulse 1.4s ease-in-out infinite}
+.sh-story__head time{color:var(--sh-mute);font-weight:700}
+.sh-story__list{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
+.sh-story__list li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;font-family:var(--sh-font);font-size:13.5px;font-weight:700;line-height:1.7;color:var(--sh-ink)}
+.sh-story__list time{font-size:11.5px;color:var(--sh-mute);font-variant-numeric:tabular-nums}
+
+/* ---- header: the live button knows when the stream is on air ---- */
+.sh-live[data-on-air]{box-shadow:0 0 0 3px rgba(224,48,47,.28)}
+
+/* ---- touch targets the mobile pass flagged ---- */
+.sh-ad__note{font-size:12px}
+@media (pointer:coarse){
+  .sh-ticker__item{min-height:44px;align-items:center}
+  .sh-wx__btn{min-height:28px}
+  .sh-index-live-coverage__a-4,.sh-car__by,.sh-vid__reels-title,.sh-rail__item,.sh-upd{padding-block:6px}
+}

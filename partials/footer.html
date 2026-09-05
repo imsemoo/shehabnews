@@ -1,109 +1,99 @@
 <!--
-  Footer - فوتر الموقع الكامل
+  Footer — الفوتر الموحّد + الأدوات العائمة (لأعلى، الموافقة)
 
-  SOURCE : article.html  lines 325-396   (extracted verbatim, 72 lines)
-  STATUS : REFERENCE ONLY. Nothing loads this file at runtime.
-           The live copies still sit inside each *.html page, untouched.
-           Treat partials/ as build output: if you edit a page, this file goes
-           stale. Re-extract from the source above instead of editing here.
-  PURPOSE: a ready-made starting point for resources/views/partials/*.blade.php
+  STATUS : SOURCE OF TRUTH. tools/chrome.py copies this block into every route
+           page between sh:footer and /sh:footer.
 
-  Present on 12 of 24 pages. homepage-v2.html has its own light-theme
-  Concept Footer instead - do not merge the two.
-
-  Two content variants exist:
-
-    A (this file, 72 lines) - 13 pages: article, author, category, contact,
-        coverage, files, homepage-v3, homepage-v4, index, photos, search,
-        sections, video. Has the 4-icon social row.
-
-    B (56 lines) - 10 pages: 404, about, archive, loader, newsletter, privacy,
-        system-states, tag, terms, video-watch. Identical markup MINUS the four
-        social <a> tags. The wrapper <div> around them is still present, empty.
-
-  PROPS for the future Blade component:
-    $social   - the 4 icons, or an empty list for variant B.
-                IMPORTANT: emit the wrapper <div ... margin-top:18px> always and
-                put only the <a> tags inside the loop. Dropping the empty wrapper
-                changes the rendered height by 18px on the 10 variant-B pages.
-    $logoLink - index.html has a bare <img>; every other page wraps the logo in
-                <a href="index.html">.
-
-  NOTE: unlike the header, the .sh-xN hover classes in the footer are
-  position-indexed and DIFFER per page (404.html uses x45..x63, index.html uses
-  x137..x159). A shared Blade footer therefore needs its own stable class names
-  plus one small stylesheet, decided at port time. Nothing was renumbered in the
-  static build.
+  Real destinations only: the agency's channels are the ones shehabnews.com
+  links today; the newsletter is a real <form> (js/app.js posts it to
+  /api/newsletter and paints the states from system-states.html).
 -->
-<footer data-screen-label="Footer" style="position:relative;overflow:hidden;background:#0a1a33;color:#fff;margin-top:24px">
-  <video src="assets/video/footer-city.webm" autoplay="" muted="" loop="" playsinline="" preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42"></video>
-  <span style="position:absolute;inset:0;background:#0a1a33;opacity:.55;pointer-events:none"></span>
-  <span style="position:absolute;top:0;right:0;left:0;height:2px;background:#1b5aa6"></span>
-  <div style="position:relative;max-width:1280px;margin:0 auto;padding:44px 32px 0">
-    <div style="display:flex;flex-wrap:wrap;gap:36px 40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.16)">
-      <div style="flex:1 1 280px;min-width:0">
-        <a href="index.html"><img src="assets/images/logo-white.png" alt="شهاب" style="height:46px;width:auto"></a>
-        <p style="font-family:'Noto Naskh Arabic',serif;font-size:12.5px;line-height:1.95;color:rgba(255,255,255,.72);margin:16px 0 0;max-width:34ch">وكالة أنباء فلسطينية تعمل على مدار الساعة لنقل الصورة من الساحة الفلسطينية والعربية والدولية.</p>
-        <div style="display:flex;gap:8px;margin-top:18px">
-          
-            <a href="#" aria-label="فيسبوك" style="width:34px;height:34px;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;transition:background .18s,border-color .18s" class="sh-x61">
-              <i class="fa-brands fa-facebook-f" aria-hidden="true" style="font-size:15px;color:#fff;line-height:1"></i>
-            </a>
-          
-            <a href="#" aria-label="إكس" style="width:34px;height:34px;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;transition:background .18s,border-color .18s" class="sh-x62">
-              <i class="fa-brands fa-x-twitter" aria-hidden="true" style="font-size:15px;color:#fff;line-height:1"></i>
-            </a>
-          
-            <a href="#" aria-label="إنستغرام" style="width:34px;height:34px;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;transition:background .18s,border-color .18s" class="sh-x63">
-              <i class="fa-brands fa-instagram" aria-hidden="true" style="font-size:15px;color:#fff;line-height:1"></i>
-            </a>
-          
-            <a href="#" aria-label="تيليغرام" style="width:34px;height:34px;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;transition:background .18s,border-color .18s" class="sh-x64">
-              <i class="fa-solid fa-paper-plane" aria-hidden="true" style="font-size:15px;color:#fff;line-height:1"></i>
-            </a>
-          
+<footer data-screen-label="Footer" class="sh-footer">
+  <video class="sh-footer__video" data-src="assets/video/footer-city.webm" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+  <span class="sh-footer__veil"></span>
+  <span class="sh-footer__rule"></span>
+  <div class="sh-footer__inner">
+    <div class="sh-footer__cols">
+      <div class="sh-footer__col sh-footer__col--brand">
+        <a href="index.html" aria-label="شهاب — الرئيسية"><img src="assets/images/logo-white.png" width="583" height="377" alt="شهاب" class="sh-footer__logo" loading="lazy" decoding="async"></a>
+        <p class="sh-footer__about">وكالة أنباء فلسطينية تعمل على مدار الساعة لنقل الصورة من الساحة الفلسطينية والعربية والدولية.</p>
+        <div class="sh-footer__social">
+          <a href="https://www.facebook.com/sahpp2023" aria-label="فيسبوك" class="sh-footer__social-btn" rel="noopener" target="_blank"><svg class="sh-i sh-footer__social-icon" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#b-facebook-f"></use></svg></a>
+          <a href="https://twitter.com/ShehabAgency" aria-label="إكس" class="sh-footer__social-btn" rel="noopener" target="_blank"><svg class="sh-i sh-footer__social-icon" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#b-x-twitter"></use></svg></a>
+          <a href="https://www.instagram.com/shehabagency/" aria-label="إنستغرام" class="sh-footer__social-btn" rel="noopener" target="_blank"><svg class="sh-i sh-footer__social-icon" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#b-instagram"></use></svg></a>
+          <a href="https://www.youtube.com/channel/UChvBXfexWtP5gdGZespJnZw" aria-label="يوتيوب" class="sh-footer__social-btn" rel="noopener" target="_blank"><svg class="sh-i sh-footer__social-icon" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#b-youtube"></use></svg></a>
+          <a href="https://www.tiktok.com/@shehab_news" aria-label="تيك توك" class="sh-footer__social-btn" rel="noopener" target="_blank"><svg class="sh-i sh-footer__social-icon" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#b-tiktok"></use></svg></a>
+          <a href="https://t.me/ShehabTelegram" aria-label="تيليغرام" class="sh-footer__social-btn" rel="noopener" target="_blank"><svg class="sh-i sh-footer__social-icon" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#b-telegram"></use></svg></a>
+          <a href="https://chat.whatsapp.com/BzduQL31fpOINovuorYK36" aria-label="واتساب" class="sh-footer__social-btn" rel="noopener" target="_blank"><svg class="sh-i sh-footer__social-icon" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#b-whatsapp"></use></svg></a>
+        </div>
+        <div class="sh-footer__apps">
+          <a href="https://play.google.com/store/apps/details?id=com.shehab.shehab_app" class="sh-footer__app" rel="noopener" target="_blank"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-mobile-screen"></use></svg>تطبيق شهاب على Google Play</a>
+          <button type="button" class="sh-footer__app" data-sh-install hidden><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-download"></use></svg>ثبّت شهاب على جهازك</button>
         </div>
       </div>
-      
-        <div style="flex:1 1 150px;min-width:0">
-          <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الأقسام</h3>
-          <div style="display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:rgba(255,255,255,.75)">
-            <a href="category.html" class="sh-x65">أخبار فلسطين</a><a href="category.html" class="sh-x66">القدس</a><a href="category.html" class="sh-x67">غزة</a><a href="category.html" class="sh-x68">الضفة</a><a href="category.html" class="sh-x69">عربي ودولي</a>
-          </div>
+      <div class="sh-footer__col">
+        <h3 class="sh-footer__title">الأقسام</h3>
+        <div class="sh-footer__links">
+          <a href="category.html" class="sh-footer__link">أخبار فلسطين</a><a href="category.html" class="sh-footer__link">القدس</a><a href="category.html" class="sh-footer__link">غزة</a><a href="category.html" class="sh-footer__link">الضفة الغربية</a><a href="category.html" class="sh-footer__link">الأسرى</a><a href="category.html" class="sh-footer__link">عربي ودولي</a><a href="category.html" class="sh-footer__link">إسرائيلي</a><a href="category.html" class="sh-footer__link">رياضة</a><a href="category.html" class="sh-footer__link">رأي</a>
         </div>
-      
-        <div style="flex:1 1 150px;min-width:0">
-          <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>المحتوى</h3>
-          <div style="display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:rgba(255,255,255,.75)">
-            <a href="coverage.html" class="sh-x70">التغطيات الحية</a><a href="files.html" class="sh-x71">ملفات شهاب</a><a href="photos.html" class="sh-x72">عدسة شهاب</a><a href="video.html" class="sh-x73">فيديو شهاب</a><a href="category.html" class="sh-x74">تقارير خاصة</a>
-          </div>
+      </div>
+      <div class="sh-footer__col">
+        <h3 class="sh-footer__title">المحتوى</h3>
+        <div class="sh-footer__links">
+          <a href="coverage.html" class="sh-footer__link">التغطيات الحية</a><a href="files.html" class="sh-footer__link">ملفات شهاب</a><a href="photos.html" class="sh-footer__link">عدسة شهاب</a><a href="video.html" class="sh-footer__link">الفيديو</a><a href="reels.html" class="sh-footer__link">ريلز شهاب</a><a href="live.html" class="sh-footer__link">البث المباشر</a><a href="map.html" class="sh-footer__link">خريطة الخروقات</a><a href="data.html" class="sh-footer__link">مكتب البيانات</a><a href="archive.html" class="sh-footer__link">الأرشيف</a>
         </div>
-      
-        <div style="flex:1 1 150px;min-width:0">
-          <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>الوكالة</h3>
-          <div style="display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:rgba(255,255,255,.75)">
-            <a href="about.html" class="sh-x75">من نحن</a><a href="contact.html" class="sh-x76">تواصل معنا</a><a href="#" class="sh-x77">سياسة التحرير</a><a href="#" class="sh-x78">فرص العمل</a><a href="#" class="sh-x79">خدمة الصور</a>
-          </div>
+      </div>
+      <div class="sh-footer__col">
+        <h3 class="sh-footer__title">الوكالة</h3>
+        <div class="sh-footer__links">
+          <a href="about.html" class="sh-footer__link">من نحن</a><a href="about.html#editorial" class="sh-footer__link">سياسة التحرير</a><a href="sections.html#team" class="sh-footer__link">فريق التحرير</a><a href="contact.html" class="sh-footer__link">تواصل معنا</a><a href="newsletter.html" class="sh-footer__link">النشرة البريدية</a><a href="saved.html" class="sh-footer__link">المحفوظات</a><a href="https://shehabnews.com/rss/category/all" class="sh-footer__link">خدمة RSS</a>
         </div>
-      
-      <div style="flex:1 1 260px;min-width:0">
-        <h3 style="font-family:'Almarai',sans-serif;font-size:14px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#1b5aa6;transform:rotate(45deg);flex:none"></span>النشرة البريدية</h3>
-        <p style="font-family:'Noto Naskh Arabic',serif;font-size:12.5px;line-height:1.9;color:rgba(255,255,255,.72);margin:0 0 14px">آخر الأخبار وأبرز الملفات في بريدك كل صباح.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <span style="flex:1 1 150px;min-width:0;border:1px solid rgba(255,255,255,.3);padding:10px 13px;font-size:12px;color:rgba(255,255,255,.55);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">بريدك الإلكتروني</span>
-          <span style="background:#1b5aa6;color:#fff;font-family:'Almarai',sans-serif;font-size:12px;font-weight:700;padding:10px 20px;display:flex;align-items:center;white-space:nowrap;flex:none">اشترك</span>
+      </div>
+      <div class="sh-footer__col sh-footer__col--wide">
+        <h3 class="sh-footer__title">النشرة البريدية</h3>
+        <p class="sh-footer__lead">آخر الأخبار وأبرز الملفات في بريدك كل صباح.</p>
+        <form class="sh-footer__form" action="/api/newsletter" method="post" data-sh-newsletter novalidate>
+          <label class="sr-only" for="sh-footer-email">بريدك الإلكتروني</label>
+          <input id="sh-footer-email" class="sh-footer__input" type="email" name="email" placeholder="بريدك الإلكتروني" required autocomplete="email" inputmode="email" dir="ltr">
+          <button type="submit" class="sh-footer__submit">اشترك</button>
+          <p class="sh-footer__status" data-sh-newsletter-status aria-live="polite"></p>
+        </form>
+        <div class="sh-footer__channels">
+          <a href="https://t.me/ShehabTelegram" class="sh-footer__channel" rel="noopener" target="_blank"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#b-telegram"></use></svg>قناة تيليغرام</a>
+          <a href="https://chat.whatsapp.com/BzduQL31fpOINovuorYK36" class="sh-footer__channel" rel="noopener" target="_blank"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#b-whatsapp"></use></svg>قناة واتساب</a>
+          <button type="button" class="sh-footer__channel" data-sh-push hidden><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-bell"></use></svg><span data-sh-push-label>نبّهني بالعاجل</span></button>
         </div>
-        <div style="display:flex;gap:10px;align-items:center;margin-top:18px;font-size:11.5px;color:rgba(255,255,255,.6)"><span style="width:5px;height:5px;background:#e0302f;border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite"></span>تغطية مستمرة على مدار الساعة</div>
+        <div class="sh-footer__live"><span class="sh-footer__live-dot"></span>تغطية مستمرة على مدار الساعة</div>
       </div>
     </div>
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:20px 0 26px;font-size:11.5px;color:rgba(255,255,255,.6)">
-      <span>وكالة شهاب للأنباء © 2026 — جميع الحقوق محفوظة</span>
-      <div style="display:flex;gap:22px">
-        <a href="privacy.html" class="sh-x80">سياسة الخصوصية</a>
-        <a href="terms.html" class="sh-x81">شروط الاستخدام</a>
-        <a href="#" class="sh-x82">خدمة RSS</a>
-        <a href="#" class="sh-x83">English</a>
+    <div class="sh-footer__legal">
+      <span>وكالة شهاب للأنباء © <span data-sh-year>2026</span> — جميع الحقوق محفوظة</span>
+      <div class="sh-footer__legal-links">
+        <a href="privacy.html" class="sh-footer__legal-link">سياسة الخصوصية</a>
+        <a href="terms.html" class="sh-footer__legal-link">شروط الاستخدام</a>
+        <a href="https://shehabnews.com/rss/category/all" class="sh-footer__legal-link">RSS</a>
+        <a href="https://shehabnews.com/post/category/35/EN" class="sh-footer__legal-link" lang="en" dir="ltr">English</a>
       </div>
     </div>
   </div>
 </footer>
+<aside class="sh-livedock" data-sh-livedock hidden aria-label="البث المباشر الآن">
+  <a href="live.html" class="sh-livedock__thumb" style="background-image:url(assets/images/live-poster.webp)" aria-hidden="true" tabindex="-1"><span class="sh-livedock__badge">مباشر</span></a>
+  <span class="sh-livedock__body">
+    <span class="sh-livedock__kicker">على الهواء الآن</span>
+    <a href="live.html" class="sh-livedock__title" data-sh-livedock-title>شهاب مباشر — بث من غزة</a>
+    <span class="sh-livedock__meta"><b data-sh-livedock-viewers></b> يشاهدون · <a href="live.html">شاهد البث</a></span>
+  </span>
+  <button type="button" class="sh-livedock__close" data-sh-livedock-close aria-label="إغلاق"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-xmark"></use></svg></button>
+</aside>
+<button type="button" class="sh-totop" data-sh-totop aria-label="العودة إلى أعلى الصفحة" hidden><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-arrow-up"></use></svg></button>
+<dialog class="sh-consent" data-sh-consent aria-labelledby="sh-consent-title">
+  <form method="dialog" class="sh-consent__box">
+    <h2 id="sh-consent-title" class="sh-consent__title">الخصوصية على شهاب</h2>
+    <p class="sh-consent__text">نستخدم ملفات تعريف الارتباط الضرورية لتشغيل الموقع، وملفات اختيارية للإحصاءات والإعلانات. تقدر تغيّر اختيارك في أي وقت من <a href="privacy.html">سياسة الخصوصية</a>.</p>
+    <div class="sh-consent__actions">
+      <button type="submit" value="essential" class="sh-consent__btn">الضرورية فقط</button>
+      <button type="submit" value="all" class="sh-consent__btn sh-consent__btn--primary">موافق على الكل</button>
+    </div>
+  </form>
+</dialog>

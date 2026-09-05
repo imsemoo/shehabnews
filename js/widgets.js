@@ -53,7 +53,7 @@
     else if (c === 85 || c === 86) { t = 'زخات ثلج'; d = n = 'fa-snowflake'; }
     else if (c >= 95) { t = 'عاصفة رعدية'; d = n = 'fa-cloud-bolt'; }
     else { t = 'غائم'; d = n = 'fa-cloud'; }
-    return { text: t, icon: 'fa-solid ' + (day === false ? n : d) };
+    return { text: t, icon: (day === false ? n : d).slice(3) };
   }
 
   /* ------------------------------------------------------------- helpers */
@@ -122,12 +122,12 @@
     }
     function body(d) {
       var now = wmo(d.code, d.day);
-      return '<div class="sh-wx__now"><i class="' + now.icon + '" aria-hidden="true"></i>' +
+      return '<div class="sh-wx__now">' + ShUI.icon(now.icon) + '' +
         '<b class="sh-wx__big">' + d.temp + '°</b>' +
         '<span class="sh-wx__desc">' + esc(now.text) + '<small>الرطوبة ' + d.hum + '% · الرياح ' + d.wind + ' كم/س</small></span></div>' +
         '<div class="sh-wx__days">' + d.days.map(function (x, i) {
           var w = wmo(x.code, true);
-          return '<span class="sh-wx__day"><b>' + esc(dayName(x.date, i)) + '</b><i class="' + w.icon + '" aria-hidden="true" title="' + esc(w.text) + '"></i><span>' + x.max + '° <em>/ ' + x.min + '°</em></span></span>';
+          return '<span class="sh-wx__day"><b>' + esc(dayName(x.date, i)) + '</b><span class="sh-wx__ico" title="' + esc(w.text) + '">' + ShUI.icon(w.icon) + '</span><span>' + x.max + '° <em>/ ' + x.min + '°</em></span></span>';
         }).join('') + '</div>' +
         '<div class="sh-wx__foot"><span>Open-Meteo</span><span>تحديث ' + hhmm(d.at) + '</span></div>';
     }
@@ -136,15 +136,15 @@
       var now = wmo(d.code, d.day), name = CITIES[city].name;
       el.setAttribute('data-sh-state', 'ready');
       if (variant === 'card') {
-        el.innerHTML = '<div class="sh-wx__head"><span class="sh-wx__title"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>الطقس في ' + esc(name) + '</span></div>' + tabs() + body(d);
+        el.innerHTML = '<div class="sh-wx__head"><span class="sh-wx__title">' + ShUI.icon('location-dot', 'solid') + 'الطقس في ' + esc(name) + '</span></div>' + tabs() + body(d);
         return;
       }
       var label = name + ' — ' + now.text + '، ' + d.temp + ' درجة';
       el.innerHTML = '<button type="button" class="sh-wx__btn" aria-haspopup="dialog" aria-expanded="' + open + '" aria-label="الطقس: ' + esc(label) + '" title="' + esc(label) + '">' +
-        '<i class="' + now.icon + '" aria-hidden="true"></i><b class="sh-wx__t">' + d.temp + '°</b>' +
+        ShUI.icon(now.icon) + '<b class="sh-wx__t">' + d.temp + '°</b>' +
         (el.hasAttribute('data-sh-show-city') ? '<span class="sh-wx__city">' + esc(name) + '</span>' : '') + '</button>' +
         '<div class="sh-wx__pop" role="dialog" aria-label="الطقس في ' + esc(name) + '"' + (open ? '' : ' hidden') + '>' +
-        '<div class="sh-wx__pophead"><span class="sh-wx__title"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>' + esc(name) + '</span><button type="button" class="sh-wx__close" aria-label="إغلاق"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div>' +
+        '<div class="sh-wx__pophead"><span class="sh-wx__title">' + ShUI.icon('location-dot', 'solid') + '' + esc(name) + '</span><button type="button" class="sh-wx__close" aria-label="إغلاق">' + ShUI.icon('xmark', 'solid') + '</button></div>' +
         tabs() + body(d) + '</div>';
     }
     function load() {
@@ -181,7 +181,7 @@
     document.addEventListener('click', function (e) { if (open && !el.contains(e.target)) setOpen(false); });
     document.addEventListener('keydown', function (e) { if (open && e.key === 'Escape') { setOpen(false); var b = el.querySelector('.sh-wx__btn'); if (b) b.focus(); } });
 
-    el.innerHTML = variant === 'card' ? '<span class="sh-wx__skel"></span>' : '<span class="sh-wx__btn sh-wx__btn--skel" aria-hidden="true"><i class="fa-solid fa-cloud"></i><b class="sh-wx__t">··</b></span>';
+    el.innerHTML = variant === 'card' ? '<span class="sh-wx__skel"></span>' : '<span class="sh-wx__btn sh-wx__btn--skel" aria-hidden="true">' + ShUI.icon('cloud') + '<b class="sh-wx__t">··</b></span>';
     load();
     setInterval(load, WX_TTL);
   }
@@ -245,7 +245,7 @@
       var dir = chg == null ? 'flat' : Math.abs(chg) < 0.005 ? 'flat' : chg > 0 ? 'up' : 'down';
       var chgHtml = chg == null ? '' :
         '<span class="sh-fx__chg sh-fx__chg--' + dir + '" title="التغيّر عن اليوم السابق">' +
-        (dir === 'flat' ? '<i class="fa-solid fa-minus" aria-hidden="true"></i>' : '<i class="fa-solid fa-caret-' + dir + '" aria-hidden="true"></i>' + num(Math.abs(chg), 2) + '%') + '</span>';
+        (dir === 'flat' ? '' + ShUI.icon('minus', 'solid') + '' : ShUI.icon('caret-' + dir) + num(Math.abs(chg), 2) + '%') + '</span>';
       return '<span class="sh-fx__item"><span class="sh-fx__pair">' + esc(pairLabel(p[0], p[1])) + '</span><b class="sh-fx__val">' + num(v, digits(v)) + '</b>' + chgHtml + '</span>';
     }
     function render(d) {
@@ -254,7 +254,7 @@
       el.setAttribute('data-sh-state', 'ready');
       var foot = '<span class="sh-fx__foot"><span>تحديث ' + esc(d.date) + '</span><span>' + esc(d.source) + '</span></span>';
       if (variant === 'card') {
-        el.innerHTML = '<div class="sh-fx__head"><span class="sh-fx__title"><i class="fa-solid fa-coins" aria-hidden="true"></i>أسعار العملات</span></div><div class="sh-fx__list">' + items + '</div>' + foot;
+        el.innerHTML = '<div class="sh-fx__head"><span class="sh-fx__title">' + ShUI.icon('coins', 'solid') + 'أسعار العملات</span></div><div class="sh-fx__list">' + items + '</div>' + foot;
         return;
       }
       el.innerHTML = '<div class="sh-fx__viewport"><div class="sh-fx__track"><span class="sh-fx__set">' + items + '</span><span class="sh-fx__set" aria-hidden="true">' + items + '</span></div></div>';

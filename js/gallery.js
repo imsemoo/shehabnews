@@ -75,7 +75,7 @@
             '<span class="sh-pswp__kicker"><span class="sh-mark"></span>' + esc(chip ? chip.textContent.trim() : 'ألبوم شهاب') + '</span>' +
             '<h3 class="sh-pswp__title">' + esc(img ? img.getAttribute('alt') : '') + '</h3>' +
             '<a class="sh-pswp__album" href="' + esc(a.getAttribute('href')) + '" target="_blank" rel="noopener">افتح الألبوم على شهاب ' +
-              '<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>';
+              '' + ShUI.icon('arrow-up-right-from-square', 'solid') + '</a>';
         }
         pswp.on('change', render);
         render();
@@ -85,7 +85,7 @@
     // copy the deep link of the current picture
     pswp.ui.registerElement({
       name: 'sh-share', order: 8, isButton: true, tagName: 'button', title: 'نسخ رابط الصورة',
-      html: '<i class="fa-solid fa-link" aria-hidden="true"></i>',
+      html: '' + ShUI.icon('link', 'solid') + '',
       onClick: function () {
         var url = location.href.replace(/#.*$/, '') + '#pswp=' + (pswp.currIndex + 1);
         var done = function () { toast(pswp, 'اتنسخ رابط الصورة'); };
@@ -98,11 +98,10 @@
     if (document.fullscreenEnabled) {
       pswp.ui.registerElement({
         name: 'sh-fs', order: 8.5, isButton: true, tagName: 'button', title: 'ملء الشاشة',
-        html: '<i class="fa-solid fa-expand" aria-hidden="true"></i>',
+        html: '' + ShUI.icon('expand', 'solid') + '',
         onInit: function (el) {
           document.addEventListener('fullscreenchange', function () {
-            var i = el.querySelector('i');
-            if (i) i.className = document.fullscreenElement ? 'fa-solid fa-compress' : 'fa-solid fa-expand';
+            ShUI.setIcon(el.querySelector('.sh-i'), document.fullscreenElement ? 'compress' : 'expand');
           });
         },
         onClick: function () {
