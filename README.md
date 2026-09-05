@@ -6,6 +6,52 @@
 **لا يوجد أي اعتماد خارجي.** الخطوط والأيقونات كلها داخل المشروع؛ الطلبات الخارجية
 الوحيدة المتبقية هي صور المحتوى المؤقتة من Wikimedia Commons (بند 3 في الملاحظات).
 
+## ما الجديد — سبتمبر 2026 (المنصة فوق الثيم)
+
+> الأقسام القديمة أسفل هذا القسم توصف الثيم كما استُخرج. ما يلي هو ما بُني فوقه على أربع مراحل. **Font Awesome اتشال**، الصور بقت WebP، والهيدر/الفوتر بقوا من `partials/` عبر سكربت.
+
+### كيف تعدّل وتنشر
+
+كل تعديل في الهيدر أو الفوتر أو الـ`<head>` يتم في مكان واحد ثم يُنشر على الصفحات:
+
+```bash
+python tools/chrome.py      # يعيد بناء <head> + الهيدر + الفوتر + ترتيب السكربتات في كل صفحة، ويرفع ?v=N ويزامن sw.js
+python tools/a11y.py        # (بعد أي CSS جديد) يولّد حدّ 12px للخط على الموبايل في responsive.css
+python tools/search_index.py   # (بعد تغيير المحتوى) يعيد بناء data/search-index.json
+```
+
+ارفع `V` في `tools/chrome.py` بعد أي تعديل CSS/JS. `partials/header.html` و`partials/footer.html` هما **مصدر الحقيقة**؛ الصفحات تحمل نسخة بين علامتي `sh:header` / `sh:footer`. لا تعدّل الهيدر داخل صفحة مباشرة.
+
+أدوات المرحلة الأولى تعمل مرة واحدة وهي idempotent: `tools/icons.py` (سبرايت الأيقونات من خطوط FA في `tools/fonts/`)، `tools/images.py` (WebP + أبعاد)، `tools/brand.py` (favicon/أيقونات PWA/OG)، `tools/times.py` (`<time data-sh-ago>`)، `tools/phase1_pages.py`، `tools/phase1_links.py`، `tools/phase2_hooks.py`، `tools/phase3_hooks.py`، `tools/geo.py` (نقاط الخريطة التوضيحية)، `tools/restore_prelude.py` (يستعيد ما بين الهيدر و`<main>` من آخر كوميت لو ضاع).
+
+### الطبقات الجديدة
+
+| الملف | الدور |
+|---|---|
+| `js/ui.js` | `ShUI`: أيقونة من السبرايت، توست واحد، `esc`، الوقت النسبي وتعبئة `<time>` |
+| `js/chrome.js` | هيدر sticky مضغوط (`html[data-compact]`)، النافبار الحالي، التيكر بزر إيقاف، `<time>` كل دقيقة، لأعلى، فيديو الفوتر الكسول، فورم النشرة، الموافقة، المشاركة (`data-sh-share`)، أدوار التابات |
+| `js/feed.js` | القناة الحية `api/events` (SSE): تيكر، تحديثات فوق `[data-sh-feed="updates"]` ببيل «تحديثات جديدة»، شريط العاجل، الأبرز، حالة البث + الشريط المرصوف، بانر «تحدّث الخبر» |
+| `js/searchbox.js` | البحث الفوري من الهيدر على `api/search` (لوحة على الديسكتوب، شيت على الموبايل، `/` للتركيز) |
+| `js/search.js` | صفحة البحث: العدّ الحقيقي، الفلاتر، الترتيب، البحث المتقدم |
+| `js/article.js` | القارئ: شريط التقدّم، حجم الخط، «استمع للمقال» (على `brief.js`)، حفظ، طباعة، تكبير الصورة (PhotoSwipe) |
+| `js/push.js` · `js/pwa.js` · `sw.js` | تنبيهات العاجل (اختيارية، محلية بلا VAPID)، تسجيل الـSW وشريط التحديث وزر التثبيت، الكاش والأوفلاين (`offline.html`) |
+| `js/figures.js` · `data/figures.json` | الأرقام المشتركة `[data-sh-figure]` بمصدر وتاريخ (أرقام توضيحية للنموذج) |
+| `js/map.js` · `assets/vendor/leaflet/` | خريطة الخروقات على Leaflet 1.9.4 (BSD-2) من `data/incidents.geojson`؛ البلاطات OSM للنموذج، وفي الإنتاج بلاطات ذاتية (`TILES` في `map.js`) |
+| `js/data.js` · `js/now.js` · `js/saved.js` | مكتب البيانات، شاشة «الآن» (K = وضع الشاشة)، المحفوظات |
+| `css/chrome.css` · `css/feed.css` | كل ستايل الطبقات أعلاه |
+
+### الصفحات الجديدة
+
+`now.html` (غرفة الأخبار: بث + تحديثات + خريطة + أرقام) · `map.html` · `data.html` · `saved.html` · `offline.html`.
+
+### السيرفر المحلي والـAPI
+
+`serve.py` يقدّم بدائل محلية لنقاط لارافيل: `GET /api/events` (SSE بغرفة أخبار توضيحية: تحديث كل ~30 ثانية، عاجل كل 4، تحديث للخبر 163540 كل 3)، `GET /api/now.json`، `GET /api/search?q=` (على `search_local.py` بتطبيع عربي)، `POST /api/*` يقبل بـ`{ok:true}`. العقود نفسها تُنفَّذ في لارافيل (`StreamedResponse`/Reverb، Scout + Meilisearch، `web-push`).
+
+### SEO والأداء والإتاحة (المرحلة الأولى)
+
+`<head>` مولَّد لكل صفحة (عنوان، وصف، canonical، OG/Twitter، RSS، hreflang، JSON-LD بنوع الصفحة، Speculation Rules للـprerender، preload للخطوط، manifest). `h1` واحد لكل صفحة، skip link، `aria-live` للعاجل، زر إيقاف للتيكر، 44px للأهداف باللمس، حد 12px للخط على الموبايل. الرئيسية نزلت من 9.1MB إلى ~1.2MB. View Transitions بدل ستارة الانتقال (الستارة اختيارية بـ`<html data-sh-veil>`). صفر `href="#"` في صفحات الـroute.
+
 ## التشغيل محليًا
 
 شغّل المجلد على سيرفر HTTP بسيط، لا تفتح الملف بالنقر المزدوج:
@@ -60,7 +106,6 @@ shehabnews/
 
 ```html
 <link rel="stylesheet" href="css/fonts.css?v=3">
-<link rel="stylesheet" href="css/font-awesome.css?v=3">
 <link rel="stylesheet" href="css/transition.css?v=3">
 <link rel="stylesheet" href="css/<page>.css?v=3">
 <link rel="stylesheet" href="css/responsive.css?v=3">   <!-- آخر واحد دائمًا -->
@@ -466,7 +511,7 @@ Noto Naskh Arabic خط متغيّر: الـCDN يخدم ملفًا واحدًا 
 ```
 `data-sh-image` هي صورة الخبر (وهي كمان غلاف المحور لو كان أحدث خبر فيه، إلا لو
 الكولكشن حدّد `data-sh-cover` بنفسه — زي «عربي»، غلافه
-`assets/images/hub-arab-world.jpg` لأن محوره مالوش صورة واحدة تمثّله)، و`data-sh-credit` بتتكتب في ركن الصورة.
+`assets/images/hub-arab-world.webp` لأن محوره مالوش صورة واحدة تمثّله)، و`data-sh-credit` بتتكتب في ركن الصورة.
 الصور الحالية مؤقتة من ويكيميديا كومنز زي باقي صور المحتوى في الصفحة.
 كل كولكشن `[data-sh-hub]` بيقول أنهي فئات تخصّها بـ`data-sh-filter="فلسطين|القدس|غزة"`؛
 `hubs()` في `app.js` بتفرز الأحدث أولًا (اللي من غير ساعة بياخد لابله «اليوم»
@@ -776,6 +821,6 @@ B: شبكة كروت بصور (`partials/special-files-cards-v2.html`) — حل�
 - `homepage-v2.html:135` فيها `background:url("undefined")`.
 - روابط `href="#"` كثيرة (فوتر، قوائم) — محتوى مؤقت.
 - عناوين `<title>` كلها بالصيغة `شهاب — Article` وتحتاج صياغة حقيقية.
-- `assets/images/coverage.png` و`coverage-hero.png` غير مستخدمتين
-  (3.73 ميجا)، و`footer-city.webm` و`night-city.webm` ملف واحد متطابق
+- `assets/images/coverage-hero2.webp` و`coverage-hero.png` غير مستخدمتين
+  (3.73 ميجا)، و`footer-city.webm` و`footer-city.webm` ملف واحد متطابق
   بالبايت مخزَّن مرتين. **لم يُحذف شيء.**

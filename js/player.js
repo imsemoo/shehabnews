@@ -125,7 +125,7 @@
       box.className = 'sh-vs__error';
       box.setAttribute('role', 'alert');
       box.innerHTML = '<span class="sh-vs__error-mark"></span><p class="sh-vs__error-text"></p>' +
-        '<button type="button" class="sh-vs__error-btn"><i class="fa-solid fa-rotate-right" aria-hidden="true"></i>إعادة المحاولة</button>';
+        '<button type="button" class="sh-vs__error-btn">' + ShUI.icon('rotate-right', 'solid') + 'إعادة المحاولة</button>';
       el.appendChild(box);
     }
     box.querySelector('.sh-vs__error-text').textContent = text;

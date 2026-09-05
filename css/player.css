@@ -146,7 +146,7 @@ media-player.sh-vs--lite .sh-lite__play{
   transition:opacity .2s ease,transform .2s ease,background .2s ease;
 }
 media-player.sh-vs--lite .sh-lite__play:hover{background:var(--sh-blue)}
-media-player.sh-vs--lite .sh-lite__play i{margin-left:3px}
+media-player.sh-vs--lite .sh-lite__play .sh-i{margin-left:3px}
 media-player.sh-vs--lite .sh-lite__play .fa-pause{display:none;margin:0}
 media-player.sh-vs--lite[data-playing] .sh-lite__play{opacity:0;transform:scale(.8);pointer-events:none}
 media-player.sh-vs--lite[data-waiting] .sh-lite__play{opacity:0}
@@ -175,7 +175,7 @@ media-player.sh-vs--lite .sh-lite__mute[data-state="muted"] .fa-volume-xmark,
 media-player.sh-vs--lite .sh-lite__mute[data-muted] .fa-volume-xmark{display:inline}
 media-player.sh-vs--lite .sh-lite__mute:focus-visible{outline:2px solid var(--sh-sky);outline-offset:2px}
 media-player.sh-vs--lite .sh-lite__len{display:inline-flex;align-items:center;gap:5px;padding:3px 7px;background:rgba(10,26,51,.72);color:#fff;font-family:var(--sh-font);font-size:11px;font-weight:700;font-variant-numeric:tabular-nums;direction:ltr}
-media-player.sh-vs--lite .sh-lite__len i{font-size:10px}
+media-player.sh-vs--lite .sh-lite__len .sh-i{font-size:10px}
 
 /* caption block */
 media-player.sh-vs--lite .sh-lite__body{position:relative;z-index:6;display:flex;flex-direction:column;gap:6px;padding:0 12px 14px;direction:rtl;color:#fff;font-family:var(--sh-font)}

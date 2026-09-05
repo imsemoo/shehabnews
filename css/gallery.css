@@ -22,7 +22,7 @@
 }
 .sh-pswp .pswp__button--sh-share,.sh-pswp .pswp__button--sh-fs{color:#fff;font-size:16px;line-height:60px;opacity:.85}
 .sh-pswp .pswp__button--sh-share:hover,.sh-pswp .pswp__button--sh-fs:hover{opacity:1}
-.sh-pswp .pswp__button--sh-share i,.sh-pswp .pswp__button--sh-fs i{display:inline-block;vertical-align:middle}
+.sh-pswp .pswp__button--sh-share .sh-i,.sh-pswp .pswp__button--sh-fs .sh-i{display:inline-block;vertical-align:middle}
 .sh-pswp .pswp__button:focus-visible{outline:2px solid var(--sh-sky);outline-offset:-4px}
 
 /* ---- caption: a band under the picture, centred, clear of the arrows ---- */
@@ -46,7 +46,7 @@
   transition:background .18s ease,border-color .18s ease,color .18s ease;
 }
 .sh-pswp__album:hover{background:#fff;border-color:#fff;color:var(--sh-navy)}
-.sh-pswp__album i{font-size:11px}
+.sh-pswp__album .sh-i{font-size:11px}
 
 /* narrow: the band is the full width, and the album button drops under the title */
 @media (max-width:899px){

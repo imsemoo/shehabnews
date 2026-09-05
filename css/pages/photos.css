@@ -59,7 +59,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 .sh-photos-photo-grid__span-9{position:relative;display:block;background:var(--sh-navy-2);overflow:hidden;aspect-ratio:1/1}
 .sh-photos-photo-grid__span-10{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=600");background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
 .sh-photos-photo-grid__span-10:hover{transform:scale(1.04)}
-.sh-photos-photo-grid__span-11{position:absolute;inset:0;background-image:url("../../assets/images/palestine-map.png");background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+.sh-photos-photo-grid__span-11{position:absolute;inset:0;background-image:url("../../assets/images/palestine-map.webp");background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
 .sh-photos-photo-grid__span-11:hover{transform:scale(1.04)}
 .sh-photos-photo-grid__span-12{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/The%20field%20at%20Azteca%20Stadium%20in%20Mexico%20City%20during%20the%20opening%20ceremony%20of%20the%202026%20World%20Cup.jpg?width=600");background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
 .sh-photos-photo-grid__span-12:hover{transform:scale(1.04)}

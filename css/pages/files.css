@@ -55,7 +55,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 .sh-files-latest-files__span-3{width:20px;aspect-ratio:100/41.59;height:auto;background:currentColor;-webkit-mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat}
 .sh-files-latest-files__span-4{font-family:var(--sh-font);font-size:10.5px;font-weight:800;opacity:.4;font-variant-numeric:tabular-nums}
 .sh-files-latest-files__span-5{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:16/8;margin:0 0px}
-.sh-files-latest-files__span-6{position:absolute;inset:0;background-image:url("../../assets/images/file-raheel-aldaif.png");background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
+.sh-files-latest-files__span-6{position:absolute;inset:0;background-image:url("../../assets/images/file-raheel-aldaif.webp");background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
 .sh-files-latest-files__span-6:hover{transform:scale(1.04)}
 .sh-files-latest-files__span-7{display:flex;flex-direction:column;flex:1;padding:14px 0px 0px}
 .sh-files-latest-files__span-8{display:block;font-family:var(--sh-font);font-size:22px;font-weight:800;line-height:1.55;text-wrap:pretty}
@@ -67,7 +67,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 .sh-files-latest-files__a-2:hover{transform:translateY(-3px)}
 .sh-files-latest-files__span-13{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 18px 12px}
 .sh-files-latest-files__span-14{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:4/3;margin:0 18px}
-.sh-files-latest-files__span-15{position:absolute;inset:0;background-image:url("../../assets/images/file-world-cup-2026.png");background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
+.sh-files-latest-files__span-15{position:absolute;inset:0;background-image:url("../../assets/images/file-world-cup-2026.webp");background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
 .sh-files-latest-files__span-15:hover{transform:scale(1.04)}
 .sh-files-latest-files__span-16{display:flex;flex-direction:column;flex:1;padding:14px 18px 18px}
 .sh-files-latest-files__span-17{display:block;font-family:var(--sh-font);font-size:17px;font-weight:800;line-height:1.55;text-wrap:pretty}
@@ -75,7 +75,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 .sh-files-latest-files__a-3{position:relative;display:flex;flex-direction:column;grid-column:span 1;background:#fff;color:var(--sh-ink);overflow:hidden;min-height:0;border-top:2px solid var(--sh-ink);padding-top:12px}
 .sh-files-latest-files__a-3:hover{transform:translateY(-3px)}
 .sh-files-latest-files__span-19{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:16/9;margin:0 0px}
-.sh-files-latest-files__span-20{position:absolute;inset:0;background-image:url("../../assets/images/palestine-map.png");background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
+.sh-files-latest-files__span-20{position:absolute;inset:0;background-image:url("../../assets/images/palestine-map.webp");background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
 .sh-files-latest-files__span-20:hover{transform:scale(1.04)}
 .sh-files-latest-files__span-21{display:block;font-family:var(--sh-font);font-size:15.5px;font-weight:800;line-height:1.55;text-wrap:pretty}
 .sh-files-latest-files__span-22{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:16/9;margin:0 18px}
@@ -103,7 +103,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 .sh-files-interactive-files__a-1{display:flex;flex-direction:column;background:var(--sh-navy-2);color:#fff;overflow:hidden;border-top:2px solid var(--sh-blue)}
 .sh-files-interactive-files__a-1:hover{color:#fff;transform:translateY(-3px)}
 .sh-files-interactive-files__span-4{position:relative;display:block;overflow:hidden;aspect-ratio:16/9;background:#061024}
-.sh-files-interactive-files__span-5{position:absolute;inset:0;background-image:url("../../assets/images/palestine-map.png");background-size:cover;background-position:center;opacity:.8}
+.sh-files-interactive-files__span-5{position:absolute;inset:0;background-image:url("../../assets/images/palestine-map.webp");background-size:cover;background-position:center;opacity:.8}
 .sh-files-interactive-files__span-6{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,42,79,1),rgba(15,42,79,0) 60%)}
 .sh-files-interactive-files__span-7{position:absolute;top:12px;right:12px;display:flex;align-items:center;gap:7px;background:rgba(6,16,36,.85);font-size:10.5px;font-weight:800;padding:4px 10px;font-family:var(--sh-font)}
 .sh-files-interactive-files__i-1{font-size:10px;color:var(--sh-sky)}

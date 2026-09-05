@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>غير متصل | وكالة شهاب للأنباء</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a1a33">
+<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/fonts.css?v=105">
+<style>
+  /* self-contained on purpose: this page is served from the cache when nothing else is */
+  html,body{margin:0;min-height:100%;background:#0a1a33;color:#fff;font-family:'Almarai',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .off{min-height:100vh;display:grid;place-items:center;padding:32px 20px;text-align:center}
+  .off__box{max-width:520px;width:100%}
+  .off__logo{height:52px;width:auto;margin:0 auto 28px;display:block}
+  .off__mark{width:44px;height:44px;margin:0 auto 18px;background:#7ea8dd;-webkit-mask:url(assets/images/mark-sheen.svg) center/contain no-repeat;mask:url(assets/images/mark-sheen.svg) center/contain no-repeat;opacity:.9}
+  h1{font-size:26px;font-weight:800;line-height:1.5;margin:0 0 10px}
+  p{font-family:'Noto Naskh Arabic',serif;font-size:15px;line-height:1.95;color:rgba(255,255,255,.75);margin:0 0 22px}
+  .off__row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .off__btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 20px;background:#1b5aa6;color:#fff;font-weight:800;font-size:14px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+  .off__btn--ghost{background:transparent;border:1px solid rgba(255,255,255,.35)}
+  .off__btn:hover{background:#164b8a}
+  .off__list{margin:34px 0 0;padding:0;list-style:none;text-align:start;border-top:1px solid rgba(255,255,255,.14)}
+  .off__list[hidden]{display:none}
+  .off__list li{border-bottom:1px solid rgba(255,255,255,.1)}
+  .off__list a{display:block;padding:12px 4px;color:#fff;text-decoration:none;font-size:14px;font-weight:700;line-height:1.6}
+  .off__list a:hover{color:#7ea8dd}
+  .off__h{font-size:12px;font-weight:800;color:#7ea8dd;margin:28px 0 6px;text-align:start}
+  .off__h[hidden]{display:none}
+  .off__state{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.6);margin-top:18px}
+  .off__dot{width:8px;height:8px;border-radius:50%;background:#bf2f32}
+  .off__state[data-online] .off__dot{background:#43c47a}
+</style>
+</head>
+<body>
+<main class="off">
+  <div class="off__box">
+    <img src="assets/images/logo-white.png" width="583" height="377" alt="شهاب" class="off__logo">
+    <span class="off__mark" aria-hidden="true"></span>
+    <h1>لا يوجد اتصال بالإنترنت الآن</h1>
+    <p>هذه الصفحة محفوظة على جهازك من آخر زيارة. أعد المحاولة عند عودة الاتصال، أو افتح ما سبق تحميله من شهاب.</p>
+    <div class="off__row">
+      <button type="button" class="off__btn" onclick="location.reload()">إعادة المحاولة</button>
+      <a href="index.html" class="off__btn off__btn--ghost">الرئيسية</a>
+    </div>
+    <span class="off__state" data-sh-online-state><span class="off__dot"></span><span data-sh-online-text>غير متصل</span></span>
+    <div class="off__h" data-sh-cached-h hidden>المتاح بلا اتصال</div>
+    <ul class="off__list" data-sh-cached hidden></ul>
+  </div>
+</main>
+<script>
+  (function () {
+    var state = document.querySelector('[data-sh-online-state]');
+    var text = document.querySelector('[data-sh-online-text]');
+    function paint() {
+      state.toggleAttribute('data-online', navigator.onLine);
+      text.textContent = navigator.onLine ? 'عاد الاتصال — يمكنك إعادة المحاولة' : 'غير متصل';
+    }
+    window.addEventListener('online', paint); window.addEventListener('offline', paint); paint();
+    if (!('caches' in window)) return;
+    caches.keys().then(function (keys) {
+      var key = keys.filter(function (k) { return /^sh-/.test(k); }).sort().pop();
+      if (!key) return;
+      return caches.open(key).then(function (c) { return c.keys(); }).then(function (reqs) {
+        var pages = reqs.map(function (r) { return new URL(r.url); })
+          .filter(function (u) { return /\.html$/.test(u.pathname) && !/offline\.html$/.test(u.pathname); })
+          .map(function (u) { return u.pathname.split('/').pop(); });
+        pages = pages.filter(function (p, i) { return pages.indexOf(p) === i; });
+        if (!pages.length) return;
+        var names = { 'index.html': 'الرئيسية', 'coverage.html': 'التغطية الحية', 'article.html': 'آخر خبر قرأته', 'category.html': 'صفحة القسم', 'files.html': 'ملفات شهاب', 'data.html': 'مكتب البيانات', 'now.html': 'الآن' };
+        var ul = document.querySelector('[data-sh-cached]');
+        ul.innerHTML = pages.map(function (p) { return '<li><a href="' + p + '">' + (names[p] || p.replace('.html', '')) + '</a></li>'; }).join('');
+        ul.hidden = false; document.querySelector('[data-sh-cached-h]').hidden = false;
+      });
+    }).catch(function () {});
+  })();
+</script>
+</body>
+</html>
