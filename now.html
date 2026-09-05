@@ -30,25 +30,25 @@
 <link rel="preload" href="assets/fonts/almarai-700-arabic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/almarai-800-arabic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/noto-naskh-arabic-arabic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/fonts.css?v=105">
-<link rel="stylesheet" href="css/transition.css?v=105">
-<link rel="stylesheet" href="css/tokens.css?v=105">
-<link rel="stylesheet" href="css/base.css?v=105">
-<link rel="stylesheet" href="css/header.css?v=105">
-<link rel="stylesheet" href="css/widgets.css?v=105">
-<link rel="stylesheet" href="css/footer.css?v=105">
-<link rel="stylesheet" href="css/components.css?v=105">
-<link rel="stylesheet" href="css/chrome.css?v=105">
-<link rel="stylesheet" href="css/feed.css?v=105">
-<link rel="stylesheet" href="assets/vendor/vidstack/styles/default/theme.css?v=105">
-<link rel="stylesheet" href="assets/vendor/vidstack/styles/default/layouts/video.css?v=105">
-<link rel="stylesheet" href="css/player.css?v=105">
-<link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css?v=105">
-<link rel="stylesheet" href="css/pages/map.css?v=105">
-<link rel="stylesheet" href="css/pages/now.css?v=105">
-<link rel="stylesheet" href="css/mark.css?v=105">
-<link rel="stylesheet" href="css/responsive.css?v=105">
-<link rel="stylesheet" href="css/brief.css?v=105">
+<link rel="stylesheet" href="css/fonts.css?v=116">
+<link rel="stylesheet" href="css/transition.css?v=116">
+<link rel="stylesheet" href="css/tokens.css?v=116">
+<link rel="stylesheet" href="css/base.css?v=116">
+<link rel="stylesheet" href="css/header.css?v=116">
+<link rel="stylesheet" href="css/widgets.css?v=116">
+<link rel="stylesheet" href="css/footer.css?v=116">
+<link rel="stylesheet" href="css/components.css?v=116">
+<link rel="stylesheet" href="css/chrome.css?v=116">
+<link rel="stylesheet" href="css/feed.css?v=116">
+<link rel="stylesheet" href="assets/vendor/vidstack/styles/default/theme.css?v=116">
+<link rel="stylesheet" href="assets/vendor/vidstack/styles/default/layouts/video.css?v=116">
+<link rel="stylesheet" href="css/player.css?v=116">
+<link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css?v=116">
+<link rel="stylesheet" href="css/pages/map.css?v=116">
+<link rel="stylesheet" href="css/pages/now.css?v=116">
+<link rel="stylesheet" href="css/mark.css?v=116">
+<link rel="stylesheet" href="css/responsive.css?v=116">
+<link rel="stylesheet" href="css/brief.css?v=116">
 <script type="speculationrules">{"prerender": [{"where": {"and": [{"href_matches": "/*.html"}, {"not": {"href_matches": ["/live.html", "/reels.html", "/shorts.html", "/video-watch.html", "/now.html", "/map.html"]}}]}, "eagerness": "moderate"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "LiveBlogPosting", "headline": "الآن — غرفة أخبار شهاب", "description": "شاشة واحدة لكل ما يحدث الآن: البث، التحديثات الحية، الخريطة، والأرقام.", "url": "https://shehabnews.com/now.html", "coverageStartTime": "2026-09-02T06:00:00+03:00", "datePublished": "2026-09-02T06:00:00+03:00", "dateModified": "2026-09-05T12:00:00+03:00", "publisher": {"@type": "NewsMediaOrganization", "name": "وكالة شهاب للأنباء", "url": "https://shehabnews.com/", "logo": {"@type": "ImageObject", "url": "https://shehabnews.com/assets/images/icon-512.png", "width": 512, "height": 512}, "sameAs": ["https://www.facebook.com/sahpp2023", "https://twitter.com/ShehabAgency", "https://www.instagram.com/shehabagency/", "https://www.youtube.com/channel/UChvBXfexWtP5gdGZespJnZw", "https://t.me/ShehabTelegram", "https://www.tiktok.com/@shehab_news"]}, "inLanguage": "ar"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://shehabnews.com/"}, {"@type": "ListItem", "position": 2, "name": "الآن — غرفة أخبار شهاب", "item": "https://shehabnews.com/now.html"}]}]}</script>
 </head>
@@ -218,13 +218,14 @@
       <span class="sh-now__tz">بتوقيت القدس</span>
     </div>
     <div class="sh-now__tools">
-      <span class="sh-now__status"><span data-sh-feed-status>جارٍ الاتصال…</span></span>
+      <span class="sh-now__status"><span class="sh-now__statusdot" aria-hidden="true"></span><span data-sh-feed-status>جارٍ الاتصال…</span></span>
       <button type="button" class="sh-now__kiosk" data-sh-now-kiosk><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-expand"></use></svg>وضع الشاشة</button>
     </div>
   </div>
 
   <div data-screen-label="Now Grid" class="sh-now__grid">
 
+    <div class="sh-now__col">
     <section class="sh-now__stage" aria-label="البث المباشر">
       <div class="sh-now__frame">
         <media-player data-sh-vs data-sh-live-player class="sh-now__player"
@@ -244,11 +245,11 @@
         <div class="sh-live-stage__notice sh-now__notice" data-sh-live-notice hidden>البث الحي متوقف مؤقتًا. تُعرض إعادة لآخر تغطية حتى يعود الإرسال.</div>
       </div>
       <div class="sh-now__stagebar">
-        <span class="sh-now__meta"><b data-sh-live-state>على الهواء</b></span>
+        <span class="sh-now__meta sh-now__meta--state"><span class="sh-now__livedot" aria-hidden="true"></span><b data-sh-live-state>على الهواء</b></span>
         <span class="sh-now__meta" data-sh-live-viewers-wrap hidden><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#r-eye"></use></svg><b class="sh-tnum" data-sh-live-viewers></b> يشاهدون</span>
         <span class="sh-now__meta"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#r-clock"></use></svg>بدأ منذ <b data-sh-live-elapsed>—</b></span>
         <span class="sh-now__meta"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-signal"></use></svg>الجودة <b data-sh-live-quality>تلقائي</b></span>
-        <a href="live.html" class="sh-now__open">صفحة البث <span class="sh-more__arrow sh-more__arrow--12 sh-more__arrow--cc"></span></a>
+        <a href="live.html" class="sh-now__open">صفحة البث <span class="sh-more__arrow sh-more__arrow--12"></span></a>
       </div>
       <div class="sh-now__figs">
         <div class="sh-now__fig"><b class="sh-tnum" data-sh-figure="days">—</b><span>يومًا منذ 7 أكتوبر</span></div>
@@ -257,6 +258,17 @@
         <div class="sh-now__fig sh-now__fig--hot"><b class="sh-tnum" data-sh-figure="incidents_24h">—</b><span>خرقًا في 24 ساعة</span></div>
       </div>
     </section>
+      <div class="sh-now__card sh-now__card--top">
+        <div class="sh-now__head"><h2 class="sh-now__h2">الأبرز الآن</h2></div>
+        <ol class="sh-now__top" data-sh-feed="top">
+          <li><a href="article.html">لبنان: ارتفاع حصيلة العدوان الإسرائيلي إلى 4350 شهيدًا و12310 جرحى</a></li>
+          <li><a href="article.html">الأوقاف: الاحتلال يدمر 3 مساجد في يومين ليصل العدد إلى 1244 مسجدًا</a></li>
+          <li><a href="article.html">مستوطنون يقتحمون باحات المسجد الأقصى بحماية شرطة الاحتلال</a></li>
+          <li><a href="article.html">الأونروا: مخزون الدقيق في غزة يكفي أسبوعًا واحدًا فقط</a></li>
+          <li><a href="article.html">مراسل شهاب: قصف مدفعي يستهدف شرق مدينة خانيونس</a></li>
+        </ol>
+      </div>
+    </div>
 
     <section class="sh-now__feed" aria-label="آخر التحديثات">
       <div class="sh-now__head">
@@ -281,16 +293,6 @@
       <div class="sh-now__card">
         <div class="sh-now__head"><h2 class="sh-now__h2">خريطة الخروقات</h2><a href="map.html" class="sh-now__link">افتح الخريطة</a></div>
         <div class="sh-map sh-map--mini" data-sh-map data-sh-map-mini data-sh-map-src="data/incidents.geojson" role="img" aria-label="خريطة الخروقات المصغّرة"></div>
-      </div>
-      <div class="sh-now__card">
-        <div class="sh-now__head"><h2 class="sh-now__h2">الأبرز الآن</h2></div>
-        <ol class="sh-now__top" data-sh-feed="top">
-          <li><a href="article.html">لبنان: ارتفاع حصيلة العدوان الإسرائيلي إلى 4350 شهيدًا و12310 جرحى</a></li>
-          <li><a href="article.html">الأوقاف: الاحتلال يدمر 3 مساجد في يومين ليصل العدد إلى 1244 مسجدًا</a></li>
-          <li><a href="article.html">مستوطنون يقتحمون باحات المسجد الأقصى بحماية شرطة الاحتلال</a></li>
-          <li><a href="article.html">الأونروا: مخزون الدقيق في غزة يكفي أسبوعًا واحدًا فقط</a></li>
-          <li><a href="article.html">مراسل شهاب: قصف مدفعي يستهدف شرق مدينة خانيونس</a></li>
-        </ol>
       </div>
       <div class="sh-now__card sh-now__card--widgets">
         <div data-sh-weather data-sh-variant="card" data-sh-city="gaza" data-sh-cities="gaza,jerusalem,ramallah,hebron,nablus"></div>
@@ -394,22 +396,22 @@
 </dialog>
 <!-- /sh:footer -->
 </div>
-<script src="js/ui.js?v=105" defer></script>
-<script src="js/chrome.js?v=105" defer></script>
-<script src="js/feed.js?v=105" defer></script>
-<script src="js/app.js?v=105" defer></script>
-<script src="js/responsive.js?v=105" defer></script>
-<script src="js/widgets.js?v=105" defer></script>
-<script src="js/brief.js?v=105" defer></script>
-<script src="js/searchbox.js?v=105" defer></script>
-<script src="js/push.js?v=105" defer></script>
-<script src="js/pwa.js?v=105" defer></script>
-<script src="assets/vendor/vidstack/vidstack.js?v=105" type="module"></script>
-<script src="js/player.js?v=105" defer></script>
-<script src="js/live.js?v=105" defer></script>
-<script src="assets/vendor/leaflet/leaflet.js?v=105" defer></script>
-<script src="js/figures.js?v=105" defer></script>
-<script src="js/map.js?v=105" defer></script>
-<script src="js/now.js?v=105" defer></script>
+<script src="js/ui.js?v=116" defer></script>
+<script src="js/chrome.js?v=116" defer></script>
+<script src="js/feed.js?v=116" defer></script>
+<script src="js/app.js?v=116" defer></script>
+<script src="js/responsive.js?v=116" defer></script>
+<script src="js/widgets.js?v=116" defer></script>
+<script src="js/brief.js?v=116" defer></script>
+<script src="js/searchbox.js?v=116" defer></script>
+<script src="js/push.js?v=116" defer></script>
+<script src="js/pwa.js?v=116" defer></script>
+<script src="assets/vendor/vidstack/vidstack.js?v=116" type="module"></script>
+<script src="js/player.js?v=116" defer></script>
+<script src="js/live.js?v=116" defer></script>
+<script src="assets/vendor/leaflet/leaflet.js?v=116" defer></script>
+<script src="js/figures.js?v=116" defer></script>
+<script src="js/map.js?v=116" defer></script>
+<script src="js/now.js?v=116" defer></script>
 </body>
 </html>

@@ -210,6 +210,46 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-index-files__span-22{position:absolute;inset:0;background-image:url(../../assets/images/file-world-cup-2026.webp);background-size:cover;background-position:center;opacity:.28}
 .sh-index-more-news__section-1{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:48px;padding:0 0 64px}
 .sh-index-more-news__div-1{display:flex;align-items:baseline;justify-content:space-between;gap:24px;border-bottom:1px solid var(--sh-hair);padding-bottom:10px}
+/* ---- «آخر ما نُشر»: the day's stories under the stacks, filled by js/app.js from the
+   same hidden list the stacks count. Each story: its picture, the title, then who wrote it
+   (face, name) and when. Two columns read top to bottom, the newest at the top right; the
+   column is a flex stack and the wire takes what is left, its rows sharing that height, so
+   it ends where the aside ends. ---- */
+.sh-index-more-news__section-1 > div:first-child{display:flex;flex-direction:column;min-width:0}
+.sh-wire{display:flex;flex-direction:column;flex:1 1 auto;min-height:0;margin-top:24px}
+.sh-wire__head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:9px;border-bottom:1px solid var(--sh-hair-2)}
+.sh-wire__title{display:flex;align-items:center;gap:9px;margin:0;font-family:var(--sh-font);font-size:15px;font-weight:800;color:var(--sh-navy)}
+.sh-wire__title .sh-mark{width:14px;height:12px}
+.sh-wire__note{font-size:12px;color:var(--sh-mute);font-variant-numeric:tabular-nums}
+.sh-wire__list{
+  position:relative;list-style:none;margin:0;padding:0;flex:1 1 auto;min-height:0;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(var(--sh-wire-rows,4),minmax(0,1fr));grid-auto-flow:column;column-gap:44px;
+}
+.sh-wire__list::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--sh-hair);pointer-events:none}   /* the rule between the two columns */
+.sh-wire__item{display:flex;min-width:0;border-bottom:1px solid var(--sh-hair)}
+.sh-wire__item--last{border-bottom:0}
+.sh-wire__a{display:grid;grid-template-columns:clamp(104px,30%,128px) minmax(0,1fr);gap:0 12px;align-items:center;width:100%;min-width:0;padding:6px 0;color:var(--sh-ink)}
+.sh-wire__pic{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:var(--sh-navy-2)}
+.sh-wire__pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sh-wire__body{display:flex;flex-direction:column;gap:5px;min-width:0}
+.sh-wire__t{font-family:var(--sh-font);font-size:14px;font-weight:700;line-height:1.5;text-wrap:pretty;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:color .16s ease}
+.sh-wire__a:hover .sh-wire__t{color:var(--sh-blue)}
+/* the byline: the face, the name, the date */
+.sh-wire__by{display:flex;align-items:center;gap:7px;min-width:0;font-family:var(--sh-font);font-size:11.5px;color:var(--sh-mute)}
+.sh-wire__av{width:20px;height:20px;border-radius:50%;object-fit:cover;object-position:center 20%;flex:none;background:var(--sh-navy)}
+.sh-wire__av--mark{display:grid;place-items:center;background:var(--sh-blue)}
+.sh-wire__av--mark .sh-mark{width:10px;height:8px;background:#fff}
+.sh-wire__name{font-weight:800;color:var(--sh-navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sh-wire__date{font-variant-numeric:tabular-nums;white-space:nowrap}
+.sh-wire__date::before{content:"·";margin-inline-end:7px}
+@media (max-width:640px){
+  .sh-wire__list{grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-auto-flow:row;column-gap:0}
+  .sh-wire__list::before{display:none}
+  .sh-wire__item--last{border-bottom:1px solid var(--sh-hair)}
+  .sh-wire__item:last-child{border-bottom:0}
+  .sh-wire__a{grid-template-columns:104px minmax(0,1fr)}
+}
+
 .sh-index-more-news__aside-1{padding:0;align-self:start}
 .sh-index-more-news__div-5{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:9px}
 .sh-index-more-news__h2-1{font-family:var(--sh-font);font-size:17px;font-weight:700;margin:0;color:var(--sh-navy)}
@@ -304,22 +344,22 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
    on a snap rail with arrows; under the stage the programmes. Same player
    contract as video-watch.html (data-sh-player / data-sh-video / the controls).
    ========================================================================== */
-.sh-vid{position:relative;z-index:0;padding:56px 0 56px;color:#fff}   /* the band breathes 56 inside, and the neighbours give it 56 white outside */
-/* the band: a pseudo-element behind the section reaches the viewport edges
-   (html clips at the edge, the container does not), so the navy is full-bleed
-   while the content keeps the container's width */
-.sh-vid::before{content:"";position:absolute;inset:0 calc(50% - 50vw);z-index:-1;background:var(--sh-navy)}
+.sh-vid{position:relative;z-index:0;padding:56px 0 56px;color:#fff;background:var(--sh-navy)}   /* the band: the section sits outside the container, so its own background is full-bleed; the content keeps the container's width in .sh-vid__in */
+.sh-vid__in{position:relative;max-width:var(--sh-container);margin:0 auto;padding:0 var(--sh-gutter,32px)}
 .sh-vid .sh-section__title{color:#fff}
 .sh-vid .sh-section__title .sh-mark{background:var(--sh-sky)}
 .sh-vid__head{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:12px}
+/* the stage: the player on the right with its playlist beside it, the playlist as tall as the
+   player and no taller (the info line runs under the player alone); the reels and the
+   programmes take the full width under them */
 .sh-vid__stage{
-  position:relative;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:0;align-items:stretch;
-  margin-top:16px;background:transparent;color:#fff;isolation:isolate;
+  position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,368px);grid-template-rows:auto auto;gap:0;
+  align-items:stretch;margin-top:16px;background:transparent;color:#fff;isolation:isolate;
 }
-.sh-vid::after{content:"";position:absolute;inset:0 calc(50% - 50vw);z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 85% 0,rgba(27,90,166,.28),transparent 55%)}
+.sh-vid::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 85% 0,rgba(27,90,166,.28),transparent 55%)}
 /* the player */
-.sh-vid__main{position:relative;padding:16px 16px 18px;min-width:0}
-.sh-vid__player{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000;box-shadow:0 18px 40px -20px rgba(0,0,0,.7)}
+.sh-vid__main{display:contents}   /* the player and its info place themselves on the stage's grid */
+.sh-vid__player{grid-column:1;grid-row:1;position:relative;aspect-ratio:16/9;overflow:hidden;background:#000;box-shadow:0 18px 40px -20px rgba(0,0,0,.7)}
 .sh-vid__video{display:block;width:100%;height:100%;object-fit:cover}
 .sh-vid__poster{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.72),rgba(10,26,51,.05) 55%);opacity:.9;pointer-events:none}
 .sh-vid__badge{
@@ -346,7 +386,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-vid__btn:hover{color:#fff;background:rgba(255,255,255,.14)}
 .sh-vid__time{font-size:12px;color:var(--sh-on-dark-82);font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
 .sh-vid__spacer{flex:1}
-.sh-vid__info{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.sh-vid__info{grid-column:1;grid-row:2;display:flex;flex-direction:column;gap:8px;margin-top:14px;min-width:0}
 .sh-vid__chips{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .sh-vid__chip{display:inline-flex;padding:3px 9px;background:transparent;color:var(--color-brand-sky);box-shadow:inset 0 0 0 1px var(--color-on-dark-line);font-family:var(--sh-font);font-size:11.5px;font-weight:800}
 .sh-vid__meta{font-size:12px;color:var(--sh-on-dark-60);font-variant-numeric:tabular-nums}
@@ -358,21 +398,25 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-vid__ghost{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border:1px solid rgba(255,255,255,.3);color:#fff;font-family:var(--sh-font);font-size:12px;font-weight:800;transition:background .18s ease}
 .sh-vid__ghost:hover{background:rgba(255,255,255,.12);color:#fff}
 /* the playlist */
-.sh-vid__list{display:flex;flex-direction:column;min-width:0;border-inline-start:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03)}
+.sh-vid__list{grid-column:2;grid-row:1;display:flex;flex-direction:column;min-width:0;min-height:0;border-inline-start:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03)}
 .sh-vid__list-head{display:flex;justify-content:space-between;align-items:baseline;padding:12px 16px 10px;border-bottom:1px solid rgba(255,255,255,.12);font-family:var(--sh-font);font-size:13px;font-weight:800}
 .sh-vid__list-head span{font-size:11.5px;color:var(--sh-on-dark-55);font-weight:400;font-family:inherit}
-.sh-vid__item{flex:1 1 auto;min-height:0;display:grid;grid-template-columns:100px minmax(0,1fr);gap:12px;align-items:center;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.1);color:#fff;transition:background .18s ease}
+/* an item: the picture with its length, the title, the kind under it; the items share the list's height evenly */
+.sh-vid__item{flex:1 1 auto;min-height:0;display:grid;grid-template-columns:clamp(120px,40%,168px) minmax(0,1fr);grid-template-rows:auto auto;gap:3px 12px;align-items:center;align-content:center;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.1);color:#fff;transition:background .18s ease}
+.sh-vid__item::after{content:attr(data-sh-chip);grid-column:2;grid-row:2;align-self:start;font-size:11.5px;font-weight:400;color:var(--sh-on-dark-60)}
 .sh-vid__item:hover{background:rgba(255,255,255,.06);color:#fff}
-.sh-vid__item[aria-current="true"]{background:rgba(27,90,166,.28);box-shadow:inset 3px 0 0 var(--sh-blue)}
-.sh-vid__thumb{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:var(--sh-navy-2)}
+.sh-vid__item[aria-current="true"]{background:rgba(27,90,166,.28);border-inline-start:3px solid var(--sh-blue);padding-inline-start:13px}
+.sh-vid__item[aria-current="true"] .sh-vid__thumb{outline-color:var(--sh-sky)}
+.sh-vid__item[aria-current="true"]::after{content:"يُعرض الآن · " attr(data-sh-chip);color:var(--sh-sky);font-weight:700}
+.sh-vid__thumb{grid-row:1/3;position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:var(--sh-navy-2);outline:1px solid rgba(255,255,255,.08);outline-offset:-1px;transition:outline-color .18s ease}
 .sh-vid__thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .sh-vid__len{position:absolute;bottom:4px;left:4px;padding:1px 5px;background:rgba(10,26,51,.85);font-size:11px;font-variant-numeric:tabular-nums;direction:ltr}
-.sh-vid__item-t{font-family:var(--sh-font);font-size:13px;font-weight:700;line-height:1.6;text-wrap:pretty;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sh-vid__item-t{grid-column:2;grid-row:1;align-self:end;font-family:var(--sh-font);font-size:13px;font-weight:700;line-height:1.55;text-wrap:pretty;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .sh-vid__list-more{display:inline-flex;align-items:center;gap:8px;padding:10px 16px 12px;font-size:12px;font-weight:700;color:var(--sh-on-dark-75)}
 .sh-vid__list-more:hover{color:#fff}
 .sh-vid__list-more .sh-more__arrow{background:currentColor}
 /* the reels */
-.sh-vid__reels{grid-column:1/-1;padding:16px 16px 20px;border-top:1px solid rgba(255,255,255,.12)}
+.sh-vid__reels{grid-column:1/-1;grid-row:3;padding:16px 0 20px;border-top:1px solid rgba(255,255,255,.12)}
 .sh-vid__reels-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
 .sh-vid__reels-title{display:inline-flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:16px;font-weight:800}
 .sh-vid__reels-title .sh-mark{width:16px;height:13px;background:var(--sh-blue)}
@@ -412,7 +456,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-vid__reel-t{font-family:var(--sh-font);font-size:13px;font-weight:700;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-wrap:pretty}
 .sh-vid__reel-time{font-size:11px;color:var(--sh-on-dark-60);font-variant-numeric:tabular-nums}
 /* the programmes */
-.sh-vid__progs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:16px}
+.sh-vid__progs{grid-column:1/-1;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:16px}
 .sh-vid__prog{display:flex;flex-direction:column;gap:9px;color:#fff;min-width:0}
 .sh-vid__prog:hover{color:var(--sh-sky)}
 .sh-vid__prog-art{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--sh-navy-2)}
@@ -428,14 +472,15 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-vid__prog--all .sh-more__arrow{background:currentColor}
 
 @media (max-width:900px){
-  .sh-vid__stage{grid-template-columns:minmax(0,1fr)}
-  .sh-vid__list{border-inline-start:0;border-top:1px solid rgba(255,255,255,.12)}
+  .sh-vid__stage{grid-template-columns:minmax(0,1fr);grid-template-rows:none}
+  .sh-vid__player,.sh-vid__info,.sh-vid__list,.sh-vid__reels,.sh-vid__progs{grid-column:1;grid-row:auto}   /* one column: player, info, list, reels, programmes */
+  .sh-vid__list{border-inline-start:0;border-top:1px solid rgba(255,255,255,.12);margin-top:14px}
+  .sh-vid__item{flex:0 0 auto}
   .sh-vid__progs{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media (max-width:640px){
-  .sh-vid__main{padding:14px 14px 18px}
   .sh-vid__title{font-size:17px}
-  .sh-vid__item{grid-template-columns:84px minmax(0,1fr);padding:10px 14px}
+  .sh-vid__item{grid-template-columns:112px minmax(0,1fr);padding:10px 14px}
   .sh-vid__reels{padding:16px 14px 18px}
   .sh-vid__reel{flex-basis:150px}
   .sh-vid__reels-nav{display:none}

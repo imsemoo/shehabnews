@@ -54,6 +54,10 @@
       var state = end <= now ? 'past' : start <= now ? 'now' : (!nextDone ? 'next' : 'later');
       if (state === 'next') nextDone = true;
       li.setAttribute('data-state', state);
+      if (state === 'now') {
+        if (t) t.setAttribute('data-end', hhmm(end));
+        li.style.setProperty('--sh-p', Math.min(1, Math.max(0, (now - start) / (end - start))).toFixed(3));
+      } else { if (t) t.removeAttribute('data-end'); li.style.removeProperty('--sh-p'); }
       if (tag) tag.textContent = state === 'past' ? 'انتهى' : state === 'now' ? 'الآن' : state === 'next' ? 'التالي' : '';
     });
   }

@@ -182,3 +182,10 @@ html[dir="rtl"] .sh-consent{inset:auto auto 24px 24px}
 .sh-update__x{width:32px;height:32px;border:0;background:transparent;color:var(--sh-on-dark-72);cursor:pointer;display:grid;place-items:center}
 /* ---- data-saver: no ambient video, no autoplay ---- */
 html[data-save-data] .sh-footer__video{display:none}
+
+/* ---- footer newsletter: field and button share one row, the status sits under them ---- */
+.sh-footer__form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:stretch}
+.sh-footer__input{width:100%;flex:none;min-height:44px}
+.sh-footer__submit{min-height:44px}
+.sh-footer__status{grid-column:1 / -1}
+.sh-footer__status:empty{display:none}
