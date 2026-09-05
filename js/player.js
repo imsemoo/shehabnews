@@ -219,6 +219,17 @@
       if (el.hasAttribute('storage') && isFinite(d) && d > 0 && st.currentTime > d - 1.5) el.currentTime = 0;
     });
 
+    // المدة: Vidstack بياخدها من seekable عند can-play؛ سيرفر بلا دعم Range
+    // (زي http.server المحلي) بيرجّع seekable فاضي فتبقى المدة صفر وشريط
+    // التقدّم ميت. نكمّلها من عنصر الفيديو نفسه، ونصفّرها مع تغيير المصدر.
+    function fixDuration() {
+      var v = el.querySelector('video'), st = el.state;
+      if (v && isFinite(v.duration) && v.duration > 0 && !(st.duration > 0)) el.duration = v.duration;
+    }
+    el.addEventListener('can-play', fixDuration);
+    el.addEventListener('loaded-metadata', fixDuration);
+    el.addEventListener('source-change', function () { if (el.duration) el.duration = 0; });
+
     // شبكة أمان لسباق في مزوّد HLS: لو can-play سبق LEVEL_LOADED (سيرفر بطيء)
     // بيسيب نوع البث «unknown» — والـDefault Layout ما بيرسمش حاجة — وقائمة
     // الجودات فاضية. نصحّح النوع من المدة، ولو hls.js شايف سلّم جودات والقائمة

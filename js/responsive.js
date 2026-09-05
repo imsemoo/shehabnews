@@ -31,7 +31,7 @@
     toggle.setAttribute('aria-controls', nav.id);
 
     // sits with search in the masthead's trailing group; falls back to the nav
-    var search = header.querySelector('a[href="search.html"]');
+    var search = header.querySelector('.sh-search') || header.querySelector('a[href="search.html"]');
     var host = search && search.parentNode;
     if (host) host.insertBefore(toggle, search);
     else nav.parentNode.insertBefore(toggle, nav);

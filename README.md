@@ -11,10 +11,16 @@
 شغّل المجلد على سيرفر HTTP بسيط، لا تفتح الملف بالنقر المزدوج:
 
 ```bash
-python -m http.server 5599
+python serve.py 5599
 ```
 
 ثم `http://localhost:5599/index.html`.
+
+> `serve.py` هو `http.server` نفسه مع دعم **HTTP Range** وأنواع MIME للـHLS
+> والـWebVTT وإلغاء الكاش. `python -m http.server` يتجاهل الـRange، فكروم يعتبر
+> ملفات MP4/WebM غير قابلة للتقديم (`video.seekable` فاضي): الشريط لا يُسحب
+> والمدة تظهر صفرًا. سيرفرات الإنتاج (nginx / Apache / Laravel) تدعم الـRange
+> أصلًا. (`.claude/launch.json` يشغّل `serve.py`.)
 
 > **لماذا؟** الخطوط صارت محلية، ومتصفحات Chromium (Chrome / Edge) تمنع تحميل
 > `@font-face` من `file://` لأن كل ملف محلي يُعامَل كـ origin منفصل. فتح الصفحة
@@ -163,6 +169,9 @@ inline — و`!important` فيها لسه بيكسب. علاقة الأصل با
 | `archive.html` | الأرشيف | route |
 | `video.html` | الفيديو | route |
 | `video-watch.html` | مشاهدة فيديو | route |
+| `live.html` | البث المباشر (Vidstack + HLS) | route |
+| `reels.html` | ريلز شهاب (Vidstack + Swiper) | route |
+| `shorts.html` | شورتس — فيد رأسي بملء الشاشة (Vidstack + Swiper + IntersectionObserver)، بلا هيدر/فوتر الموقع | route |
 | `photos.html` | الصور | route |
 | `files.html` | ملفات شهاب | route |
 | `author.html` | صفحة الكاتب | route |
@@ -232,7 +241,8 @@ Noto Naskh Arabic خط متغيّر: الـCDN يخدم ملفًا واحدًا 
 | `data-sh-tabs` / `-tab` / `-panel` | تابات «التغطية الحية» في الرئيسية: تبديل البانل + نقل ستايل الزر النشط | يعمل — `index.html` |
 | `data-sh-hero` / `data-sh-hero-panel` | سلايدر الأكورديون في الهيرو: يفتح البانل عند المرور بالماوس أو التركيز | يعمل — `index.html` |
 | `data-sh-lightbox` + `data-sh-shot` | عارض الصور: يفتح الصورة بالحجم الكامل مع عدّاد وتنقّل ولوحة مفاتيح | يعمل — `photos.html` (٣ شبكات · ١٤ صورة) |
-| `data-sh-player` + `data-sh-video` | مشغّل الفيديو: تشغيل/إيقاف، شريط تقدّم قابل للسحب، وقت، كتم، ملء الشاشة | يعمل — `video-watch.html` |
+| `data-sh-player` + `data-sh-video` | المشغّل اليدوي القديم: تشغيل/إيقاف، شريط تقدّم، وقت، كتم، ملء الشاشة | يعمل — الرئيسية فقط (`sh-vid`) |
+| `<media-player data-sh-vs>` | مشغّل Vidstack على النواة `js/player.js` (انظر «مشغّل الفيديو») | `video-watch.html`، `live.html`، `reels.html`، `shorts.html` |
 | `data-sh-more` + `data-sh-batch` | «المزيد»: يُظهر الدفعة التالية ثم يخفي الزر عند نفادها | يعمل — `category.html` |
 | `data-sh-pager` + `data-sh-page` | ترقيم الصفحات على جانب العميل | يعمل — `search.html` |
 | `data-sh-files` + `data-sh-file` | خزانة «ملفات شهاب»: الضغط على كعب الملف يفتحه | يعمل — `index.html` |
@@ -250,15 +260,79 @@ Noto Naskh Arabic خط متغيّر: الـCDN يخدم ملفًا واحدًا 
 ملف CSS. يدعم: الأسهم (يسار = التالي، لأن الصفحة RTL)، `Esc` للإغلاق، الضغط على
 الخلفية، حصر التركيز داخل النافذة، قفل تمرير الصفحة، وتحميل مسبق للصورة التالية.
 
-### مشغّل الفيديو
+### مشغّل الفيديو — Vidstack على نواة واحدة
 
-التصميم كان يحوي واجهة المشغّل كاملة بلا وظيفة. أُضيف `<video>` خلف البوستر
-ورُبطت التحكمات الموجودة كما هي. شريط التقدّم مثبّت من اليمين (RTL) والسحب عليه
-يحسب الموضع من الحافة اليمنى. اختصارات: `مسافة`/`K` تشغيل، الأسهم ±٥ ثوانٍ،
-`M` كتم، `F` ملء الشاشة.
+المشغّل اليدوي القديم (`data-sh-player` في `app.js`) ما زال يخدم «فيديو شهاب»
+في الرئيسية فقط. صفحات الفيديو الأربع تعمل على **Vidstack 1.15.6** بنواة مشتركة:
 
-> ملف الفيديو الحالي `assets/video/footer-city.webm` عنصر نائب مثل الصور —
-> استبدله بفيديو المحتوى الحقيقي من الـCMS.
+| الملف | الدور |
+|---|---|
+| `assets/vendor/vidstack/` | بناء `cdn/with-layouts` كما هو (ESM + chunks + providers) + `styles/default/`. مثبَّت على **1.15.6** — انتبه: وسم `latest` على npm يشير إلى 0.6.x القديم |
+| `assets/vendor/hls/hls.min.js` | hls.js 1.7.2 (UMD). Vidstack يحمّله بـ`<script>` ويقرأ `window.Hls` |
+| `assets/vendor/swiper/` | Swiper 14.2.0 (UMD + CSS) للريلز والشورتس |
+| `js/player.js` | **النواة**: `ShPlayer.ready` / `mount()` / `fmt()`. تجهّز كل `<media-player data-sh-vs>`: `dir="ltr"` (الـDefault Layout بلا دعم RTL — شريط التقدّم ينقلب لو ورث rtl)، `view-type="video"`، الترجمة العربية الكاملة للواجهة (56 مفتاحًا)، hls.js المحلي، سلسلة مصادر بديلة `data-sh-sources="a|b|c"` مع حدث `sh-vs-fallback`، رسالة خطأ عربية بزر إعادة، وشبكتا أمان: نوع البث لو بقي `unknown`، والمدة من عنصر الفيديو لو رجعت صفرًا (سيرفر بلا Range) |
+| `css/player.css` | ثيم الدار فوق `theme.css` + `layouts/video.css`: الأزرق، Almarai، زوايا حادة، قوائم على الكحلي، أرقام جدولية LTR، شارة LIVE، طبقة الخطأ، و**المشغّل الخفيف** `.sh-vs--lite` (9:16 بلا Default Layout: media-gesture / play / mute / time-slider) للريلز والشورتس |
+
+> الحزمة ESM: صفحات الفيديو تعمل عبر **http** فقط (السيرفر المحلي)، ليس من
+> `file://` كباقي الثيم. `player.js` يطبع تحذيرًا واضحًا ويعرض رسالة لو حدث ذلك.
+
+المنطق الخاص بكل صفحة منفصل عن النواة:
+
+- **`video-watch.html` + `js/watch.js`** (YouTube-like): سلّم HLS محلي
+  (`assets/video/hls/qods-night/`: 1080/720/480/360 fMP4 مولَّد بـffmpeg من
+  المقطعين الموجودين) يعطي قائمة جودات حقيقية، فصول عربية على شريط التقدّم من
+  `chapters.ar.vtt` وشرائح تحته من المسار نفسه، ثمبنيلز `thumbs.jpg` + `thumbs.vtt`
+  (المسارات فيه من جذر الصفحة لا من الـVTT)، ترجمة `captions.ar.vtt`، `storage`
+  للصوت والموضع، وضع المسرح (`t`)، مشغّل مصغّر عند التمرير، قائمة تشغيل تبدّل
+  المصدر والمسارات مع `#v=N`، وتشغيل التالي تلقائيًا بعدّاد 5 ثوانٍ. `Shift+N/P`.
+- **`live.html` + `js/live.js`**: `stream-type="live:dvr"`، مصادر بالترتيب: بث
+  Mux العام → Unified Streaming → إعادة محلية (عند الوصول للأخير تُشال سمة نوع
+  البث ويظهر تنويه). شارة «مباشر» تتحوّل إلى «متأخر عن البث» مع زر
+  `seekToLiveEdge()`، الجودة الحالية، عدّاد مشاهدين توضيحي، «بدأ منذ»، وجدول
+  اليوم بأوقات محسوبة من `data-sh-offset` (دقائق من الآن) وحالات past/now/next.
+  زر «بث مباشر» في هيدر كل الصفحات يشير إليها.
+- **`reels.html` + `js/reels.js`**: Swiper أفقي `slidesPerView:'auto'` +
+  `centeredSlides` (يقرأ `dir=rtl` وحده)، المقطع في المنتصف هو الذي يعمل مكتومًا،
+  والصوت حالة واحدة للشريط. تبويبات البرامج تقفز وتعلّم (لا تحذف شرائح — إزالة
+  `<media-player>` وإرجاعه يعيد إنشاءه). شبكة «كل الريلز» تقفز للمقطع. `#r=N`.
+- **`shorts.html` + `js/shorts.js`**: صفحة غامرة بشريطها الخاص. Swiper رأسي
+  للسنَاب، و**IntersectionObserver** (جذره الحاوية، عتبة 60%) هو من يقرّر التشغيل.
+  `load="visible"` + تحميل مسبق للتالي، لمسة = إيقاف، لمستان = إعجاب، مسافة/M/L،
+  إيقاف عند إخفاء التبويب. الأزرار الجانبية عمود بجانب الفيديو على الديسكتوب
+  وطبقة فوقه على الموبايل.
+
+الوسائط التجريبية: `assets/video/reels/reel-01..08.mp4` (540×960، قصّات
+رأسية من المقطعين الأصليين) مع بوستراتها، و`assets/video/hls/qods-night/`.
+كلها عناصر نائبة مثل الصور؛ المصادر الحقيقية تُبدَّل من `src` / `data-sh-src`.
+
+### الطقس وأسعار العملات — `js/widgets.js` + `css/widgets.css`
+
+مكوّنان مخصّصان بلا مكتبات (لا dependency جديدة)، في التوب-بار في كل صفحة بها
+الهيدر (21 صفحة): شريحة الطقس بعد ساعة القدس، وشريط العملات في منتصف التوب-بار
+(على ≤900px يبقى صفًّا ثانيًا بعرض التوب-بار). قابلان لإعادة الاستخدام في أي مكان:
+
+```html
+<span data-sh-weather data-sh-city="jerusalem" data-sh-cities="jerusalem,gaza,ramallah,hebron,nablus"></span>
+<div  data-sh-fx data-sh-pairs="USD:ILS,EUR:ILS,JOD:ILS,USD:EGP,GBP:ILS,SAR:ILS,XAU:USD" data-sh-speed="55"></div>
+<!-- للأعمدة الجانبية: -->
+<div data-sh-weather data-sh-variant="card"></div>
+<div data-sh-fx data-sh-variant="card" data-sh-pairs="USD:ILS,XAU:USD"></div>
+```
+
+- **الطقس**: [Open-Meteo](https://open-meteo.com) (مجاني، بلا مفتاح، CORS مفتوح).
+  الشريحة = أيقونة + درجة، والضغط يفتح لوحة: الحالة، الرطوبة، الرياح، 3 أيام،
+  وتبديل المدينة (يُحفظ في localStorage). كاش 30 دقيقة لكل مدينة. المدن في
+  `ShWidgets.cities` (القدس، غزة، رام الله، الخليل، نابلس، حيفا).
+- **العملات**: [fawazahmed0/currency-api](https://github.com/fawazahmed0/exchange-api)
+  عبر jsdelivr (يومي، فيه الذهب `XAU`) لليوم + أقرب يوم سابق لحساب نسبة التغيّر،
+  ثم `open.er-api.com` كبديل (بلا تغيّر)، ثم Frankfurter (أزواج رئيسية). كاش
+  6 ساعات. كل الأزواج تُشتق من جدول واحد بالدولار، فأي زوج `BASE:QUOTE` يشتغل.
+  الأسماء العربية في `ShWidgets.currencies`.
+- الشريط في RTL يتحرّك لليمين، يقف عند التحويم، ويبقى ثابتًا قابلًا للتمرير مع
+  `prefers-reduced-motion` أو لو المحتوى كله ظاهر. الأرقام لاتينية جدولية LTR.
+- العرض stale-while-revalidate: المخزَّن يُرسم فورًا ثم يُحدَّث. لو الشبكة كلها
+  وقعت والكاش فاضي، الودجت يختفي (`hidden`) بدل ما يظهر مكسورًا.
+- للإنتاج بمصدر مدفوع/مُخصّص: بدّل `wxLoad()` / `fxLoad()` فقط؛ العرض لا يتغيّر.
 
 ### الترقيم
 

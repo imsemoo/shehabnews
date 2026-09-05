@@ -5,18 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>شهاب — Coverage</title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="css/fonts.css?v=98">
-<link rel="stylesheet" href="css/font-awesome.css?v=98">
-<link rel="stylesheet" href="css/transition.css?v=98">
-  <link rel="stylesheet" href="css/tokens.css?v=98">
-  <link rel="stylesheet" href="css/base.css?v=98">
-  <link rel="stylesheet" href="css/header.css?v=98">
-  <link rel="stylesheet" href="css/footer.css?v=98">
-  <link rel="stylesheet" href="css/components.css?v=98">
-<link rel="stylesheet" href="css/pages/coverage.css?v=98">
-<link rel="stylesheet" href="css/mark.css?v=98">
-  <link rel="stylesheet" href="css/responsive.css?v=98">
-  <link rel="stylesheet" href="css/brief.css?v=98">
+<link rel="stylesheet" href="css/fonts.css?v=102">
+<link rel="stylesheet" href="css/font-awesome.css?v=102">
+<link rel="stylesheet" href="css/transition.css?v=102">
+  <link rel="stylesheet" href="css/tokens.css?v=102">
+  <link rel="stylesheet" href="css/base.css?v=102">
+  <link rel="stylesheet" href="css/header.css?v=102">
+  <link rel="stylesheet" href="css/widgets.css?v=102">
+  <link rel="stylesheet" href="css/footer.css?v=102">
+  <link rel="stylesheet" href="css/components.css?v=102">
+<link rel="stylesheet" href="css/pages/coverage.css?v=102">
+<link rel="stylesheet" href="css/mark.css?v=102">
+  <link rel="stylesheet" href="css/responsive.css?v=102">
+  <link rel="stylesheet" href="css/brief.css?v=102">
 </head>
 <body>
 
@@ -28,12 +29,14 @@
 <header data-screen-label="Header" class="sh-header">
   <div class="sh-topbar">
     <div class="sh-topbar__inner">
-      <div class="sh-topbar__meta"><span data-sh="date">الخميس، 3 سبتمبر 2026</span><span class="sh-dim">·</span><span data-sh="hijri">21 ربيع الأول 1448 هـ</span><span class="sh-dim">—</span><span>القدس <span data-sh="clock">02:37</span></span></div>
+      <div class="sh-topbar__meta"><span data-sh="date">الخميس، 3 سبتمبر 2026</span><span class="sh-dim">·</span><span data-sh="hijri">21 ربيع الأول 1448 هـ</span><span class="sh-dim">—</span><span>القدس <span data-sh="clock">02:37</span></span><span data-sh-weather data-sh-city="jerusalem" data-sh-cities="jerusalem,gaza,ramallah,hebron,nablus"></span></div>
+      <div data-sh-fx data-sh-pairs="USD:ILS,EUR:ILS,JOD:ILS,USD:EGP,GBP:ILS,SAR:ILS,XAU:USD" data-sh-speed="26"></div>
       <div class="sh-topbar__links">
-        <a href="#" class="sh-topbar__link">English</a>
-        <span class="sh-topbar__sep"></span>
-        <a href="contact.html" class="sh-topbar__link">تواصل معنا</a>
-      </div>
+              <div class="sh-lang" role="group" aria-label="اللغة / Language">
+                <span class="sh-lang__opt sh-lang__opt--on" aria-current="true">عربي</span>
+                <a href="#" class="sh-lang__opt" lang="en" hreflang="en" dir="ltr">EN</a>
+              </div>
+            </div>
     </div>
   </div>
   <div class="sh-header__body">
@@ -50,22 +53,24 @@
     <div class="sh-header__inner">
       <div class="sh-masthead">
         <div class="sh-masthead__lead">
-          <a href="live.html" class="sh-live"><span class="sh-live__dot"></span>بث مباشر</a>
-          <div class="sh-masthead__note">تغطية مستمرة<br><span class="sh-tnum">اليوم 325</span></div>
+          <a href="live.html" class="sh-live"><i class="fa-solid fa-tower-broadcast" aria-hidden="true"></i>بث مباشر</a>
         </div>
         <a href="index.html" class="sh-masthead__logo">
           <img src="assets/images/logo-white.png" alt="شهاب" class="sh-masthead__logo-img">
           <span class="sh-masthead__logo-star"></span>
         </a>
         <div class="sh-masthead__tools">
-          <a href="newsletter.html" class="sh-brief-btn">موجز اليوم · 3 د</a>
-          <a href="search.html" aria-label="بحث" class="sh-search"><span class="sh-search__lens"><span class="sh-search__handle"></span></span>بحث</a>
+          <a href="newsletter.html" class="sh-brief-btn"><i class="fa-solid fa-headphones" aria-hidden="true"></i>الموجز الصوتي<span class="sh-brief-btn__meta">3 د</span></a>
+          <form class="sh-search" action="search.html" method="get" role="search">
+                  <input class="sh-search__input" type="search" name="q" placeholder="ابحث في شهاب" aria-label="ابحث في شهاب" autocomplete="off">
+                  <button class="sh-search__btn" type="submit" aria-label="بحث"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+                </form>
         </div>
       </div>
       <nav class="sh-nav">
         <div class="sh-nav__list">
           <div class="sh-menu sh-nav__item">
-            <a href="index.html" class="sh-nav__link">الرئيسية</a>
+            <a href="index.html" class="sh-nav__link">الرئيسية<span class="sh-nav__caret" aria-hidden="true"></span></a>
             <div class="sh-drop sh-nav__drop">
               <span class="sh-nav__drop-rule"></span>
               <a href="index.html" class="sh-nav__drop-link">الرئيسية — النسخة الأساسية</a>
@@ -75,7 +80,7 @@
             </div>
           </div>
           <div class="sh-menu sh-nav__item">
-            <a href="sections.html" class="sh-nav__link sh-nav__link--current">الأخبار</a>
+            <a href="sections.html" class="sh-nav__link sh-nav__link--current">الأخبار<span class="sh-nav__caret" aria-hidden="true"></span></a>
             <div class="sh-drop sh-nav__drop">
               <span class="sh-nav__drop-rule"></span>
               <a href="sections.html" class="sh-nav__drop-link">أقسام شهاب</a>
@@ -87,19 +92,22 @@
             </div>
           </div>
           <div class="sh-menu sh-nav__item">
-            <a href="video.html" class="sh-nav__link">الوسائط</a>
+            <a href="video.html" class="sh-nav__link">الوسائط<span class="sh-nav__caret" aria-hidden="true"></span></a>
             <div class="sh-drop sh-nav__drop">
               <span class="sh-nav__drop-rule"></span>
-              <a href="video.html" class="sh-nav__drop-link">الفيديو</a>
-              <a href="video-watch.html" class="sh-nav__drop-link">مشاهدة فيديو</a>
-              <a href="photos.html" class="sh-nav__drop-link">الصور</a>
+              <a href="video.html" class="sh-nav__drop-link">مكتبة الفيديو</a>
+                    <a href="video-watch.html" class="sh-nav__drop-link">مشاهدة فيديو</a>
+                    <a href="live.html" class="sh-nav__drop-link">البث المباشر</a>
+                    <a href="reels.html" class="sh-nav__drop-link">ريلز شهاب</a>
+                    <a href="shorts.html" class="sh-nav__drop-link">شورتس</a>
+                    <a href="photos.html" class="sh-nav__drop-link">الصور</a>
             </div>
           </div>
           <a href="files.html" class="sh-nav__link">ملفات شهاب</a>
           <a href="author.html" class="sh-nav__link">الكاتب</a>
           <a href="search.html" class="sh-nav__link">البحث</a>
           <div class="sh-menu sh-nav__item">
-            <a href="about.html" class="sh-nav__link">الوكالة</a>
+            <a href="about.html" class="sh-nav__link">الوكالة<span class="sh-nav__caret" aria-hidden="true"></span></a>
             <div class="sh-drop sh-nav__drop">
               <span class="sh-nav__drop-rule"></span>
               <a href="about.html" class="sh-nav__drop-link">من نحن</a>
@@ -110,7 +118,7 @@
             </div>
           </div>
           <div class="sh-menu sh-nav__item">
-            <a href="system-states.html" class="sh-nav__link">النظام</a>
+            <a href="system-states.html" class="sh-nav__link">النظام<span class="sh-nav__caret" aria-hidden="true"></span></a>
             <div class="sh-drop sh-nav__drop">
               <span class="sh-nav__drop-rule"></span>
               <a href="system-states.html" class="sh-nav__drop-link">حالات النظام</a>
@@ -119,7 +127,7 @@
             </div>
           </div>
         </div>
-        <a href="coverage.html" class="sh-nav__latest"><span class="sh-nav__latest-dot"></span>آخر الأخبار</a>
+        <a href="contact.html" class="sh-nav__link sh-nav__link--last">تواصل معنا</a>
       </nav>
     </div>
   </div>
@@ -137,7 +145,7 @@
           <button aria-label="التالي" data-sh="ticker-next" class="sh-ticker__btn">›</button>
         </div>
         <span class="sh-ticker__sep"></span>
-        <a href="coverage.html" class="sh-link">التغطية الحية ←</a>
+        <a href="coverage.html" class="sh-ticker__cta">التغطية الحية<span class="sh-ticker__cta-arrow" aria-hidden="true"></span></a>
       </div>
     </div>
   </div>
@@ -687,8 +695,9 @@
 
 </div>
 
-<script src="js/app.js?v=98" defer></script>
-<script src="js/responsive.js?v=98" defer></script>
-  <script src="js/brief.js?v=98" defer></script>
+<script src="js/app.js?v=102" defer></script>
+<script src="js/responsive.js?v=102" defer></script>
+<script src="js/widgets.js?v=102" defer></script>
+  <script src="js/brief.js?v=102" defer></script>
 </body>
 </html>

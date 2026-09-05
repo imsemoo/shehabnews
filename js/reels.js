@@ -54,6 +54,16 @@
 
   function active() { return players[swiper.activeIndex]; }
 
+  // load="visible" بيحمّل الشريحة لما تبان؛ لو لسه بتحمّل نشغّل أول ما تقدر
+  function playSoon(p) {
+    var go = function () {
+      if (p !== active() || !inView) return;
+      var pr = p.play(); if (pr && pr.catch) pr.catch(function () {});
+    };
+    if (p.state.canPlay) go();
+    else p.addEventListener('can-play', go, { once: true });
+  }
+
   function onChange() {
     var i = swiper.activeIndex;
     slides.forEach(function (s, k) { s.toggleAttribute('data-active', k === i); });
@@ -66,8 +76,8 @@
       if (!p) return;
       if (k === i) {
         p.muted = muted;
-        if (inView) { var pr = p.play(); if (pr && pr.catch) pr.catch(function () {}); }
-      } else if (!p.state.paused) { p.pause(); p.currentTime = 0; }
+        playSoon(p);
+      } else if (p.state.canPlay) { if (!p.state.paused) p.currentTime = 0; p.pause(); }
     });
   }
 

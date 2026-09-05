@@ -4,8 +4,11 @@
     {
       "name": "shehab-static",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "5599"],
-      "port": 5599
+      "runtimeArgs": [
+        "serve.py"
+      ],
+      "port": 5599,
+      "autoPort": true
     }
   ]
 }

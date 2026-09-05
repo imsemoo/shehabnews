@@ -315,12 +315,16 @@ html[data-sh-hubview-open]{overflow:hidden}
 .sh-binders__btn[disabled]{opacity:.35;cursor:default}
 .sh-binders__btn[disabled]:hover{background:#fff}
 .sh-binders{position:relative;margin-top:22px}
-/* desks: the colour says which desk keeps the file */
-.sh-binder--desk-politics{--accent:var(--color-desk-politics);--accent-ink:#164b8a}
-.sh-binder--desk-war{--accent:var(--color-desk-war);--accent-ink:#7f252b}
-.sh-binder--desk-land{--accent:var(--color-desk-land);--accent-ink:#4a5430}
-.sh-binder--desk-economy{--accent:var(--color-desk-economy);--accent-ink:#5e4a22}
-.sh-binder--desk-rights{--accent:var(--color-desk-rights);--accent-ink:#4a5668}
+/* one house colour for every folder: navy on the tab and the spine, blue where
+   the site uses blue (the label's rule, the count, the open state). The desk
+   is a word on the label, typed and muted -- a whisper, not a fill. The frame
+   of the opened folder carries the desk class too, so it reads the same. */
+.sh-binder,.sh-bo__frame{--accent:var(--sh-navy-2);--accent-ink:var(--sh-blue)}
+.sh-binder--desk-politics{--desk:"سياسة"}
+.sh-binder--desk-war{--desk:"حرب"}
+.sh-binder--desk-land{--desk:"أرض"}
+.sh-binder--desk-economy{--desk:"اقتصاد"}
+.sh-binder--desk-rights{--desk:"حقوق"}
 .sh-binders__shelf{
   position:relative;display:flex;flex-wrap:nowrap;align-items:stretch;padding:8px 0 22px;
   overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:0;scrollbar-width:none;-webkit-overflow-scrolling:touch;
@@ -334,9 +338,8 @@ html[data-sh-hubview-open]{overflow:hidden}
 }
 .sh-binder:first-child{margin-inline-start:0}
 .sh-binder:hover,.sh-binder[data-open="true"]{z-index:20}
-/* the shelf: every folder draws its stretch of the line and its pool of shadow; side by side they read as one shelf */
+/* the shelf: every folder draws its stretch of the line; side by side they read as one shelf */
 .sh-binder::after{content:"";position:absolute;left:-14px;right:-14px;bottom:-16px;height:1px;background:var(--sh-hair-2);pointer-events:none}
-.sh-binder::before{content:"";position:absolute;left:4%;right:4%;bottom:-15px;height:18px;pointer-events:none;background:radial-gradient(ellipse at 50% 100%,rgba(10,26,51,.2),transparent 68%)}
 .sh-binders[data-active] .sh-binder:not([data-open="true"]){opacity:.7}
 .sh-binder__open{
   position:relative;display:block;width:100%;height:100%;margin:0;padding:0;border:0;background:none;
@@ -359,18 +362,17 @@ html[data-sh-hubview-open]{overflow:hidden}
   clip-path:polygon(0 100%,7px 0,calc(100% - 7px) 0,100% 100%);
 }
 .sh-binder__no{font-family:var(--sh-font);font-size:13px;font-weight:800;letter-spacing:.06em;direction:ltr;line-height:1}
-/* the cover: tinted paper, its texture, and one shadow */
+/* the cover: warm paper, its texture, and one low shadow -- a folder on a shelf, not a card floating over it */
 .sh-binder__folder{
   position:relative;display:flex;flex-direction:column;gap:12px;height:100%;
   padding:16px 44px 14px 14px;              /* the right padding clears the spine */
   background:#fbfaf7;border:1px solid var(--sh-hair-2);
-  box-shadow:0 12px 24px -16px rgba(10,26,51,.5);
+  box-shadow:0 1px 2px rgba(10,26,51,.06),0 10px 20px -14px rgba(10,26,51,.22);
   transition:box-shadow .25s ease,border-color .25s ease;
 }
-.sh-binder__folder::before{content:"";position:absolute;inset:0;background:var(--accent);opacity:.08;pointer-events:none}   /* the tint */
 .sh-binder__folder::after{content:"";position:absolute;inset:0;background:url(../assets/images/archive-texture.png) center/cover;opacity:.06;mix-blend-mode:multiply;pointer-events:none}   /* the paper */
-.sh-binder__open:hover .sh-binder__folder,.sh-binder[data-open="true"] .sh-binder__folder{box-shadow:0 22px 30px -18px rgba(10,26,51,.55)}
-.sh-binder[data-open="true"] .sh-binder__folder{border-color:var(--accent)}
+.sh-binder__open:hover .sh-binder__folder,.sh-binder[data-open="true"] .sh-binder__folder{box-shadow:0 1px 2px rgba(10,26,51,.06),0 14px 24px -14px rgba(10,26,51,.28)}   /* lifts a little, not a lot */
+.sh-binder[data-open="true"] .sh-binder__folder{border-color:var(--sh-blue)}
 /* the spine, down the right edge */
 .sh-binder__spine{
   position:absolute;top:0;bottom:0;right:0;z-index:1;width:28px;
@@ -382,7 +384,7 @@ html[data-sh-hubview-open]{overflow:hidden}
 /* the print: the file's photograph, taped on */
 .sh-binder__print{
   position:relative;z-index:1;display:block;aspect-ratio:4/5;padding:5px;background:#fff;
-  box-shadow:0 6px 14px rgba(10,26,51,.2);transform:rotate(-1.5deg);
+  box-shadow:0 2px 6px rgba(10,26,51,.15);transform:rotate(-1.5deg);   /* the one tilt on the folder */
 }
 .sh-binder__print img{position:absolute;inset:5px;width:calc(100% - 10px);height:calc(100% - 10px);object-fit:cover;object-position:center top;filter:saturate(.9)}
 /* no photograph: the pocket, empty, with the mark */
@@ -395,7 +397,7 @@ html[data-sh-hubview-open]{overflow:hidden}
 .sh-binder__stamp{
   position:absolute;top:8px;left:8px;z-index:3;padding:3px 9px;
   font-family:var(--sh-font);font-size:10.5px;font-weight:800;color:var(--accent-ink);
-  background:rgba(255,255,255,.85);border:1.5px solid var(--accent-ink);transform:rotate(-6deg);
+  background:rgba(255,255,255,.85);border:1.5px solid var(--accent-ink);
 }
 .sh-binder__stamp[hidden]{display:none}
 .sh-binder__stamp--live::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sh-red);margin-inline-end:6px;vertical-align:middle;animation:sh-bo-live 1.6s ease-in-out infinite}
@@ -404,8 +406,9 @@ html[data-sh-hubview-open]{overflow:hidden}
 .sh-binder__label{
   position:relative;z-index:1;display:flex;flex-direction:column;gap:6px;margin-top:auto;
   padding:10px 12px 11px;background:#fff;border:1px solid var(--sh-hair-2);
-  border-inline-start:3px solid var(--accent);
+  border-inline-start:3px solid var(--sh-blue);
 }
+.sh-binder__label::before{content:var(--desk);font-family:var(--sh-font);font-size:10.5px;font-weight:800;letter-spacing:.02em;color:var(--sh-mute);line-height:1}   /* the desk, typed */
 .sh-binder__title{
   font-family:var(--sh-font);font-size:15px;font-weight:800;line-height:1.45;color:var(--sh-navy);text-wrap:pretty;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
@@ -493,10 +496,9 @@ html[data-sh-bo-open]{overflow:hidden}
   animation:sh-bo-unfold .3s cubic-bezier(.2,.7,.2,1) both;
 }
 @keyframes sh-bo-unfold{from{opacity:.4;transform:scaleY(.94);transform-origin:top}}
-.sh-bo__cover::before{content:"";position:absolute;inset:0;background:var(--accent,#1b5aa6);opacity:.08;pointer-events:none}
 .sh-bo__cover::after{content:"";position:absolute;inset:0;background:url(../assets/images/archive-texture.png) center/cover;opacity:.06;mix-blend-mode:multiply;pointer-events:none}
 .sh-bo__cover > *{position:relative;z-index:1}
-.sh-bo__print{display:block;aspect-ratio:4/5;padding:5px;background:#fff;box-shadow:0 8px 18px rgba(10,26,51,.22);transform:rotate(-1.5deg)}
+.sh-bo__print{display:block;aspect-ratio:4/5;padding:5px;background:#fff;box-shadow:0 2px 8px rgba(10,26,51,.15);transform:rotate(-1.5deg)}
 .sh-bo__print img{position:absolute;inset:5px;width:calc(100% - 10px);height:calc(100% - 10px);object-fit:cover;object-position:center top}
 .sh-bo__print{position:relative}
 .sh-bo__print--none{padding:0;background:none;box-shadow:none;transform:none;border:1px dashed color-mix(in srgb,var(--accent,#1b5aa6) 45%,transparent);display:grid;place-items:center}
@@ -506,7 +508,7 @@ html[data-sh-bo-open]{overflow:hidden}
 .sh-bo__id-no{font-family:var(--sh-font);font-size:40px;font-weight:800;line-height:1;color:var(--accent-ink,var(--sh-blue));direction:ltr}
 .sh-bo__stamp{
   display:inline-block;padding:4px 10px;font-family:var(--sh-font);font-size:11.5px;font-weight:800;
-  color:var(--accent-ink,var(--sh-navy));background:rgba(255,255,255,.85);border:1.5px solid var(--accent-ink,var(--sh-navy));transform:rotate(-5deg);white-space:nowrap;
+  color:var(--accent-ink,var(--sh-navy));background:rgba(255,255,255,.85);border:1.5px solid var(--accent-ink,var(--sh-navy));white-space:nowrap;
 }
 .sh-bo__stamp[hidden]{display:none}
 .sh-bo__stamp--live::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--sh-red);margin-inline-end:7px;vertical-align:middle;animation:sh-bo-live 1.6s ease-in-out infinite}
@@ -592,73 +594,64 @@ html[data-sh-bo-open]{overflow:hidden}
 
 /* ============================================================================
    sh-say — «تصريحات خاصة». A statement is a person saying something, so every
-   one is built the same way: the face, the words between «», the name and
-   what the person is. The lead runs large with the speaker's photograph
-   beside it and an oversized « behind the words; the side column and the
-   row under it repeat the pattern smaller. Content from the site's own
-   category; the photographs are the posts' own.
+   one is built the same way: the words between «», then the name and what
+   the person is. Typographic on purpose: the site has no portraits of the
+   speakers, only the posts' photographs, so nothing is masked into a circle
+   pretending to be a face. The lead runs large on soft paper with the post's
+   photograph beside it, clean-edged, the byline anchored at the foot; the
+   side column and the row under it repeat the pattern smaller, words only.
    ========================================================================== */
-.sh-say{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:26px 40px;margin-top:24px;align-items:start}
+.sh-say{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:26px 40px;margin-top:24px;align-items:stretch}
 .sh-say__lead{
-  position:relative;display:grid;grid-template-columns:minmax(0,1fr) 300px;min-height:360px;
+  position:relative;display:grid;grid-template-columns:minmax(0,1fr) 260px;
   background:var(--color-surface-soft);color:var(--sh-ink);overflow:hidden;
 }
 .sh-say__lead:hover{color:var(--sh-ink)}
-.sh-say__lead::before{content:"";position:absolute;top:0;right:0;bottom:0;width:4px;background:var(--sh-blue);z-index:2}
+.sh-say__lead::before{content:"";position:absolute;top:0;bottom:0;inset-inline-start:0;width:3px;background:var(--sh-blue);z-index:2}
 .sh-say__photo{position:relative;display:block;overflow:hidden;background:var(--sh-navy);order:2}
-.sh-say__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.sh-say__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .sh-say__lead:hover .sh-say__photo img{transform:scale(1.04)}
-.sh-say__photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to left,rgba(245,247,250,.9),rgba(245,247,250,0) 18%)}   /* the print bleeds into the paper */
-.sh-say__body{position:relative;display:flex;flex-direction:column;padding:30px 36px 26px;min-width:0}
+.sh-say__body{position:relative;display:flex;flex-direction:column;padding:26px 30px 24px;min-width:0}
 .sh-say__tag{display:inline-flex;align-items:center;gap:8px;color:var(--sh-blue);font-family:var(--sh-font);font-size:11.5px;font-weight:800}
 .sh-say__tag .sh-mark{width:14px;height:12px;background:var(--sh-blue)}
-.sh-say__glyph{
-  position:absolute;top:34px;inset-inline-start:22px;pointer-events:none;
-  font-family:var(--sh-font);font-size:150px;font-weight:800;line-height:1;color:var(--sh-blue);opacity:.12;
-}
 .sh-say__quote{
-  position:relative;font-family:var(--sh-font);font-size:clamp(20px,1.8vw,27px);font-weight:800;line-height:1.7;
-  margin:22px 0 0;color:var(--sh-navy);text-wrap:pretty;
+  font-family:var(--sh-font);font-size:clamp(20px,1.8vw,26px);font-weight:800;line-height:1.6;
+  margin:16px 0 0;color:var(--sh-navy);text-wrap:pretty;
 }
 .sh-say__quote::before{content:"«"}
 .sh-say__quote::after{content:"»"}
-.sh-say__who{display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:22px}
-.sh-say__avatar{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:center 20%;background:var(--sh-navy);box-shadow:0 0 0 2px #fff,0 0 0 3px var(--sh-hair-2);flex:none}
-.sh-say__id{display:flex;flex-direction:column;gap:3px;min-width:0}
+/* the byline, at the foot: a short blue rule, the name, what the person is */
+.sh-say__who{display:flex;align-items:center;margin-top:auto;padding-top:22px}
+.sh-say__id{display:flex;flex-direction:column;gap:3px;min-width:0;padding-inline-start:12px;border-inline-start:3px solid var(--sh-blue)}
 .sh-say__name{font-family:var(--sh-font);font-size:15px;font-weight:800;color:var(--sh-navy)}
 .sh-say__role{font-size:12px;color:var(--sh-mute)}
 .sh-say__time{font-variant-numeric:tabular-nums}
 
 .sh-say__side{display:flex;flex-direction:column}
-.sh-say__item{
-  display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;align-items:start;
-  padding:16px 0;border-bottom:1px solid var(--sh-hair);color:var(--sh-ink);transition:color .16s ease;
-}
-.sh-say__side .sh-say__item:first-child{padding-top:4px}
+.sh-say__item{display:block;padding:14px 0;border-bottom:1px solid var(--sh-hair);color:var(--sh-ink);transition:color .16s ease}
+.sh-say__side .sh-say__item:first-child{padding-top:2px}
+.sh-say__side .sh-say__item:last-child{border-bottom:0}
 .sh-say__item:hover{color:var(--sh-blue)}
-.sh-say__face{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:center 20%;background:var(--sh-navy);box-shadow:0 0 0 2px #fff,0 0 0 3px var(--sh-hair-2)}
-.sh-say__text{display:flex;flex-direction:column;gap:9px;min-width:0}
-.sh-say__q{font-family:var(--sh-font);font-size:14.5px;font-weight:700;line-height:1.8;text-wrap:pretty}
+.sh-say__text{display:flex;flex-direction:column;gap:8px;min-width:0}
+.sh-say__q{font-family:var(--sh-font);font-size:14.5px;font-weight:700;line-height:1.75;text-wrap:pretty}
 .sh-say__by{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px}
 .sh-say__by .sh-say__name{font-size:12.5px;white-space:nowrap}
 .sh-say__by .sh-say__role{font-size:11.5px}
 
-/* the row under the lead: three more, as cards on the paper */
+/* the row under the lead: three more, words only, a hairline between them */
 .sh-say__row{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px;border-top:1px solid var(--sh-hair-2)}
-.sh-say__item--card{grid-template-columns:56px minmax(0,1fr);gap:14px;padding:20px 0 4px;border-bottom:0}
-.sh-say__item--card .sh-say__face{width:56px;height:56px}
+.sh-say__item--card{padding:20px 0 4px;border-bottom:0}
 .sh-say__item--card + .sh-say__item--card{border-inline-start:1px solid var(--sh-hair);padding-inline-start:24px}
 
 @media (max-width:900px){
-  .sh-say{grid-template-columns:minmax(0,1fr);gap:8px}
-  .sh-say__lead{grid-template-columns:minmax(0,1fr);min-height:0}
+  .sh-say{grid-template-columns:minmax(0,1fr);gap:8px;align-items:start}
+  .sh-say__lead{grid-template-columns:minmax(0,1fr)}
   .sh-say__photo{order:0;aspect-ratio:16/9}
-  .sh-say__photo::after{background:linear-gradient(to top,rgba(245,247,250,.9),rgba(245,247,250,0) 24%)}
   .sh-say__body{padding:20px 22px 22px}
-  .sh-say__glyph{font-size:110px;top:18px}
   .sh-say__quote{font-size:19px;margin-top:14px}
+  .sh-say__who{margin-top:18px;padding-top:0}
   .sh-say__row{grid-template-columns:minmax(0,1fr);gap:0}
-  .sh-say__item--card{padding:16px 0;border-bottom:1px solid var(--sh-hair)}
+  .sh-say__item--card{padding:14px 0;border-bottom:1px solid var(--sh-hair)}
   .sh-say__item--card + .sh-say__item--card{border-inline-start:0;padding-inline-start:0}
 }
 @media (prefers-reduced-motion:reduce){.sh-say__photo img{transition:none}}
