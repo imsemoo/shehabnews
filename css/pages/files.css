@@ -52,7 +52,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 .sh-files-latest-files__a-1:hover{transform:translateY(-3px)}
 .sh-files-latest-files__span-1{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 0px 12px}
 .sh-files-latest-files__span-2{display:flex;align-items:center;gap:9px;font-family:var(--sh-font);font-size:10.5px;font-weight:800;letter-spacing:.06em;color:var(--sh-blue)}
-.sh-files-latest-files__span-3{width:20px;height:1px;background:currentColor}
+.sh-files-latest-files__span-3{width:20px;aspect-ratio:100/41.59;height:auto;background:currentColor;-webkit-mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat}
 .sh-files-latest-files__span-4{font-family:var(--sh-font);font-size:10.5px;font-weight:800;opacity:.4;font-variant-numeric:tabular-nums}
 .sh-files-latest-files__span-5{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:16/8;margin:0 0px}
 .sh-files-latest-files__span-6{position:absolute;inset:0;background-image:url("../../assets/images/file-raheel-aldaif.png");background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
@@ -96,7 +96,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 .sh-files-interactive-files__section-1{position:relative;background:var(--sh-navy);color:#fff;margin-top:48px;padding:30px 32px 34px;overflow:hidden}
 .sh-files-interactive-files__span-1{position:absolute;top:-260px;right:-200px;width:620px;height:620px;border:1px solid rgba(126,168,221,.16);border-radius:50%;pointer-events:none}
 .sh-files-interactive-files__div-1{position:relative;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
-.sh-files-interactive-files__span-2{width:24px;height:1px;background:var(--sh-blue)}
+.sh-files-interactive-files__span-2{width:24px;aspect-ratio:100/41.59;height:auto;background:var(--sh-blue);-webkit-mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat}
 .sh-files-interactive-files__h2-1{font-family:var(--sh-font);font-size:24px;font-weight:800;margin:8px 0 0;display:flex;align-items:center;gap:10px}
 .sh-files-interactive-files__span-3{font-size:11.5px;color:var(--sh-on-dark-55)}
 .sh-files-interactive-files__div-2{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:24px}

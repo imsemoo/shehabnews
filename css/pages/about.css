@@ -47,7 +47,7 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2.05}
 .sh-about-journey__span-10{display:block;font-family:var(--sh-font);font-size:16px;font-weight:800;color:var(--sh-navy);margin-top:6px}
 .sh-about-journey__span-11{display:block;font-size:12.5px;color:var(--sh-mute-2);line-height:1.9;margin-top:7px;text-wrap:pretty}
 .sh-about-journey__span-12{display:flex;align-items:center;gap:8px;margin-top:9px;font-size:10.5px;color:var(--sh-mute);font-variant-numeric:tabular-nums}
-.sh-about-journey__span-13{width:10px;height:1px;background:var(--sh-blue)}
+.sh-about-journey__span-13{width:10px;aspect-ratio:100/41.59;height:auto;background:var(--sh-blue);-webkit-mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat}
 .sh-about-journey__span-14{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:4/5}
 .sh-about-journey__span-15{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Omar%20Mukhtar%20panorama%20-%20panoramio.jpg?width=1200");background-size:cover;background-position:center 45%}
 .sh-about-journey__span-16{position:absolute;top:11px;right:11px;width:7px;height:7px;background:var(--sh-blue);transform:rotate(45deg)}
@@ -115,7 +115,7 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2.05}
 .sh-about-system__h2-1{font-family:var(--sh-font);font-size:22px;font-weight:800;margin:0;color:var(--sh-navy);display:flex;align-items:center;gap:10px}
 .sh-about-system__a-1{display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;color:var(--sh-blue);padding-bottom:3px}
 .sh-about-system__a-1:hover{gap:15px}
-.sh-about-system__span-1{width:15px;height:1px;background:currentColor}
+.sh-about-system__span-1{width:15px;aspect-ratio:100/41.59;height:auto;background:currentColor;-webkit-mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat}
 .sh-about-system__div-2{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0 20px;margin-top:4px}
 .sh-about-system__a-2{display:block;padding:14px 0;border-bottom:1px solid var(--sh-hair)}
 .sh-about-system__a-2:hover{color:var(--sh-blue)}

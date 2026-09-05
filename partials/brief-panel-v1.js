@@ -4,14 +4,11 @@
    items aloud with the browser's own speech engine. No backend, no API key, no
    network call: it works from file:// and survives the port to Blade.
 
-   ONE SURFACE. The player is a companion bar docked to the bottom edge, and
-   nothing else -- no modal, no edition view. A browser cancels speech on every
-   navigation and throws away the page's JS, so the only surface worth having
-   is the one that travels: the bar keeps its state in sessionStorage and
-   rebuilds itself on the next page, and the brief keeps running while the
-   reader moves through the site. The bar carries the whole player: the item
-   number, the mode, the item's line (a link to its article), previous / play /
-   next, the reading rate and the end button.
+   IT TRAVELS WITH THE READER. A browser cancels speech on every navigation and
+   throws away the page's JS, so a player that lives only in one document dies
+   at the first link. This one keeps its state in sessionStorage and rebuilds
+   itself on the next page, which is why the surface that persists is a docked
+   companion bar rather than a modal.
 
    Resume is sentence-level, not item-level. Each item's spoken copy is split
    into sentences and the index of the one in progress is part of the saved
@@ -24,8 +21,8 @@
 
      voiced      an ar-* voice exists -> speechSynthesis reads each sentence.
      read-along  no ar-* voice        -> the brief still advances, timed from
-                 the word count at a news-reading pace, and says so in the bar
-                 («وضع القراءة») rather than pretending to speak.
+                 the word count at a news-reading pace, and says so plainly
+                 rather than pretending to speak.
 
    CONTENT. The edition below is the fallback. Any page may override it with a
    JSON payload on [data-sh-brief], the same pattern the ticker already uses for
@@ -35,7 +32,7 @@
 
    Each item carries `t`, the headline as displayed, and `say`, the copy as
    spoken. They are written differently on purpose: a headline is built to be
-   scanned, a briefing line to be heard. `href` is where the bar's line links. */
+   scanned, a briefing line to be heard. */
 (function () {
   'use strict';
 
@@ -77,6 +74,10 @@
     n = String(n);
     return n.length < 2 ? '0' + n : n;
   }
+  function clock(ms) {
+    var s = Math.round(ms / 1000);
+    return pad2(Math.floor(s / 60)) + ':' + pad2(s % 60);
+  }
 
   /* --------------------------------------------------------------- setup -- */
   var btn = document.querySelector('a[href="newsletter.html"]');
@@ -107,24 +108,25 @@
   prepare(data);
 
   var synth = window.speechSynthesis || null;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* --------------------------------------------------------------- state -- */
-  var st = { on: false, i: 0, s: 0, playing: false, rate: 0 };
+  var st = { on: false, i: 0, s: 0, playing: false, rate: 0, mode: 'bar' };
   try {
     var saved = JSON.parse(sessionStorage.getItem(KEY) || 'null');
     if (saved && saved.n === items.length && (!saved.eid || saved.eid === EID)) {   // a topic thread is page-local
       st.on = !!saved.on; st.i = saved.i | 0; st.s = saved.s | 0;
       st.playing = !!saved.playing; st.rate = saved.rate | 0;
+      st.mode = saved.mode === 'panel' ? 'panel' : 'bar';
     }
   } catch (e) { /* private mode */ }
   if (st.i < 0 || st.i >= items.length) st.i = 0;
-  if (st.rate < 0 || st.rate >= RATES.length) st.rate = 0;
 
   function save() {
     try {
       sessionStorage.setItem(KEY, JSON.stringify({
         n: items.length, on: st.on, i: st.i, s: st.s, eid: EID,
-        playing: st.playing, rate: st.rate
+        playing: st.playing, rate: st.rate, mode: st.mode
       }));
     } catch (e) {}
   }
@@ -136,6 +138,8 @@
     pause: '<path d="M3 1.8h3.6v12.4H3zM9.4 1.8H13v12.4H9.4z"/>',
     prev:  '<path d="M3 2h2.2v5L13 2v12L5.2 9v5H3z"/>',
     next:  '<path d="M13 2h-2.2v5L3 2v12l7.8-5v5H13z"/>',
+    up:    '<path d="M8 2.6l6 6-1.5 1.5L8 5.6 3.5 10.1 2 8.6z"/>',
+    down:  '<path d="M8 13.4l-6-6L3.5 5.9 8 10.4l4.5-4.5L14 7.4z"/>',
     x:     '<path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="1.7" fill="none"/>'
   };
   function b(cls, key, icon, label) {
@@ -147,40 +151,98 @@
   root.setAttribute('data-bf', '');
   root.hidden = true;
   root.innerHTML =
-    '<div class="bf-bar" role="region" aria-label="موجز شهاب">' +
+    '<div class="bf-scrim" data-bf-scrim></div>' +
+
+    '<div class="bf-bar">' +
       '<span class="bf-rail"><span class="bf-rail-on" data-bf-rail></span>' +
         '<span class="sh-mark bf-rail-nib" data-bf-railnib></span></span>' +
       '<span class="bf-id"><span class="sh-mark"></span>' +
-        '<span class="bf-num" data-bf-barnum></span>' +
-        '<span class="bf-mode"><i></i><span data-bf-modet></span></span>' +
-      '</span>' +
+        '<span class="bf-num" data-bf-barnum></span></span>' +
       '<span class="bf-now">' +
         '<span class="bf-now-cat" data-bf-barcat></span>' +
-        '<a class="bf-now-t" data-bf-bart></a>' +
+        '<span class="bf-now-t" data-bf-bart></span>' +
       '</span>' +
       '<span class="bf-bar-ctl">' +
-        b('bf-b bf-b-prev', 'prev', SVG.prev, 'المادة السابقة') +
+        b('bf-b bf-b-sm', 'play2', SVG.play, 'تشغيل') +
+        b('bf-b bf-b-sm', 'next2', SVG.next, 'المادة التالية') +
+        b('bf-b bf-b-sm', 'open', SVG.up, 'توسيع الموجز') +
+        b('bf-b bf-b-sm', 'end', SVG.x, 'إنهاء الموجز') +
+      '</span>' +
+    '</div>' +
+
+    '<div class="bf-panel" role="dialog" aria-modal="true" aria-label="موجز شهاب">' +
+      '<span class="bf-rule bf-rule-a"></span><span class="bf-rule bf-rule-b"></span>' +
+
+      '<div class="bf-head">' +
+        '<span class="sh-mark"></span>' +
+        '<span class="bf-wordmark">موجز شهاب</span>' +
+        '<span class="bf-meta">' +
+          '<span class="bf-live" data-bf-mode><i></i><span data-bf-modet></span></span>' +
+          '<s></s><span data-bf-edition></span>' +
+          '<s></s><span data-bf-len></span>' +
+        '</span>' +
+      '</div>' +
+
+      '<div class="bf-stage">' +
+        '<span class="bf-figure" data-bf-fig></span>' +
+        '<span class="bf-kind"><span data-bf-cat></span><u data-bf-time></u></span>' +
+        '<h2 class="bf-line" data-bf-line aria-live="polite"></h2>' +
+        '<p class="bf-say" data-bf-say></p>' +
+      '</div>' +
+
+      '<ol class="bf-index" data-bf-index>' +
+        '<span class="bf-spine"><span class="sh-mark bf-spine-nib" data-bf-spinenib></span></span>' +
+      '</ol>' +
+
+      '<div class="bf-foot">' +
+        b('bf-b', 'prev', SVG.prev, 'المادة السابقة') +
         b('bf-b bf-b-go', 'play', SVG.play, 'تشغيل الموجز') +
         b('bf-b', 'next', SVG.next, 'المادة التالية') +
         '<button type="button" class="bf-rate" data-bf-rate aria-label="سرعة القراءة">×1</button>' +
-        b('bf-b bf-b-end', 'end', SVG.x, 'إنهاء الموجز') +
-      '</span>' +
+        '<span class="bf-count" data-bf-count></span>' +
+        b('bf-b', 'close', SVG.down, 'تصغير إلى الشريط') +
+      '</div>' +
+
+      '<p class="bf-note" data-bf-note></p>' +
     '</div>';
   document.body.appendChild(root);
 
   var $ = function (k) { return root.querySelector('[data-bf-' + k + ']'); };
+  var elIndex = $('index'), elSpineNib = $('spinenib');
 
-  /* A page component can hand the player a different edition at runtime and
-     start it (document.dispatchEvent(new CustomEvent('sh-brief:play', {detail}))). */
+  var rows = [];
+  function buildRows() {
+    [].slice.call(elIndex.querySelectorAll('li')).forEach(function (li) { li.remove(); });
+    rows = items.map(function (it, i) {
+      var li = document.createElement('li');
+      var bt = document.createElement('button');
+      bt.type = 'button';
+      bt.innerHTML = '<i></i><span></span><em></em>';
+      bt.children[0].textContent = pad2(i + 1);
+      bt.children[1].textContent = it.t;
+      bt.children[2].textContent = it.time || '';
+      bt.addEventListener('click', function () { go(i, true); });
+      li.appendChild(bt);
+      elIndex.appendChild(li);
+      return bt;
+    });
+    $('edition').textContent = data.edition || '';
+    $('len').textContent = items.length + ' مواد · ' + clock(TOTAL_MS);
+  }
+  buildRows();
+
+  /* A page component (the topic threads under «المزيد من الأخبار») can hand
+     the player a different edition at runtime and start it. */
   function setEdition(d) {
     if (!d || !d.items || !d.items.length) return;
     clearAll();
     prepare(d);
     st.i = 0; st.s = 0; st.playing = false;
+    buildRows();
   }
   document.addEventListener('sh-brief:play', function (e) {
     setEdition(e.detail);
-    dock(true); play();
+    dock(true); mode('panel'); play();
   });
 
   /* ---------------------------------------------------------------- voice -- */
@@ -197,8 +259,17 @@
   }
   function refreshVoice() {
     voice = pickVoice();
-    $('modet').textContent = voice ? 'صوت آلي' : 'وضع القراءة';
-    root.toggleAttribute('data-voiced', !!voice);
+    if (voice) {
+      $('modet').textContent = 'صوت آلي';
+      $('note').innerHTML = 'يُقرأ آليًا بصوت <b>' + voice.name.replace(/[<>&]/g, '') +
+        '</b> من محرك النطق في متصفحك؛ لا يُرسَل أي نص إلى خادم خارجي. ' +
+        'الموجز يكمل معك أثناء التنقل بين الصفحات.';
+    } else {
+      $('modet').textContent = 'وضع القراءة';
+      $('note').innerHTML = 'لا يوجد <b>صوت عربي</b> مثبَّت في هذا المتصفح، فيعمل الموجز ' +
+        'بوضع القراءة ويتقدّم بإيقاع نشرة إخبارية. لتشغيل الصوت ثبِّت حزمة اللغة ' +
+        'العربية في نظامك. الموجز يكمل معك أثناء التنقل بين الصفحات.';
+    }
   }
   if (synth) {
     refreshVoice();
@@ -206,6 +277,7 @@
     setTimeout(refreshVoice, 900);
   } else {
     $('modet').textContent = 'وضع القراءة';
+    $('note').textContent = 'متصفحك لا يدعم النطق الآلي، فيعمل الموجز بوضع القراءة.';
   }
 
   /* ------------------------------------------------------------- playback -- */
@@ -223,9 +295,12 @@
   }
 
   function setIcon(on) {
-    $('play').querySelector('svg').innerHTML = on ? SVG.pause : SVG.play;
-    $('play').setAttribute('aria-label', on ? 'إيقاف مؤقت' : 'تشغيل الموجز');
-    root.toggleAttribute('data-playing', on);
+    var m = on ? SVG.pause : SVG.play;
+    $('play').querySelector('svg').innerHTML = m;
+    $('play2').querySelector('svg').innerHTML = m;
+    var lab = on ? 'إيقاف مؤقت' : 'تشغيل الموجز';
+    $('play').setAttribute('aria-label', lab);
+    $('play2').setAttribute('aria-label', lab);
   }
 
   function progress(frac) {
@@ -238,13 +313,38 @@
 
   function paint() {
     var it = items[st.i];
+    $('fig').textContent = pad2(st.i + 1);
+    $('cat').textContent = it.c || '';
+    $('time').textContent = it.time || '';
+    $('line').textContent = it.t;
     $('barcat').textContent = (it.c || '') + (it.time ? ' · ' + it.time : '');
-    var line = $('bart');
-    line.textContent = it.t;
-    if (it.href) line.setAttribute('href', it.href); else line.removeAttribute('href');
+    $('bart').textContent = it.t;
     $('barnum').textContent = pad2(st.i + 1) + ' / ' + pad2(items.length);
+    $('count').textContent = pad2(st.i + 1) + ' / ' + pad2(items.length);
     $('rate').textContent = '×' + RATES[st.rate];
+
+    // the sentence in progress is lifted out of the dimmed paragraph
+    $('say').innerHTML = it.parts.map(function (p, k) {
+      var esc = p.replace(/[<>&]/g, function (c) { return { '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]; });
+      return k === st.s ? '<b>' + esc + '</b>' : esc;
+    }).join(' ');
+
+    rows.forEach(function (r, i) {
+      r.toggleAttribute('data-now', i === st.i);
+      r.toggleAttribute('data-done', i < st.i);
+    });
     $('prev').disabled = st.i === 0;
+
+    var cur = rows[st.i];
+    if (cur) {
+      elSpineNib.style.top = (cur.offsetTop + cur.offsetHeight / 2 - 5.5) + 'px';
+      if (elIndex.scrollHeight > elIndex.clientHeight) {
+        elIndex.scrollTo({
+          top: cur.offsetTop - elIndex.clientHeight / 2 + cur.offsetHeight / 2,
+          behavior: reduce ? 'auto' : 'smooth'
+        });
+      }
+    }
     progress(0);
   }
 
@@ -329,22 +429,35 @@
     document.documentElement.toggleAttribute('data-bf-docked', on);
     if (on) { root.setAttribute('data-on', ''); }
     else { root.removeAttribute('data-on'); }
-    if (hasBtn) btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+    if (hasBtn) btn.setAttribute('aria-expanded', on && st.mode === 'panel' ? 'true' : 'false');
+    save();
+  }
+  function mode(m) {
+    st.mode = m;
+    root.setAttribute('data-mode', m);
+    document.documentElement.style.overflow = m === 'panel' ? 'hidden' : '';
+    if (hasBtn) btn.setAttribute('aria-expanded', m === 'panel' ? 'true' : 'false');
+    if (m === 'panel') setTimeout(function () { paint(); $('play').focus(); }, 60);
     save();
   }
   function end() {
     clearAll();
     st.playing = false; st.on = false; st.i = 0; st.s = 0;
     setIcon(false);
-    dock(false); forget();
+    mode('bar'); dock(false); forget();
     if (hasBtn) btn.focus();
   }
 
   /* --------------------------------------------------------------- wiring -- */
   $('play').addEventListener('click', toggle);
+  $('play2').addEventListener('click', toggle);
   $('next').addEventListener('click', function () { go(st.i + 1, st.playing); });
+  $('next2').addEventListener('click', function () { go(st.i + 1, st.playing); });
   $('prev').addEventListener('click', function () { go(st.i - 1, st.playing); });
+  $('open').addEventListener('click', function () { mode('panel'); });
+  $('close').addEventListener('click', function () { mode('bar'); });
   $('end').addEventListener('click', end);
+  $('scrim').addEventListener('click', function () { mode('bar'); });
   $('rate').addEventListener('click', function () {
     st.rate = (st.rate + 1) % RATES.length;
     $('rate').textContent = '×' + RATES[st.rate];
@@ -352,22 +465,32 @@
     if (st.playing) { clearAll(); speak(); }
   });
 
+  document.addEventListener('keydown', function (e) {
+    if (!st.on) return;
+    if (e.key === 'Escape' && st.mode === 'panel') { e.preventDefault(); mode('bar'); return; }
+    if (st.mode !== 'panel') return;
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test((e.target || {}).tagName || '')) return;
+    if (e.key === ' ' || e.key === 'k') { e.preventDefault(); toggle(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(st.i + 1, st.playing); }   // RTL: forward
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(st.i - 1, st.playing); }
+  });
+
   /* The handler sits on the button, not on document. js/app.js registered a
      document-level click handler first that turns any internal .html link into
      a page transition; the event reaches this element before document, so
      preventDefault() here makes that handler skip the click through its own
-     defaultPrevented check. The href stays as the no-JS fallback. The button
-     starts the brief; while it plays, a second press pauses it and the bar
-     stays where it is. */
+     defaultPrevented check. The href stays as the no-JS fallback. */
   if (hasBtn) {
     btn.setAttribute('data-sh-brief-open', '');
     btn.setAttribute('role', 'button');
+    btn.setAttribute('aria-haspopup', 'dialog');
     btn.setAttribute('aria-expanded', 'false');
     btn.addEventListener('click', function (e) {
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.button > 0) return;
       e.preventDefault();
-      if (st.on && st.playing) { pause(); return; }
-      dock(true); play();
+      if (st.mode === 'panel' && st.on) { mode('bar'); return; }
+      dock(true); mode('panel');
+      if (!st.playing) play();
     });
   }
 
@@ -375,6 +498,11 @@
   // speech dies with the document, so pick the sentence back up on the new page
   if (st.on) {
     dock(true);
+    /* Always come back as the bar, never as the panel. The reader followed a
+       link because they wanted the page; restoring a full-height modal over it
+       would block the thing they asked for -- and its overflow:hidden would
+       lock the new page's scroll. The brief keeps playing either way. */
+    mode('bar');
     paint();
     setIcon(st.playing);
     if (st.playing) {

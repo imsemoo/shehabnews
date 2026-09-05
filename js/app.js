@@ -1252,16 +1252,16 @@
     });
   }
 
-  /* 15. «ملفات خاصة» — the binders. [data-sh-binders] holds one
-         [data-sh-binder] per file: its spine button ([data-sh-binder-open]),
-         its 3D faces, and a hidden [data-sh-binder-inside] with the file's
-         description, facts and documents. Opening a binder builds the opened
-         view (sh-bo) from that content: sheet 1 is the file's card, the rest
-         hold its documents four to a sheet; sheets turn over onto the cover
-         the way they do on a lever arch. ---------------------------------- */
+  /* 15. «ملفات خاصة» — archive folders and the opened folder. [data-sh-binders]
+         holds one [data-sh-binder] per file: its folder button
+         ([data-sh-binder-open]) and a hidden [data-sh-binder-inside] with the
+         file's description, facts and documents. The folder's document count,
+         last update and state are filled from that content, so each fact is
+         written once. Opening a file fills the viewer (sh-bo): the folder's
+         cover laid flat on top, every document in one numbered list under
+         it. Previous / next move between files; the list is scrolled. ---- */
   function binders() {
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var PER = 4;                                       // documents per sheet
     function esc(t) { return String(t).replace(/[<>&"]/g, function (c) { return { '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]; }); }
     function two(n) { return (n < 10 ? '0' : '') + n; }
     function docsWord(n) { return n === 1 ? 'وثيقة واحدة' : n === 2 ? 'وثيقتان' : n <= 10 ? n + ' وثائق' : n + ' وثيقة'; }
@@ -1272,17 +1272,22 @@
 
       var files = items.map(function (b) {
         var inside = b.querySelector('[data-sh-binder-inside]');
-        var color = ([].slice.call(b.classList).filter(function (c) { return /^sh-binder--/.test(c); })[0]) || '';
+        var desk = ([].slice.call(b.classList).filter(function (c) { return /^sh-binder--/.test(c); })[0]) || '';
         var stateEl = inside && inside.querySelector('[data-sh-binder-state]');
+        var updated = '';
+        if (inside) [].slice.call(inside.querySelectorAll('.sh-binder__facts dt')).forEach(function (dt) {
+          if (/آخر تحديث/.test(dt.textContent) && dt.nextElementSibling) updated = dt.nextElementSibling.textContent.replace(/\s+/g, ' ').trim();
+        });
         return {
-          el: b, spine: b.querySelector('[data-sh-binder-open]'), color: color,
+          el: b, open: b.querySelector('[data-sh-binder-open]'), desk: desk,
           cover: b.getAttribute('data-sh-cover') || '', href: b.getAttribute('data-sh-href') || '',
-          no: (b.querySelector('.sh-binder__no') || {}).textContent || '',
-          title: (b.querySelector('.sh-binder__title') || {}).textContent || '',
+          no: ((b.querySelector('.sh-binder__no') || {}).textContent || '').trim(),
+          title: ((b.querySelector('.sh-binder__title') || {}).textContent || '').replace(/\s+/g, ' ').trim(),
           desc: inside && inside.querySelector('.sh-binder__desc') ? inside.querySelector('.sh-binder__desc').innerHTML : '',
           facts: inside && inside.querySelector('.sh-binder__facts') ? inside.querySelector('.sh-binder__facts').innerHTML : '',
           state: stateEl ? stateEl.getAttribute('data-sh-binder-state') : '',
           stateText: stateEl ? stateEl.textContent.trim() : '',
+          updated: updated,
           docs: inside ? [].slice.call(inside.querySelectorAll('.sh-binder__docs a')).map(function (a) {
             var i = a.querySelector('i');
             return { href: a.getAttribute('href') || '#', type: a.getAttribute('data-type') || '', date: a.getAttribute('data-date') || '',
@@ -1292,211 +1297,322 @@
         };
       });
 
-      var view = null, els = {}, cur = { f: -1, page: 0, sheets: [] }, opener = null, closing = 0, timer = 0;
-
+      // the folders: count, last update and state come from the file's own content
       files.forEach(function (f, i) {
-        if (!f.spine) return;
-        f.spine.addEventListener('click', function (e) { e.preventDefault(); open(i, f.spine); });
+        var c = f.el.querySelector('[data-sh-binder-count]'), u = f.el.querySelector('[data-sh-binder-updated]'), st = f.el.querySelector('[data-sh-binder-stamp]');
+        if (c) c.textContent = docsWord(f.docs.length);
+        if (u) { u.textContent = f.updated ? 'آخر تحديث ' + f.updated : ''; u.hidden = !f.updated; }
+        if (st) {
+          if (f.stateText) { st.textContent = f.stateText; st.className = 'sh-binder__stamp' + (f.state === 'live' ? ' sh-binder__stamp--live' : ''); st.hidden = false; }
+          else st.hidden = true;
+        }
+        if (f.open) f.open.addEventListener('click', function (e) { e.preventDefault(); open(i, f.open); });
       });
 
+      // the shelf slides: the arrows in the head move it one folder at a time
+      (function () {
+        var shelf = root.querySelector('.sh-binders__shelf');
+        var prev = root.parentNode.querySelector('[data-sh-binders-prev]'), next = root.parentNode.querySelector('[data-sh-binders-next]');
+        if (!shelf || !prev || !next) return;
+        function step() { return items[1] ? Math.abs(items[1].offsetLeft - items[0].offsetLeft) : (items[0] ? items[0].getBoundingClientRect().width : 260); }   // one folder and its gap
+        // RTL: the shelf scrolls into negative scrollLeft; forward is leftward
+        function at() { return { start: Math.abs(shelf.scrollLeft) < 2, end: Math.abs(shelf.scrollLeft) >= shelf.scrollWidth - shelf.clientWidth - 2 }; }
+        function paint() { var p = at(); prev.disabled = p.start; next.disabled = p.end; }
+        next.addEventListener('click', function () { shelf.scrollBy({ left: -step(), behavior: reduce ? 'auto' : 'smooth' }); });
+        prev.addEventListener('click', function () { shelf.scrollBy({ left: step(), behavior: reduce ? 'auto' : 'smooth' }); });
+        shelf.addEventListener('scroll', paint, { passive: true });
+        window.addEventListener('resize', paint);
+        paint();
+      })();
+
+      var view = null, els = {}, cur = -1, opener = null, closing = 0;
+      function nav(id) {
+        return '<div class="sh-bo__nav">' +
+          '<button type="button" class="sh-bo__turn" data-sh-bo-prev aria-label="الملف السابق"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span>السابق</span></button>' +
+          '<button type="button" class="sh-bo__turn" data-sh-bo-next aria-label="الملف التالي"><span>التالي</span><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>' +
+        '</div>';
+      }
       function build() {
         view = document.createElement('div');
         view.className = 'sh-bo';
         view.setAttribute('role', 'dialog');
         view.setAttribute('aria-modal', 'true');
-        view.setAttribute('aria-label', 'ملف خاص');
+        view.setAttribute('aria-labelledby', 'sh-bo-title');
         view.hidden = true;
         view.innerHTML =
           '<div class="sh-bo__veil" data-sh-bo-close></div>' +
           '<div class="sh-bo__frame">' +
             '<div class="sh-bo__bar">' +
-              '<span class="sh-bo__brand"><span class="sh-mark"></span>ملف خاص</span>' +
-              '<span class="sh-bo__name" data-sh-bo-name></span>' +
-              '<span class="sh-bo__count" data-sh-bo-count></span>' +
+              '<span class="sh-bo__brand"><span class="sh-mark"></span><span>ملف خاص</span></span>' +
+              '<span class="sh-bo__pos" data-sh-bo-pos></span>' +
+              nav() +
               '<button type="button" class="sh-bo__close" data-sh-bo-close aria-label="إغلاق">&times;</button>' +
             '</div>' +
-            /* RTL grid: the first column is the right one. Cover first, so it
-               lies right of the spine and swings open toward the right, the
-               way an Arabic binder does; the pages take the left column. */
-            '<div class="sh-bo__book" data-sh-bo-book data-closed>' +
-              '<div class="sh-bo__cover">' +
-                '<div class="sh-bo__face sh-bo__cover-in" data-sh-bo-coverin></div>' +
-                '<div class="sh-bo__face sh-bo__cover-out">' +
-                  '<span class="sh-binder__window" data-sh-bo-window></span>' +
-                  '<span class="sh-binder__rivet sh-binder__rivet--1"></span><span class="sh-binder__rivet sh-binder__rivet--2"></span>' +
+            '<div class="sh-bo__cover">' +
+              '<span class="sh-bo__print" data-sh-bo-print><img alt="" decoding="async"></span>' +
+              '<div class="sh-bo__id">' +
+                '<div class="sh-bo__id-top"><span class="sh-bo__id-no" data-sh-bo-no></span><span class="sh-bo__stamp" data-sh-bo-stamp hidden></span></div>' +
+                '<h2 class="sh-bo__id-title" id="sh-bo-title" data-sh-bo-title></h2>' +
+                '<p class="sh-bo__id-meta" data-sh-bo-meta></p>' +
+                '<p class="sh-bo__id-desc" data-sh-bo-desc></p>' +
+                '<div class="sh-bo__id-foot">' +
+                  '<dl class="sh-bo__facts" data-sh-bo-facts></dl>' +
+                  '<a class="sh-bo__cta" data-sh-bo-all href="files.html">افتح الملف كاملًا <span class="sh-mark"></span></a>' +
                 '</div>' +
               '</div>' +
-              '<div class="sh-bo__spine"><span class="sh-bo__arch"></span><span class="sh-bo__ring sh-bo__ring--1"></span><span class="sh-bo__ring sh-bo__ring--2"></span></div>' +
-              '<div class="sh-bo__pages" data-sh-bo-pages></div>' +
+            '</div>' +
+            '<div class="sh-bo__docs" data-sh-bo-docs>' +
+              '<div class="sh-bo__docs-head"><b>الوثائق داخل الملف</b><span data-sh-bo-count></span></div>' +
+              '<ol class="sh-bo__list" data-sh-bo-list></ol>' +
             '</div>' +
             '<div class="sh-bo__foot">' +
-              '<button type="button" class="sh-bo__turn" data-sh-bo-prev><i class="fa-solid fa-chevron-right" aria-hidden="true"></i>الورقة السابقة</button>' +
+              '<button type="button" class="sh-bo__turn" data-sh-bo-prev aria-label="الملف السابق"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span>الملف السابق</span></button>' +
               '<span class="sh-bo__pos" data-sh-bo-pos></span>' +
-              '<button type="button" class="sh-bo__turn" data-sh-bo-next>الورقة التالية<i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>' +
-              '<a class="sh-more" href="files.html" data-sh-bo-all>افتح الملف كاملًا <span class="sh-more__arrow sh-more__arrow--16"></span></a>' +
+              '<button type="button" class="sh-bo__turn" data-sh-bo-next aria-label="الملف التالي"><span>الملف التالي</span><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>' +
             '</div>' +
+            '<div class="sh-bo__rail" aria-hidden="true"><span class="sh-bo__ring sh-bo__ring--1"></span><span class="sh-bo__ring sh-bo__ring--2"></span></div>' +
           '</div>';
         document.body.appendChild(view);
-        var q = function (s) { return view.querySelector(s); };
-        els = { frame: q('.sh-bo__frame'), book: q('[data-sh-bo-book]'), pages: q('[data-sh-bo-pages]'), coverin: q('[data-sh-bo-coverin]'),
-                win: q('[data-sh-bo-window]'), name: q('[data-sh-bo-name]'), count: q('[data-sh-bo-count]'), pos: q('[data-sh-bo-pos]'),
-                prev: q('[data-sh-bo-prev]'), next: q('[data-sh-bo-next]'), close: q('.sh-bo__close'), all: q('[data-sh-bo-all]') };
-        [].slice.call(view.querySelectorAll('[data-sh-bo-close]')).forEach(function (b) { b.addEventListener('click', close); });
-        els.next.addEventListener('click', function () { turn(cur.page + 1); });
-        els.prev.addEventListener('click', function () { turn(cur.page - 1); });
-        // a sheet turns when you click it, too -- forward on the left pile, back on the right
-        els.pages.addEventListener('click', function (e) {
-          if (e.target.closest('a, button')) return;
-          var sheet = e.target.closest('.sh-bo__sheet');
-          if (!sheet) return;
-          var k = +sheet.getAttribute('data-k');
-          if (sheet.hasAttribute('data-turned')) turn(k); else turn(k + 1);
-        });
+        var q = function (s) { return view.querySelector(s); }, qa = function (s) { return [].slice.call(view.querySelectorAll(s)); };
+        els = { frame: q('.sh-bo__frame'), pos: qa('[data-sh-bo-pos]'), close: q('.sh-bo__close'),
+                print: q('[data-sh-bo-print]'), no: q('[data-sh-bo-no]'), stamp: q('[data-sh-bo-stamp]'), title: q('[data-sh-bo-title]'),
+                meta: q('[data-sh-bo-meta]'), desc: q('[data-sh-bo-desc]'), facts: q('[data-sh-bo-facts]'),
+                all: q('[data-sh-bo-all]'), docs: q('[data-sh-bo-docs]'), count: q('[data-sh-bo-count]'), list: q('[data-sh-bo-list]') };
+        qa('[data-sh-bo-close]').forEach(function (b) { b.addEventListener('click', close); });
+        qa('[data-sh-bo-prev]').forEach(function (b) { b.addEventListener('click', function () { go(-1); }); });
+        qa('[data-sh-bo-next]').forEach(function (b) { b.addEventListener('click', function () { go(1); }); });
         document.addEventListener('keydown', function (e) {
           if (view.hidden) return;
           if (e.key === 'Escape') { e.preventDefault(); close(); }
-          else if (e.key === 'ArrowLeft') { e.preventDefault(); turn(cur.page + 1); }   // RTL: forward is leftward
-          else if (e.key === 'ArrowRight') { e.preventDefault(); turn(cur.page - 1); }
+          else if (e.key === 'ArrowLeft') { e.preventDefault(); go(1); }      // RTL: forward is leftward
+          else if (e.key === 'ArrowRight') { e.preventDefault(); go(-1); }
           else if (e.key === 'Tab') trap(e);
         });
       }
       function trap(e) {
-        var f = [].slice.call(view.querySelectorAll('button, a[href]')).filter(function (n) { return n.offsetParent !== null && !n.disabled && n.tabIndex !== -1; });
+        var f = [].slice.call(view.querySelectorAll('button, a[href]')).filter(function (n) { return n.offsetParent !== null && !n.disabled; });
         if (!f.length) return;
         var first = f[0], last = f[f.length - 1];
         if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
         else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
       }
+      function wrap(i) { return (i + files.length) % files.length; }
 
-      function sheet(k, n, inner, f) {
-        return '<div class="sh-bo__sheet" data-k="' + k + '" style="--k:' + k + '">' +
-          '<div class="sh-bo__sheet-front">' +
-            '<div class="sh-bo__sheet-head"><b>ملف ' + esc(f.no) + ' — ' + esc(f.title) + '</b><span>' + two(k + 1) + ' / ' + two(n) + '</span></div>' +
-            inner +
-          '</div>' +
-          '<div class="sh-bo__sheet-back"><span>' + two(k + 1) + ' / ' + two(n) + '</span></div>' +
-        '</div>';
+      function fill(i) {
+        var f = files[i];
+        cur = i;
+        els.frame.className = 'sh-bo__frame ' + f.desk;                  // the desk's colour rides along
+        view.setAttribute('aria-label', 'ملف ' + f.title);
+        els.pos.forEach(function (p) { p.textContent = two(i + 1) + ' / ' + two(files.length); });
+        els.no.textContent = f.no;
+        if (f.stateText) { els.stamp.textContent = f.stateText; els.stamp.className = 'sh-bo__stamp' + (f.state === 'live' ? ' sh-bo__stamp--live' : ''); els.stamp.hidden = false; }
+        else els.stamp.hidden = true;
+        els.title.textContent = f.title;
+        els.meta.innerHTML = '<b>' + esc(docsWord(f.docs.length)) + '</b>' + (f.updated ? ' · آخر تحديث ' + esc(f.updated) : '');
+        els.desc.innerHTML = f.desc;
+        els.facts.innerHTML = f.facts;
+        var im = els.print.querySelector('img');
+        if (f.cover) {
+          els.print.className = 'sh-bo__print';
+          if (im.getAttribute('src') !== f.cover) im.src = f.cover;
+          im.hidden = false;
+          els.print.innerHTML = ''; els.print.appendChild(im);
+        } else {
+          els.print.className = 'sh-bo__print sh-bo__print--none';
+          im.hidden = true;
+          if (!els.print.querySelector('.sh-mark')) { var m = document.createElement('span'); m.className = 'sh-mark'; els.print.appendChild(m); }
+        }
+        els.all.setAttribute('href', f.href || 'files.html');
+        if (f.href) { els.all.setAttribute('target', '_blank'); els.all.setAttribute('rel', 'noopener'); }
+        else { els.all.removeAttribute('target'); els.all.removeAttribute('rel'); }
+        els.count.textContent = docsWord(f.docs.length) + (f.docs.length > 1 ? ' · الأحدث أولًا' : '');
+        els.list.innerHTML = f.docs.length ? f.docs.map(function (d, k) {
+          return '<li class="sh-bo__doc' + (d.img ? '' : ' sh-bo__doc--noimg') + '">' +
+            '<span class="sh-bo__doc-n">' + two(k + 1) + '</span>' +
+            (d.img ? '<img class="sh-bo__doc-thumb" src="' + esc(d.img) + '" alt="" loading="lazy" decoding="async">' : '<i class="' + esc(d.icon) + '" aria-hidden="true"></i>') +
+            '<span><a href="' + esc(d.href) + '">' + esc(d.t) + '</a>' +
+            '<span class="sh-bo__doc-meta">' + (d.type ? '<b>' + esc(d.type) + '</b>' : '') + (d.date ? '<span>' + esc(d.date) + '</span>' : '') + '</span></span>' +
+          '</li>';
+        }).join('') : '<li class="sh-bo__empty">لا وثائق في هذا الملف بعد.</li>';
+        els.docs.scrollTop = 0;
+        // the shelf shows which folder is open
+        files.forEach(function (o, k) {
+          o.el.setAttribute('data-open', String(k === i));
+          if (o.open) o.open.setAttribute('aria-expanded', String(k === i));
+        });
+        root.setAttribute('data-active', '');
       }
 
       function open(i, from) {
         if (!view) build();
         if (from) opener = from;
-        var f = files[i];
-        cur.f = i;
-        // colours ride on the same modifier class the shelf binder carries
-        els.book.className = 'sh-bo__book ' + f.color;
-        els.book.setAttribute('data-closed', '');
-        els.name.textContent = f.title;
-        els.count.textContent = docsWord(f.docs.length);
-        els.win.textContent = 'ملف خاص · ' + f.no;
-        // a file that has its own page on the site opens there, in a new tab
-        els.all.setAttribute('href', f.href || 'files.html');
-        if (f.href) { els.all.setAttribute('target', '_blank'); els.all.setAttribute('rel', 'noopener'); }
-        else { els.all.removeAttribute('target'); els.all.removeAttribute('rel'); }
-        els.coverin.innerHTML =
-          '<span class="sh-bo__watermark"><span class="sh-mark"></span>شهاب · ملفات خاصة</span>' +
-          (f.stateText ? '<span class="sh-bo__stamp' + (f.state === 'live' ? ' sh-bo__stamp--live' : '') + '">' + esc(f.stateText) + '</span>' : '') +
-          '<div class="sh-bo__pocket"><div class="sh-bo__slip"><span class="sh-mark"></span>' +
-            '<span class="sh-bo__slip-no">' + esc(f.no) + '</span>' +
-            '<span class="sh-bo__slip-name">' + esc(f.title) + '</span>' +
-            '<span class="sh-bo__slip-meta">' + docsWord(f.docs.length) + '</span>' +
-          '</div></div>';
-        // sheets: the card, then the documents
-        var n = 1 + Math.ceil(f.docs.length / PER), html = '';
-        html += sheet(0, n, '<div class="sh-bo__card">' +
-          '<span class="sh-bo__card-no">' + esc(f.no) + '</span>' +
-          '<h3 class="sh-bo__card-title">' + esc(f.title) + '</h3>' +
-          '<p class="sh-bo__card-desc">' + f.desc + '</p>' +
-          '<dl class="sh-bo__facts">' + f.facts + '</dl>' +
-          '<div class="sh-bo__card-foot"><span>' + docsWord(f.docs.length) + ' في هذا الملف</span></div>' +
-          (f.cover ? '<span class="sh-bo__card-photo"><img src="' + esc(f.cover) + '" alt="" decoding="async"></span>' : '') +
-        '</div>', f);
-        for (var p = 0; p < n - 1; p++) {
-          var chunk = f.docs.slice(p * PER, p * PER + PER);
-          html += sheet(p + 1, n,
-            '<ol class="sh-bo__docs">' + chunk.map(function (d, j) {
-              return '<li class="sh-bo__doc' + (d.img ? '' : ' sh-bo__doc--noimg') + '"><i class="' + esc(d.icon) + '" aria-hidden="true"></i>' +
-                (d.img ? '<img class="sh-bo__doc-thumb" src="' + esc(d.img) + '" alt="" loading="lazy" decoding="async">' : '') + '<span>' +
-                '<a href="' + esc(d.href) + '">' + esc(d.t) + '</a>' +
-                '<span class="sh-bo__doc-meta">' + (d.type ? '<b>' + esc(d.type) + '</b>' : '') + (d.date ? '<span>' + esc(d.date) + '</span>' : '') + '</span>' +
-              '</span></li>';
-            }).join('') + '</ol>' +
-            '<div class="sh-bo__sheet-foot"><span>' + esc(f.no) + '</span><span>' + two(p + 1) + ' / ' + two(n - 1) + '</span></div>', f);
+        var first = view.hidden;
+        fill(i);
+        if (first) {
+          view.hidden = false;
+          view.removeAttribute('data-closing');
+          document.documentElement.setAttribute('data-sh-bo-open', '');
+          // off the shelf and into place: the frame starts where the folder is
+          if (!reduce && from) {
+            var a = from.getBoundingClientRect(), b = els.frame.getBoundingClientRect();
+            var s = Math.max(.14, Math.min(a.width / b.width, a.height / b.height));
+            var dx = (a.left + a.width / 2) - (b.left + b.width / 2), dy = (a.top + a.height / 2) - (b.top + b.height / 2);
+            els.frame.style.transition = 'none';
+            els.frame.style.transform = 'translate(' + dx + 'px,' + dy + 'px) scale(' + s.toFixed(3) + ')';
+            els.frame.style.opacity = '.4';
+            void els.frame.offsetWidth;
+            els.frame.style.transition = '';
+            els.frame.style.transform = '';
+            els.frame.style.opacity = '';
+          }
+          els.close.focus();
+        } else if (!reduce) {
+          // moving between files: the cover unfolds again, the list fades in again
+          [].slice.call(view.querySelectorAll('.sh-bo__cover, .sh-bo__docs')).forEach(function (n) { n.style.animation = 'none'; void n.offsetWidth; n.style.animation = ''; });
         }
-        els.pages.innerHTML = html;
-        cur.sheets = [].slice.call(els.pages.children);
-        // painted last-to-first so the first sheet sits on top of the pile
-        cur.sheets.slice().reverse().forEach(function (s) { els.pages.appendChild(s); });
-        cur.page = 0;
-        setPage(0);
-        f.spine.setAttribute('aria-expanded', 'true');
-
-        // off the shelf and into the middle: the frame starts where the spine is
-        view.hidden = false;
-        view.removeAttribute('data-closing');
-        document.documentElement.setAttribute('data-sh-bo-open', '');
-        if (!reduce && from) {
-          var a = from.getBoundingClientRect(), b = els.frame.getBoundingClientRect();
-          var sx = Math.max(.12, a.width / b.width), sy = Math.max(.12, a.height / b.height);
-          var s = Math.min(sx, sy);
-          var dx = (a.left + a.width / 2) - (b.left + b.width / 2), dy = (a.top + a.height / 2) - (b.top + b.height / 2);
-          els.frame.style.transition = 'none';
-          els.frame.style.transform = 'translate(' + dx + 'px,' + dy + 'px) scale(' + s.toFixed(3) + ')';
-          els.frame.style.opacity = '0';
-          void els.frame.offsetWidth;
-          els.frame.style.transition = '';
-          els.frame.style.transform = '';
-          els.frame.style.opacity = '';
-        }
-        els.close.focus();
-        clearTimeout(timer);
-        // the cover swings open once the binder has landed
-        timer = setTimeout(function () { els.book.removeAttribute('data-closed'); }, reduce ? 0 : 420);
       }
-
-      function setPage(p) {
-        var n = cur.sheets.length;
-        cur.page = p;
-        cur.sheets.forEach(function (s, k) {
-          if (k < p) s.setAttribute('data-turned', ''); else s.removeAttribute('data-turned');
-          if (k === p) s.setAttribute('data-current', ''); else s.removeAttribute('data-current');
-          s.setAttribute('aria-hidden', String(k !== p));
-          s.style.zIndex = String(k < p ? k + 1 : n - k + n);   // turned sheets pile up on the right, later ones on top
-          [].slice.call(s.querySelectorAll('a')).forEach(function (a) { a.tabIndex = k === p ? 0 : -1; });
-        });
-        els.pos.innerHTML = 'الورقة <span>' + two(p + 1) + '</span> من <span>' + two(n) + '</span>';
-        els.prev.disabled = p === 0;
-        els.next.disabled = p >= n - 1;
-      }
-      function turn(p) {
-        if (p < 0 || p >= cur.sheets.length || p === cur.page) return;
-        setPage(p);
-      }
+      function go(step) { if (files.length > 1) open(wrap(cur + step)); }
       function close() {
         if (!view || view.hidden || closing) return;
         closing = 1;
-        clearTimeout(timer);
-        els.book.setAttribute('data-closed', '');          // the cover shuts first
+        view.setAttribute('data-closing', '');
         setTimeout(function () {
-          view.setAttribute('data-closing', '');
-          setTimeout(function () {
-            view.hidden = true;
-            view.removeAttribute('data-closing');
-            document.documentElement.removeAttribute('data-sh-bo-open');
-            els.pages.innerHTML = '';
-            cur = { f: -1, page: 0, sheets: [] };
-            files.forEach(function (f) { if (f.spine) f.spine.setAttribute('aria-expanded', 'false'); });
-            closing = 0;
-            if (opener && opener.focus) opener.focus();
-          }, reduce ? 0 : 260);
-        }, reduce ? 0 : 520);
+          view.hidden = true;
+          view.removeAttribute('data-closing');
+          document.documentElement.removeAttribute('data-sh-bo-open');
+          root.removeAttribute('data-active');
+          var back = files[cur] && files[cur].open ? files[cur].open : opener;   // the file that is open now
+          files.forEach(function (o) { o.el.removeAttribute('data-open'); if (o.open) o.open.setAttribute('aria-expanded', 'false'); });
+          cur = -1;
+          closing = 0;
+          if (back && back.focus) back.focus();
+        }, reduce ? 0 : 220);
       }
+    });
+  }
+
+  /* 16. Day counters. [data-sh-since="YYYY-MM-DD"] fills its [data-sh-days]
+         with the number of days since that date, today included. -------- */
+  function since() {
+    document.querySelectorAll('[data-sh-since]').forEach(function (el) {
+      var out = el.querySelector('[data-sh-days]');
+      if (!out) return;
+      var from = new Date(el.getAttribute('data-sh-since') + 'T00:00:00');
+      if (isNaN(from)) return;
+      var now = new Date(); now.setHours(0, 0, 0, 0);
+      var days = Math.floor((now - from) / 864e5) + 1;
+      if (days > 0) out.textContent = String(days);
+    });
+  }
+
+  /* 17. فيديو شهاب — the playlist feeds the small player (a row's data-sh-src /
+         data-sh-poster / data-sh-chip / data-sh-meta and its own title go into
+         the player, which starts), and the reels rail slides with its arrows.
+         The player itself is player() above, on the same hooks. ------------ */
+  function videoDeck() {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('[data-sh-vid]').forEach(function (root) {
+      var stage = root.querySelector('[data-sh-player]');
+      var v = stage && stage.querySelector('[data-sh-video]');
+      var title = root.querySelector('[data-sh-vid-title]'), chip = root.querySelector('[data-sh-vid-chip]'), meta = root.querySelector('[data-sh-vid-meta]');
+      var rows = [].slice.call(root.querySelectorAll('[data-sh-vid-item]'));
+      rows.forEach(function (row) {
+        row.addEventListener('click', function (e) {
+          if (!v || e.metaKey || e.ctrlKey || e.shiftKey || e.button > 0) return;   // a new tab still gets the watch page
+          e.preventDefault();
+          var src = row.getAttribute('data-sh-src'), poster = row.getAttribute('data-sh-poster');
+          rows.forEach(function (r) { r.setAttribute('aria-current', String(r === row)); });
+          if (title) title.textContent = (row.querySelector('.sh-vid__item-t') || row).textContent.replace(/\s+/g, ' ').trim();
+          if (chip && row.getAttribute('data-sh-chip')) chip.textContent = row.getAttribute('data-sh-chip');
+          if (meta && row.getAttribute('data-sh-meta')) meta.textContent = row.getAttribute('data-sh-meta');
+          if (poster) v.setAttribute('poster', poster);
+          if (src && v.currentSrc.indexOf(src) === -1) {
+            var s = v.querySelector('source');
+            if (s) s.setAttribute('src', src); else v.setAttribute('src', src);
+            v.load();
+          } else v.currentTime = 0;
+          var p = v.play(); if (p && p.catch) p.catch(function () {});
+          if (stage.scrollIntoView && stage.getBoundingClientRect().top < 0) stage.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
+        });
+      });
+
+      var rail = root.querySelector('[data-sh-reels-rail]');
+      var prev = root.querySelector('[data-sh-reels-prev]'), next = root.querySelector('[data-sh-reels-next]');
+      if (!rail || !prev || !next) return;
+      var reels = [].slice.call(rail.children);
+      function step() { return reels[1] ? Math.abs(reels[1].offsetLeft - reels[0].offsetLeft) * 2 : 300; }   // two reels a click
+      function paint() {
+        var x = Math.abs(rail.scrollLeft), max = rail.scrollWidth - rail.clientWidth;
+        prev.disabled = x < 2; next.disabled = x >= max - 2;
+      }
+      next.addEventListener('click', function () { rail.scrollBy({ left: -step(), behavior: reduce ? 'auto' : 'smooth' }); });   // RTL: forward is leftward
+      prev.addEventListener('click', function () { rail.scrollBy({ left: step(), behavior: reduce ? 'auto' : 'smooth' }); });
+      rail.addEventListener('scroll', paint, { passive: true });
+      window.addEventListener('resize', paint);
+      paint();
+    });
+  }
+
+  /* 18. كاريكاتير اليوم — one drawing at a time in the aside card. The arrows,
+         the keyboard arrows while the card has focus, and a swipe on the stage
+         all move it; RTL, so forward is leftward (ArrowLeft = next, a drag to
+         the left = next). Slides are links, so a drag must not count as a
+         click. The title under the drawing is the slide's data-sh-title. ---- */
+  function carica() {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('[data-sh-car]').forEach(function (root) {
+      var stage = root.querySelector('[data-sh-car-stage]');
+      var slides = [].slice.call(root.querySelectorAll('[data-sh-car-slide]'));
+      var title = root.querySelector('[data-sh-car-title]'), pos = root.querySelector('[data-sh-car-pos]');
+      var prev = root.querySelector('[data-sh-car-prev]'), next = root.querySelector('[data-sh-car-next]');
+      if (!stage || !prev || !next || slides.length < 2) return;
+      var i = 0;
+      slides.forEach(function (s, k) { if (s.getAttribute('aria-current') === 'true') i = k; });
+      function pad2(n) { return n < 10 ? '0' + n : '' + n; }
+      function paint() {
+        slides.forEach(function (s, k) {
+          s.setAttribute('aria-current', k === i ? 'true' : 'false');
+          s.tabIndex = k === i ? 0 : -1;
+        });
+        if (title) title.textContent = slides[i].getAttribute('data-sh-title') || '';
+        if (pos) pos.textContent = pad2(i + 1) + ' / ' + pad2(slides.length);
+      }
+      function go(k, dir) {
+        var n = slides.length, was = i;
+        i = ((k % n) + n) % n;                                   // wraps at both ends
+        if (i === was) return;
+        stage.setAttribute('data-dir', dir);
+        void slides[i].offsetWidth;                              // the entering slide starts from the right side
+        slides[was].setAttribute('data-leave', '');
+        setTimeout(function () { slides[was].removeAttribute('data-leave'); }, reduce ? 0 : 420);
+        paint();
+      }
+      next.addEventListener('click', function () { go(i + 1, 'next'); });
+      prev.addEventListener('click', function () { go(i - 1, 'prev'); });
+      root.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); go(i + 1, 'next'); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); go(i - 1, 'prev'); }
+      });
+
+      var x0 = null, moved = false;
+      stage.addEventListener('pointerdown', function (e) { if (e.button > 0) return; x0 = e.clientX; moved = false; });
+      stage.addEventListener('pointermove', function (e) { if (x0 !== null && Math.abs(e.clientX - x0) > 6) moved = true; });
+      stage.addEventListener('pointerup', function (e) {
+        if (x0 === null) return;
+        var dx = e.clientX - x0; x0 = null;
+        if (dx < -40) go(i + 1, 'next');                         // dragged leftward: forward
+        else if (dx > 40) go(i - 1, 'prev');
+      });
+      stage.addEventListener('pointercancel', function () { x0 = null; });
+      stage.addEventListener('click', function (e) { if (moved) { e.preventDefault(); moved = false; } }, true);
+      stage.addEventListener('dragstart', function (e) { e.preventDefault(); });
+      paint();
     });
   }
 
   function init() {
     paintDate(); ticker(); tabs(); galleries(); menus(); hero();
-    lightbox(); player(); loadMore(); pager(); files(); filters(); hubs(); binders(); transition();
+    lightbox(); player(); loadMore(); pager(); files(); filters(); hubs(); binders(); since(); videoDeck(); carica(); transition();
     setInterval(paintDate, 60000);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

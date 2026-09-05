@@ -97,7 +97,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 .sh-sections-interactive-map__section-1{position:relative;background:var(--sh-navy);color:#fff;margin-top:44px;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);align-items:stretch}
 .sh-sections-interactive-map__span-1{position:absolute;top:-240px;right:-180px;width:600px;height:600px;border:1px solid rgba(126,168,221,.16);border-radius:50%;pointer-events:none}
 .sh-sections-interactive-map__div-1{position:relative;padding:28px 28px 30px;display:flex;flex-direction:column;justify-content:center}
-.sh-sections-interactive-map__span-2{width:24px;height:1px;background:var(--sh-blue)}
+.sh-sections-interactive-map__span-2{width:24px;aspect-ratio:100/41.59;height:auto;background:var(--sh-blue);-webkit-mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat}
 .sh-sections-interactive-map__h2-1{font-family:var(--sh-font);font-size:23px;font-weight:800;line-height:1.5;margin:10px 0 0;display:flex;align-items:flex-start;gap:10px}
 .sh-sections-interactive-map__span-3{width:16px;height:13px;background:var(--sh-blue);margin-top:11px;flex:none}
 .sh-sections-interactive-map__p-1{font-family:var(--sh-serif);font-size:13.5px;line-height:1.95;color:var(--sh-on-dark-72);margin:12px 0 0;max-width:44ch}

@@ -1,0 +1,91 @@
+<!-- مكتب اليوم — النسخة الثانية (الأرقام الأربعة + موجز شهاب + الخريطة التحريرية).
+     اتشال من الرئيسية ومكانه «مكتبة الصور | انفوجرافيك». مرجع فقط، لا شيء يحمّل هذا
+     الملف. الماركب كما كان في index.html ثم قواعده من css/pages/index.css. النسخة
+     الأولى في partials/desk-v1.html. -->
+
+        <!-- THE DAY'S DESK — the figures first, then the brief and the map -->
+        <section data-screen-label="Brief Numbers Map" class="sh-desk">
+          <div class="sh-desk__head">
+            <h2 class="sh-section__title">
+              <span class="sh-mark sh-mark--md"></span>مكتب اليوم
+            </h2>
+            <span class="sh-desk__date">الخميس 4 سبتمبر 2026</span>
+          </div>
+          <div class="sh-desk__figures">
+            <a href="article.html" class="sh-desk__fig"><b>4</b><span>شهداء وإصابات بقصف الاحتلال في جباليا شمال قطاع غزة اليوم</span></a>
+            <a href="article.html" class="sh-desk__fig"><b>1244</b><span>مسجدًا مدمرًا من أصل 1275 في قطاع غزة <em>— وزارة الأوقاف</em></span></a>
+            <a href="article.html" class="sh-desk__fig"><b>114</b><span>أمرًا عسكريًا لإنشاء أو توسيع مناطق نفوذ المستوطنات منذ 7 أكتوبر 2023</span></a>
+            <a href="article.html" class="sh-desk__fig"><b>60</b><span>شاحنة مساعدات تدخل يوميًا من أصل 600 نصّ عليها الاتفاق</span></a>
+          </div>
+          <div class="sh-desk__body">
+            <div class="sh-desk__brief">
+              <div class="sh-desk__sub">موجز شهاب</div>
+              <ol class="sh-desk__list">
+                <li><a href="article.html"><span class="sh-desk__time">08:51 م</span>أردوغان: الأتراك والأكراد والعرب إخوة لا يفرقهم أحد</a></li>
+                <li><a href="article.html"><span class="sh-desk__time">08:51 م</span>عُمان ترجح إعلان ممر مؤقت في هرمز قريبًا</a></li>
+                <li><a href="article.html"><span class="sh-desk__time">09:31 م</span>قوات الاحتلال تفرج عن القيادي رأفت ناصيف من طولكرم</a></li>
+                <li><a href="article.html"><span class="sh-desk__time">اليوم</span>قوات الاحتلال تقتحم بلدة بلعا شمال طولكرم</a></li>
+                <li><a href="article.html"><span class="sh-desk__time">09:31 م</span>دعوات للمشاركة الواسعة في فعاليات اليوم الوطني لاسترداد جثامين الشهداء</a></li>
+                <li><a href="article.html"><span class="sh-desk__time">اليوم</span>نعيم: هدم مقر الأونروا بالقدس جريمة حرب وانتهاك صارخ للقانون الدولي</a></li>
+              </ol>
+            </div>
+            <a href="article.html" class="sh-desk__map">
+              <img src="assets/images/palestine-map.png" alt="خريطة فلسطين" loading="lazy" decoding="async">
+              <span class="sh-desk__map-body">
+                <span class="sh-desk__sub sh-desk__sub--light">الخريطة التحريرية</span>
+                <span class="sh-desk__map-t">فلسطين — أرض واحدة، من البحر إلى النهر</span>
+                <span class="sh-desk__map-links"><span>بالأرقام | 1000 يوم على حرب الإبادة في غزة</span><span>خريطة الخط الأصفر ومناطق إعادة الانتشار</span></span>
+              </span>
+            </a>
+          </div>
+        </section>
+
+<style>
+/* ============================================================================
+   مكتب اليوم — the figures first, big and plain, each with the line it came
+   from; then the brief, six lines with their times, beside the map.
+   ========================================================================== */
+.sh-desk{padding:0 0 64px}
+.sh-desk__head{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:12px}
+.sh-desk__date{font-size:12px;color:var(--sh-mute);font-variant-numeric:tabular-nums}
+.sh-desk__figures{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--sh-hair-2)}
+.sh-desk__fig{display:flex;flex-direction:column;gap:6px;padding:20px 18px 18px 14px;border-inline-start:1px solid var(--sh-hair);color:var(--sh-ink);min-width:0}
+.sh-desk__fig:first-child{border-inline-start:0;padding-inline-start:0}
+.sh-desk__fig:last-child{padding-inline-end:0}
+.sh-desk__fig:hover{color:var(--sh-blue)}
+.sh-desk__fig b{font-family:var(--sh-font);font-size:44px;font-weight:800;line-height:1;color:var(--sh-navy);font-variant-numeric:tabular-nums;direction:ltr;text-align:start}
+.sh-desk__fig:hover b{color:var(--sh-blue)}
+.sh-desk__fig span{font-size:12.5px;line-height:1.65;color:var(--sh-ink-2)}
+.sh-desk__fig em{font-style:normal;color:var(--sh-mute);font-size:11.5px}
+.sh-desk__body{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:0 40px;margin-top:6px}
+.sh-desk__sub{font-family:var(--sh-font);font-size:12px;font-weight:800;color:var(--sh-blue);padding:16px 0 10px;border-bottom:1px solid var(--sh-hair)}
+.sh-desk__list{list-style:none;margin:0;padding:0;columns:2;column-gap:36px}
+.sh-desk__list li{break-inside:avoid}
+.sh-desk__list a{display:grid;grid-template-columns:56px minmax(0,1fr);gap:10px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--sh-hair);color:var(--sh-ink);font-family:var(--sh-font);font-size:13.5px;font-weight:700;line-height:1.6}
+.sh-desk__list a:hover{color:var(--sh-blue)}
+.sh-desk__time{font-family:inherit;font-size:11.5px;font-weight:400;color:var(--sh-mute);font-variant-numeric:tabular-nums}
+.sh-desk__map{position:relative;display:block;overflow:hidden;background:var(--sh-navy);color:#fff;margin-top:16px;aspect-ratio:16/9}
+.sh-desk__map:hover{color:#fff}
+.sh-desk__map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.9;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.sh-desk__map:hover img{transform:scale(1.03)}
+.sh-desk__map::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.92) 0,rgba(10,26,51,.2) 55%,rgba(10,26,51,0))}
+.sh-desk__map-body{position:absolute;inset:auto 0 0 0;z-index:1;display:flex;flex-direction:column;gap:8px;padding:0 18px 16px}
+.sh-desk__sub--light{padding:0;border:0;color:var(--sh-sky)}
+.sh-desk__map-t{font-family:var(--sh-font);font-size:16px;font-weight:800;line-height:1.5}
+.sh-desk__map-links{display:flex;flex-direction:column;gap:4px;font-size:11.5px;color:var(--sh-on-dark-75)}
+.sh-desk__map-links span::before{content:"";display:inline-block;width:10px;height:1px;background:var(--sh-sky);margin-inline-end:7px;vertical-align:middle}
+@media (max-width:900px){
+  .sh-desk__figures{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sh-desk__fig:nth-child(3){border-inline-start:0;padding-inline-start:0}
+  .sh-desk__fig:nth-child(-n+2){border-bottom:1px solid var(--sh-hair)}
+  .sh-desk__body{grid-template-columns:minmax(0,1fr)}
+  .sh-desk__list{columns:1}
+}
+@media (max-width:640px){
+  .sh-desk__fig b{font-size:34px}
+  .sh-desk__fig{padding:14px 12px 12px 10px}
+}
+@media (prefers-reduced-motion:reduce){
+  .sh-rep__lead-img,.sh-rep__pic img,.sh-desk__map img{transition:none}
+}
+</style>

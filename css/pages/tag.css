@@ -7,7 +7,7 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2.05}
 .sh-tag-tag-header__section-1{margin-top:12px;background:#f4f6f9;border-right:4px solid var(--sh-blue);padding:20px 22px 18px}
 .sh-tag-tag-header__div-1{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 30px}
 .sh-tag-tag-header__span-1{display:flex;align-items:center;gap:11px;font-family:var(--sh-font);font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--sh-blue)}
-.sh-tag-tag-header__span-2{width:22px;height:1px;background:var(--sh-blue)}
+.sh-tag-tag-header__span-2{width:22px;aspect-ratio:100/41.59;height:auto;background:var(--sh-blue);-webkit-mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat}
 .sh-tag-tag-header__span-3{color:var(--sh-mute);font-weight:400}
 .sh-tag-tag-header__h1-1{display:flex;align-items:baseline;gap:12px;font-family:var(--sh-font);font-size:clamp(30px,3.5vw,44px);font-weight:800;line-height:1.1;margin:10px 0 0;color:var(--sh-navy)}
 .sh-tag-tag-header__span-4{color:var(--sh-grey-2);font-weight:800}
@@ -83,4 +83,4 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2.05}
 .sh-tag-tag-follow__span-1{display:flex;align-items:center;gap:11px;font-size:12.5px;color:var(--sh-ink-2)}
 .sh-tag-tag-follow__a-1{display:inline-flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:12px;font-weight:800;color:var(--sh-blue);white-space:nowrap}
 .sh-tag-tag-follow__a-1:hover{gap:16px}
-.sh-tag-tag-follow__span-2{width:15px;height:1px;background:currentColor}
+.sh-tag-tag-follow__span-2{width:15px;aspect-ratio:100/41.59;height:auto;background:currentColor;-webkit-mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat}

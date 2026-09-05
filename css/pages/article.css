@@ -59,7 +59,7 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2.1}
 .sh-article-article-end__span-4{width:5px;height:5px;background:var(--sh-red);border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite}
 .sh-article-article-end__span-5{display:block;font-family:var(--sh-font);font-size:17px;font-weight:800;margin-top:8px;line-height:1.6}
 .sh-article-article-end__span-6{display:flex;align-items:center;gap:6px;flex:none}
-.sh-article-article-end__span-7{width:16px;height:1px;background:var(--sh-sky)}
+.sh-article-article-end__span-7{width:16px;aspect-ratio:100/41.59;height:auto;background:var(--sh-sky);-webkit-mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat}
 .sh-article-article-sidebar__aside-1{align-self:start;position:sticky;top:24px}
 .sh-article-article-sidebar__div-1{display:grid;grid-template-columns:38px 1fr;gap:13px;align-items:start}
 .sh-article-article-sidebar__span-1{width:38px;height:38px;background:var(--sh-navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--sh-font);font-weight:800;font-size:14px}

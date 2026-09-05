@@ -84,4 +84,4 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2.05}
 .sh-newsletter-closing__span-3{display:block;font-size:13px;color:var(--sh-ink-2);margin-top:7px;line-height:1.9}
 .sh-newsletter-closing__a-2{display:inline-flex;align-items:center;gap:11px;margin-top:14px;border:1px solid var(--sh-grey-1);color:var(--sh-navy);font-family:var(--sh-font);font-size:12px;font-weight:800;padding:11px 24px;white-space:nowrap}
 .sh-newsletter-closing__a-2:hover{background:var(--sh-navy);border-color:var(--sh-navy);color:#fff;gap:17px}
-.sh-newsletter-closing__span-4{width:15px;height:1px;background:currentColor}
+.sh-newsletter-closing__span-4{width:15px;aspect-ratio:100/41.59;height:auto;background:currentColor;-webkit-mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat}

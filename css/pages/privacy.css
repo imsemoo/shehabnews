@@ -26,5 +26,5 @@ h2{scroll-margin-top:24px}
 .sh-privacy-privacy-body__span-1{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--sh-mute)}
 .sh-privacy-privacy-body__a-2{display:inline-flex;align-items:center;gap:11px;border:1px solid var(--sh-grey-1);color:var(--sh-navy);font-family:var(--sh-font);font-size:12px;font-weight:800;padding:11px 22px;white-space:nowrap}
 .sh-privacy-privacy-body__a-2:hover{background:var(--sh-navy);border-color:var(--sh-navy);color:#fff;gap:17px}
-.sh-privacy-privacy-body__span-2{width:15px;height:1px;background:currentColor}
+.sh-privacy-privacy-body__span-2{width:15px;aspect-ratio:100/41.59;height:auto;background:currentColor;-webkit-mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat}
 .sh-privacy-body__div-1{height:40px}
