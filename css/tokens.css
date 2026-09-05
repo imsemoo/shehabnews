@@ -78,7 +78,7 @@
   --sh-font-stack:'Almarai','Noto Naskh Arabic',system-ui,sans-serif;
 
   /* --- layout ----------------------------------------------------------- */
-  --sh-container:1280px;
+  --sh-container:1400px;           /* content 1336: fills 1366–1536 laptops, still framed on 1920 */
 
   /* --- aliases: the old names, resolved on the system above -------------- */
   --sh-navy:var(--color-brand-navy);

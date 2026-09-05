@@ -1,0 +1,196 @@
+/* شهاب — ثيم المشغّل (Vidstack 1.15.6) على هوية الدار.
+
+   يُحمَّل بعد theme.css و layouts/video.css من assets/vendor/vidstack/styles.
+   الأساس المشترك لكل تجارب الفيديو: المشاهدة، البث المباشر، الريلز، الشورتس.
+   الأزرق أزرق الدار، الخط Almarai، زوايا حادة زي كل البلاطات، القوائم على
+   الكحلي، الأرقام جدولية LTR. المشغّل نفسه dir="ltr" (انظر js/player.js). */
+
+media-player.sh-vs,
+media-player[data-sh-vs]{
+  /* ---- Default Layout knobs ---- */
+  --video-brand:var(--sh-blue);
+  --video-font-family:var(--sh-font);
+  --video-controls-color:#fff;
+  --video-bg:#000;
+  --video-border:0;
+  --video-border-radius:0;
+  --video-focus-ring-color:var(--sh-sky);
+  --video-focus-ring:0 0 0 2px var(--sh-sky);
+  --video-load-button-bg:var(--sh-blue);
+  --video-load-button-border:0;
+  --video-load-button-color:#fff;
+  --video-load-button-border-radius:0;
+  --video-slider-thumbnail-border:2px solid #fff;
+  --video-slider-thumbnail-border-radius:0;
+  --video-time-bg:rgba(10,26,51,.8);
+  --video-volume-bg:rgba(10,26,51,.94);
+  --video-volume-border:1px solid rgba(255,255,255,.14);
+  --video-volume-border-radius:0;
+  --video-sm-play-button-bg:var(--sh-blue);
+  --video-sm-start-duration-bg:rgba(10,26,51,.8);
+  --video-sm-start-duration-color:#fff;
+  /* ---- shared component knobs ---- */
+  --media-brand:var(--sh-blue);
+  --media-font-family:var(--sh-font);
+  --media-button-border-radius:0;
+  --media-slider-track-border-radius:0;
+  --media-menu-bg:rgba(10,26,51,.96);
+  --media-menu-border-radius:0;
+  --media-menu-divider:1px solid rgba(255,255,255,.12);
+  --media-menu-item-border-radius:0;
+  --media-tooltip-border-radius:0;
+  --media-tooltip-bg:rgba(10,26,51,.94);
+  --media-buffering-track-color:rgba(255,255,255,.5);
+  --media-buffering-size:72px;
+  --media-cue-font-size:calc(var(--media-height)/100 * 4.5);
+  --media-cue-border-radius:0;
+  --media-cue-bg:rgba(10,26,51,.82);
+  --media-thumbnail-border:2px solid #fff;
+  direction:ltr;
+  display:block;
+  width:100%;
+  background:#000;
+  color:#fff;
+  font-family:var(--sh-font);
+  font-variant-numeric:tabular-nums;
+  contain:layout style;
+}
+media-player.sh-vs video{object-fit:cover}
+media-player.sh-vs[data-fullscreen] video{object-fit:contain}
+
+/* ---- text inside the layout: house font, tabular digits, Arabic labels RTL-safe ---- */
+media-player.sh-vs .vds-video-layout{font-family:var(--sh-font)}
+media-player.sh-vs .vds-time{font-family:var(--sh-font);font-variant-numeric:tabular-nums;font-weight:700;letter-spacing:0}
+media-player.sh-vs .vds-chapter-title{font-family:var(--sh-font);font-weight:800;direction:rtl;unicode-bidi:isolate}
+media-player.sh-vs .vds-slider-chapter-title{direction:rtl;unicode-bidi:isolate;font-family:var(--sh-font)}
+media-player.sh-vs .vds-tooltip-content{font-family:var(--sh-font);font-weight:700;direction:rtl;unicode-bidi:isolate;border-radius:0}
+media-player.sh-vs .vds-menu-items{border-radius:0;direction:rtl;font-family:var(--sh-font);box-shadow:0 18px 40px -18px rgba(0,0,0,.8)}
+media-player.sh-vs .vds-menu-item,
+media-player.sh-vs .vds-menu-button,
+media-player.sh-vs .vds-radio{border-radius:0}
+media-player.sh-vs .vds-menu-section{border-radius:0}
+media-player.sh-vs .vds-menu-section-title{font-weight:800}
+media-player.sh-vs .vds-chapter-radio-start-time,
+media-player.sh-vs .vds-chapter-radio-duration{font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
+media-player.sh-vs .vds-captions{font-family:var(--sh-font);direction:rtl}
+media-player.sh-vs .vds-captions [data-part="cue"]{font-weight:700;line-height:1.7}
+
+/* ---- sliders: a hairline that grows on hover, the mark-blue fill ---- */
+media-player.sh-vs .vds-time-slider{--media-slider-track-height:3px;--media-slider-focused-track-height:5px;--media-slider-thumb-size:13px;--media-slider-focused-thumb-size:15px}
+media-player.sh-vs .vds-slider-track-fill{background:var(--sh-blue)}
+media-player.sh-vs .vds-slider-progress{background:rgba(255,255,255,.35)}
+media-player.sh-vs .vds-slider-thumb{background:#fff;border:2px solid var(--sh-blue);border-radius:50%}
+
+/* ---- live button: red word when on the edge, grey when behind ---- */
+media-player.sh-vs .vds-live-button{border-radius:0;font-family:var(--sh-font);font-weight:800;letter-spacing:0}
+media-player.sh-vs .vds-live-button-text{font-size:11px}
+media-player.sh-vs .vds-live-button[data-edge] .vds-live-button-text{background:var(--color-red-soft);color:#fff}
+media-player.sh-vs .vds-live-button:not([data-edge]) .vds-live-button-text{background:rgba(255,255,255,.18);color:#fff}
+
+/* ---- no Google Cast here: hide its button ---- */
+media-player.sh-vs .vds-google-cast-button{display:none}
+
+/* ---- error overlay (js/player.js) ---- */
+media-player.sh-vs .sh-vs__error{
+  position:absolute;inset:0;z-index:60;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  padding:24px;background:var(--color-scrim);color:#fff;text-align:center;direction:rtl;font-family:var(--sh-font);
+}
+media-player.sh-vs .sh-vs__error-mark{width:34px;aspect-ratio:100/41.59;height:auto;background:var(--sh-sky);-webkit-mask:url(../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../assets/images/mark-arrow.svg) center/contain no-repeat}
+media-player.sh-vs .sh-vs__error-text{margin:0;font-size:15px;font-weight:700;line-height:1.7;max-width:36ch}
+media-player.sh-vs .sh-vs__error-btn{
+  display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:0;background:var(--sh-blue);color:#fff;
+  font-family:var(--sh-font);font-size:13px;font-weight:800;cursor:pointer;transition:background .2s ease;
+}
+media-player.sh-vs .sh-vs__error-btn:hover{background:var(--color-brand-blue-deep)}
+media-player.sh-vs .sh-vs__error-btn:focus-visible{outline:2px solid var(--sh-sky);outline-offset:2px}
+media-player.sh-vs[data-sh-error] .vds-video-layout{visibility:hidden}
+
+/* ---- house badges laid over any player (live, kicker) ---- */
+.sh-vs__badge{
+  position:absolute;top:12px;inset-inline-start:12px;z-index:40;display:inline-flex;align-items:center;gap:7px;
+  padding:4px 9px;background:var(--color-red-soft);color:#fff;font-family:var(--sh-font);font-size:11px;font-weight:800;
+  letter-spacing:.04em;direction:rtl;pointer-events:none;
+}
+.sh-vs__badge-dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:sh-vs-pulse 1.6s ease-in-out infinite}
+@keyframes sh-vs-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.7)}}
+@media (prefers-reduced-motion:reduce){.sh-vs__badge-dot{animation:none}}
+
+/* ---- keyboard bezel + buffering in house colours ---- */
+media-player.sh-vs .vds-kb-bezel{border-radius:0;background:rgba(10,26,51,.82)}
+media-player.sh-vs .vds-buffering-indicator [data-part="track-fill"],
+media-player.sh-vs .vds-buffering-indicator circle[data-part="track-fill"]{color:var(--sh-sky)}
+
+/* ---- live: the small layout's start-duration bubble means nothing on a stream ---- */
+media-player.sh-vs[data-live] .vds-start-duration{display:none}
+
+/* ==== lite layout — short-form (reels / shorts) on the same core ==============
+   No Default Layout here: a 9:16 stage with our own overlay built from Vidstack
+   components (media-gesture, media-play-button, media-mute-button,
+   media-time-slider). The player attributes drive everything:
+   [data-paused] [data-playing] [data-waiting] [data-muted] [data-ended]
+   [data-started] [data-can-play]. The slider paints from --slider-fill. */
+media-player.sh-vs--lite{aspect-ratio:9/16;background:var(--sh-navy-2);overflow:hidden}
+media-player.sh-vs--lite video{object-fit:cover}
+media-player.sh-vs--lite media-provider{width:100%;height:100%;aspect-ratio:auto}
+media-player.sh-vs--lite .sh-lite{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;justify-content:flex-end;pointer-events:none}
+media-player.sh-vs--lite .sh-lite > *{pointer-events:auto}
+media-player.sh-vs--lite media-gesture{position:absolute;inset:0;z-index:0}
+media-player.sh-vs--lite .sh-lite__poster{position:absolute;inset:0;z-index:1;background:var(--sh-navy-2) center/cover no-repeat;transition:opacity .3s ease;pointer-events:none}
+media-player.sh-vs--lite[data-started] .sh-lite__poster{opacity:0}
+media-player.sh-vs--lite .sh-lite__scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(to top,rgba(10,26,51,.9) 0,rgba(10,26,51,.5) 28%,rgba(10,26,51,0) 55%),linear-gradient(to bottom,rgba(10,26,51,.55) 0,rgba(10,26,51,0) 22%)}
+
+/* centre play: shows while paused / before start; hides while playing */
+media-player.sh-vs--lite .sh-lite__play{
+  position:absolute;top:50%;left:50%;z-index:6;width:58px;height:58px;margin:-29px 0 0 -29px;border:0;border-radius:50%;cursor:pointer;
+  background:rgba(10,26,51,.72);color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;
+  transition:opacity .2s ease,transform .2s ease,background .2s ease;
+}
+media-player.sh-vs--lite .sh-lite__play:hover{background:var(--sh-blue)}
+media-player.sh-vs--lite .sh-lite__play i{margin-left:3px}
+media-player.sh-vs--lite .sh-lite__play .fa-pause{display:none;margin:0}
+media-player.sh-vs--lite[data-playing] .sh-lite__play{opacity:0;transform:scale(.8);pointer-events:none}
+media-player.sh-vs--lite[data-waiting] .sh-lite__play{opacity:0}
+media-player.sh-vs--lite .sh-lite__play:focus-visible{outline:2px solid var(--sh-sky);outline-offset:3px}
+
+/* buffering ring */
+media-player.sh-vs--lite .sh-lite__wait{
+  position:absolute;top:50%;left:50%;z-index:6;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;
+  border:3px solid rgba(255,255,255,.25);border-top-color:#fff;opacity:0;pointer-events:none;animation:sh-lite-spin .9s linear infinite;
+}
+media-player.sh-vs--lite[data-waiting] .sh-lite__wait{opacity:1}
+@keyframes sh-lite-spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){media-player.sh-vs--lite .sh-lite__wait{animation-duration:2s}}
+
+/* top row: mute + kicker */
+media-player.sh-vs--lite .sh-lite__top{position:absolute;top:10px;inset-inline:10px;z-index:6;display:flex;align-items:center;justify-content:space-between;direction:rtl}
+media-player.sh-vs--lite .sh-lite__mute{
+  width:34px;height:34px;border:0;border-radius:50%;background:rgba(10,26,51,.7);color:#fff;font-size:13px;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;transition:background .2s ease;
+}
+media-player.sh-vs--lite .sh-lite__mute:hover{background:var(--sh-blue)}
+media-player.sh-vs--lite .sh-lite__mute .fa-volume-xmark{display:none}
+media-player.sh-vs--lite .sh-lite__mute[data-state="muted"] .fa-volume-high,
+media-player.sh-vs--lite .sh-lite__mute[data-muted] .fa-volume-high{display:none}
+media-player.sh-vs--lite .sh-lite__mute[data-state="muted"] .fa-volume-xmark,
+media-player.sh-vs--lite .sh-lite__mute[data-muted] .fa-volume-xmark{display:inline}
+media-player.sh-vs--lite .sh-lite__mute:focus-visible{outline:2px solid var(--sh-sky);outline-offset:2px}
+media-player.sh-vs--lite .sh-lite__len{display:inline-flex;align-items:center;gap:5px;padding:3px 7px;background:rgba(10,26,51,.72);color:#fff;font-family:var(--sh-font);font-size:11px;font-weight:700;font-variant-numeric:tabular-nums;direction:ltr}
+media-player.sh-vs--lite .sh-lite__len i{font-size:10px}
+
+/* caption block */
+media-player.sh-vs--lite .sh-lite__body{position:relative;z-index:6;display:flex;flex-direction:column;gap:6px;padding:0 12px 14px;direction:rtl;color:#fff;font-family:var(--sh-font)}
+media-player.sh-vs--lite .sh-lite__chip{align-self:flex-start;padding:2px 8px;background:var(--sh-blue);font-size:10.5px;font-weight:800}
+media-player.sh-vs--lite .sh-lite__chip--red{background:var(--sh-red)}
+media-player.sh-vs--lite .sh-lite__t{margin:0;font-size:13.5px;font-weight:700;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-wrap:pretty}
+media-player.sh-vs--lite .sh-lite__t a{color:#fff}
+media-player.sh-vs--lite .sh-lite__meta{font-size:10.5px;color:rgba(255,255,255,.7)}
+
+/* progress: a hairline at the very bottom, thicker on hover, house blue fill */
+media-player.sh-vs--lite .sh-lite__slider{
+  position:absolute;inset-inline:0;bottom:0;z-index:7;height:14px;display:block;cursor:pointer;touch-action:none;
+  --sh-track:2px;
+}
+media-player.sh-vs--lite .sh-lite__slider:hover,media-player.sh-vs--lite .sh-lite__slider[data-dragging]{--sh-track:4px}
+media-player.sh-vs--lite .sh-lite__track{position:absolute;inset-inline:0;bottom:0;height:var(--sh-track);background:rgba(255,255,255,.28);transition:height .15s ease}
+media-player.sh-vs--lite .sh-lite__fill{position:absolute;left:0;top:0;bottom:0;width:var(--slider-fill,0%);background:var(--sh-blue)}
+media-player.sh-vs--lite .sh-lite__slider:focus-visible{outline:2px solid var(--sh-sky);outline-offset:-2px}
