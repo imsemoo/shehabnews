@@ -9,7 +9,7 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2}
 .sh-map-hero__stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--color-border);border:1px solid var(--color-border)}
 .sh-map-hero__stat{background:#fff;padding:16px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
 .sh-map-hero__stat b{font-family:var(--sh-font);font-size:clamp(24px,2.6vw,34px);font-weight:800;line-height:1;color:var(--sh-navy)}
-.sh-map-hero__stat span{font-family:var(--sh-font);font-size:11.5px;font-weight:700;color:var(--sh-mute);line-height:1.6}
+.sh-map-hero__stat span{font-family:var(--sh-font);font-size:12px;font-weight:700;color:var(--sh-mute);line-height:1.6}
 .sh-map-hero__stat--hot{background:var(--sh-navy)}
 .sh-map-hero__stat--hot b{color:#fff}
 .sh-map-hero__stat--hot span{color:var(--sh-sky)}
@@ -26,7 +26,7 @@ html[data-compact] .sh-map-tools{top:var(--sh-compact-h,92px)}
 .sh-map-layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(300px,.8fr);gap:0;margin-top:18px;border:1px solid var(--color-border)}
 .sh-map-stage{position:relative;min-height:560px;background:var(--color-surface-soft)}
 .sh-map{position:absolute;inset:0;font-family:var(--sh-font)}
-.sh-map-legend{position:absolute;bottom:12px;inset-inline-start:12px;z-index:400;display:flex;flex-wrap:wrap;gap:6px 12px;padding:8px 12px;background:rgba(255,255,255,.94);border:1px solid var(--color-border);font-family:var(--sh-font);font-size:11px;font-weight:800;color:var(--sh-navy);max-width:calc(100% - 24px)}
+.sh-map-legend{position:absolute;bottom:12px;inset-inline-start:12px;z-index:400;display:flex;flex-wrap:wrap;gap:6px 12px;padding:8px 12px;background:rgba(255,255,255,.94);border:1px solid var(--color-border);font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:var(--sh-navy);max-width:calc(100% - 24px)}
 .sh-map__lg{display:inline-flex;align-items:center;gap:6px}
 .sh-map__lg i{width:10px;height:10px;border-radius:50%;border:1.5px solid #fff;box-shadow:0 0 0 1px rgba(10,26,51,.2)}
 .sh-map-panel{display:flex;flex-direction:column;min-width:0;border-inline-start:1px solid var(--color-border);max-height:560px}
@@ -39,7 +39,7 @@ html[data-compact] .sh-map-tools{top:var(--sh-compact-h,92px)}
 .sh-map__row[aria-current]{background:var(--color-surface-blue);box-shadow:inset 3px 0 0 var(--sh-blue)}
 .sh-map__row-dot{width:12px;height:12px;border-radius:50%;margin-top:4px;border:2px solid #fff;box-shadow:0 0 0 1px rgba(10,26,51,.25)}
 .sh-map__row-body{display:flex;flex-direction:column;gap:3px;min-width:0}
-.sh-map__row-k{font-family:var(--sh-font);font-size:11px;font-weight:800;color:var(--sh-blue)}
+.sh-map__row-k{font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:var(--sh-blue)}
 .sh-map__row-t{font-family:var(--sh-font);font-size:13.5px;font-weight:700;line-height:1.6}
 .sh-map__row-time{font-size:11.5px;color:var(--sh-mute);font-variant-numeric:tabular-nums}
 /* pins + popup */
@@ -75,5 +75,19 @@ html[data-compact] .sh-map-tools{top:var(--sh-compact-h,92px)}
   .sh-map-method__grid{grid-template-columns:minmax(0,1fr)}
   .sh-map-chip--ghost{margin-inline-start:0}
 }
-@media (max-width:640px){.sh-map-hero__stats{grid-template-columns:minmax(0,1fr)}.sh-map-stage{min-height:360px}}
+@media (max-width:640px){
+  .sh-map-hero{padding:22px 0 18px}
+  .sh-map-hero__stats{grid-template-columns:repeat(3,minmax(0,1fr))}   /* three across, compact, not three stacked blocks */
+  .sh-map-hero__stat{padding:12px 10px}
+  .sh-map-hero__stat b{font-size:clamp(20px,6vw,26px)}
+  .sh-map-hero__stat span{font-size:12px;line-height:1.5}
+  .sh-map-tools{gap:6px 12px;padding:10px 0}
+  .sh-map-chip{min-height:44px;padding:0 14px}   /* thumbs */
+  .sh-map-stage{min-height:380px}
+  .sh-map-panel{max-height:420px}
+  .sh-map__row{padding:12px 14px;min-height:44px}
+  .leaflet-bar a,.leaflet-touch .leaflet-bar a{width:44px;height:44px;line-height:44px;font-size:22px}   /* beats leaflet.css .leaflet-touch rule */
+  .leaflet-container a.leaflet-popup-close-button{width:44px;height:44px;font-size:24px;line-height:44px}
+  .sh-map-method{padding:28px 0 40px;margin-top:24px}
+}
 @media (prefers-reduced-motion:reduce){.sh-map__pin--fresh{animation:none}}

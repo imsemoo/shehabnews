@@ -22,3 +22,7 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2}
 .sh-saved-empty b{font-family:var(--sh-font);font-size:16px;font-weight:800;color:var(--sh-navy)}
 .sh-saved-empty span{font-size:13.5px;color:var(--sh-mute)}
 .sh-saved-empty .sh-more{margin-top:8px}
+
+@media (max-width:640px){
+  .sh-saved-hero__clear,.sh-saved-body .sh-more,.sh-saved-body a,.sh-saved-body button{min-height:44px;display:inline-flex;align-items:center}
+}

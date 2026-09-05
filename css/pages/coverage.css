@@ -68,10 +68,11 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:1.95}
 .sh-coverage-timeline__span-24{display:block;font-family:var(--sh-font);font-size:19px;font-weight:700;line-height:1.7;margin-top:6px;text-wrap:pretty;color:var(--sh-navy)}
 .sh-coverage-timeline__p-1{font-size:13px;line-height:1.95;color:var(--sh-ink-2);margin:8px 0 0;max-width:62ch;text-wrap:pretty}
 .sh-coverage-timeline__span-25{display:block;margin-top:16px;max-width:680px;background:var(--sh-navy);overflow:hidden;position:relative}
-.sh-coverage-timeline__span-26{display:block;aspect-ratio:15/8;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=1600);background-size:cover;background-position:center 45%}
+.sh-coverage-timeline__span-26{display:block;aspect-ratio:15/8;position:relative;overflow:hidden}
+.sh-coverage-timeline__span-26 img,.sh-coverage-timeline__span-29 img,.sh-coverage-timeline__span-39 img,.sh-coverage-timeline__span-42 img,.sh-coverage-timeline__span-44 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%}
 .sh-coverage-timeline__span-27{position:absolute;bottom:0;right:0;left:0;background:var(--sh-navy);opacity:.92;color:#fff;font-size:11.5px;padding:8px 12px;display:flex;align-items:center;gap:8px}
 .sh-coverage-timeline__span-28{display:inline-flex;align-items:center;gap:9px;margin-top:10px;font-size:12px;font-weight:700;color:var(--sh-blue)}
-.sh-coverage-timeline__span-29{display:block;aspect-ratio:15/8;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=1600);background-size:cover;background-position:center 45%}
+.sh-coverage-timeline__span-29{display:block;aspect-ratio:15/8;position:relative;overflow:hidden}
 .sh-coverage-timeline__div-4{display:grid;grid-template-columns:72px 28px 1fr;align-items:center;padding:8px 0 0}
 .sh-coverage-timeline__span-30{display:flex;justify-content:center}
 .sh-coverage-timeline__span-31{width:16px;height:13px;background:#fff;border:2px solid var(--sh-blue)}
@@ -90,13 +91,13 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:1.95}
 .sh-coverage-timeline__a-3{display:block;padding:16px 0 0}
 .sh-coverage-timeline__a-3:hover{color:var(--sh-blue)}
 .sh-coverage-timeline__span-38{position:relative;display:block;aspect-ratio:15/8;background:var(--sh-navy);overflow:hidden}
-.sh-coverage-timeline__span-39{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=1600);background-size:cover;background-position:center}
+.sh-coverage-timeline__span-39{position:absolute;inset:0;overflow:hidden}
 .sh-coverage-timeline__span-40{display:grid;grid-template-columns:1fr;gap:9px;margin-top:9px;align-items:start}
 .sh-coverage-timeline__span-41{font-family:var(--sh-font);font-size:13.5px;font-weight:700;line-height:1.65;color:var(--sh-ink);text-wrap:pretty}
-.sh-coverage-timeline__span-42{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/UNRWA%20el-Sheikh%20Radwan%20health%20center%2C%20February%202024.jpg?width=1600);background-size:cover;background-position:center}
+.sh-coverage-timeline__span-42{position:absolute;inset:0;overflow:hidden}
 .sh-coverage-timeline__span-43{position:absolute;bottom:8px;right:8px;background:var(--sh-navy);color:#fff;font-size:11px;padding:3px 8px;display:flex;align-items:center;gap:6px}
 .sh-coverage-timeline__i-1{font-size:9px}
-.sh-coverage-timeline__span-44{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20view%20of%20destruction%20in%20Beach%20refugee%20camp%2C%20Gaza%20Strip.jpg?width=1600);background-size:cover;background-position:center}
+.sh-coverage-timeline__span-44{position:absolute;inset:0;overflow:hidden}
 .sh-coverage-timeline__a-4{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:12px;color:var(--sh-blue);font-weight:700}
 .sh-coverage-timeline__a-4:hover{gap:13px}
 .sh-coverage-background__section-1{background:#f7f9fc;margin:0 -32px;padding:0 32px}
@@ -125,3 +126,29 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:1.95}
 .sh-coverage-related__a-1{display:block;padding:16px 0}
 .sh-coverage-related__a-1:hover{color:var(--sh-blue)}
 .sh-coverage-related__span-2{display:block;font-family:var(--sh-font);font-size:15.5px;font-weight:700;line-height:1.7;margin-top:7px;color:var(--sh-navy);text-wrap:pretty}
+
+/* ---- phones: a narrower time column so the entry text keeps its width ---- */
+@media (max-width:640px){
+  .sh-coverage-coverage-hero__div-1{min-height:300px;padding:0 16px}
+  .sh-coverage-coverage-hero__div-2{width:100%}
+  .sh-coverage-coverage-hero__h1-1{font-size:21px;line-height:1.55}
+  .sh-coverage-coverage-nav__div-1{padding:0 16px;gap:12px}
+  .sh-coverage-coverage-nav__div-2{flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;gap:20px}
+  .sh-coverage-coverage-nav__div-2::-webkit-scrollbar{display:none}
+  .sh-coverage-coverage-nav__div-2 a{white-space:nowrap;min-height:44px;display:inline-flex;align-items:center;padding:0}
+  .sh-coverage-coverage-nav__span-1{display:none}
+  .sh-coverage-timeline__span-4{right:54px}
+  .sh-coverage-timeline__div-3,.sh-coverage-timeline__a-1,.sh-coverage-timeline__a-2,.sh-coverage-timeline__div-4{grid-template-columns:46px 20px 1fr}
+  .sh-coverage-timeline__span-8,.sh-coverage-timeline__span-17,.sh-coverage-timeline__span-22{font-size:12px;padding-left:4px}
+  .sh-coverage-timeline__span-10,.sh-coverage-timeline__span-18,.sh-coverage-timeline__span-21,.sh-coverage-timeline__span-31{width:13px;height:11px;outline-width:3px}
+  .sh-coverage-timeline__span-11,.sh-coverage-timeline__span-23{padding-right:10px}
+  .sh-coverage-timeline__span-15,.sh-coverage-timeline__span-20{font-size:15px;line-height:1.65}
+  .sh-coverage-timeline__span-24{font-size:17px;line-height:1.6}
+  .sh-coverage-timeline__section-1{padding-bottom:40px}
+  .sh-coverage-background__div-1{padding:32px 0 36px}
+  .sh-coverage-related__section-1{padding:32px 0 40px}
+  .sh-coverage-timeline__a-4,.sh-coverage-related__div-1 .sh-more,.sh-coverage-timeline__span-32 .sh-link{min-height:44px;display:inline-flex;align-items:center}
+}
+@media (prefers-reduced-motion:reduce){
+  .sh-coverage-coverage-hero__span-1,.sh-coverage-timeline__span-3,.sh-coverage-timeline__span-35{animation:none}
+}

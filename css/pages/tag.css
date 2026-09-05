@@ -7,7 +7,7 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2.05}
 .sh-tag-tag-header__section-1{margin-top:12px;background:#f4f6f9;border-right:4px solid var(--sh-blue);padding:20px 22px 18px}
 .sh-tag-tag-header__div-1{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 30px}
 .sh-tag-tag-header__span-1{display:flex;align-items:center;gap:11px;font-family:var(--sh-font);font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--sh-blue)}
-.sh-tag-tag-header__span-2{width:22px;aspect-ratio:100/41.59;height:auto;background:var(--sh-blue);-webkit-mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat}
+.sh-tag-tag-header__span-2{display:none}
 .sh-tag-tag-header__span-3{color:var(--sh-mute);font-weight:400}
 .sh-tag-tag-header__h1-1{display:flex;align-items:baseline;gap:12px;font-family:var(--sh-font);font-size:clamp(30px,3.5vw,44px);font-weight:800;line-height:1.1;margin:10px 0 0;color:var(--sh-navy)}
 .sh-tag-tag-header__span-4{color:var(--sh-grey-2);font-weight:800}
@@ -46,7 +46,7 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2.05}
 .sh-tag-tag-lead__span-9{display:block;font-family:var(--sh-font);font-size:clamp(19px,2.1vw,26px);font-weight:800;line-height:1.45;margin-top:11px;max-width:32ch;text-wrap:pretty}
 .sh-tag-tag-lead__span-10{display:block;font-family:var(--sh-serif);font-size:13px;line-height:1.95;color:rgba(255,255,255,.78);margin-top:10px;max-width:48ch;text-wrap:pretty}
 .sh-tag-tag-lead__div-1{display:flex;flex-direction:column;gap:0}
-.sh-tag-tag-lead__a-2{display:grid;grid-template-columns:minmax(0,1fr) 104px;gap:14px;align-items:start;padding:13px 0;border-bottom:1px solid var(--sh-hair-3)}
+.sh-tag-tag-lead__a-2{display:grid;grid-template-columns:minmax(0,1fr) 104px;gap:14px;align-items:start;padding:13px 0;}
 .sh-tag-tag-lead__a-2:hover{color:var(--sh-blue)}
 .sh-tag-tag-lead__span-11{display:flex;align-items:center;gap:9px;font-size:11px;color:var(--sh-mute)}
 .sh-tag-tag-lead__span-12{display:block;font-family:var(--sh-font);font-size:15px;font-weight:700;line-height:1.65;margin-top:7px;color:var(--sh-ink);text-wrap:pretty}
@@ -55,8 +55,8 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2.05}
 .sh-tag-tag-lead__span-15{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=800");background-size:cover;background-position:center 40%}
 .sh-tag-tag-lead__span-16{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=800");background-size:cover;background-position:center 40%}
 .sh-tag-tag-listing__section-1{margin-top:26px}
-.sh-tag-tag-listing__div-1{display:flex;align-items:baseline;justify-content:space-between;gap:14px;border-top:2px solid var(--sh-ink);padding-top:12px}
-.sh-tag-tag-listing__a-1{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--sh-hair)}
+.sh-tag-tag-listing__div-1{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding-top:12px}
+.sh-tag-tag-listing__a-1{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--color-border-soft)}
 .sh-tag-tag-listing__a-1:hover{color:var(--sh-blue)}
 .sh-tag-tag-listing__span-1{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:15/8}
 .sh-tag-tag-listing__span-2{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Omar%20Mukhtar%20panorama%20-%20panoramio.jpg?width=1200");background-size:cover;background-position:center 42%}
@@ -83,4 +83,4 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2.05}
 .sh-tag-tag-follow__span-1{display:flex;align-items:center;gap:11px;font-size:12.5px;color:var(--sh-ink-2)}
 .sh-tag-tag-follow__a-1{display:inline-flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:12px;font-weight:800;color:var(--sh-blue);white-space:nowrap}
 .sh-tag-tag-follow__a-1:hover{gap:16px}
-.sh-tag-tag-follow__span-2{width:15px;aspect-ratio:100/41.59;height:auto;background:currentColor;-webkit-mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat}
+.sh-tag-tag-follow__span-2{display:none}

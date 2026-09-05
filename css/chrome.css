@@ -54,6 +54,9 @@ html[data-compact] .sh-brief-btn{padding:0 10px}
 /* ---- breaking takeover: hidden until the feed says otherwise ---- */
 .sh-breaking{background:var(--sh-red);color:#fff;border-bottom:1px solid rgba(0,0,0,.12)}
 .sh-breaking[hidden]{display:none}
+/* one «عاجل» at a time: while the breaking bar is up it takes the ticker's slot, and the
+   ticker steps aside; closing the bar (feed.js sets hidden) brings the ticker back */
+.sh-header:has(.sh-breaking:not([hidden])) .sh-ticker{display:none}
 .sh-breaking__inner{max-width:var(--sh-container);margin:0 auto;padding:0 32px;min-height:50px;display:flex;align-items:center;gap:16px}
 .sh-breaking__tag{display:flex;align-items:center;gap:8px;padding:5px 10px;border:1px solid rgba(255,255,255,.55);font-family:var(--sh-font);font-size:12px;font-weight:800;flex:none}
 .sh-breaking__title{flex:1 1 auto;min-width:0;font-family:var(--sh-font);font-size:15px;font-weight:800;color:#fff;line-height:1.5}

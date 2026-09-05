@@ -30,20 +30,20 @@
 <link rel="preload" href="assets/fonts/almarai-700-arabic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/almarai-800-arabic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/noto-naskh-arabic-arabic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/fonts.css?v=119">
-<link rel="stylesheet" href="css/transition.css?v=119">
-<link rel="stylesheet" href="css/tokens.css?v=119">
-<link rel="stylesheet" href="css/base.css?v=119">
-<link rel="stylesheet" href="css/header.css?v=119">
-<link rel="stylesheet" href="css/widgets.css?v=119">
-<link rel="stylesheet" href="css/footer.css?v=119">
-<link rel="stylesheet" href="css/components.css?v=119">
-<link rel="stylesheet" href="css/chrome.css?v=119">
-<link rel="stylesheet" href="css/feed.css?v=119">
-<link rel="stylesheet" href="css/pages/files.css?v=119">
-<link rel="stylesheet" href="css/mark.css?v=119">
-<link rel="stylesheet" href="css/responsive.css?v=119">
-<link rel="stylesheet" href="css/brief.css?v=119">
+<link rel="stylesheet" href="css/fonts.css?v=127">
+<link rel="stylesheet" href="css/transition.css?v=127">
+<link rel="stylesheet" href="css/tokens.css?v=127">
+<link rel="stylesheet" href="css/base.css?v=127">
+<link rel="stylesheet" href="css/header.css?v=127">
+<link rel="stylesheet" href="css/widgets.css?v=127">
+<link rel="stylesheet" href="css/footer.css?v=127">
+<link rel="stylesheet" href="css/components.css?v=127">
+<link rel="stylesheet" href="css/chrome.css?v=127">
+<link rel="stylesheet" href="css/feed.css?v=127">
+<link rel="stylesheet" href="css/pages/files.css?v=127">
+<link rel="stylesheet" href="css/mark.css?v=127">
+<link rel="stylesheet" href="css/responsive.css?v=127">
+<link rel="stylesheet" href="css/brief.css?v=127">
 <script type="speculationrules">{"prerender": [{"where": {"and": [{"href_matches": "/*.html"}, {"not": {"href_matches": ["/live.html", "/reels.html", "/shorts.html", "/video-watch.html", "/now.html", "/map.html"]}}]}, "eagerness": "moderate"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "name": "ملفات شهاب", "description": "الملفات الخاصة والتغطيات المعمّقة: وثائق، خرائط، وخطوط زمنية.", "url": "https://shehabnews.com/files.html", "publisher": {"@type": "NewsMediaOrganization", "name": "وكالة شهاب للأنباء", "url": "https://shehabnews.com/", "logo": {"@type": "ImageObject", "url": "https://shehabnews.com/assets/images/icon-512.png", "width": 512, "height": 512}, "sameAs": ["https://www.facebook.com/sahpp2023", "https://twitter.com/ShehabAgency", "https://www.instagram.com/shehabagency/", "https://www.youtube.com/channel/UChvBXfexWtP5gdGZespJnZw", "https://t.me/ShehabTelegram", "https://www.tiktok.com/@shehab_news"]}, "inLanguage": "ar"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://shehabnews.com/"}, {"@type": "ListItem", "position": 2, "name": "ملفات شهاب", "item": "https://shehabnews.com/files.html"}]}]}</script>
 </head>
@@ -183,8 +183,6 @@
           <button type="button" aria-label="إيقاف التبديل التلقائي" aria-pressed="false" data-sh="ticker-pause" class="sh-ticker__btn sh-ticker__btn--pause"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-pause"></use></svg></button>
           <button type="button" aria-label="الخبر التالي" data-sh="ticker-next" class="sh-ticker__btn">›</button>
         </div>
-        <span class="sh-ticker__sep"></span>
-        <a href="coverage.html" class="sh-ticker__cta">التغطية الحية<span class="sh-ticker__cta-arrow" aria-hidden="true"></span></a>
       </div>
     </div>
     <span class="sr-only" aria-live="polite" data-sh-announce></span>
@@ -202,63 +200,61 @@
 
 <main id="main" class="sh-container">
 
-<nav class="sh-files-body__nav-1">
+<nav class="sh-fl-crumbs" aria-label="مسار الصفحة">
   <a href="index.html" class="sh-mute">الرئيسية</a>
-  
-  <span class="sh-link">الملفات الخاصة</span>
+  <span class="sh-link" aria-current="page">الملفات الخاصة</span>
 </nav>
 
-<section data-screen-label="Files Hero" class="sh-files-files-hero__section-1">
-  <div class="sh-files-files-hero__div-1">
-    <div>
-      <span class="sh-files-files-hero__span-1">القسم<span class="sh-files-files-hero__span-2"></span></span>
-      <h1 class="sh-files-files-hero__h1-1">ملفات شهاب</h1>
-      <p class="sh-files-files-hero__p-1">تحقيقات وملفات خاصة تضع القصة كاملة أمامك</p>
+<!-- HERO — a real photograph leads; the open file sits on it as a dossier card at its natural size (content: shehabnews.com/special-file) -->
+<section data-screen-label="Files Hero" class="sh-fl-hero">
+  <img src="assets/images/gaza-coast.webp" width="1600" height="900" alt="" fetchpriority="high" decoding="async" class="sh-fl-hero__photo">
+  <span class="sh-fl-hero__scrim" aria-hidden="true"></span>
+  <div class="sh-fl-hero__inner">
+    <div class="sh-fl-hero__lead">
+      <span class="sh-fl-hero__eyebrow">القسم · تحقيقات وملفات خاصة</span>
+      <h1 class="sh-fl-hero__h1">ملفات شهاب</h1>
+      <p class="sh-fl-hero__dek">تحقيقات وملفات خاصة تضع القصة كاملة أمامك</p>
+      <div class="sh-fl-open">
+        <span class="sh-fl-open__tags"><span class="sh-fl-open__chip">ملف مفتوح</span><span class="sh-fl-open__no">آخر إضافة يوليو 2026</span></span>
+        <a href="https://shehabnews.com/special-file/35/1000-يوم-على-حرب-الإبادة" class="sh-fl-open__title">1000 يوم على حرب الإبادة</a>
+        <ul class="sh-fl-open__list">
+          <li>خبير بيئي لـ شهاب: 1000 يوم من الإبادة وضعت غزة في مربع «الإبادة البيئية»</li>
+          <li>المسماري لـ شهاب: استباحة غزة تضع الأمة أمام مسؤولياتها التاريخية</li>
+        </ul>
+        <a href="https://shehabnews.com/special-file/35/1000-يوم-على-حرب-الإبادة" class="sh-fl-open__cta">استكشف الملف <span class="sh-more__arrow sh-more__arrow--16 sh-more__arrow--cc"></span></a>
+      </div>
     </div>
-    <div class="sh-files-files-hero__div-2">
-      <span class="sh-files-files-hero__span-3">
-        <span class="sh-files-files-hero__span-4">ملف مفتوح</span>
-        <span class="sh-files-files-hero__span-5">ملف 07 / 14</span>
-      </span>
-      <span class="sh-files-files-hero__span-6">1000 يوم على حرب الإبادة.. أرقام توثّق الجريمة</span>
-      <span class="sh-files-files-hero__span-7"><span>38 مادة</span><span>آخر تحديث منذ ساعتين</span><span>غزة</span></span>
-      <a href="coverage.html" class="sh-files-files-hero__a-1">استكشف الملف <span class="sh-more__arrow sh-more__arrow--16 sh-more__arrow--cc"></span></a>
-    </div>
-  </div>
-  <div class="sh-files-files-hero__div-3">
-    <span class="sh-files-files-hero__span-8">شهاب<span class="sh-files-files-hero__span-9"></span>ملفات</span>
-    <img src="assets/images/file-1000-days.webp" width="452" height="267" alt="" class="sh-files-files-hero__img-1">
-    <span class="sh-files-files-hero__span-10"></span>
-    <span class="sh-files-files-hero__span-11"></span>
-  </div>
-  <span class="sh-files-files-hero__span-12"></span>
-  <span class="sh-files-files-hero__span-13"></span>
-  <span class="sh-files-files-hero__span-14"></span>
-  <span class="sh-files-files-hero__span-15"></span>
-  <span class="sh-files-files-hero__span-16">07</span>
-</section>
-
-<section data-screen-label="Featured Special" class="sh-files-featured-special__section-1">
-  <a href="coverage.html" class="sh-files-featured-special__a-1">
-    <img src="assets/images/file-aqmar-altoufan.webp" width="366" height="220" alt="" class="sh-files-featured-special__img-1">
-    <span class="sh-files-featured-special__span-1"></span>
-  </a>
-  <div class="sh-files-featured-special__div-1">
-    <span class="sh-files-featured-special__span-2">الملف الرئيسي<span class="sh-files-featured-special__span-3"></span></span>
-    <h2 class="sh-files-featured-special__h2-1">أقمار الطوفان.. رحلة الغياب والعودة</h2>
-    <p class="sh-files-featured-special__p-1">ملف يوثّق سيرة الأسرى المحرّرين في صفقات التبادل، من لحظة الاعتقال إلى لحظة العودة، بشهادات وصور ووثائق حصرية جمعتها شهاب على مدار عامين.</p>
-    <div class="sh-files-featured-special__div-2">
-      <span><span class="sh-files-featured-special__span-4">25</span><span class="sh-files-featured-special__span-5">مادة</span></span>
-      <span><span class="sh-files-featured-special__span-4">2</span><span class="sh-files-featured-special__span-5">ساعتين — آخر تحديث</span></span>
-      <span><span class="sh-files-featured-special__span-4">12</span><span class="sh-files-featured-special__span-5">شهادة حصرية</span></span>
-    </div>
-    <a href="coverage.html" class="sh-files-featured-special__a-2">دخول الملف <span class="sh-more__arrow sh-more__arrow--16 sh-more__arrow--cc"></span></a>
+    <a href="https://shehabnews.com/special-file/35/1000-يوم-على-حرب-الإبادة" class="sh-fl-hero__card" aria-label="1000 يوم على حرب الإبادة — غلاف الملف">
+      <img src="assets/images/file-1000-days.webp" width="452" height="267" alt="" decoding="async">
+      <span class="sh-fl-brand">شهاب<span class="sh-fl-brand__line"></span>ملفات</span>
+    </a>
   </div>
 </section>
 
-<nav data-screen-label="Topics" class="sh-files-topics__nav-1">
-  <span class="sh-files-topics__span-1">الملفات حسب الموضوع</span>
-  <a href="category.html" class="sh-files-topics__a-1">غزة</a>
+<!-- الملف الرئيسي -->
+<section data-screen-label="Featured Special" class="sh-fl-feat">
+  <div class="sh-fl-feat__visual">
+    <a href="https://shehabnews.com/special-file/34/أقمار-الطوفان" class="sh-fl-feat__card" aria-label="أقمار الطوفان">
+      <img src="assets/images/file-aqmar-altoufan.webp" width="366" height="220" alt="" decoding="async">
+    </a>
+    <span class="sh-fl-feat__cap">غلاف الملف — سلسلة «أقمار الطوفان»</span>
+  </div>
+  <div class="sh-fl-feat__body">
+    <span class="sh-fl-eyebrow">الملف الرئيسي</span>
+    <h2 class="sh-fl-feat__title">أقمار الطوفان</h2>
+    <p class="sh-fl-feat__dek">سلسلة شهداء القسام في معركة طوفان الأقصى — مشاهد ووثائق تنشرها كتائب القسام تباعًا، وتوثّقها شهاب في ملف واحد.</p>
+    <div class="sh-fl-feat__stats sh-fl-feat__list">
+      <span><span class="sh-fl-feat__lbl">من الملف</span><span class="sh-fl-feat__item">القسام توثق جانبًا من تدريبات القائد أبو صهيب الحداد في سلاح البحرية</span></span>
+      <span><span class="sh-fl-feat__lbl">من الملف</span><span class="sh-fl-feat__item">ضمن «أقمار الطوفان».. القسام تنشر مشاهد للشهيد نائل النجار</span></span>
+      <span><span class="sh-fl-feat__lbl">آخر إضافة</span><span class="sh-fl-feat__item">أغسطس 2026</span></span>
+    </div>
+    <a href="https://shehabnews.com/special-file/34/أقمار-الطوفان" class="sh-fl-feat__cta">دخول الملف <span class="sh-more__arrow sh-more__arrow--16 sh-more__arrow--cc"></span></a>
+  </div>
+</section>
+
+<nav data-screen-label="Topics" class="sh-fl-topics" aria-label="الملفات حسب الموضوع">
+  <span class="sh-fl-topics__label">الملفات حسب الموضوع</span>
+  <a href="category.html" class="sh-fl-topics__cur" aria-current="page">غزة</a>
   <a href="category.html" class="sh-tabs__link">فلسطين</a>
   <a href="category.html" class="sh-tabs__link">سياسة</a>
   <a href="category.html" class="sh-tabs__link">اقتصاد</a>
@@ -268,279 +264,188 @@
   <a href="files.html?desk=%D8%A5%D9%86%D9%81%D9%88%D8%BA%D8%B1%D8%A7%D9%81%D9%8A%D9%83" class="sh-tabs__link">إنفوغرافيك</a>
 </nav>
 
-<div data-screen-label="Files Body" class="sh-files-files-body__div-1">
-  <section data-screen-label="Latest Files" class="sh-min0">
+<div data-screen-label="Files Body" class="sh-fl-body">
+  <section data-screen-label="Latest Files" class="sh-fl-latest sh-min0" id="latest">
     <div class="sh-section__head">
-      <h2 class="sh-section__title sh-section__title--md">أحدث الملفات</h2>
-      <span class="sh-meta__note">14 ملفًا مفتوحًا</span>
+      <h2 class="sh-section__title"><span class="sh-mark sh-mark--md"></span>أحدث الملفات</h2>
+      <span class="sh-meta__note">20 ملفًا</span>
     </div>
-    <div class="sh-files-latest-files__div-1">
-      
-        <a href="files.html" class="sh-files-latest-files__a-1">
-          <span class="sh-files-latest-files__span-1">
-            <span class="sh-files-latest-files__span-2">ملف<span class="sh-files-latest-files__span-3"></span></span>
-            <span class="sh-files-latest-files__span-4">01</span>
-          </span>
-          <span class="sh-files-latest-files__span-5">
-            <span class="sh-files-latest-files__span-6"></span>
-          </span>
-          <span class="sh-files-latest-files__span-7">
-            <span class="sh-files-latest-files__span-8">رحيل الضيف.. القائد الذي أرهق الاحتلال</span>
-            <span class="sh-files-latest-files__span-9">سيرة محمد الضيف من مخيم خانيونس إلى قيادة كتائب القسام، بوثائق وشهادات لم تُنشر من قبل.</span>
-            <span class="sh-files-latest-files__span-10">
-              <span class="sh-files-latest-files__span-11"><span>31 مادة</span><span>منذ يوم</span></span>
-              <span class="sh-files-latest-files__span-12"><span class="sh-more__arrow sh-more__arrow--14 sh-more__arrow--cc"></span></span>
-            </span>
-          </span>
-        </a>
-      
-        <a href="article.html" class="sh-files-latest-files__a-2">
-          <span class="sh-files-latest-files__span-13">
-            <span class="sh-eyebrow">رياضة<span class="sh-files-latest-files__span-3"></span></span>
-            <span class="sh-files-latest-files__span-4">02</span>
-          </span>
-          <span class="sh-files-latest-files__span-14">
-            <span class="sh-files-latest-files__span-15"></span>
-          </span>
-          <span class="sh-files-latest-files__span-16">
-            <span class="sh-files-latest-files__span-17">كأس العالم 2026.. فلسطين في المدرجات</span>
-            <span class="sh-files-latest-files__span-9">الحضور الفلسطيني في مونديال أمريكا الشمالية.</span>
-            <span class="sh-files-latest-files__span-10">
-              <span class="sh-files-latest-files__span-11"><span>9 مادة</span><span>منذ 3 أيام</span></span>
-              <span class="sh-files-latest-files__span-18"><span class="sh-more__arrow sh-more__arrow--14 sh-more__arrow--cc"></span></span>
-            </span>
-          </span>
-        </a>
-      
-        <a href="article.html" class="sh-files-latest-files__a-3">
-          <span class="sh-files-latest-files__span-1">
-            <span class="sh-files-latest-files__span-2">تحقيق<span class="sh-files-latest-files__span-3"></span></span>
-            <span class="sh-files-latest-files__span-4">03</span>
-          </span>
-          <span class="sh-files-latest-files__span-19">
-            <span class="sh-files-latest-files__span-20"></span>
-          </span>
-          <span class="sh-files-latest-files__span-7">
-            <span class="sh-files-latest-files__span-21">خريطة الضم.. من التوسع إلى الواقع</span>
-            <span class="sh-files-latest-files__span-9">كيف تُعاد هندسة الضفة الغربية قطعةً قطعة.</span>
-            <span class="sh-files-latest-files__span-10">
-              <span class="sh-files-latest-files__span-11"><span>14 مادة</span><span>منذ أسبوع</span></span>
-              <span class="sh-files-latest-files__span-12"><span class="sh-more__arrow sh-more__arrow--14 sh-more__arrow--cc"></span></span>
-            </span>
-          </span>
-        </a>
-      
-        <a href="article.html" class="sh-files-latest-files__a-2">
-          <span class="sh-files-latest-files__span-13">
-            <span class="sh-eyebrow">إنساني<span class="sh-files-latest-files__span-3"></span></span>
-            <span class="sh-files-latest-files__span-4">04</span>
-          </span>
-          <span class="sh-files-latest-files__span-22">
-            <span class="sh-files-latest-files__span-23"></span>
-          </span>
-          <span class="sh-files-latest-files__span-16">
-            <span class="sh-files-latest-files__span-21">شتاء الخيام.. المواسي تحت المطر</span>
-            <span class="sh-files-latest-files__span-9">النزوح الثاني حين يأتي الشتاء.</span>
-            <span class="sh-files-latest-files__span-10">
-              <span class="sh-files-latest-files__span-11"><span>11 مادة</span><span>منذ أسبوع</span></span>
-              <span class="sh-files-latest-files__span-18"><span class="sh-more__arrow sh-more__arrow--14 sh-more__arrow--cc"></span></span>
-            </span>
-          </span>
-        </a>
-      
-        <a href="article.html" class="sh-files-latest-files__a-3">
-          <span class="sh-files-latest-files__span-1">
-            <span class="sh-files-latest-files__span-2">إعمار<span class="sh-files-latest-files__span-3"></span></span>
-            <span class="sh-files-latest-files__span-4">05</span>
-          </span>
-          <span class="sh-files-latest-files__span-19">
-            <span class="sh-files-latest-files__span-24"></span>
-          </span>
-          <span class="sh-files-latest-files__span-7">
-            <span class="sh-files-latest-files__span-21">رفح بعد الانسحاب.. الطريق إلى الإعمار</span>
-            <span class="sh-files-latest-files__span-9">ما تبقى وما يُبنى في المدينة الحدودية.</span>
-            <span class="sh-files-latest-files__span-10">
-              <span class="sh-files-latest-files__span-11"><span>8 مادة</span><span>منذ أسبوعين</span></span>
-              <span class="sh-files-latest-files__span-12"><span class="sh-more__arrow sh-more__arrow--14 sh-more__arrow--cc"></span></span>
-            </span>
-          </span>
-        </a>
-      
+    <div class="sh-fl-latest__grid">
+      <a href="https://shehabnews.com/special-file/39/رحيل-الضيف" class="sh-fl-card sh-fl-card--lead">
+        <span class="sh-fl-card__top"><span class="sh-fl-card__eyebrow">ملف</span><span class="sh-fl-card__no">01</span></span>
+        <span class="sh-fl-tile"><img src="assets/images/file-raheel-aldaif.webp" width="900" height="819" alt="" loading="lazy" decoding="async" style="object-position:center 38%"></span>
+        <span class="sh-fl-card__body">
+          <span class="sh-fl-card__title">رحيل الضيف</span>
+          <span class="sh-fl-card__dek">حوار: عندما التقيتُ محمد الضيف.. غفران زامل تروي لشهاب لقاء رجل الظل قبل طوفان الأقصى بأيام.</span>
+          <span class="sh-fl-card__foot"><span class="sh-fl-card__meta"><span>ملف خاص</span><span>يوليو 2026</span></span></span>
+        </span>
+      </a>
+      <a href="https://shehabnews.com/special-file/37/كأس-العالم-2026" class="sh-fl-card sh-fl-card--side">
+        <span class="sh-fl-card__top"><span class="sh-fl-card__eyebrow">رياضة</span><span class="sh-fl-card__no">02</span></span>
+        <span class="sh-fl-tile"><img src="assets/images/file-world-cup-2026.webp" width="462" height="267" alt="" loading="lazy" decoding="async"></span>
+        <span class="sh-fl-card__body">
+          <span class="sh-fl-card__title">كأس العالم 2026</span>
+          <span class="sh-fl-card__dek">تغطيات مباريات وأخبار كأس العالم 2026.</span>
+          <span class="sh-fl-card__foot"><span class="sh-fl-card__meta"><span>ملف خاص</span><span>يوليو 2026</span></span></span>
+        </span>
+      </a>
+      <a href="https://shehabnews.com/special-file/33/قائد-معركة-طوفان-الأقصى" class="sh-fl-card sh-fl-card--third">
+        <span class="sh-fl-card__top"><span class="sh-fl-card__eyebrow">ملف</span><span class="sh-fl-card__no">03</span></span>
+        <span class="sh-fl-tile"><img src="https://shehabnews.com/thumb/452x267/uploads/images/2024/10/yubVE.png" width="452" height="267" alt="" loading="lazy" decoding="async"></span>
+        <span class="sh-fl-card__body">
+          <span class="sh-fl-card__title">قائد معركة طوفان الأقصى</span>
+          <span class="sh-fl-card__dek">يحيى السنوار «أبو إبراهيم» قائد معركة طوفان الأقصى.</span>
+          <span class="sh-fl-card__foot"><span class="sh-fl-card__meta"><span>ملف خاص</span><span>محدَّث يوليو 2026</span></span></span>
+        </span>
+      </a>
+      <a href="https://shehabnews.com/special-file/32/طوفان-نحو-التحرير" class="sh-fl-card sh-fl-card--third">
+        <span class="sh-fl-card__top"><span class="sh-fl-card__eyebrow">ملف</span><span class="sh-fl-card__no">04</span></span>
+        <span class="sh-fl-tile"><img src="https://shehabnews.com/thumb/452x267/uploads/images/2024/10/Uc3c6.png" width="452" height="267" alt="" loading="lazy" decoding="async"></span>
+        <span class="sh-fl-card__body">
+          <span class="sh-fl-card__title">طوفان نحو التحرير</span>
+          <span class="sh-fl-card__dek">بعد عام ونصف من الإبادة.. غزة قادرة على دك «تل أبيب» بالصواريخ.</span>
+          <span class="sh-fl-card__foot"><span class="sh-fl-card__meta"><span>ملف خاص</span><span>محدَّث يوليو 2026</span></span></span>
+        </span>
+      </a>
+      <a href="https://shehabnews.com/special-file/31/قائد-الأمة" class="sh-fl-card sh-fl-card--third">
+        <span class="sh-fl-card__top"><span class="sh-fl-card__eyebrow">ملف</span><span class="sh-fl-card__no">05</span></span>
+        <span class="sh-fl-tile"><img src="https://shehabnews.com/thumb/452x267/uploads/images/2024/07/l9HRj.png" width="452" height="267" alt="" loading="lazy" decoding="async"></span>
+        <span class="sh-fl-card__body">
+          <span class="sh-fl-card__title">قائد الأمة</span>
+          <span class="sh-fl-card__dek">هنية ظاهرة وطنية وقائدًا استثنائيًا لا يغيبه الرحيل.</span>
+          <span class="sh-fl-card__foot"><span class="sh-fl-card__meta"><span>ملف خاص</span><span>يوليو 2024</span></span></span>
+        </span>
+      </a>
     </div>
   </section>
 
-  <aside data-screen-label="Most Read Files" class="sh-files-most-read-files__aside-1">
+  <aside data-screen-label="Most Read Files" class="sh-fl-most">
     <div class="sh-section__head">
-      <h2 class="sh-section__title sh-section__title--sm">الأكثر قراءة</h2>
-      <span class="sh-meta__note">هذا الشهر</span>
+      <h2 class="sh-section__title sh-section__title--sm">الأكثر متابعة</h2>
+      <span class="sh-meta__note">الملفات المفتوحة</span>
     </div>
-    
-      <a href="article.html" class="sh-files-most-read-files__a-1">
-        <span class="sh-files-most-read-files__span-1">01</span>
-        <span>
-          <span class="sh-files-most-read-files__span-2">1000 يوم على حرب الإبادة.. أرقام توثّق الجريمة</span>
-          <span class="sh-files-most-read-files__span-3"><svg class="sh-i sh-fs-10" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#r-eye"></use></svg><span class="sh-tnum">412 ألف قراءة</span></span>
-        </span>
-      </a>
-    
-      <a href="article.html" class="sh-files-most-read-files__a-1">
-        <span class="sh-files-most-read-files__span-1">02</span>
-        <span>
-          <span class="sh-files-most-read-files__span-2">أقمار الطوفان.. رحلة الغياب والعودة</span>
-          <span class="sh-files-most-read-files__span-3"><svg class="sh-i sh-fs-10" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#r-eye"></use></svg><span class="sh-tnum">298 ألف قراءة</span></span>
-        </span>
-      </a>
-    
-      <a href="article.html" class="sh-files-most-read-files__a-1">
-        <span class="sh-files-most-read-files__span-1">03</span>
-        <span>
-          <span class="sh-files-most-read-files__span-2">رحيل الضيف.. القائد الذي أرهق الاحتلال</span>
-          <span class="sh-files-most-read-files__span-3"><svg class="sh-i sh-fs-10" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#r-eye"></use></svg><span class="sh-tnum">241 ألف قراءة</span></span>
-        </span>
-      </a>
-    
-      <a href="article.html" class="sh-files-most-read-files__a-1">
-        <span class="sh-files-most-read-files__span-1">04</span>
-        <span>
-          <span class="sh-files-most-read-files__span-2">خريطة الضم.. من التوسع إلى الواقع</span>
-          <span class="sh-files-most-read-files__span-3"><svg class="sh-i sh-fs-10" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#r-eye"></use></svg><span class="sh-tnum">126 ألف قراءة</span></span>
-        </span>
-      </a>
-    
-    <div class="sh-files-most-read-files__div-1">
-      <span class="sh-files-most-read-files__span-4"></span>
-      <span class="sh-files-most-read-files__span-5">وحدة الملفات</span>
-      <span class="sh-files-most-read-files__span-6">فريق التحقيقات والملفات في شهاب — قصص طويلة النفس تُبنى على الوثائق والشهادات وتُحدَّث مع كل تطوّر.</span>
+    <a href="https://shehabnews.com/special-file/35/1000-يوم-على-حرب-الإبادة" class="sh-fl-most__item">
+      <span class="sh-fl-most__no">01</span>
+      <span class="sh-fl-most__body">
+        <span class="sh-fl-most__title">1000 يوم على حرب الإبادة</span>
+        <span class="sh-fl-most__reads"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#r-clock"></use></svg><span class="sh-tnum">آخر إضافة يوليو 2026</span></span>
+      </span>
+    </a>
+    <a href="https://shehabnews.com/special-file/34/أقمار-الطوفان" class="sh-fl-most__item">
+      <span class="sh-fl-most__no">02</span>
+      <span class="sh-fl-most__body">
+        <span class="sh-fl-most__title">أقمار الطوفان</span>
+        <span class="sh-fl-most__reads"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#r-clock"></use></svg><span class="sh-tnum">آخر إضافة أغسطس 2026</span></span>
+      </span>
+    </a>
+    <a href="https://shehabnews.com/special-file/39/رحيل-الضيف" class="sh-fl-most__item">
+      <span class="sh-fl-most__no">03</span>
+      <span class="sh-fl-most__body">
+        <span class="sh-fl-most__title">رحيل الضيف</span>
+        <span class="sh-fl-most__reads"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#r-clock"></use></svg><span class="sh-tnum">آخر إضافة يوليو 2026</span></span>
+      </span>
+    </a>
+    <a href="https://shehabnews.com/special-file/33/قائد-معركة-طوفان-الأقصى" class="sh-fl-most__item">
+      <span class="sh-fl-most__no">04</span>
+      <span class="sh-fl-most__body">
+        <span class="sh-fl-most__title">قائد معركة طوفان الأقصى</span>
+        <span class="sh-fl-most__reads"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#r-clock"></use></svg><span class="sh-tnum">آخر إضافة يوليو 2026</span></span>
+      </span>
+    </a>
+    <div class="sh-fl-unit">
+      <span class="sh-fl-unit__label">وحدة الملفات</span>
+      <span class="sh-fl-unit__text">فريق التحقيقات والملفات في شهاب — قصص طويلة النفس تُبنى على الوثائق والشهادات وتُحدَّث مع كل تطوّر.</span>
     </div>
   </aside>
 </div>
 
-<section data-screen-label="Interactive Files" class="sh-files-interactive-files__section-1">
-  <span class="sh-files-interactive-files__span-1"></span>
-  <div class="sh-files-interactive-files__div-1">
+<!-- the dark moment: interactive files -->
+<section data-screen-label="Interactive Files" class="sh-fl-inter">
+  <div class="sh-fl-inter__head">
     <div>
-      <span class="sh-eyebrow">تجارب تفاعلية<span class="sh-files-interactive-files__span-2"></span></span>
-      <h2 class="sh-files-interactive-files__h2-1"><span class="sh-mark sh-mark--md"></span>ملفات تفاعلية</h2>
+      <span class="sh-eyebrow">تجارب تفاعلية</span>
+      <h2 class="sh-fl-inter__h2"><span class="sh-mark sh-mark--md"></span>ملفات تفاعلية</h2>
     </div>
-    <span class="sh-files-interactive-files__span-3">خرائط وخطوط زمنية تُحدَّث مع الأحداث</span>
+    <span class="sh-fl-inter__note">خرائط وخطوط زمنية تُحدَّث مع الأحداث</span>
   </div>
-  <div class="sh-files-interactive-files__div-2">
-    
-      <a href="map.html" class="sh-files-interactive-files__a-1">
-        <span class="sh-files-interactive-files__span-4">
-          <span class="sh-files-interactive-files__span-5"></span>
-          <span class="sh-files-interactive-files__span-6"></span>
-          <span class="sh-files-interactive-files__span-7"><svg class="sh-i sh-files-interactive-files__i-1" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-map"></use></svg>خريطة تفاعلية</span>
-        </span>
-        <span class="sh-files-interactive-files__span-8">
-          <span class="sh-files-interactive-files__span-9">خريطة الخروقات.. أين ومتى انتُهك وقف إطلاق النار؟</span>
-          <span class="sh-files-interactive-files__span-10">كل خرق موثّق على خريطة القطاع بالتاريخ والموقع والمصدر.</span>
-          <span class="sh-files-interactive-files__span-11">
-            <span class="sh-tnum"><span data-sh-figure="incidents">—</span> خرقًا</span>
-            <span class="sh-files-interactive-files__span-12">استكشف <span class="sh-more__arrow sh-more__arrow--14 sh-more__arrow--cc"></span></span>
-          </span>
-        </span>
-      </a>
-    
-      <a href="data.html" class="sh-files-interactive-files__a-1">
-        <span class="sh-files-interactive-files__span-4">
-          <span class="sh-files-interactive-files__span-13"></span>
-          <span class="sh-files-interactive-files__span-6"></span>
-          <span class="sh-files-interactive-files__span-7"><svg class="sh-i sh-files-interactive-files__i-1" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-chart-simple"></use></svg>مكتب البيانات</span>
-        </span>
-        <span class="sh-files-interactive-files__span-8">
-          <span class="sh-files-interactive-files__span-9">مكتب البيانات.. الأرقام بالمصدر والتاريخ</span>
-          <span class="sh-files-interactive-files__span-10">الشهداء، النزوح، المساعدات، والخروقات: كل رقم بمصدره واتجاهه في آخر أسبوعين.</span>
-          <span class="sh-files-interactive-files__span-11">
-            <span class="sh-tnum"><span data-sh-figure="martyrs">—</span> شهيدًا</span>
-            <span class="sh-files-interactive-files__span-12">استكشف <span class="sh-more__arrow sh-more__arrow--14 sh-more__arrow--cc"></span></span>
-          </span>
-        </span>
-      </a>
-    
-      <a href="article.html" class="sh-files-interactive-files__a-1">
-        <span class="sh-files-interactive-files__span-4">
-          <span class="sh-files-interactive-files__span-14"></span>
-          <span class="sh-files-interactive-files__span-6"></span>
-          <span class="sh-files-interactive-files__span-7"><svg class="sh-i sh-files-interactive-files__i-1" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-chart-simple"></use></svg>لوحة أرقام</span>
-        </span>
-        <span class="sh-files-interactive-files__span-8">
-          <span class="sh-files-interactive-files__span-9">الإعمار بالأرقام.. ماذا دُمّر وماذا يُبنى؟</span>
-          <span class="sh-files-interactive-files__span-10">مؤشرات حية عن المساكن والمدارس والمستشفيات والطرق.</span>
-          <span class="sh-files-interactive-files__span-11">
-            <span class="sh-tnum">86 تحديثًا</span>
-            <span class="sh-files-interactive-files__span-12">استكشف <span class="sh-more__arrow sh-more__arrow--14 sh-more__arrow--cc"></span></span>
-          </span>
-        </span>
-      </a>
-    
+  <div class="sh-fl-inter__grid">
+    <a href="map.html" class="sh-fl-int">
+      <span class="sh-fl-tile sh-fl-int__pic"><img src="assets/images/palestine-map.webp" width="1400" height="788" alt="" loading="lazy" decoding="async"><span class="sh-fl-int__scrim"></span><span class="sh-fl-int__badge"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-map"></use></svg>خريطة تفاعلية</span></span>
+      <span class="sh-fl-int__body">
+        <span class="sh-fl-int__title">خريطة الخروقات.. أين ومتى انتُهك وقف إطلاق النار؟</span>
+        <span class="sh-fl-int__dek">كل خرق موثّق على خريطة القطاع بالتاريخ والموقع والمصدر.</span>
+        <span class="sh-fl-int__foot"><span class="sh-tnum"><span data-sh-figure="incidents">—</span> خرقًا</span><span class="sh-fl-int__go">استكشف <span class="sh-more__arrow sh-more__arrow--14 sh-more__arrow--cc"></span></span></span>
+      </span>
+    </a>
+    <a href="data.html" class="sh-fl-int">
+      <span class="sh-fl-tile sh-fl-int__pic"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=700" alt="" loading="lazy" decoding="async"><span class="sh-fl-int__scrim"></span><span class="sh-fl-int__badge"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-chart-simple"></use></svg>مكتب البيانات</span></span>
+      <span class="sh-fl-int__body">
+        <span class="sh-fl-int__title">مكتب البيانات.. الأرقام بالمصدر والتاريخ</span>
+        <span class="sh-fl-int__dek">الشهداء، النزوح، المساعدات، والخروقات: كل رقم بمصدره واتجاهه في آخر أسبوعين.</span>
+        <span class="sh-fl-int__foot"><span class="sh-tnum"><span data-sh-figure="martyrs">—</span> شهيدًا</span><span class="sh-fl-int__go">استكشف <span class="sh-more__arrow sh-more__arrow--14 sh-more__arrow--cc"></span></span></span>
+      </span>
+    </a>
+    <a href="article.html" class="sh-fl-int">
+      <span class="sh-fl-tile sh-fl-int__pic"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=900" alt="" loading="lazy" decoding="async"><span class="sh-fl-int__scrim"></span><span class="sh-fl-int__badge"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-chart-simple"></use></svg>لوحة أرقام</span></span>
+      <span class="sh-fl-int__body">
+        <span class="sh-fl-int__title">الإعمار بالأرقام.. ماذا دُمّر وماذا يُبنى؟</span>
+        <span class="sh-fl-int__dek">مؤشرات حية عن المساكن والمدارس والمستشفيات والطرق.</span>
+        <span class="sh-fl-int__foot"><span class="sh-tnum">86 تحديثًا</span><span class="sh-fl-int__go">استكشف <span class="sh-more__arrow sh-more__arrow--14 sh-more__arrow--cc"></span></span></span>
+      </span>
+    </a>
   </div>
 </section>
 
-<section data-screen-label="Archive" class="sh-files-archive__section-1">
+<section data-screen-label="Archive" class="sh-fl-arch">
   <div class="sh-section__head">
-    <h2 class="sh-section__title sh-section__title--md">من أرشيف شهاب </h2>
-    <a href="archive.html" class="sh-files-archive__a-1">الأرشيف الكامل <span class="sh-more__arrow sh-more__arrow--14"></span></a>
+    <h2 class="sh-section__title"><span class="sh-mark sh-mark--md"></span>من أرشيف شهاب</h2>
+    <a href="https://shehabnews.com/special-file" class="sh-fl-arch__all">كل الملفات الخاصة <span class="sh-more__arrow sh-more__arrow--14"></span></a>
   </div>
-  <div class="sh-files-archive__div-1">
-    <span class="sh-files-archive__span-1"></span>
-    <span class="sh-files-archive__span-2"></span>
-    <span class="sh-files-archive__span-3"></span>
-    <div class="sh-files-archive__div-2">
-      
-        <a href="article.html" class="sh-files-archive__a-2">
-          <span class="sh-mark sh-timeline__node"></span>
-          <span class="sh-timeline__tick"></span>
-          <span class="sh-files-archive__span-4">2025</span>
-          <span class="sh-files-archive__span-5">46 مادة · ملف مغلق</span>
-          <span class="sh-files-archive__span-6"><span class="sh-files-archive__span-7"></span></span>
-          <span class="sh-files-archive__span-8">وقف إطلاق النار.. كيف وُلد الاتفاق؟</span>
-          <span class="sh-files-archive__span-9">عرض الملف <span class="sh-more__arrow sh-more__arrow--12"></span></span>
-        </a>
-      
-        <a href="article.html" class="sh-files-archive__a-2">
-          <span class="sh-mark sh-timeline__node"></span>
-          <span class="sh-timeline__tick"></span>
-          <span class="sh-files-archive__span-4">2024</span>
-          <span class="sh-files-archive__span-5">132 مادة · ملف مغلق</span>
-          <span class="sh-files-archive__span-6"><span class="sh-files-archive__span-10"></span></span>
-          <span class="sh-files-archive__span-8">شمال غزة.. حصار داخل الحصار</span>
-          <span class="sh-files-archive__span-9">عرض الملف <span class="sh-more__arrow sh-more__arrow--12"></span></span>
-        </a>
-      
-        <a href="article.html" class="sh-files-archive__a-2">
-          <span class="sh-mark sh-timeline__node"></span>
-          <span class="sh-timeline__tick"></span>
-          <span class="sh-files-archive__span-4">2023</span>
-          <span class="sh-files-archive__span-5">88 مادة · ملف مغلق</span>
-          <span class="sh-files-archive__span-6"><span class="sh-files-archive__span-11"></span></span>
-          <span class="sh-files-archive__span-8">طوفان الأقصى.. الأيام الأولى</span>
-          <span class="sh-files-archive__span-9">عرض الملف <span class="sh-more__arrow sh-more__arrow--12"></span></span>
-        </a>
-      
-        <a href="article.html" class="sh-files-archive__a-2">
-          <span class="sh-mark sh-timeline__node"></span>
-          <span class="sh-timeline__tick"></span>
-          <span class="sh-files-archive__span-4">2021</span>
-          <span class="sh-files-archive__span-5">29 مادة · ملف مغلق</span>
-          <span class="sh-files-archive__span-6"><span class="sh-files-archive__span-12"></span></span>
-          <span class="sh-files-archive__span-8">سيف القدس.. 11 يومًا غيّرت المعادلة</span>
-          <span class="sh-files-archive__span-9">عرض الملف <span class="sh-more__arrow sh-more__arrow--12"></span></span>
-        </a>
-      
+  <div class="sh-fl-arch__rail">
+    <span class="sh-fl-arch__line"></span>
+    <div class="sh-fl-arch__grid">
+      <a href="https://shehabnews.com/special-file/30/طوفان-الأقصى" class="sh-fl-arch__item">
+        <span class="sh-mark sh-timeline__node"></span>
+        <span class="sh-fl-arch__year">2023</span>
+        <span class="sh-fl-arch__meta">ملف مغلق</span>
+        <span class="sh-fl-tile sh-fl-arch__pic"><img src="https://shehabnews.com/thumb/452x267/uploads/images/2023/10/fXDQr.png" width="452" height="267" alt="" loading="lazy" decoding="async"></span>
+        <span class="sh-fl-arch__title">طوفان الأقصى</span>
+        <span class="sh-fl-arch__go">عرض الملف <span class="sh-more__arrow sh-more__arrow--12"></span></span>
+      </a>
+      <a href="https://shehabnews.com/special-file/29/العدوان-على-جنين" class="sh-fl-arch__item">
+        <span class="sh-mark sh-timeline__node"></span>
+        <span class="sh-fl-arch__year">2023</span>
+        <span class="sh-fl-arch__meta">ملف مغلق</span>
+        <span class="sh-fl-tile sh-fl-arch__pic"><img src="https://shehabnews.com/thumb/452x267/uploads/images/2023/07/KdwZL.jpg" width="452" height="267" alt="" loading="lazy" decoding="async"></span>
+        <span class="sh-fl-arch__title">العدوان على جنين</span>
+        <span class="sh-fl-arch__go">عرض الملف <span class="sh-more__arrow sh-more__arrow--12"></span></span>
+      </a>
+      <a href="https://shehabnews.com/special-file/24/تسريبات-اغتيال-عرفات" class="sh-fl-arch__item">
+        <span class="sh-mark sh-timeline__node"></span>
+        <span class="sh-fl-arch__year">2022</span>
+        <span class="sh-fl-arch__meta">ملف مغلق</span>
+        <span class="sh-fl-tile sh-fl-arch__pic"><img src="https://shehabnews.com/thumb/452x267/uploads/images/2022/11/v9SIG.png" width="452" height="267" alt="" loading="lazy" decoding="async"></span>
+        <span class="sh-fl-arch__title">تسريبات اغتيال عرفات</span>
+        <span class="sh-fl-arch__go">عرض الملف <span class="sh-more__arrow sh-more__arrow--12"></span></span>
+      </a>
+      <a href="https://shehabnews.com/special-file/14/يوم-الأرض" class="sh-fl-arch__item">
+        <span class="sh-mark sh-timeline__node"></span>
+        <span class="sh-fl-arch__year">2022</span>
+        <span class="sh-fl-arch__meta">ملف مغلق</span>
+        <span class="sh-fl-tile sh-fl-arch__pic"><img src="https://shehabnews.com/thumb/452x267/uploads/images/2022/03/u4uvn.png" width="452" height="267" alt="" loading="lazy" decoding="async"></span>
+        <span class="sh-fl-arch__title">يوم الأرض</span>
+        <span class="sh-fl-arch__go">عرض الملف <span class="sh-more__arrow sh-more__arrow--12"></span></span>
+      </a>
     </div>
   </div>
 </section>
 
-<div data-screen-label="Files Closing" class="sh-files-files-closing__div-1">
-  <div class="sh-files-files-closing__div-2">
-    
-    <div>
-      <span class="sh-files-files-closing__span-1">تريد متابعة ملف من البداية؟</span>
-      <span class="sh-files-files-closing__span-2">استكشف أحدث الملفات التي تتابعها شهاب لحظة بلحظة</span>
-    </div>
+<div data-screen-label="Files Closing" class="sh-fl-close">
+  <div>
+    <span class="sh-fl-close__title">تريد متابعة ملف من البداية؟</span>
+    <span class="sh-fl-close__dek">استكشف أحدث الملفات التي تتابعها شهاب لحظة بلحظة</span>
   </div>
-  <a href="map.html" class="sh-files-files-closing__a-1">استكشف الملفات <span class="sh-more__arrow sh-more__arrow--16 sh-more__arrow--cc"></span></a>
+  <a href="#latest" class="sh-fl-close__cta">استكشف الملفات <span class="sh-more__arrow sh-more__arrow--16 sh-more__arrow--cc"></span></a>
 </div>
 
 </main>
@@ -640,16 +545,16 @@
 </dialog>
 <!-- /sh:footer -->
 </div>
-<script src="js/ui.js?v=119" defer></script>
-<script src="js/chrome.js?v=119" defer></script>
-<script src="js/feed.js?v=119" defer></script>
-<script src="js/app.js?v=119" defer></script>
-<script src="js/responsive.js?v=119" defer></script>
-<script src="js/widgets.js?v=119" defer></script>
-<script src="js/brief.js?v=119" defer></script>
-<script src="js/searchbox.js?v=119" defer></script>
-<script src="js/push.js?v=119" defer></script>
-<script src="js/pwa.js?v=119" defer></script>
-<script src="js/figures.js?v=119" defer></script>
+<script src="js/ui.js?v=127" defer></script>
+<script src="js/chrome.js?v=127" defer></script>
+<script src="js/feed.js?v=127" defer></script>
+<script src="js/app.js?v=127" defer></script>
+<script src="js/responsive.js?v=127" defer></script>
+<script src="js/widgets.js?v=127" defer></script>
+<script src="js/brief.js?v=127" defer></script>
+<script src="js/searchbox.js?v=127" defer></script>
+<script src="js/push.js?v=127" defer></script>
+<script src="js/pwa.js?v=127" defer></script>
+<script src="js/figures.js?v=127" defer></script>
 </body>
 </html>

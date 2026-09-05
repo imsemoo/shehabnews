@@ -21,7 +21,7 @@ HREF = re.compile(r'href="([^"]+)"')
 TAG = re.compile(r'<[^>]+>')
 AGO = re.compile(r'data-sh-ago="([0-9.]+)"')
 KICK = re.compile(r'class="(?:[^"]*\b)?(?:sh-link|sh-meta__cat|sh-upd__cat|sh-hubcard__cat|sh-coverage-timeline__span-12|sh-index-live-coverage__span-14)\b[^"]*"[^>]*>(.*?)</span>', re.S)
-TITLE = re.compile(r'class="(?:[^"]*\b)?(?:sh-card__title|sh-upd__t|sh-rail__title|sh-search-search-body__span-1|sh-search-featured-result__span-3|sh-index-live-coverage__span-16|sh-coverage-timeline__span-15|sh-coverage-timeline__span-20|sh-hubcard__title|sh-list__title|sh-index-hero__span-5|sh-index-top-now__a-1|sh-index-live-coverage__h3-1)\b[^"]*"[^>]*>(.*?)</(?:span|h3|a)>', re.S)
+TITLE = re.compile(r'class="(?:[^"]*\b)?(?:sh-card__title|sh-upd__t|sh-rail__title|sh-search-search-body__span-1|sh-search-featured-result__span-3|sh-index-live-coverage__span-16|sh-coverage-timeline__span-15|sh-coverage-timeline__span-20|sh-hubcard__title|sh-list__title|sh-index-hero__span-5|sh-index-top-now__a-1|sh-index-live-coverage__h3-1|sh-reels-grid__t|sh-vid__reel-t)\b[^"]*"[^>]*>(.*?)</(?:span|h3|a)>', re.S)
 
 
 def clean(s):

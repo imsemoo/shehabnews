@@ -1,18 +1,20 @@
 /* شهاب — ريلز شهاب (reels.html): Vidstack (المشغّل الخفيف) + Swiper.
 
-   شريط Swiper أفقي بمقاطع رأسية وجنبه لوحة «المقطع المميز». على الديسكتوب
-   المقطع النشط أول الشريط لصق اللوحة، وعلى الشاشات الأضيق في النص. اللوحة
-   بتتملى من الشريحة النشطة (البرنامج، العنوان، الوصف من data-sh-dek، الوقت،
-   المدة، رابط ملء الشاشة) وزرّها بيشغّل/يوقف المقطع النشط.
+   شريط Swiper أفقي بمقاطع رأسية وجنبه لوحة «المقطع المميز». من 641px المقطع
+   النشط أول الشريط لصق اللوحة، وتحت ذلك في النص. اللوحة بتتملى من الشريحة
+   النشطة (البرنامج، العنوان، الوصف من data-sh-dek، الوقت، المدة، رابط ملء
+   الشاشة) وزرّها بيشغّل/يوقف المقطع النشط.
 
    التشغيل: مفيش تشغيل تلقائي قبل أول تفاعل — البوستر بيفضل ظاهر لحد ما
    المشاهد يضغط تشغيل (من اللوحة، أو من المشغّل، أو من بطاقة في الشبكة).
    بعدها كل مقطع يوصل للنشط بيشتغل لوحده (مكتوم افتراضيًا زي إنستجرام على
-   الويب)، والصوت حالة واحدة مشتركة. السحب، الأسهم، عجلة الماوس (أفقيًا)،
-   والكيبورد كلهم من Swiper، وهو بيقرا dir=rtl لوحده. تبويبات البرامج بتقفز
-   لأول مقطع من البرنامج وبتعلّم مقاطعه (مش بتشيل شرايح — إزالة عناصر المشغّل
-   وإرجاعها بتعيد إنشاءها). شبكة «كل الريلز» تحت المسرح بتقفز للمقطع وتشغّله.
-   لما المسرح يخرج من الشاشة المقطع بيقف. رابط عميق #r=N.
+   الويب)، والصوت حالة واحدة مشتركة. السحب، عجلة الماوس (أفقيًا)، والكيبورد
+   من Swiper (بيقرا dir=rtl لوحده؛ الأسهم بتتعطّل والتركيز جوه مشغّل عشان
+   Vidstack يقدّم/يرجّع بيها). أسهم السابق/التالي بتاعتنا: مع فلتر برنامج
+   بتتخطّى المقاطع اللي مش من البرنامج. تبويبات البرامج بتقفز لأول مقطع من
+   البرنامج وبتعلّم مقاطعه (مش بتشيل شرايح — إزالة عناصر المشغّل وإرجاعها
+   بتعيد إنشاءها). شبكة «كل الريلز» تحت المسرح بتقفز للمقطع وتشغّله. لما
+   المسرح يخرج من الشاشة المقطع بيقف. رابط عميق #r=N.
 
    الخطافات: [data-sh-reels] القسم، [data-sh-reels-swiper] الحاوية،
    [data-sh-reel] المشغّلات، [data-sh-reels-prev/-next]، [data-sh-reels-cur/-total]،
@@ -43,7 +45,7 @@
     label: feature.querySelector('[data-sh-f-play-label]')
   } : null;
   var reduce = ShPlayer.reduceMotion;
-  var WIDE = window.matchMedia('(min-width: 701px)');   // the same line as css/pages/reels.css
+  var WIDE = window.matchMedia('(min-width: 641px)');   // the same line as css/pages/reels.css
   var muted = true, ready = false, inView = true, armed = false;
 
   if (total) total.textContent = String(slides.length);
@@ -62,7 +64,7 @@
     slidesPerView: 'auto',
     centeredSlides: true,
     spaceBetween: 14,
-    breakpoints: { 701: { centeredSlides: false, spaceBetween: 16 } },
+    breakpoints: { 641: { centeredSlides: false, spaceBetween: 16 } },
     initialSlide: start,
     speed: reduce ? 0 : 340,
     slideToClickedSlide: true,
@@ -70,12 +72,7 @@
     watchSlidesProgress: true,
     keyboard: { enabled: true, onlyInViewport: true },
     mousewheel: { forceToAxis: true, thresholdDelta: 12 },
-    navigation: { prevEl: prev, nextEl: next },
-    a11y: {
-      prevSlideMessage: 'المقطع السابق', nextSlideMessage: 'المقطع التالي',
-      firstSlideMessage: 'هذا أول مقطع', lastSlideMessage: 'هذا آخر مقطع',
-      containerMessage: 'ريلز شهاب', slideLabelMessage: '{{index}} من {{slidesLength}}'
-    },
+    a11y: { containerRole: 'region', containerMessage: 'ريلز شهاب', slideLabelMessage: '{{index}} من {{slidesLength}}' },
     on: {
       slideChange: onChange,
       resize: function (sw) { fit(sw); sw.update(); }
@@ -85,7 +82,27 @@
   swiper.update();
   swiper.slideTo(start, 0);
 
+  // arrow keys inside a player belong to Vidstack (seek), not to the rail
+  el.addEventListener('focusin', function (e) {
+    if (e.target && e.target.closest && e.target.closest('media-player')) swiper.keyboard.disable();
+  });
+  el.addEventListener('focusout', function (e) {
+    var t = e.relatedTarget;
+    if (!t || !t.closest || !t.closest('media-player')) swiper.keyboard.enable();
+  });
+
   function active() { return players[swiper.activeIndex]; }
+
+  /* prev / next: with a programme filter on, skip the reels that are not its */
+  function matches(k) { return !root.hasAttribute('data-filter') || slides[k].hasAttribute('data-match'); }
+  function neighbour(from, dir) {
+    for (var k = from + dir; k >= 0 && k < slides.length; k += dir) if (matches(k)) return k;
+    return -1;
+  }
+  function step(dir) { var k = neighbour(swiper.activeIndex, dir); if (k >= 0) swiper.slideTo(k); }
+  if (prev) prev.addEventListener('click', function () { step(-1); });
+  if (next) next.addEventListener('click', function () { step(1); });
+  function edge(btn, off) { if (btn) btn.setAttribute('aria-disabled', String(off)); }   // not .disabled: keeps focus on the button at the ends
 
   /* the feature panel mirrors the active slide */
   function fill(i) {
@@ -97,7 +114,11 @@
       f.chip.textContent = chip.textContent.trim();
       f.chip.classList.toggle('sh-reels__fchip--red', chip.classList.contains('sh-lite__chip--red'));
     }
-    if (f.pos) f.pos.textContent = 'المقطع ' + (i + 1) + ' من ' + slides.length;
+    if (f.pos) {
+      var ms = slides.filter(function (x) { return x.hasAttribute('data-match'); });
+      var r = root.hasAttribute('data-filter') ? ms.indexOf(s) : -1;
+      f.pos.textContent = r >= 0 ? 'المقطع ' + (r + 1) + ' من ' + ms.length : 'المقطع ' + (i + 1) + ' من ' + slides.length;
+    }
     if (f.title && t) f.title.textContent = t.textContent.trim();
     if (f.dek) { var d = s.getAttribute('data-sh-dek') || ''; f.dek.textContent = d; f.dek.hidden = !d; }
     if (f.time && meta) f.time.textContent = meta.textContent.trim();
@@ -126,8 +147,8 @@
     var i = swiper.activeIndex;
     slides.forEach(function (s, k) { s.toggleAttribute('data-active', k === i); });
     if (cur) cur.textContent = String(i + 1);
-    if (prev) prev.disabled = swiper.isBeginning;
-    if (next) next.disabled = swiper.isEnd;
+    edge(prev, neighbour(i, -1) < 0);
+    edge(next, neighbour(i, 1) < 0);
     history.replaceState(null, '', location.pathname + location.search + '#r=' + (i + 1));
     fill(i);
     if (!ready) return;
@@ -197,7 +218,8 @@
       s.toggleAttribute('data-match', on);
       if (on && first < 0) first = k;
     });
-    if (first >= 0) swiper.slideTo(first);
+    if (first >= 0 && first !== swiper.activeIndex) swiper.slideTo(first);
+    else onChange();   // same reel: refresh the arrows and the position
   });
 
   /* grid cards → the rail, and play */

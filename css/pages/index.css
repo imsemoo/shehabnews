@@ -27,7 +27,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-index-hero__div-4{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:8px 24px;margin:8px 0 12px}
 .sh-index-hero__h1-1{flex:1 1 360px;min-width:0;font-family:var(--sh-font);font-size:23px;font-weight:700;line-height:1.5;margin:0;text-wrap:pretty;color:#fff}
 .sh-index-hero__span-10{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;color:#fff;font-family:var(--sh-font);white-space:nowrap;padding-bottom:4px}
-.sh-index-hero__span-11{width:22px;aspect-ratio:100/41.59;height:auto;background:#fff;-webkit-mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat}
+.sh-index-hero__span-11{display:none}
 .sh-index-hero__span-12{display:block;height:3px;background:var(--sh-on-dark-14);position:relative}
 .sh-index-hero__span-13{position:absolute;right:0;top:0;height:100%;background:var(--sh-blue);width:0;animation:none;animation-play-state:running}
 .sh-index-hero__a-2{position:relative;overflow:hidden;display:block;color:#fff;flex-basis:64px;flex-grow:1;min-width:64px;transition:flex-grow .8s cubic-bezier(.2,.75,.2,1);cursor:pointer;border-right:1px solid rgba(255,255,255,.22);background:var(--sh-navy-2)}
@@ -41,7 +41,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-index-hero__span-19{position:absolute;right:0;top:0;height:100%;background:var(--sh-blue);width:0;animation:sh-progress 9s linear forwards;animation-play-state:running}
 .sh-index-hero__span-20{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/Dome%20of%20the%20Al-Aqsa%20Mosque%20%2820160%29.jpg?width=1800);background-size:cover;background-position:center 40%;opacity:0.3;transform:scale(1);filter:none;transition:transform 9s linear,opacity .8s ease,filter .8s ease}
 .sh-index-hero__div-6{position:absolute;bottom:22px;left:28px;display:flex;gap:8px;z-index:2}
-.sh-index-hero__aside-1{display:flex;flex-direction:column;height:500px;overflow:hidden;border-top:2px solid var(--sh-blue)}
+.sh-index-hero__aside-1{display:flex;flex-direction:column;height:500px;overflow:hidden;}
 /* at the container's full 1400 the slides are ~970 wide; 540 tall keeps the
    open picture near the 1.8:1 it was designed at instead of a 2:1 letterbox */
 @media (min-width:1400px){
@@ -119,7 +119,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-index-live-coverage__span-2{width:6px;height:6px;background:var(--color-red-soft);border-radius:50%;animation:sh-pulse 1.4s ease-in-out infinite}
 .sh-index-live-coverage__a-1{display:inline-flex;align-items:center;gap:10px;background:var(--sh-blue);color:#fff;font-size:13px;font-weight:700;padding:11px 18px;font-family:var(--sh-font);transition:background .18s,gap .2s}
 .sh-index-live-coverage__a-1:hover{background:var(--color-brand-blue-deep);gap:16px}
-.sh-index-live-coverage__span-3{width:18px;aspect-ratio:100/41.59;height:auto;background:#fff;-webkit-mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat}
+.sh-index-live-coverage__span-3{display:none}
 .sh-index-live-coverage__div-3{display:flex;gap:32px;border-bottom:1px solid var(--sh-hair);font-family:var(--sh-font);font-size:13.5px}
 .sh-index-live-coverage__button-1{background:none;border:none;cursor:pointer;padding:14px 0 12px;font-family:inherit;font-size:inherit;font-weight:600;color:var(--sh-ink);border-bottom:2px solid var(--sh-blue);margin-bottom:-1px;display:flex;align-items:center;gap:8px;transition:color .16s,border-color .2s}
 .sh-index-live-coverage__button-1:hover{color:var(--sh-blue)}
@@ -144,7 +144,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-index-live-coverage__span-9{width:6px;height:6px;background:var(--sh-blue);border-radius:50%;animation:sh-pulse 1.8s ease-in-out infinite}
 .sh-index-live-coverage__div-10{position:relative;flex:1;padding-top:6px}
 .sh-index-live-coverage__span-10{position:absolute;right:70px;top:14px;bottom:8px;width:1px;background:var(--sh-hair-5)}
-.sh-index-live-coverage__a-3{display:grid;grid-template-columns:56px 28px 1fr;align-items:start;padding:12px 0 14px;animation:sh-fadein .4s ease both;border-bottom:1px solid var(--sh-hair)}
+.sh-index-live-coverage__a-3{display:grid;grid-template-columns:56px 28px 1fr;align-items:start;padding:12px 0 14px;animation:sh-fadein .4s ease both;border-bottom:1px solid var(--color-border-soft)}
 .sh-index-live-coverage__a-3:hover{color:var(--sh-blue)}
 .sh-index-live-coverage__span-11{font-size:12px;color:var(--sh-mute);font-variant-numeric:tabular-nums;padding-top:4px;white-space:nowrap}
 .sh-index-live-coverage__span-12{display:flex;justify-content:center;padding-top:5px}
@@ -191,7 +191,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-index-files__span-9{display:grid;grid-template-columns:1fr;gap:10px;align-items:start;padding:11px 0;border-bottom:1px solid rgba(10,26,51,.08);font-family:var(--sh-font);font-size:14px;font-weight:700;line-height:1.6;color:var(--sh-navy);animation:sh-line-in .5s ease both;animation-delay:0.75s}
 .sh-index-files__span-10{display:grid;grid-template-columns:1fr;gap:10px;align-items:start;padding:11px 0;border-bottom:1px solid rgba(10,26,51,.08);font-family:var(--sh-font);font-size:14px;font-weight:700;line-height:1.6;color:var(--sh-navy);animation:sh-line-in .5s ease both;animation-delay:0.8500000000000001s}
 .sh-index-files__span-11{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--sh-blue);font-weight:700;margin-top:auto;padding-top:16px;font-family:var(--sh-font)}
-.sh-index-files__span-12{width:18px;aspect-ratio:100/41.59;height:auto;background:var(--sh-blue);-webkit-mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat}
+.sh-index-files__span-12{display:none}
 .sh-index-files__a-4{display:none;position:relative;display:block;background:var(--sh-navy);color:#fff;perspective:1400px;z-index:2}
 .sh-index-files__a-4:hover{color:#fff}
 .sh-index-files__span-13{position:absolute;inset:0;background-image:url(../../assets/images/file-aqmar-altoufan.webp);background-size:cover;background-position:center 30%}
@@ -217,7 +217,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
    it ends where the aside ends. ---- */
 .sh-index-more-news__section-1 > div:first-child{display:flex;flex-direction:column;min-width:0}
 .sh-wire{display:flex;flex-direction:column;flex:1 1 auto;min-height:0;margin-top:24px}
-.sh-wire__head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding-bottom:10px;border-bottom:1px solid var(--sh-hair)}   /* the same head as the section above it */
+.sh-wire__head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding-bottom:8px}   /* the same head as the section above it */
 .sh-wire__note{font-size:12px;color:var(--sh-mute);font-variant-numeric:tabular-nums}
 .sh-wire__list{
   position:relative;list-style:none;margin:0;padding:0;flex:1 1 auto;min-height:0;
@@ -243,7 +243,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 @media (max-width:640px){
   .sh-wire__list{grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-auto-flow:row;column-gap:0}
   .sh-wire__list::before{display:none}
-  .sh-wire__item--last{border-bottom:1px solid var(--sh-hair)}
+  .sh-wire__item--last{border-bottom:1px solid var(--color-border-soft)}
   .sh-wire__item:last-child{border-bottom:0}
   .sh-wire__a{grid-template-columns:104px minmax(0,1fr)}
 }
@@ -551,7 +551,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-op__by{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--sh-mute)}
 .sh-op__by b{font-family:var(--sh-font);font-size:13px;font-weight:800;color:var(--sh-navy)}
 .sh-op__list{display:flex;flex-direction:column}
-.sh-op__row{flex:1 1 auto;display:grid;grid-template-columns:52px minmax(0,1fr);gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--sh-hair);color:var(--sh-ink)}
+.sh-op__row{flex:1 1 auto;display:grid;grid-template-columns:52px minmax(0,1fr);gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--color-border-soft);color:var(--sh-ink)}
 .sh-op__row:first-child{padding-top:0}
 .sh-op__row:last-child{border-bottom:0;padding-bottom:0}
 .sh-op__row:hover{color:var(--sh-blue)}

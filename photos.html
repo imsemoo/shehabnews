@@ -30,20 +30,20 @@
 <link rel="preload" href="assets/fonts/almarai-700-arabic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/almarai-800-arabic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/noto-naskh-arabic-arabic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/fonts.css?v=119">
-<link rel="stylesheet" href="css/transition.css?v=119">
-<link rel="stylesheet" href="css/tokens.css?v=119">
-<link rel="stylesheet" href="css/base.css?v=119">
-<link rel="stylesheet" href="css/header.css?v=119">
-<link rel="stylesheet" href="css/widgets.css?v=119">
-<link rel="stylesheet" href="css/footer.css?v=119">
-<link rel="stylesheet" href="css/components.css?v=119">
-<link rel="stylesheet" href="css/chrome.css?v=119">
-<link rel="stylesheet" href="css/feed.css?v=119">
-<link rel="stylesheet" href="css/pages/photos.css?v=119">
-<link rel="stylesheet" href="css/mark.css?v=119">
-<link rel="stylesheet" href="css/responsive.css?v=119">
-<link rel="stylesheet" href="css/brief.css?v=119">
+<link rel="stylesheet" href="css/fonts.css?v=127">
+<link rel="stylesheet" href="css/transition.css?v=127">
+<link rel="stylesheet" href="css/tokens.css?v=127">
+<link rel="stylesheet" href="css/base.css?v=127">
+<link rel="stylesheet" href="css/header.css?v=127">
+<link rel="stylesheet" href="css/widgets.css?v=127">
+<link rel="stylesheet" href="css/footer.css?v=127">
+<link rel="stylesheet" href="css/components.css?v=127">
+<link rel="stylesheet" href="css/chrome.css?v=127">
+<link rel="stylesheet" href="css/feed.css?v=127">
+<link rel="stylesheet" href="css/pages/photos.css?v=127">
+<link rel="stylesheet" href="css/mark.css?v=127">
+<link rel="stylesheet" href="css/responsive.css?v=127">
+<link rel="stylesheet" href="css/brief.css?v=127">
 <script type="speculationrules">{"prerender": [{"where": {"and": [{"href_matches": "/*.html"}, {"not": {"href_matches": ["/live.html", "/reels.html", "/shorts.html", "/video-watch.html", "/now.html", "/map.html"]}}]}, "eagerness": "moderate"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ImageGallery", "name": "الصور", "description": "عدسة شهاب: ألبومات مصوّرة وانفوجرافيك من فلسطين.", "url": "https://shehabnews.com/photos.html", "publisher": {"@type": "NewsMediaOrganization", "name": "وكالة شهاب للأنباء", "url": "https://shehabnews.com/", "logo": {"@type": "ImageObject", "url": "https://shehabnews.com/assets/images/icon-512.png", "width": 512, "height": 512}, "sameAs": ["https://www.facebook.com/sahpp2023", "https://twitter.com/ShehabAgency", "https://www.instagram.com/shehabagency/", "https://www.youtube.com/channel/UChvBXfexWtP5gdGZespJnZw", "https://t.me/ShehabTelegram", "https://www.tiktok.com/@shehab_news"]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://shehabnews.com/"}, {"@type": "ListItem", "position": 2, "name": "الصور", "item": "https://shehabnews.com/photos.html"}]}]}</script>
 </head>
@@ -183,8 +183,6 @@
           <button type="button" aria-label="إيقاف التبديل التلقائي" aria-pressed="false" data-sh="ticker-pause" class="sh-ticker__btn sh-ticker__btn--pause"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-pause"></use></svg></button>
           <button type="button" aria-label="الخبر التالي" data-sh="ticker-next" class="sh-ticker__btn">›</button>
         </div>
-        <span class="sh-ticker__sep"></span>
-        <a href="coverage.html" class="sh-ticker__cta">التغطية الحية<span class="sh-ticker__cta-arrow" aria-hidden="true"></span></a>
       </div>
     </div>
     <span class="sr-only" aria-live="polite" data-sh-announce></span>
@@ -202,59 +200,53 @@
 
 <main id="main" class="sh-container">
 
-<div data-screen-label="Photos Intro" class="sh-photos-photos-intro__div-1">
-  <nav class="sh-photos-photos-intro__nav-1">
+<div data-screen-label="Photos Intro" class="sh-ph-intro">
+  <nav class="sh-ph-intro__crumbs" aria-label="مسار الصفحة">
     <a href="index.html" class="sh-mute">الرئيسية</a>
-    
-    <span class="sh-link">الصور</span>
+    <span class="sh-link" aria-current="page">الصور</span>
   </nav>
-  <div class="sh-photos-photos-intro__div-2">
-    <span class="sh-photos-photos-intro__span-1"></span>
-    <span class="sh-photos-photos-intro__span-2"></span>
-    <div class="sh-photos-photos-intro__div-3">
-      <span class="sh-mark sh-photos-photos-intro__span-3"></span>
+  <div class="sh-ph-intro__head">
+    <div class="sh-ph-intro__lead">
+      <span class="sh-mark"></span>
       <div>
-        <h1 class="sh-photos-photos-intro__h1-1">الصور</h1>
-        <p class="sh-photos-photos-intro__p-1">عدسة شهاب — التغطيات البصرية والألبومات المصوّرة من الميدان، لحظة بلحظة.</p>
+        <h1 class="sh-ph-intro__h1">الصور</h1>
+        <p class="sh-ph-intro__dek">عدسة شهاب — التغطيات البصرية والألبومات المصوّرة من الميدان، لحظة بلحظة.</p>
       </div>
     </div>
-    <span class="sh-photos-photos-intro__span-4"><svg class="sh-i sh-photos-photos-intro__i-1" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg>2,417 صورة موثّقة هذا العام</span>
+    <span class="sh-ph-intro__count"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg>2,417 صورة موثّقة هذا العام</span>
   </div>
 </div>
 
-<section data-sh-lightbox data-screen-label="Photo Mosaic" class="sh-photos-photo-mosaic__section-1">
-  <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1600" data-caption="شارع الرشيد.. عودة الحياة إلى شريان غزة الساحلي" data-story="article.html" href="article.html" class="sh-photos-photo-mosaic__a-1">
-    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1600" alt="" class="sh-photos-photo-mosaic__img-1">
-    <span class="sh-photos-photo-mosaic__span-1"></span>
-    <span class="sh-photos-photo-mosaic__span-2">شهاب<span class="sh-photos-photo-mosaic__span-3"></span>صور</span>
-    <span class="sh-photos-photo-mosaic__span-4">
-      <span class="sh-photos-photo-mosaic__span-5"></span>
-      <span class="sh-photos-photo-mosaic__span-6"><span class="sh-photos-photo-mosaic__span-7">صورة الأسبوع — غزة</span><span class="sh-tnum">2 سبتمبر 2026</span></span>
-      <span class="sh-photos-photo-mosaic__span-8">شارع الرشيد.. عودة الحياة إلى شريان غزة الساحلي</span>
+<!-- HERO — the feature photo and the two secondary stories (js/app.js lightbox) -->
+<section data-sh-lightbox data-screen-label="Photo Mosaic" class="sh-ph-hero">
+  <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1600" data-caption="شارع الرشيد.. عودة الحياة إلى شريان غزة الساحلي" data-story="article.html" href="article.html" class="sh-ph-tile sh-ph-hero__main">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1600" alt="" fetchpriority="high" decoding="async" style="object-position:center 55%">
+    <span class="sh-ph-tile__scrim"></span>
+    <span class="sh-ph-hero__brand">شهاب<span class="sh-ph-hero__brand-line"></span>صور</span>
+    <span class="sh-ph-hero__body">
+      <span class="sh-ph-hero__rule"></span>
+      <span class="sh-ph-hero__kicker"><b>صورة الأسبوع — غزة</b><span class="sh-tnum">2 سبتمبر 2026</span></span>
+      <span class="sh-ph-hero__title">شارع الرشيد.. عودة الحياة إلى شريان غزة الساحلي</span>
     </span>
   </a>
-  <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=1600" data-caption="بحر الخيام في المواسي" data-story="article.html" href="article.html" class="sh-photos-photo-mosaic__a-2">
-    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=900" alt="" class="sh-photos-photo-mosaic__img-2">
-    <span class="sh-photos-photo-mosaic__span-9"></span>
-    <span class="sh-photos-photo-mosaic__span-10">
-      <span class="sh-photos-photo-mosaic__span-11">إنساني</span>
-      <span class="sh-photos-photo-mosaic__span-12">بحر الخيام في المواسي</span>
-    </span>
-    <span class="sh-photos-photo-mosaic__span-13"><svg class="sh-i sh-photos-photo-mosaic__i-1" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-images"></use></svg>12</span>
-  </a>
-  <a data-sh-shot data-src="assets/images/gaza-coast.webp" data-caption="غروب على ساحل غزة" data-story="article.html" href="article.html" class="sh-photos-photo-mosaic__a-2">
-    <img src="assets/images/gaza-coast.webp" width="1600" height="900" alt="" class="sh-photos-photo-mosaic__img-2">
-    <span class="sh-photos-photo-mosaic__span-9"></span>
-    <span class="sh-photos-photo-mosaic__span-10">
-      <span class="sh-photos-photo-mosaic__span-11">عدسة شهاب</span>
-      <span class="sh-photos-photo-mosaic__span-12">غروب على ساحل غزة</span>
-    </span>
-    <span class="sh-photos-photo-mosaic__span-13"><svg class="sh-i sh-photos-photo-mosaic__i-1" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-images"></use></svg>8</span>
-  </a>
+  <div class="sh-ph-hero__sides">
+    <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=1600" data-caption="بحر الخيام في المواسي" data-story="article.html" href="article.html" class="sh-ph-tile sh-ph-hero__side">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=900" alt="" decoding="async">
+      <span class="sh-ph-tile__scrim"></span>
+      <span class="sh-ph-hero__sbody"><span class="sh-ph-hero__cat">إنساني</span><span class="sh-ph-hero__stitle">بحر الخيام في المواسي</span></span>
+      <span class="sh-ph-tile__n"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-images"></use></svg>12</span>
+    </a>
+    <a data-sh-shot data-src="assets/images/gaza-coast.webp" data-caption="غروب على ساحل غزة" data-story="article.html" href="article.html" class="sh-ph-tile sh-ph-hero__side">
+      <img src="assets/images/gaza-coast.webp" width="1600" height="900" alt="" decoding="async">
+      <span class="sh-ph-tile__scrim"></span>
+      <span class="sh-ph-hero__sbody"><span class="sh-ph-hero__cat">عدسة شهاب</span><span class="sh-ph-hero__stitle">غروب على ساحل غزة</span></span>
+      <span class="sh-ph-tile__n"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-images"></use></svg>8</span>
+    </a>
+  </div>
 </section>
 
-<nav data-screen-label="Photo Categories" class="sh-photos-photo-categories__nav-1">
-  <a href="photos.html" class="sh-photos-photo-categories__a-1">كل الصور</a>
+<nav data-screen-label="Photo Categories" class="sh-ph-cats" aria-label="أقسام الصور">
+  <a href="photos.html" class="sh-ph-cats__all" aria-current="page">كل الصور</a>
   <a href="category.html" class="sh-rail__link sh-rail__link--pad">غزة</a>
   <a href="category.html" class="sh-rail__link sh-rail__link--pad">فلسطين</a>
   <a href="category.html" class="sh-rail__link sh-rail__link--pad">العالم</a>
@@ -264,213 +256,169 @@
   <a href="category.html" class="sh-rail__link sh-rail__link--pad">مجتمع</a>
 </nav>
 
-<section data-sh-lightbox data-screen-label="Photo Grid" class="sh-photos-photo-grid__section-1">
-  <div class="sh-photos-photo-grid__div-1">
-    
-      <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=1600" data-caption="جباليا بعد القصف.. عدسة شهاب ترصد آثار الخرق الجديد" data-story="article.html" href="article.html" class="sh-photos-photo-grid__a-1">
-        <span class="sh-tile sh-tile--16x9">
-          <span class="sh-photos-photo-grid__span-1"></span>
-          <span class="sh-photos-photo-grid__span-2">
-            <span class="sh-photos-photo-grid__span-3"><svg class="sh-i sh-photos-photo-grid__i-1" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg></span>
-          </span>
-          
-            <span class="sh-photos-photo-grid__span-4"><svg class="sh-i sh-photos-photo-grid__i-2" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-images"></use></svg>16</span>
-          
-        </span>
-        <span class="sh-photos-photo-grid__span-5"><span class="sh-meta__cat">غزة</span><span class="sh-meta__time">اليوم</span></span>
-        <span class="sh-photos-photo-grid__span-6">جباليا بعد القصف.. عدسة شهاب ترصد آثار الخرق الجديد</span>
-      </a>
-    
-      <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/UNRWA%20el-Sheikh%20Radwan%20health%20center%2C%20February%202024.jpg?width=1600" data-caption="وجوه من مركز الإيواء" data-story="article.html" href="article.html" class="sh-photos-photo-grid__a-2">
-        <span class="sh-photos-photo-grid__span-7">
-          <span class="sh-photos-photo-grid__span-8"></span>
-          <span class="sh-photos-photo-grid__span-2">
-            <span class="sh-photos-photo-grid__span-3"><svg class="sh-i sh-photos-photo-grid__i-1" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg></span>
-          </span>
-          
-        </span>
-        <span class="sh-photos-photo-grid__span-5"><span class="sh-meta__cat">إنساني</span><span class="sh-meta__time">اليوم</span></span>
-        <span class="sh-photos-photo-grid__span-6">وجوه من مركز الإيواء</span>
-      </a>
-    
-      <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=1600" data-caption="ما تبقى من البيوت قبل الشتاء" data-story="article.html" href="article.html" class="sh-photos-photo-grid__a-2">
-        <span class="sh-photos-photo-grid__span-9">
-          <span class="sh-photos-photo-grid__span-10"></span>
-          <span class="sh-photos-photo-grid__span-2">
-            <span class="sh-photos-photo-grid__span-3"><svg class="sh-i sh-photos-photo-grid__i-1" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg></span>
-          </span>
-          
-            <span class="sh-photos-photo-grid__span-4"><svg class="sh-i sh-photos-photo-grid__i-2" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-images"></use></svg>9</span>
-          
-        </span>
-        <span class="sh-photos-photo-grid__span-5"><span class="sh-meta__cat">غزة</span><span class="sh-meta__time">أمس</span></span>
-        <span class="sh-photos-photo-grid__span-6">ما تبقى من البيوت قبل الشتاء</span>
-      </a>
-    
-      <a data-sh-shot data-src="assets/images/palestine-map.webp" data-caption="خريطة الوطن على جدران المخيم" data-story="article.html" href="article.html" class="sh-photos-photo-grid__a-2">
-        <span class="sh-photos-photo-grid__span-9">
-          <span class="sh-photos-photo-grid__span-11"></span>
-          <span class="sh-photos-photo-grid__span-2">
-            <span class="sh-photos-photo-grid__span-3"><svg class="sh-i sh-photos-photo-grid__i-1" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg></span>
-          </span>
-          
-        </span>
-        <span class="sh-photos-photo-grid__span-5"><span class="sh-meta__cat">فلسطين</span><span class="sh-meta__time">أمس</span></span>
-        <span class="sh-photos-photo-grid__span-6">خريطة الوطن على جدران المخيم</span>
-      </a>
-    
-      <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20field%20at%20Azteca%20Stadium%20in%20Mexico%20City%20during%20the%20opening%20ceremony%20of%20the%202026%20World%20Cup.jpg?width=1600" data-caption="ملعب أزتيكا يفتتح مونديال 2026" data-story="article.html" href="article.html" class="sh-photos-photo-grid__a-2">
-        <span class="sh-photos-photo-grid__span-9">
-          <span class="sh-photos-photo-grid__span-12"></span>
-          <span class="sh-photos-photo-grid__span-2">
-            <span class="sh-photos-photo-grid__span-3"><svg class="sh-i sh-photos-photo-grid__i-1" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg></span>
-          </span>
-          
-            <span class="sh-photos-photo-grid__span-4"><svg class="sh-i sh-photos-photo-grid__i-2" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-images"></use></svg>22</span>
-          
-        </span>
-        <span class="sh-photos-photo-grid__span-5"><span class="sh-meta__cat">رياضة</span><span class="sh-meta__time">هذا الأسبوع</span></span>
-        <span class="sh-photos-photo-grid__span-6">ملعب أزتيكا يفتتح مونديال 2026</span>
-      </a>
-    
-      <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=1600" data-caption="رفح بعد الانسحاب.. مدينة تنهض من تحت الركام" data-story="article.html" href="article.html" class="sh-photos-photo-grid__a-3">
-        <span class="sh-photos-photo-grid__span-13">
-          <span class="sh-photos-photo-grid__span-14"></span>
-          <span class="sh-photos-photo-grid__span-2">
-            <span class="sh-photos-photo-grid__span-3"><svg class="sh-i sh-photos-photo-grid__i-1" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg></span>
-          </span>
-          
-            <span class="sh-photos-photo-grid__span-4"><svg class="sh-i sh-photos-photo-grid__i-2" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-images"></use></svg>14</span>
-          
-        </span>
-        <span class="sh-photos-photo-grid__span-5"><span class="sh-meta__cat">غزة</span><span class="sh-meta__time">هذا الأسبوع</span></span>
-        <span class="sh-photos-photo-grid__span-6">رفح بعد الانسحاب.. مدينة تنهض من تحت الركام</span>
-      </a>
-    
-      <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20view%20of%20destruction%20in%20Beach%20refugee%20camp%2C%20Gaza%20Strip.jpg?width=1600" data-caption="مخيم الشاطئ من الجو.. الكثافة التي يعيشها النازحون" data-story="article.html" href="article.html" class="sh-photos-photo-grid__a-1">
-        <span class="sh-photos-photo-grid__span-15">
-          <span class="sh-photos-photo-grid__span-16"></span>
-          <span class="sh-photos-photo-grid__span-2">
-            <span class="sh-photos-photo-grid__span-3"><svg class="sh-i sh-photos-photo-grid__i-1" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg></span>
-          </span>
-          
-            <span class="sh-photos-photo-grid__span-4"><svg class="sh-i sh-photos-photo-grid__i-2" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-images"></use></svg>7</span>
-          
-        </span>
-        <span class="sh-photos-photo-grid__span-5"><span class="sh-meta__cat">مجتمع</span><span class="sh-meta__time">هذا الأسبوع</span></span>
-        <span class="sh-photos-photo-grid__span-6">مخيم الشاطئ من الجو.. الكثافة التي يعيشها النازحون</span>
-      </a>
-    
-      <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/UNRWA%20el-Sheikh%20Radwan%20health%20center%2C%20February%202024.jpg?width=1600" data-caption="انتظار على أبواب المركز الصحي" data-story="article.html" href="article.html" class="sh-photos-photo-grid__a-2">
-        <span class="sh-photos-photo-grid__span-17">
-          <span class="sh-photos-photo-grid__span-8"></span>
-          <span class="sh-photos-photo-grid__span-2">
-            <span class="sh-photos-photo-grid__span-3"><svg class="sh-i sh-photos-photo-grid__i-1" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg></span>
-          </span>
-          
-        </span>
-        <span class="sh-photos-photo-grid__span-5"><span class="sh-meta__cat">إنساني</span><span class="sh-meta__time">هذا الأسبوع</span></span>
-        <span class="sh-photos-photo-grid__span-6">انتظار على أبواب المركز الصحي</span>
-      </a>
-    
+<!-- EDITORIAL GRID — 12 columns: lead + portrait, three 4:3, the major photo, portrait + lead -->
+<section data-sh-lightbox data-screen-label="Photo Grid" class="sh-ph-grid">
+  <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=1600" data-caption="جباليا بعد القصف.. عدسة شهاب ترصد آثار الخرق الجديد" data-story="article.html" href="article.html" class="sh-ph-card sh-ph-card--lead">
+    <span class="sh-ph-tile">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=1200" alt="" loading="lazy" decoding="async">
+      <span class="sh-ph-tile__hover"><span class="sh-ph-tile__cam"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg></span></span>
+      <span class="sh-ph-tile__n"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-images"></use></svg>16</span>
+    </span>
+    <span class="sh-ph-card__meta"><span class="sh-meta__cat">غزة</span><span class="sh-meta__time">اليوم</span></span>
+    <span class="sh-ph-card__title">جباليا بعد القصف.. عدسة شهاب ترصد آثار الخرق الجديد</span>
+  </a>
+
+  <a data-sh-shot data-src="https://shehabnews.com/uploads/images/2026/08/g2WRw.jpg" data-caption="عائلة أبو صفية تستقبل حفيدًا جديدًا.. فرحة منقوصة بغياب الطبيب حسام" data-story="article.html" href="article.html" class="sh-ph-card sh-ph-card--tall">
+    <span class="sh-ph-tile">
+      <img src="https://shehabnews.com/uploads/images/2026/08/g2WRw.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 60%">
+      <span class="sh-ph-tile__hover"><span class="sh-ph-tile__cam"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg></span></span>
+      
+    </span>
+    <span class="sh-ph-card__meta"><span class="sh-meta__cat">إنساني</span><span class="sh-meta__time">اليوم</span></span>
+    <span class="sh-ph-card__title">عائلة أبو صفية تستقبل حفيدًا جديدًا.. فرحة منقوصة بغياب الطبيب حسام</span>
+  </a>
+
+  <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=1600" data-caption="ما تبقى من البيوت قبل الشتاء" data-story="article.html" href="article.html" class="sh-ph-card sh-ph-card--third">
+    <span class="sh-ph-tile">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=800" alt="" loading="lazy" decoding="async">
+      <span class="sh-ph-tile__hover"><span class="sh-ph-tile__cam"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg></span></span>
+      <span class="sh-ph-tile__n"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-images"></use></svg>9</span>
+    </span>
+    <span class="sh-ph-card__meta"><span class="sh-meta__cat">غزة</span><span class="sh-meta__time">أمس</span></span>
+    <span class="sh-ph-card__title">ما تبقى من البيوت قبل الشتاء</span>
+  </a>
+
+  <a data-sh-shot data-src="assets/images/palestine-map.webp" data-caption="خريطة الوطن على جدران المخيم" data-story="article.html" href="article.html" class="sh-ph-card sh-ph-card--third">
+    <span class="sh-ph-tile">
+      <img src="assets/images/palestine-map.webp" width="1400" height="788" alt="" loading="lazy" decoding="async">
+      <span class="sh-ph-tile__hover"><span class="sh-ph-tile__cam"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg></span></span>
+      
+    </span>
+    <span class="sh-ph-card__meta"><span class="sh-meta__cat">فلسطين</span><span class="sh-meta__time">أمس</span></span>
+    <span class="sh-ph-card__title">خريطة الوطن على جدران المخيم</span>
+  </a>
+
+  <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20field%20at%20Azteca%20Stadium%20in%20Mexico%20City%20during%20the%20opening%20ceremony%20of%20the%202026%20World%20Cup.jpg?width=1600" data-caption="ملعب أزتيكا يفتتح مونديال 2026" data-story="article.html" href="article.html" class="sh-ph-card sh-ph-card--third">
+    <span class="sh-ph-tile">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20field%20at%20Azteca%20Stadium%20in%20Mexico%20City%20during%20the%20opening%20ceremony%20of%20the%202026%20World%20Cup.jpg?width=800" alt="" loading="lazy" decoding="async">
+      <span class="sh-ph-tile__hover"><span class="sh-ph-tile__cam"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg></span></span>
+      <span class="sh-ph-tile__n"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-images"></use></svg>22</span>
+    </span>
+    <span class="sh-ph-card__meta"><span class="sh-meta__cat">رياضة</span><span class="sh-meta__time">هذا الأسبوع</span></span>
+    <span class="sh-ph-card__title">ملعب أزتيكا يفتتح مونديال 2026</span>
+  </a>
+
+  <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=1600" data-caption="رفح بعد الانسحاب.. مدينة تنهض من تحت الركام" data-story="article.html" href="article.html" class="sh-ph-card sh-ph-card--major">
+    <span class="sh-ph-tile">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=1600" alt="" loading="lazy" decoding="async">
+      <span class="sh-ph-tile__hover"><span class="sh-ph-tile__cam"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg></span></span>
+      <span class="sh-ph-tile__n"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-images"></use></svg>14</span>
+    </span>
+    <span class="sh-ph-card__meta"><span class="sh-meta__cat">غزة</span><span class="sh-meta__time">هذا الأسبوع</span><span class="sh-ph-card__kicker">قصة مصوّرة</span></span>
+    <span class="sh-ph-card__title">رفح بعد الانسحاب.. مدينة تنهض من تحت الركام</span>
+  </a>
+
+  <a data-sh-shot data-src="https://shehabnews.com/uploads/images/2026/08/16Sth.jpg" data-caption="مهندسو غزة يرممون الأجهزة الطبية في مجمع الشفاء" data-story="article.html" href="article.html" class="sh-ph-card sh-ph-card--tall">
+    <span class="sh-ph-tile">
+      <img src="https://shehabnews.com/uploads/images/2026/08/16Sth.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 60%">
+      <span class="sh-ph-tile__hover"><span class="sh-ph-tile__cam"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg></span></span>
+      
+    </span>
+    <span class="sh-ph-card__meta"><span class="sh-meta__cat">إنساني</span><span class="sh-meta__time">هذا الأسبوع</span></span>
+    <span class="sh-ph-card__title">مهندسو غزة يرممون الأجهزة الطبية في مجمع الشفاء</span>
+  </a>
+
+  <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20view%20of%20destruction%20in%20Beach%20refugee%20camp%2C%20Gaza%20Strip.jpg?width=1600" data-caption="مخيم الشاطئ من الجو.. الكثافة التي يعيشها النازحون" data-story="article.html" href="article.html" class="sh-ph-card sh-ph-card--lead">
+    <span class="sh-ph-tile">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20view%20of%20destruction%20in%20Beach%20refugee%20camp%2C%20Gaza%20Strip.jpg?width=1200" alt="" loading="lazy" decoding="async">
+      <span class="sh-ph-tile__hover"><span class="sh-ph-tile__cam"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg></span></span>
+      <span class="sh-ph-tile__n"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-images"></use></svg>7</span>
+    </span>
+    <span class="sh-ph-card__meta"><span class="sh-meta__cat">مجتمع</span><span class="sh-meta__time">هذا الأسبوع</span></span>
+    <span class="sh-ph-card__title">مخيم الشاطئ من الجو.. الكثافة التي يعيشها النازحون</span>
+  </a>
+
+</section>
+
+<!-- the dark editorial moment: three photo-story covers -->
+<section data-sh-lightbox data-screen-label="Editors Picks" class="sh-ph-picks">
+  <div class="sh-ph-picks__head">
+    <h2 class="sh-ph-picks__h2"><span class="sh-mark sh-mark--md"></span>مختارات شهاب <span class="sh-ph-picks__sub">قصص مصوّرة اختارها المحررون</span></h2>
+    <a href="photos.html" class="sh-ph-picks__more">كل القصص المصوّرة ←</a>
+  </div>
+  <div class="sh-ph-picks__grid">
+    <a data-sh-shot data-src="https://shehabnews.com/uploads/images/2026/08/LzX8s.jpg" data-caption="كيف أصبح فتى في الـ18 «أبو عبيدة»؟" data-story="article.html" href="article.html" class="sh-ph-pick">
+      <span class="sh-ph-pick__top"><span class="sh-eyebrow">شهاب / صور 01<span class="sh-ph-pick__line"></span></span></span>
+      <span class="sh-ph-tile">
+        <img src="https://shehabnews.com/uploads/images/2026/08/LzX8s.jpg" alt="" loading="lazy" decoding="async">
+        <span class="sh-ph-tile__hover"><span class="sh-ph-tile__cam"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg></span></span>
+      </span>
+      <span class="sh-ph-pick__kicker">قصة مصوّرة</span>
+      <span class="sh-ph-pick__title">كيف أصبح فتى في الـ18 «أبو عبيدة»؟</span>
+    </a>
+
+    <a data-sh-shot data-src="https://shehabnews.com/uploads/images/2026/08/8g13t.jpg" data-caption="شابت رؤوسنا قبل أوانها في غزة.. حين تظهر الحرب في خصلات الشعر" data-story="article.html" href="article.html" class="sh-ph-pick">
+      <span class="sh-ph-pick__top"><span class="sh-eyebrow">شهاب / صور 02<span class="sh-ph-pick__line"></span></span></span>
+      <span class="sh-ph-tile">
+        <img src="https://shehabnews.com/uploads/images/2026/08/8g13t.jpg" alt="" loading="lazy" decoding="async">
+        <span class="sh-ph-tile__hover"><span class="sh-ph-tile__cam"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg></span></span>
+      </span>
+      <span class="sh-ph-pick__kicker">قصة مصوّرة</span>
+      <span class="sh-ph-pick__title">شابت رؤوسنا قبل أوانها في غزة.. حين تظهر الحرب في خصلات الشعر</span>
+    </a>
+
+    <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=1600" data-caption="ألف يوم من الإبادة.. ما وثّقته العدسة" data-story="article.html" href="article.html" class="sh-ph-pick">
+      <span class="sh-ph-pick__top"><span class="sh-eyebrow">شهاب / صور 03<span class="sh-ph-pick__line"></span></span><span class="sh-ph-pick__n">25 صورة</span></span>
+      <span class="sh-ph-tile">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=900" alt="" loading="lazy" decoding="async">
+        <span class="sh-ph-tile__hover"><span class="sh-ph-tile__cam"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg></span></span>
+      </span>
+      <span class="sh-ph-pick__kicker">أرشيف الحرب</span>
+      <span class="sh-ph-pick__title">ألف يوم من الإبادة.. ما وثّقته العدسة</span>
+    </a>
+
   </div>
 </section>
 
-<section data-sh-lightbox data-screen-label="Editors Picks" class="sh-photos-editors-picks__section-1">
-  <div class="sh-photos-editors-picks__div-1">
-    <h2 class="sh-photos-editors-picks__h2-1"><span class="sh-mark sh-mark--md"></span>مختارات شهاب <span class="sh-photos-editors-picks__span-1">قصص مصوّرة اختارها المحررون</span></h2>
-    <a href="photos.html" class="sh-photos-editors-picks__a-1">كل القصص المصوّرة ←</a>
-  </div>
-  <div class="sh-photos-editors-picks__div-2">
-    
-      <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1600" data-caption="العودة عبر الرشيد.. رحلة النازحين إلى الشمال" data-story="article.html" href="article.html" class="sh-photos-editors-picks__a-2">
-        <span class="sh-photos-editors-picks__span-2">
-          <span class="sh-eyebrow">شهاب / صور 01<span class="sh-photos-editors-picks__span-3"></span></span>
-          <span class="sh-photos-editors-picks__span-4">18 صورة</span>
-        </span>
-        <span class="sh-tile sh-tile--4x3">
-          <span class="sh-photos-editors-picks__span-5"></span>
-          <span class="sh-photos-editors-picks__span-6"></span>
-          <span class="sh-photos-editors-picks__span-7">01</span>
-          <span class="sh-photos-editors-picks__span-8">
-            <span class="sh-photos-editors-picks__span-9">قصة مصوّرة</span>
-            <span class="sh-photos-editors-picks__span-10">العودة عبر الرشيد.. رحلة النازحين إلى الشمال</span>
-          </span>
-        </span>
-      </a>
-    
-      <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=1600" data-caption="شتاء المواسي.. الحياة في بحر الخيام" data-story="article.html" href="article.html" class="sh-photos-editors-picks__a-2">
-        <span class="sh-photos-editors-picks__span-2">
-          <span class="sh-eyebrow">شهاب / صور 02<span class="sh-photos-editors-picks__span-3"></span></span>
-          <span class="sh-photos-editors-picks__span-4">11 صورة</span>
-        </span>
-        <span class="sh-tile sh-tile--4x3">
-          <span class="sh-photos-editors-picks__span-11"></span>
-          <span class="sh-photos-editors-picks__span-6"></span>
-          <span class="sh-photos-editors-picks__span-7">02</span>
-          <span class="sh-photos-editors-picks__span-8">
-            <span class="sh-photos-editors-picks__span-9">قصة مصوّرة</span>
-            <span class="sh-photos-editors-picks__span-10">شتاء المواسي.. الحياة في بحر الخيام</span>
-          </span>
-        </span>
-      </a>
-    
-      <a data-sh-shot data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=1600" data-caption="ألف يوم من الإبادة.. ما وثّقته العدسة" data-story="article.html" href="article.html" class="sh-photos-editors-picks__a-2">
-        <span class="sh-photos-editors-picks__span-2">
-          <span class="sh-eyebrow">شهاب / صور 03<span class="sh-photos-editors-picks__span-3"></span></span>
-          <span class="sh-photos-editors-picks__span-4">25 صورة</span>
-        </span>
-        <span class="sh-tile sh-tile--4x3">
-          <span class="sh-photos-editors-picks__span-12"></span>
-          <span class="sh-photos-editors-picks__span-6"></span>
-          <span class="sh-photos-editors-picks__span-7">03</span>
-          <span class="sh-photos-editors-picks__span-8">
-            <span class="sh-photos-editors-picks__span-9">أرشيف الحرب</span>
-            <span class="sh-photos-editors-picks__span-10">ألف يوم من الإبادة.. ما وثّقته العدسة</span>
-          </span>
-        </span>
-      </a>
-    
-  </div>
-</section>
-
-<nav data-screen-label="Pagination" class="sh-photos-pagination__nav-1">
-  <a href="photos.html?page=1" class="sh-photos-pagination__a-1">السابق</a>
-  <a href="photos.html?page=1" class="sh-photos-pagination__a-2">1</a>
+<nav data-screen-label="Pagination" class="sh-ph-pager" aria-label="صفحات الصور">
+  <a href="photos.html?page=1" class="sh-ph-pager__prev" aria-disabled="true">السابق</a>
+  <a href="photos.html?page=1" class="sh-ph-pager__cur" aria-current="page">1</a>
   <a href="photos.html?page=2" class="sh-pager__btn">2</a>
   <a href="photos.html?page=3" class="sh-pager__btn">3</a>
-  <span class="sh-photos-pagination__span-1">…</span>
+  <span class="sh-ph-pager__gap">…</span>
   <a href="photos.html?page=14" class="sh-pager__btn">14</a>
-  <a href="photos.html?page=2" class="sh-photos-pagination__a-3">التالي <span class="sh-more__arrow sh-more__arrow--12"></span></a>
+  <a href="photos.html?page=2" class="sh-ph-pager__next">التالي <span class="sh-more__arrow sh-more__arrow--12"></span></a>
 </nav>
 
-<section data-screen-label="From The Lens" class="sh-photos-from-the-lens__section-1">
-  <div class="sh-photos-from-the-lens__div-1"><span class="sh-rule"></span><span class="sh-photos-from-the-lens__span-1">من عدسة شهاب</span><span class="sh-rule"></span></div>
-  <div class="sh-photos-from-the-lens__div-2">
-    <a href="article.html" class="sh-photos-from-the-lens__a-1">
-      <img src="assets/images/gaza-coast.webp" width="1600" height="900" alt="" class="sh-photos-from-the-lens__img-1">
-      <span class="sh-photos-from-the-lens__span-2"></span>
-      <span class="sh-photos-from-the-lens__span-3">
-        <span class="sh-photos-from-the-lens__span-4"></span>
-        <span class="sh-photos-from-the-lens__span-5">غروب على ساحل غزة.. البحر الذي لم يغادر أهله</span>
+<!-- من عدسة شهاب — one real album from the lens (index.html's Friday-prayer set) -->
+<section data-sh-lightbox data-screen-label="From The Lens" class="sh-ph-lens">
+  <div class="sh-ph-lens__label"><span class="sh-rule"></span><span>من عدسة شهاب</span><span class="sh-rule"></span></div>
+  <div class="sh-ph-lens__grid">
+    <a data-sh-shot data-src="https://shehabnews.com/thumb/960x512/uploads/images/2026/09/PalWx.jpg" data-caption="القدس المحتلة · من أداء صلاة الجمعة في المسجد الأقصى المبارك" data-story="article.html" href="article.html" class="sh-ph-tile sh-ph-lens__main">
+      <img src="https://shehabnews.com/thumb/960x512/uploads/images/2026/09/PalWx.jpg" width="960" height="512" alt="" loading="lazy" decoding="async">
+      <span class="sh-ph-tile__scrim"></span>
+      <span class="sh-ph-lens__body">
+        <span class="sh-ph-lens__rule"></span>
+        <span class="sh-ph-lens__cat">القدس المحتلة</span>
+        <span class="sh-ph-lens__title">من أداء صلاة الجمعة في المسجد الأقصى المبارك</span>
       </span>
     </a>
-    <a href="photos.html" class="sh-photos-from-the-lens__a-2">
-      <span class="sh-photos-from-the-lens__span-6"></span>
-      <span class="sh-photos-from-the-lens__span-2"></span>
-      <span class="sh-photos-from-the-lens__span-7"><span class="sh-photos-from-the-lens__span-8">بيوت تنتظر الشتاء</span></span>
+    <a data-sh-shot data-src="https://shehabnews.com/thumb/960x512/uploads/images/2026/08/isAvi.jpg" data-caption="القدس المحتلة · صفوف المصلين أمام أروقة المسجد" data-story="article.html" href="photos.html" class="sh-ph-tile sh-ph-lens__side">
+      <img src="https://shehabnews.com/thumb/960x512/uploads/images/2026/08/isAvi.jpg" width="960" height="512" alt="" loading="lazy" decoding="async">
+      <span class="sh-ph-tile__scrim"></span>
+      <span class="sh-ph-lens__sbody"><span class="sh-ph-lens__stitle">صفوف المصلين أمام أروقة المسجد</span></span>
     </a>
-    <a href="photos.html" class="sh-photos-from-the-lens__a-2">
-      <span class="sh-photos-from-the-lens__span-9"></span>
-      <span class="sh-photos-from-the-lens__span-2"></span>
-      <span class="sh-photos-from-the-lens__span-7"><span class="sh-photos-from-the-lens__span-8">مخيم الشاطئ من الجو</span></span>
+    <a data-sh-shot data-src="https://shehabnews.com/thumb/960x512/uploads/images/2026/08/HhpkC.jpg" data-caption="القدس المحتلة · عشرات الآلاف يؤدون الجمعة رغم قيود الاحتلال" data-story="article.html" href="photos.html" class="sh-ph-tile sh-ph-lens__side">
+      <img src="https://shehabnews.com/thumb/960x512/uploads/images/2026/08/HhpkC.jpg" width="960" height="512" alt="" loading="lazy" decoding="async">
+      <span class="sh-ph-tile__scrim"></span>
+      <span class="sh-ph-lens__sbody"><span class="sh-ph-lens__stitle">عشرات الآلاف يؤدون الجمعة رغم قيود الاحتلال</span></span>
     </a>
   </div>
 </section>
 
-<div data-screen-label="Photos Closing" class="sh-photos-photos-closing__div-1">
-  <span class="sh-photos-photos-closing__span-1"><svg class="sh-i sh-photos-photos-closing__i-1" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg>تابع تغطيات شهاب المصوّرة</span>
-  <a href="newsletter.html" class="sh-photos-photos-closing__a-1">اشترك في نشرة الصور </a>
+<div data-screen-label="Photos Closing" class="sh-ph-closing">
+  <span class="sh-ph-closing__lead"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-camera"></use></svg>تابع تغطيات شهاب المصوّرة</span>
+  <a href="newsletter.html" class="sh-ph-closing__cta">اشترك في نشرة الصور</a>
 </div>
 
 </main>
@@ -570,15 +518,15 @@
 </dialog>
 <!-- /sh:footer -->
 </div>
-<script src="js/ui.js?v=119" defer></script>
-<script src="js/chrome.js?v=119" defer></script>
-<script src="js/feed.js?v=119" defer></script>
-<script src="js/app.js?v=119" defer></script>
-<script src="js/responsive.js?v=119" defer></script>
-<script src="js/widgets.js?v=119" defer></script>
-<script src="js/brief.js?v=119" defer></script>
-<script src="js/searchbox.js?v=119" defer></script>
-<script src="js/push.js?v=119" defer></script>
-<script src="js/pwa.js?v=119" defer></script>
+<script src="js/ui.js?v=127" defer></script>
+<script src="js/chrome.js?v=127" defer></script>
+<script src="js/feed.js?v=127" defer></script>
+<script src="js/app.js?v=127" defer></script>
+<script src="js/responsive.js?v=127" defer></script>
+<script src="js/widgets.js?v=127" defer></script>
+<script src="js/brief.js?v=127" defer></script>
+<script src="js/searchbox.js?v=127" defer></script>
+<script src="js/push.js?v=127" defer></script>
+<script src="js/pwa.js?v=127" defer></script>
 </body>
 </html>
