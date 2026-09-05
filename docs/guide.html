@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دليل منصة شهاب</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../css/fonts.css">
+<style>
+  :root{--navy:#0a1a33;--navy2:#0f2a4f;--blue:#1b5aa6;--sky:#7ea8dd;--red:#e0302f;--ink:#14233a;--ink2:#4a5568;--mute:#5d6b7d;--line:#d5dde8;--soft:#f5f7fa;--tint:#edf2f8;--paper:#fbfaf7}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:20px}
+  body{margin:0;background:#fff;color:var(--ink);font-family:'Almarai',system-ui,-apple-system,'Segoe UI',Tahoma,sans-serif;line-height:1.85;-webkit-font-smoothing:antialiased}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  p{margin:0 0 12px}
+  /* frame */
+  .g-top{background:var(--navy);color:#fff;padding:36px 24px 30px}
+  .g-top__in{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}
+  .g-kicker{font-size:13px;font-weight:800;color:var(--sky);margin:0 0 8px}
+  .g-title{font-size:clamp(26px,3.4vw,40px);font-weight:800;line-height:1.35;margin:0 0 10px}
+  .g-lead{font-size:15.5px;color:rgba(255,255,255,.78);max-width:62ch;margin:0}
+  .g-meta{font-size:12.5px;color:rgba(255,255,255,.6);white-space:nowrap}
+  .g-stats{max-width:1180px;margin:-1px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+  .g-stat{background:#fff;padding:16px 18px}
+  .g-stat b{display:block;font-size:26px;font-weight:800;color:var(--navy);line-height:1.1}
+  .g-stat span{font-size:12.5px;color:var(--mute)}
+  .g-wrap{max-width:1180px;margin:0 auto;padding:28px 24px 60px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px;align-items:start}
+  /* nav */
+  .g-nav{position:sticky;top:20px;border-inline-end:1px solid var(--line);padding-inline-end:16px}
+  .g-nav b{display:block;font-size:12px;color:var(--mute);margin-bottom:10px}
+  .g-nav a{display:block;padding:7px 0;font-size:14px;font-weight:700;color:var(--ink);border-inline-end:3px solid transparent;margin-inline-end:-17px;padding-inline-end:14px}
+  .g-nav a:hover,.g-nav a[data-on]{color:var(--blue);border-color:var(--blue);text-decoration:none}
+  /* sections */
+  section{padding:8px 0 34px;border-bottom:1px solid var(--line);margin-bottom:34px}
+  section:last-child{border:0}
+  h2{font-size:24px;font-weight:800;color:var(--navy);margin:0 0 6px;display:flex;align-items:center;gap:12px}
+  h2 .n{display:inline-grid;place-items:center;width:34px;height:34px;background:var(--blue);color:#fff;font-size:15px;flex:none}
+  .g-sub{color:var(--mute);font-size:14.5px;margin:0 0 20px}
+  h3{font-size:17px;font-weight:800;color:var(--blue);margin:26px 0 12px}
+  /* page cards */
+  .g-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+  .g-card{border:1px solid var(--line);padding:16px 18px;background:#fff;display:flex;flex-direction:column;gap:6px;min-width:0}
+  .g-card__h{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .g-card__name{font-size:16px;font-weight:800;color:var(--navy)}
+  .g-card__open{font-size:12px;font-weight:800;color:var(--blue);white-space:nowrap;border:1px solid var(--line);padding:4px 10px}
+  .g-card__open:hover{background:var(--blue);color:#fff;border-color:var(--blue);text-decoration:none}
+  .g-card__what{font-size:14px;color:var(--ink2);line-height:1.8}
+  .g-card__row{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px;font-size:12.5px;color:var(--mute);line-height:1.7}
+  .g-card__row b{color:var(--navy);font-weight:800;white-space:nowrap}
+  .g-card--hero{grid-column:1 / -1;background:var(--tint);border-color:#c9d8ec}
+  /* features */
+  .g-feat{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+  .g-f{border:1px solid var(--line);padding:16px 18px;background:#fff;min-width:0}
+  .g-f h4{margin:0 0 8px;font-size:16px;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:10px}
+  .g-f h4 i{width:8px;height:8px;background:var(--blue);transform:rotate(45deg);flex:none}
+  .g-f ul{margin:0;padding:0 18px 0 0;font-size:14px;color:var(--ink2)}
+  .g-f li{margin:0 0 6px}
+  .g-f li b{color:var(--ink)}
+  /* home order */
+  .g-order{counter-reset:o;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:8px 24px}
+  .g-order li{counter-increment:o;display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;padding:9px 0;border-bottom:1px solid var(--soft);font-size:14px;color:var(--ink2)}
+  .g-order li::before{content:counter(o,decimal-leading-zero);font-weight:800;color:var(--blue);font-size:15px}
+  .g-order b{color:var(--navy);display:block}
+  /* tables */
+  .g-tbl{width:100%;border-collapse:collapse;font-size:14px;margin:6px 0 10px}
+  .g-tbl th{background:var(--navy);color:#fff;font-weight:800;padding:10px 12px;text-align:start;font-size:13px}
+  .g-tbl td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2)}
+  .g-tbl td:first-child{color:var(--navy);font-weight:800;white-space:nowrap}
+  .g-tbl tr:nth-child(even) td{background:#fafbfd}
+  .g-tblwrap{overflow-x:auto}
+  .g-old{color:var(--mute)}
+  .g-new{color:var(--navy);font-weight:700}
+  /* notes */
+  .g-note{background:var(--paper);border-inline-start:3px solid #7c6230;padding:12px 16px;font-size:14px;color:var(--ink2);margin:14px 0}
+  .g-note--blue{border-color:var(--blue);background:var(--tint)}
+  .g-steps{margin:0;padding:0 22px 0 0;font-size:15px}
+  .g-steps li{margin:0 0 8px;padding-inline-start:4px}
+  .g-steps li::marker{color:var(--blue);font-weight:800}
+  dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 18px;font-size:14px}
+  dt{font-weight:800;color:var(--navy);white-space:nowrap}
+  dd{margin:0;color:var(--ink2)}
+  .g-foot{max-width:1180px;margin:0 auto;padding:0 24px 40px;font-size:12.5px;color:var(--mute)}
+  @media (max-width:900px){
+    .g-top__in{grid-template-columns:minmax(0,1fr)}
+    .g-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .g-wrap{grid-template-columns:minmax(0,1fr);gap:20px}
+    .g-nav{position:static;border:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+    .g-nav b{width:100%}
+    .g-nav a{border:1px solid var(--line);padding:6px 10px;margin:0;font-size:13px}
+    .g-nav a[data-on]{background:var(--blue);color:#fff;border-color:var(--blue)}
+  }
+  @media (max-width:640px){.g-stats{grid-template-columns:minmax(0,1fr)}.g-card--hero{grid-column:auto}dl{grid-template-columns:minmax(0,1fr)}dt{margin-top:8px}}
+  @media print{
+    .g-nav,.g-card__open{display:none}
+    .g-wrap{display:block;padding:0}
+    .g-top{background:#fff;color:var(--navy);padding:0 0 12px;border-bottom:2px solid var(--blue)}
+    .g-lead,.g-meta{color:var(--ink2)}
+    section{break-inside:avoid-page}
+    .g-cards,.g-feat{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+</style>
+</head>
+<body>
+
+<header class="g-top">
+  <div class="g-top__in">
+    <div>
+      <p class="g-kicker">وكالة شهاب للأنباء</p>
+      <h1 class="g-title">دليل المنصة الإعلامية الجديدة</h1>
+      <p class="g-lead">ما هي كل صفحة، ولمن، وماذا تفعل الميزات. مكتوب لفريق الإدارة والتحرير؛ الكلمات التقنية القليلة مشروحة في آخر الصفحة.</p>
+    </div>
+    <div class="g-meta">الإصدار 1.0 · سبتمبر 2026 · إعداد TakTek</div>
+  </div>
+</header>
+<div class="g-stats" aria-label="المنصة بالأرقام">
+  <div class="g-stat"><b>26</b><span>صفحة بأنواع مختلفة (الموقع الحالي: 4 أنواع)</span></div>
+  <div class="g-stat"><b>1.2 MB</b><span>حجم الرئيسية بدل 2.5 MB، مع أضعاف المحتوى</span></div>
+  <div class="g-stat"><b>0</b><span>سكربت إعلانات أو تتبّع قبل موافقة الزائر (كان 30)</span></div>
+  <div class="g-stat"><b>7</b><span>مواضع تتحدّث لحظيًا من غرفة الأخبار بلا تحديث للصفحة</span></div>
+</div>
+
+<div class="g-wrap">
+  <nav class="g-nav" aria-label="أقسام الدليل">
+    <b>في هذا الدليل</b>
+    <a href="#pages">١. الصفحات</a>
+    <a href="#home">٢. الرئيسية</a>
+    <a href="#features">٣. الميزات</a>
+    <a href="#compare">٤. قبل وبعد</a>
+    <a href="#editors">٥. فريق التحرير</a>
+    <a href="#demo">٦. ما هو تجريبي</a>
+    <a href="#next">٧. الخطوات القادمة</a>
+    <a href="#glossary">٨. المصطلحات</a>
+  </nav>
+
+  <main>
+
+    <!-- 1 -->
+    <section id="pages">
+      <h2><span class="n">١</span>الصفحات: كل صفحة ووظيفتها</h2>
+      <p class="g-sub">كل بطاقة تقول ما الصفحة، ولمن، وكيف يصل إليها القارئ. زر «افتح» يفتح الصفحة نفسها من النموذج.</p>
+
+      <h3>ما يفتحه القارئ كل يوم</h3>
+      <div class="g-cards">
+        <article class="g-card g-card--hero">
+          <div class="g-card__h"><span class="g-card__name">الرئيسية</span><a class="g-card__open" href="../index.html">افتح</a></div>
+          <p class="g-card__what">واجهة الوكالة كلها في صفحة: القصص الكبرى، آخر التحديثات لحظة بلحظة، التغطية الحية، محاور اليوم، الملفات الخاصة، التصريحات، الفيديو والريلز، الصور، الرأي والرياضة. (تفصيلها في القسم ٢.)</p>
+          <div class="g-card__row"><b>لمن</b><span>كل زائر؛ أول ما يراه.</span></div>
+        </article>
+        <article class="g-card">
+          <div class="g-card__h"><span class="g-card__name">صفحة القسم</span><a class="g-card__open" href="../category.html">افتح</a></div>
+          <p class="g-card__what">أخبار قسم واحد (غزة، الضفة، القدس، الأسرى، عربي، دولي، إسرائيلي، رياضة، رأي…): أبرز مواده، أحدث الأخبار مع «المزيد»، فيديو القسم، و«يحدث الآن» فيه.</p>
+          <div class="g-card__row"><b>لمن</b><span>المتابع لمنطقة أو موضوع بعينه.</span></div>
+          <div class="g-card__row"><b>الوصول</b><span>قائمة الأقسام في أعلى الصفحة.</span></div>
+        </article>
+        <article class="g-card">
+          <div class="g-card__h"><span class="g-card__name">الخبر / التقرير</span><a class="g-card__open" href="../article.html">افتح</a></div>
+          <p class="g-card__what">صفحة القراءة: العنوان والمقدمة والصورة، المتن بخط قراءة عربي، بلوك «سياق» بأرقام الخبر، الاقتباسات، الوسوم، أدوات القراءة (حجم الخط، استمع، حفظ، طباعة، مشاركة)، «اقرأ بعده»، ومواد مرتبطة.</p>
+          <div class="g-card__row"><b>لمن</b><span>كل من يضغط عنوانًا. أهم صفحة في المنصة.</span></div>
+        </article>
+        <article class="g-card">
+          <div class="g-card__h"><span class="g-card__name">التغطية الحية</span><a class="g-card__open" href="../coverage.html">افتح</a></div>
+          <p class="g-card__what">متابعة <b>نصية</b> لحدث واحد (مثل خروقات وقف إطلاق النار): تسلسل زمني يتحدّث وحده، ملخص، أرقام الحدث، خلفية في دقيقة، مواد مرتبطة. تُنشأ واحدة لكل حدث كبير.</p>
+          <div class="g-card__row"><b>لمن</b><span>من يريد متابعة قصة معيّنة دقيقة بدقيقة بالقراءة.</span></div>
+          <div class="g-card__row"><b>الوصول</b><span>زر «التغطية الحية» في شريط العاجل وآخر القائمة.</span></div>
+        </article>
+        <article class="g-card">
+          <div class="g-card__h"><span class="g-card__name">البث المباشر</span><a class="g-card__open" href="../live.html">افتح</a></div>
+          <p class="g-card__what"><b>مشاهدة</b> قناة شهاب: المشغّل، جدول برامج اليوم بحالات «انتهى / الآن / التالي»، تحديثات على الهواء، وأرشيف البث.</p>
+          <div class="g-card__row"><b>لمن</b><span>من يريد أن يشاهد لا أن يقرأ.</span></div>
+          <div class="g-card__row"><b>الوصول</b><span>الزر الأحمر «بث مباشر» في أعلى كل صفحة، والشريط الصغير أسفل الصفحات وقت البث.</span></div>
+        </article>
+        <article class="g-card">
+          <div class="g-card__h"><span class="g-card__name">الآن (غرفة الأخبار)</span><a class="g-card__open" href="../now.html">افتح</a></div>
+          <p class="g-card__what">شاشة واحدة لكل ما يحدث: البث + كل التحديثات من كل الأقسام + الخريطة + أرقام اليوم + الأبرز + الطقس والعملات. لها «وضع الشاشة» يخفي كل شيء إلا المحتوى.</p>
+          <div class="g-card__row"><b>لمن</b><span>من يفتح شهاب ويتركه يعمل: شاشة مكتب التحرير، تلفزيون، المتابع الدائم.</span></div>
+          <div class="g-card__row"><b>الفرق</b><span>البث = مشاهدة القناة. التغطية = قصة واحدة بالنص. الآن = كل شيء معًا على شاشة دائمة.</span></div>
+        </article>
+        <article class="g-card">
+          <div class="g-card__h"><span class="g-card__name">البحث</span><a class="g-card__open" href="../search.html?q=غزة">افتح</a></div>
+          <p class="g-card__what">نتائج مع عدّها الحقيقي، فلاتر (الكل / الأخبار / التقارير / الفيديو / الصور)، ترتيب بالأحدث أو الأقدم، وبحث متقدم بالقسم والفترة.</p>
+          <div class="g-card__row"><b>الوصول</b><span>حقل البحث في أعلى الصفحة؛ النتائج تظهر أثناء الكتابة قبل الضغط على «بحث».</span></div>
+        </article>
+        <article class="g-card">
+          <div class="g-card__h"><span class="g-card__name">المحفوظات</span><a class="g-card__open" href="../saved.html">افتح</a></div>
+          <p class="g-card__what">المواد التي حفظها القارئ ليقرأها لاحقًا. تعمل بلا إنترنت.</p>
+          <div class="g-card__row"><b>الوصول</b><span>زر «حفظ» في أي خبر، وقائمة «الوكالة».</span></div>
+        </article>
+      </div>
+
+      <h3>الوسائط</h3>
+      <div class="g-cards">
+        <article class="g-card">
+          <div class="g-card__h"><span class="g-card__name">الفيديو</span><a class="g-card__open" href="../video.html">افتح</a></div>
+          <p class="g-card__what">مكتبة الفيديو: قائمة تشغيل مميزة، أحدث الفيديوهات، مجموعات التغطية المصوّرة، البث الآن، الأكثر مشاهدة.</p>
+        </article>
+        <article class="g-card">
+          <div class="g-card__h"><span class="g-card__name">مشاهدة فيديو</span><a class="g-card__open" href="../video-watch.html">افتح</a></div>
+          <p class="g-card__what">صفحة على نمط يوتيوب: جودات، فصول عربية على شريط التقدّم، صور مصغّرة عند التمرير، ترجمة، سرعة، صورة داخل صورة، وضع المسرح، مشغّل مصغّر يتبع القارئ، قائمة تشغيل، وتشغيل التالي تلقائيًا.</p>
+        </article>
+        <article class="g-card">
+          <div class="g-card__h"><span class="g-card__name">ريلز شهاب</span><a class="g-card__open" href="../reels.html">افتح</a></div>
+          <p class="g-card__what">مقاطع البرامج القصيرة في شريط أفقي مقسّم بالبرنامج (سين صريح، أخبار شلومو، قصة صورة، الحكاية، حديث اليوم). المقطع في المنتصف يعمل وحده.</p>
+        </article>
+        <article class="g-card">
+          <div class="g-card__h"><span class="g-card__name">شورتس</span><a class="g-card__open" href="../shorts.html">افتح</a></div>
+          <p class="g-card__what">فيد رأسي بملء الشاشة على نمط تيك توك: مقطع تلو الآخر بالسحب، لمسة للإيقاف، لمستان للإعجاب، مشاركة رابط المقطع.</p>
+        </article>
+        <article class="g-card">
+          <div class="g-card__h"><span class="g-card__name">الصور</span><a class="g-card__open" href="../photos.html">افتح</a></div>
+          <p class="g-card__what">عدسة شهاب: فسيفساء الصور والشبكة ومختارات المحررين، وعارض صور كامل بالتكبير والسحب ونسخ الرابط.</p>
+        </article>
+      </div>
+
+      <h3>الملفات والبيانات</h3>
+      <div class="g-cards">
+        <article class="g-card">
+          <div class="g-card__h"><span class="g-card__name">ملفات شهاب</span><a class="g-card__open" href="../files.html">افتح</a></div>
+          <p class="g-card__what">الملفات الخاصة والتغطيات المعمّقة: الملف المميز، أحدث الملفات، الأكثر قراءة، الملفات التفاعلية، وأرشيف الملفات.</p>
+        </article>
+        <article class="g-card">
+          <div class="g-card__h"><span class="g-card__name">خريطة الخروقات</span><a class="g-card__open" href="../map.html">افتح</a></div>
+          <p class="g-card__what">كل خرق موثّق نقطة على خريطة غزة والضفة والقدس بلون نوعه (قصف، إطلاق نار، اقتحام، اعتقال، هدم، استيطان)، بفلاتر الفترة والمنطقة والنوع، وقائمة تتحرك مع الخريطة. النقاط النابضة وقعت في آخر 24 ساعة.</p>
+          <div class="g-card__row"><b>الوصول</b><span>قائمة «البيانات»، وبطاقة في الملفات والأقسام، وخريطة مصغّرة في «الآن».</span></div>
+        </article>
+        <article class="g-card">
+          <div class="g-card__h"><span class="g-card__name">مكتب البيانات</span><a class="g-card__open" href="../data.html">افتح</a></div>
+          <p class="g-card__what">الأرقام كما هي: الشهداء، الإصابات، النزوح، المستشفيات، المساجد، المساعدات، الضفة والأسرى. كل رقم ببطاقة: القيمة، التغيّر منذ أمس، خط اتجاه آخر أسبوعين، المصدر وتاريخه، ورابط مباشر للرقم.</p>
+          <div class="g-card__row"><b>ملاحظة</b><span>الرقم نفسه يظهر في الرئيسية و«الآن» والخريطة ويُحدَّث من مكان واحد.</span></div>
+        </article>
+      </div>
+
+      <h3>التصفح والوكالة</h3>
+      <div class="g-tblwrap"><table class="g-tbl">
+        <thead><tr><th>الصفحة</th><th>وظيفتها</th><th></th></tr></thead>
+        <tbody>
+          <tr><td>أقسام شهاب</td><td>خريطة الأقسام والمكاتب وفريق التحرير والأرشيف بالسنوات.</td><td><a href="../sections.html">افتح</a></td></tr>
+          <tr><td>الكاتب</td><td>صفحة كل كاتب: أحدث ما كتب، أبرز مواده، أرشيفه، والموضوعات التي يتابعها.</td><td><a href="../author.html">افتح</a></td></tr>
+          <tr><td>الوسم</td><td>كل المواد تحت وسم واحد (مثل #الطائرات_الورقية).</td><td><a href="../tag.html">افتح</a></td></tr>
+          <tr><td>الأرشيف</td><td>تصفّح الأخبار بالتاريخ: سنة وشهر ويوم، مع بحث داخل الأرشيف.</td><td><a href="../archive.html">افتح</a></td></tr>
+          <tr><td>من نحن</td><td>تعريف الوكالة وسياسة التحرير وفريق العمل.</td><td><a href="../about.html">افتح</a></td></tr>
+          <tr><td>تواصل معنا</td><td>نموذج التواصل والقنوات.</td><td><a href="../contact.html">افتح</a></td></tr>
+          <tr><td>النشرة البريدية</td><td>الاشتراك في نشرة الصباح.</td><td><a href="../newsletter.html">افتح</a></td></tr>
+          <tr><td>الخصوصية / الشروط</td><td>الصفحات القانونية.</td><td><a href="../privacy.html">افتح</a></td></tr>
+          <tr><td>غير موجودة (404)</td><td>رسالة ودّية مع بحث وروابط للعودة.</td><td><a href="../404.html">افتح</a></td></tr>
+          <tr><td>غير متصل</td><td>تظهر وحدها عند انقطاع الإنترنت وتعرض ما سبق تحميله.</td><td><a href="../offline.html">افتح</a></td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <!-- 2 -->
+    <section id="home">
+      <h2><span class="n">٢</span>الرئيسية من أعلى إلى أسفل</h2>
+      <p class="g-sub">ترتيب الأقسام ترتيب تحريري: الأهم أولًا. كل ما فيها يحدّده المحرر من لوحة التحكم.</p>
+      <ol class="g-order">
+        <li><span><b>الهيدر</b>التاريخ الميلادي والهجري وساعة القدس، الطقس، العملات، RSS، اللغة، بث مباشر، الآن، الموجز الصوتي، البحث، قائمة الأقسام. يثبت مضغوطًا أعلى الشاشة عند التمرير.</span></li>
+        <li><span><b>شريط العاجل</b>آخر الأخبار العاجلة، يتبدّل كل 7 ثوانٍ بزر إيقاف، ويستقبل الجديد فورًا.</span></li>
+        <li><span><b>القصص الثلاث الكبرى</b>ثلاث قصص بصور كبيرة تتوسّع بالمرور عليها.</span></li>
+        <li><span><b>آخر التحديثات</b>عمود بالتوقيتات، الجديد يدخل من الأعلى مضيئًا.</span></li>
+        <li><span><b>الأبرز الآن</b>خمسة عناوين الأكثر قراءة في الساعة.</span></li>
+        <li><span><b>التغطية الحية</b>تبويبات: آخر التطورات، التسلسل الزمني، أبرز الأحداث، الخلفية، وأرقام التغطية.</span></li>
+        <li><span><b>محاور اليوم</b>كل قسم كمجموعة صور مكدّسة، النقر يفتح عارضًا خبرًا خبرًا بالسحب، مع «اسمع المحور».</span></li>
+        <li><span><b>ملفات خاصة</b>رف مجلدات الأرشيف بلون كل مكتب، النقر يفرد الملف بوثائقه.</span></li>
+        <li><span><b>تصريحات خاصة</b>ما قاله الضيوف لشهاب: الوجه والنص والاسم والصفة.</span></li>
+        <li><span><b>غزة — عين لا تُغمض</b>شريط بعرض الصفحة بعدّاد أيام الحرب ورابط التغطية.</span></li>
+        <li><span><b>عدسة شهاب</b>قصة مصوّرة تُعرض صورة صورة بتعليقاتها.</span></li>
+        <li><span><b>فيديو شهاب</b>مشغّل بقائمة تشغيل، تحته شريط الريلز، ثم البرامج.</span></li>
+        <li><span><b>تقارير خاصة</b>فسيفساء التقارير المعمّقة بمكتب كل تقرير.</span></li>
+        <li><span><b>ملفات شهاب</b>أكورديون أفقي، كل ملف يفتح من كعبه.</span></li>
+        <li><span><b>رأي ورياضة</b>كتّاب الرأي بوجوههم، والرياضة بصورة وأربعة عناوين.</span></li>
+        <li><span><b>مكتبة الصور | انفوجرافيك</b>حائط بوسترات بعارض صور كامل.</span></li>
+        <li><span><b>قنوات شهاب والنشرة</b>فيسبوك، إكس، إنستغرام، تيليغرام، والاشتراك.</span></li>
+        <li><span><b>الفوتر</b>الأقسام، المحتوى، الوكالة، النشرة، قناتا تيليغرام وواتساب، «نبّهني بالعاجل»، التطبيق، «ثبّت شهاب».</span></li>
+      </ol>
+    </section>
+
+    <!-- 3 -->
+    <section id="features">
+      <h2><span class="n">٣</span>الميزات</h2>
+      <p class="g-sub">ما يفرّق المنصة عن موقع إخباري عادي، بالترتيب من الأهم.</p>
+      <div class="g-feat">
+        <div class="g-f"><h4><i></i>العاجل والتحديثات الحية</h4><ul>
+          <li>المنصة متصلة بغرفة الأخبار بقناة حية واحدة: <b>لحظة النشر تصل القارئ وهو يقرأ، بلا تحديث للصفحة</b>.</li>
+          <li>شريط العاجل في كل الصفحات + شريط أحمر بعرض الصفحة للعاجل الكبير مع إشعار.</li>
+          <li>«آخر التحديثات» والتغطية الحية وقائمة «الآن» تستقبل الجديد من الأعلى.</li>
+          <li>لو كان القارئ في وسط الصفحة لا تقفز تحت يده: يظهر زر «3 تحديثات جديدة» يفتحها عندما يريد (نمط BBC وGuardian).</li>
+          <li>داخل الخبر: بانر «تحدّث هذا الخبر» بقائمة التحديثات وتوقيتها للقصص المتطورة.</li>
+        </ul></div>
+        <div class="g-f"><h4><i></i>البث المباشر</h4><ul>
+          <li>مشغّل احترافي بواجهة عربية: جودات تلقائية، الرجوع في البث (DVR)، شارة «متأخر عن البث» وزر العودة إلى الهواء، صورة داخل صورة.</li>
+          <li>مصادر بديلة: لو انقطع مصدر انتقل المشغّل تلقائيًا للتالي، ثم لإعادة آخر تغطية مع تنويه.</li>
+          <li>جدول برامج اليوم، عدّاد «بدأ منذ»، والجودة الحالية.</li>
+          <li>شريط بث صغير أسفل كل الصفحات وقت البث فقط، لا يغطي المحتوى ويُغلق.</li>
+        </ul></div>
+        <div class="g-f"><h4><i></i>قراءة الخبر</h4><ul>
+          <li>خط قراءة عربي بعرض عمود مريح، بلوك «سياق»، اقتباسات، وسوم، «اقرأ بعده».</li>
+          <li>شريط تقدّم القراءة، حجم خط بأربع درجات يُحفظ للقارئ.</li>
+          <li>«استمع للمقال» يقرأ الخبر صوتيًا ويستمر أثناء التنقل.</li>
+          <li>حفظ، طباعة نظيفة، مشاركة (إكس، فيسبوك، واتساب، تيليغرام، نسخ الرابط، مشاركة الهاتف)، وتكبير الصورة.</li>
+        </ul></div>
+        <div class="g-f"><h4><i></i>البحث الفوري</h4><ul>
+          <li>النتائج تظهر أثناء الكتابة من حقل الهيدر، مع نوع المادة وقسمها ووقتها، والبحوث الأخيرة، والأقسام السريعة. مفتاح «/» يفتح البحث من أي مكان.</li>
+          <li>يفهم العربية: يتجاهل التشكيل، يوحّد الهمزات والتاء المربوطة والألف المقصورة، ويتحمّل الخطأ الإملائي.</li>
+        </ul></div>
+        <div class="g-f"><h4><i></i>الفيديو والريلز والشورتس</h4><ul>
+          <li>فصول عربية وترجمة وسرعة ووضع المسرح ومشغّل مصغّر وتشغيل التالي بعدّاد 5 ثوانٍ.</li>
+          <li>الريلز: شريط أفقي، الصوت حالة واحدة، تبويبات بالبرنامج. الشورتس: فيد رأسي بملء الشاشة.</li>
+          <li>كل مقطع يحمّل عند ظهوره فقط، حفاظًا على بيانات القارئ.</li>
+        </ul></div>
+        <div class="g-f"><h4><i></i>الموجز الصوتي</h4><ul>
+          <li>زر في الهيدر يشغّل نشرة تقرأ مواد اليوم في شريط أسفل الشاشة يرافق القارئ بين الصفحات: سابق، تالي، إيقاف، سرعة، وكل مادة رابط لخبرها.</li>
+          <li>«اسمع المحور» و«استمع للمقال» يستخدمان المشغّل نفسه. الصوت آلي الآن ويمكن استبداله بصوت الوكالة دون تغيير الواجهة.</li>
+        </ul></div>
+        <div class="g-f"><h4><i></i>خريطة الخروقات ومكتب البيانات</h4><ul>
+          <li>خريطة تفاعلية بفلاتر الفترة والمنطقة والنوع وزر «قربي»، والإحداثيات على مستوى البلدة لا المنزل حفاظًا على المصادر.</li>
+          <li>أرقام بمصدر وتاريخ واتجاه، ورابط مباشر لكل رقم يُشارك على السوشيال.</li>
+        </ul></div>
+        <div class="g-f"><h4><i></i>المنصة كتطبيق</h4><ul>
+          <li>تُثبَّت على الهاتف والحاسوب من المتصفح مباشرة بلا متجر (أندرويد، آيفون، ويندوز، ماك): أيقونة شهاب وشاشة كاملة.</li>
+          <li>تعمل بلا إنترنت: الصفحات المفتوحة سابقًا والمحفوظات متاحة، وصفحة «غير متصل» تعرض المتاح.</li>
+          <li>تنبيهات العاجل يفعّلها القارئ من زر «نبّهني بالعاجل» فتصله حتى والمنصة مغلقة.</li>
+          <li>على الشبكات الضعيفة تتوقف الفيديوهات التلقائية والخلفيات الثقيلة.</li>
+        </ul></div>
+        <div class="g-f"><h4><i></i>الهيدر الذكي</h4><ul>
+          <li>يثبت مضغوطًا أعلى الشاشة بعد رأس الصفحة، ويعلّم القسم الجاري.</li>
+          <li>الطقس لخمس مدن فلسطينية بتوقعات ثلاثة أيام، وأسعار العملات والذهب مقابل الشيكل بنسبة التغيّر.</li>
+          <li>زر «الرجوع لأعلى» في الصفحات الطويلة.</li>
+        </ul></div>
+        <div class="g-f"><h4><i></i>السرعة</h4><ul>
+          <li>الرئيسية أخف بنحو النصف رغم أضعاف المحتوى.</li>
+          <li>التنقل فوري: المنصة تحضّر الصفحة التالية عند الاقتراب من الرابط، والانتقال بتلاشٍ ناعم.</li>
+          <li>صور WebP بأحجام مناسبة لكل شاشة، وأيقونات رسومية لا خطوط، ولا سكربت خارجي قبل الموافقة.</li>
+        </ul></div>
+        <div class="g-f"><h4><i></i>الإتاحة</h4><ul>
+          <li>كل شيء يعمل بلوحة المفاتيح، ورابط «تخطَّ إلى المحتوى» لقارئ الشاشة، والعاجل يُعلَن له.</li>
+          <li>لا نص أصغر من 12 نقطة على الهاتف، وكل الأزرار بحجم إصبع، وتباين ألوان على معيار WCAG، والحركة تتوقف لمن يطلب تقليلها.</li>
+        </ul></div>
+        <div class="g-f"><h4><i></i>جوجل والمشاركة</h4><ul>
+          <li>كل صفحة بعنوان ووصف حقيقيين وبطاقة مشاركة (صورة وعنوان) لفيسبوك وإكس وواتساب.</li>
+          <li>بيانات منظّمة بلغة جوجل لكل نوع (خبر، تغطية حية، فيديو، بث، معرض، كاتب، وكالة) لترشيح المواد في جوجل نيوز وديسكفر.</li>
+          <li>خلاصات RSS، والنسخة الإنجليزية، وخريطة الموقع.</li>
+        </ul></div>
+        <div class="g-f"><h4><i></i>الخصوصية والإعلانات</h4><ul>
+          <li>بانر موافقة صغير: «الضرورية فقط» أو «موافق على الكل»؛ الاختيار يُحترم ويُحفظ.</li>
+          <li>مواضع إعلانية بحجم محجوز (أعلى الرئيسية، داخل الخبر، الشريط الجانبي) فلا تقفز الصفحة عند تحميل الإعلان.</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section id="compare">
+      <h2><span class="n">٤</span>ما تغيّر عن الموقع الحالي</h2>
+      <div class="g-tblwrap"><table class="g-tbl">
+        <thead><tr><th>العنصر</th><th>الموقع الحالي</th><th>المنصة الجديدة</th></tr></thead>
+        <tbody>
+          <tr><td>القائمة</td><td class="g-old">تُفتح بالمرور فقط؛ 14 قسمًا لا تُفتح باللمس</td><td class="g-new">تعمل باللمس والكيبورد وتثبت أعلى الشاشة</td></tr>
+          <tr><td>العاجل</td><td class="g-old">شريط يتبدّل</td><td class="g-new">شريط + شريط أحمر + إشعارات + تحديثات داخل الصفحات</td></tr>
+          <tr><td>البث</td><td class="g-old">نافذة عائمة تغطي نص المقال على الهاتف</td><td class="g-new">صفحة بث كاملة + شريط صغير لا يغطي المحتوى</td></tr>
+          <tr><td>الفيديو</td><td class="g-old">مشغّل عادي</td><td class="g-new">فصول، ترجمة، جودات، مسرح، مصغّر، تشغيل تالٍ، ريلز وشورتس</td></tr>
+          <tr><td>ملخص اليوم</td><td class="g-old">قائمة تحديثات</td><td class="g-new">قائمة حية + موجز صوتي</td></tr>
+          <tr><td>الصور</td><td class="g-old">معرض عادي</td><td class="g-new">عارض بالتكبير والسحب، عدسة شهاب، حائط البوسترات</td></tr>
+          <tr><td>الخط</td><td class="g-old">خط النظام (لا خط عربي)</td><td class="g-new">خطان عربيان: للعناوين وللقراءة</td></tr>
+          <tr><td>الخريطة والأرقام</td><td class="g-old">انفوجرافيك ثابت</td><td class="g-new">خريطة تفاعلية ومكتب بيانات حي</td></tr>
+          <tr><td>التطبيق</td><td class="g-old">تطبيق أندرويد منفصل</td><td class="g-new">المنصة نفسها تُثبَّت على كل الأجهزة وتعمل بلا إنترنت</td></tr>
+          <tr><td>السرعة</td><td class="g-old">30 سكربتًا خارجيًا و2.5 MB</td><td class="g-new">صفر سكربت قبل الموافقة ونحو 1.2 MB</td></tr>
+          <tr><td>جوجل</td><td class="g-old">بيانات الخبر فقط</td><td class="g-new">بيانات كل أنواع الصفحات والتغطيات الحية</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <!-- 5 -->
+    <section id="editors">
+      <h2><span class="n">٥</span>ما يحتاجه فريق التحرير</h2>
+      <p class="g-sub">حقول بسيطة في نظام إدارة المحتوى يملؤها المحرر لتعمل الميزات بكامل قوتها.</p>
+      <div class="g-tblwrap"><table class="g-tbl">
+        <thead><tr><th>الحقل</th><th>أين يظهر أثره</th><th>ملاحظة</th></tr></thead>
+        <tbody>
+          <tr><td>نوع المادة</td><td>الشرائح والفلاتر والبحث</td><td>خبر / تقرير / تحليل / رأي</td></tr>
+          <tr><td>علامة «عاجل»</td><td>شريط العاجل، الشريط الأحمر، الإشعارات</td><td>تُبعث مرة واحدة لكل خبر</td></tr>
+          <tr><td>تحديث على الخبر</td><td>بانر «تحدّث هذا الخبر»</td><td>سطر لكل تحديث بوقته</td></tr>
+          <tr><td>نص الموجز الصوتي</td><td>الموجز و«استمع»</td><td>جملة أو جملتان تُكتبان للسماع: أرقام بالحروف، جمل قصيرة</td></tr>
+          <tr><td>نوع الخرق وموقعه</td><td>خريطة الخروقات</td><td>على مستوى البلدة</td></tr>
+          <tr><td>مكتب البيانات</td><td>الأرقام في كل المنصة</td><td>رقم + مصدر + تاريخ، يُحدَّث يوميًا</td></tr>
+          <tr><td>شاشة البث</td><td>صفحة البث والشريط الصغير</td><td>مصادر البث، حالة «على الهواء»، جدول اليوم</td></tr>
+          <tr><td>المقاطع القصيرة</td><td>الريلز والشورتس</td><td>مقطع رأسي 9:16 مع غلاف، باسم البرنامج</td></tr>
+          <tr><td>فصول وترجمة الفيديو</td><td>صفحة المشاهدة</td><td>اختيارية، تحسّن التجربة والبحث</td></tr>
+          <tr><td>ترتيب الرئيسية</td><td>القصص الكبرى، المحاور، الملفات، التصريحات</td><td>من لوحة التحرير</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <!-- 6 -->
+    <section id="demo">
+      <h2><span class="n">٦</span>ما هو تجريبي في النسخة الحالية</h2>
+      <p class="g-sub">النسخة المعروضة نموذج كامل الوظائف على بيانات توضيحية. عند التركيب على نظام الوكالة تُستبدل:</p>
+      <div class="g-note">
+        <b>الصور:</b> معظمها مؤقتة من مصادر عامة وبعضها من صور شهاب؛ كلها تُستبدل بصور الوكالة.<br>
+        <b>الأرقام والخريطة:</b> بمقادير تقريبية توضيحية، ومعلَّمة كذلك في الصفحة.<br>
+        <b>البث:</b> بث تجريبي عام حتى يُربط ببث شهاب.<br>
+        <b>التحديثات الحية:</b> تصل من غرفة أخبار محاكاة تنشر خبرًا كل نصف دقيقة تقريبًا لتجربة الميزات.<br>
+        <b>الإشعارات:</b> محلية على الجهاز حتى تُفعَّل الخدمة على خادم الوكالة.<br>
+        <b>الطقس والعملات:</b> من مصادر مجانية موثوقة، ويمكن استبدالها.
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section id="next">
+      <h2><span class="n">٧</span>الخطوات القادمة</h2>
+      <ol class="g-steps">
+        <li>اعتماد التصميم والصفحات من الإدارة وفريق التحرير.</li>
+        <li>تركيب المنصة على نظام إدارة المحتوى وربط الحقول الجديدة (القسم ٥).</li>
+        <li>ربط البث الحقيقي والإشعارات والخريطة ومكتب البيانات.</li>
+        <li>نقل الصور والفيديو والأرشيف.</li>
+        <li>اختبار القبول على الحاسوب والهاتف، ثم الإطلاق التدريجي.</li>
+        <li>جلسة تدريب واحدة لفريق التحرير على الحقول الجديدة.</li>
+      </ol>
+    </section>
+
+    <!-- 8 -->
+    <section id="glossary">
+      <h2><span class="n">٨</span>المصطلحات</h2>
+      <dl>
+        <dt>القناة الحية</dt><dd>اتصال دائم بين المنصة وغرفة الأخبار يوصل الجديد فورًا دون تحديث الصفحة.</dd>
+        <dt>تغطية حية</dt><dd>صفحة تتابع حدثًا واحدًا بتحديثات نصية قصيرة بتوقيتها، الأحدث أولًا.</dd>
+        <dt>DVR</dt><dd>الرجوع دقائق للخلف في البث المباشر ثم العودة إلى الهواء.</dd>
+        <dt>ريلز / شورتس</dt><dd>مقاطع فيديو قصيرة رأسية على نمط إنستغرام وتيك توك.</dd>
+        <dt>تطبيق ويب (PWA)</dt><dd>المنصة نفسها تعمل كتطبيق يُثبَّت على الجهاز ويعمل بلا إنترنت ويرسل إشعارات.</dd>
+        <dt>البيانات المنظّمة</dt><dd>وصف الصفحة بلغة تفهمها جوجل (خبر، فيديو، تغطية حية) لتحسين الظهور.</dd>
+        <dt>WebP</dt><dd>صيغة صور حديثة أخف من JPG بنفس الجودة.</dd>
+        <dt>WCAG</dt><dd>المعيار العالمي لإتاحة المواقع لذوي الإعاقة.</dd>
+      </dl>
+    </section>
+
+  </main>
+</div>
+<p class="g-foot">وكالة شهاب للأنباء · دليل المنصة · إعداد TakTek · سبتمبر 2026</p>
+
+<script>
+  // highlight the section in view in the side nav
+  (function () {
+    var links = [].slice.call(document.querySelectorAll('.g-nav a'));
+    var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+    function paint() {
+      var y = window.scrollY + 120, cur = 0;
+      secs.forEach(function (s, i) { if (s && s.offsetTop <= y) cur = i; });
+      links.forEach(function (a, i) { a.toggleAttribute('data-on', i === cur); });
+    }
+    window.addEventListener('scroll', paint, { passive: true }); paint();
+  })();
+</script>
+</body>
+</html>

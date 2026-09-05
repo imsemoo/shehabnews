@@ -1639,9 +1639,63 @@
     });
   }
 
+  /* 14b. «آخر ما نُشر» — the same stories the stacks count, laid out as a
+         two-column wire under them, newest first (the clock times sort; a story
+         that only says "اليوم" closes the list, in source order). Each story
+         carries its picture, its title, who wrote it (data-sh-author and
+         data-sh-avatar; the desk's mark when there is no face) and the date.
+         [data-sh-wire-limit] caps how many show; the rows are counted into
+         --sh-wire-rows so the columns run top to bottom. ------------------- */
+  function wire() {
+    function minutes(t) {
+      var m = /(\d{1,2}):(\d{2})\s*([صم])?/.exec(t || '');
+      if (!m) return -1;
+      var h = +m[1] % 12, mi = +m[2];
+      if (m[3] === 'م') h += 12;
+      return h * 60 + mi;
+    }
+    function count(n) { return n === 1 ? 'خبر واحد' : n === 2 ? 'خبران' : n <= 10 ? n + ' أخبار' : n + ' خبرًا'; }
+    function esc(t) { return String(t).replace(/[<>&"]/g, function (c) { return { '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]; }); }
+
+    document.querySelectorAll('[data-sh-wire]').forEach(function (root) {
+      var list = root.querySelector('[data-sh-wire-list]'), note = root.querySelector('[data-sh-wire-count]');
+      var limit = +root.getAttribute('data-sh-wire-limit') || 8;
+      var scope = root.closest('section') || document;
+      var src = scope.querySelector('[data-sh-hub-source]');
+      var pool = src ? (src.content || src) : scope;
+      var items = [].slice.call(pool.querySelectorAll('[data-sh-item]')).map(function (a, i) {
+        var time = (a.getAttribute('data-sh-time') || '').replace(/\s+/g, ' ').trim();
+        return { i: i, time: time, m: minutes(time), href: a.getAttribute('href') || '#',
+                 t: (a.textContent || '').replace(/\s+/g, ' ').trim(),
+                 img: a.getAttribute('data-sh-image') || '', by: a.getAttribute('data-sh-author') || '',
+                 face: a.getAttribute('data-sh-avatar') || '', date: a.getAttribute('data-sh-date') || '' };
+      });
+      if (!list || !items.length) return;
+      items.sort(function (a, b) { return (b.m - a.m) || (a.i - b.i); });
+      var shown = items.slice(0, limit), rows = Math.ceil(shown.length / 2);
+      list.style.setProperty('--sh-wire-rows', rows);
+      list.innerHTML = shown.map(function (it, k) {
+        var last = (k + 1) % rows === 0 || k === shown.length - 1;      // the foot of each column carries no rule
+        var face = it.face ? '<img class="sh-wire__av" src="' + esc(it.face) + '" alt="" loading="lazy" decoding="async" width="20" height="20">'
+                           : '<span class="sh-wire__av sh-wire__av--mark" aria-hidden="true"><span class="sh-mark"></span></span>';
+        var when = it.date || it.time;
+        return '<li class="sh-wire__item' + (last ? ' sh-wire__item--last' : '') + '">' +
+          '<a class="sh-wire__a" href="' + esc(it.href) + '">' +
+            '<span class="sh-wire__pic">' + (it.img ? '<img src="' + esc(it.img) + '" alt="" loading="lazy" decoding="async">' : '') + '</span>' +
+            '<span class="sh-wire__body">' +
+              '<span class="sh-wire__t">' + esc(it.t) + '</span>' +
+              '<span class="sh-wire__by">' + face + '<span class="sh-wire__name">' + esc(it.by || 'غرفة الأخبار') + '</span>' +
+                (when ? '<span class="sh-wire__date">' + esc(when) + '</span>' : '') + '</span>' +
+            '</span>' +
+          '</a></li>';
+      }).join('');
+      if (note) note.textContent = shown.length < items.length ? shown.length + ' من ' + count(items.length) + ' اليوم' : count(items.length) + ' اليوم';
+    });
+  }
+
   function init() {
     paintDate(); tabs(); galleries(); menus(); hero();
-    lightbox(); player(); loadMore(); pager(); files(); filters(); hubs(); binders(); since(); videoDeck(); carica(); lens();
+    lightbox(); player(); loadMore(); pager(); files(); filters(); hubs(); wire(); binders(); since(); videoDeck(); carica(); lens();
     if (document.documentElement.hasAttribute('data-sh-veil')) transition();   // the logo veil is opt-in; View Transitions do the page change now
     setInterval(paintDate, 60000);
   }

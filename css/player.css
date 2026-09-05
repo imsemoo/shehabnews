@@ -147,7 +147,7 @@ media-player.sh-vs--lite .sh-lite__play{
 }
 media-player.sh-vs--lite .sh-lite__play:hover{background:var(--sh-blue)}
 media-player.sh-vs--lite .sh-lite__play .sh-i{margin-left:3px}
-media-player.sh-vs--lite .sh-lite__play .fa-pause{display:none;margin:0}
+media-player.sh-vs--lite .sh-lite__play .sh-i + .sh-i{display:none}   /* the pause glyph: the button hides itself while playing, so the second icon never shows */
 media-player.sh-vs--lite[data-playing] .sh-lite__play{opacity:0;transform:scale(.8);pointer-events:none}
 media-player.sh-vs--lite[data-waiting] .sh-lite__play{opacity:0}
 media-player.sh-vs--lite .sh-lite__play:focus-visible{outline:2px solid var(--sh-sky);outline-offset:3px}
@@ -168,11 +168,11 @@ media-player.sh-vs--lite .sh-lite__mute{
   display:inline-flex;align-items:center;justify-content:center;transition:background .2s ease;
 }
 media-player.sh-vs--lite .sh-lite__mute:hover{background:var(--sh-blue)}
-media-player.sh-vs--lite .sh-lite__mute .fa-volume-xmark{display:none}
-media-player.sh-vs--lite .sh-lite__mute[data-state="muted"] .fa-volume-high,
-media-player.sh-vs--lite .sh-lite__mute[data-muted] .fa-volume-high{display:none}
-media-player.sh-vs--lite .sh-lite__mute[data-state="muted"] .fa-volume-xmark,
-media-player.sh-vs--lite .sh-lite__mute[data-muted] .fa-volume-xmark{display:inline}
+media-player.sh-vs--lite .sh-lite__mute .sh-i + .sh-i{display:none}
+media-player.sh-vs--lite .sh-lite__mute[data-state="muted"] .sh-i:first-of-type,
+media-player.sh-vs--lite .sh-lite__mute[data-muted] .sh-i:first-of-type{display:none}
+media-player.sh-vs--lite .sh-lite__mute[data-state="muted"] .sh-i + .sh-i,
+media-player.sh-vs--lite .sh-lite__mute[data-muted] .sh-i + .sh-i{display:inline-block}
 media-player.sh-vs--lite .sh-lite__mute:focus-visible{outline:2px solid var(--sh-sky);outline-offset:2px}
 media-player.sh-vs--lite .sh-lite__len{display:inline-flex;align-items:center;gap:5px;padding:3px 7px;background:rgba(10,26,51,.72);color:#fff;font-family:var(--sh-font);font-size:11px;font-weight:700;font-variant-numeric:tabular-nums;direction:ltr}
 media-player.sh-vs--lite .sh-lite__len .sh-i{font-size:10px}
