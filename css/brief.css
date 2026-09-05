@@ -1,20 +1,15 @@
 /* شهاب — موجز اليوم.
 
-   Two surfaces, one player:
+   One surface: a companion bar docked to the bottom edge. It is the surface
+   that travels -- it survives navigation, so the brief keeps running while the
+   reader moves through the site -- and, with no edition modal, it carries the
+   whole player: the item number, the mode («صوت آلي» / «وضع القراءة»), the
+   item's line as a link to its article, previous / play / next, the reading
+   rate and the end button. The progress hairline rides the bar's top edge.
 
-     bar     a companion strip docked to the bottom edge. This is the surface
-             that persists -- it survives navigation, so the brief keeps running
-             while the reader moves through the site.
-     panel   the edition view. Built like the paper's own page rather than a
-             media player: an asymmetric masthead, the item number set large and
-             pale the way the Reports section already sets its numerals, the
-             headline in Almarai, the spoken copy in Naskh at reading size, and
-             the queue as a hairline index with a spine running down it.
-
-   LIGHT, on the theme's own paper. Colours are the theme's: #fff and the
-   #f7f9fc paper, #14233a ink, #1b5aa6 blue, #d5dde8 hairlines. Secondary text
-   is tinted from the navy rather than greyed, so nothing goes muddy. The 3px
-   blue top rule is lifted straight from the More News band.
+   LIGHT, on the theme's own paper. Colours are the theme's: #fff paper, #14233a
+   ink, #1b5aa6 blue, #d5dde8 hairlines. Secondary text is tinted from the navy
+   rather than greyed, so nothing goes muddy.
 
    The mark throughout is .sh-mark (css/mark.css) -- the ش blade traced from the
    wordmark. No decorative bullets and no separator dots: spacing and hairlines
@@ -25,14 +20,11 @@
 
 :root{
   --bf-paper:#fff;
-  --bf-tint:#f7f9fc;
   --bf-ink:#14233a;
   --bf-blue:#1b5aa6;
   --bf-sky:#7ea8dd;
-  --bf-dim:#4a5b75;          /* 7.4:1 on white */
   --bf-mute:#5b6b82;         /* 5.6:1 on white */
   --bf-hair:#d5dde8;
-  --bf-hair-soft:#e8eef6;
   --bf-bar-h:66px;
 }
 
@@ -55,7 +47,6 @@ html[data-bf-docked] body{padding-bottom:var(--bf-bar-h)}
   transition:transform .42s cubic-bezier(.2,.7,.2,1);
 }
 [data-bf][data-on] .bf-bar{transform:none}
-[data-bf][data-mode="panel"] .bf-bar{transform:translateY(100%)}
 
 /* the progress hairline rides the bar's own top edge */
 .bf-rail{position:absolute;top:-1px;inset-inline:0;height:1px;background:var(--bf-hair)}
@@ -65,6 +56,7 @@ html[data-bf-docked] body{padding-bottom:var(--bf-bar-h)}
   margin-top:-5.5px;margin-inline-start:-6.5px;background:var(--bf-blue);
 }
 
+/* ---- identity: mark, "01 / 07", mode ---- */
 .bf-id{display:flex;align-items:center;gap:11px}
 .bf-id .sh-mark{width:17px;height:14px;background:var(--bf-blue)}
 .bf-num{
@@ -72,147 +64,36 @@ html[data-bf-docked] body{padding-bottom:var(--bf-bar-h)}
   font-variant-numeric:tabular-nums;letter-spacing:.03em;
   direction:ltr;unicode-bidi:isolate;      /* "01 / 07" must not flip in RTL */
 }
+.bf-mode{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:800;color:var(--bf-blue);white-space:nowrap}
+.bf-mode i{width:5px;height:5px;background:currentColor;border-radius:50%;opacity:.4}
+[data-bf][data-playing] .bf-mode i{animation:bf-breathe 2.6s ease-in-out infinite}
+
+/* ---- the item: category · time, and its line as a link to the article ---- */
 .bf-now{min-width:0}
 .bf-now-cat{display:block;font-size:12px;font-weight:800;color:var(--bf-blue);margin-bottom:3px}
 .bf-now-t{
   display:block;font-size:14px;font-weight:700;line-height:1.4;color:var(--bf-ink);
-  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-decoration:none;
+  transition:color .18s ease;
 }
-.bf-bar-ctl{display:flex;align-items:center;gap:7px}
-
-/* ================================================================== PANEL */
-.bf-scrim{
-  position:fixed;inset:0;background:rgba(10,26,51,.46);
-  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);
-  opacity:0;visibility:hidden;transition:opacity .34s ease,visibility 0s linear .34s;
-}
-[data-bf][data-mode="panel"] .bf-scrim{opacity:1;visibility:visible;transition:opacity .34s ease,visibility 0s}
-
-.bf-panel{
-  position:fixed;inset-inline:0;bottom:0;
-  max-width:880px;margin:0 auto;max-height:94vh;
-  display:flex;flex-direction:column;
-  background:var(--bf-paper);color:var(--bf-ink);
-  border:1px solid var(--bf-hair);border-bottom:0;
-  border-top:3px solid var(--bf-blue);      /* the More News band's own rule */
-  box-shadow:0 -26px 70px rgba(20,35,58,.22);
-  transform:translateY(100%);
-  transition:transform .46s cubic-bezier(.2,.7,.2,1);
-}
-[data-bf][data-mode="panel"] .bf-panel{transform:none}
-
-/* the loader's hairlines, so player and loader read as one system */
-.bf-rule{position:absolute;top:0;bottom:0;width:1px;background:var(--bf-hair-soft);pointer-events:none}
-.bf-rule-a{inset-inline-end:22%}
-.bf-rule-b{inset-inline-start:22%}
-
-/* ---- masthead ---- */
-.bf-head{
-  position:relative;display:flex;align-items:center;gap:13px;flex-wrap:wrap;
-  padding:15px clamp(18px,3.4vw,32px);
-  background:var(--bf-tint);border-bottom:1px solid var(--bf-hair);
-}
-.bf-head .sh-mark{width:19px;height:15px;background:var(--bf-blue)}
-.bf-wordmark{font-size:16px;font-weight:800;letter-spacing:.005em;color:var(--bf-ink)}
-.bf-meta{
-  margin-inline-start:auto;display:flex;align-items:center;gap:11px;
-  font-size:12px;color:var(--bf-mute);
-}
-.bf-meta s{width:1px;height:12px;background:var(--bf-hair);text-decoration:none}
-.bf-meta span{direction:ltr;unicode-bidi:isolate}
-.bf-meta [data-bf-edition]{direction:rtl}
-.bf-live{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:var(--bf-blue)}
-.bf-live i{width:5px;height:5px;background:currentColor;border-radius:50%;
-  animation:bf-breathe 2.6s ease-in-out infinite}
-
-/* ---- the item ---- */
-.bf-stage{
-  position:relative;padding:clamp(22px,3.6vw,34px) clamp(18px,3.4vw,32px);
-  display:grid;grid-template-columns:auto minmax(0,1fr);
-  column-gap:clamp(16px,2.6vw,26px);row-gap:10px;align-items:start;
-}
-.bf-figure{
-  grid-row:1 / span 3;
-  font-size:clamp(38px,7vw,62px);font-weight:700;line-height:.86;
-  color:var(--bf-blue);opacity:.24;font-variant-numeric:tabular-nums;
-  letter-spacing:-.02em;direction:ltr;unicode-bidi:isolate;
-}
-.bf-kind{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:800;color:var(--bf-blue)}
-.bf-kind u{text-decoration:none;color:var(--bf-mute);font-weight:700}
-.bf-line{
-  margin:0;font-size:clamp(19px,2.9vw,27px);font-weight:800;line-height:1.5;
-  color:var(--bf-ink);text-wrap:pretty;letter-spacing:-.005em;
-}
-.bf-say{
-  margin:0;font-family:'Noto Naskh Arabic',serif;
-  font-size:clamp(14.5px,1.7vw,17px);line-height:2.05;color:var(--bf-dim);
-  max-width:54ch;text-wrap:pretty;
-}
-.bf-say b{color:var(--bf-ink);font-weight:400}   /* the sentence being spoken */
-
-/* ---- index with a spine ---- */
-.bf-index{
-  position:relative;margin:0;padding:0;list-style:none;overflow-y:auto;
-  border-top:1px solid var(--bf-hair);background:var(--bf-paper);
-}
-.bf-spine{
-  position:absolute;top:0;bottom:0;inset-inline-start:clamp(18px,3.4vw,32px);
-  width:1px;background:var(--bf-hair);pointer-events:none;
-}
-.bf-spine-nib{
-  position:absolute;inset-inline-start:-6px;width:13px;height:11px;
-  background:var(--bf-blue);transition:top .34s cubic-bezier(.2,.7,.2,1);
-}
-.bf-index button{
-  position:relative;width:100%;display:grid;
-  grid-template-columns:auto minmax(0,1fr) auto;align-items:baseline;gap:12px;
-  padding:12px clamp(18px,3.4vw,32px);
-  padding-inline-start:calc(clamp(18px,3.4vw,32px) + 20px);
-  background:transparent;border:0;border-bottom:1px solid var(--bf-hair-soft);
-  color:var(--bf-dim);text-align:start;cursor:pointer;
-  font-family:inherit;font-size:13.5px;line-height:1.6;
-  transition:color .18s ease,background .18s ease;
-}
-.bf-index button:hover{color:var(--bf-ink);background:var(--bf-tint)}
-.bf-index button[data-now]{color:var(--bf-ink);background:var(--bf-tint)}
-.bf-index button[data-done]{color:var(--bf-mute)}
-.bf-index i{
-  font-style:normal;font-weight:800;font-size:12px;color:var(--bf-blue);opacity:.5;
-  font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;
-}
-.bf-index button[data-now] i{opacity:1}
-.bf-index em{
-  font-style:normal;font-size:12px;color:var(--bf-mute);white-space:nowrap;
-  font-variant-numeric:tabular-nums;
-}
-.bf-index span{min-width:0}
+a.bf-now-t[href]:hover{color:var(--bf-blue)}
 
 /* ---- controls ---- */
-.bf-foot{
-  position:relative;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
-  padding:14px clamp(18px,3.4vw,32px);
-  border-top:1px solid var(--bf-hair);background:var(--bf-tint);
-}
-.bf-count{
-  font-size:12px;color:var(--bf-mute);font-weight:700;margin-inline-start:auto;
-  font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;
-}
-
+.bf-bar-ctl{display:flex;align-items:center;gap:7px}
 .bf-b{
-  width:42px;height:42px;flex:none;display:grid;place-items:center;
+  width:36px;height:36px;flex:none;display:grid;place-items:center;
   background:var(--bf-paper);border:1px solid var(--bf-hair);color:var(--bf-ink);
   cursor:pointer;transition:background .18s ease,border-color .18s ease,color .18s ease,opacity .18s ease;
 }
 .bf-b:hover:not(:disabled){background:var(--bf-ink);border-color:var(--bf-ink);color:#fff}
 .bf-b:disabled{opacity:.38;cursor:default}
-.bf-b svg{width:14px;height:14px;fill:currentColor}
-.bf-b-go{width:48px;height:48px;background:var(--bf-blue);border-color:var(--bf-blue);color:#fff}
-.bf-b-go:hover:not(:disabled){background:#14233a;border-color:#14233a}
-.bf-b-go svg{width:16px;height:16px}
-.bf-b-sm{width:36px;height:36px}
-.bf-b-sm svg{width:12px;height:12px}
+.bf-b svg{width:12px;height:12px;fill:currentColor}
+.bf-b-go{width:40px;height:40px;background:var(--bf-blue);border-color:var(--bf-blue);color:#fff}
+.bf-b-go:hover:not(:disabled){background:var(--bf-ink);border-color:var(--bf-ink)}
+.bf-b-go svg{width:14px;height:14px}
+.bf-b-end{margin-inline-start:6px}
 .bf-rate{
-  height:42px;min-width:48px;padding:0 11px;flex:none;
+  height:36px;min-width:44px;padding:0 10px;flex:none;
   font-family:inherit;font-size:12px;font-weight:800;
   font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;
   background:var(--bf-paper);border:1px solid var(--bf-hair);color:var(--bf-ink);cursor:pointer;
@@ -220,39 +101,22 @@ html[data-bf-docked] body{padding-bottom:var(--bf-bar-h)}
 }
 .bf-rate:hover{background:var(--bf-ink);border-color:var(--bf-ink);color:#fff}
 
-.bf-note{
-  padding:11px clamp(18px,3.4vw,32px);font-size:12px;line-height:1.75;
-  color:var(--bf-mute);border-top:1px solid var(--bf-hair-soft);background:var(--bf-paper);
-}
-.bf-note b{color:var(--bf-blue);font-weight:800}
-
 /* browser surfaces belong to the design too */
 [data-bf] ::selection{background:var(--bf-blue);color:#fff}
 [data-bf] :focus-visible{outline:2px solid var(--bf-blue);outline-offset:2px}
-.bf-index{scrollbar-width:thin;scrollbar-color:var(--bf-hair) transparent}
-.bf-index::-webkit-scrollbar{width:9px}
-.bf-index::-webkit-scrollbar-track{background:transparent}
-.bf-index::-webkit-scrollbar-thumb{background:var(--bf-hair)}
-.bf-index::-webkit-scrollbar-thumb:hover{background:var(--bf-sky)}
 
 @keyframes bf-breathe{0%,100%{opacity:.4}50%{opacity:1}}
 
 /* ================================================================= MOBILE */
 @media (max-width:720px){
   :root{--bf-bar-h:60px}
-  .bf-id .bf-num{display:none}
-  .bf-panel{max-height:100vh;height:100vh;border-inline:0}
-  .bf-stage{grid-template-columns:minmax(0,1fr);row-gap:8px}
-  .bf-figure{grid-row:auto;font-size:34px;line-height:1}
-  .bf-say{max-width:none}
-  .bf-index{flex:1}
-  .bf-rule-a{inset-inline-end:16%}
-  .bf-rule-b{inset-inline-start:16%}
-  .bf-meta{width:100%;margin-inline-start:0}
+  .bf-bar{gap:12px}
+  .bf-num,.bf-mode,.bf-b-prev,.bf-rate{display:none}
+  .bf-b-end{margin-inline-start:2px}
 }
 
 /* the brief still runs and still advances; only the movement stops */
 @media (prefers-reduced-motion:reduce){
-  .bf-bar,.bf-panel,.bf-scrim,.bf-spine-nib{transition:none}
-  .bf-live i{animation:none}
+  .bf-bar,.bf-now-t{transition:none}
+  .bf-mode i{animation:none}
 }

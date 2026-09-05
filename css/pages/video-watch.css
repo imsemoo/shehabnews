@@ -78,13 +78,13 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2.05}
 .sh-video-watch-video-info__span-15{display:block;font-family:var(--sh-font);font-size:15.5px;font-weight:800;line-height:1.6;margin-top:12px;color:var(--sh-navy);text-wrap:pretty}
 .sh-video-watch-video-info__span-16{display:block;font-size:12.5px;color:var(--sh-mute-2);line-height:1.9;margin-top:7px}
 .sh-video-watch-video-info__span-17{display:inline-flex;align-items:center;gap:10px;margin-top:12px;font-family:var(--sh-font);font-size:12px;font-weight:800;color:var(--sh-blue)}
-.sh-video-watch-video-info__span-18{width:15px;height:1px;background:currentColor}
+.sh-video-watch-video-info__span-18{width:15px;aspect-ratio:100/41.59;height:auto;background:currentColor;-webkit-mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat}
 .sh-video-watch-related-videos__section-1{margin-top:34px}
 .sh-video-watch-related-videos__div-1{display:flex;align-items:baseline;justify-content:space-between;gap:14px;border-top:2px solid var(--sh-ink);padding-top:13px}
 .sh-video-watch-related-videos__h2-1{font-family:var(--sh-font);font-size:19px;font-weight:800;margin:0;color:var(--sh-navy);display:flex;align-items:center;gap:10px}
 .sh-video-watch-related-videos__a-1{display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;color:var(--sh-blue)}
 .sh-video-watch-related-videos__a-1:hover{gap:15px}
-.sh-video-watch-related-videos__span-1{width:15px;height:1px;background:currentColor}
+.sh-video-watch-related-videos__span-1{width:15px;aspect-ratio:100/41.59;height:auto;background:currentColor;-webkit-mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat;mask:url(../../assets/images/mark-arrow.svg) center/contain no-repeat}
 .sh-video-watch-related-videos__div-2{display:grid;grid-template-columns:minmax(min(100%,320px),1.5fr) minmax(min(100%,260px),1fr);gap:28px;margin-top:20px;align-items:start}
 .sh-video-watch-related-videos__span-2{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:16/9}
 .sh-video-watch-related-videos__span-3{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1400");background-size:cover;background-position:center 48%}
