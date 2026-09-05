@@ -1,13 +1,16 @@
 /* شهاب — design tokens.
 
-   Every value here is bound 1:1 to a literal that already exists in the
-   markup; nothing is rounded, merged, or re-tuned. Two greys that differ by a
-   shade keep two tokens, because collapsing them would be a visual change and
-   that is a separate, approved step. Spacing is deliberately not tokenised:
-   62 distinct gaps and 176 paddings would gain names without gaining meaning,
-   so they stay as values inside the component rules that own them.
+   The palette is a system, not an inventory. Every colour has a level and a
+   job: canvas (white / warm paper / soft / blue tint), brand (navy, blue,
+   sky), editorial red (breaking / live), and the desk accents that only the
+   special-files shelf may use. Text carries three weights and the lines two,
+   because nine greys and ten off-whites were nine and ten decisions nobody
+   was making.
 
-   Usage counts are from the 20 shipping pages at the time of extraction. */
+   The old --sh-* names stay at the bottom as aliases onto that system, so the
+   twelve stylesheets keep resolving while the values come from one place.
+   Spacing is deliberately not tokenised: 62 distinct gaps and 176 paddings
+   would gain names without gaining meaning. */
 
 /* cascade layers, in order: defaults for the mark, then the responsive layer.
    Unlayered rules (tokens, base, header, footer, components, pages/*) beat both
@@ -16,51 +19,84 @@
 
 :root{
   /* --- brand ------------------------------------------------------------ */
-  --sh-blue:#1b5aa6;           /* 1006 — links, chips, rules, live tag */
-  --sh-navy:#0a1a33;           /*  704 — dark ground, dropdowns, footer */
-  --sh-navy-2:#0f2a4f;         /*  196 — topbar, image ground */
-  --sh-sky:#7ea8dd;            /*   54 — accent on navy */
-  --sh-red:#e0302f;            /*  162 — عاجل / مباشر */
+  --color-brand-navy:#0a1a33;        /* topbar, footer, hero panel, Gaza, video stage */
+  --color-brand-navy-2:#0f2a4f;      /* surfaces inside dark blocks, image fallback */
+  --color-brand-blue:#1b5aa6;        /* masthead, mark, links, selected, rules */
+  --color-brand-blue-deep:#164b8a;   /* the one hover / pressed for blue controls */
+  --color-brand-sky:#7ea8dd;         /* text, marks and outlines on navy */
 
-  /* --- ink -------------------------------------------------------------- */
-  --sh-ink:#14233a;            /*  426 — body text */
-  --sh-ink-2:#4a5568;          /*  186 */
-  --sh-mute:#8a95a6;           /*  583 — meta, times, sub-labels */
-  --sh-mute-2:#5d6b7d;         /*   28 */
+  /* --- surfaces --------------------------------------------------------- */
+  --color-surface:#ffffff;
+  --color-surface-warm:#fbfaf7;      /* editorial paper: the files shelf, dossiers */
+  --color-surface-soft:#f5f7fa;      /* cool light: secondary panels, hover */
+  --color-surface-blue:#edf2f8;      /* functional tint: selected rows, live hover */
 
-  /* --- hairlines & surfaces --------------------------------------------- */
-  --sh-hair:#eef2f7;           /*  286 — the default 1px rule */
-  --sh-hair-2:#d5dde8;         /*  100 — section heads */
-  --sh-hair-3:#e3e8ef;         /*   44 */
-  --sh-hair-4:#e6ebf2;         /*   36 */
-  --sh-hair-5:#d9e0ea;         /*   28 — ticker separator */
-  --sh-hair-6:#f1f4f8;         /*   86 — list rows */
-  --sh-grey-1:#cbd4e0;         /*   55 */
-  --sh-grey-2:#b9c6d8;         /*   51 — list numerals */
-  --sh-grey-3:#b8c2d0;         /*   42 */
+  /* --- text ------------------------------------------------------------- */
+  --color-text:#14233a;
+  --color-text-2:#4a5568;
+  --color-text-muted:#5d6b7d;        /* the only muted small text — 5.4:1 on white */
+  --color-text-faint:#8a95a6;        /* decorative numerals only, never body copy */
+  --color-on-dark:#ffffff;
+  --color-on-dark-2:rgba(255,255,255,.78);
+  --color-on-dark-muted:rgba(255,255,255,.6);
+  --color-on-dark-line:rgba(255,255,255,.14);
+  --color-scrim:rgba(10,26,51,.86);  /* the one veil under text on a picture */
+
+  /* --- lines ------------------------------------------------------------ */
+  --color-border:#d5dde8;
+  --color-border-soft:#eef2f7;
+
+  /* --- editorial red ---------------------------------------------------- */
+  --color-red:#e0302f;               /* breaking only: ticker tag, hero badge, reel */
+  --color-red-soft:#bf2f32;          /* live dot and word, timeline mark, Gaza dot */
+
+  /* --- desks (the special-files shelf only) ----------------------------- */
+  --color-desk-politics:#1b5aa6;
+  --color-desk-war:#9e2f36;
+  --color-desk-land:#5f6b3a;
+  --color-desk-economy:#7c6230;      /* was #9c7c3c: white on it now 5.8:1 */
+  --color-desk-rights:#5d6b7d;
 
   /* --- text on dark, by opacity ----------------------------------------- */
   --sh-on-dark-90:rgba(255,255,255,.9);
-  --sh-on-dark-86:rgba(255,255,255,.86);   /* 140 — nav links */
-  --sh-on-dark-82:rgba(255,255,255,.82);   /* 422 — dropdown links */
-  --sh-on-dark-80:rgba(255,255,255,.8);    /* topbar */
-  --sh-on-dark-75:rgba(255,255,255,.75);   /*  94 */
-  --sh-on-dark-72:rgba(255,255,255,.72);   /*  49 — footer copy */
-  --sh-on-dark-60:rgba(255,255,255,.6);    /*  54 */
-  --sh-on-dark-55:rgba(255,255,255,.55);   /*  55 — brief button border */
-  --sh-on-dark-30:rgba(255,255,255,.3);    /*  89 — hairlines on navy */
-  --sh-on-dark-16:rgba(255,255,255,.16);   /* footer rule */
+  --sh-on-dark-86:rgba(255,255,255,.86);
+  --sh-on-dark-82:rgba(255,255,255,.82);
+  --sh-on-dark-80:rgba(255,255,255,.8);
+  --sh-on-dark-75:rgba(255,255,255,.75);
+  --sh-on-dark-72:rgba(255,255,255,.72);
+  --sh-on-dark-60:rgba(255,255,255,.6);
+  --sh-on-dark-55:rgba(255,255,255,.55);
+  --sh-on-dark-30:rgba(255,255,255,.3);
+  --sh-on-dark-16:rgba(255,255,255,.16);
   --sh-on-dark-14:rgba(255,255,255,.14);
   --sh-on-dark-08:rgba(255,255,255,.08);
-
-  /* --- veils ------------------------------------------------------------ */
-  --sh-navy-a28:rgba(10,26,51,.28);        /* 100 — image scrim */
+  --sh-navy-a28:rgba(10,26,51,.28);
 
   /* --- type ------------------------------------------------------------- */
-  --sh-font:'Almarai',sans-serif;                          /* 1600 */
-  --sh-serif:'Noto Naskh Arabic',serif;                    /*   99 */
-  --sh-font-stack:'Almarai','Noto Naskh Arabic',system-ui,sans-serif;  /* html,body */
+  --sh-font:'Almarai',sans-serif;
+  --sh-serif:'Noto Naskh Arabic',serif;
+  --sh-font-stack:'Almarai','Noto Naskh Arabic',system-ui,sans-serif;
 
   /* --- layout ----------------------------------------------------------- */
   --sh-container:1280px;
+
+  /* --- aliases: the old names, resolved on the system above -------------- */
+  --sh-navy:var(--color-brand-navy);
+  --sh-navy-2:var(--color-brand-navy-2);
+  --sh-blue:var(--color-brand-blue);
+  --sh-sky:var(--color-brand-sky);
+  --sh-red:var(--color-red);
+  --sh-ink:var(--color-text);
+  --sh-ink-2:var(--color-text-2);
+  --sh-mute:var(--color-text-muted);
+  --sh-mute-2:var(--color-text-muted);
+  --sh-hair:var(--color-border-soft);
+  --sh-hair-2:var(--color-border);
+  --sh-hair-3:var(--color-border);
+  --sh-hair-4:var(--color-border-soft);
+  --sh-hair-5:var(--color-border);
+  --sh-hair-6:var(--color-surface-soft);
+  --sh-grey-1:var(--color-border);
+  --sh-grey-2:var(--color-text-muted);
+  --sh-grey-3:var(--color-text-muted);
 }
