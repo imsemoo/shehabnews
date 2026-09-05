@@ -1610,9 +1610,68 @@
     });
   }
 
+  /* 19. عدسة شهاب — one album, one picture at a time. The stage crossfades and
+         the thumbs, the big number, the counter, the caption and the progress
+         rule all follow. Arrows, the thumbs, the keyboard arrows while the
+         block has focus, and a swipe on the stage; RTL, so forward is leftward
+         (ArrowLeft = next, a drag to the left = next). Slides are links, so a
+         drag must not count as a click. ------------------------------------ */
+  function lens() {
+    document.querySelectorAll('[data-sh-lens]').forEach(function (root) {
+      var stage = root.querySelector('[data-sh-lens-stage]');
+      var slides = [].slice.call(root.querySelectorAll('[data-sh-lens-slide]'));
+      var thumbs = [].slice.call(root.querySelectorAll('[data-sh-lens-thumb]'));
+      var cap = root.querySelector('[data-sh-lens-cap]'), pos = root.querySelector('[data-sh-lens-pos]');
+      var num = root.querySelector('[data-sh-lens-num]'), fill = root.querySelector('[data-sh-lens-fill]');
+      var prev = root.querySelector('[data-sh-lens-prev]'), next = root.querySelector('[data-sh-lens-next]');
+      if (!stage || slides.length < 2) return;
+      var i = 0;
+      slides.forEach(function (s, k) { if (s.getAttribute('aria-current') === 'true') i = k; });
+      function two(n) { return n < 10 ? '0' + n : '' + n; }
+      function paint() {
+        slides.forEach(function (s, k) {
+          s.setAttribute('aria-current', k === i ? 'true' : 'false');
+          s.tabIndex = k === i ? 0 : -1;
+        });
+        thumbs.forEach(function (t, k) { t.setAttribute('aria-current', k === i ? 'true' : 'false'); });
+        if (cap) cap.textContent = slides[i].getAttribute('data-sh-cap') || '';
+        if (pos) pos.textContent = two(i + 1) + ' / ' + two(slides.length);
+        if (num) num.textContent = two(i + 1);
+        if (fill) fill.style.width = ((i + 1) / slides.length * 100) + '%';
+      }
+      function go(k) {
+        var n = slides.length;
+        i = ((k % n) + n) % n;                                   // wraps at both ends
+        paint();
+      }
+      if (next) next.addEventListener('click', function () { go(i + 1); });
+      if (prev) prev.addEventListener('click', function () { go(i - 1); });
+      thumbs.forEach(function (t, k) { t.addEventListener('click', function () { go(k); }); });
+      root.addEventListener('keydown', function (e) {
+        if (/^(INPUT|TEXTAREA|SELECT)$/.test((e.target || {}).tagName || '')) return;
+        if (e.key === 'ArrowLeft') { e.preventDefault(); go(i + 1); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); go(i - 1); }
+      });
+
+      var x0 = null, moved = false;
+      stage.addEventListener('pointerdown', function (e) { if (e.button > 0) return; x0 = e.clientX; moved = false; });
+      stage.addEventListener('pointermove', function (e) { if (x0 !== null && Math.abs(e.clientX - x0) > 6) moved = true; });
+      stage.addEventListener('pointerup', function (e) {
+        if (x0 === null) return;
+        var dx = e.clientX - x0; x0 = null;
+        if (dx < -40) go(i + 1);                                 // dragged leftward: forward
+        else if (dx > 40) go(i - 1);
+      });
+      stage.addEventListener('pointercancel', function () { x0 = null; });
+      stage.addEventListener('click', function (e) { if (moved) { e.preventDefault(); moved = false; } }, true);
+      stage.addEventListener('dragstart', function (e) { e.preventDefault(); });
+      paint();
+    });
+  }
+
   function init() {
     paintDate(); ticker(); tabs(); galleries(); menus(); hero();
-    lightbox(); player(); loadMore(); pager(); files(); filters(); hubs(); binders(); since(); videoDeck(); carica(); transition();
+    lightbox(); player(); loadMore(); pager(); files(); filters(); hubs(); binders(); since(); videoDeck(); carica(); lens(); transition();
     setInterval(paintDate, 60000);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
