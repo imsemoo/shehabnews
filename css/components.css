@@ -6,23 +6,23 @@
    old dash. Hover: the box takes the blue and the blade steps forward. The
    size modifiers (--12/--14/--16) only size the blade. */
 .sh-more{
-  display:inline-flex;align-items:center;gap:9px;padding:7px 12px 7px 11px;
-  border:1px solid var(--sh-hair-2);background:#fff;color:var(--sh-navy);
+  display:inline-flex;align-items:center;gap:8px;padding:8px 0;
+  border:0;background:none;color:currentColor;
   font-family:var(--sh-font);font-size:12px;font-weight:800;line-height:1;white-space:nowrap;
-  transition:border-color .18s ease,color .18s ease,background .18s ease;
+  text-underline-offset:5px;text-decoration-thickness:1px;
 }
-.sh-more:hover{border-color:var(--sh-blue);color:var(--sh-blue);background:var(--sh-hair-6)}
-.sh-more:focus-visible{outline:2px solid var(--sh-blue);outline-offset:2px}
+.sh-more:hover{color:currentColor;text-decoration:underline}
+.sh-more:focus-visible{outline:2px solid currentColor;outline-offset:4px}
 .sh-more__arrow{
-  flex:none;width:14px;aspect-ratio:100/41.59;height:auto;background:currentColor;
+  flex:none;width:13px;aspect-ratio:100/41.59;height:auto;background:currentColor;
   -webkit-mask:url(../assets/images/mark-arrow.svg) center/contain no-repeat;
           mask:url(../assets/images/mark-arrow.svg) center/contain no-repeat;
   transition:transform .2s ease;
 }
 .sh-more:hover .sh-more__arrow{transform:translateX(-3px)}
-.sh-more__arrow--12{width:12px}
-.sh-more__arrow--14{width:14px}
-.sh-more__arrow--16{width:16px}
+.sh-more__arrow--12{width:13px}
+.sh-more__arrow--14{width:13px}
+.sh-more__arrow--16{width:13px}
 .sh-chevron{width:8px;height:8px;border-right:1px solid var(--sh-grey-1);border-top:1px solid var(--sh-grey-1);transform:rotate(-135deg)}
 .sh-container{max-width:var(--sh-container);margin:0 auto;padding:0 32px}
 .sh-mark--md{width:16px;height:13px;background:var(--sh-blue)}
@@ -117,7 +117,7 @@
   display:grid;place-items:center;background:#fff;color:var(--sh-navy);
   font-family:var(--sh-font);font-size:13px;font-weight:800;font-variant-numeric:tabular-nums;direction:ltr;
 }
-.sh-hub__mark{position:absolute;bottom:10px;inset-inline-end:10px;z-index:2;width:16px;height:13px;background:#fff}
+.sh-hub__mark{position:absolute;bottom:10px;inset-inline-end:10px;z-index:2;width:13px;height:11px;background:var(--sh-on-dark-75)}
 .sh-hub__body{display:flex;flex-direction:column;gap:4px;padding:12px 2px 0}
 .sh-hub__name{font-family:var(--sh-font);font-size:15px;font-weight:800;line-height:1.35;color:var(--sh-navy);transition:color .18s ease}
 .sh-hub:hover .sh-hub__name{color:var(--sh-blue)}

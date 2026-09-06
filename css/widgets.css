@@ -109,7 +109,7 @@
 .sh-fx[data-static] .sh-fx__viewport{overflow-x:auto;scrollbar-width:none;-webkit-mask-image:none;mask-image:none}
 .sh-fx[data-static] .sh-fx__viewport::-webkit-scrollbar{display:none}
 @media (prefers-reduced-motion:reduce){.sh-fx__track{animation:none}}
-.sh-fx__item{display:inline-flex;align-items:center;gap:6px;padding:0 14px;border-inline-end:1px solid rgba(255,255,255,.14);font-size:11.5px;line-height:1;white-space:nowrap}
+.sh-fx__item{display:inline-flex;align-items:center;gap:6px;padding:0 18px 0 0;font-size:11.5px;line-height:1;white-space:nowrap}
 .sh-fx__set .sh-fx__item:last-child{border-inline-end:0}
 .sh-fx__pair{color:var(--sh-on-dark-72);font-weight:700}
 .sh-fx__val{font-weight:800;color:#fff;direction:ltr;unicode-bidi:isolate}
