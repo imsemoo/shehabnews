@@ -43,6 +43,11 @@
     speed: reduce ? 0 : 360,
     threshold: 8,
     resistanceRatio: .55,
+    // Swiper's default longSwipesRatio is .5: on a full-viewport vertical feed
+    // that means a deliberate drag has to cover half the screen (~420px) or it
+    // snaps back. A short feed drag is 150-250px, so the swipe read as "stay".
+    longSwipesRatio: .18,
+    longSwipesMs: 400,
     mousewheel: { forceToAxis: true, thresholdDelta: 24, thresholdTime: 250 },
     keyboard: { enabled: true },
     navigation: { prevEl: prev, nextEl: next },

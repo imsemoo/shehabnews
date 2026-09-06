@@ -50,7 +50,9 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:1.95}
 .sh-coverage-timeline__span-8{font-size:12.5px;color:var(--sh-red);font-weight:800;font-variant-numeric:tabular-nums;padding-top:4px;white-space:nowrap;text-align:left;padding-left:10px}
 .sh-coverage-timeline__span-9{display:flex;justify-content:center;padding-top:6px}
 .sh-coverage-timeline__span-10{width:16px;height:13px;background:var(--sh-blue);outline:4px solid #fff}
-.sh-coverage-timeline__span-11{min-width:0;display:block;padding-right:16px;border-right:3px solid var(--sh-red)}
+/* the status bar belongs ON the timeline rule, not 14px beside it: the body
+   box reaches back over the node column so its edge lands on the spine. */
+.sh-coverage-timeline__span-11{min-width:0;display:block;margin-right:-14px;padding-right:30px;border-right:3px solid var(--sh-red)}
 .sh-coverage-timeline__span-12{display:flex;gap:9px;align-items:center;font-size:11.5px;font-weight:700;font-family:var(--sh-font);color:var(--sh-blue);flex-wrap:wrap}
 .sh-coverage-timeline__span-13{background:var(--sh-red);color:#fff;padding:2px 8px;font-size:11px;display:inline-flex;align-items:center;gap:6px}
 .sh-coverage-timeline__span-14{width:4px;height:4px;background:#fff;border-radius:50%}
@@ -64,7 +66,7 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:1.95}
 .sh-coverage-timeline__a-2{display:grid;grid-template-columns:72px 28px 1fr;align-items:start;padding:22px 0 26px;color:var(--sh-ink)}
 .sh-coverage-timeline__a-2:hover{color:var(--sh-blue)}
 .sh-coverage-timeline__span-22{font-size:12.5px;color:var(--sh-navy);font-weight:800;font-variant-numeric:tabular-nums;padding-top:4px;white-space:nowrap;text-align:left;padding-left:10px}
-.sh-coverage-timeline__span-23{min-width:0;display:block;padding-right:16px;border-right:3px solid var(--sh-blue)}
+.sh-coverage-timeline__span-23{min-width:0;display:block;margin-right:-14px;padding-right:30px;border-right:3px solid var(--sh-blue)}
 .sh-coverage-timeline__span-24{display:block;font-family:var(--sh-font);font-size:19px;font-weight:700;line-height:1.7;margin-top:6px;text-wrap:pretty;color:var(--sh-navy)}
 .sh-coverage-timeline__p-1{font-size:13px;line-height:1.95;color:var(--sh-ink-2);margin:8px 0 0;max-width:62ch;text-wrap:pretty}
 .sh-coverage-timeline__span-25{display:block;margin-top:16px;max-width:680px;background:var(--sh-navy);overflow:hidden;position:relative}
@@ -108,7 +110,12 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:1.95}
 .sh-coverage-background__p-1{font-size:14px;line-height:2.05;color:#3b4656;margin:16px 0 0;text-wrap:pretty}
 .sh-coverage-background__div-3{position:relative;margin-top:22px}
 .sh-coverage-background__span-2{position:absolute;right:3px;top:8px;bottom:8px;width:1px;background:var(--sh-hair-2)}
-.sh-coverage-background__div-4{display:grid;grid-template-columns:16px 96px 1fr;gap:0 12px;align-items:baseline;padding:8px 0}
+.sh-coverage-background__div-4{display:grid;grid-template-columns:16px 96px minmax(0,1fr);gap:0 12px;align-items:baseline;padding:8px 0}
+/* only the last row carries the mark; without an explicit placement the three
+   rows above it slid one track over — the date landed in the 16px gutter and
+   the sentence in the 96px date column, leaving the text track empty. */
+.sh-coverage-background__span-3,.sh-coverage-background__span-5{grid-column:2}
+.sh-coverage-background__span-4{grid-column:3}
 .sh-coverage-background__span-3{font-weight:800;font-size:12.5px;color:var(--sh-blue);font-variant-numeric:tabular-nums}
 .sh-coverage-background__span-4{font-size:13px;color:#3b4656}
 .sh-coverage-background__span-5{font-weight:800;font-size:12.5px;color:var(--sh-ink-2);font-variant-numeric:tabular-nums}

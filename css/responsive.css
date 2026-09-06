@@ -424,7 +424,13 @@ header[data-nav-open] .sh-nav-toggle span:nth-child(3){transform:translateY(-7px
    ========================================================================== */
 @media (max-width:640px){
   footer [style*="flex:1 1 280px"],footer .sh-footer__col.sh-footer__col--brand,footer [style*="flex:1 1 260px"],footer .sh-footer__col.sh-footer__col--wide,footer [style*="flex:1 1 150px"],footer .sh-footer__col:not(.sh-footer__col--brand):not(.sh-footer__col--wide),footer .sh-footer__input{flex:1 1 100%!important}
-  footer [style*="display:flex"][style*="gap:36px"],footer .sh-footer__cols{gap:24px!important}
+  footer [style*="display:flex"][style*="gap:36px"],footer .sh-footer__cols{gap:28px!important}
+  footer .sh-footer__col:not(.sh-footer__col--brand):not(.sh-footer__col--wide){flex:1 1 40%!important}
+  /* seven social buttons wrapped 6 + 1 once the phone gave them a 40px floor;
+     a seven-track grid lets them share the row instead. */
+  footer .sh-footer__social{display:grid!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;gap:8px!important}
+  footer .sh-footer__social-btn{width:auto!important}
+  footer .sh-footer__apps .sh-footer__app{flex:1 1 100%!important;justify-content:center!important}
 }
 
 [dir="rtl"] [style*="margin-right:auto"],[dir="rtl"] .sh-about-opening__span-11,[dir="rtl"] .sh-author-author-hero__span-11,[dir="rtl"] .sh-contact-contact-form__span-9,[dir="rtl"] .sh-index-hero__span-9,[dir="rtl"] .sh-index-top-now__span-2,[dir="rtl"] .sh-tag-tag-header__span-10,[dir="rtl"] .sh-tag-tag-tabs__span-5,[dir="rtl"] .sh-video-watch-player__span-15{margin-inline-start:auto}
