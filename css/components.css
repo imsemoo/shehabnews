@@ -242,13 +242,18 @@ html[data-sh-hubview-open]{overflow:hidden}
    are glyphs, not quotation marks, so they point where they are drawn --
    right for the previous story, left for the next, the same pairing the
    archive pager uses. */
-.sh-hubview__tap .sh-i{
-  position:absolute;top:50%;width:40px;height:40px;margin-top:-20px;border-radius:50%;
-  background:#fff;box-shadow:0 4px 16px rgba(10,26,51,.3);color:var(--sh-navy);
-  display:grid;place-items:center;font-size:14px;line-height:1;
+/* The chip is the disc and the glyph is 1em inside it, the same way every other
+   round control here is built (.sh-vid__big, .sh-reels-grid__play, .sh-lite__play).
+   Sizing the <svg> itself is what made this chevron look like a slider button:
+   an icon sprite carries no viewBox of its own, so a px box scales the drawing
+   up to fill it. A page-turn cue, not a slider button: small, on hover only. */
+.sh-hubview__chip{
+  position:absolute;top:50%;width:28px;height:28px;margin-top:-14px;border-radius:50%;
+  background:rgba(255,255,255,.94);box-shadow:0 2px 10px rgba(10,26,51,.28);color:var(--sh-navy);
+  display:grid;place-items:center;font-size:11px;line-height:1;
 }
-.sh-hubview__tap--prev .sh-i{inset-inline-start:16px}
-.sh-hubview__tap--next .sh-i{inset-inline-end:16px}
+.sh-hubview__tap--prev .sh-hubview__chip{inset-inline-start:16px}
+.sh-hubview__tap--next .sh-hubview__chip{inset-inline-end:16px}
 
 /* what is coming next, always named: the collection's own table of contents,
    one line long */
@@ -548,7 +553,7 @@ html[data-sh-bo-open]{overflow:hidden}
 .sh-bo__doc--noimg{grid-template-columns:26px 30px minmax(0,1fr)}
 .sh-bo__doc-n{font-family:var(--sh-font);font-size:12px;font-weight:800;color:var(--accent-ink,var(--sh-blue));opacity:.7;font-variant-numeric:tabular-nums;direction:ltr;padding-top:3px}
 .sh-bo__doc-thumb{display:block;width:88px;aspect-ratio:16/10;object-fit:cover;background:var(--sh-navy-2);border:1px solid var(--sh-hair-2)}
-.sh-bo__doc .sh-i{width:30px;height:30px;display:grid;place-items:center;background:var(--sh-hair-6);color:var(--sh-blue);font-size:12px}
+.sh-bo__doc-icon{width:30px;height:30px;display:grid;place-items:center;background:var(--sh-hair-6);color:var(--sh-blue);font-size:12px}   /* the tile is the box; the glyph stays 1em inside it */
 .sh-bo__doc a{font-family:var(--sh-font);font-size:14.5px;font-weight:700;line-height:1.55;color:var(--sh-ink);transition:color .16s ease}
 .sh-bo__doc a:hover{color:var(--sh-blue)}
 .sh-bo__doc a:focus-visible{outline:2px solid var(--sh-blue);outline-offset:2px}

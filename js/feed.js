@@ -5,7 +5,7 @@
      ticker      {t, href, at}                  شريط العاجل (js/chrome.js بيسمع sh-feed:ticker)
      update      {id, t, cat, href, at, breaking?} عناصر جديدة فوق كل [data-sh-feed="updates"]
      breaking    {id, t, href, at}              شريط الاستحواذ الأحمر + توست + إعلان صوتي
-     top         {items:[{t, href}]}            «الأبرز الآن» [data-sh-feed="top"]
+     top         {items:[{t, href, img?, by?, avatar?, date?}]}  «أبرز الأخبار» [data-sh-feed="top"]
      live-state  {on_air, viewers, title, href} زر البث والشريط المرصوف + صفحة البث
      story       {id, t, at}                    بانر «تحدّث هذا الخبر» في [data-sh-story=id]
      hello       {now, on_air, viewers}         أول رسالة بعد الاتصال
@@ -152,13 +152,26 @@
   function onTop(d) {
     if (!d || !d.items) return;
     [].forEach.call(document.querySelectorAll('[data-sh-feed="top"]'), function (list) {
-      var rows = [].slice.call(list.querySelectorAll('a'));
+      // rich rows (index: picture, byline, date) expose [data-sh-top-*] hooks;
+      // plain lists (now.html) are bare <a>s
+      var titles = [].slice.call(list.querySelectorAll('[data-sh-top-t]'));
+      var rich = titles.length > 0;
+      var rows = rich ? titles : [].slice.call(list.querySelectorAll('a'));
       d.items.slice(0, rows.length).forEach(function (it, i) {
-        if (rows[i].textContent.trim() === it.t) return;
-        rows[i].textContent = it.t;
-        if (it.href) rows[i].setAttribute('href', it.href);
-        rows[i].setAttribute('data-new', '');
-        setTimeout(function () { rows[i].removeAttribute('data-new'); }, 4000);
+        var t = rows[i], a = rich ? (t.closest('a') || t) : t;
+        if (t.textContent.trim() === it.t) return;
+        t.textContent = it.t;
+        if (it.href) a.setAttribute('href', it.href);
+        if (rich) {
+          var img = a.querySelector('[data-sh-top-img]'), by = a.querySelector('[data-sh-top-by]'),
+              face = a.querySelector('[data-sh-top-face]'), date = a.querySelector('[data-sh-top-date]');
+          if (img && it.img) img.src = it.img;
+          if (by && it.by) by.textContent = it.by;
+          if (face && it.avatar) face.src = it.avatar;
+          if (date && it.date) date.textContent = it.date;
+        }
+        a.setAttribute('data-new', '');
+        setTimeout(function () { a.removeAttribute('data-new'); }, 4000);
       });
     });
   }

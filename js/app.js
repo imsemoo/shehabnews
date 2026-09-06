@@ -1002,16 +1002,16 @@
         view.className = 'sh-hubview';
         view.setAttribute('role', 'dialog');
         view.setAttribute('aria-modal', 'true');
-        view.setAttribute('aria-label', 'محور');
+        view.setAttribute('aria-label', 'قسم');
         view.hidden = true;
         view.innerHTML =
           '<div class="sh-hubview__veil" data-sh-hv-close></div>' +
           '<div class="sh-hubview__frame">' +
             '<div class="sh-hubview__bar">' +
-              '<span class="sh-hubview__brand"><span class="sh-mark"></span>محور</span>' +
+              '<span class="sh-hubview__brand"><span class="sh-mark"></span>قسم</span>' +
               '<span class="sh-hubview__name" data-sh-hv-name></span>' +
               '<span class="sh-hubview__pos" data-sh-hv-pos></span>' +
-              '<button type="button" class="sh-hubview__listen" data-sh-hv-listen><span class="sh-mark"></span>اسمع المحور</button>' +
+              '<button type="button" class="sh-hubview__listen" data-sh-hv-listen><span class="sh-mark"></span>اسمع القسم</button>' +
               '<button type="button" class="sh-hubview__close" data-sh-hv-close aria-label="إغلاق">&times;</button>' +
             '</div>' +
             '<div class="sh-hubview__segs" data-sh-hv-segs></div>' +
@@ -1034,7 +1034,7 @@
         els.listen.addEventListener('click', function () {
           var h = hubs[cur.h];
           document.dispatchEvent(new CustomEvent('sh-brief:play', { detail: {
-            id: 'hub:' + h.name, edition: 'محور ' + h.name,
+            id: 'hub:' + h.name, edition: 'قسم ' + h.name,
             items: h.items.map(function (r) { return { c: r.c, time: r.time, href: r.href, t: r.t, say: r.t }; })
           } }));
           close();
@@ -1131,9 +1131,9 @@
             '<span class="sh-hubcard__no">' + two(i + 1) + '</span>' +
             (r.credit ? '<span class="sh-hubcard__credit">' + esc(r.credit) + '</span>' : '') +
             '<button type="button" class="sh-hubview__tap sh-hubview__tap--prev" data-sh-hv-prev aria-label="الخبر السابق">' +
-              '' + ShUI.icon('chevron-right', 'solid') + '</button>' +
+              '<span class="sh-hubview__chip">' + ShUI.icon('chevron-right', 'solid') + '</span></button>' +
             '<button type="button" class="sh-hubview__tap sh-hubview__tap--next" data-sh-hv-next aria-label="الخبر التالي">' +
-              '' + ShUI.icon('chevron-left', 'solid') + '</button>' +
+              '<span class="sh-hubview__chip">' + ShUI.icon('chevron-left', 'solid') + '</span></button>' +
           '</span>' +
           '<span class="sh-hubcard__body">' +
             '<span class="sh-hubcard__line"><span class="sh-hubcard__cat">' + esc(r.c) + '</span>' +
@@ -1186,7 +1186,7 @@
         var nx = h.items[i + 1], last = !nx && hubs.length > 1;
         var nh = last ? hubs[wrap(cur.h + 1)] : null;
         els.nextbar.hidden = !nx && !last;
-        els.nlabel.textContent = nx ? 'التالي' : 'المحور التالي';
+        els.nlabel.textContent = nx ? 'التالي' : 'القسم التالي';
         els.ntitle.textContent = nx ? nx.t : nh ? nh.name + ' · ' + count(nh.items.length) : '';
         els.ntime.textContent = nx ? (nx.time || '') : '';
       }
@@ -1397,7 +1397,7 @@
         els.list.innerHTML = f.docs.length ? f.docs.map(function (d, k) {
           return '<li class="sh-bo__doc' + (d.img ? '' : ' sh-bo__doc--noimg') + '">' +
             '<span class="sh-bo__doc-n">' + two(k + 1) + '</span>' +
-            (d.img ? '<img class="sh-bo__doc-thumb" src="' + esc(d.img) + '" alt="" loading="lazy" decoding="async">' : '<svg class="sh-i" aria-hidden="true" focusable="false"><use href="' + esc(d.icon) + '"></use></svg>') +
+            (d.img ? '<img class="sh-bo__doc-thumb" src="' + esc(d.img) + '" alt="" loading="lazy" decoding="async">' : '<span class="sh-bo__doc-icon"><svg class="sh-i" aria-hidden="true" focusable="false"><use href="' + esc(d.icon) + '"></use></svg></span>') +
             '<span><a href="' + esc(d.href) + '">' + esc(d.t) + '</a>' +
             '<span class="sh-bo__doc-meta">' + (d.type ? '<b>' + esc(d.type) + '</b>' : '') + (d.date ? '<span>' + esc(d.date) + '</span>' : '') + '</span></span>' +
           '</li>';

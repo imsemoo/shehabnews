@@ -32,6 +32,7 @@ media-player.sh-shorts__player .sh-lite__play{width:66px;height:66px;margin:-33p
 .sh-shorts__prog img{width:100%;height:100%;object-fit:cover;display:block}
 .sh-shorts__act{display:flex;flex-direction:column;align-items:center;gap:5px;border:0;background:none;color:#fff;font-family:var(--sh-font);font-size:11px;font-weight:700;cursor:pointer;padding:0}
 .sh-shorts__act .sh-i{width:44px;height:44px;padding:12px;box-sizing:border-box;border-radius:50%;background:rgba(255,255,255,.1);display:block;transition:background .2s ease,transform .2s ease}   /* the svg is the disc: 44 across, the glyph 20 inside it */
+.sh-shorts__act:hover{color:#fff}   /* the same class sits on an <a>; base.css a:hover would turn it blue over the video */
 .sh-shorts__act:hover .sh-i{background:rgba(255,255,255,.2)}
 .sh-shorts__act:active .sh-i{transform:scale(.92)}
 /* paired states: the second icon of a pair is the "on" state -- hidden until the button says so */

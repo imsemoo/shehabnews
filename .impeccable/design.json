@@ -1,0 +1,634 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-06T12:40:00+03:00",
+  "title": "Design System: شهاب — Shehab News Agency",
+  "extensions": {
+    "colorMeta": {
+      "brand-navy": {
+        "role": "primary",
+        "displayName": "Shehab Navy",
+        "canonical": "oklch(21% 0.06 262)",
+        "tonalRamp": [
+          "oklch(15% 0.05 262)",
+          "oklch(25% 0.06 262)",
+          "oklch(35% 0.07 262)",
+          "oklch(45% 0.08 262)",
+          "oklch(55% 0.08 262)",
+          "oklch(65% 0.07 262)",
+          "oklch(80% 0.05 262)",
+          "oklch(95% 0.02 262)"
+        ]
+      },
+      "brand-navy-2": {
+        "role": "primary",
+        "displayName": "Deep Navy",
+        "canonical": "oklch(27% 0.075 258)",
+        "tonalRamp": [
+          "oklch(15% 0.06 258)",
+          "oklch(25% 0.075 258)",
+          "oklch(35% 0.085 258)",
+          "oklch(45% 0.09 258)",
+          "oklch(55% 0.09 258)",
+          "oklch(65% 0.08 258)",
+          "oklch(80% 0.05 258)",
+          "oklch(95% 0.02 258)"
+        ]
+      },
+      "brand-blue": {
+        "role": "primary",
+        "displayName": "Brand Blue",
+        "canonical": "oklch(46% 0.14 256)",
+        "tonalRamp": [
+          "oklch(15% 0.06 256)",
+          "oklch(25% 0.09 256)",
+          "oklch(35% 0.12 256)",
+          "oklch(45% 0.14 256)",
+          "oklch(55% 0.14 256)",
+          "oklch(65% 0.12 256)",
+          "oklch(80% 0.07 256)",
+          "oklch(95% 0.02 256)"
+        ]
+      },
+      "brand-blue-deep": {
+        "role": "primary",
+        "displayName": "Pressed Blue",
+        "canonical": "oklch(40% 0.125 257)",
+        "tonalRamp": [
+          "oklch(15% 0.06 257)",
+          "oklch(25% 0.09 257)",
+          "oklch(35% 0.115 257)",
+          "oklch(45% 0.125 257)",
+          "oklch(55% 0.125 257)",
+          "oklch(65% 0.11 257)",
+          "oklch(80% 0.07 257)",
+          "oklch(95% 0.02 257)"
+        ]
+      },
+      "brand-sky": {
+        "role": "primary",
+        "displayName": "Sky",
+        "canonical": "oklch(72% 0.09 256)",
+        "tonalRamp": [
+          "oklch(15% 0.05 256)",
+          "oklch(25% 0.07 256)",
+          "oklch(35% 0.09 256)",
+          "oklch(45% 0.1 256)",
+          "oklch(55% 0.1 256)",
+          "oklch(65% 0.095 256)",
+          "oklch(80% 0.07 256)",
+          "oklch(95% 0.02 256)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Page White",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0.01 250)",
+          "oklch(25% 0.01 250)",
+          "oklch(35% 0.01 250)",
+          "oklch(45% 0.01 250)",
+          "oklch(55% 0.01 250)",
+          "oklch(65% 0.01 250)",
+          "oklch(80% 0.006 250)",
+          "oklch(100% 0 0)"
+        ]
+      },
+      "surface-warm": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "oklch(98.5% 0.005 90)",
+        "tonalRamp": [
+          "oklch(15% 0.01 90)",
+          "oklch(25% 0.012 90)",
+          "oklch(35% 0.014 90)",
+          "oklch(45% 0.014 90)",
+          "oklch(55% 0.014 90)",
+          "oklch(65% 0.012 90)",
+          "oklch(80% 0.008 90)",
+          "oklch(98.5% 0.005 90)"
+        ]
+      },
+      "surface-soft": {
+        "role": "neutral",
+        "displayName": "Soft Light",
+        "canonical": "oklch(97.5% 0.006 240)",
+        "tonalRamp": [
+          "oklch(15% 0.012 240)",
+          "oklch(25% 0.014 240)",
+          "oklch(35% 0.016 240)",
+          "oklch(45% 0.016 240)",
+          "oklch(55% 0.016 240)",
+          "oklch(65% 0.014 240)",
+          "oklch(80% 0.01 240)",
+          "oklch(97.5% 0.006 240)"
+        ]
+      },
+      "surface-blue": {
+        "role": "neutral",
+        "displayName": "Blue Tint",
+        "canonical": "oklch(96% 0.012 245)",
+        "tonalRamp": [
+          "oklch(15% 0.02 245)",
+          "oklch(25% 0.025 245)",
+          "oklch(35% 0.03 245)",
+          "oklch(45% 0.03 245)",
+          "oklch(55% 0.03 245)",
+          "oklch(65% 0.025 245)",
+          "oklch(80% 0.018 245)",
+          "oklch(96% 0.012 245)"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(24% 0.05 262)",
+        "tonalRamp": [
+          "oklch(15% 0.04 262)",
+          "oklch(25% 0.05 262)",
+          "oklch(35% 0.05 262)",
+          "oklch(45% 0.05 262)",
+          "oklch(55% 0.045 262)",
+          "oklch(65% 0.04 262)",
+          "oklch(80% 0.025 262)",
+          "oklch(95% 0.01 262)"
+        ]
+      },
+      "text-2": {
+        "role": "neutral",
+        "displayName": "Ink 2",
+        "canonical": "oklch(43% 0.03 258)",
+        "tonalRamp": [
+          "oklch(15% 0.02 258)",
+          "oklch(25% 0.025 258)",
+          "oklch(35% 0.03 258)",
+          "oklch(45% 0.03 258)",
+          "oklch(55% 0.03 258)",
+          "oklch(65% 0.025 258)",
+          "oklch(80% 0.015 258)",
+          "oklch(95% 0.006 258)"
+        ]
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "canonical": "oklch(52% 0.03 253)",
+        "tonalRamp": [
+          "oklch(15% 0.02 253)",
+          "oklch(25% 0.025 253)",
+          "oklch(35% 0.03 253)",
+          "oklch(45% 0.03 253)",
+          "oklch(55% 0.03 253)",
+          "oklch(65% 0.025 253)",
+          "oklch(80% 0.015 253)",
+          "oklch(95% 0.006 253)"
+        ]
+      },
+      "text-faint": {
+        "role": "neutral",
+        "displayName": "Faint",
+        "canonical": "oklch(66% 0.025 250)",
+        "tonalRamp": [
+          "oklch(15% 0.015 250)",
+          "oklch(25% 0.02 250)",
+          "oklch(35% 0.025 250)",
+          "oklch(45% 0.025 250)",
+          "oklch(55% 0.025 250)",
+          "oklch(65% 0.025 250)",
+          "oklch(80% 0.015 250)",
+          "oklch(95% 0.006 250)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Line",
+        "canonical": "oklch(89% 0.015 250)",
+        "tonalRamp": [
+          "oklch(15% 0.012 250)",
+          "oklch(25% 0.014 250)",
+          "oklch(35% 0.016 250)",
+          "oklch(45% 0.016 250)",
+          "oklch(55% 0.016 250)",
+          "oklch(65% 0.016 250)",
+          "oklch(80% 0.015 250)",
+          "oklch(95% 0.008 250)"
+        ]
+      },
+      "border-soft": {
+        "role": "neutral",
+        "displayName": "Soft Line",
+        "canonical": "oklch(96% 0.008 245)",
+        "tonalRamp": [
+          "oklch(15% 0.01 245)",
+          "oklch(25% 0.012 245)",
+          "oklch(35% 0.012 245)",
+          "oklch(45% 0.012 245)",
+          "oklch(55% 0.012 245)",
+          "oklch(65% 0.012 245)",
+          "oklch(80% 0.01 245)",
+          "oklch(96% 0.008 245)"
+        ]
+      },
+      "red": {
+        "role": "secondary",
+        "displayName": "Breaking Red",
+        "canonical": "oklch(58% 0.21 27)",
+        "tonalRamp": [
+          "oklch(15% 0.06 27)",
+          "oklch(25% 0.1 27)",
+          "oklch(35% 0.14 27)",
+          "oklch(45% 0.18 27)",
+          "oklch(58% 0.21 27)",
+          "oklch(68% 0.17 27)",
+          "oklch(82% 0.09 27)",
+          "oklch(95% 0.025 27)"
+        ]
+      },
+      "red-soft": {
+        "role": "secondary",
+        "displayName": "Live Red",
+        "canonical": "oklch(52% 0.185 26)",
+        "tonalRamp": [
+          "oklch(15% 0.06 26)",
+          "oklch(25% 0.1 26)",
+          "oklch(35% 0.14 26)",
+          "oklch(45% 0.17 26)",
+          "oklch(52% 0.185 26)",
+          "oklch(65% 0.15 26)",
+          "oklch(80% 0.08 26)",
+          "oklch(95% 0.025 26)"
+        ]
+      },
+      "on-dark": {
+        "role": "neutral",
+        "displayName": "On Dark",
+        "canonical": "#ffffff"
+      },
+      "on-dark-80": {
+        "role": "neutral",
+        "displayName": "On Dark 80 — topbar text, nav hover underline",
+        "canonical": "rgba(255,255,255,.8)"
+      },
+      "on-dark-72": {
+        "role": "neutral",
+        "displayName": "On Dark 72 — secondary copy on navy",
+        "canonical": "rgba(255,255,255,.72)"
+      },
+      "on-dark-60": {
+        "role": "neutral",
+        "displayName": "On Dark 60 — legal, placeholders, notes on navy",
+        "canonical": "rgba(255,255,255,.6)"
+      },
+      "on-dark-30": {
+        "role": "neutral",
+        "displayName": "On-Dark Outline",
+        "canonical": "rgba(255,255,255,.3)"
+      },
+      "on-dark-line": {
+        "role": "neutral",
+        "displayName": "On-Dark Line",
+        "canonical": "rgba(255,255,255,.14)"
+      },
+      "on-dark-08": {
+        "role": "neutral",
+        "displayName": "On-Dark Field",
+        "canonical": "rgba(255,255,255,.08)"
+      },
+      "scrim": {
+        "role": "neutral",
+        "displayName": "Navy Scrim",
+        "canonical": "rgba(10,26,51,.86)"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The article headline in navy on white; clamp(36px,3.8vw,52px)/1.15 in white on a navy hero; clamp(26px,7.4vw,30px)/1.4 on phones. Always text-wrap: balance."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings inside a report and page section heads (19–24px), navy, with the 16×13 blue ش blade in front."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Story titles on tiles and rows at 14.5–17px, navy or ink at rest, blue on hover; lead tiles take 800."
+      },
+      "dek": {
+        "displayName": "Dek",
+        "purpose": "The standfirst under the headline, ink 2, max-width 56ch; 16.5px on phones. Scales with --reader-scale."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading paragraphs on a column of at most 542px (about sixty characters); lede 1.1em/1.95 in navy; 17px/1.95 on phones. Scales with --reader-scale (0.92 / 1 / 1.12 / 1.26)."
+      },
+      "quote": {
+        "displayName": "Pull Quote",
+        "purpose": "The one highlighted line in a report, navy, after a 30px blue quote glyph."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Meta lines, captions, counters, rail labels, chips and buttons at 11–12.5px, tabular numerals; never under 12px on phones."
+      }
+    },
+    "shadows": [
+      {
+        "name": "float-nav",
+        "value": "0 14px 30px rgba(10,26,51,.28)",
+        "purpose": "The nav dropdown floating above the masthead."
+      },
+      {
+        "name": "float-toast",
+        "value": "0 12px 32px rgba(10,26,51,.3)",
+        "purpose": "The navy toast."
+      },
+      {
+        "name": "float-control",
+        "value": "0 8px 24px rgba(10,26,51,.18)",
+        "purpose": "The to-top control; the skip link uses .25."
+      },
+      {
+        "name": "lift-cover",
+        "value": "0 10px 24px rgba(10,26,51,.16)",
+        "purpose": "A collection cover at rest; rises 3px on hover."
+      },
+      {
+        "name": "print-light",
+        "value": "0 30px 56px -26px rgba(10,26,51,.5)",
+        "purpose": "A feature cover on a light band."
+      },
+      {
+        "name": "print-dark",
+        "value": "0 34px 70px -24px rgba(0,0,0,.75)",
+        "purpose": "A cover object on the navy hero."
+      },
+      {
+        "name": "paper",
+        "value": "0 1px 2px rgba(10,26,51,.06), 0 10px 20px -14px rgba(10,26,51,.22)",
+        "purpose": "A folder standing on its shelf; -14px .28 when open."
+      },
+      {
+        "name": "overlay-frame",
+        "value": "0 30px 80px rgba(0,0,0,.38)",
+        "purpose": "A modal frame over the rgba(10,26,51,.7) blurred veil."
+      },
+      {
+        "name": "band-bleed",
+        "value": "0 0 0 100vmax var(--sh-navy)",
+        "purpose": "Not a shadow: with clip-path: inset(0 -100vmax) it runs a band full-bleed from inside the container. One navy band per page."
+      },
+      {
+        "name": "scrim-gradient",
+        "value": "linear-gradient(to right, rgba(10,26,51,.96) 0%, rgba(10,26,51,.3) 42%, rgba(10,26,51,0) 100%)",
+        "purpose": "The navy veil under text laid on a photograph; vertical variant to top from .9 to 0 at 60% on phones. Never black."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-colour",
+        "value": "0.16s ease",
+        "purpose": "Colour, opacity, border-colour and background changes on links and controls (0.18s on buttons)."
+      },
+      {
+        "name": "ease-arrow",
+        "value": "0.2s ease",
+        "purpose": "The arrow blade stepping 3px forward on hover."
+      },
+      {
+        "name": "ease-move",
+        "value": "cubic-bezier(.2,.7,.2,1) 0.35s–0.5s",
+        "purpose": "Lifts, deck turns, frame entrances."
+      },
+      {
+        "name": "ease-photo",
+        "value": "cubic-bezier(.2,.7,.2,1) 0.6s–1.2s",
+        "purpose": "A picture's 1.03–1.05 hover scale and the sticky pane's 1.04 → 1 settle (1.1s)."
+      },
+      {
+        "name": "crossfade",
+        "value": "opacity 0.6s ease",
+        "purpose": "The sticky picture pane changing chapter; the caption fades in over 0.5s with a 4px rise."
+      },
+      {
+        "name": "pulse",
+        "value": "sh-pulse 1.4s–1.6s ease-in-out infinite",
+        "purpose": "Live and breaking dots; the live icon pulses at 2.2s."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transition: none; animation: none; transform: none",
+        "purpose": "prefers-reduced-motion: reduce removes every transition, animation, hover transform and pulse."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "gutters",
+        "value": "1200px"
+      },
+      {
+        "name": "sidebars",
+        "value": "1024px"
+      },
+      {
+        "name": "split-screen",
+        "value": "1000px"
+      },
+      {
+        "name": "touch-nav",
+        "value": "900px"
+      },
+      {
+        "name": "related-rows",
+        "value": "760px"
+      },
+      {
+        "name": "one-column",
+        "value": "640px"
+      },
+      {
+        "name": "smallest",
+        "value": "380px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "More Button",
+      "kind": "button",
+      "refersTo": "button-more",
+      "description": "The house button «المزيد»: a hairline box on white, navy Almarai 800 label, the ش arrow blade pointing forward (leftward in RTL). Hover turns the box blue and steps the arrow forward.",
+      "html": "<a class=\"ds-more\" href=\"#\" dir=\"rtl\">كل التقارير <span class=\"ds-more__arrow\" aria-hidden=\"true\"></span></a>",
+      "css": ".ds-more{display:inline-flex;align-items:center;gap:9px;padding:7px 12px 7px 11px;border:1px solid var(--color-border,#d5dde8);background:var(--color-surface,#fff);color:var(--sh-navy,#0a1a33);font-family:'Almarai',system-ui,sans-serif;font-size:12px;font-weight:800;line-height:1;white-space:nowrap;text-decoration:none;border-radius:0;transition:border-color .18s ease,color .18s ease,background .18s ease}.ds-more:hover{border-color:var(--sh-blue,#1b5aa6);color:var(--sh-blue,#1b5aa6);background:var(--color-surface-soft,#f5f7fa)}.ds-more:focus-visible{outline:2px solid var(--sh-blue,#1b5aa6);outline-offset:2px}.ds-more__arrow{flex:none;width:14px;aspect-ratio:100/41.59;background:currentColor;-webkit-mask:url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 41.59'><path d='M87.93 4.74 L95.78 12.70 L100.00 24.89 L98.80 26.30 L63.74 41.49 L62.43 41.59 L64.04 36.86 L62.44 24.47 L52.07 18.02 L39.38 15.69 L0.00 17.38 L30.12 6.52 L53.39 0.79 L72.42 0.00 L81.79 1.92 L87.93 4.74 Z'/></svg>\") center/contain no-repeat;mask:url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 41.59'><path d='M87.93 4.74 L95.78 12.70 L100.00 24.89 L98.80 26.30 L63.74 41.49 L62.43 41.59 L64.04 36.86 L62.44 24.47 L52.07 18.02 L39.38 15.69 L0.00 17.38 L30.12 6.52 L53.39 0.79 L72.42 0.00 L81.79 1.92 L87.93 4.74 Z'/></svg>\") center/contain no-repeat;transition:transform .2s ease}.ds-more:hover .ds-more__arrow{transform:translateX(-3px)}"
+    },
+    {
+      "name": "Primary CTA",
+      "kind": "button",
+      "refersTo": "button-cta",
+      "description": "Navy fill, white Almarai 800 at 13px, 44px tall, the blade after the label. Hover swaps the fill to blue and opens the gap.",
+      "html": "<a class=\"ds-cta\" href=\"#\" dir=\"rtl\">افتح الملف <span class=\"ds-cta__mark\" aria-hidden=\"true\"></span></a>",
+      "css": ".ds-cta{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:0 24px;background:var(--sh-navy,#0a1a33);color:#fff;font-family:'Almarai',system-ui,sans-serif;font-size:13px;font-weight:800;text-decoration:none;border-radius:0;transition:background .18s ease,gap .16s ease}.ds-cta:hover{background:var(--sh-blue,#1b5aa6);color:#fff;gap:18px}.ds-cta:focus-visible{outline:2px solid var(--sh-blue,#1b5aa6);outline-offset:2px}.ds-cta__mark{flex:none;width:14px;height:12px;background:#fff;-webkit-mask:url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 82.76'><path d='M72.41 0.00 L86.21 1.15 L100.00 9.20 L100.00 11.49 L79.31 54.02 L78.16 55.17 L75.86 49.43 L64.37 39.08 L49.43 41.38 L35.63 49.43 L0.00 82.76 L19.54 48.28 L36.78 24.14 L54.02 8.05 L64.37 2.30 L72.41 0.00 Z'/></svg>\") center/contain no-repeat;mask:url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 82.76'><path d='M72.41 0.00 L86.21 1.15 L100.00 9.20 L100.00 11.49 L79.31 54.02 L78.16 55.17 L75.86 49.43 L64.37 39.08 L49.43 41.38 L35.63 49.43 L0.00 82.76 L19.54 48.28 L36.78 24.14 L54.02 8.05 L64.37 2.30 L72.41 0.00 Z'/></svg>\") center/contain no-repeat}"
+    },
+    {
+      "name": "Share Square",
+      "kind": "button",
+      "refersTo": "button-share",
+      "description": "A 38px square on soft light with a navy icon; hover fills navy with a white icon. 44px on phones and at the article's end.",
+      "html": "<a class=\"ds-share\" href=\"#\" aria-label=\"مشاركة\"><svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"18\" cy=\"5\" r=\"3\"/><circle cx=\"6\" cy=\"12\" r=\"3\"/><circle cx=\"18\" cy=\"19\" r=\"3\"/><path d=\"M8.6 13.5l6.8 4M15.4 6.5l-6.8 4\"/></svg></a>",
+      "css": ".ds-share{width:38px;height:38px;display:inline-grid;place-items:center;background:var(--color-surface-soft,#f5f7fa);color:var(--sh-navy,#0a1a33);border-radius:0;text-decoration:none;transition:background .16s ease,color .16s ease}.ds-share:hover{background:var(--sh-navy,#0a1a33);color:#fff}.ds-share:focus-visible{outline:2px solid var(--sh-blue,#1b5aa6);outline-offset:2px}"
+    },
+    {
+      "name": "Reader Rail Button",
+      "kind": "button",
+      "refersTo": "button-rail",
+      "description": "The vertical tool rail beside a report: 56×54 icon-over-label, transparent, navy, Almarai 800 at 11px. Hover: soft ground and blue; pressed (aria-pressed) fills navy.",
+      "html": "<div class=\"ds-rail\" role=\"toolbar\" dir=\"rtl\"><button class=\"ds-rail__btn\" type=\"button\" aria-pressed=\"false\"><svg viewBox=\"0 0 24 24\" width=\"17\" height=\"17\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 14v-2a8 8 0 0 1 16 0v2\"/><rect x=\"3\" y=\"14\" width=\"4\" height=\"6\"/><rect x=\"17\" y=\"14\" width=\"4\" height=\"6\"/></svg><span>استمع</span></button><button class=\"ds-rail__btn\" type=\"button\" aria-pressed=\"true\"><svg viewBox=\"0 0 24 24\" width=\"17\" height=\"17\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M6 3h12v18l-6-4-6 4z\"/></svg><span>محفوظ</span></button><button class=\"ds-rail__btn ds-rail__btn--size\" type=\"button\" aria-label=\"تكبير الخط\">أ+</button></div>",
+      "css": ".ds-rail{display:flex;flex-direction:column;gap:4px;width:56px}.ds-rail__btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:56px;min-height:54px;padding:6px 2px;border:0;border-radius:0;background:transparent;color:var(--sh-navy,#0a1a33);font-family:'Almarai',system-ui,sans-serif;font-size:11px;font-weight:800;line-height:1;cursor:pointer;transition:background .15s ease,color .15s ease}.ds-rail__btn:hover{background:var(--color-surface-soft,#f5f7fa);color:var(--sh-blue,#1b5aa6)}.ds-rail__btn[aria-pressed=\"true\"]{background:var(--sh-navy,#0a1a33);color:#fff}.ds-rail__btn[disabled]{opacity:.35;cursor:default}.ds-rail__btn:focus-visible{outline:2px solid var(--sh-blue,#1b5aa6);outline-offset:2px}.ds-rail__btn--size{min-height:44px;font-size:14px}"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "input-search",
+      "description": "The masthead search on the blue chrome: a 38px translucent field with a hairline, white text; hover lightens it, focus turns the whole field white with navy text.",
+      "html": "<div class=\"ds-chrome\"><form class=\"ds-search\" role=\"search\" dir=\"rtl\"><input class=\"ds-search__input\" type=\"search\" placeholder=\"ابحث في شهاب\" aria-label=\"ابحث في شهاب\"><button class=\"ds-search__btn\" type=\"submit\" aria-label=\"بحث\"><svg viewBox=\"0 0 24 24\" width=\"13\" height=\"13\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" aria-hidden=\"true\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\"/><path d=\"M15.5 15.5L21 21\"/></svg></button></form></div>",
+      "css": ".ds-chrome{display:inline-block;padding:16px 20px;background:var(--sh-blue,#1b5aa6)}.ds-search{display:flex;align-items:center;height:38px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);border-radius:0;transition:background .18s ease,border-color .18s ease}.ds-search:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}.ds-search:focus-within{background:#fff;border-color:#fff}.ds-search__input{width:190px;height:100%;padding:0 12px;border:0;background:transparent;color:#fff;outline:none;font-family:'Almarai',system-ui,sans-serif;font-size:12.5px;font-weight:700}.ds-search__input::placeholder{color:rgba(255,255,255,.6);font-weight:700}.ds-search:focus-within .ds-search__input{color:var(--sh-navy,#0a1a33)}.ds-search:focus-within .ds-search__input::placeholder{color:var(--color-text-faint,#8a95a6)}.ds-search__btn{width:38px;height:100%;flex:none;border:0;background:transparent;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s ease,color .18s ease}.ds-search__btn:hover{background:rgba(255,255,255,.16)}.ds-search__btn:focus-visible{outline:2px solid var(--sh-sky,#7ea8dd);outline-offset:-2px}.ds-search:focus-within .ds-search__btn{color:var(--sh-blue,#1b5aa6)}.ds-search:focus-within .ds-search__btn:hover{background:var(--color-surface-blue,#edf2f8)}"
+    },
+    {
+      "name": "Primary Nav",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Almarai 700 at 14px on the blue masthead over a .14 white hairline; a 3px bottom border turns .8 white on hover and solid white when current. Hover on the chrome goes to white, never to blue.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"أقسام شهاب\" dir=\"rtl\"><a class=\"ds-nav__link ds-nav__link--current\" href=\"#\" aria-current=\"page\">الرئيسية</a><a class=\"ds-nav__link\" href=\"#\">أخبار فلسطين</a><a class=\"ds-nav__link\" href=\"#\">عربي</a><a class=\"ds-nav__link\" href=\"#\">دولي</a><a class=\"ds-nav__link\" href=\"#\">ملفات شهاب</a><a class=\"ds-nav__link ds-nav__link--live\" href=\"#\"><span class=\"ds-nav__dot\" aria-hidden=\"true\"></span>التغطية الحية</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:26px;flex-wrap:wrap;min-height:46px;padding:0 20px;background:var(--sh-blue,#1b5aa6);border-top:1px solid rgba(255,255,255,.14);font-family:'Almarai',system-ui,sans-serif;font-size:14px;font-weight:700}.ds-nav__link{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.86);padding:13px 0 11px;border-bottom:3px solid transparent;text-decoration:none;transition:color .16s ease,border-color .22s ease}.ds-nav__link:hover{color:#fff;border-bottom-color:rgba(255,255,255,.8)}.ds-nav__link--current{color:#fff;border-bottom-color:#fff}.ds-nav__link:focus-visible{outline:2px solid var(--sh-sky,#7ea8dd);outline-offset:3px}.ds-nav__link--live{margin-inline-start:auto}.ds-nav__dot{width:7px;height:7px;border-radius:50%;background:var(--sh-red,#e0302f);animation:ds-pulse 1.4s ease-in-out infinite}@keyframes ds-pulse{0%,100%{opacity:1}50%{opacity:.3}}@media (prefers-reduced-motion:reduce){.ds-nav__dot{animation:none}}"
+    },
+    {
+      "name": "Category Chip",
+      "kind": "chip",
+      "refersTo": "chip-category",
+      "description": "A blue fill with white Almarai 800 at 11px, square; beside it the text-only tag style in blue that turns navy on hover.",
+      "html": "<div class=\"ds-chips\" dir=\"rtl\"><span class=\"ds-chip\">تقرير خاص</span><a class=\"ds-tag\" href=\"#\">#غزة</a><a class=\"ds-tag\" href=\"#\">#وقف_إطلاق_النار</a></div>",
+      "css": ".ds-chips{display:flex;align-items:center;gap:18px;font-family:'Almarai',system-ui,sans-serif}.ds-chip{display:inline-flex;align-items:center;background:var(--sh-blue,#1b5aa6);color:#fff;font-size:11px;font-weight:800;padding:4px 12px;line-height:1.5;border-radius:0}.ds-tag{color:var(--sh-blue,#1b5aa6);font-size:13px;font-weight:700;text-decoration:none;transition:color .16s ease}.ds-tag:hover{color:var(--sh-navy,#0a1a33)}.ds-tag:focus-visible{outline:2px solid var(--sh-blue,#1b5aa6);outline-offset:2px}"
+    },
+    {
+      "name": "Story Tile",
+      "kind": "card",
+      "description": "A story is not a card: a photograph at a fixed ratio on a navy-2 ground, then a blue meta line and the title in type. No box, no border, no shadow. Hover scales the picture 1.04 and turns the title blue.",
+      "html": "<a class=\"ds-tile\" href=\"#\" dir=\"rtl\"><span class=\"ds-tile__pic\" aria-hidden=\"true\"></span><span class=\"ds-tile__meta\">تقرير<span class=\"ds-tile__time\">أمس</span></span><span class=\"ds-tile__t\">من التوسع إلى الضم.. كيف تصنع \"إسرائيل\" واقعًا لا رجعة فيه في الضفة؟</span></a>",
+      "css": ".ds-tile{display:flex;flex-direction:column;gap:9px;width:300px;min-width:0;color:var(--sh-ink,#14233a);text-decoration:none;font-family:'Almarai',system-ui,sans-serif}.ds-tile__pic{position:relative;display:block;aspect-ratio:16/10;background:var(--sh-navy-2,#0f2a4f);overflow:hidden}.ds-tile__pic::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#0f2a4f 0%,#1b5aa6 60%,#7ea8dd 100%);transition:transform .8s cubic-bezier(.2,.7,.2,1)}.ds-tile:hover .ds-tile__pic::before{transform:scale(1.04)}.ds-tile__meta{display:flex;gap:9px;align-items:center;font-size:11.5px;color:var(--sh-blue,#1b5aa6);font-weight:700}.ds-tile__time{color:var(--color-text-muted,#5d6b7d);font-weight:400;font-variant-numeric:tabular-nums}.ds-tile__t{font-size:16px;font-weight:700;line-height:1.65;color:var(--sh-navy,#0a1a33);text-wrap:pretty;transition:color .16s ease}.ds-tile:hover .ds-tile__t{color:var(--sh-blue,#1b5aa6)}.ds-tile:focus-visible{outline:2px solid var(--sh-blue,#1b5aa6);outline-offset:3px}@media (prefers-reduced-motion:reduce){.ds-tile__pic::before{transition:none}.ds-tile:hover .ds-tile__pic::before{transform:none}}"
+    },
+    {
+      "name": "Section Head",
+      "kind": "custom",
+      "description": "The title and its 16×13 blue ش blade carry a section — a baseline-aligned row with the more-link at the far end and no ruled line under it.",
+      "html": "<div class=\"ds-head\" dir=\"rtl\"><h2 class=\"ds-head__title\"><span class=\"ds-head__mark\" aria-hidden=\"true\"></span>من تقارير شهاب</h2><a class=\"ds-head__more\" href=\"#\">كل التقارير <span class=\"ds-head__arrow\" aria-hidden=\"true\"></span></a></div>",
+      "css": ".ds-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:8px;font-family:'Almarai',system-ui,sans-serif}.ds-head__title{display:flex;align-items:center;gap:10px;margin:0;font-size:19px;font-weight:700;color:var(--sh-navy,#0a1a33)}.ds-head__mark{flex:none;width:16px;height:13px;position:relative;top:.5px;background:var(--sh-blue,#1b5aa6);-webkit-mask:url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 82.76'><path d='M72.41 0.00 L86.21 1.15 L100.00 9.20 L100.00 11.49 L79.31 54.02 L78.16 55.17 L75.86 49.43 L64.37 39.08 L49.43 41.38 L35.63 49.43 L0.00 82.76 L19.54 48.28 L36.78 24.14 L54.02 8.05 L64.37 2.30 L72.41 0.00 Z'/></svg>\") center/contain no-repeat;mask:url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 82.76'><path d='M72.41 0.00 L86.21 1.15 L100.00 9.20 L100.00 11.49 L79.31 54.02 L78.16 55.17 L75.86 49.43 L64.37 39.08 L49.43 41.38 L35.63 49.43 L0.00 82.76 L19.54 48.28 L36.78 24.14 L54.02 8.05 L64.37 2.30 L72.41 0.00 Z'/></svg>\") center/contain no-repeat}.ds-head__more{display:inline-flex;align-items:center;gap:9px;padding:7px 12px 7px 11px;border:1px solid var(--color-border,#d5dde8);background:#fff;color:var(--sh-navy,#0a1a33);font-size:12px;font-weight:800;line-height:1;white-space:nowrap;text-decoration:none;transition:border-color .18s ease,color .18s ease,background .18s ease}.ds-head__more:hover{border-color:var(--sh-blue,#1b5aa6);color:var(--sh-blue,#1b5aa6);background:var(--color-surface-soft,#f5f7fa)}.ds-head__arrow{flex:none;width:16px;aspect-ratio:100/41.59;background:currentColor;-webkit-mask:url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 41.59'><path d='M87.93 4.74 L95.78 12.70 L100.00 24.89 L98.80 26.30 L63.74 41.49 L62.43 41.59 L64.04 36.86 L62.44 24.47 L52.07 18.02 L39.38 15.69 L0.00 17.38 L30.12 6.52 L53.39 0.79 L72.42 0.00 L81.79 1.92 L87.93 4.74 Z'/></svg>\") center/contain no-repeat;mask:url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 41.59'><path d='M87.93 4.74 L95.78 12.70 L100.00 24.89 L98.80 26.30 L63.74 41.49 L62.43 41.59 L64.04 36.86 L62.44 24.47 L52.07 18.02 L39.38 15.69 L0.00 17.38 L30.12 6.52 L53.39 0.79 L72.42 0.00 L81.79 1.92 L87.93 4.74 Z'/></svg>\") center/contain no-repeat;transition:transform .2s ease}.ds-head__more:hover .ds-head__arrow{transform:translateX(-3px)}"
+    },
+    {
+      "name": "Pull Quote",
+      "kind": "custom",
+      "description": "The one highlighted line in a report: a 30px blue quote glyph, Almarai 700 navy at clamp(20px,1.85vw,25px), a muted attribution led by the arrow blade. No rule, no box, 40px clear above and below.",
+      "html": "<blockquote class=\"ds-quote\" dir=\"rtl\"><svg class=\"ds-quote__i\" viewBox=\"0 0 24 24\" width=\"30\" height=\"30\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M14 5h7v7c0 4-2.5 6.5-6 7v-3c1.7-.4 2.7-1.5 2.9-3H14V5zM3 5h7v7c0 4-2.5 6.5-6 7v-3c1.7-.4 2.7-1.5 2.9-3H3V5z\"/></svg><p class=\"ds-quote__t\">الاحتلال يحاول تحويل الطائرات الورقية إلى ذريعة جديدة لإفشال وقف إطلاق النار وإبقاء غزة تحت التوتر</p><footer class=\"ds-quote__by\"><span class=\"ds-quote__arrow\" aria-hidden=\"true\"></span>د. محمد مصلح — باحث وخبير في الشأن \"الإسرائيلي\"، لـ شهاب</footer></blockquote>",
+      "css": ".ds-quote{margin:0;padding:0;max-width:542px;font-family:'Almarai',system-ui,sans-serif}.ds-quote__i{display:block;color:var(--sh-blue,#1b5aa6);margin-bottom:8px}.ds-quote__t{font-size:clamp(20px,1.85vw,25px);font-weight:700;line-height:1.7;color:var(--sh-navy,#0a1a33);margin:0;text-wrap:pretty}.ds-quote__by{display:flex;align-items:center;gap:9px;margin-top:14px;font-size:12.5px;color:var(--color-text-muted,#5d6b7d)}.ds-quote__arrow{flex:none;width:14px;aspect-ratio:100/41.59;background:var(--sh-blue,#1b5aa6);-webkit-mask:url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 41.59'><path d='M87.93 4.74 L95.78 12.70 L100.00 24.89 L98.80 26.30 L63.74 41.49 L62.43 41.59 L64.04 36.86 L62.44 24.47 L52.07 18.02 L39.38 15.69 L0.00 17.38 L30.12 6.52 L53.39 0.79 L72.42 0.00 L81.79 1.92 L87.93 4.74 Z'/></svg>\") center/contain no-repeat;mask:url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 41.59'><path d='M87.93 4.74 L95.78 12.70 L100.00 24.89 L98.80 26.30 L63.74 41.49 L62.43 41.59 L64.04 36.86 L62.44 24.47 L52.07 18.02 L39.38 15.69 L0.00 17.38 L30.12 6.52 L53.39 0.79 L72.42 0.00 L81.79 1.92 L87.93 4.74 Z'/></svg>\") center/contain no-repeat}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Field Desk",
+    "overview": "A correspondent's desk at a Palestinian news agency: the photograph laid flat on white paper, the headline written over it in a heavy hand, the figures and the quote typed beside it, nothing framed. The page is white and dense the way a newspaper page is dense — it fills its width with real content and sizes every block to its importance — and it separates things with air, type scale and the picture, never with lines or boxes. Two colours do the talking: navy for whatever speaks (headlines, fills, the one dark band on a page) and brand blue for whatever points (links, the ش blade, the current state, the hover). Red is reserved for news itself: breaking and live.\n\nTwo Arabic faces divide the work cleanly. Almarai at 800 names things — headlines, labels, buttons, captions, numerals — and Noto Naskh Arabic at 400 is what gets read: deks and paragraphs on a measure of about sixty characters with generous leading and a reader-controlled scale. The calligraphic ش blade traced from the wordmark is the only ornament the system allows; it marks a heading, ends a report, counts the pictures and, as its arrow variant, points forward (leftward, this being an RTL page).\n\nThe system is phone-first and laptop-demo second: everything is verified at 375 and 1280. Corners are square, surfaces are flat, photographs are shown whole inside frames that take the picture's ratio, and every veil laid over a photograph is navy, never black. Confirmed rejections: decorative hairlines, card top-rules, ghost numerals, decorative circles, framed panels and any second dark band — the client reads those as machine output.",
+    "keyCharacteristics": [
+      "White page, one navy band at most, tonal tints (soft, warm, blue) instead of boxes",
+      "Navy speaks, blue points, red is news; hover on white goes to blue, hover on the blue chrome goes to white",
+      "Almarai 800 for naming, Noto Naskh Arabic 400 for reading, tabular numerals throughout",
+      "Square corners, flat surfaces, photographs whole at fixed ratios on a navy-2 ground",
+      "The ش blade as the single ornament, in four sizes and one arrow variant",
+      "Arabic RTL with logical properties; 44px targets and a 12px text floor on phones"
+    ],
+    "rules": [
+      {
+        "name": "The Navy Speaks, Blue Points Rule",
+        "body": "Navy is for what speaks — headings, fills, the band; blue is for what points — links, marks, current and hover states. On white, hover goes to blue; on the blue masthead and navy chrome, hover goes to white, never to blue.",
+        "section": "colors"
+      },
+      {
+        "name": "The Red Is News Rule",
+        "body": "Breaking red and live red appear only on breaking and live elements. Red is never a CTA, never decoration, never a highlight.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Band Rule",
+        "body": "A page carries at most one navy band, drawn full-bleed from inside the container with box-shadow: 0 0 0 100vmax and clip-path: inset(0 -100vmax). A photograph under a navy scrim is a picture, not a band.",
+        "section": "colors"
+      },
+      {
+        "name": "The Navy Veil Rule",
+        "body": "Any veil under text on a photograph is navy at an opacity, never black; shadows may be black, scrims may not.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Faces Rule",
+        "body": "Almarai for anything that names — headline, headings, labels, buttons, captions, numerals; Noto Naskh Arabic for anything that is read — deks and paragraphs. Never the reverse.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sixty Characters Rule",
+        "body": "Reading text sits on a measure of about sixty characters with line-height of 1.9 or more, and it scales with the reader: --reader-scale steps 0.92 / 1 / 1.12 / 1.26 multiply body and dek only.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Rule",
+        "body": "Every numeral is tabular-nums; every Latin or numeric run inside Arabic (counters like \"1 / 3\", currency pairs, file numbers) is isolated with direction: ltr; unicode-bidi: isolate.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sticky Offset Rule",
+        "body": "Anything pinned sits at calc(var(--sh-compact-h, 100px) + 26px) — the compact header plus one column gap — so pinned things never hide behind the chrome.",
+        "section": "layout"
+      },
+      {
+        "name": "The Min-Width-Zero Rule",
+        "body": "Every grid and flex child that holds text gets min-width: 0; a headline may never widen a column.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat Page Rule",
+        "body": "Surfaces in the flow have no shadow, no border and no frame. A shadow means the thing is above the page or is a physical print; nothing else earns one.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Square Rule",
+        "body": "No radius, anywhere. A circle is a live dot or a ring; nothing else.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Whole Photograph Rule",
+        "body": "The frame takes the picture's ratio; the picture fills the frame on a navy-2 ground. Never stretched, never cropped to fit a viewport, never a decorative crop.",
+        "section": "shapes"
+      },
+      {
+        "name": "The One Ornament Rule",
+        "body": "The ش blade is the only ornament — before a heading, at the end of a report, as the picture counter, as the forward arrow. No other glyph, rule, circle or flourish decorates a page.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do set every offset with logical properties (inset-inline-start, margin-inline, padding-inline) and isolate Latin or numeric runs with direction: ltr; unicode-bidi: isolate; give every SVG on the page direction: ltr.",
+      "Do separate blocks with whitespace, type scale and the photograph; use a line only where it means something (a tab underline, a timeline, a list-row divider).",
+      "Do put the 16×13 blue ش blade before a heading and the 13×11 blade at the end of a report; paint the blade with background, never with an image element.",
+      "Do keep reading text in Noto Naskh Arabic on a measure of about sixty characters at line-height 1.9–2.05, scaled by --reader-scale.",
+      "Do frame every photograph at a fixed ratio on a {colors.brand-navy-2} ground with object-fit: cover and an authored object-position.",
+      "Do draw a band full-bleed with box-shadow: 0 0 0 100vmax and clip-path: inset(0 -100vmax) — one navy band per page at most.",
+      "Do give every grid child min-width: 0, every phone target 44px, every phone text 12px or more, and every focusable a 2px blue outline (sky on navy).",
+      "Do use tabular-nums on every number and Almarai 800 on every label, caption, counter and button.",
+      "Do honour prefers-reduced-motion on every transition, animation and hover transform.",
+      "Do prefix every class with sh-, and bump ?v=N on every asset after any CSS or JS change."
+    ],
+    "donts": [
+      "Don't draw decorative hairlines, card top-rules, eyebrow lines, ghost numerals, decorative circles or framed panels — the client reads them as machine output.",
+      "Don't round a corner; the only circles are live dots and rings.",
+      "Don't lay a black veil over a photograph; scrims are navy at an opacity.",
+      "Don't use red outside breaking and live, and never as a call to action.",
+      "Don't hover to blue on the blue masthead or the navy chrome — hover there goes to white.",
+      "Don't add a second navy band to a page, or a shadow to anything that sits in the flow.",
+      "Don't stretch, squash or viewport-crop a photograph, or fill a frame with a placeholder when there is no real picture — drop the element instead.",
+      "Don't use IBM Plex Sans Arabic anywhere, and avoid Cairo; Almarai and Noto Naskh Arabic are the only faces, self-hosted, and never tracked or uppercased.",
+      "Don't invent content: headlines, figures and pictures come from the agency's own sources."
+    ]
+  }
+}

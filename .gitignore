@@ -1,2 +1,5 @@
 __pycache__/
 tools/__pycache__/
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/live/

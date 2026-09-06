@@ -102,7 +102,8 @@ a:focus-visible .sh-ph-tile{outline:2px solid var(--sh-blue);outline-offset:3px}
 /* ============================================================== pagination */
 .sh-ph-pager{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:40px;font-family:var(--sh-font);font-size:13px;font-weight:700}
 .sh-ph-pager__prev{display:inline-flex;align-items:center;gap:7px;color:var(--sh-grey-3);padding:8px 14px;cursor:default;pointer-events:none}
-.sh-ph-pager__cur{width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--sh-blue);color:#fff;font-variant-numeric:tabular-nums}
+.sh-ph-pager__cur,.sh-ph-pager__cur:hover{color:#fff}   /* base.css a:hover would paint the label blue on blue */
+.sh-ph-pager__cur{width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--sh-blue);font-variant-numeric:tabular-nums}
 .sh-ph-pager__gap{width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--sh-mute)}
 .sh-ph-pager__next{display:inline-flex;align-items:center;gap:7px;color:var(--sh-blue);padding:8px 14px}
 .sh-ph-pager__next:hover{gap:11px}

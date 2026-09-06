@@ -218,10 +218,11 @@ FeatureCollection؛ كل Feature:
 ### 5.3 المقال
 - `<article data-sh-story="{{ $post->id }}" data-sh-share-url="{{ $url }}" data-sh-share-title="{{ $title }}">`.
 - شريط الأدوات `[data-sh-reader]` كما في `article.html` (زر الحفظ يحمل `data-sh-save="{{ $url }}" data-sh-save-title data-sh-save-cat`).
-- الصورة الرئيسية: `<span data-sh-pswp><a href="{{ full }}" data-pswp-src="{{ full }}" data-pswp-width="W" data-pswp-height="H"><img …></a></span>` — **الأبعاد الحقيقية** ضرورية لأنيميشن PhotoSwipe.
+- الصور: حائط PhotoSwipe واحد `[data-sh-pswp]` على `.sh-art__main` (وآخر على `.sh-pane`)، وكل صورة `<a href="{{ full }}" data-pswp-src="{{ full }}" data-pswp-width="W" data-pswp-height="H"><img …></a>` — **الأبعاد الحقيقية** ضرورية لأنيميشن PhotoSwipe.
 - بانر التحديث `<aside data-sh-story-updates hidden>` + `<time data-sh-story-modified>` كما هما.
 - المشاركة: `data-sh-share="x|facebook|whatsapp|telegram|copy|native"` مع `href` حقيقي (intent) كبديل بلا JS.
-- «استمع للمقال» يقرأ `.sh-article-article-body__p-1` — خلّي فقرات المتن على هذا الكلاس.
+- «استمع للمقال» يقرأ `.sh-art__dek` ثم `.sh-art__body > p` — خلّي فقرات المتن أبناءً مباشرين لـ`.sh-art__body` (فقرة الاقتباس داخل `blockquote` لا تُقرأ).
+- **اللوحة اللاصقة (ديسكتوب ≥1000px):** الصور الثلاث موجودة مرتين في الماركب: `figure.sh-art__fig[data-sh-scene="N"]` داخل النص (تظهر تحت 1000px) و`.sh-pane [data-sh-shot="N"]` في `<aside class="sh-art__pane">` (تظهر فوقها). `[data-sh-scene-at="N"]` على `header.sh-art__head` وعناوين `h2` يحدّد أي صورة تظهر عند أي فقرة؛ `js/article.js::scenes()` يكتب `data-scene` على `.sh-pane` والـCSS يعمل الـcrossfade. المقال بلا صور إضافية = مشهد واحد (اترك `data-scene="1"`).
 
 ### 5.4 التغطية الحية
 الخط الزمني: `.sh-coverage-timeline__div-2` عليه `data-sh-feed="updates" data-sh-feed-count="[data-sh-cov-count]"` + template + `data-sh-feed-head` على فاصل اليوم. JSON-LD `LiveBlogPosting.liveBlogUpdate[]` من نفس القائمة.

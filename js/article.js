@@ -69,7 +69,7 @@
     btn.addEventListener('click', function () {
       var title = (document.querySelector('h1') || {}).textContent || '';
       var cat = (art.querySelector('.sh-link') || {}).textContent || 'شهاب';
-      var paras = [].slice.call(art.querySelectorAll('.sh-article-article-body__p-1, .sh-article-article-body__p-3, .sh-article-article-intro__p-1'))
+      var paras = [].slice.call(art.querySelectorAll('.sh-art__dek, .sh-art__body > p'))
         .map(function (p) { return p.textContent.replace(/\s+/g, ' ').trim(); }).filter(Boolean);
       var items = [{ c: cat.trim(), time: '', href: location.pathname, t: title.trim(), say: title.trim() }]
         .concat(paras.map(function (p, k) { return { c: cat.trim(), time: '', href: location.pathname, t: 'الفقرة ' + (k + 1), say: p }; }));
@@ -121,6 +121,39 @@
     if (b) b.addEventListener('click', function () { window.print(); });
   }
 
-  function init() { progress(); fontSize(); listen(); save(); print(); }
+  /* ------------------------------------------------------------- scenes -- */
+  /* the sticky picture pane follows the reading: the last [data-sh-scene-at]
+     above the viewport's upper half names the picture; CSS does the crossfade */
+  function scenes() {
+    var pane = document.querySelector('[data-sh-pane]');
+    if (!pane || !art) return;
+    var ats = [].slice.call(art.querySelectorAll('[data-sh-scene-at]'));
+    var num = pane.querySelector('[data-sh-pane-n]');
+    var shots = [].slice.call(pane.querySelectorAll('.sh-pane__shot'));
+    if (!ats.length) return;
+    var mq = window.matchMedia('(min-width: 1000px)');
+    var cur = null, ticking = false;
+    function paint() {
+      ticking = false;
+      if (!mq.matches) return;
+      var line = window.innerHeight * 0.45, n = ats[0].getAttribute('data-sh-scene-at');
+      ats.forEach(function (el) { if (el.getBoundingClientRect().top < line) n = el.getAttribute('data-sh-scene-at'); });
+      if (n === cur) return;
+      cur = n;
+      pane.setAttribute('data-scene', n);
+      if (num) num.textContent = n;
+      shots.forEach(function (s) {
+        var on = s.getAttribute('data-sh-shot') === n;
+        if (on) { s.removeAttribute('tabindex'); s.removeAttribute('aria-hidden'); }
+        else { s.setAttribute('tabindex', '-1'); s.setAttribute('aria-hidden', 'true'); }
+      });
+    }
+    function tick() { if (!ticking) { ticking = true; requestAnimationFrame(paint); } }
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick);
+    paint();
+  }
+
+  function init() { progress(); fontSize(); listen(); save(); print(); scenes(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

@@ -64,12 +64,12 @@ class DemoFeed:
         'مصادر طبية: ارتفاع عدد شهداء قصف جباليا إلى 5',
         'الأونروا تطالب بتحقيق مستقل في استهداف تجمعات الأطفال',
     ]
-    TOP = [
-        'لبنان: ارتفاع حصيلة العدوان الإسرائيلي إلى 4350 شهيدًا و12310 جرحى',
-        'مراسل شهاب: قصف مدفعي يستهدف شرق مدينة خانيونس',
-        'الأوقاف: الاحتلال يدمر 3 مساجد في يومين ليصل العدد إلى 1244 مسجدًا',
-        'مستوطنون يقتحمون باحات المسجد الأقصى بحماية شرطة الاحتلال',
-        'الأونروا: مخزون الدقيق في غزة يكفي أسبوعًا واحدًا فقط',
+    TOP = [   # the same five the page ships, with the parts feed.js swaps
+        {'t': 'لبنان: ارتفاع حصيلة العدوان الإسرائيلي إلى 4350 شهيدًا و12310 جرحى', 'img': 'https://commons.wikimedia.org/wiki/Special:FilePath/Beirut%20skyline.jpg?width=400', 'by': 'محمد مصطفى شاهين', 'avatar': 'https://shehabnews.com/thumb/300x300/uploads/images/2026/07/ngA17.jpg', 'date': '5 سبتمبر 2026'},
+        {'t': 'نعيم: هدم مقر الأونروا بالقدس جريمة حرب وانتهاك صارخ للقانون الدولي', 'img': 'https://commons.wikimedia.org/wiki/Special:FilePath/Kalandia%20checkpoint.jpg?width=400', 'by': 'هلال نصار', 'avatar': 'https://shehabnews.com/thumb/300x300/uploads/images/2022/12/A5qYA.png', 'date': '5 سبتمبر 2026'},
+        {'t': 'قناة عبرية: وفد أمريكي يوبخ مسؤولًا إسرائيليًا بسبب عنف المستوطنين بالضفة', 'img': 'https://commons.wikimedia.org/wiki/Special:FilePath/Knesset%20Building%20%28South%20Side%29.JPG?width=400', 'by': 'د. إياد القرا', 'avatar': 'https://shehabnews.com/thumb/300x300/uploads/images/2022/11/EX8f6.png', 'date': '5 سبتمبر 2026'},
+        {'t': 'عُمان ترجح إعلان ممر مؤقت في هرمز قريبًا', 'img': 'https://commons.wikimedia.org/wiki/Special:FilePath/Strait%20of%20hormuz.jpg?width=400', 'by': 'د. إياد القرا', 'avatar': 'https://shehabnews.com/thumb/300x300/uploads/images/2022/11/EX8f6.png', 'date': '5 سبتمبر 2026'},
+        {'t': 'قوات الاحتلال تفرج عن القيادي رأفت ناصيف من طولكرم', 'img': 'https://commons.wikimedia.org/wiki/Special:FilePath/Tulkarm%202.jpg?width=400', 'by': 'د. أميرة فؤاد النحال', 'avatar': 'https://shehabnews.com/thumb/300x300/uploads/images/2024/10/1Shl3.jpg', 'date': '5 سبتمبر 2026'},
     ]
     LIVE = {'title': 'شهاب مباشر — بث من غزة', 'href': 'live.html'}
 
@@ -132,18 +132,18 @@ class DemoFeed:
             self.i += 1
             at = self.now()
             self._push('update', {'id': 'u%d' % (self.n + 1), 't': t, 'cat': cat, 'href': href, 'at': at})
-            self._push('ticker', {'t': t, 'href': href, 'at': at})
             self.viewers = max(900, self.viewers + self.rnd.randint(-60, 80))
             self._push('live-state', dict(self.LIVE, on_air=self.on_air, viewers=self.viewers))
             if self.tick % 4 == 0:
                 bt, bh = self.BREAKING[(self.tick // 4 - 1) % len(self.BREAKING)]
                 self._push('breaking', {'id': 'b%d' % (self.n + 1), 't': bt, 'href': bh, 'at': self.now()})
+                self._push('ticker', {'t': bt, 'href': bh, 'at': self.now()})   # the ticker carries breaking only
             if self.tick % 3 == 0:
                 self._push('story', {'id': '163540', 't': self.STORY[(self.tick // 3 - 1) % len(self.STORY)], 'at': self.now()})
             if self.tick % 5 == 0:
                 top = self.TOP[:]
                 self.rnd.shuffle(top)
-                self._push('top', {'items': [{'t': x, 'href': 'article.html'} for x in top]})
+                self._push('top', {'items': [dict(x, href='article.html') for x in top]})
 
 
 FEED = DemoFeed()

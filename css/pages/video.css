@@ -161,7 +161,8 @@ img,video{display:block}
 .sh-video-live-now__a-2:hover{color:#fff}
 .sh-video-pagination__nav-1{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:36px;font-family:var(--sh-font);font-size:13px;font-weight:700}
 .sh-video-pagination__a-1{display:inline-flex;align-items:center;gap:7px;color:var(--sh-grey-3);padding:8px 14px;cursor:default}
-.sh-video-pagination__a-2{width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--sh-blue);color:#fff;font-variant-numeric:tabular-nums}
+.sh-video-pagination__a-2,.sh-video-pagination__a-2:hover{color:#fff}   /* base.css a:hover would paint the label blue on blue */
+.sh-video-pagination__a-2{width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--sh-blue);font-variant-numeric:tabular-nums}
 .sh-video-pagination__span-1{width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--sh-mute)}
 .sh-video-pagination__a-3{display:inline-flex;align-items:center;gap:7px;color:var(--sh-blue);padding:8px 14px}
 .sh-video-pagination__a-3:hover{gap:11px}
