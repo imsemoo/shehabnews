@@ -113,10 +113,10 @@
 .sh-fx__set .sh-fx__item:last-child{border-inline-end:0}
 .sh-fx__pair{color:var(--sh-on-dark-72);font-weight:700}
 .sh-fx__val{font-weight:800;color:#fff;direction:ltr;unicode-bidi:isolate}
-.sh-fx__chg{display:inline-flex;align-items:center;gap:3px;font-size:10.5px;font-weight:800;direction:ltr;unicode-bidi:isolate}
+.sh-fx__chg{display:inline-flex;align-items:center;gap:3px;font-size:11.5px;font-weight:700;direction:ltr;unicode-bidi:isolate}
 .sh-fx__chg .sh-i{font-size:10px}
-.sh-fx__chg--up{color:#5ee0a0}
-.sh-fx__chg--down{color:#ff8a8a}
+.sh-fx__chg--up{color:#93c3ab}
+.sh-fx__chg--down{color:#d59d9d}
 .sh-fx__chg--flat{color:var(--sh-on-dark-60)}
 .sh-fx__skel{display:block;height:12px;width:60%;max-width:420px;background:rgba(255,255,255,.08)}
 

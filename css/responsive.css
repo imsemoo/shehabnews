@@ -302,13 +302,13 @@ header[data-nav-open] .sh-nav-toggle span:nth-child(3){transform:translateY(-7px
   [style*="font-size:40px"],.sh-files-most-read-files__span-1{font-size:clamp(26px,6.4vw,40px)!important}
   [style*="font-size:36px"]{font-size:clamp(24px,6vw,36px)!important}
   [style*="font-size:30px"],.sh-about-timeline__span-19,.sh-files-archive__span-4{font-size:clamp(22px,5.4vw,30px)!important}
-  [style*="font-size:26px"],.sh-archive-date-nav__span-2,.sh-article-article-sidebar__span-4,.sh-category-section-rail__span-5,.sh-index-more-news__span-7,.sh-sections-media-desks__span-8,.sh-sections-year-archive__span-5{font-size:clamp(20px,4.8vw,26px)!important}
-  [style*="font-size:24px"],.sh-author-author-files__h2-1,.sh-author-latest-by-author__span-4,.sh-files-files-hero__span-6,.sh-files-interactive-files__h2-1,.sh-index-files__h2-1,.sh-index-live-coverage__h2-1,.sh-index-statements__h2-1,.sh-search-discovery-strip__h2-1,.sh-sections-section-map__span-14{font-size:clamp(19px,4.4vw,24px)!important}
-  [style*="font-size:23px"],.sh-author-top-stories__span-6,.sh-index-hero__h1-1,.sh-index-live-coverage__h3-1,.sh-search-featured-result__span-3,.sh-sections-interactive-map__h2-1,.sh-video-video-story__span-6{font-size:clamp(18px,4.2vw,23px)!important}
-  [style*="font-size:22px"],.sh-about-system__h2-1,.sh-about-timeline__h2-1,.sh-about-timeline__span-5,.sh-archive-date-nav__span-3,.sh-files-featured-special__span-4,.sh-files-latest-files__span-8,.sh-index-files__h3-1,.sh-index-live-coverage__div-13,.sh-index-top-now__div-2,.sh-list__num.sh-list__num--big,.sh-sections-interactive-map__span-4,.sh-sections-section-map__span-25,.sh-tag-tag-header__span-6,.sh-video-coverage-collections__h2-1,.sh-video-video-rail__span-1{font-size:clamp(18px,4vw,22px)!important}
+  [style*="font-size:26px"],.sh-index-hero__h1-1,.sh-archive-date-nav__span-2,.sh-article-article-sidebar__span-4,.sh-category-section-rail__span-5,.sh-sections-media-desks__span-8,.sh-sections-year-archive__span-5{font-size:clamp(20px,4.8vw,26px)!important}
+  [style*="font-size:24px"],.sh-author-author-files__h2-1,.sh-author-latest-by-author__span-4,.sh-files-files-hero__span-6,.sh-files-interactive-files__h2-1,.sh-search-discovery-strip__h2-1,.sh-sections-section-map__span-14{font-size:clamp(19px,4.4vw,24px)!important}
+  [style*="font-size:23px"],.sh-author-top-stories__span-6,.sh-index-live-coverage__h3-1,.sh-search-featured-result__span-3,.sh-sections-interactive-map__h2-1,.sh-video-video-story__span-6{font-size:clamp(18px,4.2vw,23px)!important}
+  [style*="font-size:22px"],.sh-index-more-news__span-7,.sh-about-system__h2-1,.sh-about-timeline__h2-1,.sh-about-timeline__span-5,.sh-archive-date-nav__span-3,.sh-files-featured-special__span-4,.sh-files-latest-files__span-8,.sh-index-files__h3-1,.sh-index-live-coverage__div-13,.sh-index-top-now__div-2,.sh-list__num.sh-list__num--big,.sh-sections-interactive-map__span-4,.sh-sections-section-map__span-25,.sh-tag-tag-header__span-6,.sh-video-coverage-collections__h2-1,.sh-video-video-rail__span-1{font-size:clamp(18px,4vw,22px)!important}
   [style*="font-size:21px"],.sh-article-article-body__h2-1,.sh-newsletter-signup__h2-1,.sh-newsletter-what-you-get__span-2{font-size:clamp(17.5px,3.8vw,21px)!important}
-  [style*="font-size:20px"],.sh-archive-archive-rail__span-2,.sh-index-social__span-1,.sh-index-top-now__h2-1,.sh-video-featured-video__i-1,.sh-video-live-now__h2-1{font-size:clamp(17px,3.6vw,20px)!important}
-  [style*="font-size:19px"],.sh-about-timeline__span-14,.sh-archive-archive-timeline__h2-1,.sh-archive-archive-timeline__span-10,.sh-article-article-body__p-2,.sh-category-section-stream__span-3,.sh-coverage-timeline__span-24,.sh-newsletter-preview__span-5,.sh-newsletter-topics__h2-1,.sh-newsletter-what-you-get__h2-1,.sh-photos-from-the-lens__span-5,.sh-privacy-privacy-body__h2-1,.sh-section__title:not(.sh-section__title--sm):not(.sh-section__title--md),.sh-terms-terms-body__h2-1,.sh-video-latest-videos__span-5,.sh-video-watch-player__i-1,.sh-video-watch-related-videos__h2-1,.sh-video-watch-related-videos__span-8{font-size:clamp(16.5px,3.4vw,19px)!important}
+  [style*="font-size:20px"],.sh-index-files__h2-1,.sh-index-live-coverage__h2-1,.sh-index-hero__h2-1,.sh-index-more-news__h2-1,.sh-index-statements__h2-1,.sh-section__title:not(.sh-section__title--sm):not(.sh-section__title--md),.sh-archive-archive-rail__span-2,.sh-index-social__span-1,.sh-index-top-now__h2-1,.sh-video-featured-video__i-1,.sh-video-live-now__h2-1{font-size:clamp(17px,3.6vw,20px)!important}
+  [style*="font-size:19px"],.sh-about-timeline__span-14,.sh-archive-archive-timeline__h2-1,.sh-archive-archive-timeline__span-10,.sh-article-article-body__p-2,.sh-category-section-stream__span-3,.sh-coverage-timeline__span-24,.sh-newsletter-preview__span-5,.sh-newsletter-topics__h2-1,.sh-newsletter-what-you-get__h2-1,.sh-photos-from-the-lens__span-5,.sh-privacy-privacy-body__h2-1,.sh-terms-terms-body__h2-1,.sh-video-latest-videos__span-5,.sh-video-watch-player__i-1,.sh-video-watch-related-videos__h2-1,.sh-video-watch-related-videos__span-8{font-size:clamp(16.5px,3.4vw,19px)!important}
 
   [style*="font-size:9px"],.sh-coverage-timeline__i-1,.sh-photos-photo-grid__i-2,.sh-photos-photo-mosaic__i-1,.sh-search-search-hero__i-2,.sh-video-video-rail__span-3{font-size:12px!important}     [style*="font-size:9.5px"],.sh-video-featured-video__span-14,.sh-video-shorts__span-4,.sh-video-watch-related-videos__span-11{font-size:12px!important}   [style*="font-size:10px"],.sh-about-journey__span-6,.sh-about-opening__span-7,.sh-about-timeline__span-12,.sh-article-lead-image__i-1,.sh-contact-contact-info__span-4,.sh-files-interactive-files__i-1,.sh-fs-10,.sh-newsletter-newsletter-hero__span-12,.sh-video-coverage-collections__span-5,.sh-video-latest-videos__i-2,.sh-video-latest-videos__span-8,.sh-video-watch-also__i-1{font-size:12px!important}
   [style*="font-size:10.5px"],.sh-about-journey__span-1,.sh-about-journey__span-12,.sh-about-people__span-1,.sh-about-system__span-4,.sh-archive-archive-timeline__span-4,.sh-archive-archive-timeline__span-5,.sh-author-author-rail__span-2,.sh-author-latest-by-author__span-2,.sh-category-category-body__span-1,.sh-category-section-intro__span-4,.sh-category-section-rail__span-4,.sh-category-video-module__span-4,.sh-eyebrow,.sh-files-files-hero__span-8,.sh-files-interactive-files__span-7,.sh-files-latest-files__span-2,.sh-files-latest-files__span-4,.sh-files-most-read-files__span-5,.sh-newsletter-newsletter-hero__span-9,.sh-newsletter-preview__span-10,.sh-newsletter-preview__span-12,.sh-newsletter-preview__span-15,.sh-newsletter-preview__span-4,.sh-newsletter-preview__span-7,.sh-photos-editors-picks__span-4,.sh-photos-editors-picks__span-9,.sh-photos-photo-grid__span-4,.sh-photos-photo-mosaic__span-11,.sh-photos-photo-mosaic__span-13,.sh-photos-photo-mosaic__span-2,.sh-search-featured-result__span-1,.sh-sections-section-map__span-15,.sh-sections-section-map__span-26,.sh-sections-section-map__span-3,.sh-tag-tag-lead__span-4,.sh-video-coverage-collections__span-7,.sh-video-featured-video__span-15,.sh-video-featured-video__span-18,.sh-video-featured-video__span-2,.sh-video-featured-video__span-5,.sh-video-latest-videos__span-3,.sh-video-live-now__span-1,.sh-video-live-now__span-5,.sh-video-watch-related-videos__span-6,.sh-video-watch-signature__span-5{font-size:12px!important}
@@ -448,7 +448,7 @@ header[data-nav-open] .sh-nav-toggle span:nth-child(3){transform:translateY(-7px
 }
 
 /* == sh:type-floor == */
-/* generated by tools/a11y.py: nothing below 12px on phones (319 selectors) */
+/* generated by tools/a11y.py: nothing below 12px on phones (313 selectors) */
 @media (max-width:640px){
   @layer responsive{
     .sh-meta.sh-meta--wrap,
@@ -458,7 +458,6 @@ header[data-nav-open] .sh-nav-toggle span:nth-child(3){transform:translateY(-7px
     .sh-meta.sh-meta--blue,
     .sh-eyebrow,
     .sh-archive__count,
-    .sh-hub__meta,
     .sh-hubcard__credit,
     .sh-hubcard__cat,
     .sh-hubview__chip,
@@ -583,24 +582,19 @@ header[data-nav-open] .sh-nav-toggle span:nth-child(3){transform:translateY(-7px
     .sh-fl-inter__head .sh-eyebrow,
     .sh-fl-int__badge,
     .sh-index-hero__span-6,
-    .sh-index-hero__div-3,
     .sh-index-hero__span-7,
     .sh-index-hero__span-17,
     .sh-index-hero__span-18,
-    .sh-index-hero__top-by,
     .sh-index-live-coverage__span-1,
     .sh-lc__loc,
-    .sh-lc__lead-meta,
     .sh-lc__status,
     .sh-lc__cat,
     .sh-index-files__span-6,
     .sh-index-files__div-5,
     .sh-index-files__span-20,
-    .sh-wire__by,
     .sh-car__chip,
-    .sh-car__by,
     .sh-car__btn,
-    .sh-car__pos,
+    .sh-lens__label,
     .sh-lens__loc,
     .sh-vid__badge,
     .sh-vid__chip,

@@ -1,6 +1,6 @@
 /* شهاب — shared components. Generated from the markup; hover states folded
    from the per-page sheets. Names per the approved dictionary. */
-.sh-page{background:#fff;color:var(--sh-ink);font-family:var(--sh-font-stack);font-size:14.5px}
+.sh-page{background:#fff;color:var(--sh-ink);font-family:var(--sh-font-stack);font-size:14px}
 /* «المزيد» — the house button. A hairline box on white, the label in Almarai,
    and the ش blade pointing forward (leftward, this being RTL) in place of the
    old dash. Hover: the box takes the blue and the blade steps forward. The
@@ -90,7 +90,7 @@
    <template data-sh-hub-source> through js/app.js; a hub with nothing in it
    today hides.
    ========================================================================== */
-.sh-hubs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:26px;margin-top:22px}
+.sh-hubs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:26px;margin-top:20px}
 .sh-hub{position:relative;display:block;color:var(--sh-ink);outline-offset:6px}
 .sh-hub:hover{color:var(--sh-ink)}
 .sh-hub:focus-visible{outline:2px solid var(--sh-blue)}
@@ -100,16 +100,16 @@
   position:absolute;inset:0;background:#e7eaef;border:1px solid var(--sh-hair-2);
   transition:transform .45s cubic-bezier(.2,.7,.2,1);
 }
-.sh-hub__sheet--1{transform:translate(-5px,-5px);z-index:1}
-.sh-hub__sheet--2{transform:translate(-10px,-10px);background:var(--color-surface-soft);z-index:0}
-.sh-hub:hover .sh-hub__sheet--1{transform:translate(-8px,-8px) rotate(-1.5deg)}
-.sh-hub:hover .sh-hub__sheet--2{transform:translate(-16px,-16px) rotate(-3deg)}
+.sh-hub__sheet--1{transform:translate(-3px,-3px);z-index:1}
+.sh-hub__sheet--2{transform:translate(-6px,-6px);background:var(--color-surface-soft);z-index:0}
+.sh-hub:hover .sh-hub__sheet--1{transform:translate(-5px,-5px)}
+.sh-hub:hover .sh-hub__sheet--2{transform:translate(-10px,-10px)}
 .sh-hub__cover{
-  position:relative;z-index:2;display:block;aspect-ratio:4/5;overflow:hidden;
-  background:var(--sh-navy);box-shadow:0 10px 24px rgba(10,26,51,.16);
+  position:relative;z-index:2;display:block;aspect-ratio:3/4;overflow:hidden;
+  background:var(--sh-navy);
   transition:transform .45s cubic-bezier(.2,.7,.2,1);
 }
-.sh-hub:hover .sh-hub__cover{transform:translateY(-3px)}
+.sh-hub:hover .sh-hub__cover{transform:translateY(-2px)}
 .sh-hub__art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .sh-hub:hover .sh-hub__art{transform:scale(1.05)}
 .sh-hub__num{
@@ -117,7 +117,7 @@
   display:grid;place-items:center;background:#fff;color:var(--sh-navy);
   font-family:var(--sh-font);font-size:13px;font-weight:800;font-variant-numeric:tabular-nums;direction:ltr;
 }
-.sh-hub__mark{position:absolute;bottom:10px;inset-inline-end:10px;z-index:2;width:16px;height:13px;background:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))}
+.sh-hub__mark{position:absolute;bottom:10px;inset-inline-end:10px;z-index:2;width:16px;height:13px;background:#fff}
 .sh-hub__body{display:flex;flex-direction:column;gap:4px;padding:12px 2px 0}
 .sh-hub__name{font-family:var(--sh-font);font-size:15px;font-weight:800;line-height:1.35;color:var(--sh-navy);transition:color .18s ease}
 .sh-hub:hover .sh-hub__name{color:var(--sh-blue)}
@@ -554,7 +554,7 @@ html[data-sh-bo-open]{overflow:hidden}
 .sh-bo__doc-n{font-family:var(--sh-font);font-size:12px;font-weight:800;color:var(--accent-ink,var(--sh-blue));opacity:.7;font-variant-numeric:tabular-nums;direction:ltr;padding-top:3px}
 .sh-bo__doc-thumb{display:block;width:88px;aspect-ratio:16/10;object-fit:cover;background:var(--sh-navy-2);border:1px solid var(--sh-hair-2)}
 .sh-bo__doc-icon{width:30px;height:30px;display:grid;place-items:center;background:var(--sh-hair-6);color:var(--sh-blue);font-size:12px}   /* the tile is the box; the glyph stays 1em inside it */
-.sh-bo__doc a{font-family:var(--sh-font);font-size:14.5px;font-weight:700;line-height:1.55;color:var(--sh-ink);transition:color .16s ease}
+.sh-bo__doc a{font-family:var(--sh-font);font-size:14px;font-weight:700;line-height:1.55;color:var(--sh-ink);transition:color .16s ease}
 .sh-bo__doc a:hover{color:var(--sh-blue)}
 .sh-bo__doc a:focus-visible{outline:2px solid var(--sh-blue);outline-offset:2px}
 .sh-bo__doc-meta{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:5px;font-size:11.5px;color:var(--sh-mute)}
@@ -606,13 +606,13 @@ html[data-sh-bo-open]{overflow:hidden}
    photograph beside it, clean-edged, the byline anchored at the foot; the
    side column and the row under it repeat the pattern smaller, words only.
    ========================================================================== */
-.sh-say{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:26px 40px;margin-top:24px;align-items:stretch}
+.sh-say{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:26px 40px;margin-top:20px;align-items:stretch}
 .sh-say__lead{
   position:relative;display:grid;grid-template-columns:minmax(0,1fr) 260px;
-  background:var(--color-surface-soft);color:var(--sh-ink);overflow:hidden;
+  background:var(--color-surface-warm);color:var(--sh-ink);overflow:hidden;
 }
 .sh-say__lead:hover{color:var(--sh-ink)}
-.sh-say__lead::before{content:"";position:absolute;top:0;bottom:0;inset-inline-start:0;width:3px;background:var(--sh-blue);z-index:2}
+
 .sh-say__photo{position:relative;display:block;overflow:hidden;background:var(--sh-navy);order:2}
 .sh-say__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .sh-say__lead:hover .sh-say__photo img{transform:scale(1.04)}
@@ -620,14 +620,14 @@ html[data-sh-bo-open]{overflow:hidden}
 .sh-say__tag{display:inline-flex;align-items:center;gap:8px;color:var(--sh-blue);font-family:var(--sh-font);font-size:11.5px;font-weight:800}
 .sh-say__tag .sh-mark{width:14px;height:12px;background:var(--sh-blue)}
 .sh-say__quote{
-  font-family:var(--sh-font);font-size:clamp(20px,1.8vw,26px);font-weight:800;line-height:1.6;
+  font-family:var(--sh-font);font-size:clamp(20px,1.6vw,22px);font-weight:800;line-height:1.6;
   margin:16px 0 0;color:var(--sh-navy);text-wrap:pretty;
 }
 .sh-say__quote::before{content:"«"}
 .sh-say__quote::after{content:"»"}
 /* the byline, at the foot: a short blue rule, the name, what the person is */
 .sh-say__who{display:flex;align-items:center;margin-top:auto;padding-top:22px}
-.sh-say__id{display:flex;flex-direction:column;gap:3px;min-width:0;padding-inline-start:12px;border-inline-start:3px solid var(--sh-blue)}
+.sh-say__id{display:flex;flex-direction:column;gap:3px;min-width:0;padding-inline-start:12px;border-inline-start:1px solid var(--sh-hair-2)}
 .sh-say__name{font-family:var(--sh-font);font-size:15px;font-weight:800;color:var(--sh-navy)}
 .sh-say__role{font-size:12px;color:var(--sh-mute)}
 .sh-say__time{font-variant-numeric:tabular-nums}
