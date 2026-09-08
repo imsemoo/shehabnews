@@ -9,33 +9,7 @@ p{font-family:var(--sh-serif);line-height:2.05}
 .sh-video-watch-player__a-1{color:var(--sh-on-dark-60)}
 .sh-video-watch-player__a-1:hover{color:#fff}
 .sh-video-watch-player__span-1{color:var(--sh-sky);font-weight:700}
-.sh-video-watch-player__div-2{display:grid;grid-template-columns:minmax(min(100%,340px),1fr) minmax(min(100%,250px),.32fr);gap:26px;align-items:start}
-.sh-video-watch-player__div-3{position:relative;background:#000;overflow:hidden;aspect-ratio:16/9}
-.sh-video-watch-player__video-1{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000;display:block}
-.sh-video-watch-player__span-2{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1400");background-size:cover;background-position:center 46%;opacity:.9}
-.sh-video-watch-player__span-3{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.72),rgba(10,26,51,0) 55%)}
-.sh-video-watch-player__span-4{position:absolute;top:14px;inset-inline-start:14px;display:flex;align-items:center;gap:8px;background:var(--sh-red);color:#fff;font-family:var(--sh-font);font-size:11.5px;font-weight:800;padding:6px 12px}
-.sh-video-watch-player__span-5{width:5px;height:5px;background:#fff;border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite}
-.sh-video-watch-player__a-2{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff}
-.sh-video-watch-player__a-2:hover{color:#fff}
-.sh-video-watch-player__div-4{position:absolute;bottom:0;inset-inline:0;padding:0 14px 12px}
-.sh-video-watch-player__span-7{display:block;height:3px;background:rgba(255,255,255,.28);position:relative;cursor:pointer}
-.sh-video-watch-player__span-8{position:absolute;top:0;inset-inline-start:0;height:3px;background:var(--sh-blue);width:0%}
-.sh-video-watch-player__span-9{position:absolute;top:-3px;inset-inline-start:0%;width:16px;height:13px;background:#fff}
-.sh-video-watch-player__span-10{display:flex;align-items:center;gap:16px;margin-top:11px}
-.sh-video-watch-player__a-3{color:#fff;font-size:14px}
-.sh-video-watch-player__a-3:hover{color:var(--sh-sky)}
-.sh-video-watch-player__span-11{font-family:var(--sh-font);font-size:11.5px;color:var(--sh-on-dark-86);font-variant-numeric:tabular-nums}
-.sh-video-watch-player__span-12{flex:1}
-.sh-video-watch-player__a-4{color:#fff;font-size:13px}
-.sh-video-watch-player__a-4:hover{color:var(--sh-sky)}
-.sh-video-watch-player__a-5{color:#fff;font-size:12px;font-family:var(--sh-font);font-weight:800}
-.sh-video-watch-player__a-5:hover{color:var(--sh-sky)}
-.sh-video-watch-player__span-13{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:12px;font-size:11.5px;color:var(--sh-on-dark-60)}
-.sh-video-watch-player__span-14{display:flex;align-items:center;gap:9px}
-.sh-video-watch-player__span-15{display:flex;align-items:center;gap:9px;margin-inline-start:auto}
-.sh-video-watch-player__i-2{font-size:11px;color:var(--sh-sky)}
-.sh-video-watch-player__aside-1{border-inline-start:1px solid rgba(255,255,255,.18);padding-inline-start:22px}
+.sh-video-watch-player__div-2{display:grid;grid-template-columns:minmax(min(100%,340px),1fr) minmax(min(100%,250px),.32fr);gap:26px;align-items:start}.sh-video-watch-player__aside-1{border-inline-start:1px solid rgba(255,255,255,.18);padding-inline-start:22px}
 .sh-video-watch-player__span-16{display:flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:var(--sh-sky);border-bottom:1px solid rgba(255,255,255,.18);padding-bottom:10px}
 .sh-video-watch-player__a-6{display:grid;grid-template-columns:26px 74px minmax(0,1fr);gap:11px;align-items:center;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.1);color:#fff}
 .sh-video-watch-player__a-6:hover{color:var(--sh-sky)}
@@ -44,9 +18,7 @@ p{font-family:var(--sh-serif);line-height:2.05}
 .sh-video-watch-player__span-19{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem%20Old%20City%20Street.jpg?width=800");background-size:cover;background-position:center 45%}
 .sh-video-watch-player__span-20{font-family:var(--sh-font);font-size:12px;font-weight:700;line-height:1.6;text-wrap:pretty}
 .sh-video-watch-player__span-21{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=800");background-size:cover;background-position:center 45%}
-.sh-video-watch-player__span-22{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1400");background-size:cover;background-position:center 45%}
-.sh-video-watch-player__span-23{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=800");background-size:cover;background-position:center 45%}
-.sh-video-watch-video-info__section-1{display:grid;grid-template-columns:minmax(min(100%,320px),1fr) minmax(min(100%,240px),.4fr);gap:44px;padding:24px 0 0;align-items:start}
+.sh-video-watch-player__span-22{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1400");background-size:cover;background-position:center 45%}.sh-video-watch-video-info__section-1{display:grid;grid-template-columns:minmax(min(100%,320px),1fr) minmax(min(100%,240px),.4fr);gap:44px;padding:24px 0 0;align-items:start}
 .sh-video-watch-video-info__span-1{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px}
 .sh-video-watch-video-info__span-2{background:var(--sh-navy);color:#fff;font-family:var(--sh-font);font-size:11.5px;font-weight:800;padding:5px 12px;display:flex;align-items:center;gap:8px}
 .sh-video-watch-video-info__span-3{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--sh-mute)}

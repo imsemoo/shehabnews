@@ -1,19 +1,6 @@
 /* شهاب — خريطة الخروقات (map.html). The map itself is LTR (Leaflet), the panels RTL. */
 a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background .16s ease}
-p{font-family:var(--sh-serif);line-height:2}
-.sh-map-hero{padding:30px 0 22px}
-.sh-map-hero__crumbs{display:flex;gap:10px;font-size:12px;margin-bottom:18px}
-.sh-map-hero__grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:32px;align-items:end}
-.sh-map-hero__h1{font-family:var(--sh-font);font-size:clamp(26px,3vw,34px);font-weight:800;line-height:1.45;margin:10px 0 12px;color:var(--sh-navy);text-wrap:pretty}
-.sh-map-hero__p{font-size:15px;color:var(--sh-ink-2);margin:0;max-width:60ch}
-.sh-map-hero__stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--color-border);border:1px solid var(--color-border)}
-.sh-map-hero__stat{background:#fff;padding:16px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
-.sh-map-hero__stat b{font-family:var(--sh-font);font-size:clamp(22px,2.6vw,34px);font-weight:800;line-height:1;color:var(--sh-navy)}
-.sh-map-hero__stat span{font-family:var(--sh-font);font-size:12px;font-weight:700;color:var(--sh-mute);line-height:1.6}
-.sh-map-hero__stat--hot{background:var(--sh-navy)}
-.sh-map-hero__stat--hot b{color:#fff}
-.sh-map-hero__stat--hot span{color:var(--sh-sky)}
-/* toolbar */
+p{font-family:var(--sh-serif);line-height:2}/* toolbar */
 .sh-map-tools{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;padding:12px 0;background:#fff;border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border)}
 html[data-compact] .sh-map-tools{top:var(--sh-compact-h,92px)}
 .sh-map-tools__group{display:flex;flex-wrap:wrap;gap:6px}
@@ -67,21 +54,13 @@ html[data-compact] .sh-map-tools{top:var(--sh-compact-h,92px)}
 .sh-map--mini{position:relative;aspect-ratio:4/3;cursor:pointer}
 .sh-map--mini .leaflet-control-attribution{display:none}
 @media (max-width:1024px){.sh-map-layout{grid-template-columns:minmax(0,1.3fr) minmax(280px,.9fr)}}
-@media (max-width:900px){
-  .sh-map-hero__grid{grid-template-columns:minmax(0,1fr)}
-  .sh-map-layout{grid-template-columns:minmax(0,1fr)}
+@media (max-width:900px){  .sh-map-layout{grid-template-columns:minmax(0,1fr)}
   .sh-map-stage{min-height:420px}
   .sh-map-panel{border-inline-start:0;border-top:1px solid var(--color-border);max-height:460px}
   .sh-map-method__grid{grid-template-columns:minmax(0,1fr)}
   .sh-map-chip--ghost{margin-inline-start:0}
 }
-@media (max-width:640px){
-  .sh-map-hero{padding:22px 0 18px}
-  .sh-map-hero__stats{grid-template-columns:repeat(3,minmax(0,1fr))}   /* three across, compact, not three stacked blocks */
-  .sh-map-hero__stat{padding:12px 10px}
-  .sh-map-hero__stat b{font-size:clamp(20px,6vw,26px)}
-  .sh-map-hero__stat span{font-size:12px;line-height:1.5}
-  .sh-map-tools{gap:6px 12px;padding:10px 0}
+@media (max-width:640px){  .sh-map-tools{gap:6px 12px;padding:10px 0}
   .sh-map-chip{min-height:44px;padding:0 14px}   /* thumbs */
   .sh-map-stage{min-height:380px}
   .sh-map-panel{max-height:420px}

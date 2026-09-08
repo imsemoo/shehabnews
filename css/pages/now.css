@@ -6,7 +6,6 @@
 .sh-now-page .sh-page{background:var(--color-surface-soft)}
 .sh-now{max-width:var(--sh-container);margin:0 auto;padding:0 32px 36px;font-family:var(--sh-font)}
 
-
 /* ---- the grid ---- */
 .sh-now__grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,.85fr);gap:18px;padding-top:18px;align-items:start}
 
@@ -74,17 +73,10 @@ html[data-kiosk] .sh-now__feed{max-height:calc(100vh - 140px)}
 
 @media (max-width:1200px){.sh-now__grid{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}.sh-now__side{grid-column:1 / -1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:900px){
-  .sh-now{padding-inline:16px}
-  .sh-now__bar{grid-template-columns:minmax(0,1fr);gap:10px;padding:14px 16px}
-  .sh-now__clock{align-items:flex-start}
-  .sh-now__tools{justify-content:flex-start}
-  .sh-now__grid{grid-template-columns:minmax(0,1fr)}
+  .sh-now{padding-inline:16px}  .sh-now__grid{grid-template-columns:minmax(0,1fr)}
   .sh-now__side{grid-template-columns:minmax(0,1fr)}
   .sh-now__feed{max-height:none}
-  .sh-now__figs{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .sh-now__title{flex-wrap:wrap;gap:6px 12px}
-  .sh-now__sub{white-space:normal;flex:1 1 100%}
-}
+  .sh-now__figs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (prefers-reduced-motion:reduce){.sh-now__dot,.sh-now__livedot{animation:none}}
 
 /* ---- widget cards go light on this page (the navy card variant is for dark columns) ---- */

@@ -1,19 +1,7 @@
 /* شهاب — video: page layout, one-off styles (scoped by section), and what
    the old per-page sheet still owned (keyframes, p/input, its own a{transition}). */
 a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background .16s ease,gap .16s ease}
-img,video{display:block}
-.sh-video-video-intro__div-1{padding:26px 0 0}
-.sh-video-video-intro__nav-1{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--sh-mute)}
-.sh-video-video-intro__div-2{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 32px;margin-top:16px;border-bottom:2px solid var(--sh-ink);padding-bottom:18px;position:relative}
-.sh-video-video-intro__span-1{position:absolute;bottom:-2px;inset-inline-start:0;width:120px;height:2px;background:var(--sh-blue)}
-.sh-video-video-intro__span-2{position:absolute;bottom:-4px;inset-inline-start:118px;width:6px;height:6px;background:var(--sh-blue);transform:rotate(45deg)}
-.sh-video-video-intro__div-3{display:flex;align-items:flex-start;gap:16px}
-.sh-video-video-intro__span-3{width:16px;height:13px;background:var(--sh-blue);margin-top:16px;flex:none}
-.sh-video-video-intro__h1-1{font-family:var(--sh-font);font-size:clamp(26px,3.6vw,44px);font-weight:800;line-height:1.15;margin:0;color:var(--sh-navy)}
-.sh-video-video-intro__p-1{font-family:var(--sh-serif);font-size:13px;line-height:1.9;color:var(--sh-ink-2);margin:10px 0 0;max-width:52ch}
-.sh-video-video-intro__span-4{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--sh-mute);padding-bottom:4px}
-.sh-video-video-intro__span-5{width:5px;height:5px;background:var(--sh-red);border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite}
-.sh-video-video-categories__nav-1{display:flex;flex-wrap:wrap;align-items:center;gap:26px;margin-top:6px;border-bottom:1px solid var(--sh-hair-4);font-size:12px;font-weight:700;font-family:var(--sh-font)}
+img,video{display:block}.sh-video-video-categories__nav-1{display:flex;flex-wrap:wrap;align-items:center;gap:26px;margin-top:6px;border-bottom:1px solid var(--sh-hair-4);font-size:12px;font-weight:700;font-family:var(--sh-font)}
 .sh-video-video-categories__a-1{color:var(--sh-navy);padding:14px 0 12px;border-bottom:2px solid var(--sh-blue);margin-bottom:-1px}
 .sh-video-featured-video__section-1{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:0 28px;padding:24px 0 0;align-items:start}
 .sh-video-featured-video__a-1{position:relative;display:block;background:var(--sh-navy-2);overflow:hidden;color:#fff;aspect-ratio:16/9;width:100%;min-width:0}

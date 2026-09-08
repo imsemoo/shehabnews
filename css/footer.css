@@ -10,7 +10,7 @@
 .sh-footer__about{font-family:var(--sh-serif);font-size:13px;line-height:1.95;color:var(--sh-on-dark-72);margin:20px 0 0;max-width:34ch}
 .sh-footer__social{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-top:22px}
 .sh-footer__col{flex:0 1 auto;min-width:0}
-.sh-footer__title{font-family:var(--sh-font);font-size:13px;font-weight:800;letter-spacing:.04em;color:#fff;margin:0 0 20px;display:flex;align-items:center;gap:9px}
+.sh-footer__title{font-family:var(--sh-font);font-size:13px;font-weight:800;color:#fff;margin:0 0 20px;display:flex;align-items:center;gap:9px}
 .sh-footer__links{display:flex;flex-direction:column;gap:14px;font-size:12.5px;color:var(--sh-on-dark-60)}
 /* every entry carries the house node: a 4px diamond that lines the list into a
    column and lights on hover, so the lists read as indexed lists instead of a

@@ -298,7 +298,6 @@ html[data-sh-hubview-open]{overflow:hidden}
    section of its own, and the shelf is scaled to the narrower column. */
 .sh-index-special-files__section-1--in-hubs{padding:0!important;margin-top:34px}
 
-
 /* ============================================================================
    sh-binders — «ملفات خاصة»: archive folders on a shelf. The most recognisable
    silhouette a file has -- a folder with a TAB -- kept flat: a tab at the
@@ -311,15 +310,7 @@ html[data-sh-hubview-open]{overflow:hidden}
    desk colour is the cue. The count, update and stamp are filled by
    js/app.js from the file's own hidden content.
    ========================================================================== */
-.sh-binders__head{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:12px}
-.sh-binders__tools{display:flex;align-items:center;gap:18px}
-.sh-binders__nav{display:flex;gap:6px}
-.sh-binders__btn{width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--sh-hair-2);background:#fff;color:var(--sh-navy);font-size:12px;cursor:pointer;transition:background .18s ease,opacity .18s ease}
-.sh-binders__btn:hover{background:var(--sh-hair-6)}
-.sh-binders__btn:focus-visible{outline:2px solid var(--sh-blue);outline-offset:2px}
-.sh-binders__btn[disabled]{opacity:.35;cursor:default}
-.sh-binders__btn[disabled]:hover{background:#fff}
-.sh-binders{position:relative;margin-top:22px}
+.sh-binders__head{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:12px}.sh-binders{position:relative;margin-top:22px}
 /* one house colour for every folder: navy on the tab and the spine, blue where
    the site uses blue (the label's rule, the count, the open state). The desk
    is a word on the label, typed and muted -- a whisper, not a fill. The frame
@@ -353,53 +344,14 @@ html[data-sh-hubview-open]{overflow:hidden}
 }
 .sh-binder__open:focus-visible{outline:2px solid var(--sh-blue)}
 .sh-binder__open:hover{transform:translateY(-6px)}
-.sh-binder[data-open="true"] .sh-binder__open{transform:translateY(-10px)}
-/* the sheets inside, showing at the top */
-.sh-binder__sheets{position:absolute;top:0;left:10px;right:52px;height:24px;pointer-events:none}
-.sh-binder__sheets::before,.sh-binder__sheets::after{content:"";position:absolute;left:0;right:0;height:10px;background:#fff;border:1px solid var(--sh-hair-2);border-bottom:0}
-.sh-binder__sheets::before{top:10px;left:6px;right:6px}
-.sh-binder__sheets::after{top:16px}
-/* the tab */
-.sh-binder__tab{
-  position:absolute;top:2px;right:8px;z-index:2;min-width:64px;height:24px;padding:0 12px;
-  display:flex;align-items:center;justify-content:center;
-  background:var(--accent);color:#fff;
-  clip-path:polygon(0 100%,7px 0,calc(100% - 7px) 0,100% 100%);
-}
-.sh-binder__no{font-family:var(--sh-font);font-size:13px;font-weight:800;letter-spacing:.06em;direction:ltr;line-height:1}
-/* the cover: warm paper, its texture, and one low shadow -- a folder on a shelf, not a card floating over it */
-.sh-binder__folder{
-  position:relative;display:flex;flex-direction:column;gap:12px;height:100%;
-  padding:16px 44px 14px 14px;              /* the right padding clears the spine */
-  background:#fbfaf7;border:1px solid var(--sh-hair-2);
-  box-shadow:0 1px 2px rgba(10,26,51,.06),0 10px 20px -14px rgba(10,26,51,.22);
-  transition:box-shadow .25s ease,border-color .25s ease;
-}
-.sh-binder__folder::after{content:"";position:absolute;inset:0;background:url(../assets/images/archive-texture.webp) center/cover;opacity:.06;mix-blend-mode:multiply;pointer-events:none}   /* the paper */
-.sh-binder__open:hover .sh-binder__folder,.sh-binder[data-open="true"] .sh-binder__folder{box-shadow:0 1px 2px rgba(10,26,51,.06),0 14px 24px -14px rgba(10,26,51,.28)}   /* lifts a little, not a lot */
-.sh-binder[data-open="true"] .sh-binder__folder{border-color:var(--sh-blue)}
-/* the spine, down the right edge */
+.sh-binder[data-open="true"] .sh-binder__open{transform:translateY(-10px)}.sh-binder__no{font-family:var(--sh-font);font-size:13px;font-weight:800;letter-spacing:.06em;direction:ltr;line-height:1}/* the spine, down the right edge */
 .sh-binder__spine{
   position:absolute;top:0;bottom:0;right:0;z-index:1;width:28px;
   background:var(--accent);border-inline-start:1px solid rgba(0,0,0,.14);
   display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px;
 }
 .sh-binder__spine::before{content:"";position:absolute;inset:0 auto 0 0;width:2px;background:rgba(255,255,255,.18)}
-.sh-binder__spine .sh-mark{width:14px;height:12px;background:#fff;opacity:.9}
-/* the print: the file's photograph, taped on */
-.sh-binder__print{
-  position:relative;z-index:1;display:block;aspect-ratio:4/5;padding:5px;background:#fff;
-  box-shadow:0 2px 6px rgba(10,26,51,.15);transform:rotate(-1.5deg);   /* the one tilt on the folder */
-}
-.sh-binder__print img{position:absolute;inset:5px;width:calc(100% - 10px);height:calc(100% - 10px);object-fit:cover;object-position:center top;filter:saturate(.9)}
-/* no photograph: the pocket, empty, with the mark */
-.sh-binder__print--none{
-  padding:0;background:none;box-shadow:none;transform:none;
-  border:1px dashed color-mix(in srgb,var(--accent) 45%,transparent);
-  display:grid;place-items:center;
-}
-.sh-binder__print--none .sh-mark{width:44px;height:36px;background:var(--accent);opacity:.28}
-.sh-binder__stamp{
+.sh-binder__spine .sh-mark{width:14px;height:12px;background:#fff;opacity:.9}.sh-binder__stamp{
   position:absolute;top:8px;left:8px;z-index:3;padding:3px 9px;
   font-family:var(--sh-font);font-size:10.5px;font-weight:800;color:var(--accent-ink);
   background:rgba(255,255,255,.85);border:1.5px solid var(--accent-ink);
@@ -428,8 +380,7 @@ html[data-sh-hubview-open]{overflow:hidden}
 @media (max-width:640px){
   /* the rail: one folder in view and the edge of the next -- the invitation to scroll */
   .sh-binder{flex:0 0 72%;margin-inline-start:14px}
-  .sh-binder__open:hover{transform:none}
-  .sh-binders__nav{display:none}   /* the thumb does it */
+  .sh-binder__open:hover{transform:none}   /* the thumb does it */
 }
 @media (prefers-reduced-motion:reduce){
   .sh-binder,.sh-binder__open,.sh-binder__folder{transition:none}

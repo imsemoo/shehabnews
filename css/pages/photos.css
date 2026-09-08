@@ -7,22 +7,7 @@
    الصور <img> (lazy + object-position) وكل بلاطة تفتح في العارض المشترك
    (js/app.js: [data-sh-lightbox] > [data-sh-shot]). الأرضية بيضاء والكحلي
    لحظة واحدة فقط. */
-a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background .16s ease,gap .16s ease}
-
-/* ================================================================== intro */
-.sh-ph-intro{padding:26px 0 0}
-.sh-ph-intro__crumbs{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--sh-mute)}
-.sh-ph-intro__head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 32px;margin-top:16px;border-bottom:2px solid var(--sh-ink);padding-bottom:18px;position:relative}
-.sh-ph-intro__head::before{content:"";position:absolute;bottom:-2px;inset-inline-start:0;width:120px;height:2px;background:var(--sh-blue)}
-.sh-ph-intro__head::after{content:"";position:absolute;bottom:-4px;inset-inline-start:118px;width:6px;height:6px;background:var(--sh-blue);transform:rotate(45deg)}
-.sh-ph-intro__lead{display:flex;align-items:flex-start;gap:16px}
-.sh-ph-intro__lead .sh-mark{width:16px;height:13px;background:var(--sh-blue);margin-top:16px;flex:none}
-.sh-ph-intro__h1{font-family:var(--sh-font);font-size:clamp(26px,3.6vw,44px);font-weight:800;line-height:1.2;margin:0;color:var(--sh-navy)}
-.sh-ph-intro__dek{font-family:var(--sh-serif);font-size:13px;line-height:1.9;color:var(--sh-ink-2);margin:10px 0 0;max-width:52ch}
-.sh-ph-intro__count{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--sh-mute);padding-bottom:4px}
-.sh-ph-intro__count .sh-i{font-size:11px;color:var(--sh-blue)}
-
-/* ================================================================== tiles */
+a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background .16s ease,gap .16s ease}/* ================================================================== tiles */
 .sh-ph-tile{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);isolation:isolate}
 .sh-ph-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
 a:hover .sh-ph-tile img,a:focus-visible .sh-ph-tile img{transform:scale(1.03)}

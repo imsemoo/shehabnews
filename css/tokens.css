@@ -38,7 +38,6 @@
   --color-text-faint:#8a95a6;        /* decorative numerals only, never body copy */
   --color-on-dark:#ffffff;
   --color-on-dark-2:rgba(255,255,255,.78);
-  --color-on-dark-muted:rgba(255,255,255,.6);
   --color-on-dark-line:rgba(255,255,255,.14);
   --color-scrim:rgba(10,26,51,.86);  /* the one veil under text on a picture */
 
@@ -94,7 +93,6 @@
   --sh-hair-2:var(--color-border);
   --sh-hair-3:var(--color-border);
   --sh-hair-4:var(--color-border-soft);
-  --sh-hair-5:var(--color-border);
   --sh-hair-6:var(--color-surface-soft);
   --sh-grey-1:var(--color-border);
   --sh-grey-2:var(--color-text-muted);

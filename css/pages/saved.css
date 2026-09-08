@@ -1,16 +1,6 @@
 /* شهاب — المحفوظات (saved.html). */
 a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background .16s ease}
-p{font-family:var(--sh-serif);line-height:2}
-.sh-saved-hero{padding:30px 0 18px;border-bottom:1px solid var(--color-border)}
-.sh-saved-hero__crumbs{display:flex;gap:10px;font-size:12px;margin-bottom:16px}
-.sh-saved-hero__row{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.sh-saved-hero__h1{display:flex;align-items:center;gap:12px;font-family:var(--sh-font);font-size:clamp(26px,3vw,34px);font-weight:800;margin:0 0 8px;color:var(--sh-navy)}
-.sh-saved-hero__p{margin:0;font-size:14px;color:var(--sh-ink-2)}
-.sh-saved-hero__tools{display:flex;align-items:center;gap:14px}
-.sh-saved-hero__clear{min-height:36px;padding:0 14px;border:1px solid var(--color-border);background:#fff;color:var(--color-red-soft);font-family:var(--sh-font);font-size:12px;font-weight:800;cursor:pointer}
-.sh-saved-hero__clear:hover{border-color:var(--color-red-soft)}
-.sh-saved-hero__clear[hidden]{display:none}
-.sh-saved-body{padding:8px 0 48px;max-width:820px}
+p{font-family:var(--sh-serif);line-height:2}.sh-saved-body{padding:8px 0 48px;max-width:820px}
 .sh-saved__row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:start;padding:16px 0;border-bottom:1px solid var(--color-border-soft)}
 .sh-saved__body{display:flex;flex-direction:column;gap:6px;min-width:0}
 .sh-saved__body .sh-card__title{font-size:15px}
