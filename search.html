@@ -30,20 +30,20 @@
 <link rel="preload" href="assets/fonts/almarai-700-arabic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/almarai-800-arabic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/noto-naskh-arabic-arabic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/fonts.css?v=144">
-<link rel="stylesheet" href="css/transition.css?v=144">
-<link rel="stylesheet" href="css/tokens.css?v=144">
-<link rel="stylesheet" href="css/base.css?v=144">
-<link rel="stylesheet" href="css/header.css?v=144">
-<link rel="stylesheet" href="css/widgets.css?v=144">
-<link rel="stylesheet" href="css/footer.css?v=144">
-<link rel="stylesheet" href="css/components.css?v=144">
-<link rel="stylesheet" href="css/chrome.css?v=144">
-<link rel="stylesheet" href="css/feed.css?v=144">
-<link rel="stylesheet" href="css/pages/search.css?v=144">
-<link rel="stylesheet" href="css/mark.css?v=144">
-<link rel="stylesheet" href="css/responsive.css?v=144">
-<link rel="stylesheet" href="css/brief.css?v=144">
+<link rel="stylesheet" href="css/fonts.css?v=203">
+<link rel="stylesheet" href="css/transition.css?v=203">
+<link rel="stylesheet" href="css/tokens.css?v=203">
+<link rel="stylesheet" href="css/base.css?v=203">
+<link rel="stylesheet" href="css/header.css?v=203">
+<link rel="stylesheet" href="css/widgets.css?v=203">
+<link rel="stylesheet" href="css/footer.css?v=203">
+<link rel="stylesheet" href="css/components.css?v=203">
+<link rel="stylesheet" href="css/chrome.css?v=203">
+<link rel="stylesheet" href="css/feed.css?v=203">
+<link rel="stylesheet" href="css/pages/search.css?v=203">
+<link rel="stylesheet" href="css/mark.css?v=203">
+<link rel="stylesheet" href="css/responsive.css?v=203">
+<link rel="stylesheet" href="css/brief.css?v=203">
 <script type="speculationrules">{"prerender": [{"where": {"and": [{"href_matches": "/*.html"}, {"not": {"href_matches": ["/live.html", "/reels.html", "/shorts.html", "/video-watch.html", "/now.html", "/map.html"]}}]}, "eagerness": "moderate"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "name": "البحث", "description": "ابحث في أخبار وتقارير وصور وفيديوهات شهاب.", "url": "https://shehabnews.com/search.html", "publisher": {"@type": "NewsMediaOrganization", "name": "وكالة شهاب للأنباء", "url": "https://shehabnews.com/", "logo": {"@type": "ImageObject", "url": "https://shehabnews.com/assets/images/icon-512.png", "width": 512, "height": 512}, "sameAs": ["https://www.facebook.com/sahpp2023", "https://twitter.com/ShehabAgency", "https://www.instagram.com/shehabagency/", "https://www.youtube.com/channel/UChvBXfexWtP5gdGZespJnZw", "https://t.me/ShehabTelegram", "https://www.tiktok.com/@shehab_news"]}, "inLanguage": "ar"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://shehabnews.com/"}, {"@type": "ListItem", "position": 2, "name": "البحث", "item": "https://shehabnews.com/search.html"}]}]}</script>
 </head>
@@ -161,6 +161,21 @@
                 <a href="contact.html" class="sh-nav__drop-link">تواصل معنا</a>
               </div>
             </div>
+            <div class="sh-menu sh-nav__item">
+              <a href="search.html" class="sh-nav__link">المزيد<span class="sh-nav__caret" aria-hidden="true"></span></a>
+              <div class="sh-drop sh-nav__drop">
+                <span class="sh-nav__drop-rule"></span>
+                <a href="search.html" class="sh-nav__drop-link">البحث</a>
+                <a href="tag.html" class="sh-nav__drop-link">صفحة وسم</a>
+                <a href="video-watch.html" class="sh-nav__drop-link">مشاهدة فيديو</a>
+                <a href="privacy.html" class="sh-nav__drop-link">سياسة الخصوصية</a>
+                <a href="terms.html" class="sh-nav__drop-link">شروط الاستخدام</a>
+                <span class="sh-nav__drop-label">حالات الموقع</span>
+                <a href="404.html" class="sh-nav__drop-link">صفحة غير موجودة</a>
+                <a href="offline.html" class="sh-nav__drop-link">بلا اتصال</a>
+                <a href="system-states.html" class="sh-nav__drop-link">حالات النظام</a>
+              </div>
+            </div>
           </div>
           <a href="coverage.html" class="sh-nav__link sh-nav__link--last sh-nav__link--live"><span class="sh-nav__live-dot" aria-hidden="true"></span>التغطية الحية</a>
         </nav>
@@ -200,45 +215,25 @@
 
 <main id="main" class="sh-container" data-sh-search-page>
 
-<div data-screen-label="Search Hero" class="sh-search-search-hero__div-1">
-  <nav class="sh-search-search-hero__nav-1">
-    <a href="index.html" class="sh-mute">الرئيسية</a>
-    
-    <span class="sh-link">البحث</span>
-  </nav>
-  <div class="sh-search-search-hero__div-2">
-    <h1 class="sh-search-search-hero__h1-1"><span class="sh-mark sh-mark--md"></span>نتائج البحث<span class="sh-mark sh-mark--md"></span></h1>
-    <p class="sh-search-search-hero__p-1">ابحث في أخبار وتقارير وصور وفيديوهات شهاب</p>
-    <form class="sh-search-search-hero__div-3" action="search.html" method="get" role="search" data-sh-search>
+<section data-screen-label="Page Head" class="sh-pagehead">
+  <div class="sh-pagehead__in">
+    <nav class="sh-pagehead__crumbs" aria-label="مسار الصفحة">
+      <a href="index.html">الرئيسية</a>
+      <span aria-current="page">البحث</span>
+    </nav>
+    <div class="sh-pagehead__head">
+      <div class="sh-pagehead__lead">
+        <h1 class="sh-pagehead__title"><span class="sh-mark sh-mark--md"></span>نتائج البحث</h1>
+        <p class="sh-pagehead__sub">ابحث في أخبار وتقارير وصور وفيديوهات شهاب — من 2007 حتى اليوم.</p>
+      </div>
+    </div>
+    <div class="sh-pagehead__form"><form class="sh-search-search-hero__div-3" action="search.html" method="get" role="search" data-sh-search>
       <span class="sh-search-search-hero__span-1"><svg class="sh-i sh-search-search-hero__i-1" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-magnifying-glass"></use></svg></span>
       <label class="sr-only" for="sh-q">ابحث في شهاب</label><input id="sh-q" type="search" name="q" value="غزة" placeholder="ابحث في شهاب عن خبر أو موضوع أو اسم..." class="sh-search-search-hero__input-1" autocomplete="off" data-sh-search-q>
       <button type="submit" class="sh-search-search-hero__button-1">بحث</button>
-    </form>
-    <div class="sh-search-search-hero__div-4">
-      <span>نتائج البحث عن: <strong class="sh-search-search-hero__strong-1" data-sh-search-term>«غزة»</strong></span>
-      
-      <span class="sh-search-search-hero__span-2" data-sh-search-count></span>
-    </div>
-    <details class="sh-search-adv" data-sh-sadv>
-      <summary class="sh-search-search-hero__a-1">بحث متقدم</summary>
-      <div class="sh-search-adv__body">
-        <label class="sh-search-adv__field">القسم <select data-sh-sadv-section><option value="">الكل</option></select></label>
-        <label class="sh-search-adv__field">الفترة <select data-sh-sadv-period><option value="">كل الوقت</option><option value="day">آخر 24 ساعة</option><option value="week">آخر أسبوع</option><option value="month">آخر شهر</option></select></label>
-      </div>
-    </details>
+    </form></div>
   </div>
-  
-  <div class="sh-search-search-hero__div-5">
-    <div class="sh-search-search-hero__div-6">
-      <a href="search.html?q=غزة" class="sh-search-search-hero__a-2" data-sh-sfilter="all" aria-pressed="true">الكل</a>
-      <a href="search.html?q=غزة&amp;type=news" class="sh-rail__link sh-rail__link--pad" data-sh-sfilter="news" aria-pressed="false">الأخبار</a>
-      <a href="search.html?q=غزة&amp;type=report" class="sh-rail__link sh-rail__link--pad" data-sh-sfilter="report" aria-pressed="false">التقارير</a>
-      <a href="video.html?q=غزة" class="sh-rail__link sh-rail__link--pad">الفيديو</a>
-      <a href="photos.html?q=غزة" class="sh-rail__link sh-rail__link--pad">الصور</a>
-    </div>
-    <a href="search.html?q=غزة&amp;sort=old" class="sh-search-search-hero__a-3" data-sh-ssort>ترتيب حسب: <strong class="sh-search-search-hero__strong-2">الأحدث</strong> <svg class="sh-i sh-search-search-hero__i-2" aria-hidden="true" focusable="false"><use href="assets/images/icons.svg#s-chevron-down"></use></svg></a>
-  </div>
-</div>
+</section>
 
 <div data-screen-label="Search Body" class="sh-search-search-body__div-1">
   <div data-sh-pager-list class="sh-min0">
@@ -432,7 +427,7 @@
     <div class="sh-mt-28">
       <div class="sh-search-search-rail__div-2">
         <h2 class="sh-search-search-rail__h2-1"><span class="sh-search-search-rail__span-1"></span>آخر الأخبار</h2>
-        <a href="coverage.html" class="sh-search-search-rail__a-1">التغطية الحية ←</a>
+        <a href="coverage.html" class="sh-search-search-rail__a-1">التغطية الحية  <span class="sh-more__arrow sh-more__arrow--12"></span></a>
       </div>
       <div class="sh-search-search-rail__div-3">
         
@@ -484,7 +479,7 @@
 
 <section data-screen-label="Search By Date" class="sh-search-search-by-date__section-1">
   <div class="sh-search-search-by-date__div-1">
-    <h2 class="sh-section__title sh-section__title--md">استكشف الأخبار حسب التاريخ</h2>
+    <h2 class="sh-section__title sh-section__title--md"><span class="sh-mark sh-mark--md"></span>استكشف الأخبار حسب التاريخ</h2>
     <span class="sh-meta__note">أرشيف شهاب</span>
   </div>
   <div class="sh-search-search-by-date__div-2">
@@ -493,7 +488,7 @@
     <div class="sh-search-search-by-date__div-3">
       
         <a href="archive.html" class="sh-timeline__item">
-          <span class="sh-mark sh-search-search-by-date__span-3"></span>
+          <span class="sh-mark sh-mark--md sh-search-search-by-date__span-3"></span>
           <span class="sh-timeline__tick"></span>
           <span class="sh-search-search-by-date__span-4">2026</span>
           <span class="sh-archive__count">412 نتيجة</span>
@@ -536,42 +531,42 @@
   </div>
   <div class="sh-search-discovery-strip__div-2">
     
-      <a href="search.html?q=%D8%BA%D8%B2%D8%A9%201%2C248" class="sh-search-discovery-strip__a-1">
+      <a href="search.html?q=%D8%BA%D8%B2%D8%A9" class="sh-search-discovery-strip__a-1">
         <span class="sh-search-discovery-strip__span-5">غزة</span>
         <span class="sh-search-discovery-strip__span-6">1,248</span>
       </a>
     
-      <a href="search.html?q=%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86%203%2C102" class="sh-search-discovery-strip__a-1">
+      <a href="search.html?q=%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86" class="sh-search-discovery-strip__a-1">
         <span class="sh-search-discovery-strip__span-5">فلسطين</span>
         <span class="sh-search-discovery-strip__span-6">3,102</span>
       </a>
     
-      <a href="search.html?q=%D8%A7%D9%84%D9%82%D8%AF%D8%B3%20864" class="sh-search-discovery-strip__a-1">
+      <a href="search.html?q=%D8%A7%D9%84%D9%82%D8%AF%D8%B3" class="sh-search-discovery-strip__a-1">
         <span class="sh-search-discovery-strip__span-5">القدس</span>
         <span class="sh-search-discovery-strip__span-6">864</span>
       </a>
     
-      <a href="search.html?q=%D8%A7%D9%84%D8%AD%D8%B1%D8%A8%202%2C415" class="sh-search-discovery-strip__a-1">
+      <a href="search.html?q=%D8%A7%D9%84%D8%AD%D8%B1%D8%A8" class="sh-search-discovery-strip__a-1">
         <span class="sh-search-discovery-strip__span-5">الحرب</span>
         <span class="sh-search-discovery-strip__span-6">2,415</span>
       </a>
     
-      <a href="search.html?q=%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B3%D8%A9%20731" class="sh-search-discovery-strip__a-1">
+      <a href="search.html?q=%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B3%D8%A9" class="sh-search-discovery-strip__a-1">
         <span class="sh-search-discovery-strip__span-5">السياسة</span>
         <span class="sh-search-discovery-strip__span-6">731</span>
       </a>
     
-      <a href="search.html?q=%D8%A7%D9%84%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF%20286" class="sh-search-discovery-strip__a-1">
+      <a href="search.html?q=%D8%A7%D9%84%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF" class="sh-search-discovery-strip__a-1">
         <span class="sh-search-discovery-strip__span-5">الاقتصاد</span>
         <span class="sh-search-discovery-strip__span-6">286</span>
       </a>
     
-      <a href="search.html?q=%D8%A7%D9%84%D9%85%D8%AC%D8%AA%D9%85%D8%B9%20419" class="sh-search-discovery-strip__a-1">
+      <a href="search.html?q=%D8%A7%D9%84%D9%85%D8%AC%D8%AA%D9%85%D8%B9" class="sh-search-discovery-strip__a-1">
         <span class="sh-search-discovery-strip__span-5">المجتمع</span>
         <span class="sh-search-discovery-strip__span-6">419</span>
       </a>
     
-      <a href="search.html?q=%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85%20655" class="sh-search-discovery-strip__a-1">
+      <a href="search.html?q=%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85" class="sh-search-discovery-strip__a-1">
         <span class="sh-search-discovery-strip__span-5">العالم</span>
         <span class="sh-search-discovery-strip__span-6">655</span>
       </a>
@@ -593,7 +588,7 @@
 <section data-screen-label="May Interest You" class="sh-search-may-interest-you__section-1">
   <div class="sh-search-may-interest-you__div-1">
     <h2 class="sh-section__title"><span class="sh-mark sh-mark--md"></span>قد يهمك أيضًا</h2>
-    <a href="category.html" class="sh-search-may-interest-you__a-1">كل التقارير <span class="sh-more__arrow sh-more__arrow--14"></span></a>
+    <a href="category.html" class="sh-more sh-search-may-interest-you__a-1">كل التقارير <span class="sh-more__arrow sh-more__arrow--14"></span></a>
   </div>
   <div class="sh-search-may-interest-you__div-2">
     
@@ -650,19 +645,19 @@
       <div class="sh-footer__col">
         <h3 class="sh-footer__title">الأقسام</h3>
         <div class="sh-footer__links">
-          <a href="category.html" class="sh-footer__link">أخبار فلسطين</a><a href="category.html" class="sh-footer__link">القدس</a><a href="category.html" class="sh-footer__link">غزة</a><a href="category.html" class="sh-footer__link">الضفة الغربية</a><a href="category.html" class="sh-footer__link">الأسرى</a><a href="category.html" class="sh-footer__link">عربي ودولي</a><a href="category.html" class="sh-footer__link">إسرائيلي</a><a href="category.html" class="sh-footer__link">رياضة</a><a href="category.html" class="sh-footer__link">رأي</a>
+          <a href="category.html" class="sh-footer__link">أخبار فلسطين</a><a href="category.html" class="sh-footer__link">غزة</a><a href="category.html" class="sh-footer__link">الضفة الغربية</a><a href="category.html" class="sh-footer__link">القدس</a><a href="category.html" class="sh-footer__link">الأسرى</a>
         </div>
       </div>
       <div class="sh-footer__col">
         <h3 class="sh-footer__title">المحتوى</h3>
         <div class="sh-footer__links">
-          <a href="coverage.html" class="sh-footer__link">التغطيات الحية</a><a href="files.html" class="sh-footer__link">ملفات شهاب</a><a href="photos.html" class="sh-footer__link">عدسة شهاب</a><a href="video.html" class="sh-footer__link">الفيديو</a><a href="reels.html" class="sh-footer__link">ريلز شهاب</a><a href="live.html" class="sh-footer__link">البث المباشر</a><a href="map.html" class="sh-footer__link">خريطة الخروقات</a><a href="data.html" class="sh-footer__link">مكتب البيانات</a><a href="archive.html" class="sh-footer__link">الأرشيف</a>
+          <a href="coverage.html" class="sh-footer__link">التغطيات الحية</a><a href="live.html" class="sh-footer__link">البث المباشر</a><a href="video.html" class="sh-footer__link">الفيديو</a><a href="files.html" class="sh-footer__link">ملفات شهاب</a><a href="archive.html" class="sh-footer__link">الأرشيف</a>
         </div>
       </div>
       <div class="sh-footer__col">
         <h3 class="sh-footer__title">الوكالة</h3>
         <div class="sh-footer__links">
-          <a href="about.html" class="sh-footer__link">من نحن</a><a href="about.html#editorial" class="sh-footer__link">سياسة التحرير</a><a href="sections.html#team" class="sh-footer__link">فريق التحرير</a><a href="contact.html" class="sh-footer__link">تواصل معنا</a><a href="newsletter.html" class="sh-footer__link">النشرة البريدية</a><a href="saved.html" class="sh-footer__link">المحفوظات</a><a href="https://shehabnews.com/rss/category/all" class="sh-footer__link">خدمة RSS</a>
+          <a href="about.html" class="sh-footer__link">من نحن</a><a href="about.html#editorial" class="sh-footer__link">سياسة التحرير</a><a href="sections.html#team" class="sh-footer__link">فريق التحرير</a><a href="contact.html" class="sh-footer__link">تواصل معنا</a><a href="https://shehabnews.com/rss/category/all" class="sh-footer__link">خدمة RSS</a>
         </div>
       </div>
       <div class="sh-footer__col sh-footer__col--wide">
@@ -715,16 +710,16 @@
 </dialog>
 <!-- /sh:footer -->
 </div>
-<script src="js/ui.js?v=144" defer></script>
-<script src="js/chrome.js?v=144" defer></script>
-<script src="js/feed.js?v=144" defer></script>
-<script src="js/app.js?v=144" defer></script>
-<script src="js/responsive.js?v=144" defer></script>
-<script src="js/widgets.js?v=144" defer></script>
-<script src="js/brief.js?v=144" defer></script>
-<script src="js/searchbox.js?v=144" defer></script>
-<script src="js/push.js?v=144" defer></script>
-<script src="js/pwa.js?v=144" defer></script>
-<script src="js/search.js?v=144" defer></script>
+<script src="js/ui.js?v=203" defer></script>
+<script src="js/chrome.js?v=203" defer></script>
+<script src="js/feed.js?v=203" defer></script>
+<script src="js/app.js?v=203" defer></script>
+<script src="js/responsive.js?v=203" defer></script>
+<script src="js/widgets.js?v=203" defer></script>
+<script src="js/brief.js?v=203" defer></script>
+<script src="js/searchbox.js?v=203" defer></script>
+<script src="js/push.js?v=203" defer></script>
+<script src="js/pwa.js?v=203" defer></script>
+<script src="js/search.js?v=203" defer></script>
 </body>
 </html>

@@ -199,7 +199,7 @@
       'background:rgba(10,26,51,.55);color:#fff;display:flex;align-items:center;' +
       'justify-content:center;cursor:pointer;flex:none;padding:0;' +
       'transition:background .18s ease,border-color .18s ease';
-    var box, imgEl, capEl, countEl, storyEl, prevEl, nextEl, closeEl;
+    var box, imgEl, noEl, capEl, countEl, storyEl, prevEl, nextEl, closeEl;
     var shots = [], idx = 0, opener = null, scrollY = 0;
 
     function el(tag, style, html) {
@@ -245,9 +245,16 @@
       imgEl = el('img', 'max-width:100%;max-height:100%;object-fit:contain;display:block;' +
         'background:#0f2a4f;opacity:0;transition:opacity .25s ease');
       imgEl.alt = '';
+      // a picture that fails to load is not faked: the frame shows the
+      // no-image plate (navy-2, the logo at 14%, one diagonal) from system-states
+      noEl = el('div', 'display:none;position:relative;width:min(100%,720px);aspect-ratio:3/2;' +
+        'background:#0f2a4f;overflow:hidden',
+        '<img src="assets/images/logo-white.png" alt="" style="position:absolute;inset:0;margin:auto;width:34%;opacity:.14">' +
+        '<span style="position:absolute;inset:0;background:linear-gradient(to top left,transparent calc(50% - .5px),rgba(255,255,255,.22) 50%,transparent calc(50% + .5px))"></span>');
       var frame = el('div', 'flex:1;min-width:0;height:100%;display:flex;' +
         'align-items:center;justify-content:center');
       frame.appendChild(imgEl);
+      frame.appendChild(noEl);
       stage.appendChild(nextEl);
       stage.appendChild(frame);
       stage.appendChild(prevEl);
@@ -286,8 +293,8 @@
       var s = shots[idx];
       imgEl.style.opacity = '0';
       var next = new Image();
-      next.onload = function () { imgEl.src = next.src; imgEl.style.opacity = '1'; };
-      next.onerror = function () { imgEl.src = next.src; imgEl.style.opacity = '1'; };
+      next.onload = function () { noEl.style.display = 'none'; imgEl.style.display = 'block'; imgEl.src = next.src; imgEl.style.opacity = '1'; };
+      next.onerror = function () { imgEl.removeAttribute('src'); imgEl.style.display = 'none'; noEl.style.display = 'block'; };
       next.src = s.getAttribute('data-src');
       var cap = s.getAttribute('data-caption') || '';
       capEl.textContent = cap;

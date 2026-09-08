@@ -30,9 +30,10 @@ Field presence: correspondents inside Gaza, the West Bank and Jerusalem reportin
 
 - Arabic RTL throughout: logical properties only; any SVG or Latin number run isolated with `direction:ltr` / `unicode-bidi:isolate`; grid children need `min-width:0`.
 - Phone rules: 44px touch targets, no text under 12px on phones, no horizontal overflow at 375px; verified at 1280 and 375 before delivery.
-- Content is never invented: headlines, texts, figures and images come from shehabnews.com, the agency's own assets in `assets/images`, `data/figures.json`, or Wikimedia Commons photographs already used on the site. The article demo body (the kites report) is demo copy written in the agency's voice; do not add new factual claims to it.
+- Content is never invented: headlines, texts, figures and images come from shehabnews.com, the agency's own assets in `assets/images`, `data/figures.json`, or Wikimedia Commons photographs already used on the site. Two exceptions are written copy rather than sourced content and are marked as such: the article demo body (the kites report) and the whole of `about.html`. Both are written in the agency's voice; do not add new factual claims to either, and do not treat what they say as verified.
 - Fonts are self-hosted: Almarai 400/700/800 for display and UI, Noto Naskh Arabic for reading text. IBM Plex Sans Arabic is banned; Cairo is avoided.
 - The header, footer, navigation, URLs and information architecture are fixed; page work happens between the `sh:header` and `sh:footer` markers.
+- Four pages are locked reference implementations and must not be modified: `index.html` (homepage), `reels.html`, `live.html`, `article.html`. They are the visual standard every other page is measured against. Shared changes that necessarily reach them (a `partials/` edit, the `?v=` bump, a token change) are the only permitted exception and must be reported when they happen.
 - Cache: after any CSS/JS change the `?v=N` version is bumped in `tools/chrome.py`, `sw.js` and every HTML file.
 
 ## Brand Commitments
@@ -47,7 +48,9 @@ Field presence: correspondents inside Gaza, the West Bank and Jerusalem reportin
 
 - Real headlines, categories, correspondents' lines and figures pulled from shehabnews.com across the pages; the live special-files index (20 files with covers) in `files.html`; programme posters in `assets/images/prog-*.webp` and `reel-*.webp`; `data/figures.json` figures (days since the 10 October 2025 ceasefire, casualties, mosques destroyed).
 - Photographs: Wikimedia Commons files already on the site (Al-Mawasi tents aerial, Rafah destruction aerial, Al-Rasheed street return, Beach camp aerial, Jerusalem Old City, Qalandia checkpoint, Jenin, Hebron school children, Gaza fishermen, olive harvest), plus `assets/images/gaza-coast.webp`, `coverage-hero2.webp`, `live-poster.webp`.
-- No real author portraits (the author page uses an initial tile); no real ad creatives (ad slots are placeholders and may be omitted from demos); no real comment threads.
+- Author identity: محمد مصطفى شاهين is a real Shehab correspondent and the portrait on `author.html` (`shehabnews.com/thumb/600x600/uploads/images/2026/07/ngA17.jpg`) is his; name and photograph may be reused on other pages. No other correspondent has a portrait yet.
+- No real ad creatives (ad slots are placeholders and may be omitted from demos); no real comment threads.
+- `about.html` is written copy, not a record. Its statements — founding in January 2007, three bureaux in Gaza / Jerusalem / Ramallah, the destruction of the Palestine Tower office in October 2023, 7M+ audience, round-the-clock coverage — are demo prose in the agency's voice. No later page may cite them as fact, build a figure on them, or repeat them as verified claims.
 
 ## Product Principles
 

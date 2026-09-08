@@ -243,7 +243,7 @@ The five desk accents in `tokens.css` (politics, war, land, economy, rights) are
 
 **The Sixty Characters Rule.** Reading text sits on a measure of about sixty characters with line-height of 1.9 or more, and it scales with the reader: `--reader-scale` steps 0.92 / 1 / 1.12 / 1.26 multiply body and dek only.
 
-**The Tabular Rule.** Every numeral is `tabular-nums`; every Latin or numeric run inside Arabic (counters like "1 / 3", currency pairs, file numbers) is isolated with `direction: ltr; unicode-bidi: isolate`.
+**The Tabular Rule.** Almarai carries no tabular figures (its `GSUB` holds ccmp, fina, init, liga, medi and rlig only) and Noto Naskh Arabic’s digits are already equal-width, so `tabular-nums` is declared as intent but moves nothing today; a number that must hold its width while it ticks (a clock, a counter) gets a fixed-width cell. Every Latin or numeric run inside Arabic (counters like "1 / 3", currency pairs, file numbers) is isolated with `direction: ltr; unicode-bidi: isolate`.
 
 ## Layout
 
@@ -288,7 +288,7 @@ The ش blade is the house glyph: the three dots of the wordmark's ش, applied as
 Tabs and tags are cut with `clip-path` rather than drawn with radius: the ticker's breaking tag carries a 10px notch, a folder tab is a trapezoid, a brand tab is a parallelogram.
 
 ### Named Rules
-**The Square Rule.** No radius, anywhere. A circle is a live dot or a ring; nothing else.
+**The Square Rule.** No radius, anywhere. A circle is a live dot, a ring, or the play disc — the one round control, always on a picture: 56px in brand blue with a soft navy shadow on a stage (`.sh-vid__big`), 24–48px as a hairline disc on the navy scrim on a card (`.sh-reels-grid__play`), blue on hover. Nothing else is round.
 
 **The Whole Photograph Rule.** The frame takes the picture's ratio; the picture fills the frame on a navy-2 ground. Never stretched, never cropped to fit a viewport, never a decorative crop.
 
@@ -300,7 +300,7 @@ Everything on the page is set in type on white; controls are square, flat and ty
 
 ### Buttons
 - **Shape:** square (`0`), 1px line or solid fill, Almarai 800 at 12–13px, 44px minimum height for filled CTAs and every target on phones.
-- **More («المزيد»):** the house button — a hairline box in `{colors.border}` on white, navy label at 12px 800, `7px 12px 7px 11px`, the arrow blade at 14px pointing forward. Hover: line and label go blue, ground goes soft, the arrow steps 3px forward.
+- **More («المزيد»):** the house link — `.sh-more`: text set in Almarai 800 at 12px in the colour of its context (navy in a section head, blue in a body), the arrow blade at 13px pointing forward after an 8px gap, 8px of vertical padding for the target. Hover: a 1px underline offset 5px and the arrow steps 3px forward. No box, no line, no ground.
 - **Primary CTA:** navy fill, white label 13px 800, `0 24px`, 44px tall, the blade or arrow after the label at a 12px gap. Hover: fill turns blue and the gap opens to 18px. The blue variant (`{colors.brand-blue}` fill) hovers to pressed blue.
 - **Outlined on navy:** 1px `{colors.on-dark-30}` line, white label 12.5px 800, `10px 16px`; hover fills blue with a blue line (the next-read button).
 - **Square icon buttons:** 38px squares on soft light with a navy icon at 14px (share row); 44px at the article's end and on phones; hover fills navy with a white icon. Pager cells are 36px hairline squares; the current one fills blue.

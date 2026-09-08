@@ -54,7 +54,7 @@
 .sh-meta__cat{color:var(--sh-blue);font-weight:700;font-family:var(--sh-font)}
 .sh-pager__btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--sh-ink-2);border:1px solid var(--sh-hair-4);font-variant-numeric:tabular-nums}
 .sh-pager__btn:hover{border-color:var(--sh-blue);color:var(--sh-blue)}
-.sh-eyebrow{display:flex;align-items:center;gap:9px;font-family:var(--sh-font);font-size:11.5px;font-weight:800;letter-spacing:.06em;color:var(--sh-sky)}
+.sh-eyebrow{display:flex;align-items:center;gap:9px;font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:var(--sh-sky)}
 .sh-timeline__tick{position:absolute;top:9px;right:9px;width:26px;height:1px;background:var(--sh-blue);opacity:.35}
 .sh-archive__count{display:block;font-size:11px;color:var(--sh-mute);margin-top:7px;font-variant-numeric:tabular-nums}
 .sh-timeline__node{position:absolute;top:5px;right:0;width:16px;height:13px;background:#fff;border:2px solid var(--sh-blue)}
@@ -660,3 +660,95 @@ html[data-sh-bo-open]{overflow:hidden}
   .sh-say__item--card + .sh-say__item--card{border-inline-start:0;padding-inline-start:0}
 }
 @media (prefers-reduced-motion:reduce){.sh-say__photo img{transition:none}}
+
+/* ============================================================================
+   .sh-pagehead — the one opening every secondary page uses.
+
+   Lifted from the pattern the reels and live stages already carry so a reader
+   lands on the same shelf whichever page they open: a navy band, a breadcrumb,
+   the sheen blade beside the title, one line under it, an optional slot on the
+   far side, and a record row where the reels band puts its tabs. The four
+   approved pages carry their own stages and never use these classes.
+   ========================================================================== */
+/* The band sits inside main.sh-container on most pages. It bleeds the way the
+   files and article bands do (DESIGN.md, One Band Rule): the box stays in the
+   content column, so its text lines up with the page below it, and a spread
+   shadow paints the navy out to the viewport edges. A vw-based margin would
+   shift the column by half a scrollbar at 1280. */
+.sh-pagehead{position:relative;background:var(--sh-navy);color:#fff;box-shadow:0 0 0 100vmax var(--sh-navy);clip-path:inset(0 -100vmax)}
+.sh-pagehead--live{padding-top:3px}
+.sh-pagehead--live::before{content:"";position:absolute;top:0;inset-inline:-100vmax;height:3px;background:var(--sh-red)}
+/* the gutter comes from the container around the band, so __in carries none */
+.sh-pagehead__in{padding:12px 0 28px}
+.sh-pagehead__crumbs{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--sh-on-dark-60);padding-bottom:10px}
+.sh-pagehead__crumbs a{color:var(--sh-on-dark-60)}
+.sh-pagehead__crumbs a:hover{color:#fff}
+.sh-pagehead__crumbs span{color:var(--sh-sky);font-weight:700}
+.sh-pagehead__head{display:flex;align-items:center;justify-content:space-between;gap:12px 20px;flex-wrap:wrap}
+.sh-pagehead__lead{min-width:0}
+.sh-pagehead__title{display:flex;align-items:center;gap:12px;margin:0;font-family:var(--sh-font);font-size:clamp(22px,2.2vw,27px);font-weight:800;line-height:1.45}
+.sh-pagehead__sub{margin:4px 0 0;font-family:var(--sh-font);font-size:13px;line-height:1.75;color:var(--sh-on-dark-72);max-width:64ch}
+/* the tools row may hold a clock, a status and a button: it wraps inside the
+   column rather than running past it on a phone */
+.sh-pagehead__tools{flex:0 1 auto;display:flex;flex-wrap:wrap;align-items:center;gap:10px;min-width:0;max-width:100%}
+.sh-pagehead__stats{list-style:none;display:grid;grid-template-columns:repeat(var(--sh-ph-cols,4),minmax(0,1fr));gap:0;margin:26px 0 0;padding:18px 0 0;border-top:1px solid var(--sh-on-dark-16)}
+.sh-pagehead__stats li{display:flex;flex-direction:column;gap:6px;min-width:0}
+.sh-pagehead__stats li + li{padding-inline-start:24px;border-inline-start:1px solid var(--sh-on-dark-16)}
+.sh-pagehead__stats li:not(:last-child){padding-inline-end:24px}
+.sh-pagehead__stats b{font-family:var(--sh-font);font-size:26px;font-weight:800;line-height:1;color:#fff;font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;text-align:right}
+.sh-pagehead__stats span{font-size:12px;line-height:1.6;color:var(--sh-on-dark-60);text-wrap:pretty}
+.sh-pagehead__stats em{font-style:normal;font-weight:800;color:var(--sh-sky)}
+.sh-pagehead__rail{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;padding:16px 0 0;border-top:1px solid var(--sh-on-dark-16)}
+.sh-pagehead__rail a{display:inline-flex;align-items:center;min-height:34px;padding:0 13px;border:1px solid var(--sh-on-dark-16);font-family:var(--sh-font);font-size:12px;font-weight:700;color:var(--sh-on-dark-72);transition:border-color .18s ease,color .18s ease,background .18s ease}
+.sh-pagehead__rail a:hover{color:#fff;border-color:var(--sh-on-dark-30)}
+.sh-pagehead__rail a[aria-current]{background:var(--sh-blue);border-color:var(--sh-blue);color:#fff}
+/* hashtags are text, not boxes (DESIGN.md, Chips): 13px 700 with the #, 18px apart, sky on navy, white on hover */
+.sh-pagehead__rail--tags{gap:6px 18px}
+.sh-pagehead__rail--tags a{min-height:0;padding:0;border:0;font-size:13px;font-weight:700;color:var(--sh-sky)}
+.sh-pagehead__rail--tags a:hover{color:#fff;border:0}
+.sh-pagehead__flag{display:inline-flex;align-items:center;gap:8px;padding:5px 11px;background:var(--sh-red);color:#fff;font-family:var(--sh-font);font-size:11.5px;font-weight:800}
+.sh-pagehead__search{display:inline-flex;align-items:center;gap:9px;min-height:38px;padding:0 13px;border:1px solid var(--sh-on-dark-30);color:var(--sh-on-dark-72);transition:border-color .18s ease}
+.sh-pagehead__search:focus-within{border-color:#fff}
+.sh-pagehead__search .sh-i{font-size:13px}
+.sh-pagehead__search input{width:190px;max-width:44vw;border:0;background:none;color:#fff;font-family:var(--sh-font);font-size:12.5px;outline:none}
+.sh-pagehead__search input::placeholder{color:var(--sh-on-dark-55)}
+.sh-pagehead__stamp{font-family:var(--sh-font);font-size:12px;font-weight:700;color:var(--sh-on-dark-55);font-variant-numeric:tabular-nums}
+.sh-pagehead__stamp{display:inline-flex;align-items:center;gap:7px}
+.sh-pagehead__stamp .sh-i{font-size:13px;color:var(--sh-on-dark-40)}
+/* the controls the old page intros carried, restyled for the navy band */
+.sh-pagehead__btn{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:0 14px;border:1px solid var(--sh-on-dark-30);background:none;color:var(--sh-on-dark-72);font-family:var(--sh-font);font-size:12px;font-weight:700;cursor:pointer;transition:border-color .18s ease,color .18s ease}
+.sh-pagehead__btn:hover{color:#fff;border-color:#fff}
+.sh-pagehead__btn[hidden]{display:none}
+.sh-pagehead__btn .sh-i{font-size:13px}
+.sh-pagehead__clock{display:inline-flex;align-items:baseline;gap:9px;font-family:var(--sh-font)}
+.sh-pagehead__clock b{font-size:20px;font-weight:800;line-height:1;color:#fff;font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
+.sh-pagehead__clock span{font-size:12px;font-weight:700;color:var(--sh-on-dark-60)}
+.sh-pagehead__live{display:inline-flex;align-items:center;gap:8px;font-family:var(--sh-font);font-size:12px;font-weight:700;color:var(--sh-on-dark-72)}
+.sh-pagehead__dot{flex:none;width:7px;height:7px;background:var(--sh-red)}
+@media (prefers-reduced-motion:reduce){.sh-pagehead__btn{transition:none}}
+/* a page whose main control is a form puts it where the reels band puts its tabs */
+.sh-pagehead__form{margin:22px 0 0;padding:18px 0 0;border-top:1px solid var(--sh-on-dark-16)}
+.sh-pagehead__form form{display:flex;align-items:center;gap:0;max-width:640px;border:1px solid var(--sh-on-dark-30);background:var(--sh-on-dark-08);transition:border-color .18s ease}
+.sh-pagehead__form form:focus-within{border-color:#fff;background:transparent}
+.sh-pagehead__form form > span:first-child{display:grid;place-items:center;width:42px;height:44px;color:var(--sh-on-dark-55)}
+.sh-pagehead__form input[type="search"],.sh-pagehead__form input[type="text"]{flex:1;min-width:0;height:44px;border:0;background:none;color:#fff;font-family:var(--sh-font);font-size:13.5px;outline:none}
+.sh-pagehead__form input::placeholder{color:var(--sh-on-dark-55)}
+.sh-pagehead__form button{flex:none;min-height:44px;padding:0 20px;border:0;background:var(--sh-blue);color:#fff;font-family:var(--sh-font);font-size:12.5px;font-weight:800;cursor:pointer;transition:background .18s ease}
+.sh-pagehead__form button:hover{background:var(--color-brand-blue-deep)}
+@media (max-width:1024px){.sh-pagehead__in{padding:12px 0 24px}}
+@media (max-width:760px){
+  .sh-pagehead__in{padding:10px 0 22px}
+  .sh-pagehead__sub{font-size:12.5px;line-height:1.7}
+  .sh-pagehead__stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 0;margin-top:20px}
+  .sh-pagehead__stats li:nth-child(odd){padding-inline-start:0;border-inline-start:0}
+  .sh-pagehead__stats b{font-size:22px}
+  /* three figures stay on one row on a phone rather than leaving the third
+     alone on a second one */
+  .sh-pagehead__stats[style*="--sh-ph-cols:3"]{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .sh-pagehead__stats[style*="--sh-ph-cols:3"] li{padding-inline:0 12px;border-inline-start:0}
+  .sh-pagehead__stats[style*="--sh-ph-cols:3"] li + li{padding-inline-start:12px;border-inline-start:1px solid var(--sh-on-dark-16)}
+  .sh-pagehead__stats[style*="--sh-ph-cols:3"] li:last-child{padding-inline-end:0}
+  .sh-pagehead__stats[style*="--sh-ph-cols:3"] b{font-size:20px}
+  .sh-pagehead__stats[style*="--sh-ph-cols:3"] span{font-size:11.5px;line-height:1.5}
+}
+@media (prefers-reduced-motion:reduce){.sh-pagehead__rail a{transition:none}}
