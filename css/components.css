@@ -310,7 +310,8 @@ html[data-sh-hubview-open]{overflow:hidden}
    desk colour is the cue. The count, update and stamp are filled by
    js/app.js from the file's own hidden content.
    ========================================================================== */
-.sh-binders__head{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:12px}.sh-binders{position:relative;margin-top:22px}
+.sh-binders__head{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:12px}
+.sh-binders{position:relative;margin-top:22px}
 /* one house colour for every folder: navy on the tab and the spine, blue where
    the site uses blue (the label's rule, the count, the open state). The desk
    is a word on the label, typed and muted -- a whisper, not a fill. The frame
@@ -344,14 +345,16 @@ html[data-sh-hubview-open]{overflow:hidden}
 }
 .sh-binder__open:focus-visible{outline:2px solid var(--sh-blue)}
 .sh-binder__open:hover{transform:translateY(-6px)}
-.sh-binder[data-open="true"] .sh-binder__open{transform:translateY(-10px)}.sh-binder__no{font-family:var(--sh-font);font-size:13px;font-weight:800;letter-spacing:.06em;direction:ltr;line-height:1}/* the spine, down the right edge */
+.sh-binder[data-open="true"] .sh-binder__open{transform:translateY(-10px)}
+.sh-binder__no{font-family:var(--sh-font);font-size:13px;font-weight:800;letter-spacing:.06em;direction:ltr;line-height:1}/* the spine, down the right edge */
 .sh-binder__spine{
   position:absolute;top:0;bottom:0;right:0;z-index:1;width:28px;
   background:var(--accent);border-inline-start:1px solid rgba(0,0,0,.14);
   display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px;
 }
 .sh-binder__spine::before{content:"";position:absolute;inset:0 auto 0 0;width:2px;background:rgba(255,255,255,.18)}
-.sh-binder__spine .sh-mark{width:14px;height:12px;background:#fff;opacity:.9}.sh-binder__stamp{
+.sh-binder__spine .sh-mark{width:14px;height:12px;background:#fff;opacity:.9}
+.sh-binder__stamp{
   position:absolute;top:8px;left:8px;z-index:3;padding:3px 9px;
   font-family:var(--sh-font);font-size:10.5px;font-weight:800;color:var(--accent-ink);
   background:rgba(255,255,255,.85);border:1.5px solid var(--accent-ink);

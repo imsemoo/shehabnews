@@ -45,7 +45,8 @@ a.sh-lang__opt:hover{background:var(--sh-on-dark-16);color:#fff}
 .sh-live:focus-visible{outline:2px solid #fff;outline-offset:2px}
 .sh-live .sh-i{font-size:13px;animation:sh-live-on 2.2s ease-in-out infinite}
 @keyframes sh-live-on{0%,100%{opacity:1}50%{opacity:.5}}
-@media (prefers-reduced-motion:reduce){.sh-live .sh-i{animation:none}}.sh-tnum{font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:reduce){.sh-live .sh-i{animation:none}}
+.sh-tnum{font-variant-numeric:tabular-nums}
 .sh-masthead__logo{justify-self:center;position:relative;display:block;padding:6px 18px;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
 .sh-masthead__logo:hover{transform:translateY(-2px)}
 .sh-masthead__logo-img{height:54px;width:auto;position:relative;filter:drop-shadow(0 6px 18px rgba(10,26,51,.35))}

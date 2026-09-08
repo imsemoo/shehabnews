@@ -1,7 +1,8 @@
 /* شهاب — video: page layout, one-off styles (scoped by section), and what
    the old per-page sheet still owned (keyframes, p/input, its own a{transition}). */
 a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background .16s ease,gap .16s ease}
-img,video{display:block}.sh-video-video-categories__nav-1{display:flex;flex-wrap:wrap;align-items:center;gap:26px;margin-top:6px;border-bottom:1px solid var(--sh-hair-4);font-size:12px;font-weight:700;font-family:var(--sh-font)}
+img,video{display:block}
+.sh-video-video-categories__nav-1{display:flex;flex-wrap:wrap;align-items:center;gap:26px;margin-top:6px;border-bottom:1px solid var(--sh-hair-4);font-size:12px;font-weight:700;font-family:var(--sh-font)}
 .sh-video-video-categories__a-1{color:var(--sh-navy);padding:14px 0 12px;border-bottom:2px solid var(--sh-blue);margin-bottom:-1px}
 .sh-video-featured-video__section-1{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:0 28px;padding:24px 0 0;align-items:start}
 .sh-video-featured-video__a-1{position:relative;display:block;background:var(--sh-navy-2);overflow:hidden;color:#fff;aspect-ratio:16/9;width:100%;min-width:0}

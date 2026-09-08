@@ -1,6 +1,7 @@
 /* شهاب — sections: page layout, one-off styles (scoped by section), and what
    the old per-page sheet still owned (keyframes, p/input, its own a{transition}). */
-a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background .16s ease,gap .16s ease,transform .3s ease}.sh-sections-section-map__section-1{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;padding:24px 0 0}
+a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background .16s ease,gap .16s ease,transform .3s ease}
+.sh-sections-section-map__section-1{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;padding:24px 0 0}
 .sh-sections-section-map__a-1{position:relative;display:block;grid-column:span 4;background:var(--sh-navy-2);color:#fff;overflow:hidden;aspect-ratio:16/9}
 .sh-sections-section-map__a-1:hover{color:#fff}
 .sh-sections-section-map__span-1{position:absolute;inset:0;overflow:hidden}

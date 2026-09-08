@@ -3,12 +3,14 @@
 a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background .16s ease,gap .16s ease}
 input{font-family:'Almarai','Noto Naskh Arabic',sans-serif}
 input::placeholder{color:var(--sh-mute)}
-input:focus{outline:none}.sh-search-search-hero__div-3{display:flex;margin-top:20px;border:1px solid var(--sh-blue);background:#fff}
+input:focus{outline:none}
+.sh-search-search-hero__div-3{display:flex;margin-top:20px;border:1px solid var(--sh-blue);background:#fff}
 .sh-search-search-hero__span-1{display:flex;align-items:center;padding:0 16px;color:var(--sh-blue)}
 .sh-search-search-hero__i-1{font-size:15px}
 .sh-search-search-hero__input-1{flex:1;min-width:0;border:none;background:none;font-size:15px;font-weight:700;color:var(--sh-navy);padding:15px 0}
 .sh-search-search-hero__button-1{background:var(--sh-blue);color:#fff;border:none;font-family:var(--sh-font);font-size:14px;font-weight:800;padding:0 34px;cursor:pointer;transition:background .18s}
-.sh-search-search-hero__button-1:hover{background:var(--sh-navy-2)}.sh-search-search-body__div-1{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;padding:24px 0 0}
+.sh-search-search-hero__button-1:hover{background:var(--sh-navy-2)}
+.sh-search-search-body__div-1{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;padding:24px 0 0}
 .sh-search-featured-result__a-1{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:28px;align-items:start;background:var(--color-surface-soft);border-inline-start:2px solid var(--sh-blue);padding:20px 20px 22px;margin:0 -20px 4px 0}
 .sh-search-featured-result__a-1:hover{color:var(--sh-blue)}
 .sh-search-featured-result__span-1{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:800;font-family:var(--sh-font);color:var(--sh-blue);border:1px solid var(--sh-hair-2);padding:3px 10px}
@@ -90,7 +92,9 @@ input:focus{outline:none}.sh-search-search-hero__div-3{display:flex;margin-top:2
 .sh-search-may-interest-you__span-2{display:flex;gap:9px;align-items:center;font-size:11.5px;margin-top:12px}
 .sh-search-may-interest-you__span-3{display:block;font-family:var(--sh-font);font-size:15px;font-weight:700;line-height:1.7;margin-top:8px;color:var(--sh-navy);text-wrap:pretty}
 .sh-search-may-interest-you__span-4{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=600");background-size:cover;background-position:center}
-.sh-search-may-interest-you__span-5{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=600");background-size:cover;background-position:center}.sh-rail__link[aria-pressed="true"]{background:var(--sh-blue);color:#fff}.sh-search__empty{margin:24px 0;padding:38px 22px;text-align:center;background:var(--color-surface-soft);font-family:var(--sh-font);font-weight:700;color:var(--sh-mute)}
+.sh-search-may-interest-you__span-5{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=600");background-size:cover;background-position:center}
+.sh-rail__link[aria-pressed="true"]{background:var(--sh-blue);color:#fff}
+.sh-search__empty{margin:24px 0;padding:38px 22px;text-align:center;background:var(--color-surface-soft);font-family:var(--sh-font);font-weight:700;color:var(--sh-mute)}
 .sh-search__empty[hidden]{display:none}
 
 /* responsive.css makes every submit button 100% wide on phones (a layered

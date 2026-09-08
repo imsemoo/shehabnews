@@ -1,6 +1,7 @@
 /* شهاب — المحفوظات (saved.html). */
 a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background .16s ease}
-p{font-family:var(--sh-serif);line-height:2}.sh-saved-body{padding:8px 0 48px;max-width:820px}
+p{font-family:var(--sh-serif);line-height:2}
+.sh-saved-body{padding:8px 0 48px;max-width:820px}
 .sh-saved__row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:start;padding:16px 0;border-bottom:1px solid var(--color-border-soft)}
 .sh-saved__body{display:flex;flex-direction:column;gap:6px;min-width:0}
 .sh-saved__body .sh-card__title{font-size:15px}

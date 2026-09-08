@@ -2,7 +2,8 @@
    the old per-page sheet still owned (keyframes, p/input, its own a{transition}). */
 a{transition:color .16s ease,background .16s ease,border-color .16s ease,gap .16s ease}
 p{font-family:var(--sh-serif);line-height:2.05}
-@keyframes sh-ring{0%{transform:scale(.55);opacity:.9}70%{opacity:.12}100%{transform:scale(1.6);opacity:0}}.sh-tag-tag-tabs__div-1{display:flex;flex-wrap:wrap;align-items:center;gap:0 22px;margin-top:16px;border-bottom:1px solid var(--sh-hair-2)}
+@keyframes sh-ring{0%{transform:scale(.55);opacity:.9}70%{opacity:.12}100%{transform:scale(1.6);opacity:0}}
+.sh-tag-tag-tabs__div-1{display:flex;flex-wrap:wrap;align-items:center;gap:0 22px;margin-top:16px;border-bottom:1px solid var(--sh-hair-2)}
 .sh-tag-tag-tabs__span-1{display:inline-flex;align-items:center;gap:8px;font-family:var(--sh-font);font-size:13px;font-weight:800;color:var(--sh-navy);padding:0 0 11px;border-bottom:2px solid var(--sh-blue);margin-bottom:-1px;white-space:nowrap}
 .sh-tag-tag-tabs__span-2{font-size:11.5px;font-weight:700;color:var(--sh-mute);font-variant-numeric:tabular-nums}
 .sh-tag-tag-tabs__span-3{display:inline-flex;align-items:center;gap:8px;font-family:var(--sh-font);font-size:13px;font-weight:700;color:var(--sh-mute);padding:0 0 11px;white-space:nowrap}
