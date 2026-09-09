@@ -67,6 +67,8 @@
   var DICT = null, busy = false;
   var ATTRS = ['alt', 'title', 'aria-label', 'placeholder'];
   var SKIP = { SCRIPT: 1, STYLE: 1, NOSCRIPT: 1, TEXTAREA: 1, CODE: 1 };
+  // the switch says عربي / EN in both languages: never translate its own labels
+  function switchLabel(n) { return !!(n && n.closest && n.closest('[data-sh-lang]')); }
 
   /* Composed strings: the scripts glue words to numbers, so the whole string is
      never a dictionary key. Split it on the separators the site uses, translate
@@ -110,9 +112,18 @@
     return ok && ar ? out.replace(/\u060c/g, ',') : null;
   }
 
+  var AGO = { '\u062f': 'min', '\u062f\u0642\u064a\u0642\u0629': 'minute', '\u062f\u0642\u0627\u0626\u0642': 'minutes',
+              '\u0633': 'h', '\u0633\u0627\u0639\u0629': 'hour', '\u0633\u0627\u0639\u0627\u062a': 'hours',
+              '\u064a\u0648\u0645': 'day', '\u0623\u064a\u0627\u0645': 'days', '\u0623\u0633\u0628\u0648\u0639': 'week',
+              '\u0623\u0633\u0627\u0628\u064a\u0639': 'weeks', '\u0634\u0647\u0631': 'month', '\u0634\u0647\u0648\u0631': 'months',
+              '\u0633\u0646\u0629': 'year', '\u0633\u0646\u0648\u0627\u062a': 'years' };
+
   function composed(s) {
     var v = look(s);
     if (v != null) return v;
+    // "منذ 9 د" -> "9 min ago": English puts the number and the unit first
+    var ago = s.match(/^\u0645\u0646\u0630\s+(\d+)\s*([\u0600-\u06FF]+)$/);
+    if (ago && AGO[ago[2]]) return ago[1] + ' ' + AGO[ago[2]] + ' ago';
     // 11:35 ص / 10:06 م -> am / pm, before the words are looked up
     s = s.replace(/(\d{1,2}:\d{2})\s*ص(?![؀-ۿ])/g, '$1 am')
          .replace(/(\d{1,2}:\d{2})\s*م(?![؀-ۿ])/g, '$1 pm');
@@ -147,11 +158,15 @@
     if (!DICT || !root) return;
     busy = true;
     try {
-      if (root.nodeType === 3) { var t = tr(root.nodeValue); if (t != null) root.nodeValue = t; }
+      if (root.nodeType === 3) {
+        if (switchLabel(root.parentNode)) return;
+        var t = tr(root.nodeValue); if (t != null) root.nodeValue = t;
+      }
       else if (root.nodeType === 1) {
         var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
           acceptNode: function (n) {
-            return SKIP[n.parentNode && n.parentNode.nodeName] ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+            return SKIP[n.parentNode && n.parentNode.nodeName] || switchLabel(n.parentNode)
+              ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
           }
         });
         var n, hits = [];
