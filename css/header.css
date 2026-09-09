@@ -15,11 +15,12 @@
 /* ---- language switch: a segmented control, not a bare word ---- */
 .sh-lang{display:inline-flex;align-items:stretch;border:1px solid var(--sh-on-dark-30);line-height:1}
 .sh-lang__opt{
+  appearance:none;margin:0;border:0;background:transparent;cursor:pointer;line-height:1;
   display:flex;align-items:center;padding:4px 9px;font-family:var(--sh-font);font-size:11.5px;font-weight:800;
   color:var(--sh-on-dark-72);transition:background .16s ease,color .16s ease;
 }
 .sh-lang__opt--on{background:#fff;color:var(--sh-navy);cursor:default}
-a.sh-lang__opt:hover{background:var(--sh-on-dark-16);color:#fff}
+.sh-lang__opt:not(.sh-lang__opt--on):hover{background:var(--sh-on-dark-16);color:#fff}
 .sh-lang__opt:focus-visible{outline:2px solid var(--sh-sky);outline-offset:1px}
 .sh-header__body{position:relative;z-index:3}
 .sh-header__sky{display:none}

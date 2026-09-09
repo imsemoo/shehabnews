@@ -22,7 +22,7 @@ import os, re, json
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 
-V = '208'
+V = '209'
 SITE = 'https://shehabnews.com/'
 ORG = 'وكالة شهاب للأنباء'
 OG_IMG = SITE + 'assets/images/og-default.jpg'
@@ -57,12 +57,16 @@ PAGES = {
     'saved':       ('المحفوظات', 'المواد التي حفظتها لتقرأها لاحقًا.', 'page', None),
 }
 NO_CHROME = {'shorts', 'offline'}          # immersive / standalone pages keep their own frame
-CORE_SCRIPTS = ['js/ui.js', 'js/chrome.js', 'js/feed.js', 'js/app.js', 'js/responsive.js', 'js/widgets.js', 'js/brief.js', 'js/searchbox.js', 'js/push.js', 'js/pwa.js']
+CORE_SCRIPTS = ['js/ui.js', 'js/lang.js', 'js/chrome.js', 'js/feed.js', 'js/app.js', 'js/responsive.js', 'js/widgets.js', 'js/brief.js', 'js/searchbox.js', 'js/push.js', 'js/pwa.js']
 PRELOAD_FONTS = ['assets/fonts/almarai-400-arabic.woff2', 'assets/fonts/almarai-700-arabic.woff2',
                  'assets/fonts/almarai-800-arabic.woff2', 'assets/fonts/noto-naskh-arabic-arabic.woff2']
 NO_PRERENDER = ['/live.html', '/reels.html', '/shorts.html', '/video-watch.html', '/now.html', '/map.html']
 
 HEAD_RX = re.compile(r'<head>.*?</head>', re.S)
+# runs before any stylesheet: the stored language sets lang/dir on <html>, so an
+# English visitor never sees an RTL flash. js/lang.js owns the switch itself.
+LANG_PRELUDE = ('<script>(function(){try{if(localStorage.getItem("sh-lang")==="en")'
+                '{var h=document.documentElement;h.lang="en";h.dir="ltr"}}catch(e){}})()</script>')
 HEADER_MARK = re.compile(r'<!-- sh:header -->.*?<!-- /sh:header -->', re.S)
 FOOTER_MARK = re.compile(r'<!-- sh:footer -->.*?<!-- /sh:footer -->', re.S)
 HEADER_TAG = re.compile(r'<header[^>]*data-screen-label="Header"[^>]*>.*?</header>', re.S)
@@ -154,6 +158,9 @@ def build_head(page, html, old_head):
             else:
                 anchor = links[-1]
             links.insert(links.index(anchor) + 1, extra)
+    if 'css/ltr.css' in links:
+        links.remove('css/ltr.css')
+    links.append('css/ltr.css')   # the LTR mirror always loads last
     theme = '#0a1a33' if page in ('shorts', 'now') else '#1b5aa6'
     robots = 'noindex, follow' if typ in ('error', 'search') else 'index, follow, max-image-preview:large'
     ogtype = 'article' if typ == 'article' else 'website'
@@ -165,6 +172,7 @@ def build_head(page, html, old_head):
         '<meta name="robots" content="%s">' % robots,
         '<link rel="canonical" href="%s">' % url,
         '<meta name="theme-color" content="%s">' % theme,
+        LANG_PRELUDE,
         '<meta name="color-scheme" content="light">',
         '<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">',
         '<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">',

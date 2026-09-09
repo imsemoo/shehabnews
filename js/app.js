@@ -28,13 +28,14 @@
   /* 1. Header clock + Gregorian/Hijri date -------------------------------- */
   function paintDate() {
     var d = new Date();
-    var fmt = function (o) { return new Intl.DateTimeFormat('ar-EG-u-nu-latn', o).format(d); };
+    var loc = document.documentElement.lang === 'en' ? 'en-GB-u-nu-latn' : 'ar-EG-u-nu-latn';
+    var fmt = function (o) { return new Intl.DateTimeFormat(loc, o).format(d); };
     var set = function (sel, txt) {
       document.querySelectorAll(sel).forEach(function (el) { el.textContent = txt; });
     };
     set('[data-sh="date"]', fmt({ weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }));
     try {
-      set('[data-sh="hijri"]', new Intl.DateTimeFormat('ar-EG-u-ca-islamic-umalqura-nu-latn',
+      set('[data-sh="hijri"]', new Intl.DateTimeFormat(loc.replace('-u-', '-u-ca-islamic-umalqura-'),
         { day: 'numeric', month: 'long', year: 'numeric' }).format(d));
     } catch (e) { /* locale unavailable */ }
     set('[data-sh="clock"]', fmt({ hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Jerusalem' }));

@@ -20,13 +20,18 @@
 
 ```bash
 python tools/chrome.py      # يعيد بناء <head> + الهيدر + الفوتر + ترتيب السكربتات في كل صفحة، ويرفع ?v=N ويزامن sw.js
+python tools/ltr.py         # (بعد أي تعديل CSS) يولّد css/ltr.css — مرآة LTR لكل قاعدة متعلّقة بالاتجاه
 python tools/a11y.py        # (بعد أي CSS جديد) يولّد حدّ 12px للخط على الموبايل في responsive.css
 python tools/search_index.py   # (بعد تغيير المحتوى) يعيد بناء data/search-index.json
 ```
 
 ارفع `V` في `tools/chrome.py` بعد أي تعديل CSS/JS. `partials/header.html` و`partials/footer.html` هما **مصدر الحقيقة**؛ الصفحات تحمل نسخة بين علامتي `sh:header` / `sh:footer`. لا تعدّل الهيدر داخل صفحة مباشرة.
 
-أدوات المرحلة الأولى تعمل مرة واحدة وهي idempotent: `tools/icons.py` (سبرايت الأيقونات من خطوط FA في `tools/fonts/`)، `tools/images.py` (WebP + أبعاد)، `tools/brand.py` (favicon/أيقونات PWA/OG)، `tools/times.py` (`<time data-sh-ago>`)، `tools/phase1_pages.py`، `tools/phase1_links.py`، `tools/phase2_hooks.py`، `tools/phase3_hooks.py`، `tools/geo.py` (نقاط الخريطة التوضيحية)، `tools/restore_prelude.py` (يستعيد ما بين الهيدر و`<main>` من آخر كوميت لو ضاع).
+أدوات مرة واحدة وهي idempotent: `tools/icons.py` (سبرايت الأيقونات من خطوط FA في `tools/fonts/`)، `tools/images.py` (WebP + أبعاد)، `tools/brand.py` (favicon/أيقونات PWA/OG)، `tools/geo.py` (نقاط الخريطة التوضيحية).
+
+## اللغة
+
+المفتاح في التوب-بار زرّان `[data-sh-lang]`. الاختيار يُحفظ في `localStorage['sh-lang']`، وسطر صغير في `<head>` (يكتبه `tools/chrome.py`) يضبط `lang`/`dir` على `<html>` قبل أول رسم، فلا تلمح الصفحة الاتجاه الآخر. `css/ltr.css` — مولَّد بـ`tools/ltr.py` ومحمّل أخيرًا — يعكس كل قاعدة متعلّقة بالاتجاه تحت `html[dir="ltr"]`، والخصائص المنطقية تنقلب وحدها. `js/lang.js` يترجم نصوص الهيدر والفوتر عبر مفاتيح `data-i18n` (و`data-i18n-aria` / `-placeholder` / `-title` / `-alt`). محتوى الصفحات نفسه عربي: الإنجليزية تأتي من الـCMS على نفس المفاتيح. عند التركيب على باكند: اطبع `<html lang="en" dir="ltr">` من السيرفر، حمّل `css/ltr.css`، واستبدل قاموس `EN` في `js/lang.js` بترجمات الباكند.
 
 ### الطبقات الجديدة
 
