@@ -255,10 +255,25 @@
     if (lang !== current()) set(lang);
   });
 
+  /* the tab, and the title a shared link carries */
+  function title() {
+    var t = tr(document.title);
+    if (t != null) document.title = t;
+    document.querySelectorAll('meta[property="og:title"], meta[name="twitter:title"], meta[property="og:description"], meta[name="description"]').forEach(function (m) {
+      var v = tr(m.getAttribute('content') || '');
+      if (v != null) m.setAttribute('content', v);
+    });
+  }
+
   function start() {
     var lang = current();
     apply(lang);
-    if (lang === 'en') { DICT = window.SH_I18N_EN || null; walk(document.body); watch(); }
+    if (lang === 'en') {
+      DICT = window.SH_I18N_EN || null;
+      walk(document.body);
+      title();
+      watch();
+    }
     document.documentElement.removeAttribute('data-i18n-wait');
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
