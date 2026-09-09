@@ -75,7 +75,7 @@
      each piece, and accept the result only when every Arabic piece was known —
      an ordinary sentence keeps one unknown word and is left in Arabic. */
   var ARABIC = /[\u0600-\u06FF]/;
-  var SEP = /(\s*[·—|،,]\s*|\s+[-]\s+|\s*\/\s*)/;
+  var SEP = /(\s*[·—|،,]\s*|\s+[-]\s+|\s*\/\s*|:\s+)/;
 
   function look(k) {
     if (!k) return null;
@@ -130,6 +130,17 @@
     v = look(s);
     if (v != null) return v;
     if (s.length > 160) return null;
+    // "<label><sep><the rest>": translate the label, then the rest as a whole
+    var lead = /^([^:·—|]{1,40})(:\s+|\s*[·—|]\s*)([\s\S]+)$/.exec(s);
+    if (lead) {
+      var head = look(lead[1]);
+      if (head != null) {
+        var rest = composed(lead[3]);
+        if (rest != null) {
+          return lead[1].match(/^\s*/)[0] + head + lead[1].match(/\s*$/)[0] + lead[2] + rest;
+        }
+      }
+    }
     var parts = s.split(SEP);
     if (parts.length < 2) return piece(s);
     var out = '', hit = false;

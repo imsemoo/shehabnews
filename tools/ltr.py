@@ -68,6 +68,8 @@ def mirror(prop, val):
         if len(vals) == 4 and vals[1] != vals[3]:
             out.append((prop, ' '.join([vals[0], vals[3], vals[2], vals[1]]) + imp))
         return out
+    if prop == 'direction' and val.strip() == 'rtl':
+        return [(prop, 'ltr' + imp)]
     if prop == 'text-align' and val in SWAP:
         return [(prop, SWAP[val] + imp)]
     if prop in ('float', 'clear') and val in SWAP:
@@ -158,10 +160,15 @@ for sh in sheets:
         if sel.startswith('html[dir="ltr"]') or DIR_RTL.search(sel):
             continue
         decls = split_decls(body)
-        # an explicit direction is content isolation (numerals, latin runs), not
-        # layout: keep mirroring the box, but leave its own text alignment alone
-        isolated = any(p == 'direction' for p, v in decls)
-        decls = [(p, v) for p, v in decls if p != 'direction' and not (isolated and p == 'text-align')]
+        # `direction: ltr` isolates a latin or numeric run and reads the same in
+        # both languages, so it is left alone — and so is the text alignment of
+        # the rule that carries it. `direction: rtl` is the page direction
+        # restated inside a player, a toast or a shadow tree, and has to flip:
+        # without it an English line there renders with its punctuation reversed.
+        isolated = any(p == 'direction' and v.strip().startswith('ltr') for p, v in decls)
+        decls = [(p, v) for p, v in decls
+                 if not (p == 'direction' and v.strip().startswith('ltr'))
+                 and not (isolated and p == 'text-align')]
         sib = rtl_sib.get((media, ','.join(x.strip() for x in sel.split(','))), {})
         decls = [(p, v) for p, v in decls if not (p in sib and sib[p] != v)]
         m = mirror_all(decls)
