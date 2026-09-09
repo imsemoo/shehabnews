@@ -4,10 +4,37 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>غير متصل | وكالة شهاب للأنباء</title>
-<meta name="robots" content="noindex">
-<meta name="theme-color" content="#0a1a33">
+<meta name="description" content="هذه الصفحة محفوظة على جهازك من آخر زيارة.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://shehabnews.com/offline.html">
+<meta name="theme-color" content="#1b5aa6">
+<script>(function(){try{if(localStorage.getItem("sh-lang")==="en"){var h=document.documentElement;h.lang="en";h.dir="ltr";h.setAttribute("data-i18n-wait","");document.write('<script src="js/i18n-en.js?v=209"><\/script>');setTimeout(function(){h.removeAttribute("data-i18n-wait")},1500)}}catch(e){}})()</script>
+<meta name="color-scheme" content="light">
 <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="وكالة شهاب للأنباء">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:title" content="غير متصل">
+<meta property="og:description" content="هذه الصفحة محفوظة على جهازك من آخر زيارة.">
+<meta property="og:url" content="https://shehabnews.com/offline.html">
+<meta property="og:image" content="https://shehabnews.com/assets/images/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ShehabAgency">
+<link rel="alternate" type="application/rss+xml" title="شهاب — كل الأخبار" href="https://shehabnews.com/rss/category/all">
+<link rel="alternate" hreflang="ar" href="https://shehabnews.com/offline.html">
+<link rel="alternate" hreflang="en" href="https://shehabnews.com/post/category/35/EN">
+<link rel="preload" href="assets/fonts/almarai-400-arabic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/almarai-700-arabic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/almarai-800-arabic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/noto-naskh-arabic-arabic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/fonts.css?v=209">
+<link rel="stylesheet" href="css/chrome.css?v=209">
+<link rel="stylesheet" href="css/feed.css?v=209">
+<link rel="stylesheet" href="css/ltr.css?v=209">
 <style>
   /* self-contained on purpose: this page is served from the cache when nothing else is */
   html,body{margin:0;min-height:100%;background:#0a1a33;color:#fff;font-family:'Almarai',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
@@ -33,8 +60,8 @@
   .off__state[data-online] .off__dot{background:#43c47a}
 </style>
 </head>
-<body>
-<main class="off">
+<body data-sh-page="offline">
+<main id="main" class="off">
   <div class="off__box">
     <img src="assets/images/logo-white.png" width="583" height="377" alt="شهاب" class="off__logo">
     <span class="off__mark" aria-hidden="true"></span>
@@ -76,5 +103,7 @@
     }).catch(function () {});
   })();
 </script>
+<script src="js/ui.js?v=209" defer></script>
+<script src="js/lang.js?v=209" defer></script>
 </body>
 </html>

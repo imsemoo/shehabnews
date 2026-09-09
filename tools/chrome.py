@@ -51,12 +51,14 @@ PAGES = {
     'privacy':     ('سياسة الخصوصية', 'كيف تتعامل شهاب مع بياناتك وملفات تعريف الارتباط.', 'page', None),
     'terms':       ('شروط الاستخدام', 'شروط استخدام موقع وخدمات وكالة شهاب للأنباء.', 'page', None),
     '404':         ('الصفحة غير موجودة', 'يبدو أن هذه الصفحة خرجت من التغطية.', 'error', None),
+    'offline':     ('غير متصل', 'هذه الصفحة محفوظة على جهازك من آخر زيارة.', 'error', None),
+    'system-states': ('شهاب — System States', 'مرجع حالات الواجهة: فارغ، تحميل، خطأ، ونماذج.', 'error', None),
     'now':         ('الآن — غرفة أخبار شهاب', 'شاشة واحدة لكل ما يحدث الآن: البث، التحديثات الحية، الخريطة، والأرقام.', 'liveblog', None),
     'map':         ('خريطة الخروقات', 'كل خرق وثّقته شهاب على خريطة القطاع والضفة بالتاريخ والموقع والمصدر.', 'page', None),
     'data':        ('مكتب البيانات', 'أرقام الحرب والوضع الإنساني في غزة والضفة بالمصادر، محدّثة.', 'page', None),
     'saved':       ('المحفوظات', 'المواد التي حفظتها لتقرأها لاحقًا.', 'page', None),
 }
-NO_CHROME = {'shorts', 'offline'}          # immersive / standalone pages keep their own frame
+NO_CHROME = {'shorts', 'offline', 'system-states'}   # immersive / standalone pages keep their own frame
 CORE_SCRIPTS = ['js/ui.js', 'js/lang.js', 'js/chrome.js', 'js/feed.js', 'js/app.js', 'js/responsive.js', 'js/widgets.js', 'js/brief.js', 'js/searchbox.js', 'js/push.js', 'js/pwa.js']
 PRELOAD_FONTS = ['assets/fonts/almarai-400-arabic.woff2', 'assets/fonts/almarai-700-arabic.woff2',
                  'assets/fonts/almarai-800-arabic.woff2', 'assets/fonts/noto-naskh-arabic-arabic.woff2']
@@ -198,6 +200,10 @@ def build_head(page, html, old_head):
         out.append('<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' % f)
     for l in links:
         out.append('<link rel="stylesheet" href="%s?v=%s">' % (l, V))
+    # a page may carry its own inline style (offline.html is self-contained on
+    # purpose: it is served from the cache when nothing else loads)
+    for st in re.findall(r'<style>.*?</style>', old_head, re.S):
+        out.append(st)
     if typ != 'error':
         rules = {'prerender': [{'where': {'and': [{'href_matches': '/*.html'}, {'not': {'href_matches': NO_PRERENDER}}]}, 'eagerness': 'moderate'}]}
         out.append('<script type="speculationrules">' + json.dumps(rules) + '</script>')

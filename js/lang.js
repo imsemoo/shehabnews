@@ -263,6 +263,16 @@
       var v = tr(m.getAttribute('content') || '');
       if (v != null) m.setAttribute('content', v);
     });
+    // the search page rewrites its own title after load
+    var el = document.querySelector('title');
+    if (el && window.MutationObserver && !el.__shWatched) {
+      el.__shWatched = true;
+      new MutationObserver(function () {
+        if (busy) return;
+        var t2 = tr(document.title);
+        if (t2 != null && t2 !== document.title) { busy = true; document.title = t2; busy = false; }
+      }).observe(el, { childList: true, characterData: true, subtree: true });
+    }
   }
 
   function start() {
