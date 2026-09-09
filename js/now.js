@@ -10,8 +10,9 @@
   if (!root) return;
   var clock = root.querySelector('[data-sh-now-clock]');
   var date = root.querySelector('[data-sh-now-date]');
-  var fmtT = new Intl.DateTimeFormat('ar-EG-u-nu-latn', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Asia/Jerusalem' });
-  var fmtD = new Intl.DateTimeFormat('ar-EG-u-nu-latn', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'Asia/Jerusalem' });
+  var loc = document.documentElement.lang === 'en' ? 'en-GB-u-nu-latn' : 'ar-EG-u-nu-latn';
+  var fmtT = new Intl.DateTimeFormat(loc, { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Asia/Jerusalem' });
+  var fmtD = new Intl.DateTimeFormat(loc, { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'Asia/Jerusalem' });
   function tick() {
     var d = new Date();
     if (clock) clock.textContent = fmtT.format(d);

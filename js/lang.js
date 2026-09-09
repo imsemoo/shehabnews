@@ -58,6 +58,134 @@
     'consent.link': 'privacy policy', 'consent.essential': 'Essential only', 'consent.all': 'Accept all'
   };
 
+
+  /* ---- page content -------------------------------------------------------
+     The chrome translates by key. Everything else translates by its own Arabic
+     text: js/i18n-en.js maps each string the site shows to its English twin, so
+     no page markup carries translation attributes and the reference pages stay
+     byte-identical. Strings the dictionary does not know are left in Arabic. */
+  var DICT = null, busy = false;
+  var ATTRS = ['alt', 'title', 'aria-label', 'placeholder'];
+  var SKIP = { SCRIPT: 1, STYLE: 1, NOSCRIPT: 1, TEXTAREA: 1, CODE: 1 };
+
+  /* Composed strings: the scripts glue words to numbers, so the whole string is
+     never a dictionary key. Split it on the separators the site uses, translate
+     each piece, and accept the result only when every Arabic piece was known —
+     an ordinary sentence keeps one unknown word and is left in Arabic. */
+  var ARABIC = /[\u0600-\u06FF]/;
+  var SEP = /(\s*[·—|،,]\s*|\s+[-]\s+|\s*\/\s*)/;
+
+  function look(k) {
+    if (!k) return null;
+    var v = DICT[k];
+    if (v != null) return v;
+    v = DICT[k.replace(/^[\s·—|،,\-]+|[\s·—|،,\-]+$/g, '')];
+    return v == null ? null : v;
+  }
+
+  function piece(s) {
+    // "منذ 9 د" / "تحديث 11:30" / "الرطوبة 24%" — words around numbers
+    var v = look(s);
+    if (v != null) return v;
+    if (!ARABIC.test(s)) return s;
+    if (s.length > 90) return null;
+    var ok = true, ar = 0;
+    var out = s.replace(/[\u0600-\u06FF]+(?:[ \u00a0][\u0600-\u06FF]+)*/g, function (w) {
+      ar++;
+      var t = look(w);
+      if (t != null) return t;
+      var words = w.split(/[ \u00a0]+/);
+      if (words.length > 1 && words.length <= 4) {   // "الطقس في القدس"
+        var parts = [], good = true;
+        for (var i = 0; i < words.length; i++) {
+          var x = look(words[i]);
+          if (x == null) { good = false; break; }
+          parts.push(x);
+        }
+        if (good) return parts.join(' ');
+      }
+      ok = false;
+      return w;
+    });
+    return ok && ar ? out.replace(/\u060c/g, ',') : null;
+  }
+
+  function composed(s) {
+    var v = look(s);
+    if (v != null) return v;
+    // 11:35 ص / 10:06 م -> am / pm, before the words are looked up
+    s = s.replace(/(\d{1,2}:\d{2})\s*ص(?![؀-ۿ])/g, '$1 am')
+         .replace(/(\d{1,2}:\d{2})\s*م(?![؀-ۿ])/g, '$1 pm');
+    v = look(s);
+    if (v != null) return v;
+    if (s.length > 160) return null;
+    var parts = s.split(SEP);
+    if (parts.length < 2) return piece(s);
+    var out = '', hit = false;
+    for (var i = 0; i < parts.length; i++) {
+      if (i % 2) { out += parts[i]; continue; }        // the separator itself
+      var p = parts[i].trim();
+      if (!p) { out += parts[i]; continue; }
+      var t = piece(p);
+      if (t == null) return null;
+      if (t !== p) hit = true;
+      out += parts[i].replace(p, t);
+    }
+    return hit ? out.replace(/،/g, ',') : null;
+  }
+
+  function tr(s) {
+    if (!DICT || !s) return null;
+    var k = s.replace(/\s+/g, ' ').trim();
+    if (!k || k.length > 1200) return null;
+    var v = composed(k);
+    if (v == null || v === k) return null;
+    return s.match(/^\s*/)[0] + v + s.match(/\s*$/)[0];
+  }
+
+  function walk(root) {
+    if (!DICT || !root) return;
+    busy = true;
+    try {
+      if (root.nodeType === 3) { var t = tr(root.nodeValue); if (t != null) root.nodeValue = t; }
+      else if (root.nodeType === 1) {
+        var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+          acceptNode: function (n) {
+            return SKIP[n.parentNode && n.parentNode.nodeName] ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+          }
+        });
+        var n, hits = [];
+        while ((n = w.nextNode())) hits.push(n);
+        for (var i = 0; i < hits.length; i++) { var v = tr(hits[i].nodeValue); if (v != null) hits[i].nodeValue = v; }
+        var els = root.querySelectorAll('[alt],[title],[aria-label],[placeholder]');
+        var all = root.matches && root.matches('[alt],[title],[aria-label],[placeholder]') ? [root].concat([].slice.call(els)) : els;
+        for (var j = 0; j < all.length; j++) {
+          for (var a = 0; a < ATTRS.length; a++) {
+            var cur = all[j].getAttribute(ATTRS[a]);
+            if (cur) { var e = tr(cur); if (e != null) all[j].setAttribute(ATTRS[a], e); }
+          }
+        }
+      }
+    } finally { busy = false; }
+  }
+
+  function watch() {
+    if (!window.MutationObserver) return;
+    new MutationObserver(function (recs) {
+      if (busy || !DICT) return;
+      for (var i = 0; i < recs.length; i++) {
+        var r = recs[i];
+        if (r.type === 'characterData') walk(r.target);
+        else if (r.type === 'attributes') {
+          // the clock, the weather and the rates write their labels after load
+          var cur = r.target.getAttribute(r.attributeName);
+          if (cur) { var e = tr(cur); if (e != null) { busy = true; r.target.setAttribute(r.attributeName, e); busy = false; } }
+        } else for (var j = 0; j < r.addedNodes.length; j++) walk(r.addedNodes[j]);
+      }
+    }).observe(document.body, { childList: true, subtree: true, characterData: true,
+                                attributes: true, attributeFilter: ATTRS });
+  }
+
   function current() {
     try { return localStorage.getItem(KEY) === 'en' ? 'en' : 'ar'; } catch (e) { return 'ar'; }
   }
@@ -112,8 +240,13 @@
     if (lang !== current()) set(lang);
   });
 
-  function start() { apply(current()); }
+  function start() {
+    var lang = current();
+    apply(lang);
+    if (lang === 'en') { DICT = window.SH_I18N_EN || null; walk(document.body); watch(); }
+    document.documentElement.removeAttribute('data-i18n-wait');
+  }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 
-  window.ShLang = { get: current, set: set, apply: apply, EN: EN };
+  window.ShLang = { get: current, set: set, apply: apply, EN: EN, walk: walk, dict: function () { return DICT; } };
 })();

@@ -65,8 +65,10 @@ NO_PRERENDER = ['/live.html', '/reels.html', '/shorts.html', '/video-watch.html'
 HEAD_RX = re.compile(r'<head>.*?</head>', re.S)
 # runs before any stylesheet: the stored language sets lang/dir on <html>, so an
 # English visitor never sees an RTL flash. js/lang.js owns the switch itself.
-LANG_PRELUDE = ('<script>(function(){try{if(localStorage.getItem("sh-lang")==="en")'
-                '{var h=document.documentElement;h.lang="en";h.dir="ltr"}}catch(e){}})()</script>')
+LANG_PRELUDE = ('<script>(function(){try{if(localStorage.getItem("sh-lang")==="en"){'
+                'var h=document.documentElement;h.lang="en";h.dir="ltr";h.setAttribute("data-i18n-wait","");'
+                'document.write(\'<script src="js/i18n-en.js?v=%s"><\\/script>\');'
+                'setTimeout(function(){h.removeAttribute("data-i18n-wait")},1500)}}catch(e){}})()</script>' % V)
 HEADER_MARK = re.compile(r'<!-- sh:header -->.*?<!-- /sh:header -->', re.S)
 FOOTER_MARK = re.compile(r'<!-- sh:footer -->.*?<!-- /sh:footer -->', re.S)
 HEADER_TAG = re.compile(r'<header[^>]*data-screen-label="Header"[^>]*>.*?</header>', re.S)
@@ -272,7 +274,7 @@ def sync(page):
     modules = set(x for x, attrs in found if 'type="module"' in attrs or x == 'assets/vendor/vidstack/vidstack.js')   # ESM stays ESM
     scripts = [x for x, _ in found]
     extras = [x for x in scripts if x not in CORE_SCRIPTS]
-    order = (CORE_SCRIPTS if page not in NO_CHROME else ['js/ui.js']) + extras
+    order = (CORE_SCRIPTS if page not in NO_CHROME else ['js/ui.js', 'js/lang.js']) + extras
     tags = '\n'.join('<script src="%s?v=%s" %s></script>' % (x, V, 'type="module"' if x in modules else 'defer') for x in order)
     s = re.sub(r'\s*</body>', '\n' + tags + '\n</body>', s, count=1)
     # cache-bust
