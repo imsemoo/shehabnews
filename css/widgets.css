@@ -5,6 +5,9 @@
 /* ------------------------------------------------------------ weather chip */
 .sh-wx{position:relative;display:inline-flex;align-items:center;font-family:var(--sh-font)}
 .sh-wx[hidden]{display:none}
+.sh-wx__btn{position:relative}
+/* the drawn control stays as it is; the target it answers to is 44px tall */
+.sh-wx__btn::before{content:"";position:absolute;inset-block:-13px;inset-inline:0}
 .sh-wx__btn{
   display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border:0;background:rgba(255,255,255,.06);color:#fff;
   font-family:var(--sh-font);font-size:12px;font-weight:700;line-height:1;cursor:pointer;transition:background .16s ease;

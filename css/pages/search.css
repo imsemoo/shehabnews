@@ -43,7 +43,7 @@ input::placeholder{color:var(--sh-mute)}
 .sh-search-search-rail__aside-1{align-self:start;position:sticky;top:24px}
 .sh-search-search-rail__div-1{display:flex;flex-wrap:wrap;gap:0 18px;padding-top:12px;font-size:12px;font-weight:700;font-family:var(--sh-font)}
 .sh-search-search-rail__div-2{display:flex;align-items:center;justify-content:space-between;background:var(--sh-navy);color:#fff;padding:10px 14px}
-.sh-search-search-rail__h2-1{font-family:var(--sh-font);font-size:13px;font-weight:800;margin:0;display:flex;align-items:center;gap:9px}
+.sh-search-search-rail__h2-1{gap:9px}
 .sh-search-search-rail__span-1{width:6px;height:6px;background:var(--sh-red);border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite}
 .sh-search-search-rail__a-1{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;color:var(--sh-sky);font-weight:700}
 .sh-search-search-rail__a-1:hover{color:#fff}
@@ -67,7 +67,7 @@ input::placeholder{color:var(--sh-mute)}
 .sh-search-discovery-strip__span-2{display:none}
 .sh-search-discovery-strip__div-1{position:relative;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
 .sh-search-discovery-strip__span-3{display:none}
-.sh-search-discovery-strip__h2-1{font-family:var(--sh-font);font-size:22px;font-weight:800;margin:8px 0 0;display:flex;align-items:center;gap:10px;color:var(--sh-navy)}
+.sh-search-discovery-strip__h2-1{margin:8px 0 0}
 .sh-search-discovery-strip__span-4{font-size:11.5px;color:var(--sh-mute)}
 /* the shared eyebrow is sky for dark grounds; on the tint it takes the pointer
    blue, and drops the tracking the type contract forbids */

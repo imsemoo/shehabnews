@@ -49,16 +49,33 @@
 .sh-meta.sh-meta--blue{display:flex;gap:9px;align-items:center;font-size:11.5px;color:var(--sh-blue);font-weight:700;font-family:var(--sh-font)}
 .sh-meta__time.sh-meta__time--plain{color:var(--sh-mute);font-weight:400;font-variant-numeric:tabular-nums}
 .sh-rule{flex:1;height:1px;background:transparent}
+/* the same head on a navy rail: type from the component, colour from here */
+.sh-section__title.sh-section__title--on-dark{color:#fff}
 .sh-section__title.sh-section__title--md{font-family:var(--sh-font);font-size:16px;font-weight:800;margin:0;color:var(--sh-navy);display:flex;align-items:center;gap:10px}
 .sh-tile.sh-tile--16x9{position:relative;display:block;background:var(--sh-navy-2);overflow:hidden;aspect-ratio:16/9}
 .sh-meta__cat{color:var(--sh-blue);font-weight:700;font-family:var(--sh-font)}
 .sh-pager__btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--sh-ink-2);border:1px solid var(--sh-hair-4);font-variant-numeric:tabular-nums}
+.sh-pager__btn[aria-disabled="true"]{pointer-events:none}
 .sh-pager__btn:hover{border-color:var(--sh-blue);color:var(--sh-blue)}
 .sh-eyebrow{display:flex;align-items:center;gap:9px;font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:var(--sh-sky)}
 .sh-timeline__tick{position:absolute;top:9px;right:9px;width:26px;height:1px;background:var(--sh-blue);opacity:.35}
 .sh-archive__count{display:block;font-size:11px;color:var(--sh-mute);margin-top:7px;font-variant-numeric:tabular-nums}
 .sh-timeline__node{position:absolute;top:5px;right:0;width:16px;height:13px;background:#fff;border:2px solid var(--sh-blue)}
-.sh-list__num.sh-list__num--big{font-family:var(--sh-font);font-size:22px;font-weight:800;color:#c9d8ec;line-height:1.1;font-variant-numeric:tabular-nums;text-align:center}
+/* the plate that replaces an image that did not arrive: the mark on navy
+   with one diagonal, so the slot reads as identity and not as a break.
+   Drawn by js/app.js when an image fails; the same recipe as
+   system-states.html section 02. */
+/* nothing to show: say what the place is, and give one way on.
+   The shape system-states.html documents — a side rule, a short title,
+   one line, one action. */
+.sh-empty{border-inline-start:3px solid var(--sh-blue);padding:14px 18px;display:grid;gap:7px;justify-items:start;background:var(--sh-hair-6)}
+.sh-empty[hidden]{display:none}   /* a class with a display beats the [hidden] default */
+.sh-empty__t{font-family:var(--sh-font);font-size:15px;font-weight:800;color:var(--sh-navy)}
+.sh-empty__p{font-size:13px;line-height:1.7;color:var(--sh-grey-2);max-width:56ch}
+.sh-noimg{position:relative;display:block;overflow:hidden;background:var(--sh-navy)}
+.sh-noimg__d{position:absolute;inset:0;background:linear-gradient(to left top,transparent 49.6%,rgba(126,168,221,.22) 49.8%,rgba(126,168,221,.22) 50.2%,transparent 50.4%)}
+.sh-noimg__logo{position:absolute;inset:0;margin:auto;width:34%;height:auto;opacity:.14}
+.sh-list__num.sh-list__num--big{font-family:var(--sh-font);font-size:22px;font-weight:800;color:var(--color-text-faint);line-height:1.1;font-variant-numeric:tabular-nums;text-align:center}
 .sh-mt-28{margin-top:28px}
 .sh-rail__link{color:var(--sh-ink-2);padding:6px 0}
 .sh-rail__link:hover{color:var(--sh-blue)}

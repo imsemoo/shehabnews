@@ -32,6 +32,7 @@ html[dir="ltr"] .sh-chevron{border-left:1px solid var(--sh-grey-1);border-right:
 html[dir="ltr"] .sh-rail__item{padding:12px 0 12px 14px}
 html[dir="ltr"] .sh-timeline__tick{left:9px;right:auto}
 html[dir="ltr"] .sh-timeline__node{left:0;right:auto}
+html[dir="ltr"] .sh-noimg__d{background:linear-gradient(to right top,transparent 49.6%,rgba(126,168,221,.22) 49.8%,rgba(126,168,221,.22) 50.2%,transparent 50.4%)}
 html[dir="ltr"] .sh-hub__stack{margin:10px 10px 0 0}
 html[dir="ltr"] .sh-hubcard[data-state="past"]{transform:translateX(115%) rotate(-3deg)}
 html[dir="ltr"] .sh-binder::after{right:-14px;left:-14px}

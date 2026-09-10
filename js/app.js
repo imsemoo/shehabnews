@@ -3,6 +3,35 @@
 (function () {
   'use strict';
 
+  /* A list with nothing in it should say so rather than render as a blank
+     column; the block is in the markup and waits for its list to be empty. */
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-sh-empty-for]').forEach(function (box) {
+      box.hidden = !!document.querySelector(box.getAttribute('data-sh-empty-for'));
+    });
+  });
+
+  /* An image that never arrives leaves the browser's broken frame, which reads
+     as a fault in the page. Put the documented plate in its place instead: the
+     mark on navy with one diagonal, keeping the slot's own shape. */
+  document.addEventListener('error', function (e) {
+    var img = e.target;
+    if (!img || img.tagName !== 'IMG' || img.hasAttribute('data-sh-noimg')) return;
+    if (img.closest('[data-sh-lightbox], .sh-lightbox')) return;   // the viewer draws its own
+    if (img.classList.contains('sh-noimg__logo')) return;         // never plate the plate's own mark
+    img.setAttribute('data-sh-noimg', '');
+    var r = img.getBoundingClientRect();
+    var cs = getComputedStyle(img);
+    var plate = document.createElement('span');
+    plate.className = 'sh-noimg ' + (img.className || '');
+    plate.style.width = cs.width;
+    plate.style.height = cs.height !== 'auto' ? cs.height : (r.height ? r.height + 'px' : '');
+    if (!plate.style.height && img.width && img.height) plate.style.aspectRatio = img.width + '/' + img.height;
+    plate.innerHTML = '<span class="sh-noimg__d"></span>' +
+      '<img class="sh-noimg__logo" src="assets/images/logo-white.png" alt="" aria-hidden="true">';
+    if (img.parentNode) img.parentNode.replaceChild(plate, img);
+  }, true);
+
   /* Loader veil markup — generated from partials/loader-veil.html, which is
      itself cut verbatim from loader.html. Kept inline so the transition works
      from file:// too, where fetch() of a sibling file is blocked. */
@@ -577,7 +606,14 @@
           var real = available.indexOf(v) !== -1;
           apply(a, v === page ? ON : OFF, !real);
           a.setAttribute('aria-current', v === page ? 'page' : 'false');
-          if (!real) a.setAttribute('aria-disabled', 'true');
+          if (!real) {
+            // marked unavailable and actually unavailable: out of the tab order too
+            a.setAttribute('aria-disabled', 'true');
+            a.setAttribute('tabindex', '-1');
+          } else {
+            a.removeAttribute('aria-disabled');
+            a.removeAttribute('tabindex');
+          }
         });
         var i = available.indexOf(page);
         if (prev) {
