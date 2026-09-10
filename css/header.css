@@ -168,6 +168,11 @@
 }
 
 /* a sky that streaks is the extra, not the meaning */
+/* the star rules carry two classes each, so the guard has to as well or it
+   loses the cascade and the sky keeps twinkling for a reader who asked it not to */
 @media (prefers-reduced-motion:reduce){
-  .sh-header__meteor,.sh-header__meteor-head,.sh-header__star{animation:none;opacity:0}
+  .sh-header__meteor,.sh-header__meteor-head{animation:none;opacity:0}
+  .sh-header__star.sh-header__star--1,
+  .sh-header__star.sh-header__star--2,
+  .sh-header__star.sh-header__star--3{animation:none;opacity:.28}
 }
