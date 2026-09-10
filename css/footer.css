@@ -33,3 +33,6 @@
 .sh-footer__social-btn:hover{background:var(--sh-blue);border-color:var(--sh-blue)}
 .sh-footer__social-icon{font-size:15px;color:#fff;line-height:1}
 @keyframes sh-meteor-footer{0%{transform:translate(0,0);opacity:0}10%{opacity:1}100%{transform:translate(-520px,260px);opacity:0}}
+
+/* the dot reads as live by colour and label; the beat is the extra */
+@media (prefers-reduced-motion:reduce){.sh-footer__live-dot{animation:none}}

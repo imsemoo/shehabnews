@@ -3,7 +3,9 @@
 a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background .16s ease,gap .16s ease}
 input{font-family:'Almarai','Noto Naskh Arabic',sans-serif}
 input::placeholder{color:var(--sh-mute)}
-input:focus{outline:none}
+/* the field that starts the flow: ring it in the interactive blue, inside
+   the white box it sits in — never suppress the ring without a replacement */
+[data-sh-page="search"] input:focus-visible{outline:2px solid var(--sh-blue);outline-offset:2px}
 .sh-search-search-hero__div-3{display:flex;margin-top:20px;border:1px solid var(--sh-blue);background:#fff}
 .sh-search-search-hero__span-1{display:flex;align-items:center;padding:0 16px;color:var(--sh-blue)}
 .sh-search-search-hero__i-1{font-size:15px}
@@ -105,3 +107,5 @@ input:focus{outline:none}
     [data-sh-page="search"] .sh-pagehead__form button[type="submit"]{width:auto!important}
   }
 }
+
+@media (prefers-reduced-motion:reduce){.sh-search-search-rail__span-1{animation:none}}

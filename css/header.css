@@ -130,6 +130,10 @@
 .sh-nav__drop-link.sh-nav__drop-link--bold:hover{background:var(--sh-blue);color:#fff}
 .sh-menu:hover>.sh-drop,.sh-menu:focus-within>.sh-drop{opacity:1;visibility:visible;transform:translateY(0)}
 @keyframes sh-pulse{0%,100%{opacity:1}50%{opacity:.3}}
+/* the live dots read as live by colour and label; the beat is the extra */
+@media (prefers-reduced-motion:reduce){
+  .sh-ticker__tag-dot{animation:none}
+}
 @keyframes sh-ticker{0%{transform:translateX(-100%)}100%{transform:translateX(0)}}
 @keyframes sh-meteor{0%,72%{transform:rotate(-22deg)translateX(0)scaleX(.2);opacity:0}76%{opacity:.9}88%{transform:rotate(-22deg)translateX(-640px)scaleX(1);opacity:0}100%{opacity:0}}
 @keyframes sh-meteor-head{0%,72%{transform:rotate(45deg)translate(0,0);opacity:0}75%{opacity:1}88%{transform:rotate(45deg)translate(-420px,420px);opacity:0}100%{opacity:0}}

@@ -591,7 +591,8 @@
           next.setAttribute('aria-disabled', String(!canNext));
         }
         var top = list.getBoundingClientRect().top + window.pageYOffset - 90;
-        window.scrollTo({ top: top, behavior: 'smooth' });
+        var calm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: top, behavior: calm ? 'auto' : 'smooth' });
       }
 
       nums.forEach(function (a) {

@@ -90,3 +90,5 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 .sh-category-coverage-closing__div-2{display:flex;gap:22px;font-size:12px;font-weight:700}
 .sh-category-coverage-closing__a-1{color:var(--sh-blue)}
 .sh-category-coverage-closing__a-1:hover{color:var(--sh-blue)}
+
+@media (prefers-reduced-motion:reduce){.sh-category-lead-composition__span-3,.sh-category-section-rail__span-1,.sh-category-coverage-closing__span-2{animation:none}}
