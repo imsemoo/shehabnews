@@ -166,6 +166,61 @@
     });
   }
 
+  /* Live coverage: the photo answers the timeline. -------------------------
+     Pointing at an update — with a mouse or with the keyboard — moves the
+     strip under the coverage headline to that update's section and time, and
+     turns its node red. Letting go puts the coverage's own last update back.
+
+     Everything shown is text that is already on the row being pointed at, so
+     nothing is invented, and the feed can replace the rows underneath us —
+     hence one delegated listener rather than one per row. On a touch screen
+     there is no pointing, only tapping, which opens the update; the frame's
+     red rule carries the meaning there. */
+  function liveCoverage() {
+    var strip = document.querySelector('[data-sh-lc-strip]');
+    var list = document.querySelector('.sh-lc__list');
+    if (!strip || !list) return;
+    var when = strip.querySelector('[data-sh-lc-when]');
+    var where = strip.querySelector('[data-sh-lc-where]');
+    if (!when || !where) return;
+    var home = when.innerHTML;
+    var answering = null;
+
+    function answer(row) {
+      if (row === answering) return;
+      release();
+      var cat = row.querySelector('.sh-lc__cat');
+      var time = row.querySelector('.sh-lc__time');
+      if (!cat && !time) return;
+      var parts = [];
+      if (cat) parts.push(cat.textContent.trim());
+      if (time) parts.push(time.textContent.trim());
+      when.textContent = parts.join(' · ');
+      strip.setAttribute('data-answered', '');
+      row.setAttribute('data-answering', '');
+      answering = row;
+    }
+
+    function release() {
+      if (!answering) return;
+      answering.removeAttribute('data-answering');
+      answering = null;
+      when.innerHTML = home;
+      strip.removeAttribute('data-answered');
+    }
+
+    function rowOf(e) {
+      var t = e.target;
+      return t && t.closest ? t.closest('.sh-lc__row') : null;
+    }
+    list.addEventListener('focusin', function (e) { var r = rowOf(e); if (r) answer(r); });
+    list.addEventListener('focusout', function (e) { if (!list.contains(e.relatedTarget)) release(); });
+    if (window.matchMedia && matchMedia('(hover: hover)').matches) {
+      list.addEventListener('mouseover', function (e) { var r = rowOf(e); if (r) answer(r); });
+      list.addEventListener('mouseleave', release);
+    }
+  }
+
   /* 5. Dropdown menus also open on keyboard focus (CSS covers hover). ------ */
   function menus() {
     document.querySelectorAll('.sh-menu').forEach(function (m) {
@@ -1756,7 +1811,7 @@
   }
 
   function init() {
-    paintDate(); tabs(); galleries(); menus(); hero();
+    paintDate(); tabs(); galleries(); menus(); hero(); liveCoverage();
     lightbox(); player(); loadMore(); pager(); files(); filters(); hubs(); wire(); binders(); since(); videoDeck(); carica(); lens();
     if (document.documentElement.hasAttribute('data-sh-veil')) transition();   // the logo veil is opt-in; View Transitions do the page change now
     setInterval(paintDate, 60000);

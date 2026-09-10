@@ -96,7 +96,16 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-lc__lead:hover .sh-lc__lead-img{transform:scale(1.03)}
 .sh-lc__lead:focus-visible{outline:2px solid var(--sh-sky);outline-offset:-4px}
 .sh-lc__lead::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.92) 0,rgba(10,26,51,.42) 42%,rgba(10,26,51,0) 68%)}
-.sh-lc__loc{position:absolute;top:16px;inset-inline-start:16px;z-index:1;padding:5px 10px;background:var(--sh-navy);font-family:var(--sh-font);font-size:11.5px;font-weight:700;color:#fff;white-space:nowrap}
+/* The coverage is running, and the photograph says so the way a news frame
+   does: one red header across the top edge carrying the live mark and the
+   picture's own location. It replaces the floating navy chip, so the photo
+   still wears a single ornament. */
+.sh-lc__frame{position:absolute;inset-block-start:0;inset-inline:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:28px;padding:5px 12px;background:var(--sh-red);font-family:var(--sh-font);font-size:11.5px;color:#fff}
+.sh-lc__live{display:inline-flex;align-items:center;gap:7px;flex:none;font-weight:800;letter-spacing:.02em}
+.sh-lc__live-dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:sh-pulse 1.6s ease-in-out infinite;flex:none}
+/* the update the reader is pointing at owns the strip under the headline */
+.sh-lc__lead-meta[data-answered] [data-sh-lc-where]{display:none}
+.sh-lc__loc{min-width:0;font-weight:700;color:rgba(255,255,255,.88);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sh-lc__lead-body{position:absolute;inset:auto 0 0 0;z-index:1;display:flex;flex-direction:column;gap:10px;padding:0 24px 22px}
 .sh-lc__lead-t{font-family:var(--sh-font);font-size:clamp(20px,1.6vw,22px);font-weight:800;line-height:1.45;text-wrap:balance}
 .sh-lc__lead-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-family:var(--sh-font);font-size:12px;color:var(--sh-on-dark-72);font-variant-numeric:tabular-nums}
@@ -110,6 +119,10 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-lc__list::before{content:"";position:absolute;top:10px;bottom:10px;inset-inline-start:var(--sh-lc-spine);width:1px;background:var(--sh-hair-2)}
 .sh-lc__row{position:relative;display:grid;grid-template-columns:var(--sh-lc-spine) minmax(0,1fr);column-gap:16px;align-items:start;flex:1 1 0;min-height:0;padding:9px 0;border-bottom:1px solid var(--sh-hair);color:var(--sh-ink);animation:sh-fadein .4s ease both}
 .sh-lc__row:last-of-type{border-bottom:0}
+/* the column is exactly the photograph tall; when the new-updates button takes a
+   place in it, the oldest row gives its place up instead of every row shrinking */
+.sh-lc__list:has(.sh-feed-pill) .sh-lc__row:nth-last-of-type(2){border-bottom:0}
+.sh-lc__list:has(.sh-feed-pill) .sh-lc__row:last-of-type{display:none}
 @media (hover:hover){.sh-lc__row:hover{color:var(--sh-blue)}}
 .sh-lc__row:focus-visible{outline:2px solid var(--sh-blue);outline-offset:2px}
 .sh-lc__time{padding-top:2px;font-family:var(--sh-font);font-size:12px;font-weight:700;color:var(--sh-mute);white-space:nowrap}
@@ -122,6 +135,9 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-lc__row[data-new] .sh-lc__cat::after{content:"جديد";color:var(--sh-red)}
 .sh-lc__t{font-family:var(--sh-font);font-size:14px;font-weight:700;line-height:1.55;text-wrap:pretty;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:color .16s ease}
 .sh-lc__row:hover .sh-lc__t{color:var(--sh-blue)}
+/* the answering node stays red over the hover blue: it marks which update the strip is reading */
+.sh-lc__row[data-answering] .sh-lc__node{background:var(--sh-red);border-color:var(--sh-red)}
+.sh-lc__row[data-answering] .sh-lc__time{color:var(--sh-red)}
 .sh-index-files__section-1{padding:64px 0 64px}   /* sits in the band rhythm: 56 white above and below, like .sh-lens/.sh-vid/.sh-rep */
 @media (max-width:640px){
   .sh-index-files__section-1{padding:44px 0 44px}
@@ -761,12 +777,12 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
   .sh-lc__lead{aspect-ratio:3/2}
   .sh-lc__lead-body{padding:0 16px 16px;gap:8px}
   .sh-lc__lead-t{font-size:20px}
-  .sh-lc__loc{top:12px;inset-inline-start:14px}
+  .sh-lc__frame{padding:5px 10px;gap:10px}
   .sh-lc__list{--sh-lc-spine:48px}
   .sh-lc__row{column-gap:12px}
 }
 @media (prefers-reduced-motion:reduce){
-  .sh-lc__lead-dot,.sh-lc__node,.sh-lc__row{animation:none}
+  .sh-lc__lead-dot,.sh-lc__live-dot,.sh-lc__node,.sh-lc__row{animation:none}
   .sh-lc__lead-img,.sh-lc__node,.sh-lc__t{transition:none}
   .sh-lc__lead:hover .sh-lc__lead-img{transform:none}
 }
