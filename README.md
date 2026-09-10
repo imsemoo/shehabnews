@@ -1,845 +1,1022 @@
-# شهاب News — Static front-end build
+# شهاب News — static front-end build
 
-موقع ستاتيك كامل: HTML لكل صفحة + CSS لكل صفحة + ملف JS واحد + أصول محلية بالكامل.
-لا يحتاج build step ولا npm — ارفع المجلد كما هو على أي استضافة.
+A complete static site: one HTML file per page, one CSS file per page, one JS
+file, and assets that are entirely local. No build step and no npm — upload the
+folder as it is to any host.
 
-**لا يوجد أي اعتماد خارجي.** الخطوط والأيقونات كلها داخل المشروع؛ الطلبات الخارجية
-الوحيدة المتبقية هي صور المحتوى المؤقتة من Wikimedia Commons (بند 3 في الملاحظات).
+**There are no external dependencies.** The fonts and icons all live inside the
+project; the only remaining outbound requests are the placeholder content
+photographs from Wikimedia Commons (note 3 below).
 
-> **للعميل:** دليل المنصة (الصفحات والميزات بلغة غير تقنية) في `docs/guide.html` (يُفتح من السيرفر المحلي: `/docs/guide.html`).
+> **For the client:** the platform guide — the pages and features in
+> non-technical language — is at `docs/guide.html`, opened from the local server
+> at `/docs/guide.html`.
 >
-> **للإنتاج:** كل ما اتركن لتركيب الثيم على لارافيل (العقود، الـENV، ترتيب الشغل، اختبارات القبول) في [`PRODUCTION.md`](PRODUCTION.md).
+> **For production:** everything left to do to mount the theme on Laravel — the
+> contracts, the ENV, the order of work, the acceptance tests — is in
+> [`PRODUCTION.md`](PRODUCTION.md).
 
-## ما الجديد — سبتمبر 2026 (المنصة فوق الثيم)
+## What is new — September 2026 (the platform on top of the theme)
 
-> الأقسام القديمة أسفل هذا القسم توصف الثيم كما استُخرج. ما يلي هو ما بُني فوقه على أربع مراحل. **Font Awesome اتشال**، الصور بقت WebP، والهيدر/الفوتر بقوا من `partials/` عبر سكربت.
+> The older sections below this one describe the theme as it was extracted. What
+> follows is what was built on top of it, in four phases. **Font Awesome is
+> gone**, the images are WebP, and the header and footer now come from
+> `partials/` through a script.
 
-### كيف تعدّل وتنشر
+### How to edit and publish
 
-كل تعديل في الهيدر أو الفوتر أو الـ`<head>` يتم في مكان واحد ثم يُنشر على الصفحات:
+Every change to the header, the footer or the `<head>` is made in one place and
+then published to the pages:
 
 ```bash
-python tools/chrome.py      # يعيد بناء <head> + الهيدر + الفوتر + ترتيب السكربتات في كل صفحة، ويرفع ?v=N ويزامن sw.js
-python tools/ltr.py         # (بعد أي تعديل CSS) يولّد css/ltr.css — مرآة LTR لكل قاعدة متعلّقة بالاتجاه
-python tools/i18n.py        # (بعد أي تعديل نصّي) يطبع ما ينقص قاموس js/i18n-en.js
-python tools/a11y.py        # (بعد أي CSS جديد) يولّد حدّ 12px للخط على الموبايل في responsive.css
-python tools/search_index.py   # (بعد تغيير المحتوى) يعيد بناء data/search-index.json
+python tools/chrome.py      # rebuilds <head> + header + footer + script order on every page, bumps ?v=N and syncs sw.js
+python tools/ltr.py         # (after any CSS change) generates css/ltr.css — the LTR mirror of every direction-bound rule
+python tools/i18n.py        # (after any text change) prints what the js/i18n-en.js dictionary is missing
+python tools/a11y.py        # (after any new CSS) generates the 12px phone type floor in responsive.css
+python tools/search_index.py   # (after a content change) rebuilds data/search-index.json
 ```
 
-ارفع `V` في `tools/chrome.py` بعد أي تعديل CSS/JS. `partials/header.html` و`partials/footer.html` هما **مصدر الحقيقة**؛ الصفحات تحمل نسخة بين علامتي `sh:header` / `sh:footer`. لا تعدّل الهيدر داخل صفحة مباشرة.
+Bump `V` in `tools/chrome.py` after any CSS or JS change.
+`partials/header.html` and `partials/footer.html` are the **source of truth**;
+each page carries a copy between the `sh:header` and `sh:footer` markers. Never
+edit a header inside a page directly.
 
-أدوات مرة واحدة وهي idempotent: `tools/icons.py` (سبرايت الأيقونات من خطوط FA في `tools/fonts/`)، `tools/images.py` (WebP + أبعاد)، `tools/brand.py` (favicon/أيقونات PWA/OG)، `tools/geo.py` (نقاط الخريطة التوضيحية).
+One-off tools, all idempotent: `tools/icons.py` (the icon sprite, built from the
+FA fonts in `tools/fonts/`), `tools/images.py` (WebP plus dimensions),
+`tools/brand.py` (favicon, PWA icons, OG), `tools/geo.py` (the illustrative map
+points).
 
-## اللغة
+## Language
 
-المفتاح في التوب-بار زرّان `[data-sh-lang]`. الاختيار يُحفظ في `localStorage['sh-lang']`، وسطر صغير في `<head>` (يكتبه `tools/chrome.py`) يضبط `lang`/`dir` على `<html>` قبل أول رسم، فلا تلمح الصفحة الاتجاه الآخر. `css/ltr.css` — مولَّد بـ`tools/ltr.py` ومحمّل أخيرًا — يعكس كل قاعدة متعلّقة بالاتجاه تحت `html[dir="ltr"]`، والخصائص المنطقية تنقلب وحدها. `js/lang.js` يترجم نصوص الهيدر والفوتر عبر مفاتيح `data-i18n` (و`data-i18n-aria` / `-placeholder` / `-title` / `-alt`)، وباقي محتوى الصفحات عبر `js/i18n-en.js` — قاموس عربي→إنجليزي بـ1,932 سلسلة، يُحمَّل فقط في الوضع الإنجليزي، ويطابق نص العقدة نفسه فلا تحمل الصفحات أي سمة ترجمة. النصوص المركّبة بالجافاسكربت (الوقت، الطقس، العملات، «منذ 9 د») تُترجم بالقطعة، وأي سلسلة غير معروفة تبقى عربية.
+The switch in the topbar is a pair of `[data-sh-lang]` buttons. The choice is
+kept in `localStorage['sh-lang']`, and a short prelude in `<head>` — written by
+`tools/chrome.py` — sets `lang` and `dir` on `<html>` before the first paint, so
+the other direction never flashes. `css/ltr.css`, generated by `tools/ltr.py`
+and loaded last, mirrors every direction-bound rule under `html[dir="ltr"]`;
+logical properties flip on their own.
 
-بعد أي تعديل نصّي: `python tools/i18n.py` يطبع ما ينقص القاموس. عند التركيب على باكند: اطبع `<html lang="en" dir="ltr">` من السيرفر، حمّل `css/ltr.css`، وغذِّ نصوص الصفحات من الـCMS — عندها يصبح `js/i18n-en.js` غير لازم للمتن ويكفي قاموس الكروم في `js/lang.js`.
+`js/lang.js` translates the header and footer through `data-i18n` keys (and
+`data-i18n-aria` / `-placeholder` / `-title` / `-alt`), and the rest of the page
+content through `js/i18n-en.js` — an Arabic→English dictionary of roughly two
+thousand strings, loaded only in English mode, which matches the text node
+itself so no page carries a translation attribute. Strings that JavaScript
+composes — the time, the weather, the rates, «منذ 9 د» — are translated piece by
+piece, and any string the dictionary does not know simply stays Arabic.
 
-### الطبقات الجديدة
+After any text change, `python tools/i18n.py` prints what the dictionary is
+missing. When mounting on a backend: print `<html lang="en" dir="ltr">` from the
+server, load `css/ltr.css`, and feed the page text from the CMS — at which point
+`js/i18n-en.js` is no longer needed for the body and the chrome dictionary in
+`js/lang.js` is enough.
 
-| الملف | الدور |
+### The new layers
+
+| File | Role |
 |---|---|
-| `js/ui.js` | `ShUI`: أيقونة من السبرايت، توست واحد، `esc`، الوقت النسبي وتعبئة `<time>` |
-| `js/chrome.js` | هيدر sticky مضغوط (`html[data-compact]`)، النافبار الحالي، التيكر بزر إيقاف، `<time>` كل دقيقة، لأعلى، فيديو الفوتر الكسول، فورم النشرة، الموافقة، المشاركة (`data-sh-share`)، أدوار التابات |
-| `js/feed.js` | القناة الحية `api/events` (SSE): تيكر، تحديثات فوق `[data-sh-feed="updates"]` ببيل «تحديثات جديدة»، شريط العاجل، الأبرز، حالة البث + الشريط المرصوف، بانر «تحدّث الخبر» |
-| `js/searchbox.js` | البحث الفوري من الهيدر على `api/search` (لوحة على الديسكتوب، شيت على الموبايل، `/` للتركيز) |
-| `js/search.js` | صفحة البحث: العدّ الحقيقي، الفلاتر، الترتيب، البحث المتقدم |
-| `js/article.js` | القارئ: شريط التقدّم، حجم الخط، «استمع للمقال» (على `brief.js`)، حفظ، طباعة، تكبير الصورة (PhotoSwipe) ، اللوحة اللاصقة `scenes()` (الصورة تتبدّل مع القراءة) |
-| `js/push.js` · `js/pwa.js` · `sw.js` | تنبيهات العاجل (اختيارية، محلية بلا VAPID)، تسجيل الـSW وشريط التحديث وزر التثبيت، الكاش والأوفلاين (`offline.html`) |
-| `js/figures.js` · `data/figures.json` | الأرقام المشتركة `[data-sh-figure]` بمصدر وتاريخ (أرقام توضيحية للنموذج) |
-| `js/map.js` · `assets/vendor/leaflet/` | خريطة الخروقات على Leaflet 1.9.4 (BSD-2) من `data/incidents.geojson`؛ البلاطات OSM للنموذج، وفي الإنتاج بلاطات ذاتية (`TILES` في `map.js`) |
-| `js/data.js` · `js/now.js` · `js/saved.js` | مكتب البيانات، شاشة «الآن» (K = وضع الشاشة)، المحفوظات |
-| `css/chrome.css` · `css/feed.css` | كل ستايل الطبقات أعلاه |
+| `js/ui.js` | `ShUI`: an icon from the sprite, one toast, `esc`, relative time and filling `<time>` |
+| `js/chrome.js` | The compact sticky header (`html[data-compact]`), the current navbar, the ticker with its stop button, `<time>` every minute, back-to-top, the footer's lazy video, the newsletter form, consent, sharing (`data-sh-share`), tab roles |
+| `js/feed.js` | The live channel `api/events` (SSE): the ticker, updates prepended to `[data-sh-feed="updates"]` behind a "new updates" pill, the breaking bar, the highlights, stream state and the queued strip, the "this story was updated" banner |
+| `js/searchbox.js` | Instant search from the header against `api/search` — a panel on the desktop, a sheet on the phone, `/` to focus |
+| `js/search.js` | The search page: the real count, the filters, the sort, advanced search |
+| `js/article.js` | The reader: the progress bar, the type size, "listen to the article" (on top of `brief.js`), save, print, image zoom (PhotoSwipe), and the sticky panel `scenes()` where the picture changes as you read |
+| `js/push.js` · `js/pwa.js` · `sw.js` | Breaking-news notifications (optional, local, no VAPID), SW registration, the update bar and the install button, the cache and offline (`offline.html`) |
+| `js/figures.js` · `data/figures.json` | The shared figures `[data-sh-figure]`, each with a source and a date (illustrative numbers for the prototype) |
+| `js/map.js` · `assets/vendor/leaflet/` | The violations map on Leaflet 1.9.4 (BSD-2) from `data/incidents.geojson`; OSM tiles for the prototype, self-hosted tiles in production (`TILES` in `map.js`) |
+| `js/data.js` · `js/now.js` · `js/saved.js` | The data desk, the «الآن» screen (K = screen mode), the saved list |
+| `css/chrome.css` · `css/feed.css` | All the styling for the layers above |
 
-### الصفحات الجديدة
+### The new pages
 
-`now.html` (غرفة الأخبار: بث + تحديثات + خريطة + أرقام) · `map.html` · `data.html` · `saved.html` · `offline.html`.
+`now.html` (the newsroom: stream, updates, map and figures) · `map.html` ·
+`data.html` · `saved.html` · `offline.html`.
 
-### السيرفر المحلي والـAPI
+### The local server and the API
 
-`serve.py` يقدّم بدائل محلية لنقاط لارافيل: `GET /api/events` (SSE بغرفة أخبار توضيحية: تحديث كل ~30 ثانية، عاجل كل 4، تحديث للخبر 163540 كل 3)، `GET /api/now.json`، `GET /api/search?q=` (على `search_local.py` بتطبيع عربي)، `POST /api/*` يقبل بـ`{ok:true}`. العقود نفسها تُنفَّذ في لارافيل (`StreamedResponse`/Reverb، Scout + Meilisearch، `web-push`).
+`serve.py` provides local stand-ins for the Laravel endpoints: `GET /api/events`
+(SSE with an illustrative newsroom — an update roughly every 30 seconds,
+breaking news every 4, an update to story 163540 every 3), `GET /api/now.json`,
+`GET /api/search?q=` (on `search_local.py`, with Arabic normalisation), and
+`POST /api/*` which accepts and answers `{ok:true}`. The same contracts are
+implemented in Laravel with `StreamedResponse`/Reverb, Scout + Meilisearch, and
+`web-push`.
 
-### SEO والأداء والإتاحة (المرحلة الأولى)
+### SEO, performance and accessibility (phase one)
 
-`<head>` مولَّد لكل صفحة (عنوان، وصف، canonical، OG/Twitter، RSS، hreflang، JSON-LD بنوع الصفحة، Speculation Rules للـprerender، preload للخطوط، manifest). `h1` واحد لكل صفحة، skip link، `aria-live` للعاجل، زر إيقاف للتيكر، 44px للأهداف باللمس، حد 12px للخط على الموبايل. الرئيسية نزلت من 9.1MB إلى ~1.2MB. View Transitions بدل ستارة الانتقال (الستارة اختيارية بـ`<html data-sh-veil>`). صفر `href="#"` في صفحات الـroute.
+The `<head>` is generated per page: title, description, canonical, OG/Twitter,
+RSS, hreflang, JSON-LD typed by page, Speculation Rules for prerender, font
+preloads, manifest. One `h1` per page, a skip link, `aria-live` on breaking
+news, a stop button on the ticker, 44px touch targets, a 12px type floor on the
+phone. The homepage came down from 9.1MB to about 1.2MB. View Transitions
+replaced the transition curtain, which is now opt-in through
+`<html data-sh-veil>`. Zero `href="#"` on the route pages.
 
-## التشغيل محليًا
+## Running it locally
 
-شغّل المجلد على سيرفر HTTP بسيط، لا تفتح الملف بالنقر المزدوج:
+Serve the folder over plain HTTP; do not open the file by double-clicking it:
 
 ```bash
 python serve.py 5599
 ```
 
-ثم `http://localhost:5599/index.html`.
+Then `http://localhost:5599/index.html`.
 
-> `serve.py` هو `http.server` نفسه مع دعم **HTTP Range** وأنواع MIME للـHLS
-> والـWebVTT وإلغاء الكاش. `python -m http.server` يتجاهل الـRange، فكروم يعتبر
-> ملفات MP4/WebM غير قابلة للتقديم (`video.seekable` فاضي): الشريط لا يُسحب
-> والمدة تظهر صفرًا. سيرفرات الإنتاج (nginx / Apache / Laravel) تدعم الـRange
-> أصلًا. (`.claude/launch.json` يشغّل `serve.py`.)
+> `serve.py` is `http.server` itself, plus **HTTP Range** support, MIME types for
+> HLS and WebVTT, and cache busting. `python -m http.server` ignores Range, so
+> Chrome treats MP4/WebM files as not seekable (`video.seekable` comes back
+> empty): the scrubber does not drag and the duration reads zero. Production
+> servers — nginx, Apache, Laravel — support Range natively.
+> (`.claude/launch.json` runs `serve.py`.)
 
-> **لماذا؟** الخطوط صارت محلية، ومتصفحات Chromium (Chrome / Edge) تمنع تحميل
-> `@font-face` من `file://` لأن كل ملف محلي يُعامَل كـ origin منفصل. فتح الصفحة
-> بالنقر المزدوج سيعرضها بخط النظام بدل Almarai. Firefox أكثر تساهلًا.
-> هذا لا يمسّ الإنتاج إطلاقًا: الثيم يُخدَم عبر HTTP في كل الحالات، ومنها Laravel.
+> **Why?** The fonts are local now, and Chromium browsers (Chrome, Edge) refuse
+> to load `@font-face` from `file://`, because every local file is treated as its
+> own origin. Opening the page by double-clicking renders it in a system font
+> instead of Almarai. Firefox is more forgiving. None of this touches
+> production: the theme is served over HTTP in every case, Laravel included.
 
-## البنية
+## Structure
 
 ```
 shehabnews/
-├── *.html                  الصفحات الـ24، كلها في الجذر (تفاصيلها في الجدول تحت)
+├── *.html                  the 24 pages, all at the root (detailed in the table below)
 │
 ├── css/
-│   ├── fonts.css           تعريفات @font-face للخطوط المحلية  ← مشترك، في كل صفحة
-│   ├── font-awesome.css    نسخة محلية من Font Awesome 6.5.2   ← مشترك، في كل صفحة
-│   └── <page>.css          ستايل الصفحة: resets + @keyframes + قواعد hover
+│   ├── fonts.css           @font-face declarations for the local fonts  ← shared, on every page
+│   ├── font-awesome.css    a local copy of Font Awesome 6.5.2           ← shared, on every page
+│   └── <page>.css          the page's styling: resets + @keyframes + hover rules
 │
 ├── js/
-│   └── app.js              السلوك التفاعلي — ملف واحد لكل الصفحات
+│   └── app.js              the interactive behaviour — one file for every page
 │
 ├── assets/
-│   ├── fonts/              ملفات الخطوط (woff2 + ttf)
-│   ├── images/             الشعارات والبوسترات والخرائط والخلفيات
-│   ├── video/              خلفيات الفيديو (webm)
-│   └── shehab-images.js    مرجع فقط — غير مربوط بأي صفحة (بند 6)
+│   ├── fonts/              the font files (woff2 + ttf)
+│   ├── images/             logos, posters, maps and backgrounds
+│   ├── video/              video backgrounds (webm)
+│   └── shehab-images.js    reference only — not wired to any page (note 6)
 │
 ├── data/
-│   └── <page>.json         بيانات مرجعية لكل صفحة — لا تُحمَّل وقت التشغيل (بند 4)
+│   └── <page>.json         reference data per page — not loaded at runtime (note 4)
 │
-├── partials/               مرجع تقسيم الـ Blade — لا يُحمَّل وقت التشغيل
-│   └── README.md           الخريطة وترتيب البورت المقترح
+├── partials/               the Blade split reference — not loaded at runtime
+│   └── README.md           the map and the suggested port order
 │
 └── README.md
 ```
 
-كل صفحة تحمّل ثلاثة ملفات CSS بهذا الترتيب:
+Every page loads its CSS in this order:
 
 ```html
 <link rel="stylesheet" href="css/fonts.css?v=3">
 <link rel="stylesheet" href="css/transition.css?v=3">
 <link rel="stylesheet" href="css/<page>.css?v=3">
-<link rel="stylesheet" href="css/responsive.css?v=3">   <!-- آخر واحد دائمًا -->
+<link rel="stylesheet" href="css/responsive.css?v=3">   <!-- always last -->
 ```
 
-`responsive.css` مشترك بين كل الصفحات ويجب أن يبقى **آخر** ملف، لأن التخطيط في
-الثيم يعيش داخل `style` inline، فالتجاوز يحتاج `!important` وترتيبًا متأخرًا.
-الـ`?v=N` موجود لأن كروم يكاش الأصول بعناد؛ ارفع الرقم بعد أي تعديل CSS/JS.
+`responsive.css` is shared by every page and must stay **last**, because the
+theme's layout used to live in inline `style` attributes, so overriding it needs
+`!important` and a late position. The `?v=N` is there because Chrome caches
+assets stubbornly; bump the number after any CSS or JS change.
 
-## نظام الألوان — `css/tokens.css`
+## The colour system — `css/tokens.css`
 
-الباليتة نظام، مش جرد. كل لون له مستوى ووظيفة، والقيم كلها في `:root` مرة واحدة:
+The palette is a system, not an inventory. Every colour has a level and a job,
+and every value is declared once in `:root`:
 
-| المستوى | التوكنز | الوظيفة |
+| Level | Tokens | Job |
 |---|---|---|
-| القماش | `--color-surface` · `-warm` (#fbfaf7 ورق) · `-soft` (#f5f7fa) · `-blue` (#edf2f8) | أغلب الصفحة، والأسطح الثانوية بدور لا بمزاج |
-| العلامة | `--color-brand-navy` · `-navy-2` · `-blue` · `-blue-deep` · `-sky` | الماستهيد، الشفرة، الروابط، المختار، واللحظات الغامقة |
-| الأحمر التحريري | `--color-red` (عاجل فقط) · `--color-red-soft` (مباشر ومهم) | إشارة، لا زخرفة |
-| المكاتب | `--color-desk-politics/war/land/economy/rights` | رفوف «ملفات خاصة» وبس |
-| النص والخطوط | `--color-text` · `-2` · `-muted` · `-faint` · `--color-border` · `-soft` · `--color-scrim` | ثلاث درجات نص وخطّان بدل ٩ رماديات و١٠ أوف-وايت |
+| The canvas | `--color-surface` · `-warm` (#fbfaf7, paper) · `-soft` (#f5f7fa) · `-blue` (#edf2f8) | Most of the page, and the secondary surfaces — by role, not by mood |
+| The brand | `--color-brand-navy` · `-navy-2` · `-blue` · `-blue-deep` · `-sky` | The masthead, the blade, the links, the selected state, and the dark moments |
+| Editorial red | `--color-red` (breaking only) · `--color-red-soft` (live and important) | A signal, never a decoration |
+| The desks | `--color-desk-politics/war/land/economy/rights` | The «ملفات خاصة» shelves and nothing else |
+| Text and rules | `--color-text` · `-2` · `-muted` · `-faint` · `--color-border` · `-soft` · `--color-scrim` | Three levels of text and two rules, instead of nine greys and ten off-whites |
 
-أسماء `--sh-*` القديمة باقية في آخر الملف **كـaliases** على النظام ده، فالـ١٢
-ملف CSS بتحلّ من غير تعديل. أهم أثر: `--sh-mute` بقى `#5d6b7d` (5.4:1 بدل
-3.03:1) فاتصلّح ٧٤ عنصر ميتاداتا مرة واحدة.
+The old `--sh-*` names remain at the end of the file as **aliases** onto this
+system, so the twelve CSS files resolve without being edited. The most
+consequential effect: `--sh-mute` became `#5d6b7d` — 5.4:1 instead of 3.03:1 —
+which fixed seventy-four metadata elements in one move.
 
-**الغامق استراتيجي.** الكحلي في الماستهيد، لوحة الهيرو، بانر غزة، مسرح الفيديو،
-والفوتر — خمس لحظات مقصودة. اللي كان غامق بلا سبب بقى فاتح: شريط «ملفات شهاب»
-ورق، بطاقة الكاريكاتير ورق، وكابشن الهيرو حجاب شفّاف بيسيب الصورة تكمل تحته.
+**Dark is strategic.** Navy in the masthead, the hero panel, the Gaza band, the
+video stage and the footer: five deliberate moments. Whatever was dark for no
+reason went light — the «ملفات شهاب» shelf is paper, the cartoon card is paper,
+and the hero caption is a transparent veil that lets the photograph continue
+underneath it.
 
-**الأحمر بمعنيين.** «عاجل» بالأحمر القوي (التيكر، بادج الهيرو، شريحة ريل). و
-«مباشر» بقى نقطة وكلمة بالأحمر الهادي `#bf2f32` بلا تعبئة، وكذلك كيكرات التغطية
-وعلامة الخط الزمني ونقطة عدّاد غزة.
+**Red means two things.** «عاجل» takes the strong red — the ticker, the hero
+badge, a reel's chip. «مباشر» became a dot and a word in the quieter red
+`#bf2f32` with no fill, and so did the coverage kickers, the timeline mark and
+the Gaza counter's dot.
 
-**كروما مضبوطة.** شرائح التصنيف بطّلت تعبئة زرقا (بقت إطار وسماوي) عشان ما
-تنافسش لون العلامة، وhover الأزرق بقى واحد `#164b8a` بدل تلاتة، وتِنت مجلدات
-«ملفات خاصة» نزل من 13% لـ8%، والذهبي بقى `#7c6230` فالأرقام البيضا عليه 5.8:1.
+**Chroma is held down.** The category chips stopped being filled blue — they are
+an outline and a sky tint now — so they do not compete with the brand colour;
+the blue hover became one value, `#164b8a`, instead of three; the «ملفات خاصة»
+folder tint came down from 13% to 8%; and the gold became `#7c6230` so white
+numerals on it measure 5.8:1.
 
-## معمارية الـCSS (بعد الاستخراج)
+## The CSS architecture (after the extraction)
 
-الثيم كان مُصدَّرًا من أداة تصميم بكل الستايل inline (١٠٬٩٦٥ خاصية). اتحوّل
-لكلاسات بسكربت مع **أوراكل** بيقارن كل عنصر (٨٨ خاصية محسوبة + الهندسة) ضد
-نسخة مجمّدة على 375/1024/1280 — البوابة صفر فرق. الـ١٩ صفحة الفعلية: **صفر
-`style=`**. الـ٥ صفحات (v2/v3/v4، system-states، loader)
-لسه inline بقرار.
+The theme was exported from a design tool with every style inline — 10,965
+declarations. It was converted to classes by script, with an **oracle** that
+compares every element (88 computed properties plus its geometry) against a
+frozen copy at 375, 1024 and 1280. The gate came back with zero differences. The
+19 real pages carry **zero `style=`**. Five pages — v2/v3/v4, system-states,
+loader — are still inline by decision.
 
 ```
 css/
-  tokens.css        --color-* نظام الألوان (قماش/علامة/أحمر/مكاتب/نص) + --sh-* كـaliases
-                    + الحاوية --sh-container: 1400px (المحتوى 1336px؛ كانت 1280) — مرنة تحتها,
-                    مفيش بريكبوينت عندها، والأعمدة الثابتة (280/320/72px) ما بتتغيّرش
-                    + إعلان ترتيب الطبقات: @layer marks, responsive;
-  base.css          html,body · * · a (النواة) · a:hover · img
+  tokens.css        the --color-* system (canvas/brand/red/desks/text) + --sh-* as aliases
+                    + the container --sh-container: 1400px (content 1336px; it was 1280) — fluid below that,
+                    no breakpoint of its own, and the fixed columns (280/320/72px) do not change
+                    + the layer order declaration: @layer marks, responsive;
+  base.css          html,body · * · a (the core) · a:hover · img
   header.css        topbar + masthead + nav + ticker   (sh-header, sh-nav__link…)
   footer.css        sh-footer__*
-  components.css    ٥٤ كلاس مشترك: sh-section__title, sh-meta, sh-more, sh-tile, sh-list__row…
-  pages/<page>.css  لياوت الصفحة + اليتامى باسم موقعي sh-<page>-<section>__<tag>-<n>
-                    + ما كان في شيت الصفحة القديم (keyframes، p/input، a{transition})
-  mark.css          @layer marks — قيم افتراضية للشين
-  responsive.css    @layer responsive — كل سيلكتور [style*="K"] معاه توأم بالكلاس
-  brief.css · transition.css · fonts.css · font-awesome.css   كما هي
+  components.css    54 shared classes: sh-section__title, sh-meta, sh-more, sh-tile, sh-list__row…
+  pages/<page>.css  the page's layout + the orphans, named by position as sh-<page>-<section>__<tag>-<n>
+                    + whatever was in the old page sheet (keyframes, p/input, a{transition})
+  mark.css          @layer marks — the defaults for the blade
+  responsive.css    @layer responsive — every [style*="K"] selector has a class twin
+  brief.css · transition.css · fonts.css · font-awesome.css   unchanged
 ```
 
-**الطبقات هي سرّ الدقة.** قاعدة عادية في `responsive.css` أو `mark.css` كانت
-**تخسر** قدام الـinline. لما الـinline بقى كلاس (بدون طبقة)، القاعدة كانت هتكسب
-وتغيّر الشكل. بحطّها في `@layer` بتخسر قدام الكلاسات — زي ما كانت تخسر قدام
-inline — و`!important` فيها لسه بيكسب. علاقة الأصل بالظبط.
+**The layers are what make it exact.** An ordinary rule in `responsive.css` or
+`mark.css` used to **lose** to the inline style. Once the inline style became a
+class with no layer, that rule would have started winning and changed the look.
+Putting it in an `@layer` makes it lose to classes — exactly as it used to lose
+to inline — while `!important` inside it still wins. The original relationship,
+precisely.
 
-**التوائم.** كل `[style*="K"]` في `responsive.css` بياخد سيلكتور شقيق بالكلاسات
-اللي إعلانها الأصلي فيه `K` — بنفس البادئة والمُركِّبات (`header .sh-masthead img`)،
-والسيلكتور المركّب من توكنين بيتبدّل مرة واحدة، والكلاس الأساسي بيستثني معدّلاته
-(`.sh-section__title:not(.sh-section__title--sm)`). الـ`!important` (١٠٧) باقي
-لحد ما كل الصفحات تتحوّل.
+**The twins.** Every `[style*="K"]` in `responsive.css` gets a sibling selector
+built from the classes whose original declaration contains `K` — same prefix and
+same combinators (`header .sh-masthead img`) — a selector composed of two tokens
+is replaced once, and the base class excludes its own modifiers
+(`.sh-section__title:not(.sh-section__title--sm)`). The 107 `!important`
+declarations stay until every page is converted.
 
-**الـJS.** `app.js` كان بيقرا قيم inline عشان يحفظها ويرجّعها أو ينسخها بين
-أشقاء (`style.display/opacity/animation`، و`getAttribute('style')` كحالة
-مفعّل/خامل في التابس والفلاتر والـpager، و`style.flexGrow === '1'` عشان يعرف
-شريحة الهيرو المفتوحة). دلوقتي بيقرا القيمة المحسوبة، وبيبدّل `className` مع
-الـstyle attribute لو موجود (`snapState`/`applyState`). وحالة واحدة محفوظة
-بالنية: فتح ملف في «ملفات شهاب» كان بيرمي `display:flex` المؤلَّف (بيمسح
-الـinline فيرجع لقيمة الـUA) — `display:revert` بيعمل نفس النتيجة.
+**The JS.** `app.js` used to read inline values in order to store and restore
+them, or copy them between siblings (`style.display/opacity/animation`, and
+`getAttribute('style')` as an active/idle state on the tabs, the filters and the
+pager, and `style.flexGrow === '1'` to know which hero slice was open). It now
+reads the computed value, and swaps `className` alongside the style attribute
+where one exists (`snapState`/`applyState`). One case is preserved on purpose:
+opening a file in «ملفات شهاب» used to drop the authored `display:flex` — which
+clears the inline value and falls back to the UA default — and `display:revert`
+produces the same result.
 
-**قاعدة عامة لأي كود جديد:** الماركب مبقاش شايل ستايل. أي قراءة لـ`el.style.*`
-أو `getAttribute('style')` كـ«مصدر حقيقة» هتطلع فاضية — اقرا
-`getComputedStyle` أو بدّل الكلاسات. والأوراكل الثابت مش بيشوف حالة ما بعد
-التفاعل (hover/click)؛ الهيرو كان سليم عند التحميل ومكسور بعد أول hover — فاختبر
-التفاعل يدويًا أو بسكربت بعد أي تعديل في `app.js`.
+**A general rule for any new code:** the markup no longer carries styling. Any
+read of `el.style.*` or `getAttribute('style')` as a "source of truth" will come
+back empty — read `getComputedStyle` instead, or swap classes. And the static
+oracle cannot see post-interaction state (hover, click); the hero was correct on
+load and broken after the first hover. Test the interaction by hand or by script
+after any change to `app.js`.
 
-**انحراف مقبول واحد** (قرار): على 375، ١٠ كروت في «المزيد من الأخبار» بياخدوا
-`max-width:100%` من قاعدة الموبايل. في الأصل القاعدة كانت بتموت بالصدفة على أي
-عنصر الـJS لمسه (إعادة كتابة الـattribute بمسافات بتكسر `[style*="display:grid"]`).
-مفيش فرق مرئي (الهندسة متطابقة).
+**One accepted deviation** (a decision): at 375, ten cards in «المزيد من
+الأخبار» take `max-width:100%` from the phone rule. Originally that rule died by
+accident on any element the JS had touched — rewriting the attribute with spaces
+breaks `[style*="display:grid"]`. There is no visible difference; the geometry
+is identical.
 
-**تغيير مقصود مش تلقائي — لاحقًا:** دمج التوكنز المتقاربة، تقليل توائم
-`responsive.css` (كبر لـ١٠٣KB)، حذف `!important`.
+**Deliberate, not automatic — later:** merging the near-identical tokens,
+reducing the `responsive.css` twins (it grew to 103KB), and removing the
+`!important`.
 
-## الصفحات
+## The pages
 
-| الملف | الوصف | النوع |
+| File | What it is | Type |
 |---|---|---|
-| `index.html` | الرئيسية (النسخة الأساسية) | route |
-| `sections.html` | أقسام شهاب | route |
-| `category.html` | صفحة قسم (غزة) | route |
-| `article.html` | صفحة الخبر / التقرير | route |
-| `coverage.html` | التغطية الحية | route |
-| `tag.html` | صفحة الوسم | route |
-| `archive.html` | الأرشيف | route |
-| `video.html` | الفيديو | route |
-| `video-watch.html` | مشاهدة فيديو | route |
-| `live.html` | البث المباشر (Vidstack + HLS) | route |
+| `index.html` | The homepage (the primary version) | route |
+| `sections.html` | Shehab's sections | route |
+| `category.html` | A section page (Gaza) | route |
+| `article.html` | A story or a report | route |
+| `coverage.html` | Live coverage | route |
+| `tag.html` | A tag page | route |
+| `archive.html` | The archive | route |
+| `video.html` | Video | route |
+| `video-watch.html` | Watching a video | route |
+| `live.html` | The live stream (Vidstack + HLS) | route |
 | `reels.html` | ريلز شهاب (Vidstack + Swiper) | route |
-| `shorts.html` | شورتس — فيد رأسي بملء الشاشة (Vidstack + Swiper + IntersectionObserver)، بلا هيدر/فوتر الموقع | route |
-| `photos.html` | الصور | route |
+| `shorts.html` | Shorts — a full-screen vertical feed (Vidstack + Swiper + IntersectionObserver), without the site's header and footer | route |
+| `photos.html` | Photographs | route |
 | `files.html` | ملفات شهاب | route |
-| `author.html` | صفحة الكاتب | route |
-| `search.html` | البحث | route |
-| `about.html` | من نحن | route |
-| `contact.html` | تواصل معنا | route |
-| `newsletter.html` | النشرة البريدية | route |
-| `privacy.html` | سياسة الخصوصية | route |
-| `terms.html` | شروط الاستخدام | route |
-| `404.html` | صفحة غير موجودة | route (صفحة خطأ) |
-| `homepage-v2.html` | الرئيسية — الاتجاه الثاني | reference |
-| `homepage-v3.html` | الرئيسية — الاتجاه الثالث | reference |
-| `homepage-v4.html` | الرئيسية — الاتجاه الرابع | reference |
-| `system-states.html` | حالات النظام (مرجع الـ UI states) | reference |
-| `loader.html` | مؤشّر التحميل (دراسة موشن) | reference |
+| `author.html` | An author page | route |
+| `search.html` | Search | route |
+| `about.html` | About us | route |
+| `contact.html` | Contact us | route |
+| `newsletter.html` | The newsletter | route |
+| `privacy.html` | The privacy policy | route |
+| `terms.html` | Terms of use | route |
+| `404.html` | Page not found | route (error page) |
+| `homepage-v2.html` | The homepage — the second direction | reference |
+| `homepage-v3.html` | The homepage — the third direction | reference |
+| `homepage-v4.html` | The homepage — the fourth direction | reference |
+| `system-states.html` | System states (the UI-state reference) | reference |
+| `loader.html` | The loading indicator (a motion study) | reference |
 
-`route` = صفحة حقيقية في الموقع. `reference` = مرجع تصميم داخلي، لا يقابله مسار.
-الاتجاهات الثلاثة للرئيسية يُختار منها واحد وقت البورت.
+`route` = a real page on the site. `reference` = an internal design reference
+with no route behind it. One of the three homepage directions is chosen at port
+time.
 
-**`homepage-v2.html` استثناء بنيوي:** لا تحتوي هيدر الموقع ولا فوتره ولا أي
-`data-sh` hook، وخلفيتها `#f4f5f2` بدل `#fff`. عاملها كـ layout مستقل.
+**`homepage-v2.html` is a structural exception:** it has neither the site header
+nor the footer nor any `data-sh` hook, and its background is `#f4f5f2` rather
+than `#fff`. Treat it as a layout of its own.
 
-## الهوية
+## The identity
 
-| الاستخدام | القيمة |
+| Use | Value |
 |---|---|
-| أزرق شهاب | `#1b5aa6` |
-| كحلي داكن | `#0a1a33` |
-| كحلي وسيط | `#0f2a4f` |
-| أزرق فاتح (أرضيات) | `#eaf1fa` |
-| رمادي أرضية | `#f7f9fc` |
-| حدود | `#d5dde8` / `#eef2f7` |
-| نص أساسي | `#14233a` |
-| نص ثانوي | `#4a5568` / `#8a95a6` |
-| أحمر (عاجل فقط) | `#e0302f` |
+| Shehab blue | `#1b5aa6` |
+| Deep navy | `#0a1a33` |
+| Mid navy | `#0f2a4f` |
+| Light blue (grounds) | `#eaf1fa` |
+| Grey ground | `#f7f9fc` |
+| Borders | `#d5dde8` / `#eef2f7` |
+| Primary text | `#14233a` |
+| Secondary text | `#4a5568` / `#8a95a6` |
+| Red (breaking only) | `#e0302f` |
 
-## الخطوط — محلية بالكامل
+## The fonts — entirely local
 
-لا يوجد أي اتصال بـ Google Fonts. كل الملفات في `assets/fonts/` وتُعرَّف في
-`css/fonts.css` بـ `@font-face` مع `font-display: swap`.
+There is no connection to Google Fonts. Every file is in `assets/fonts/` and
+declared in `css/fonts.css` with `@font-face` and `font-display: swap`.
 
-| العائلة | الاستخدام | الأوزان |
+| Family | Use | Weights |
 |---|---|---|
-| **Almarai** | العناوين والواجهة | 400 · 700 · 800 |
-| **Noto Naskh Arabic** | نصوص القراءة الطويلة (`p`, `li`) | 400 · 700 |
+| **Almarai** | Headings and the interface | 400 · 700 · 800 |
+| **Noto Naskh Arabic** | Long-form reading text (`p`, `li`) | 400 · 700 |
 
-الأوزان المنزَّلة هي **بالضبط** الأوزان التي يرسمها الثيم فعلًا — لا زيادة.
-قيم `unicode-range` منقولة حرفيًا من ستايلشيت Google، فالمتصفح ينزّل نفس
-الـsubsets التي كان ينزّلها (`arabic`, `latin`, `latin-ext`, `math`, `symbols`).
-Noto Naskh Arabic خط متغيّر: الـCDN يخدم ملفًا واحدًا لوزنَي 400 و700
-(متطابق بالـmd5)، لذلك يُخزَّن كل subset مرة واحدة ويُشار إليه من التعريفين.
+The weights that were downloaded are **exactly** the weights the theme actually
+paints — no more. The `unicode-range` values are copied verbatim from Google's
+stylesheet, so the browser downloads the same subsets it used to (`arabic`,
+`latin`, `latin-ext`, `math`, `symbols`). Noto Naskh Arabic is a variable font:
+the CDN serves one file for both 400 and 700 — identical by md5 — so each subset
+is stored once and referenced from both declarations.
 
-**الأيقونات:** Font Awesome Free 6.5.2، نسخة محلية في `css/font-awesome.css`
-مطابقة لملف cdnjs حرفيًا عدا مسارات `url()` التي أُعيد توجيهها إلى
-`assets/fonts/`. الرخصة: CSS تحت MIT، والخطوط تحت SIL OFL 1.1.
+**The icons:** Font Awesome Free 6.5.2, a local copy in `css/font-awesome.css`
+identical to the cdnjs file except for the `url()` paths, which were redirected
+to `assets/fonts/`. Licence: the CSS under MIT, the fonts under SIL OFL 1.1.
 
-## JS — ما يفعله `js/app.js`
+## The JS — what `js/app.js` does
 
-يعمل على كل الصفحات ويبحث عن hooks عبر `data-*`:
+It runs on every page and looks for hooks through `data-*`:
 
-| Hook | الوظيفة | الحالة |
+| Hook | What it does | State |
 |---|---|---|
-| `data-sh="date" / "hijri" / "clock"` | التاريخ الميلادي والهجري وساعة القدس، تُحدَّث كل دقيقة | يعمل — 23 صفحة |
-| `data-sh="ticker"` + `data-items` | شريط العاجل: تبديل تلقائي كل 7 ثوانٍ، يتوقف عند المرور بالماوس | يعمل — 23 صفحة |
-| `data-sh="ticker-prev/next/count"` | أزرار الشريط وعدّاده | يعمل |
-| `.sh-menu` / `.sh-drop` | قوائم الهيدر المنسدلة (الفتح بالـ CSS، والإغلاق بـ Escape من JS) | يعمل |
-| `data-sh-tabs` / `-tab` / `-panel` | تابات «التغطية الحية» في الرئيسية: تبديل البانل + نقل ستايل الزر النشط | يعمل — `index.html` |
-| `data-sh-hero` / `data-sh-hero-panel` | سلايدر الأكورديون في الهيرو: يفتح البانل عند المرور بالماوس أو التركيز | يعمل — `index.html` |
-| `data-sh-lightbox` + `data-sh-shot` | عارض الصور: يفتح الصورة بالحجم الكامل مع عدّاد وتنقّل ولوحة مفاتيح | يعمل — `photos.html` (٣ شبكات · ١٤ صورة) |
-| `data-sh-player` + `data-sh-video` | المشغّل اليدوي القديم: تشغيل/إيقاف، شريط تقدّم، وقت، كتم، ملء الشاشة | يعمل — الرئيسية فقط (`sh-vid`) |
-| `<media-player data-sh-vs>` | مشغّل Vidstack على النواة `js/player.js` (انظر «مشغّل الفيديو») | `video-watch.html`، `live.html`، `reels.html`، `shorts.html` |
-| `data-sh-more` + `data-sh-batch` | «المزيد»: يُظهر الدفعة التالية ثم يخفي الزر عند نفادها | يعمل — `category.html` |
-| `data-sh-pager` + `data-sh-page` | ترقيم الصفحات على جانب العميل | يعمل — `search.html` |
-| `data-sh-files` + `data-sh-file` | خزانة «ملفات شهاب»: الضغط على كعب الملف يفتحه | يعمل — `index.html` |
-| `data-sh-filters` + `data-sh-item` | فلاتر التصنيف في «المزيد من الأخبار» | يعمل — `index.html` |
-| `data-sh-veil` | لودر الانتقال بين الصفحات | يعمل — كل الصفحات |
-| `data-sh-gallery` / `-shot` / `-stage` | ألبوم مصغّرات + إطار رئيسي | **غير مستخدم** — استبدله عارض الصور أعلاه |
+| `data-sh="date" / "hijri" / "clock"` | The Gregorian and Hijri dates and the Jerusalem clock, updated every minute | Working — 23 pages |
+| `data-sh="ticker"` + `data-items` | The breaking bar: rotates every 7 seconds, pauses on hover | Working — 23 pages |
+| `data-sh="ticker-prev/next/count"` | The bar's buttons and counter | Working |
+| `.sh-menu` / `.sh-drop` | The header's drop menus (opened by CSS, closed by Escape from JS) | Working |
+| `data-sh-tabs` / `-tab` / `-panel` | The «التغطية الحية» tabs on the homepage: switches the panel and moves the active button's styling | Working — `index.html` |
+| `data-sh-hero` / `data-sh-hero-panel` | The hero's accordion slider: opens a panel on hover or focus | Working — `index.html` |
+| `data-sh-lightbox` + `data-sh-shot` | The image viewer: opens the picture full size with a counter, navigation and keyboard | Working — `photos.html` (3 grids · 14 pictures) |
+| `data-sh-player` + `data-sh-video` | The old hand-built player: play/pause, progress, time, mute, fullscreen | Working — the homepage only (`sh-vid`) |
+| `<media-player data-sh-vs>` | The Vidstack player on the `js/player.js` core (see "The video player") | `video-watch.html`, `live.html`, `reels.html`, `shorts.html` |
+| `data-sh-more` + `data-sh-batch` | "More": reveals the next batch, then hides the button when it runs out | Working — `category.html` |
+| `data-sh-pager` + `data-sh-page` | Client-side pagination | Working — `search.html` |
+| `data-sh-files` + `data-sh-file` | The «ملفات شهاب» shelf: pressing a file's spine opens it | Working — `index.html` |
+| `data-sh-filters` + `data-sh-item` | The category filters in «المزيد من الأخبار» | Working — `index.html` |
+| `data-sh-veil` | The page-transition loader | Working — every page |
+| `data-sh-gallery` / `-shot` / `-stage` | A thumbnail album with a main frame | **Unused** — replaced by the viewer above |
 
-`galleries()` القديمة تُركت كما هي: لا صفحة تحمل سماتها، وهي عقد جاهز لو أردت
-لاحقًا ألبوم مصغّرات بدل العارض المنبثق.
+The old `galleries()` is left as it is: no page carries its attributes, and it is
+a ready-made contract should a thumbnail album ever be wanted instead of the
+pop-up viewer.
 
-### عارض الصور
+### The image viewer
 
-`data-sh-shot` يحمل `data-src` (نسخة `width=1600`) و`data-caption` و`data-story`.
-العارض يُبنى بالكامل من `app.js` بستايلات inline بنفس باليتة الهوية، فلا يلمس أي
-ملف CSS. يدعم: الأسهم (يسار = التالي، لأن الصفحة RTL)، `Esc` للإغلاق، الضغط على
-الخلفية، حصر التركيز داخل النافذة، قفل تمرير الصفحة، وتحميل مسبق للصورة التالية.
+`data-sh-shot` carries `data-src` (a `width=1600` copy), `data-caption` and
+`data-story`. The viewer is built entirely by `app.js` with inline styles in the
+identity's own palette, so it touches no CSS file. It supports the arrow keys
+(left = next, because the page is RTL), `Esc` to close, clicking the backdrop,
+a focus trap inside the window, a scroll lock on the page, and preloading the
+next picture.
 
-### مشغّل الفيديو — Vidstack على نواة واحدة
+### The video player — Vidstack on one core
 
-المشغّل اليدوي القديم (`data-sh-player` في `app.js`) ما زال يخدم «فيديو شهاب»
-في الرئيسية فقط. صفحات الفيديو الأربع تعمل على **Vidstack 1.15.6** بنواة مشتركة:
+The old hand-built player (`data-sh-player` in `app.js`) still serves «فيديو
+شهاب» on the homepage only. The four video pages run on **Vidstack 1.15.6** with
+a shared core:
 
-| الملف | الدور |
+| File | Role |
 |---|---|
-| `assets/vendor/vidstack/` | بناء `cdn/with-layouts` كما هو (ESM + chunks + providers) + `styles/default/`. مثبَّت على **1.15.6** — انتبه: وسم `latest` على npm يشير إلى 0.6.x القديم |
-| `assets/vendor/hls/hls.min.js` | hls.js 1.7.2 (UMD). Vidstack يحمّله بـ`<script>` ويقرأ `window.Hls` |
-| `assets/vendor/swiper/` | Swiper 14.2.0 (UMD + CSS) للريلز والشورتس |
-| `js/player.js` | **النواة**: `ShPlayer.ready` / `mount()` / `fmt()`. تجهّز كل `<media-player data-sh-vs>`: `dir="ltr"` (الـDefault Layout بلا دعم RTL — شريط التقدّم ينقلب لو ورث rtl)، `view-type="video"`، الترجمة العربية الكاملة للواجهة (56 مفتاحًا)، hls.js المحلي، سلسلة مصادر بديلة `data-sh-sources="a|b|c"` مع حدث `sh-vs-fallback`، رسالة خطأ عربية بزر إعادة، وشبكتا أمان: نوع البث لو بقي `unknown`، والمدة من عنصر الفيديو لو رجعت صفرًا (سيرفر بلا Range) |
-| `css/player.css` | ثيم الدار فوق `theme.css` + `layouts/video.css`: الأزرق، Almarai، زوايا حادة، قوائم على الكحلي، أرقام جدولية LTR، شارة LIVE، طبقة الخطأ، و**المشغّل الخفيف** `.sh-vs--lite` (9:16 بلا Default Layout: media-gesture / play / mute / time-slider) للريلز والشورتس |
+| `assets/vendor/vidstack/` | The `cdn/with-layouts` build as it ships (ESM + chunks + providers) plus `styles/default/`. Pinned to **1.15.6** — note that the `latest` tag on npm points at the old 0.6.x |
+| `assets/vendor/hls/hls.min.js` | hls.js 1.7.2 (UMD). Vidstack loads it with a `<script>` and reads `window.Hls` |
+| `assets/vendor/swiper/` | Swiper 14.2.0 (UMD + CSS) for the reels and the shorts |
+| `js/player.js` | **The core**: `ShPlayer.ready` / `mount()` / `fmt()`. It prepares every `<media-player data-sh-vs>`: `dir="ltr"` (the Default Layout has no RTL support — the progress bar inverts if it inherits rtl), `view-type="video"`, the full Arabic translation of the interface (56 keys), local hls.js, a fallback source chain `data-sh-sources="a|b|c"` with an `sh-vs-fallback` event, an Arabic error message with a retry button, and two safety nets: the stream type when it stays `unknown`, and the duration read off the video element when it comes back zero (a server without Range) |
+| `css/player.css` | The house theme on top of `theme.css` and `layouts/video.css`: the blue, Almarai, square corners, menus on navy, tabular LTR numerals, the LIVE badge, the error layer, and **the lite player** `.sh-vs--lite` (9:16 with no Default Layout: media-gesture / play / mute / time-slider) for the reels and the shorts |
 
-> الحزمة ESM: صفحات الفيديو تعمل عبر **http** فقط (السيرفر المحلي)، ليس من
-> `file://` كباقي الثيم. `player.js` يطبع تحذيرًا واضحًا ويعرض رسالة لو حدث ذلك.
+> The bundle is ESM: the video pages work over **http** only — the local server —
+> not from `file://` like the rest of the theme. `player.js` prints a clear
+> warning and shows a message if that happens.
 
-المنطق الخاص بكل صفحة منفصل عن النواة:
+The per-page logic is separate from the core:
 
-- **`video-watch.html` + `js/watch.js`** (YouTube-like): سلّم HLS محلي
-  (`assets/video/hls/qods-night/`: 1080/720/480/360 fMP4 مولَّد بـffmpeg من
-  المقطعين الموجودين) يعطي قائمة جودات حقيقية، فصول عربية على شريط التقدّم من
-  `chapters.ar.vtt` وشرائح تحته من المسار نفسه، ثمبنيلز `thumbs.jpg` + `thumbs.vtt`
-  (المسارات فيه من جذر الصفحة لا من الـVTT)، ترجمة `captions.ar.vtt`، `storage`
-  للصوت والموضع، وضع المسرح (`t`)، مشغّل مصغّر عند التمرير، قائمة تشغيل تبدّل
-  المصدر والمسارات مع `#v=N`، وتشغيل التالي تلقائيًا بعدّاد 5 ثوانٍ. `Shift+N/P`.
-- **`live.html` + `js/live.js`**: `stream-type="live:dvr"`، مصادر بالترتيب: بث
-  Mux العام → Unified Streaming → إعادة محلية (عند الوصول للأخير تُشال سمة نوع
-  البث ويظهر تنويه). شارة «مباشر» تتحوّل إلى «متأخر عن البث» مع زر
-  `seekToLiveEdge()`، الجودة الحالية، عدّاد مشاهدين توضيحي، «بدأ منذ»، وجدول
-  اليوم بأوقات محسوبة من `data-sh-offset` (دقائق من الآن) وحالات past/now/next.
-  زر «بث مباشر» في هيدر كل الصفحات يشير إليها.
-- **`reels.html` + `js/reels.js`**: مسرح كحلي قصير: لوحة «المقطع المميز»
-  (البرنامج، العنوان، وصف من `data-sh-dek`، الوقت، المدة، تشغيل، ملء الشاشة) جنب
-  Swiper أفقي `slidesPerView:'auto'` (يقرأ `dir=rtl` وحده). من 701px المقطع النشط
-  أول الشريط لصق اللوحة (`centeredSlides:false` + `slidesOffsetAfter` محسوبة)،
-  وتحت ذلك الشريط فوق واللوحة تحته والنشط في المنتصف. **لا تشغيل تلقائي قبل أول
-  ضغطة تشغيل** (البوستر الحقيقي يبقى ظاهرًا)، وبعدها كل مقطع يصل للنشط يعمل
-  مكتومًا والصوت حالة واحدة للشريط. تبويبات البرامج تقفز وتعلّم (لا تحذف شرائح —
-  إزالة `<media-player>` وإرجاعه يعيد إنشاءه). شبكة «كل الريلز» (6/5/4/3/2 أعمدة،
-  صورة 3:4 والنص تحتها على أرضية فاتحة) تقفز للمقطع وتشغّله. `#r=N`.
-- **`shorts.html` + `js/shorts.js`**: صفحة غامرة بشريطها الخاص. Swiper رأسي
-  للسنَاب، و**IntersectionObserver** (جذره الحاوية، عتبة 60%) هو من يقرّر التشغيل.
-  `load="visible"` + تحميل مسبق للتالي، لمسة = إيقاف، لمستان = إعجاب، مسافة/M/L،
-  إيقاف عند إخفاء التبويب. الأزرار الجانبية عمود بجانب الفيديو على الديسكتوب
-  وطبقة فوقه على الموبايل.
+- **`video-watch.html` + `js/watch.js`** (YouTube-like): a local HLS ladder
+  (`assets/video/hls/qods-night/`: 1080/720/480/360 fMP4, generated with ffmpeg
+  from the two existing clips) gives a real quality menu; Arabic chapters on the
+  progress bar from `chapters.ar.vtt` with chips beneath it from the same track;
+  thumbnails from `thumbs.jpg` + `thumbs.vtt` (whose paths are relative to the
+  page root, not to the VTT); captions from `captions.ar.vtt`; `storage` for the
+  volume and the position; theatre mode (`t`); a mini player on scroll; a
+  playlist that swaps the source and the tracks with `#v=N`; and autoplay of the
+  next video on a 5-second counter. `Shift+N/P`.
+- **`live.html` + `js/live.js`**: `stream-type="live:dvr"`, with sources in
+  order: the public Mux stream → Unified Streaming → a local replay (on reaching
+  the last one the stream-type attribute is removed and a notice appears). The
+  «مباشر» badge turns into "behind the stream" with a `seekToLiveEdge()` button;
+  the current quality; an illustrative viewer count; "started"; and today's
+  schedule with times computed from `data-sh-offset` (minutes from now) and
+  past/now/next states. The "live" button in every page's header points here.
+- **`reels.html` + `js/reels.js`**: a short navy stage: a "featured clip" panel
+  (the programme, the title, a description from `data-sh-dek`, the time, the
+  duration, play, fullscreen) beside a horizontal Swiper with
+  `slidesPerView:'auto'` which reads `dir=rtl` on its own. From 701px the active
+  clip sits at the head of the rail against the panel (`centeredSlides:false`
+  plus a computed `slidesOffsetAfter`); below that the rail is on top, the panel
+  underneath, and the active clip in the middle. **Nothing autoplays before the
+  first press of play** — the real poster stays visible — and after that every
+  clip that becomes active plays muted, with the sound a single state for the
+  whole rail. The programme tabs jump and mark; they do not delete slides, since
+  removing a `<media-player>` and putting it back re-creates it. The "all reels"
+  grid (6/5/4/3/2 columns, a 3:4 picture with the text beneath it on a light
+  ground) jumps to a clip and plays it. `#r=N`.
+- **`shorts.html` + `js/shorts.js`**: an immersive page with its own chrome. A
+  vertical Swiper for the snap, and an **IntersectionObserver** — rooted on the
+  container, at a 60% threshold — is what decides playback. `load="visible"` plus
+  preloading the next one, one tap to pause, two taps to like, space/M/L, and a
+  pause when the tab is hidden. The side buttons are a column beside the video on
+  the desktop and a layer over it on the phone.
 
-الوسائط التجريبية: `assets/video/reels/reel-01..08.mp4` (540×960، قصّات
-رأسية من المقطعين الأصليين) و`assets/video/hls/qods-night/`. بوسترات الريلز
-والشورتس صور حقيقية من المشروع (`assets/images/reel-*.webp` لبرامج شهاب، وصور
-Wikimedia التي يستخدمها الموقع لنفس الأماكن للمقاطع الميدانية)، لا `reel-0N.jpg`.
-كلها عناصر نائبة مثل الصور؛ المصادر الحقيقية تُبدَّل من `src` / `data-sh-src`.
+The sample media: `assets/video/reels/reel-01..08.mp4` (540×960, vertical crops
+from the two original clips) and `assets/video/hls/qods-night/`. The reel and
+short posters are real pictures from the project — `assets/images/reel-*.webp`
+for Shehab's programmes, and the Wikimedia photographs the site already uses for
+the same places, for the field clips — not `reel-0N.jpg`. All of them are
+placeholders like the images; the real sources are swapped in through `src` and
+`data-sh-src`.
 
-### الطقس وأسعار العملات — `js/widgets.js` + `css/widgets.css`
+### The weather and the exchange rates — `js/widgets.js` + `css/widgets.css`
 
-مكوّنان مخصّصان بلا مكتبات (لا dependency جديدة)، في التوب-بار في كل صفحة بها
-الهيدر (21 صفحة): شريحة الطقس بعد ساعة القدس، وشريط العملات في منتصف التوب-بار
-(على ≤900px يبقى صفًّا ثانيًا بعرض التوب-بار). قابلان لإعادة الاستخدام في أي مكان:
+Two purpose-built components with no libraries — no new dependency — in the
+topbar of every page that has the header (21 pages): a weather chip after the
+Jerusalem clock, and a rates rail in the middle of the topbar (at 900px and
+below it becomes a second row across the topbar's width). Both are reusable
+anywhere:
 
 ```html
 <span data-sh-weather data-sh-city="jerusalem" data-sh-cities="jerusalem,gaza,ramallah,hebron,nablus"></span>
 <div  data-sh-fx data-sh-pairs="USD:ILS,EUR:ILS,JOD:ILS,USD:EGP,GBP:ILS,SAR:ILS,XAU:USD" data-sh-speed="55"></div>
-<!-- للأعمدة الجانبية: -->
+<!-- for the side columns: -->
 <div data-sh-weather data-sh-variant="card"></div>
 <div data-sh-fx data-sh-variant="card" data-sh-pairs="USD:ILS,XAU:USD"></div>
 ```
 
-- **الطقس**: [Open-Meteo](https://open-meteo.com) (مجاني، بلا مفتاح، CORS مفتوح).
-  الشريحة = أيقونة + درجة، والضغط يفتح لوحة: الحالة، الرطوبة، الرياح، 3 أيام،
-  وتبديل المدينة (يُحفظ في localStorage). كاش 30 دقيقة لكل مدينة. المدن في
-  `ShWidgets.cities` (القدس، غزة، رام الله، الخليل، نابلس، حيفا).
-- **العملات**: [fawazahmed0/currency-api](https://github.com/fawazahmed0/exchange-api)
-  عبر jsdelivr (يومي، فيه الذهب `XAU`) لليوم + أقرب يوم سابق لحساب نسبة التغيّر،
-  ثم `open.er-api.com` كبديل (بلا تغيّر)، ثم Frankfurter (أزواج رئيسية). كاش
-  6 ساعات. كل الأزواج تُشتق من جدول واحد بالدولار، فأي زوج `BASE:QUOTE` يشتغل.
-  الأسماء العربية في `ShWidgets.currencies`.
-- الشريط في RTL يتحرّك لليمين، يقف عند التحويم، ويبقى ثابتًا قابلًا للتمرير مع
-  `prefers-reduced-motion` أو لو المحتوى كله ظاهر. الأرقام لاتينية جدولية LTR.
-- العرض stale-while-revalidate: المخزَّن يُرسم فورًا ثم يُحدَّث. لو الشبكة كلها
-  وقعت والكاش فاضي، الودجت يختفي (`hidden`) بدل ما يظهر مكسورًا.
-- للإنتاج بمصدر مدفوع/مُخصّص: بدّل `wxLoad()` / `fxLoad()` فقط؛ العرض لا يتغيّر.
+- **The weather**: [Open-Meteo](https://open-meteo.com) — free, no key, open
+  CORS. The chip is an icon and a temperature; pressing it opens a panel with the
+  conditions, the humidity, the wind, three days, and a city switch that is kept
+  in localStorage. A 30-minute cache per city. The cities are in
+  `ShWidgets.cities`: Jerusalem, Gaza, Ramallah, Hebron, Nablus, Haifa.
+- **The rates**: [fawazahmed0/currency-api](https://github.com/fawazahmed0/exchange-api)
+  through jsdelivr — daily, and it carries gold as `XAU` — for today plus the
+  nearest previous day, to compute the change; then `open.er-api.com` as a
+  fallback with no change figure; then Frankfurter for the major pairs. A
+  six-hour cache. Every pair is derived from one dollar-based table, so any
+  `BASE:QUOTE` works. The Arabic names are in `ShWidgets.currencies`.
+- In RTL the rail travels rightward, stops on hover, and stays still and
+  scrollable under `prefers-reduced-motion` or when all of its content is already
+  visible. The numerals are Latin, tabular and LTR.
+- The display is stale-while-revalidate: what is stored paints immediately, then
+  updates. If the whole network fails and the cache is empty, the widget hides
+  itself (`hidden`) rather than appearing broken.
+- For production with a paid or private source, replace `wxLoad()` / `fxLoad()`
+  only; the display does not change.
 
-### الترقيم
+### Pagination
 
-`search.html` يعمل فعليًا: الصفحة ١ كما هي، وأُضيفت صفحة ٢ حقيقية. أرقام الصفحات
-التي لا يشحنها البناء الستاتيكي (٣ · ٤ · ٢٠) تظهر بلون خافت و`aria-disabled`،
-لأن عدد الصفحات الحقيقي يأتي من الـBackend.
+`search.html` works for real: page 1 as it was, and a genuine page 2 added. The
+page numbers the static build does not ship — 3, 4, 20 — appear faint and
+`aria-disabled`, because the real page count comes from the backend.
 
-`author.html` و`photos.html` و`video.html` لم تُربط: شريط الترقيم فيها **ليس
-شقيقًا للقائمة** التي يبدو أنه يرقّمها (يفصل بينهما قسم آخر)، فربطه يحتاج تعديلًا
-بنيويًا في الماركب وتحديدًا صريحًا لأي قائمة يتبع. الآلية جاهزة وتقبل الربط
-الصريح عبر `data-sh-pager="اسم"` و`data-sh-pager-list="اسم"`.
+`author.html`, `photos.html` and `video.html` were not wired up: their pagination
+bar is **not a sibling of the list** it appears to paginate — another section
+sits between them — so wiring it needs a structural change in the markup and an
+explicit statement of which list it follows. The mechanism is ready and accepts
+an explicit binding through `data-sh-pager="name"` and
+`data-sh-pager-list="name"`.
 
-### خزانة ملفات شهاب
+### The ملفات شهاب shelf
 
-نصّ التصميم نفسه يقول «اضغط كعب الملف لفتحه»، والحركة كانت جاهزة بالكامل
-(`sh-cover-open` للغلاف، `sh-paper-out` للورق، `sh-line-in` للسطور) لكنها كانت
-تُعرض مرة واحدة عند التحميل لملف واحد ثابت. الآن لكل ملف من الأربعة غلافه وورقته.
+The design's own text says "press a file's spine to open it", and the motion was
+already complete — `sh-cover-open` for the cover, `sh-paper-out` for the paper,
+`sh-line-in` for the lines — but it played once, on load, for a single fixed
+file. Now each of the four has its own cover and paper.
 
-**الشبكة أكورديون حقيقي:** الأربعة يبقون في الشبكة دائمًا — اثنا عشر مسارًا
-(كعب + غلاف + ورق لكل ملف). المفتوح يأخذ `1.05fr` و`.95fr`، والمغلق يهبط إلى
-`0px`. ولأن `grid-template-columns` قابلة للانتقال، ينطوي الملف السابق بينما
-ينفتح التالي في حركة واحدة متصلة، بدل أن تقفز الأعمدة.
+**The grid is a real accordion:** all four stay in the grid at all times, as
+twelve tracks — a spine, a cover and a paper each. The open one takes `1.05fr`
+and `.95fr`; a closed one collapses to `0px`. And because `grid-template-columns`
+is transitionable, the previous file folds while the next opens in one
+continuous move, rather than the columns jumping.
 
-### فلاتر «المزيد من الأخبار»
+### The «المزيد من الأخبار» filters
 
-كل خبر يحمل `data-sh-cat`، وكل رابط فلتر يحمل `data-sh-filter` بقائمة التصنيفات
-التي يقبلها (`*` لـ«الكل»). **التصنيفات في الماركب لا في الجافاسكربت**، فتعديل
-التقسيم لا يستدعي فتح `app.js`. حالة الفلتر النشط تستخدم معالجة التاب النشط نفسها
-المستعملة في تابات التغطية والقسم. القائمة الجانبية (الأكثر قراءة، الكاريكاتير)
-خارج نطاق الفلترة عمدًا.
+Every story carries `data-sh-cat`, and every filter link carries
+`data-sh-filter` with the list of categories it accepts (`*` for "all"). **The
+categories live in the markup, not in the JavaScript**, so changing the split
+does not mean opening `app.js`. The active filter state uses the same active-tab
+handling as the coverage and section tabs. The side column — most read, the
+cartoon — is outside the filtering on purpose.
 
-### علامة الشين — `css/mark.css`
+### The sheen mark — `css/mark.css`
 
-المارك المتكرر في الثيم كان مربّعًا مُدوَّرًا 45°. اتحوّل لحرف الشين من الشعار
-نفسه: نقاط الشين اللي الخطّاط رسمها كشفرة واحدة، وهي **العنصر الوحيد في
-اللوجوتايب المنفصل فعليًا** (باقي الحروف مربوطة ليجاتور، فحرف الشين مندمج في
-الهاء ومفيش منه نسخة مستقلة). المسار في `assets/images/mark-sheen.svg` **متقفّي
-من قناة الألفا بتاعة الشعار**، مش مرسوم من جديد — فالمارك والماستهيد نفس
-الهندسة بالحرف.
+The mark repeated throughout the theme was a square rotated 45°. It became the
+letter ش from the logo itself: the dots of the ش, which the calligrapher drew as
+a single blade, and which are **the only part of the logotype that is genuinely
+separate** — the rest of the letters are joined as a ligature, so the ش is fused
+into the ه and no standalone copy of it exists. The path in
+`assets/images/mark-sheen.svg` is **traced from the logo's own alpha channel**,
+not redrawn, so the mark and the masthead share their geometry exactly.
 
-بيتطبّق كـ**ماسك** لا كصورة، فكل لون موجود على كل نسخة بيفضل شغال زي ما هو
-(`background:#1b5aa6` · `#fff` · `currentColor`).
+It is applied as a **mask**, not as an image, so every colour already present on
+each instance keeps working as it was (`background:#1b5aa6` · `#fff` ·
+`currentColor`).
 
-**ليه المارك الكبير بس.** الشفرة سترووك كاليجرافي رقيق؛ تحت ~12px بيقع تحت
-البكسل الواحد وبيطلع شعرة باهتة **أضعف** من المربع اللي محلّه. الثيم بيستخدم
-المارك من 3px لـ76px، فالتبديل الشامل كان هيبوّظ ~1500 منهم. فالهوية متدرّجة زي
-أي reduced mark حقيقي:
+**Why only the large mark.** The blade is a fine calligraphic stroke; below about
+12px it falls under a single pixel and renders as a faint hair — **weaker** than
+the square it replaced. The theme uses the mark from 3px to 76px, so a blanket
+swap would have ruined about 1,500 of them. The identity is graded, the way any
+real reduced mark is:
 
-| الحجم | القرار |
+| Size | Decision |
 |---|---|
-| ≥ 8px | الشفرة، مكبّرة لـ13px عشان السترووك يعيش — **150 مارك** |
-| < 8px | المربع باقي؛ عند الحجم ده هو bullet مش mark |
-| > 15px | مربعات كبيرة = زينة خلفية، ماسيبتهاش |
+| ≥ 8px | The blade, scaled to 13px so the stroke survives — **150 marks** |
+| < 8px | The square stays; at that size it is a bullet, not a mark |
+| > 15px | Large squares are background decoration, and were left alone |
 
-وأي عنصر متحرك بـ`sh-twinkle`/`sh-dots`/`sh-meteor` سايب مربعه، لأن الكيفريمز
-بتحدّد `rotate(45deg)` بنفسها وكانت هتلفّ الشفرة.
+Anything animated with `sh-twinkle`, `sh-dots` or `sh-meteor` keeps its square,
+because those keyframes set `rotate(45deg)` themselves and would have spun the
+blade.
 
-**الفواصل المحذوفة.** كان فيه **1431** معيّن صغير مستخدم كفاصل بين عناصر الميتا
-أو كنقطة زينة قبل لابل. اتشالوا كلهم — المسافات والخطوط الشعرية بتعمل الشغل.
-الباقي (120 متحرك + 88 زينة `position:absolute`) بيحمل معنى فباقي.
+**The deleted separators.** There were **1,431** small diamonds used as a
+separator between metadata items or as a decorative dot before a label. All of
+them are gone — the spacing and the hairlines do that work. The rest — 120
+animated and 88 decorative `position:absolute` — carry meaning and stayed.
 
 ### موجز اليوم — `css/brief.css` + `js/brief.js`
 
-زر «موجز اليوم» في الهيدر بيشغّل نشرة بتقرا مواد اليوم بصوت آلي من محرك النطق
-في المتصفح — **بدون باك-إند ولا API key ولا أي طلب شبكة**، فبيشتغل من `file://`
-كمان.
+The «موجز اليوم» button in the header starts a bulletin that reads the day's
+stories aloud through the browser's own speech engine — **with no backend, no API
+key and no network request at all** — so it works from `file://` too.
 
-**سطح واحد:** شريط مرصوف أسفل الشاشة وبس — **المودال (`panel`) اتشال** بطلب
-صريح، ونسخته في `partials/brief-panel-v1.js/.css` (مرجع، مفيش حاجة بتحمّلها).
-الشريط شايل المشغّل كله: شفرة الشين، «01 / 07»، الوضع («صوت آلي»/«وضع
-القراءة» بنقطة بتتنفّس وهو شغّال)، القسم · الوقت، سطر المادة **رابط لخبرها**،
-سابق / تشغيل / تالي، السرعة ×1 → ×1.15 → ×1.3 → ×0.85، وإنهاء. خيط التقدّم على
-حافته العلوية بشفرة بتمشي عليه. ≤720: بيتخبّى الرقم والوضع والسابق والسرعة.
-زر الهيدر: أول ضغطة تشغّل، والتانية توقف مؤقتًا والشريط فاضل مكانه.
+**One surface:** a docked bar at the bottom of the screen, and nothing else. The
+modal (`panel`) was **removed** on an explicit request, and its version is kept
+in `partials/brief-panel-v1.js/.css` as reference that nothing loads. The bar
+carries the whole player: the ش blade, «01 / 07», the mode («صوت آلي» or «وضع
+القراءة», with a dot that breathes while it runs), the section and time, the
+story's line **as a link to its article**, previous / play / next, the speed
+×1 → ×1.15 → ×1.3 → ×0.85, and end. A progress thread runs along its top edge
+with a blade travelling on it. At 720px and below the number, the mode, previous
+and the speed are hidden. The header button: the first press starts it, the
+second pauses, and the bar stays where it is.
 
-**بيتنقل مع القارئ.** المتصفح بيقطع النطق ويرمي الـJS عند أي navigation، فمشغّل
-عايش في صفحة واحدة بيموت عند أول رابط. الحالة بتتحفظ في `sessionStorage` وبتتعاد
-على الصفحة الجديدة — وده سبب إن السطح الوحيد شريط مش مودال.
+**It travels with the reader.** The browser cuts speech off and throws the JS
+away on any navigation, so a player living in one page dies at the first link.
+The state is kept in `sessionStorage` and replayed on the new page — and that is
+why the single surface is a bar and not a modal.
 
-الاستئناف **على مستوى الجملة** لا المادة: كل مادة بتتقسّم لجُمل ورقم الجملة
-الجارية جزء من الحالة، فعبور الصفحة بيعيد جملة واحدة بالكتير مش المادة من أولها.
+Resumption is **at sentence level**, not at article level: every article is split
+into sentences and the index of the current one is part of the state, so crossing
+a page repeats one sentence at most, not the article from the top.
 
-**وضعان:** لو فيه صوت `ar-*` → `speechSynthesis` يقرا كل جملة. لو مفيش → الموجز
-يفضل يتقدّم بإيقاع نشرة محسوب من عدد الكلمات، **ويقول كده بصراحة** بدل ما يمثّل
-إنه بينطق. عربي TTS مش مثبّت على كل جهاز (ويندوز محتاج حزمة اللغة).
+**Two modes:** if an `ar-*` voice exists, `speechSynthesis` reads each sentence.
+If not, the bulletin still advances at a bulletin's pace, computed from the word
+count, **and says so plainly** rather than pretending to speak. Arabic TTS is not
+installed on every machine; Windows needs the language pack.
 
-المحتوى: `EDITION` جوه `js/brief.js` هو الافتراضي، وأي صفحة تقدر تستبدله بـJSON
-على `[data-sh-brief]` — نفس نمط `data-items` بتاع التيكر، وده مكان الـCMS. كل
-مادة فيها `t` (العنوان كما يُعرض) و`say` (الجملة كما تُنطق) — مفصولين بقصد: العنوان
-مكتوب ليُتصفَّح والموجز ليُسمَع.
+The content: `EDITION` inside `js/brief.js` is the default, and any page can
+replace it with JSON on `[data-sh-brief]` — the same pattern as the ticker's
+`data-items`, and that is where the CMS plugs in. Every item has `t`, the
+headline as it is displayed, and `say`, the sentence as it is spoken. They are
+separate on purpose: a headline is written to be scanned and a bulletin line to
+be heard.
 
-### «محاور اليوم» — `sh-hub` + `sh-hubview` (مكان «المزيد من الأخبار»)
+### «محاور اليوم» — `sh-hub` + `sh-hubview` (in place of «المزيد من الأخبار»)
 
-القسم بقى **كولكشنات**: لكل محور غلاف واحد — صورة أحدث خبر فيه، بورتريه، وخلفه
-ورقتان مفرودتان (كومة صور زي ما بتبقى على المكتب فعلًا)، وعدد الأخبار في لوحة
-بيضا في الركن، وشفرة الشين. تحت الغلاف الاسم والعدّاد وآخر توقيت. الهوفر بيفرد
-الكومة وبيرفع الغلاف ويقرّب الصورة.
+The section became **collections**: each hub has one cover — the picture of its
+newest story, in portrait, with two sheets fanned behind it, the way a stack of
+photographs actually sits on a desk — a story count in a white plate in the
+corner, and the ش blade. Under the cover: the name, the counter and the last
+time. Hover fans the stack, lifts the cover and zooms the picture.
 
-الضغطة على كولكشن بتفتح **العارض**: **خبر واحد بس على الشاشة**، مفيش قوائم ولا
-فهرس جنبه — الصورة كاملة فوق والعنوان تحتها، والتركيز كله على الخبر ده.
+Pressing a collection opens **the viewer**: **one story on the screen**, with no
+lists and no index beside it — the picture in full above and the headline below
+it, and all the attention on that story.
 
-الأخبار **دِك ورق**: اللي لسه جاي بيطلّ من الحافة اليمنى بدرجتين (نفس إيماءة رف
-الملفات)، والتقديم بيرمي الورقة اللي فوق ناحية الشمال بلفّة خفيفة وتيجي اللي
-بعدها مكانها. أربع طرق للتقليب:
+The stories are **a deck of paper**: the one still to come peeks past the right
+edge by two steps, the same gesture as the file shelf, and advancing throws the
+top sheet leftward with a slight roll while the next one arrives in its place.
+Four ways to turn:
 
-| الحركة | النتيجة |
+| Gesture | Result |
 |---|---|
-| سحب الكارت (ماوس أو صباع) | بيمشي مع إيدك، وبعد ثلث عرض الدِك بيقلب — شمال للتالي، يمين للسابق |
-| نص الصورة يمين/شمال | السابق/التالي |
+| Dragging the card, with a mouse or a finger | It follows your hand, and past a third of the deck's width it turns — left for next, right for previous |
+| The middle of the picture, right or left | Previous / next |
+| The arrows | Left is forward, because the page is RTL |
+| The strip underneath | Opens the next story |
 
-أسهم النص دي أيقونات Font Awesome (`fa-chevron-right` للسابق على اليمين،
-`fa-chevron-left` للتالي على الشمال) — نفس اقتران الأرشيف. كانت علامات اقتباس
-زاويّة (`A`/`9`) وهي محارف مرآتية، فالـbidi كان بيقلبها في صفحة RTL
-وتطلع في الاتجاه الغلط.
-| الأسهم | الشمال للأمام (الصفحة RTL) |
-| الشريط اللي تحت | بيفتح الخبر التالي |
+Those text arrows are Font Awesome icons — `fa-chevron-right` for previous on the
+right, `fa-chevron-left` for next on the left — the same pairing as the archive.
+They used to be angle quotation marks (`A`/`9`), which are mirrored characters,
+so bidi flipped them on an RTL page and they pointed the wrong way.
 
-**الشريط اللي تحت هو الفهرس كله**: بيقول عنوان الخبر الجاي ووقته، فانت عارف
-اللي قدامك من غير قائمة. وفي آخر المحور بيتحوّل لـ«المحور التالي: عربي · 3 أخبار»
-وبينقلك للكولكشن اللي بعده — فالمحاور كلها بتتقرا في تدفّق واحد.
+**The strip underneath is the entire index**: it names the next story and its
+time, so you know what is ahead without a list. At the end of a hub it becomes
+"the next hub: عربي · 3 stories" and moves you to the following collection, so
+the hubs read as one flow.
 
-فوق الكارت خطوط شعرية بعدد أخبار المحور (اللي فات مليان، الجاري بيتملّي في ٧
-ثوانٍ ثم بيقلب لوحده)، والعدّاد «٠٢ / ٠٦» جنب اسم المحور. العدّاد بيقف لما
-المؤشر أو الفوكس أو السحب على الكارت، وكمان لما التبويب يتخفي. Esc والستارة
-بيقفلوا، والفوكس بيرجع للكولكشن.
+Above the card are hairlines, one per story in the hub — the past ones filled,
+the current one filling over 7 seconds and then turning by itself — and the
+counter «٠٢ / ٠٦» beside the hub's name. The counter stops when the pointer, the
+focus or a drag is on the card, and also when the tab is hidden. Esc and the
+backdrop close it, and the focus returns to the collection.
 
-**مفيش محتوى مختلق.** الأخبار في `<template data-sh-hub-source>` جوه القسم:
+**No invented content.** The stories are in a `<template data-sh-hub-source>`
+inside the section:
+
 ```html
 <a data-sh-item data-sh-cat="فلسطين" data-sh-time="10:02 م"
-   data-sh-image="…" data-sh-credit="ويكيميديا كومنز" href="article.html">العنوان</a>
+   data-sh-image="…" data-sh-credit="ويكيميديا كومنز" href="article.html">the headline</a>
 ```
-`data-sh-image` هي صورة الخبر (وهي كمان غلاف المحور لو كان أحدث خبر فيه، إلا لو
-الكولكشن حدّد `data-sh-cover` بنفسه — زي «عربي»، غلافه
-`assets/images/hub-arab-world.webp` لأن محوره مالوش صورة واحدة تمثّله)، و`data-sh-credit` بتتكتب في ركن الصورة.
-الصور الحالية مؤقتة من ويكيميديا كومنز زي باقي صور المحتوى في الصفحة.
-كل كولكشن `[data-sh-hub]` بيقول أنهي فئات تخصّها بـ`data-sh-filter="فلسطين|القدس|غزة"`؛
-`hubs()` في `app.js` بتفرز الأحدث أولًا (اللي من غير ساعة بياخد لابله «اليوم»
-وييجي آخر الترتيب)، وتملأ العدّاد وأحدث عنوان، وتخفي أي محور فاضي النهاردة
-(`data-sh-empty`). ده مكان الـCMS في لارافيل: الكولكشنات والقالب بس.
 
-**«اسمع المحور»** بيسلّم أخبار المحور لمشغّل الموجز ويقفل العارض:
+`data-sh-image` is the story's picture — and also the hub's cover, if it is the
+newest story in it, unless the collection names its own `data-sh-cover`, as
+«عربي» does, whose cover is `assets/images/hub-arab-world.webp` because its hub
+has no single representative picture. `data-sh-credit` is printed in the corner
+of the picture. The current pictures are placeholders from Wikimedia Commons,
+like the rest of the content photography on the page.
+
+Each `[data-sh-hub]` collection names the categories that belong to it with
+`data-sh-filter="فلسطين|القدس|غزة"`; `hubs()` in `app.js` sorts newest first —
+anything without a clock gets the label «اليوم» and sorts last — fills the
+counter and the newest headline, and hides any hub that is empty today
+(`data-sh-empty`). That is where the CMS plugs into Laravel: the collections and
+the template, nothing else.
+
+**"Listen to this hub"** hands the hub's stories to the bulletin player and
+closes the viewer:
 
 ```js
 document.dispatchEvent(new CustomEvent('sh-brief:play', { detail: {
   id: 'hub:أخبار فلسطين', edition: 'محور أخبار فلسطين',
-  items: [{ c, time, href, t, say }]        // say = العنوان نفسه، مفيش نص مؤلَّف
+  items: [{ c, time, href, t, say }]        // say = the headline itself, no composed text
 }}));
 ```
-`brief.js` بياخد الإصدار الجديد (`setEdition`) ويرصف الشريط ويشغّل. حالة
-المشغّل بتتحفظ مع `eid` الإصدار: **محور الموضوع محلي للصفحة** ومش بيستأنف على
-صفحة تانية (موجز اليوم هو اللي بيتنقل معاك).
 
-الستايل كله في `components.css` (`sh-hubs`/`sh-hub__*` للكولكشنات،
-`sh-hubview__*` للعارض و`sh-hubcard__*` لكارت الخبر). العارض وإطاره
-`grid-template-columns:minmax(0,1fr)` بالذات: تراك `auto` كان بياخد عرض أطول
-عنوان في شريط «التالي» ويطلّع الإطار بره شاشة الموبايل (الـfixed بيخبّي الفيض
-عن الصفحة فمبيبانش في `scrollWidth`). على الموبايل الكولكشنات شريط أفقي بـscroll-snap، والعارض بياخد الشاشة كلها
-والسحب بالصباع شغّال (`touch-action:pan-y` عشان السكرول الرأسي يفضل للصفحة).
+`brief.js` takes the new edition (`setEdition`), docks the bar and plays. The
+player's state is stored with the edition's `eid`: **a topic hub is local to its
+page** and does not resume on another one. The day's bulletin is the thing that
+travels with you.
 
-**«ملفات خاصة»** بقى جوّه عمود المحاور نفسه، تحت الكولكشنات مباشرة
-(`sh-index-special-files__section-1--in-hubs`، والرف مصغّر للعمود الأضيق) —
-العمود كان بيفضى جنب الشريط الجانبي بعد ما بقت المحاور صف واحد.
-و«تصريحات خاصة» بقى سكشن قائم بذاته بعرض الصفحة بعد القسم ده.
+All of the styling is in `components.css` — `sh-hubs`/`sh-hub__*` for the
+collections, `sh-hubview__*` for the viewer and `sh-hubcard__*` for the story
+card. The viewer and its frame use `grid-template-columns:minmax(0,1fr)`
+specifically: an `auto` track took the width of the longest headline in the
+"next" strip and pushed the frame off the phone's screen, and because it is
+`fixed` the overflow is hidden from the page and does not show up in
+`scrollWidth`. On the phone the collections are a horizontal rail with
+scroll-snap, and the viewer takes the whole screen with finger dragging working
+(`touch-action:pan-y`, so vertical scrolling stays with the page).
 
-### ملفات شهاب — الأكورديون
-الرف **أكورديون أفقي**: كل ملف عنصر flex واحد (`div.sh-file`) فيه الكعب (72px)
-ثم الجسم (الغلاف + الورق) جنب بعض، والعنصر بيقصّ اللي زايد. الملف المقفول عرضه
-72px فمش بيبان منه غير كعبه؛ المفتوح `flex-grow:1` فبياخد باقي الصف — فتح ملف
-وقفل التاني **تسليم عرض واحد** (`transition: flex-grow`) مش تبديل. الجسم عرضه
-ثابت (`calc(100cqw - 288px)` = الرف ناقص أربعة كعوب) عشان مفيش سطر يتلفّ من جديد
-أثناء الحركة: الورقة **بتنكشف شمالًا من كعبها**. تحت 900px الأكورديون رأسي
-(`grid-template-rows: 0fr → 1fr`). `files()` في `app.js` بتقلب `data-open` بس.
+**«ملفات خاصة»** now sits inside the hubs column itself, directly beneath the
+collections (`sh-index-special-files__section-1--in-hubs`, with the shelf scaled
+down for the narrower column) — the column was emptying out beside the sidebar
+once the hubs became a single row. And «تصريحات خاصة» became a section of its
+own, the full width of the page, after it.
 
-**حالات الملف** في الماركب `data-sh-state` على `div.sh-file` وختمها في الورقة:
-`open` مفتوح (أزرق) · `live` متجدد (كحلي بنقطة نابضة، وكمان نقطة حمرا على الكعب
-وهو مقفول) · `closed` مغلق (رمادي) · `upcoming` قادم (أبيض بحرف أزرق).
-تفاصيل الملف الباقية: تاب مجلد بقصّة مائلة أعلى كل كعب، حافتا ورقتين، حافة تجليد
-منقّطة ناحية المجلد. كله في نهاية `css/pages/index.css`.
+### ملفات شهاب — the accordion
+
+The shelf is a **horizontal accordion**: every file is a single flex item
+(`div.sh-file`) holding the spine (72px) and then the body — the cover and the
+paper — side by side, with the item clipping the excess. A closed file is 72px
+wide, so only its spine shows; the open one is `flex-grow:1` and takes the rest of
+the row, which makes opening one and closing another **a single hand-off of
+width** (`transition: flex-grow`) rather than a swap. The body has a fixed width
+(`calc(100cqw - 288px)` = the shelf minus four spines) so no line re-wraps during
+the move: the paper **unfolds leftward out of its spine**. Below 900px the
+accordion is vertical (`grid-template-rows: 0fr → 1fr`). `files()` in `app.js`
+only toggles `data-open`.
+
+**The file's states** are in the markup, as `data-sh-state` on `div.sh-file`, and
+stamped on the paper: `open` (blue) · `live`, still being updated (navy with a
+pulsing dot, plus a red dot on the spine while it is closed) · `closed` (grey) ·
+`upcoming` (white with a blue rule). The rest of the file's detail: a folder tab
+with a diagonal cut at the top of every spine, two sheet edges, and a dotted
+binding edge toward the folder. All of it at the end of `css/pages/index.css`.
 
 ### تقارير خاصة · رأي/رياضة — `sh-rep` `sh-op` `sh-sp`
 
-النسخة الأولى (لِيد + قائمة نصية في كل قسم، ~1600px) في `partials/desk-v1.html`.
-القاعدة فيهم: **عناوين بس، لا مقتطفات**، وكل قسم شكل يخصّه ومساحة على قد
-أهميته (من ~1600px لـ~1100px):
+The first version — a lead plus a text list in each section, about 1600px — is in
+`partials/desk-v1.html`. The rule across all three: **headlines only, no
+excerpts**, and each section gets a shape of its own and as much room as its
+importance deserves (from about 1600px down to about 1100px):
 
-- **تقارير خاصة** (`sh-rep`): فسيفساء ٤ أعمدة، اللِّيد عمودان × صفّان بعنوانه على
-  الصورة وشريحة «تقرير شهاب»، والأربعة جنبه بعناوينهم **تحت** الصورة على الورق
-  مع المكتب كمقدّمة زرقا (الضفة · غزة · جنين · حقوق). الخمسة بصور.
-- **رأي** (`sh-op`): الكتّاب بوجوههم — **الصور الحقيقية من قسم «رأي» على
-  shehabnews.com** (`/thumb/300x300/` لصورة الكاتب اللي الموقع بيستخدمها كصورة
-  المقال)، الأسماء من سطر الكاتب في كل مقال (د. فايز أبو شمالة، د. إياد القرا،
-  د. أميرة فؤاد النحال، محمد مصطفى شاهين، هلال نصار، وليد عبد الحي)، والروابط
-  للمقالات نفسها. اللِّيد **بورتريه يملا العمود** (`/thumb/600x600/` — الأصل
-  1100×700، والـthumbnailer بيقبل أي مقاس) و« كبيرة خلف العنوان، وخمسة جنبه بصور
-  52px. العمودان بيتساووا طولًا من الناحيتين: البورتريه `flex:1` يمتد لو القائمة
-  أطول، والصفوف `flex:1` تتوزع لو اللِّيد أطول — فمافيش فراغ تحت اللِّيد. الصورة
-  مربعة بخط أزرق تحتها — مش دائرية عشان ما تتكررش صيغة «تصريحات خاصة».
-  النسخة الأولى (صورة 104px) في `partials/opinion-v1.html`.
-- **رياضة** (`sh-sp`): صغير — صورة بعنوانها، وتحتها ثمبنيل جنب أربعة سطور بوقتها.
-- **مكتب اليوم** (`sh-desk`) **اتشال** (الأرقام + موجز شهاب + الخريطة) ومكانه
-  «مكتبة الصور | انفوجرافيك» (تحت). نسخته في `partials/desk-v2.html`.
+- **تقارير خاصة** (`sh-rep`): a four-column mosaic. The lead is two columns by
+  two rows with its headline on the picture and a «تقرير شهاب» chip; the four
+  beside it carry their headlines **below** the picture, on paper, with the desk
+  as a blue kicker (الضفة · غزة · جنين · حقوق). All five have pictures.
+- **رأي** (`sh-op`): the columnists with their faces — **the real pictures from
+  the «رأي» section on shehabnews.com** (`/thumb/300x300/` of the author picture
+  the site uses as the article's image), the names from each article's byline
+  (د. فايز أبو شمالة, د. إياد القرا, د. أميرة فؤاد النحال, محمد مصطفى شاهين,
+  هلال نصار, وليد عبد الحي), and the links to the articles themselves.
+- **رياضة** (`sh-sp`): small — a picture with its headline, and beneath it a
+  thumbnail beside four lines with their times.
+- **مكتب اليوم** (`sh-desk`) was **removed** — the figures, the Shehab bulletin
+  and the map — and «مكتبة الصور | انفوجرافيك» took its place (below). Its
+  version is in `partials/desk-v2.html`.
 
-الاتنين «رأي» و«رياضة» في صف واحد (`sh-desk2`، 1.35fr/1fr). ≤900: عمود واحد،
-واللِّيد في الرأي صف (بورتريه 168px جنب العنوان). ≤640: البورتريه 112px.
+«رأي» and «رياضة» share one row (`sh-desk2`, 1.35fr/1fr). At 900px and below:
+one column.
 
 ### مكتبة الصور | انفوجرافيك — `sh-gal`
 
-مكان «مكتب اليوم». **حيطة بوسترات**: ألبومات شهاب وانفوجرافيكاته صفحات 3:4
-مصمّمة وعنوانها مطبوع عليها، فبتتعرض **كاملة** مش مقصوصة عرضيًا (زي ما المنافس
-بيعمل). ٦ أعمدة، أحدث ألبوم عمودان × صفّان (`grid-row:span 2`)، وثمانية جنبه —
-٩ بوسترات حقيقية من `shehabnews.com/image/galleries` وقسم الانفوجرافيك
-(`/thumb/450x600/` للصغيرة و`/thumb/900x1200/` للكبيرة، الروابط للألبومات
-نفسها)، وشريحة «انفوجرافيك» على بوسترَي الانفوجرافيك. العنوان في الهيدر رابطان
-بفاصل «|» على القسمين. Hover: زوم خفيف وخط أزرق يترسم تحت البوستر. ≤900: ٤
-أعمدة، اللِّيد + ٤ والباقي مخفي. ≤640: شريط أفقي بـscroll-snap، كل بوستر 44%
-والتسعة كلهم.
+In place of «مكتب اليوم». **A wall of posters**: Shehab's albums and its
+infographics are designed 3:4 pages with their titles printed on them, so they
+are shown **whole** rather than cropped to a landscape frame the way the
+competition does it. Six columns, with the newest album two columns by two rows
+(`grid-row:span 2`) and eight beside it — nine real posters from
+`shehabnews.com/image/galleries` and the infographics section (`/thumb/450x600/`
+for the small ones and `/thumb/900x1200/` for the large, linking to the albums
+themselves), with an «انفوجرافيك» chip on the two infographic posters. The
+heading is two links separated by a «|», one per section. Hover: a slight zoom
+and a blue rule drawn under the poster. At 900px and below: four columns, the
+lead plus four, and the rest hidden. At 640px and below: a horizontal rail with
+scroll-snap, each poster at 44%, and all nine present.
 
-### عارض الصور — PhotoSwipe 5 على «مكتبة الصور»
+### The image viewer — PhotoSwipe 5 on «مكتبة الصور»
 
-`assets/vendor/photoswipe/` (MIT، بناء UMD عشان يشتغل من `file://` زي باقي
-الثيم) + `css/gallery.css` (هوية الدار: خلفية كحلي، Almarai، الشفرة) +
-`js/gallery.js`. بيشتغل على أي حائط عليه `[data-sh-pswp]`؛ كل بوستر `<a>`
-بيحمل رابط الألبوم في `href` (بديل بلا JS وللـSEO) والصورة الكاملة في
-`data-pswp-src` بأبعادها الحقيقية `data-pswp-width/height` — الأبعاد هي اللي
-بتخلّي أنيميشن الفتح من الثمبنيل مضبوطًا.
+`assets/vendor/photoswipe/` (MIT, a UMD build so it works from `file://` like the
+rest of the theme) plus `css/gallery.css` (the house identity: a navy backdrop,
+Almarai, the blade) plus `js/gallery.js`. It works on any wall carrying
+`[data-sh-pswp]`; each poster is an `<a>` with the album's link in `href` — the
+no-JS fallback, and the SEO path — and the full picture in `data-pswp-src` with
+its true `data-pswp-width/height`. Those dimensions are what make the open
+animation from the thumbnail land correctly.
 
-من PhotoSwipe: فتح وإغلاق بالزوم من الثمبنيل، تكبير بالبينش والدبل-تاب وعجلة
-الماوس (fit → 1.6× → 3×)، سحب للتنقل، سحب رأسي للإغلاق، كيبورد، عدّاد، تحميل
-مسبق للجارتين، حبس التركيز ورجوعه للثمبنيل. مضاف فوقه بواجهته
-(`registerElement`): كابشن بالكيكر (شريحة البوستر أو «ألبوم شهاب») والعنوان
-ورابط «افتح الألبوم على شهاب» — عمود جنب الصورة من ناحية اليمين على ≥900
-وشريط تحتها على الموبايل، وزر نسخ رابط الصورة (توست)، وزر ملء الشاشة، ورابط
-عميق `#pswp=N` بيفتح الصورة مباشرة وبيتحدّث مع التنقل ويتشال عند الإغلاق.
-الهندسة LTR زي كل العارضات (سحب لليسار = التالي، السهم الأيمن = التالي) عشان
-الأزرار والحركة والكيبورد يفضلوا متطابقين. `prefers-reduced-motion` بيلغي
-أنيميشن الفتح.
+From PhotoSwipe: opening and closing with a zoom from the thumbnail, pinch,
+double-tap and mouse-wheel zoom (fit → 1.6× → 3×), drag to navigate, a vertical
+drag to close, the keyboard, a counter, preloading the neighbours, a focus trap
+and focus returned to the thumbnail. Added on top through its own API
+(`registerElement`): a caption with a kicker — the poster's chip, or «ألبوم شهاب»
+— the title and an "open the album on Shehab" link, as a column beside the
+picture on the right at 900px and up and a strip beneath it on the phone; a
+copy-link button with a toast; a fullscreen button; and a deep link `#pswp=N`
+that opens a picture directly, updates as you navigate and is removed on close.
+The geometry is LTR like every viewer — dragging left is next, the right arrow is
+next — so the buttons, the motion and the keyboard stay consistent.
+`prefers-reduced-motion` cancels the opening animation.
 
 ### كاريكاتير اليوم — `sh-car`
 
-البطاقة الكحلي في جانب «المزيد من الأخبار» كانت بلا صورة (شعار باهت وخط مائل).
-بقت **سلايدر بيعرض كاريكاتيرًا واحدًا**: ثلاثة من جاليري الكاريكاتير على
-`shehabnews.com/image/gallery/60` (بريشة د. علاء اللقطة) — الطائرة الورقية أمام
-القبة الحديدية، قصف خيام النازحين، الصيف يفاقم معاناة النازحين — بمقاس
-`/thumb/800x520/` ومسرح 20:13 فالرسمة كلها ظاهرة تقريبًا. العنوان تحت الرسمة هو
-عنوانها المرسوم فيها (`data-sh-title`)، وكل شريحة رابط للجاليري. أسهم Font
-Awesome + عدّاد «01 / 03» (السابق يمين والتالي شمال زي عارض المحاور)، وأسهم
-الكيبورد لما البطاقة عليها التركيز، وسحب على المسرح (شمال = التالي). الانتقال
-تلاشٍ مع إزاحة 16px في اتجاه الحركة، وبيلف من الآخر للأول. `carica()` في
-`js/app.js`، النسخة القديمة في `partials/cartoon-v1.html`.
+The navy card beside «المزيد من الأخبار» had no picture: a faint logo and an
+italic line. It became **a slider showing one cartoon at a time**: three from the
+cartoon gallery at `shehabnews.com/image/gallery/60`, drawn by د. علاء اللقطة —
+the paper plane in front of the Iron Dome, the shelling of the displaced
+families' tents, the summer deepening their suffering — at `/thumb/800x520/` on a
+20:13 stage, so almost all of the drawing is visible. The title beneath the
+drawing is the title drawn into it (`data-sh-title`), and each slide links to the
+gallery. Font Awesome arrows plus an «01 / 03» counter — previous on the right and
+next on the left, as in the hub viewer — the keyboard arrows when the card has
+focus, and dragging on the stage (left = next). The transition is a crossfade with
+a 16px offset in the direction of travel, and it wraps from the last to the first.
+`carica()` in `js/app.js`; the old version in `partials/cartoon-v1.html`.
 
 ### عدسة شهاب — `sh-lens`
 
-البلوك القديم كان ماركب ثابت: الصور خلفيات CSS على سبانات، والأزرار «→ ←» بلا أي
-JS، فمكانش بيشتغل أصلًا (نسخته في `partials/lens-v1.html`). بقى **ألبوم شغّال**
-على صور شهاب الحقيقية: تقرير «بالصور | 60 ألف مصلٍّ يتحدون القيود ويحيون الجمعة
-في الأقصى» — أربع صور عرضية من تقارير الأقصى (`/thumb/960x512/` للمسرح 15:8،
-`/thumb/192x128/` للثمبنيلات)، كل صورة رابط لتقريرها ولها سطر تعليق في شريط
-الصورة، والعنوان والنص من التقرير نفسه.
+The old block was fixed markup: the pictures were CSS backgrounds on spans and
+the «→ ←» buttons had no JS behind them at all, so it did not work
+(`partials/lens-v1.html` holds that version). It became **a working album** on
+Shehab's real pictures: the report «بالصور | 60 ألف مصلٍّ يتحدون القيود ويحيون
+الجمعة في الأقصى» — four landscape pictures from the al-Aqsa reports
+(`/thumb/960x512/` for the 15:8 stage and `/thumb/192x128/` for the thumbnails),
+each linking to its report and each with a caption line in the picture's strip,
+with the title and the text taken from the report itself.
 
-المسرح بيعمل crossfade والصورة الداخلة بتنزلق من 1.04 لـ1 على ست ثواني (بتتوقف مع
-`prefers-reduced-motion`). الثمبنيلات أزرار (المختار بإطار أزرق والباقي باهت)،
-الرقم الكبير والعدّاد «01 / 04» بيتحدّثوا (معزولين LTR عشان الشرطة ما تنقلبش زي
-ما كانت)، وخط التقدّم بيمتلي من اليمين. أسهم Font Awesome (السابق يمين والتالي
-شمال)، أسهم الكيبورد لما البلوك عليه التركيز، وسحب على الصورة (شمال = التالي)،
-وبيلف من الآخر للأول. `lens()` في `js/app.js`. ≤900: عمود واحد، اللوحة تحت
-الصورة.
+The stage crossfades, and the arriving picture slides from 1.04 to 1 over six
+seconds, which stops under `prefers-reduced-motion`. The thumbnails are buttons —
+the selected one outlined in blue and the rest faint — the large number and the
+«01 / 04» counter update (isolated LTR so the slash does not flip, as it used to),
+and the progress rule fills from the right. Font Awesome arrows (previous right,
+next left), the keyboard arrows when the block has focus, dragging on the picture
+(left = next), and it wraps from the last to the first. `lens()` in `js/app.js`.
+At 900px and below: one column, with the panel beneath the picture.
 
-### زر «المزيد» — `sh-more`
+### The «المزيد» button — `sh-more`
 
-كل روابط «كل الملفات / كل التقارير / الأرشيف…» (161 مكانًا في الموقع) كانت
-نصًا أزرق وجنبه **شرطة** 1px. بقت **زر الدار**: صندوق بخط شعري على أبيض، النص
-Almarai 12px/800 كحلي، وبدل الشرطة **شفرة الشين موجّهة للأمام** (يسارًا،
-الصفحة RTL) من `assets/images/mark-arrow.svg` كقناع بلون النص. الهوفر: الصندوق
-بياخد الأزرق والشفرة بتتقدّم 3px. نفس الماركب ونفس المُعدِّلات
-(`sh-more__arrow--12/14/16` بقت مقاسات الشفرة).
+Every "all the files / all the reports / the archive…" link — 161 places on the
+site — was blue text with a 1px **dash** beside it. It became **the house
+button**: a box with a hairline on white, the label in Almarai 12px/800 navy, and
+in place of the dash **the ش blade pointing forward** — leftward, since the page
+is RTL — from `assets/images/mark-arrow.svg`, as a mask in the text's colour.
+On hover the box takes the blue and the blade steps forward 3px. Same markup and
+same modifiers (`sh-more__arrow--12/14/16` are now the blade's sizes).
 
 ### «فيديو شهاب» — `sh-vid`
 
-النسخة الأولى (مشغل كبير بفيديو تلقائي + قائمة + برامج) محفوظة في
-`partials/video-v1.html`. الحالية مبنية على إن أغلب فيديو الدار **ريلز**:
+The first version — a large player with autoplaying video, a list and the
+programmes — is kept in `partials/video-v1.html`. The current one is built on the
+fact that most of the house's video is **reels**:
 
-- **مسرح كحلي** بعمودين: **مشغل صغير** 16:9 على اليمين (نفس عقد
-  `video-watch.html`: `data-sh-player/-video/-poster/-bigplay/-track/-fill/-knob/-toggle/-time/-mute/-fs`،
-  بيشغّله `player()` نفسه) وتحته الفئة والوقت والعنوان والوصف و«شاهد الحلقة
-  كاملة» + «مكتبة الفيديو»؛ وعلى الشمال **قائمة التشغيل** — الضغط على صف
-  بيبدّل المشغّل (`videoDeck()` بيقرا `data-sh-src/-poster/-chip/-meta` وعنوان
-  الصف، وبيشغّل)، والصف الجاري معلّم `aria-current`.
-- تحتهم **ريلز شهاب**: شريط snap بمقاطع رأسية 9:16 (168px)، كل مقطع: البوستر،
-  المدة بأيقونة ساعة، زر تشغيل دائري، شريحة البرنامج (حمرا لـ«عاجل»)، العنوان
-  سطرين، الوقت. سهمان بيحرّكوا مقطعين في الضغطة وبيتعطّلوا عند الطرفين.
-  البوسترات الرأسية مقصوصة من أغلفة البرامج نفسها (`assets/images/reel-*.jpg`
-  360×640) حوالين المقدّم.
-- تحت المسرح **البرامج** الخمسة + بلاطة «كل البرامج» بالعدد.
-- ≤900: عمود واحد والقائمة تحت المشغّل، البرامج ٣ في الصف. ≤640: الريل 150px،
-  الأسهم مخفية، البرامج ٢ في الصف، الوصف مخفي.
+- **A navy stage** in two columns: a **small player** at 16:9 on the right — the
+  same contract as `video-watch.html`:
+  `data-sh-player/-video/-poster/-bigplay/-track/-fill/-knob/-toggle/-time/-mute/-fs`,
+  driven by the same `player()` — with the category, the time, the title, the
+  description, "watch the full episode" and "the video library" beneath it; and on
+  the left **the playlist**, where pressing a row swaps the player (`videoDeck()`
+  reads `data-sh-src/-poster/-chip/-meta` and the row's title, and plays), with
+  the current row marked `aria-current`.
+- Beneath them **ريلز شهاب**: a snap rail of 9:16 vertical clips (168px), each
+  with the poster, the duration with a clock icon, a round play button, the
+  programme chip (red for «عاجل»), a two-line title and the time.
+- Below the stage, the five **programmes** plus an "all programmes" tile with the
+  count.
+- At 900px and below: one column with the list beneath the player, and three
+  programmes to a row. At 640px and below: the reel is 150px, the arrows are
+  hidden, two programmes to a row, and the description is hidden.
 
 ### «غزة — عينٌ لا تُغمض» — `sh-gaza`
 
-الشريط بعرض الصفحة بقى **يراقب**: صورة الساحل بتتحرك ببطء (44 ثانية ذهابًا
-وإيابًا)، و**شعاع ضوء بيمسح الساحل** كل 16 ثانية (العين اللي ما بتغمضش)، وتاج
-«تغطية حيّة» بنقطة حمرا نابضة، وفي النص **عدّاد أيام الحرب** — بيتحسب في
-`js/app.js` (`since()`) من `data-sh-since="2023-10-07"` على السكشن، اليوم
-محسوب — وعلى الشمال زر «افتح التغطية الحيّة» لصفحة التغطية والكريدت.
-الارتفاع 320px، والسكريم كحلي من ناحية النص. موبايل: عمود واحد والعدّاد صف.
-`prefers-reduced-motion` بيوقف الحركة ويخفي الشعاع. الستايل في
-`css/pages/index.css`.
+The full-width band **watches**: the picture of the coast drifts slowly (44
+seconds out and back), a **beam of light sweeps the coast** every 16 seconds —
+the eye that does not close — a «تغطية حيّة» crown with a pulsing red dot, and in
+the middle **the counter of days of war**, computed in `js/app.js` (`since()`)
+from `data-sh-since="2023-10-07"` on the section, with today counted. The band is
+320px tall and the scrim is navy on the text's side. On the phone: one column
+with the counter as a row. `prefers-reduced-motion` stops the motion and hides
+the beam. The styling is in `css/pages/index.css`.
 
 ### «تصريحات خاصة» — `sh-say`
 
-التصريح شخص بيقول كلام، فكل تصريح مبني بنفس الطريقة: **الوجه** (صورة المتحدث
-دائرية)، **الكلام بين «»** (بيتحط بالـCSS مش في النص)، **الاسم وصفته**، والوقت.
-التصريح القائد كبير وجنبه صورة المتحدث بعرض 300px بتذوب في الورق، وخلف كلامه «
-ضخمة باهتة؛ العمود الجانبي فيه ٣ وتحت القائد صف ٣ بطاقات بخطوط شعرية بينها.
-موبايل: عمود واحد والصورة فوق الكلام.
+A statement is a person saying something, so every statement is built the same
+way: **the face**, the speaker's picture, round; **the words between «»**, added
+by CSS rather than sitting in the text; **the name and their title**; and the
+time. The lead statement is large with the speaker's picture at 300px beside it,
+dissolving into the paper, and a huge faint « behind the words. The side column
+holds three, and beneath the lead is a row of three cards with hairlines between
+them. On the phone: one column with the picture above the words.
 
-المحتوى **٧ تصريحات من قسم «تصريحات خاصة» على shehabnews.com**: الاسم والصفة
-من مقدّمة كل خبر (مثلًا «الباحث المختص في شؤون الاستيطان عبد الناصر مكي»)،
-والتصريح هو العنوان بعد «لـ شهاب:»، والصورة صورة الخبر نفسها بمقاس
-`/thumb/400x400/` للوجوه و`/thumb/800x800/` للصورة الكبيرة. الروابط بتروح
-للخبر على الموقع.
+The content is **seven statements from the «تصريحات خاصة» section on
+shehabnews.com**: the name and title from each story's opening — for example
+«الباحث المختص في شؤون الاستيطان عبد الناصر مكي» — the statement itself being the
+headline after «لـ شهاب:», and the picture being the story's own at
+`/thumb/400x400/` for the faces and `/thumb/800x800/` for the large one. The
+links go to the story on the site.
 
-### «ملفات خاصة» — `sh-binders` + `sh-bo` (مجلدات الأرشيف)
+### «ملفات خاصة» — `sh-binders` + `sh-bo` (the archive folders)
 
-**ثلاث نسخ.** A: ملفات lever-arch ثلاثية الأبعاد على رف
-(`partials/special-files-binders-v1.html`) — الاستعارة كانت غالبة على المحتوى.
-B: شبكة كروت بصور (`partials/special-files-cards-v2.html`) — حلّت المسح
-وقتلت الاستعارة. C (الحالية): **مجلدات أرشيف** — نفس السكشن ونفس المكان ونفس
-البيانات ونفس `data-sh-*`، والاستعارة أنضف والمحتوى أوضح.
+**Three versions.** A: three-dimensional lever-arch files on a shelf
+(`partials/special-files-binders-v1.html`) — the metaphor overwhelmed the content.
+B: a grid of cards with pictures (`partials/special-files-cards-v2.html`) — it
+solved the scanning and killed the metaphor. C, the current one: **archive
+folders** — the same section, the same place, the same data and the same
+`data-sh-*`, with a cleaner metaphor and clearer content.
 
-**المجلد.** السيلويت اللي أي حد يعرفه: **تاب** مقصوص أعلى اليمين بالرقم
-(بلون المكتب)، **كعب** 28px بنفس اللون على طول الحافة اليمنى وعليه الشفرة،
-**ورقتان بيطلّوا** من فوق (فيه وثائق)، وغلاف من **ورق مُلوَّن خفيف**
-(أوف-وايت + 13% من لون المكتب + نسيج الأرشيف 6%) عليه **صورة الملف مطبوعة**
-(إطار أبيض، ميل 1.5°؛ لو ملف جه بلا صورة بيتحوّل لجيب فاضي بحدّ متقطّع وشفرة)،
-و**لابل أبيض** بالعنوان أفقيًا سطرين و«٨ وثائق ·
-آخر تحديث …» وختم الحالة مطاطي فوق الغلاف. ظل واحد.
+**The folder.** The silhouette anyone recognises: a **tab** cut at the top right
+carrying the number, in the desk's colour; a 28px **spine** in the same colour
+running down the right edge with the blade on it; **two sheets peeking** over the
+top, so there are documents inside; and a cover in **lightly tinted paper**
+(off-white plus 13% of the desk's colour plus the archive texture at 6%) carrying
+**the file's picture, printed** — a white frame, tilted 1.5°; a file that arrives
+without a picture turns that into an empty pocket with a dashed edge and a blade
+— and **a white label** with the title set horizontally over two lines, «٨ وثائق ·
+آخر تحديث …», and a rubber state stamp over the cover. One shadow.
 
-**الرف سلايدر.** صف واحد بيسكرول بـsnap، **٣ مجلدات ظاهرة** والباقي خلف
-الحافة، وسهمان في رأس القسم (`[data-sh-binders-prev/next]`) بيحرّكوا الرف
-مجلدًا مجلدًا (`scrollBy`؛ في RTL التقدّم = `scrollLeft` سالب) وبيتعطّلوا عند
-الطرفين. بين المجلدات هوا 22px (التراكب اتجرّب وقرا «لازقين»)، وكل مجلد بيرسم قطعته
-من **خط الرف** وظله المجمّع فالخط بيفضل متصلًا تحتهم كلهم. **الصورة كاملة**:
-المطبوعة 4:5 — نفس نسبة أغلفة الموقع (`/thumb/900x1120/`) فمفيش قص، والملفات
-النموذجية ١–٤ خدت صورًا من مخزون الصفحة عشان الرف يقرا أرشيفًا واحدًا. الصور
-بتتحمّل eager (هي القسم مش زينة). الهوفر: يطلع 6px ويجي قدام؛ **المفتوح**:
-10px وحدّ باللكنة والباقي 70%. ≤640: مجلد 72% وحافة اللي بعده ظاهرة، والسهمان
-مخفيان (الإبهام بيعمل الشغل).
+**The shelf is a slider.** A single row that scrolls with snap, **three folders
+visible** and the rest behind the edge, with two arrows in the section head
+(`[data-sh-binders-prev/next]`) that move the shelf a folder at a time
+(`scrollBy`; in RTL, forward is a negative `scrollLeft`) and disable at the ends.
+Between the folders there is 22px of air — overlapping was tried and read as
+"stuck together" — and every folder draws its own piece of **the shelf line** and
+its pooled shadow, so the line stays continuous under all of them. **The picture
+is whole**: the print is 4:5, the same ratio as the site's own covers
+(`/thumb/900x1120/`), so nothing is cropped, and the sample files 1–4 took their
+pictures from the page's existing stock so the shelf reads as one archive. The
+pictures load eagerly, since they are the section and not decoration. Hover: it
+rises 6px and comes forward. **Open**: 10px, an accent rule, and the rest at 70%.
+At 640px and below: a folder is 72% wide with the next one's edge showing, and
+the arrows are hidden — the thumb does that work.
 
-**الألوان.** خمس لكنات بالمكتب على `article.sh-binder`: `--desk-politics`
-أزرق · `--desk-war` أحمر مكتوم · `--desk-land` زيتوني · `--desk-economy` ذهبي
-مكتوم · `--desk-rights` حجري — على التاب والكعب والرقم وتلوين الورق الخفيف
-والعدّاد. العدّاد والتحديث والختم بيتملوا من `binders()` من المحتوى المخفي
-(`[data-sh-binder-inside]`) — كل معلومة مكتوبة مرة واحدة.
+**The colours.** Five desk accents on `article.sh-binder`: `--desk-politics`
+blue · `--desk-war` muted red · `--desk-land` olive · `--desk-economy` muted gold
+· `--desk-rights` stone — on the tab, the spine, the number, the light paper tint
+and the counter. The counter, the update line and the stamp are filled by
+`binders()` from the hidden content (`[data-sh-binder-inside]`), so every fact is
+written once.
 
-**المجلد مفتوح** (`sh-bo`): نفس المجلد مفرود: فوق **تاب** «ملف خاص» باللكنة +
-«03 / 08» + السابق/التالي + إغلاق؛ تحته **الغلاف مفرود** (~200px من 720): الصورة
-مطبوعة يمين، وجنبها الرقم كبير باللكنة والختم والعنوان و«٨ وثائق · آخر تحديث»
-والوصف (٣ سطور) و«مفتوح منذ» و«افتح الملف كاملًا»؛ وتحته **الأوراق**: كل الوثائق
-في قائمة واحدة على ورق أبيض بحافتي ورقتين فوق، كل وثيقة برقم باهت وثمبنيل ونوع
-وتاريخ ورابط، بسكرول. **الكعب** 22px بحلقتين على طول الحافة اليمنى (~2%).
-تحت: السابق/التالي **بين الملفات** + «03 / 08». الفتح **.35s** FLIP من
-المجلد + الغلاف بيتفرد .3s؛ الأسهم بين الملفات (الشمال للأمام)؛ Esc؛ Tab trap؛
-الفوكس بيرجع لمجلد الملف المفتوح؛ `aria-label="ملف <اسمه>"` +
-`aria-labelledby`؛ الأهداف 44px. موبايل: الغلاف هيدر مضغوط (صورة 88px يمين،
-رقم، عنوان، العدد والتحديث، الزر بعرض كامل)، الوثائق تحته فورًا،
-السابق/التالي في الفوتر الثابت. `prefers-reduced-motion` بيلغي كل الحركة.
+**The open folder** (`sh-bo`): the same folder, unfolded. At the top a **tab** —
+«ملف خاص» in the accent, «03 / 08», previous/next and close. Beneath it **the
+cover, unfolded** (about 200px of 720): the picture printed on the right, and
+beside it the large number in the accent, the stamp, the title, «٨ وثائق · آخر
+تحديث», the description over three lines, "open since" and "open the full file".
+Beneath that, **the papers**: every document in one list on white paper with two
+sheet edges above, each with a faint number, a thumbnail, a type, a date and a
+link, scrolling. **The spine** is 22px with two rings down the right edge, at
+about 2%. Below: previous/next **between files** plus «03 / 08». Opening is a
+**0.35s** FLIP from the folder with the cover unfolding over 0.3s; the arrows move
+between files (left is forward); Esc; a Tab trap; the focus returns to the opened
+file's folder; `aria-label="ملف <its name>"` plus `aria-labelledby`; 44px targets.
+On the phone: the cover becomes a compact header — an 88px picture on the right,
+the number, the title, the count and the update, and a full-width button — with
+the documents immediately beneath it and previous/next in the fixed footer.
+`prefers-reduced-motion` cancels all of the motion.
 
-### الانتقال بين الصفحات
+### The page transition
 
-اللودر المعتمد هو النسخة **A — «الضربة الضوئية»**: معيّن يتحرك على مسار الخط
-بينما يرسم قناعٌ الشعار. الماركب مقصوص حرفيًا من `loader.html` ومحفوظ في
-`partials/loader-veil.html`، ومضمّن داخل `js/app.js` كقالب حتى يعمل من `file://`
-أيضًا. قواعده في `css/transition.css` منقولة كما هي من `css/loader.css`.
+The approved loader is version **A — "the light strike"**: a diamond travels
+along the stroke's path while a mask draws the logo. The markup is cut verbatim
+from `loader.html` and kept in `partials/loader-veil.html`, and is embedded
+inside `js/app.js` as a template so that it works from `file://` too. Its rules
+are in `css/transition.css`, moved across unchanged from `css/loader.css`.
 
-الضغط على رابط داخلي يرفع الستارة ويبدأ الرسم، والصفحة التالية تلتقطها وتُسقطها
-بعد أن ترسم — فيُقرأ النصفان كضربة واحدة. لا تظهر في أول زيارة، وتُلغى بالكامل مع
-`prefers-reduced-motion`، ولها مؤقّت أمان يمنع بقاء الزائر خلفها لو تعطّل الانتقال.
+Pressing an internal link raises the curtain and starts the drawing; the next
+page picks it up and drops it once it has painted — so the two halves read as one
+strike. It does not appear on a first visit, it is cancelled entirely under
+`prefers-reduced-motion`, and it has a safety timer that stops a visitor being
+left behind it if the transition fails.
 
-**التوقيت.** التتابع الكامل ٣٫٠ ثانية (بذرة ٠٫٤٢ ← الخط ٠٫٤–١٫٧٥ ← انكشاف
-الشعار ١٫٩ ← اللمعة ١٫٩–٢٫٨ ← سطر الاسم ٢٫٣ ← الشعار النصي ٢٫٩٥ ← النقاط ٣٫٠).
-تشغيله كاملًا على كل نصف كان هيكلّف ٦ ثوانٍ، فالستارة تشغّل **نفس** تايم‑لاين
-`loader.css` بسرعة `SPEED = 2.3` — نفس الشكل ونفس الـeasing، مفيش حاجة اتعادت
-كتابتها — والمجموع ~١٫٣ ثانية.
+**The timing.** The full sequence is 3.0 seconds: seed 0.42 → the stroke
+0.4–1.75 → the logo revealed 1.9 → the sheen 1.9–2.8 → the name line 2.3 → the
+wordmark 2.95 → the dots 3.0. Playing all of it on each half would have cost 6
+seconds, so the curtain plays **the same** `loader.css` timeline at
+`SPEED = 2.3` — the same look and the same easing, nothing rewritten — for a
+total of about 1.3 seconds.
 
-النصفان **يكمّلان بعض ولا يبدأ كل واحد من الصفر**: عند المغادرة تُخزَّن رأس
-القراءة الحقيقية في `sessionStorage['sh-nav-at']`، والصفحة التالية تستأنف من
-عندها عبر `animation.startTime` (مش `currentTime` — دي بتحطّ hold time على
-أنيميشن لسه pending). القيمة محدودة بـ٦٠٪ من التتابع، فحتى لو المؤقّت اتأخّر على
-جهاز مشغول يفضل للنصف التاني حاجة يعرضها.
+The two halves **complete each other rather than each starting from zero**: on
+leaving, the true playhead is stored in `sessionStorage['sh-nav-at']`, and the
+next page resumes from there through `animation.startTime` — not `currentTime`,
+which puts a hold time on an animation that is still pending. The value is capped
+at 60% of the sequence, so even if the timer runs late on a busy machine the
+second half still has something to show.
 
-الستارة تنزل لما **الاتنين** يخلصوا: كل الأنيميشنات غير اللانهائية (`a.finished`)
-+ تحميل الصفحة. النقاط الثلاث بتلفّ للأبد فمستثناة، وإلا الستارة مكانتش هتنزل أبدًا.
+The curtain drops when **both** are done: every non-infinite animation
+(`a.finished`) plus the page load. The three dots spin forever, so they are
+excluded; otherwise the curtain would never drop.
 
-### كيف يقرأ الـ JS حالات التصميم
+### How the JS reads design state
 
-`tabs()` و`hero()` **لا تحملان أي قيمة تصميم مكتوبة داخلهما**. الماركب يصل ومعه
-حالة واحدة مفتوحة والباقي مغلق، فتقرأ الدالة السلسلتين من الماركب نفسه ثم تبدّل
-بينهما. يعني تغيير اللون أو المسافة في الـHTML يسري تلقائيًا، ولا يوجد رقم سحري
-في `app.js` يحتاج مزامنة.
+`tabs()` and `hero()` **carry no design value inside them**. The markup arrives
+with one state open and the rest closed, so the function reads both strings from
+the markup itself and then swaps between them. That means changing a colour or a
+spacing in the HTML takes effect automatically, and there is no magic number in
+`app.js` that needs keeping in sync.
 
-> السلايدر يفتح بالـ hover لأن الضغط على البانل يفتح الخبر نفسه (`article.html`).
+> The slider opens on hover because pressing a panel opens the story itself
+> (`article.html`).
 
-## ملاحظات للمطوّر
+## Notes for the developer
 
-1. **مفيش CSS inline** على الـ19 صفحة المحوَّلة (انظر «معمارية الـCSS» فوق):
-   التوكنز في `css/tokens.css`، المشترك في `base/header/footer/components`،
-   وكل صفحة ليها `css/pages/<page>.css` بكلاسات `sh-<page>-<section>__<tag>-<n>`.
-   النسخ التجريبية (`homepage-v2/v3/v4`) لسه inline.
+1. **No inline CSS** on the 19 converted pages (see "The CSS architecture"
+   above): the tokens are in `css/tokens.css`, the shared styling in
+   `base/header/footer/components`, and every page has its own
+   `css/pages/<page>.css` with `sh-<page>-<section>__<tag>-<n>` classes. The
+   experimental copies (`homepage-v2/v3/v4`) are still inline.
 
-2. **الأجزاء المشتركة** (header · navbar · breaking news · footer · breadcrumb ·
-   cards · pagination · forms) مقصوصة حرفيًا في `partials/` مع تعليق يشرح
-   مصدرها وما الذي يتغيّر بين نسخها. **مرجع فقط — لا شيء يحمّلها وقت التشغيل.**
-   ابدأ من `partials/README.md`.
+2. **The shared parts** — header · navbar · breaking news · footer · breadcrumb ·
+   cards · pagination · forms — are cut verbatim into `partials/` with a comment
+   explaining where each came from and what differs between its copies.
+   **Reference only — nothing loads them at runtime.** Start from
+   `partials/README.md`.
 
-3. **الصور** نوعان: محلية في `assets/images/`، وصور محتوى مؤقتة من Wikimedia
-   Commons (روابط مباشرة داخل الـHTML) — استبدلها بصور شهاب الحقيقية من الـCMS.
-   يوجد أيضًا رابطان لـTelegram CDN في `index.html` سينتهي صلاحيتهما.
+3. **The pictures** are of two kinds: local ones in `assets/images/`, and
+   placeholder content photographs from Wikimedia Commons, linked directly inside
+   the HTML — replace those with Shehab's real pictures from the CMS. There are
+   also two Telegram CDN links in `index.html` which will expire.
 
-4. **`data/<page>.json` ملفات مرجعية inert** — لا `fetch` ولا `import` ولا أي
-   كود يقرؤها. تغطيتها للمحتوى جزئية: `article.json` مثلًا يحمل عناصر الإطار
-   (التاريخ، الشريط، النافبار، الفوتر، الشريط الجانبي) لكنه **لا يحتوي عنوان
-   الخبر ولا متنه ولا اسم الكاتب**. استخدمها للاسترشاد لا كـschema، وخذ حقول
-   المقال الحقيقية من `article.html` نفسه.
+4. **`data/<page>.json` are inert reference files** — no `fetch`, no `import`, no
+   code reads them. Their coverage of the content is partial: `article.json`, for
+   example, carries the frame — the date, the bar, the navbar, the footer, the
+   sidebar — but **not the story's headline, its body or its author**. Use them
+   for orientation, not as a schema, and take the real article fields from
+   `article.html` itself.
 
-5. **الحالات غير الطبيعية** (فراغ، تحميل، خطأ، 404، نماذج) موثّقة كاملة في
-   `system-states.html` — استخدمها كمرجع بدل اختراع تصميم جديد لكل حالة.
+5. **The abnormal states** — empty, loading, error, 404, forms — are fully
+   documented in `system-states.html`. Use it as the reference rather than
+   inventing a new design for each state.
 
-6. **`assets/shehab-images.js`** غير مربوط بأي صفحة (وهو ES module بينما
-   الصفحات تحمّل سكربت كلاسيكي). تُرك لأنه السجل الوحيد لمصدر صورتين
-   خارجيتين على الرئيسية.
+6. **`assets/shehab-images.js`** is not wired to any page, and it is an ES module
+   while the pages load a classic script. It was left in place because it is the
+   only record of where two external pictures on the homepage came from.
 
-7. الصفحات **RTL** بالكامل (`dir="rtl"` على `<html>`). التجاوب يعتمد على
-   `grid-template-columns` بـ `minmax()` و`flex-wrap` — **لا يوجد أي
-   `@media` breakpoint في الثيم**، وهو ما يستحق مراجعة عند البورت.
+7. The pages are **fully RTL** (`dir="rtl"` on `<html>`). The responsiveness
+   relies on `grid-template-columns` with `minmax()` and on `flex-wrap` — **there
+   is not a single `@media` breakpoint in the theme** — which is worth reviewing
+   at port time.
 
-## معروف وغير مُصلَح (خارج نطاق التنظيم)
+## Known and unfixed (outside the scope of the cleanup)
 
-تُركت كما هي عمدًا لأن إصلاحها تغيير محتوى أو شكل:
+Left as they are on purpose, because fixing them would be a change of content or
+of appearance:
 
-- `<meta charset="utf-8">` مكرر في `<head>` في الصفحات الـ24.
-- `homepage-v2.html:135` فيها `background:url("undefined")`.
-- روابط `href="#"` كثيرة (فوتر، قوائم) — محتوى مؤقت.
-- عناوين `<title>` كلها بالصيغة `شهاب — Article` وتحتاج صياغة حقيقية.
-- `assets/images/coverage-hero2.webp` و`coverage-hero.png` غير مستخدمتين
-  (3.73 ميجا)، و`footer-city.webm` و`footer-city.webm` ملف واحد متطابق
-  بالبايت مخزَّن مرتين. **لم يُحذف شيء.**
+- `<meta charset="utf-8">` is duplicated in `<head>` on all 24 pages.
+- `homepage-v2.html:135` contains `background:url("undefined")`.
+- Many `href="#"` links — the footer, the menus — which are placeholder content.
+- Every `<title>` is of the form `شهاب — Article` and needs real wording.
+- `assets/images/coverage-hero2.webp` and `coverage-hero.png` are unused
+  (3.73 MB), and `footer-city.webm` is one byte-identical file stored twice.
+  **Nothing was deleted.**

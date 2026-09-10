@@ -1,64 +1,77 @@
-# partials/ — مرجع التقسيم لا أكثر
+# partials/ — a reference cut, nothing more
 
-هذه الملفات **لا تُحمَّل وقت التشغيل**. لا يوجد build step ولا include، والصفحات الـ24
-تعمل تمامًا كما كانت: كل بلوك ما زال مكتوبًا داخل صفحته.
+These files are **not loaded at runtime**. There is no build step and no include:
+the 24 pages work exactly as they did, with every block still written inside its
+own page.
 
-الغرض الوحيد من المجلد: عند نقل الثيم إلى Laravel، تفتح الملف هنا وتجد الجزء
-المشترك مقصوصًا حرفيًا من مصدره، ومعه تعليق يشرح كم صفحة تستخدمه وما الذي يتغيّر
-بين النسخ. لا تحتاج أن تقارن 24 ملفًا بنفسك.
+The folder exists for one reason. When the theme is ported to Laravel, you open
+a file here and find the shared piece cut verbatim from its source, with a
+comment saying how many pages use it and what differs between the copies. You do
+not have to diff 24 files yourself.
 
-> **عامل المجلد كـ build output.** لو عدّلت ماركب صفحة، الملف هنا يصبح قديمًا.
-> أعِد القص من المصدر المذكور في رأس الملف بدل التعديل هنا.
+> **Treat this folder as build output.** If you edit a page's markup, the file
+> here goes stale. Re-cut it from the source named in its header instead of
+> editing it here.
 
 ---
 
-## الخريطة
+## The map
 
-| الملف | المصدر | الأسطر | في كم صفحة | متطابق؟ |
+| File | Source | Lines | Pages using it | Identical? |
 |---|---|---|---|---|
-| `header.html` | `article.html` | 19–135 | 23 / 24 | ✅ شكل واحد بعد تطبيع الـactive state |
-| `navbar.html` | `article.html` | 56–114 | 23 / 24 | ✅ (جزء من الهيدر) |
-| `breaking-news.html` | `article.html` | 117–134 | 23 / 24 | ✅ متطابق بايت-ببايت |
-| `footer.html` | `article.html` | 325–396 | 23 / 24 | ⚠️ نسختان (A بأيقونات سوشيال، B بدونها) |
-| `breadcrumb.html` | `category.html` | 140–144 | 16 | ❌ 6 أشكال — هذه أشيعها |
-| `card-article-wide.html` | `category.html` | 212–220 | — | ❌ عيّنة تمثيلية فقط |
-| `card-article-compact.html` | `category.html` | 227–234 | — | ❌ عيّنة تمثيلية فقط |
-| `pagination.html` | `search.html` | 249–258 | 4 | ❌ هوامش مختلفة لكل صفحة |
-| `form-contact.html` | `contact.html` | 158–242 | 1 | — النموذج الوحيد الكامل |
-| `form-newsletter.html` | `newsletter.html` | 197–219 | 1 | — غير النموذج المصغّر داخل الفوتر |
+| `header.html` | `article.html` | 19–135 | 23 / 24 | ✅ one shape, once the active state is normalised |
+| `navbar.html` | `article.html` | 56–114 | 23 / 24 | ✅ (part of the header) |
+| `breaking-news.html` | `article.html` | 117–134 | 23 / 24 | ✅ byte-for-byte identical |
+| `footer.html` | `article.html` | 325–396 | 23 / 24 | ⚠️ two versions (A with social icons, B without) |
+| `breadcrumb.html` | `category.html` | 140–144 | 16 | ❌ six shapes — this is the commonest |
+| `card-article-wide.html` | `category.html` | 212–220 | — | ❌ a representative sample only |
+| `card-article-compact.html` | `category.html` | 227–234 | — | ❌ a representative sample only |
+| `pagination.html` | `search.html` | 249–258 | 4 | ❌ different margins on every page |
+| `form-contact.html` | `contact.html` | 158–242 | 1 | — the only complete form |
+| `form-newsletter.html` | `newsletter.html` | 197–219 | 1 | — not the small form inside the footer |
 
-**✅** = يصلح ليصبح Blade component مباشرة.
-**⚠️** = يصلح، بمتغيّر واحد أو اثنين.
-**❌** = عيّنة للاسترشاد. توحيدها بالقوة سيغيّر الشكل، وهو ممنوع.
-
----
-
-## ترتيب مقترح للبورت
-
-ابدأ بالثلاثة الأولى — هي وحدها تشيل نحو ثلث تكرار الماركب في المشروع:
-
-1. **`header.html`** — أعلى عائد وأقل خطر. متغيّر واحد (`$active`)،
-   وكلاسات الهوفر داخله (`.sh-x1`…`.sh-x38`) متطابقة أصلًا في الـ23 صفحة
-   فلا تحتاج أي تعديل CSS.
-2. **`footer.html`** — متغيّران (`$social`, `$logoLink`). انتبه لملاحظة
-   الكلاسات المرقّمة في رأس الملف.
-3. **`breaking-news.html`** — متطابق تمامًا، ومحتواه كله في سمة `data-items` واحدة.
-
-ثم `navbar.html` لو أردت فصله عن الهيدر.
-
-الباقي (breadcrumb / cards / pagination / forms) اتركه inline في الـviews
-إلى أن يقرر فريق الواجهة توحيد أشكاله عمدًا.
+**✅** = ready to become a Blade component as it stands.
+**⚠️** = ready, with one or two variables.
+**❌** = a sample to work from. Forcing these into one shape would change how the
+pages look, and that is not allowed.
 
 ---
 
-## ما يجب ألا يُنقل كما هو
+## A suggested order for the port
 
-- **`homepage-v2/v3/v4.html` و`loader.html`** حُذفت (8 سبتمبر 2026): كانت صفحات مفاهيم قائمة بذاتها، لا هيدر ولا فوتر ولا `data-sh` hooks.
-- **كلاسات `.sh-xN`** مولَّدة ومرقّمة بترتيب ظهور العنصر داخل صفحته، ومربوطة
-  1:1 بقواعد في `css/<page>.css`. لا تُعِد ترقيمها ولا تشاركها بين الصفحات في
-  البناء الستاتيكي الحالي. عند البورت، استبدلها بأسماء دلالية ثابتة — وافعل ذلك
-  للماركب والـCSS معًا في نفس الخطوة.
-- **روابط `href="#"`** كثيرة داخل الفوتر وبعض القوائم. هي محتوى مؤقت، تُركت كما
-  هي عمدًا. عند البورت تتحول إلى `route()`.
+Start with the first three. Those alone carry about a third of the repeated
+markup in the project:
 
-> **تحديث سبتمبر 2026:** `header.html` و`footer.html` بقوا مصدر الحقيقة فعليًا: `python tools/chrome.py` بينسخهم لكل صفحة بين علامتي `sh:header` / `sh:footer`. الباقي في المجلد مرجع كما هو.
+1. **`header.html`** — the highest return and the lowest risk. One variable
+   (`$active`), and the hover classes inside it (`.sh-x1`…`.sh-x38`) are already
+   identical across the 23 pages, so no CSS has to change.
+2. **`footer.html`** — two variables (`$social`, `$logoLink`). Mind the note
+   about the numbered classes in the file's header.
+3. **`breaking-news.html`** — completely identical, and all of its content sits
+   in a single `data-items` attribute.
+
+Then `navbar.html`, if you want it separated from the header.
+
+Leave the rest — breadcrumb, cards, pagination, forms — inline in the views
+until the front-end team decides to unify their shapes deliberately.
+
+---
+
+## What must not be ported as it is
+
+- **`homepage-v2/v3/v4.html` and `loader.html`** were deleted (8 September
+  2026). They were standalone concept pages: no header, no footer, no `data-sh`
+  hooks.
+- **The `.sh-xN` classes** are generated and numbered by the order the element
+  appears inside its own page, and each is bound 1:1 to a rule in
+  `css/<page>.css`. Do not renumber them and do not share them between pages in
+  the current static build. When porting, replace them with stable semantic
+  names — and do that for the markup and the CSS together, in one step.
+- **`href="#"` links**, of which there are many in the footer and some menus.
+  They are placeholder content, left as they are on purpose. On the port they
+  become `route()`.
+
+> **September 2026 update:** `header.html` and `footer.html` have become the
+> actual source of truth. `python tools/chrome.py` copies them into every page
+> between the `sh:header` and `sh:footer` markers. The rest of the folder is
+> still reference material.
