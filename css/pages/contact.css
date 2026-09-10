@@ -13,7 +13,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--sh-blue)}
 .sh-contact-contact-form__div-2{display:flex;flex-wrap:wrap;gap:8px}
 .sh-contact-contact-form__span-3{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--sh-blue);background:var(--sh-blue);color:#fff;font-family:var(--sh-font);font-size:12px;font-weight:800;padding:9px 15px;white-space:nowrap}
 .sh-contact-contact-form__span-4{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--sh-grey-1);background:#fff;color:var(--sh-ink-2);font-family:var(--sh-font);font-size:12px;font-weight:800;padding:9px 15px;white-space:nowrap}
-.sh-contact-contact-form__span-4:hover{border-color:var(--sh-blue);color:var(--sh-blue)}
+@media (hover:hover){.sh-contact-contact-form__span-4:hover{border-color:var(--sh-blue);color:var(--sh-blue)}}
 .sh-contact-contact-form__div-3{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px;margin-top:18px}
 .sh-contact-contact-form__label-1{display:block;padding-bottom:14px}
 .sh-contact-contact-form__span-5{display:block;font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:var(--sh-mute);margin-bottom:7px}
@@ -30,7 +30,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--sh-blue)}
 .sh-contact-contact-form__div-6{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:16px}
 .sh-contact-contact-form__span-10{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--sh-mute)}
 .sh-contact-contact-form__button-1{display:inline-flex;align-items:center;gap:12px;background:var(--sh-navy);color:#fff;border:none;font-family:var(--sh-font);font-size:12px;font-weight:800;padding:13px 28px;cursor:pointer;white-space:nowrap;flex:none}
-.sh-contact-contact-form__button-1:hover{background:var(--sh-blue)}
+@media (hover:hover){.sh-contact-contact-form__button-1:hover{background:var(--sh-blue)}}
 .sh-contact-contact-info__aside-1{display:flex;flex-direction:column}
 .sh-contact-contact-info__div-1{position:relative;overflow:hidden;background:var(--sh-navy);color:#fff;flex:1;min-height:190px;display:flex;align-items:flex-end}
 .sh-contact-contact-info__span-1{position:absolute;inset:0;overflow:hidden;opacity:.5}
@@ -50,12 +50,12 @@ input:focus,textarea:focus{outline:none;border-color:var(--sh-blue)}
 .sh-contact-contact-info__span-11{display:block;font-size:11.5px;color:var(--sh-mute);margin-top:4px;line-height:1.75;direction:rtl;text-align:start}
 .sh-contact-contact-info__div-5{margin-top:16px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .sh-contact-contact-info__a-1{width:34px;height:34px;border:1px solid var(--sh-grey-1);display:flex;align-items:center;justify-content:center;color:var(--sh-navy)}
-.sh-contact-contact-info__a-1:hover{background:var(--sh-blue);border-color:var(--sh-blue);color:#fff}
+@media (hover:hover){.sh-contact-contact-info__a-1:hover{background:var(--sh-blue);border-color:var(--sh-blue);color:#fff}}
 .sh-contact-contact-info__i-2{font-size:13px}
 .sh-contact-contact-note__div-1{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 30px;margin:26px 0 36px;padding:15px 0;border-top:1px solid var(--sh-hair-3);border-bottom:1px solid var(--sh-hair-3)}
 .sh-contact-contact-note__span-1{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--sh-ink-2)}
 .sh-contact-contact-note__a-1{display:inline-flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:12px;font-weight:800;color:var(--sh-blue)}
-.sh-contact-contact-note__a-1:hover{gap:16px}
+@media (hover:hover){.sh-contact-contact-note__a-1:hover{gap:16px}}
 .sh-contact-contact-note__span-2{display:none}
 
 /* ---- image tiles (converted from background spans): the picture is an <img> that lazy-loads ---- */

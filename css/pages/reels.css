@@ -13,7 +13,7 @@ a{transition:color .16s ease,background .16s ease,border-color .16s ease,opacity
 .sh-reels__inner{max-width:var(--sh-container);margin:0 auto;padding:12px 32px 28px}
 .sh-reels__crumbs{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--sh-on-dark-60);padding-bottom:10px}
 .sh-reels__crumbs a{color:var(--sh-on-dark-60)}
-.sh-reels__crumbs a:hover{color:#fff}
+@media (hover:hover){.sh-reels__crumbs a:hover{color:#fff}}
 .sh-reels__crumbs span{color:#9fc2ea;font-weight:700}
 
 .sh-reels__head{display:flex;align-items:center;justify-content:space-between;gap:12px 20px;flex-wrap:wrap}
@@ -26,7 +26,7 @@ a{transition:color .16s ease,background .16s ease,border-color .16s ease,opacity
   width:40px;height:40px;border:1px solid rgba(255,255,255,.22);background:transparent;color:#fff;cursor:pointer;font-size:12px;
   display:inline-flex;align-items:center;justify-content:center;transition:background .2s ease,border-color .2s ease,opacity .2s ease;
 }
-.sh-reels__arrow:hover{background:var(--sh-blue);border-color:var(--sh-blue);color:#fff}
+@media (hover:hover){.sh-reels__arrow:hover{background:var(--sh-blue);border-color:var(--sh-blue);color:#fff}}
 .sh-reels__arrow:disabled,.sh-reels__arrow[aria-disabled="true"]{opacity:.3;cursor:default;pointer-events:none;background:transparent;border-color:rgba(255,255,255,.22)}   /* aria-disabled, not disabled: focus stays on the button at the ends */
 .sh-reels__arrow:focus-visible{outline:2px solid var(--sh-sky);outline-offset:2px}
 
@@ -37,7 +37,7 @@ a{transition:color .16s ease,background .16s ease,border-color .16s ease,opacity
   flex:none;min-height:34px;padding:0 13px;border:1px solid var(--sh-on-dark-16);background:var(--sh-on-dark-08);color:#fff;font-family:var(--sh-font);font-size:12px;font-weight:700;cursor:pointer;
   transition:background .16s ease,border-color .16s ease;
 }
-.sh-reels__tab:hover{background:var(--sh-on-dark-14)}
+@media (hover:hover){.sh-reels__tab:hover{background:var(--sh-on-dark-14)}}
 .sh-reels__tab[aria-pressed="true"]{background:var(--sh-blue);border-color:var(--sh-blue)}
 .sh-reels__tab:focus-visible{outline:2px solid var(--sh-sky);outline-offset:2px}
 
@@ -60,7 +60,7 @@ a{transition:color .16s ease,background .16s ease,border-color .16s ease,opacity
   min-height:44px;padding:0 20px;border:0;background:var(--sh-blue);color:#fff;font-family:var(--sh-font);font-size:13.5px;font-weight:800;
   display:inline-flex;align-items:center;gap:9px;cursor:pointer;transition:background .16s ease;
 }
-.sh-reels__fplay:hover{background:var(--color-brand-blue-deep)}
+@media (hover:hover){.sh-reels__fplay:hover{background:var(--color-brand-blue-deep)}}
 .sh-reels__fplay:focus-visible{outline:2px solid var(--sh-sky);outline-offset:2px}
 .sh-reels__fplay .sh-i{font-size:12px}
 .sh-reels__fplay .sh-i + .sh-i{display:none}
@@ -71,7 +71,7 @@ a{transition:color .16s ease,background .16s ease,border-color .16s ease,opacity
   display:inline-flex;align-items:center;gap:8px;
 }
 .sh-reels__ffull .sh-i{font-size:12px}
-.sh-reels__ffull:hover{border-color:#fff;color:#fff}
+@media (hover:hover){.sh-reels__ffull:hover{border-color:#fff;color:#fff}}
 .sh-reels__ffull:focus-visible{outline:2px solid var(--sh-sky);outline-offset:2px}
 
 /* the rail: clips sideways only, so the active reel keeps its shadow */
@@ -98,7 +98,7 @@ a{transition:color .16s ease,background .16s ease,border-color .16s ease,opacity
 .sh-reels-grid__n{font-size:12.5px;font-weight:400;color:var(--sh-mute);font-variant-numeric:tabular-nums;margin-inline-start:4px}
 .sh-reels-grid__grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:24px 16px;margin-top:20px}
 .sh-reels-grid__card{display:flex;flex-direction:column;gap:9px;min-width:0;color:var(--sh-ink);font-family:var(--sh-font);outline-offset:3px}
-.sh-reels-grid__card:hover{color:var(--sh-ink)}
+@media (hover:hover){.sh-reels-grid__card:hover{color:var(--sh-ink)}}
 .sh-reels-grid__card:focus-visible{outline:2px solid var(--sh-blue)}
 .sh-reels-grid__pic{position:relative;display:block;aspect-ratio:3/4;overflow:hidden;background:var(--sh-navy-2);isolation:isolate}
 .sh-reels-grid__pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s cubic-bezier(.2,.7,.2,1)}

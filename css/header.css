@@ -10,7 +10,7 @@
    blue masthead means the link vanishes. Everything on that chrome hovers to
    white instead; :where() keeps the specificity at zero so each component below
    still overrides it (the brief button, for one, hovers to blue on white). */
-:where(.sh-topbar,.sh-header__body) a:hover{color:#fff}
+@media (hover:hover){:where(.sh-topbar,.sh-header__body) a:hover{color:#fff}}
 
 /* ---- language switch: a segmented control, not a bare word ---- */
 .sh-lang{display:inline-flex;align-items:stretch;border:1px solid var(--sh-on-dark-30);line-height:1}
@@ -23,7 +23,7 @@
 /* the drawn control stays 20px; the target it answers to is 44 */
 .sh-lang__opt::before{content:"";position:absolute;inset-block:-12px;inset-inline:0}
 .sh-lang__opt--on{background:#fff;color:var(--sh-navy);cursor:default}
-.sh-lang__opt:not(.sh-lang__opt--on):hover{background:var(--sh-on-dark-16);color:#fff}
+@media (hover:hover){.sh-lang__opt:not(.sh-lang__opt--on):hover{background:var(--sh-on-dark-16);color:#fff}}
 .sh-lang__opt:focus-visible{outline:2px solid var(--sh-sky);outline-offset:1px}
 .sh-header__body{position:relative;z-index:3}
 .sh-header__sky{display:none}
@@ -44,7 +44,7 @@
   font-family:var(--sh-font);font-size:13px;font-weight:800;line-height:1;
   transition:background .18s ease;
 }
-.sh-live:hover{background:#a52629;color:#fff}
+@media (hover:hover){.sh-live:hover{background:#a52629;color:#fff}}
 .sh-live:active{background:#8f2125}
 .sh-live:focus-visible{outline:2px solid #fff;outline-offset:2px}
 .sh-live .sh-i{font-size:13px;animation:sh-live-on 2.2s ease-in-out infinite}
@@ -52,7 +52,7 @@
 @media (prefers-reduced-motion:reduce){.sh-live .sh-i{animation:none}}
 .sh-tnum{font-variant-numeric:tabular-nums}
 .sh-masthead__logo{justify-self:center;position:relative;display:block;padding:6px 18px;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
-.sh-masthead__logo:hover{transform:translateY(-2px)}
+@media (hover:hover){.sh-masthead__logo:hover{transform:translateY(-2px)}}
 .sh-masthead__logo-img{height:54px;width:auto;position:relative;filter:drop-shadow(0 6px 18px rgba(10,26,51,.35))}
 .sh-masthead__logo-star{display:none}
 .sh-masthead__tools{display:flex;align-items:center;gap:12px;justify-self:end}
@@ -62,7 +62,7 @@
   color:#fff;font-family:var(--sh-font);font-size:12px;font-weight:700;line-height:1;white-space:nowrap;
   transition:background .18s ease,border-color .18s ease;
 }
-.sh-brief-btn:hover{background:var(--sh-on-dark-14);border-color:var(--sh-on-dark-55);color:#fff}
+@media (hover:hover){.sh-brief-btn:hover{background:var(--sh-on-dark-14);border-color:var(--sh-on-dark-55);color:#fff}}
 .sh-brief-btn:focus-visible{outline:2px solid var(--sh-sky);outline-offset:2px}
 .sh-brief-btn .sh-i{font-size:13px;color:var(--sh-sky)}
 .sh-brief-btn__meta{padding-inline-start:8px;border-inline-start:1px solid var(--sh-on-dark-30);font-size:11.5px;font-weight:700;color:var(--sh-on-dark-72);font-variant-numeric:tabular-nums}
@@ -73,7 +73,7 @@
   display:flex;align-items:center;height:38px;border:1px solid var(--sh-on-dark-30);background:var(--sh-on-dark-08);
   transition:background .18s ease,border-color .18s ease;
 }
-.sh-search:hover{background:var(--sh-on-dark-14);border-color:var(--sh-on-dark-55)}
+@media (hover:hover){.sh-search:hover{background:var(--sh-on-dark-14);border-color:var(--sh-on-dark-55)}}
 .sh-search:focus-within{background:#fff;border-color:#fff}
 .sh-search__input{
   width:190px;height:100%;padding:0 12px;border:0;background:transparent;color:#fff;outline:none;
@@ -87,15 +87,15 @@
   width:38px;height:100%;flex:none;border:0;background:transparent;color:#fff;font-size:13px;cursor:pointer;
   display:flex;align-items:center;justify-content:center;transition:background .18s ease,color .18s ease;
 }
-.sh-search__btn:hover{background:var(--sh-on-dark-16)}
+@media (hover:hover){.sh-search__btn:hover{background:var(--sh-on-dark-16)}}
 .sh-search__btn:focus-visible{outline:2px solid var(--sh-sky);outline-offset:-2px}
 .sh-search:focus-within .sh-search__btn{color:var(--sh-blue)}
-.sh-search:focus-within .sh-search__btn:hover{background:var(--color-surface-blue)}
+@media (hover:hover){.sh-search:focus-within .sh-search__btn:hover{background:var(--color-surface-blue)}}
 .sh-nav{display:flex;align-items:center;justify-content:space-between;min-height:46px;flex-wrap:wrap;font-family:var(--sh-font);font-size:14px;font-weight:700;border-top:1px solid var(--sh-on-dark-14)}
 .sh-nav__list{display:flex;gap:26px;flex-wrap:wrap}
 .sh-nav__item{position:relative}
 .sh-nav__link{display:flex;align-items:center;gap:7px;color:var(--sh-on-dark-86);padding:13px 0 12px;border-bottom:2px solid transparent;transition:color .16s ease,border-color .22s ease}
-.sh-nav__link:hover{color:#fff;border-bottom:2px solid var(--sh-on-dark-80)}
+@media (hover:hover){.sh-nav__link:hover{color:#fff;border-bottom:2px solid var(--sh-on-dark-80)}}
 .sh-nav__caret{
   width:7px;height:7px;flex:none;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;   /* physical, not logical: right+bottom rotated 45° is a ∨ in any direction */
   transform:rotate(45deg) translateY(-2px);opacity:.55;transition:transform .2s ease,opacity .16s ease;
@@ -108,7 +108,7 @@
 /* a group label inside a dropdown: the pages that are states of the site, not sections */
 .sh-nav__drop-label{display:block;padding:10px 18px 2px;font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:var(--sh-on-dark-55)}
 .sh-nav__link.sh-nav__link--current{display:flex;align-items:center;gap:7px;color:#fff;padding:13px 0 12px;border-bottom:2px solid #fff;transition:color .16s ease,border-color .22s ease}
-.sh-nav__link.sh-nav__link--current:hover{color:#fff;border-bottom:2px solid var(--sh-on-dark-80)}
+@media (hover:hover){.sh-nav__link.sh-nav__link--current:hover{color:#fff;border-bottom:2px solid var(--sh-on-dark-80)}}
 .sh-nav__drop-link.sh-nav__drop-link--current{display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:800;color:#fff;background:rgba(27,90,166,.35)}
 .sh-nav__drop-link.sh-nav__drop-link--current:hover{background:var(--sh-blue);color:#fff}
 /* ---- the nav's trailing slot: contact, styled as any other nav link (the old
@@ -126,7 +126,7 @@
 .sh-ticker__count{color:var(--sh-mute);font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}   /* "1 / 3" keeps its order inside the RTL bar */
 .sh-ticker__pager{display:flex;gap:4px}
 .sh-ticker__btn{width:34px;height:34px;border:1px solid var(--sh-hair-2);background:#fff;color:var(--sh-navy);cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:background .15s}
-.sh-ticker__btn:hover{background:var(--color-surface-soft)}
+@media (hover:hover){.sh-ticker__btn:hover{background:var(--color-surface-soft)}}
 /* ---- live-coverage CTA: the ticker's one button, balancing the red tag ---- */
 .sh-link{color:var(--sh-blue);font-weight:700}
 .sh-nav__drop-link.sh-nav__drop-link--bold{display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;font-weight:800;color:#fff}

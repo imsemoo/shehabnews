@@ -76,7 +76,7 @@ html[data-bf-docked] body{padding-bottom:var(--bf-bar-h)}
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-decoration:none;
   transition:color .18s ease;
 }
-a.bf-now-t[href]:hover{color:var(--bf-blue)}
+@media (hover:hover){a.bf-now-t[href]:hover{color:var(--bf-blue)}}
 
 /* ---- controls ---- */
 .bf-bar-ctl{display:flex;align-items:center;gap:7px}
@@ -85,11 +85,11 @@ a.bf-now-t[href]:hover{color:var(--bf-blue)}
   background:var(--bf-paper);border:1px solid var(--bf-hair);color:var(--bf-ink);
   cursor:pointer;transition:background .18s ease,border-color .18s ease,color .18s ease,opacity .18s ease;
 }
-.bf-b:hover:not(:disabled){background:var(--bf-ink);border-color:var(--bf-ink);color:#fff}
+@media (hover:hover){.bf-b:hover:not(:disabled){background:var(--bf-ink);border-color:var(--bf-ink);color:#fff}}
 .bf-b:disabled{opacity:.38;cursor:default}
 .bf-b svg{width:12px;height:12px;fill:currentColor}
 .bf-b-go{width:40px;height:40px;background:var(--bf-blue);border-color:var(--bf-blue);color:#fff}
-.bf-b-go:hover:not(:disabled){background:var(--bf-ink);border-color:var(--bf-ink)}
+@media (hover:hover){.bf-b-go:hover:not(:disabled){background:var(--bf-ink);border-color:var(--bf-ink)}}
 .bf-b-go svg{width:14px;height:14px}
 .bf-b-end{margin-inline-start:6px}
 .bf-rate{
@@ -99,7 +99,7 @@ a.bf-now-t[href]:hover{color:var(--bf-blue)}
   background:var(--bf-paper);border:1px solid var(--bf-hair);color:var(--bf-ink);cursor:pointer;
   transition:background .18s ease,border-color .18s ease,color .18s ease;
 }
-.bf-rate:hover{background:var(--bf-ink);border-color:var(--bf-ink);color:#fff}
+@media (hover:hover){.bf-rate:hover{background:var(--bf-ink);border-color:var(--bf-ink);color:#fff}}
 
 /* browser surfaces belong to the design too */
 [data-bf] ::selection{background:var(--bf-blue);color:#fff}

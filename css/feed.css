@@ -11,7 +11,7 @@
 
 /* ---- the pill: held updates wait behind one button ---- */
 .sh-feed-pill{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:40px;margin:0 0 10px;border:0;background:var(--sh-blue);color:#fff;font-family:var(--sh-font);font-size:13px;font-weight:800;cursor:pointer;animation:sh-feed-in .3s ease both}
-.sh-feed-pill:hover{background:var(--color-brand-blue-deep)}
+@media (hover:hover){.sh-feed-pill:hover{background:var(--color-brand-blue-deep)}}
 .sh-feed-pill:focus-visible{outline:2px solid var(--sh-navy);outline-offset:2px}
 .sh-feed-pill .sh-i{font-size:11px}
 
@@ -28,10 +28,10 @@
 .sh-livedock__body{min-width:0;flex:1 1 auto}
 .sh-livedock__kicker{display:block;font-family:var(--sh-font);font-size:10.5px;font-weight:800;color:var(--sh-sky)}
 .sh-livedock__title{display:block;font-family:var(--sh-font);font-size:13px;font-weight:800;line-height:1.5;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sh-livedock__title:hover{color:#fff;text-decoration:underline}
+@media (hover:hover){.sh-livedock__title:hover{color:#fff;text-decoration:underline}}
 .sh-livedock__meta{display:block;font-size:11px;color:var(--sh-on-dark-60);font-variant-numeric:tabular-nums}
 .sh-livedock__close{flex:none;width:32px;height:32px;border:0;background:transparent;color:var(--sh-on-dark-72);cursor:pointer;display:grid;place-items:center}
-.sh-livedock__close:hover{color:#fff;background:var(--sh-on-dark-14)}
+@media (hover:hover){.sh-livedock__close:hover{color:#fff;background:var(--sh-on-dark-14)}}
 body[data-bf-on] .sh-livedock{bottom:84px}
 @media (max-width:640px){.sh-livedock{inset-inline:12px;bottom:12px;max-width:none}}
 

@@ -6,7 +6,7 @@ p{font-family:var(--sh-serif);line-height:2}
 .sh-saved__body{display:flex;flex-direction:column;gap:6px;min-width:0}
 .sh-saved__body .sh-card__title{font-size:15px}
 .sh-saved__rm{width:36px;height:36px;border:1px solid var(--color-border);background:#fff;color:var(--sh-mute);cursor:pointer;display:grid;place-items:center}
-.sh-saved__rm:hover{color:var(--color-red-soft);border-color:var(--color-red-soft)}
+@media (hover:hover){.sh-saved__rm:hover{color:var(--color-red-soft);border-color:var(--color-red-soft)}}
 .sh-saved-empty{display:flex;flex-direction:column;align-items:center;gap:10px;padding:48px 24px;margin-top:20px;text-align:center;background:var(--color-surface-soft)}
 .sh-saved-empty[hidden]{display:none}
 .sh-saved-empty__i{font-size:34px;color:var(--sh-blue)}

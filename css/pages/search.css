@@ -11,10 +11,10 @@ input::placeholder{color:var(--sh-mute)}
 .sh-search-search-hero__i-1{font-size:15px}
 .sh-search-search-hero__input-1{flex:1;min-width:0;border:none;background:none;font-size:15px;font-weight:700;color:var(--sh-navy);padding:15px 0}
 .sh-search-search-hero__button-1{background:var(--sh-blue);color:#fff;border:none;font-family:var(--sh-font);font-size:14px;font-weight:800;padding:0 34px;cursor:pointer;transition:background .18s}
-.sh-search-search-hero__button-1:hover{background:var(--sh-navy-2)}
+@media (hover:hover){.sh-search-search-hero__button-1:hover{background:var(--sh-navy-2)}}
 .sh-search-search-body__div-1{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;padding:24px 0 0}
 .sh-search-featured-result__a-1{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:28px;align-items:start;background:var(--color-surface-soft);border-inline-start:2px solid var(--sh-blue);padding:20px 20px 22px;margin:0 -20px 4px 0}
-.sh-search-featured-result__a-1:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-search-featured-result__a-1:hover{color:var(--sh-blue)}}
 .sh-search-featured-result__span-1{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:800;font-family:var(--sh-font);color:var(--sh-blue);border:1px solid var(--sh-hair-2);padding:3px 10px}
 .sh-search-featured-result__span-2{display:flex;gap:9px;align-items:center;font-size:11.5px;margin-top:12px}
 .sh-search-featured-result__span-3{display:block;font-family:var(--sh-font);font-size:22px;font-weight:800;line-height:1.6;margin-top:10px;color:var(--sh-navy);text-wrap:pretty}
@@ -22,7 +22,7 @@ input::placeholder{color:var(--sh-mute)}
 .sh-search-featured-result__span-5{display:flex;gap:9px;align-items:center;font-size:11.5px;color:var(--sh-mute);margin-top:12px}
 .sh-search-featured-result__span-6{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=1000");background-size:cover;background-position:center}
 .sh-search-search-body__a-1{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:start;padding:22px 0;border-bottom:1px solid var(--color-border-soft)}
-.sh-search-search-body__a-1:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-search-search-body__a-1:hover{color:var(--sh-blue)}}
 .sh-search-search-body__span-1{display:block;font-family:var(--sh-font);font-size:17px;font-weight:800;line-height:1.7;margin-top:7px;color:var(--sh-navy);text-wrap:pretty}
 .sh-search-search-body__span-2{display:block;font-family:var(--sh-serif);font-size:13px;line-height:1.9;color:var(--sh-ink-2);margin-top:7px;max-width:58ch}
 .sh-search-search-body__span-3{display:flex;gap:9px;align-items:center;font-size:11.5px;color:var(--sh-mute);margin-top:9px}
@@ -35,22 +35,22 @@ input::placeholder{color:var(--sh-mute)}
 .sh-search-search-body__div-2{display:none}
 .sh-search-pagination__nav-1{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:32px;font-family:var(--sh-font);font-size:13px;font-weight:700}
 .sh-search-pagination__a-1{display:inline-flex;align-items:center;gap:7px;color:var(--sh-grey-3);padding:8px 14px;cursor:default}
-.sh-search-pagination__a-2,.sh-search-pagination__a-2:hover{color:#fff}   /* base.css a:hover would paint the label blue on blue */
+.sh-search-pagination__a-2{color:#fff}@media (hover:hover){.sh-search-pagination__a-2:hover{color:#fff}}   /* base.css a:hover would paint the label blue on blue */
 .sh-search-pagination__a-2{width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--sh-blue);font-variant-numeric:tabular-nums}
 .sh-search-pagination__span-1{width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--sh-mute)}
 .sh-search-pagination__a-3{display:inline-flex;align-items:center;gap:7px;color:var(--sh-blue);padding:8px 14px}
-.sh-search-pagination__a-3:hover{gap:11px}
+@media (hover:hover){.sh-search-pagination__a-3:hover{gap:11px}}
 .sh-search-search-rail__aside-1{align-self:start;position:sticky;top:24px}
 .sh-search-search-rail__div-1{display:flex;flex-wrap:wrap;gap:0 18px;padding-top:12px;font-size:12px;font-weight:700;font-family:var(--sh-font)}
 .sh-search-search-rail__div-2{display:flex;align-items:center;justify-content:space-between;background:var(--sh-navy);color:#fff;padding:10px 14px}
 .sh-search-search-rail__h2-1{gap:9px}
 .sh-search-search-rail__span-1{width:6px;height:6px;background:var(--sh-red);border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite}
 .sh-search-search-rail__a-1{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;color:var(--sh-sky);font-weight:700}
-.sh-search-search-rail__a-1:hover{color:#fff}
+@media (hover:hover){.sh-search-search-rail__a-1:hover{color:#fff}}
 .sh-search-search-rail__div-3{border-inline-start:1px solid var(--sh-hair-4);margin-inline-start:2px}
 .sh-search-search-rail__span-2{color:var(--sh-red);font-weight:700}
 .sh-search-search-rail__a-2{display:block;padding:13px 0;border-bottom:1px solid var(--color-border-soft)}
-.sh-search-search-rail__a-2:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-search-search-rail__a-2:hover{color:var(--sh-blue)}}
 .sh-search-search-rail__span-3{display:block;font-size:11.5px;color:var(--sh-blue);font-weight:700}
 .sh-search-search-rail__span-4{display:block;font-family:var(--sh-font);font-size:13px;font-weight:700;line-height:1.7;margin-top:5px;color:var(--sh-ink)}
 .sh-search-search-by-date__section-1{margin-top:44px;padding-top:26px;border-top:1px solid var(--sh-hair-2)}
@@ -74,7 +74,7 @@ input::placeholder{color:var(--sh-mute)}
 .sh-search-discovery-strip__section-1 .sh-eyebrow{color:var(--sh-blue)}
 .sh-search-discovery-strip__div-2{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 28px;margin-top:24px}
 .sh-search-discovery-strip__a-1{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:14px 0;border-top:1px solid var(--color-border-soft);color:var(--sh-ink)}
-.sh-search-discovery-strip__a-1:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-search-discovery-strip__a-1:hover{color:var(--sh-blue)}}
 .sh-search-discovery-strip__span-5{display:flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:15px;font-weight:800}
 .sh-search-discovery-strip__span-6{font-size:11.5px;color:var(--sh-mute);font-variant-numeric:tabular-nums}
 .sh-search-search-closing__div-1{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;margin-top:44px;padding:26px 0;}
@@ -82,14 +82,14 @@ input::placeholder{color:var(--sh-mute)}
 .sh-search-search-closing__span-1{display:block;font-family:var(--sh-font);font-size:17px;font-weight:800;color:var(--sh-navy)}
 .sh-search-search-closing__span-2{display:block;font-family:var(--sh-serif);font-size:13px;color:var(--sh-ink-2);margin-top:5px;line-height:1.8}
 .sh-search-search-closing__a-1{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--color-border);color:var(--sh-navy);font-family:var(--sh-font);font-size:13px;font-weight:800;padding:11px 26px}
-.sh-search-search-closing__a-1:hover{background:var(--sh-navy);color:#fff;border-color:var(--sh-navy);gap:18px}
+@media (hover:hover){.sh-search-search-closing__a-1:hover{background:var(--sh-navy);color:#fff;border-color:var(--sh-navy);gap:18px}}
 .sh-search-may-interest-you__section-1{padding:36px 0 48px;margin-top:36px;border-top:1px solid var(--sh-hair-2)}
 .sh-search-may-interest-you__div-1{display:flex;align-items:baseline;justify-content:space-between}
 .sh-search-may-interest-you__a-1{color:var(--sh-blue)}
-.sh-search-may-interest-you__a-1:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-search-may-interest-you__a-1:hover{color:var(--sh-blue)}}
 .sh-search-may-interest-you__div-2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px;padding-top:12px}
 .sh-search-may-interest-you__a-2{display:block;padding:12px 0}
-.sh-search-may-interest-you__a-2:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-search-may-interest-you__a-2:hover{color:var(--sh-blue)}}
 .sh-search-may-interest-you__span-1{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=600");background-size:cover;background-position:center}
 .sh-search-may-interest-you__span-2{display:flex;gap:9px;align-items:center;font-size:11.5px;margin-top:12px}
 .sh-search-may-interest-you__span-3{display:block;font-family:var(--sh-font);font-size:15px;font-weight:700;line-height:1.7;margin-top:8px;color:var(--sh-navy);text-wrap:pretty}

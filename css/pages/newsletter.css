@@ -35,7 +35,7 @@ p{font-family:var(--sh-serif);line-height:2.05}
 .sh-newsletter-signup__span-2{width:17px;height:17px;border:1px solid var(--sh-grey-1);flex:none}
 .sh-newsletter-signup__div-2{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:16px}
 .sh-newsletter-signup__button-1{display:inline-flex;align-items:center;gap:12px;background:var(--sh-navy);color:#fff;border:none;font-family:var(--sh-font);font-size:12px;font-weight:800;padding:13px 28px;cursor:pointer;white-space:nowrap;flex:none}
-.sh-newsletter-signup__button-1:hover{background:var(--sh-blue)}
+@media (hover:hover){.sh-newsletter-signup__button-1:hover{background:var(--sh-blue)}}
 .sh-newsletter-what-you-get__section-1{margin-top:34px}
 .sh-newsletter-what-you-get__div-1{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding-top:13px}
 .sh-newsletter-what-you-get__h2-1{font-family:var(--sh-font);font-size:20px;font-weight:800;margin:0;color:var(--sh-navy);display:flex;align-items:center;gap:10px}
@@ -74,7 +74,7 @@ p{font-family:var(--sh-serif);line-height:2.05}
 .sh-newsletter-topics__div-2{display:flex;flex-wrap:wrap;align-items:center;gap:10px 26px;margin-top:16px}
 .sh-newsletter-topics__span-1{display:inline-flex;align-items:center;gap:9px;font-family:var(--sh-font);font-size:15px;font-weight:800;color:var(--sh-navy);border-bottom:2px solid var(--sh-blue);padding-bottom:5px;white-space:nowrap}
 .sh-newsletter-topics__span-2{display:inline-flex;align-items:center;gap:9px;font-family:var(--sh-font);font-size:15px;font-weight:700;color:var(--sh-mute);border-bottom:1px solid transparent;padding-bottom:5px;white-space:nowrap}
-.sh-newsletter-topics__span-2:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-newsletter-topics__span-2:hover{color:var(--sh-blue)}}
 .sh-newsletter-closing__section-1{display:grid;grid-template-columns:minmax(min(100%,280px),1fr) minmax(min(100%,260px),.8fr);gap:34px;margin:30px 0 44px;padding-top:16px;border-top:1px solid var(--sh-hair-3);align-items:center}
 .sh-newsletter-closing__span-1{display:flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:13px;font-weight:800;color:var(--sh-navy)}
 .sh-newsletter-closing__p-1{font-size:13px;line-height:1.95;color:var(--sh-ink-2);margin:9px 0 0;max-width:56ch}
@@ -83,7 +83,7 @@ p{font-family:var(--sh-serif);line-height:2.05}
 .sh-newsletter-closing__span-2{display:block;font-family:var(--sh-font);font-size:17px;font-weight:800;color:var(--sh-navy)}
 .sh-newsletter-closing__span-3{display:block;font-size:13px;color:var(--sh-ink-2);margin-top:7px;line-height:1.9}
 .sh-newsletter-closing__a-2{display:inline-flex;align-items:center;gap:11px;margin-top:14px;border:1px solid var(--sh-grey-1);color:var(--sh-navy);font-family:var(--sh-font);font-size:12px;font-weight:800;padding:11px 24px;white-space:nowrap}
-.sh-newsletter-closing__a-2:hover{background:var(--sh-navy);border-color:var(--sh-navy);color:#fff;gap:17px}
+@media (hover:hover){.sh-newsletter-closing__a-2:hover{background:var(--sh-navy);border-color:var(--sh-navy);color:#fff;gap:17px}}
 .sh-newsletter-closing__span-4{display:none}
 
 /* ---- image tiles (converted from background spans): the picture is an <img> that lazy-loads ---- */

@@ -12,28 +12,28 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 .sh-category-lead-composition__span-6{display:block;font-family:var(--sh-serif);font-size:13px;line-height:1.95;color:var(--sh-ink-2);margin-top:10px;max-width:60ch}
 .sh-category-lead-composition__div-1{display:flex;flex-direction:column}
 .sh-category-lead-composition__a-1{display:block;padding:16px 0;}
-.sh-category-lead-composition__a-1:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-category-lead-composition__a-1:hover{color:var(--sh-blue)}}
 .sh-category-lead-composition__span-7{display:block;font-family:var(--sh-font);font-size:15px;font-weight:700;line-height:1.7;margin-top:7px;color:var(--sh-ink);text-wrap:pretty}
 .sh-category-lead-composition__a-2{margin-top:auto;padding-top:16px;color:var(--sh-blue)}
-.sh-category-lead-composition__a-2:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-category-lead-composition__a-2:hover{color:var(--sh-blue)}}
 .sh-category-section-stream__section-1{margin-top:40px}
 .sh-category-section-stream__div-1{display:flex;gap:16px;font-size:11.5px}
 .sh-category-section-stream__a-1{color:var(--sh-navy);font-weight:700;border-bottom:2px solid var(--sh-blue);padding-bottom:8px;margin-bottom:-11px}
 .sh-category-section-stream__div-2{border-inline-start:1px solid var(--sh-hair-4);margin-inline-start:5px;padding-inline-start:22px}
 .sh-category-section-stream__a-2{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:start;padding:20px 18px 20px 0;margin:0 -18px 0 0;background:var(--color-surface-soft);border-bottom:1px solid var(--color-border-soft)}
-.sh-category-section-stream__a-2:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-category-section-stream__a-2:hover{color:var(--sh-blue)}}
 .sh-category-section-stream__span-1{position:absolute;top:26px;inset-inline-start:-8.5px;width:16px;height:13px;background:var(--sh-blue);box-shadow:0 0 0 3px #fff}
 .sh-category-section-stream__span-2{color:var(--sh-mute);font-variant-numeric:tabular-nums;font-weight:700}
 .sh-category-section-stream__span-3{display:block;font-family:var(--sh-font);font-size:20px;font-weight:800;line-height:1.65;margin-top:8px;color:var(--sh-navy);text-wrap:pretty}
 .sh-category-section-stream__span-4{display:block;font-family:var(--sh-serif);font-size:13px;line-height:1.9;color:var(--sh-ink-2);margin-top:8px;max-width:58ch}
 .sh-category-section-stream__span-5{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=900");background-size:cover;background-position:center}
 .sh-category-section-stream__a-3{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 148px;gap:20px;align-items:center;padding:14px 0;border-bottom:1px solid var(--color-border-soft)}
-.sh-category-section-stream__a-3:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-category-section-stream__a-3:hover{color:var(--sh-blue)}}
 .sh-category-section-stream__span-6{position:absolute;top:21px;inset-inline-start:-25.5px;width:6px;height:6px;background:var(--sh-hair-2);transform:rotate(45deg);box-shadow:0 0 0 3px #fff}
 .sh-category-section-stream__span-7{display:block;font-family:var(--sh-font);font-size:15px;font-weight:700;line-height:1.7;margin-top:6px;color:var(--sh-ink);text-wrap:pretty}
 .sh-category-section-stream__span-8{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=500");background-size:cover;background-position:center}
 .sh-category-section-stream__a-4{position:relative;display:block;padding:12px 0;border-bottom:1px solid var(--color-border-soft)}
-.sh-category-section-stream__a-4:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-category-section-stream__a-4:hover{color:var(--sh-blue)}}
 .sh-category-section-stream__span-9{position:absolute;top:17px;inset-inline-start:-25.5px;width:6px;height:6px;background:var(--sh-red);transform:rotate(45deg);box-shadow:0 0 0 3px #fff}
 .sh-category-section-stream__span-10{color:var(--sh-red);font-weight:700}
 .sh-category-section-stream__span-11{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/UNRWA%20el-Sheikh%20Radwan%20health%20center%2C%20February%202024.jpg?width=500");background-size:cover;background-position:center}
@@ -48,10 +48,10 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 .sh-category-video-module__section-1{margin-top:0;background:var(--color-surface-soft);color:var(--sh-ink);padding:22px 24px}
 .sh-category-video-module__div-1{display:flex;align-items:baseline;justify-content:space-between}
 .sh-category-video-module__a-1{color:var(--sh-blue)}
-.sh-category-video-module__a-1:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-category-video-module__a-1:hover{color:var(--sh-blue)}}
 .sh-category-video-module__div-2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:18px}
 .sh-category-video-module__a-2{display:block;color:var(--sh-ink)}
-.sh-category-video-module__a-2:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-category-video-module__a-2:hover{color:var(--sh-blue)}}
 .sh-category-video-module__span-1{position:relative;display:block;background:var(--sh-navy-2);overflow:hidden}
 .sh-category-video-module__span-2{display:block;width:100%;aspect-ratio:16/9;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=600");background-size:cover;background-position:center;opacity:.85}
 .sh-category-video-module__span-3{width:38px;height:38px;background:var(--color-scrim);display:flex;align-items:center;justify-content:center}
@@ -63,13 +63,13 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 .sh-category-load-more__div-1{display:flex;align-items:center;gap:16px;margin-top:36px}
 .sh-category-load-more__span-1{flex:1;height:1px;background:var(--sh-hair-2)}
 .sh-category-load-more__a-1{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--color-border);color:var(--sh-navy);font-family:var(--sh-font);font-size:13px;font-weight:800;padding:11px 28px}
-.sh-category-load-more__a-1:hover{background:var(--sh-navy);color:#fff}
+@media (hover:hover){.sh-category-load-more__a-1:hover{background:var(--sh-navy);color:#fff}}
 .sh-category-section-rail__aside-1{align-self:start;position:sticky;top:24px}
 .sh-category-section-rail__div-1{display:flex;align-items:center;justify-content:space-between;background:var(--sh-navy);color:#fff;padding:10px 14px}
 .sh-category-section-rail__h2-1{gap:9px}
 .sh-category-section-rail__span-1{width:6px;height:6px;background:var(--sh-red);border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite}
 .sh-category-section-rail__a-1{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;color:var(--sh-sky);font-weight:700}
-.sh-category-section-rail__a-1:hover{color:#fff}
+@media (hover:hover){.sh-category-section-rail__a-1:hover{color:#fff}}
 .sh-category-section-rail__div-2{border-inline-start:1px solid var(--sh-hair-2);margin-inline-start:2px}
 .sh-category-section-rail__span-2{color:var(--sh-red);font-weight:700}
 .sh-category-section-rail__div-3{margin-top:28px;border-inline-start:2px solid var(--sh-blue);padding-inline-start:14px;position:relative}
@@ -78,9 +78,9 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 .sh-category-section-rail__span-5{display:block;font-family:var(--sh-font);font-size:26px;font-weight:800;color:var(--sh-navy);font-variant-numeric:tabular-nums;line-height:1}
 .sh-category-section-rail__span-6{display:block;font-size:12px;color:var(--sh-ink-2);margin-top:6px;line-height:1.8}
 .sh-category-section-rail__a-2{margin-top:10px;color:var(--sh-blue)}
-.sh-category-section-rail__a-2:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-category-section-rail__a-2:hover{color:var(--sh-blue)}}
 .sh-category-section-rail__a-3{display:block;padding:13px 0;border-bottom:1px solid var(--color-border-soft)}
-.sh-category-section-rail__a-3:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-category-section-rail__a-3:hover{color:var(--sh-blue)}}
 .sh-category-section-rail__span-7{display:block;font-size:11.5px;color:var(--sh-blue);font-weight:700}
 .sh-category-section-rail__span-8{display:block;font-family:var(--sh-font);font-size:13px;font-weight:700;line-height:1.7;margin-top:5px;color:var(--sh-ink)}
 .sh-category-coverage-closing__div-1{border-top:1px solid var(--sh-hair-4);margin-top:12px;padding:20px 0 6px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px}
@@ -88,6 +88,6 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 .sh-category-coverage-closing__span-2{width:5px;height:5px;background:var(--sh-red);border-radius:50%;animation:sh-pulse 1.6s ease-in-out infinite}
 .sh-category-coverage-closing__div-2{display:flex;gap:22px;font-size:12px;font-weight:700}
 .sh-category-coverage-closing__a-1{color:var(--sh-blue)}
-.sh-category-coverage-closing__a-1:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-category-coverage-closing__a-1:hover{color:var(--sh-blue)}}
 
 @media (prefers-reduced-motion:reduce){.sh-category-lead-composition__span-3,.sh-category-section-rail__span-1,.sh-category-coverage-closing__span-2{animation:none}}

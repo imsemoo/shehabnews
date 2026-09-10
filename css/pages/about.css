@@ -33,7 +33,7 @@
 .sh-ab-vals__t{display:inline-flex;align-items:center;gap:12px;font-family:var(--sh-font);font-size:26px;font-weight:800;color:var(--sh-blue);margin:0 0 44px}
 .sh-ab-vals__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 56px}
 .sh-ab-vals__grid > a{display:flex;flex-direction:column;align-items:center;gap:10px;min-width:0;color:var(--sh-ink)}
-.sh-ab-vals__grid > a:hover{color:var(--sh-ink)}
+@media (hover:hover){.sh-ab-vals__grid > a:hover{color:var(--sh-ink)}}
 .sh-ab-ico{display:block;width:72px;height:72px;margin-bottom:10px}
 .sh-ab-ico svg{display:block;width:100%;height:100%;overflow:visible}
 /* one weight, square joins, and a single blue element per mark */
@@ -52,7 +52,7 @@
 .sh-ab-close h2{font-family:var(--sh-font);font-size:20px;font-weight:800;margin:0;color:var(--sh-navy);display:flex;align-items:center;gap:10px}
 .sh-ab-close p{font-size:13px;line-height:1.9;color:var(--sh-ink-2);margin:8px 0 0;max-width:60ch}
 .sh-ab-close__cta{display:inline-flex;align-items:center;gap:9px;flex:none;min-height:44px;padding:0 18px;background:var(--sh-blue);color:#fff;font-family:var(--sh-font);font-size:12px;font-weight:800;transition:background .18s ease}
-.sh-ab-close__cta:hover{background:var(--color-brand-blue-deep);color:#fff}
+@media (hover:hover){.sh-ab-close__cta:hover{background:var(--color-brand-blue-deep);color:#fff}}
 
 /* ---- narrower ----------------------------------------------------------- */
 @media (max-width:1024px){

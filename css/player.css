@@ -101,7 +101,7 @@ media-player.sh-vs .sh-vs__error-btn{
   display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:0;background:var(--sh-blue);color:#fff;
   font-family:var(--sh-font);font-size:13px;font-weight:800;cursor:pointer;transition:background .2s ease;
 }
-media-player.sh-vs .sh-vs__error-btn:hover{background:var(--color-brand-blue-deep)}
+@media (hover:hover){media-player.sh-vs .sh-vs__error-btn:hover{background:var(--color-brand-blue-deep)}}
 media-player.sh-vs .sh-vs__error-btn:focus-visible{outline:2px solid var(--sh-sky);outline-offset:2px}
 media-player.sh-vs[data-sh-error] .vds-video-layout{visibility:hidden}
 
@@ -145,7 +145,7 @@ media-player.sh-vs--lite .sh-lite__play{
   background:rgba(10,26,51,.72);color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;
   transition:opacity .2s ease,transform .2s ease,background .2s ease;
 }
-media-player.sh-vs--lite .sh-lite__play:hover{background:var(--sh-blue)}
+@media (hover:hover){media-player.sh-vs--lite .sh-lite__play:hover{background:var(--sh-blue)}}
 media-player.sh-vs--lite .sh-lite__play .sh-i{margin-left:3px}
 media-player.sh-vs--lite .sh-lite__play .sh-i + .sh-i{display:none}   /* the pause glyph: the button hides itself while playing, so the second icon never shows */
 media-player.sh-vs--lite[data-playing] .sh-lite__play{opacity:0;transform:scale(.8);pointer-events:none}
@@ -167,7 +167,7 @@ media-player.sh-vs--lite .sh-lite__mute{
   width:34px;height:34px;border:0;border-radius:50%;background:rgba(10,26,51,.7);color:#fff;font-size:13px;cursor:pointer;
   display:inline-flex;align-items:center;justify-content:center;transition:background .2s ease;
 }
-media-player.sh-vs--lite .sh-lite__mute:hover{background:var(--sh-blue)}
+@media (hover:hover){media-player.sh-vs--lite .sh-lite__mute:hover{background:var(--sh-blue)}}
 media-player.sh-vs--lite .sh-lite__mute .sh-i + .sh-i{display:none}
 media-player.sh-vs--lite .sh-lite__mute[data-state="muted"] .sh-i:first-of-type,
 media-player.sh-vs--lite .sh-lite__mute[data-muted] .sh-i:first-of-type{display:none}

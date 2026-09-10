@@ -21,15 +21,15 @@ a{transition:color .16s ease,background .16s ease,border-color .16s ease,gap .16
 .sh-404-404__p-1{font-family:var(--sh-serif);font-size:14px;line-height:2;color:var(--sh-ink-2);margin:12px 0 0;max-width:46ch}
 .sh-404-404__div-2{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:26px}
 .sh-404-404__a-1{display:inline-flex;align-items:center;gap:12px;background:var(--sh-navy);color:#fff;font-family:var(--sh-font);font-size:12px;font-weight:800;padding:13px 28px;white-space:nowrap}
-.sh-404-404__a-1:hover{background:var(--sh-blue);color:#fff;gap:18px}
+@media (hover:hover){.sh-404-404__a-1:hover{background:var(--sh-blue);color:#fff;gap:18px}}
 .sh-404-404__a-2{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--sh-grey-1);color:var(--sh-navy);font-family:var(--sh-font);font-size:12px;font-weight:800;padding:13px 26px;white-space:nowrap}
-.sh-404-404__a-2:hover{border-color:var(--sh-blue);color:var(--sh-blue);gap:18px}
+@media (hover:hover){.sh-404-404__a-2:hover{border-color:var(--sh-blue);color:var(--sh-blue);gap:18px}}
 .sh-404-404__div-3{border-inline-start:1px solid var(--sh-hair-3);padding-inline-start:26px}
 .sh-404-404__span-13{display:flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:var(--sh-mute)}
 .sh-404-404__span-14{position:relative;display:flex;align-items:center;justify-content:center;width:12px;height:12px}
 .sh-404-404__span-15{position:absolute;inset:0;border:1px solid var(--sh-red);border-radius:50%;animation:sh-ring 2.2s ease-out infinite}
 .sh-404-404__span-16{width:5px;height:5px;background:var(--sh-red);border-radius:50%}
 .sh-404-404__a-3{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--color-border-soft)}
-.sh-404-404__a-3:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-404-404__a-3:hover{color:var(--sh-blue)}}
 .sh-404-404__span-17{display:flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:14px;font-weight:700;color:var(--sh-ink)}
 .sh-404-404__span-18{display:block;font-size:11.5px;color:var(--sh-mute);line-height:1.9;margin-top:14px}

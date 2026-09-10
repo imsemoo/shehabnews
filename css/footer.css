@@ -13,13 +13,13 @@
 .sh-footer__title{font-family:var(--sh-font);font-size:13px;font-weight:800;color:#fff;margin:0 0 20px;display:flex;align-items:center;gap:9px}
 .sh-footer__links{display:flex;flex-direction:column;gap:14px;font-size:12.5px;color:var(--sh-on-dark-60)}
 /* every entry carries the house node: a 4px diamond that lines the list into a
-   column and lights on hover, so the lists read as indexed lists instead of a
-   grey wall. The explicit hover also keeps base.css a:hover{color:#1b5aa6}
+   column and lights on hover{color:#1b5aa6}@media (hover:hover){so the lists read as indexed lists instead of a
+   grey wall. The explicit hover also keeps base.css a:hover{color:#1b5aa6}}
    from painting brand blue on navy. */
 .sh-footer__link{display:flex;align-items:center;gap:10px;min-width:0}
 .sh-footer__link::before{content:"";flex:none;width:4px;height:4px;background:var(--sh-on-dark-30);transform:rotate(45deg);transition:background .16s ease}
-.sh-footer__link:hover{color:#fff}
-.sh-footer__link:hover::before{background:var(--sh-sky)}
+@media (hover:hover){.sh-footer__link:hover{color:#fff}}
+@media (hover:hover){.sh-footer__link:hover::before{background:var(--sh-sky)}}
 .sh-footer__col.sh-footer__col--wide{flex:0 1 320px;min-width:0}
 .sh-footer__lead{font-family:var(--sh-serif);font-size:13px;line-height:1.9;color:var(--sh-on-dark-72);margin:0 0 14px}
 .sh-footer__form{display:flex;flex-wrap:wrap;gap:8px}
@@ -30,7 +30,7 @@
 .sh-footer__legal{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:26px 0 32px;font-size:11.5px;color:var(--sh-on-dark-60)}
 .sh-footer__legal-links{display:flex;gap:22px}
 .sh-footer__social-btn{width:auto;height:34px;border:1px solid var(--sh-on-dark-16);display:flex;align-items:center;justify-content:center;transition:background .18s,border-color .18s}
-.sh-footer__social-btn:hover{background:var(--sh-blue);border-color:var(--sh-blue)}
+@media (hover:hover){.sh-footer__social-btn:hover{background:var(--sh-blue);border-color:var(--sh-blue)}}
 .sh-footer__social-icon{font-size:15px;color:#fff;line-height:1}
 @keyframes sh-meteor-footer{0%{transform:translate(0,0);opacity:0}10%{opacity:1}100%{transform:translate(-520px,260px);opacity:0}}
 

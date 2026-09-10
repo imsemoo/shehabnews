@@ -7,13 +7,13 @@ p{font-family:var(--sh-serif);line-height:2.05}
 .sh-video-watch-player__div-1{max-width:var(--sh-container);margin:0 auto;padding:14px 32px 22px}
 .sh-video-watch-player__nav-1{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--sh-on-dark-60);padding-bottom:12px}
 .sh-video-watch-player__a-1{color:var(--sh-on-dark-60)}
-.sh-video-watch-player__a-1:hover{color:#fff}
+@media (hover:hover){.sh-video-watch-player__a-1:hover{color:#fff}}
 .sh-video-watch-player__span-1{color:var(--sh-sky);font-weight:700}
 .sh-video-watch-player__div-2{display:grid;grid-template-columns:minmax(min(100%,340px),1fr) minmax(min(100%,250px),.32fr);gap:26px;align-items:start}
 .sh-video-watch-player__aside-1{border-inline-start:1px solid rgba(255,255,255,.18);padding-inline-start:22px}
 .sh-video-watch-player__span-16{display:flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:var(--sh-sky);border-bottom:1px solid rgba(255,255,255,.18);padding-bottom:10px}
 .sh-video-watch-player__a-6{display:grid;grid-template-columns:26px 74px minmax(0,1fr);gap:11px;align-items:center;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.1);color:#fff}
-.sh-video-watch-player__a-6:hover{color:var(--sh-sky)}
+@media (hover:hover){.sh-video-watch-player__a-6:hover{color:var(--sh-sky)}}
 .sh-video-watch-player__span-17{font-family:var(--sh-font);font-size:15px;font-weight:800;color:rgba(255,255,255,.32);font-variant-numeric:tabular-nums}
 .sh-video-watch-player__span-18{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:16/9}
 .sh-video-watch-player__span-19{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem%20Old%20City%20Street.jpg?width=800");background-size:cover;background-position:center 45%}
@@ -34,16 +34,16 @@ p{font-family:var(--sh-serif);line-height:2.05}
 .sh-video-watch-video-info__div-2{display:flex;align-items:center;gap:8px}
 .sh-video-watch-video-info__span-8{font-size:11.5px;color:var(--sh-mute);margin-inline-end:4px}
 .sh-video-watch-video-info__a-1{width:32px;height:32px;border:1px solid var(--sh-hair-2);display:flex;align-items:center;justify-content:center;color:var(--sh-ink-2)}
-.sh-video-watch-video-info__a-1:hover{background:var(--sh-navy);border-color:var(--sh-navy);color:#fff}
+@media (hover:hover){.sh-video-watch-video-info__a-1:hover{background:var(--sh-navy);border-color:var(--sh-navy);color:#fff}}
 .sh-video-watch-video-info__i-1{font-size:12.5px}
 .sh-video-watch-video-info__span-9{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:14px;font-size:12px;color:var(--sh-mute)}
 .sh-video-watch-video-info__span-10{font-family:var(--sh-font);font-size:11.5px;font-weight:800}
 .sh-video-watch-video-info__a-2{display:inline-flex;align-items:center;gap:6px;font-family:var(--sh-font);font-size:12px;font-weight:700;color:var(--sh-blue);white-space:nowrap}
-.sh-video-watch-video-info__a-2:hover{color:var(--sh-navy)}
+@media (hover:hover){.sh-video-watch-video-info__a-2:hover{color:var(--sh-navy)}}
 .sh-video-watch-video-info__span-11{color:var(--sh-grey-2)}
 .sh-video-watch-video-info__span-12{display:flex;align-items:center;gap:10px;font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:var(--sh-mute);border-bottom:1px solid var(--color-border-soft);padding-bottom:10px}
 .sh-video-watch-video-info__a-3{display:block;padding:14px 0 0}
-.sh-video-watch-video-info__a-3:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-video-watch-video-info__a-3:hover{color:var(--sh-blue)}}
 .sh-video-watch-video-info__span-13{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:16/9}
 .sh-video-watch-video-info__span-14{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=800");background-size:cover;background-position:center 45%}
 .sh-video-watch-video-info__span-15{display:block;font-family:var(--sh-font);font-size:15px;font-weight:800;line-height:1.6;margin-top:12px;color:var(--sh-navy);text-wrap:pretty}
@@ -54,7 +54,7 @@ p{font-family:var(--sh-serif);line-height:2.05}
 .sh-video-watch-related-videos__div-1{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding-top:13px}
 .sh-video-watch-related-videos__h2-1{font-family:var(--sh-font);font-size:20px;font-weight:800;margin:0;color:var(--sh-navy);display:flex;align-items:center;gap:10px}
 .sh-video-watch-related-videos__a-1{color:var(--sh-blue)}
-.sh-video-watch-related-videos__a-1:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-video-watch-related-videos__a-1:hover{color:var(--sh-blue)}}
 .sh-video-watch-related-videos__div-2{display:grid;grid-template-columns:minmax(min(100%,320px),1.5fr) minmax(min(100%,260px),1fr);gap:28px;margin-top:20px;align-items:start}
 .sh-video-watch-related-videos__span-2{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:16/9}
 .sh-video-watch-related-videos__span-3{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=1400");background-size:cover;background-position:center 48%}
@@ -67,7 +67,7 @@ a:hover .sh-video-watch-related-videos__span-5{background:var(--sh-blue);border-
 .sh-video-watch-related-videos__span-7{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:11.5px;color:var(--sh-mute)}
 .sh-video-watch-related-videos__span-8{display:block;font-family:var(--sh-font);font-size:20px;font-weight:800;line-height:1.55;margin-top:8px;color:var(--sh-navy);text-wrap:pretty}
 .sh-video-watch-related-videos__a-2{display:grid;grid-template-columns:132px minmax(0,1fr);gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--color-border-soft)}
-.sh-video-watch-related-videos__a-2:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-video-watch-related-videos__a-2:hover{color:var(--sh-blue)}}
 .sh-video-watch-related-videos__span-9{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=800");background-size:cover;background-position:center 45%}
 .sh-video-watch-related-videos__span-10{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--sh-on-dark-86);background:rgba(10,26,51,.5);color:#fff;display:grid;place-items:center;transition:background .2s ease,border-color .2s ease}
 .sh-video-watch-related-videos__i-2{font-size:11px;transform:translateX(1px)}
@@ -82,10 +82,10 @@ a:hover .sh-video-watch-related-videos__span-5{background:var(--sh-blue);border-
 .sh-video-watch-more-videos__span-1{flex:1}
 .sh-video-watch-more-videos__span-2{display:inline-flex;align-items:center;gap:8px;font-family:var(--sh-font);font-size:12px;font-weight:800;color:var(--sh-navy);border-bottom:2px solid var(--sh-blue);padding-bottom:4px;white-space:nowrap}
 .sh-video-watch-more-videos__span-3{display:inline-flex;font-family:var(--sh-font);font-size:12px;font-weight:700;color:var(--sh-mute);padding-bottom:4px;white-space:nowrap}
-.sh-video-watch-more-videos__span-3:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-video-watch-more-videos__span-3:hover{color:var(--sh-blue)}}
 .sh-video-watch-more-videos__div-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 30px}
 .sh-video-watch-more-videos__a-1{display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid var(--color-border-soft)}
-.sh-video-watch-more-videos__a-1:hover{color:var(--sh-blue)}
+@media (hover:hover){.sh-video-watch-more-videos__a-1:hover{color:var(--sh-blue)}}
 .sh-video-watch-more-videos__span-4{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:16/9}
 .sh-video-watch-more-videos__span-5{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem%20Old%20City%20Street.jpg?width=800");background-size:cover;background-position:center 45%}
 .sh-video-watch-more-videos__span-6{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--sh-on-dark-86);background:rgba(10,26,51,.5);color:#fff;display:grid;place-items:center;transition:background .2s ease,border-color .2s ease}
@@ -124,7 +124,7 @@ a:hover .sh-video-watch-related-videos__span-5{background:var(--sh-blue);border-
   color:#fff;font-family:var(--sh-font);font-size:11.5px;font-weight:700;line-height:1.4;cursor:pointer;
   transition:background .16s ease,border-color .16s ease;
 }
-.sh-watch__chip:hover{background:var(--sh-on-dark-14)}
+@media (hover:hover){.sh-watch__chip:hover{background:var(--sh-on-dark-14)}}
 .sh-watch__chip[aria-current="true"]{background:var(--sh-blue);border-color:var(--sh-blue)}
 .sh-watch__chip:focus-visible{outline:2px solid var(--sh-sky);outline-offset:2px}
 .sh-watch__chip-t{color:var(--sh-sky);font-size:11.5px;direction:ltr;unicode-bidi:isolate}
@@ -134,7 +134,7 @@ a:hover .sh-video-watch-related-videos__span-5{background:var(--sh-blue);border-
   display:inline-flex;align-items:center;gap:7px;padding:0;border:0;background:none;color:#fff;font-family:var(--sh-font);font-size:11.5px;font-weight:700;cursor:pointer;
 }
 .sh-watch__tool .sh-i{font-size:12px;color:var(--sh-sky)}
-.sh-watch__tool:hover{color:var(--sh-sky)}
+@media (hover:hover){.sh-watch__tool:hover{color:var(--sh-sky)}}
 .sh-watch__tool:focus-visible{outline:2px solid var(--sh-sky);outline-offset:3px}
 .sh-watch__switch{display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--sh-font);font-size:11.5px;font-weight:700;color:#fff;position:relative}
 .sh-watch__switch input{position:absolute;opacity:0;width:1px;height:1px}
@@ -157,7 +157,7 @@ a:hover .sh-video-watch-related-videos__span-5{background:var(--sh-blue);border-
 .sh-watch__now{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(10,26,51,.55);color:#fff;font-family:var(--sh-font);font-size:11.5px;font-weight:800;opacity:0;transition:opacity .2s ease}
 .sh-watch__item[aria-current="true"] .sh-watch__now{opacity:1}
 .sh-watch__list-more{display:block;padding-top:12px;font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:var(--sh-sky)}
-.sh-watch__list-more:hover{color:#fff}
+@media (hover:hover){.sh-watch__list-more:hover{color:#fff}}
 
 /* up-next overlay inside the player */
 .sh-watch__next{position:absolute;inset:0;z-index:70;display:flex;align-items:center;justify-content:center;padding:20px;background:var(--color-scrim);direction:rtl;font-family:var(--sh-font)}
@@ -170,8 +170,8 @@ a:hover .sh-video-watch-related-videos__span-5{background:var(--sh-blue);border-
 .sh-watch__next-btns{display:flex;gap:8px}
 .sh-watch__next-btn{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border:1px solid var(--sh-on-dark-30);background:none;color:#fff;font-family:var(--sh-font);font-size:12px;font-weight:800;cursor:pointer;transition:background .16s ease,border-color .16s ease}
 .sh-watch__next-btn--go{background:var(--sh-blue);border-color:var(--sh-blue)}
-.sh-watch__next-btn:hover{background:var(--sh-on-dark-14)}
-.sh-watch__next-btn--go:hover{background:var(--color-brand-blue-deep)}
+@media (hover:hover){.sh-watch__next-btn:hover{background:var(--sh-on-dark-14)}}
+@media (hover:hover){.sh-watch__next-btn--go:hover{background:var(--color-brand-blue-deep)}}
 .sh-watch__next-btn:focus-visible{outline:2px solid var(--sh-sky);outline-offset:2px}
 
 /* theater */
@@ -188,7 +188,7 @@ a:hover .sh-video-watch-related-videos__span-5{background:var(--sh-blue);border-
   display:flex;align-items:center;justify-content:center;transition:background .16s ease;
 }
 .sh-watch__mini-btn[hidden]{display:none}
-.sh-watch__mini-btn:hover{background:var(--sh-blue)}
+@media (hover:hover){.sh-watch__mini-btn:hover{background:var(--sh-blue)}}
 .sh-watch__mini-btn:focus-visible{outline:2px solid var(--sh-sky);outline-offset:1px}
 .sh-watch__mini-btn--close{inset-inline-end:8px}
 .sh-watch__mini-btn--back{inset-inline-end:44px}
