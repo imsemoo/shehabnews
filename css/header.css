@@ -36,9 +36,11 @@
 .sh-header__arc.sh-header__arc--2{position:absolute;width:1400px;height:1400px;border:1px solid rgba(255,255,255,.07);border-radius:50%;right:-560px;top:-1120px}
 .sh-header__arc.sh-header__arc--3{position:absolute;width:1100px;height:1100px;border:1px solid var(--sh-on-dark-08);border-radius:50%;left:-620px;top:-880px}
 /* the tail is 2px of solid white at its head: a 1px line at 90% opacity was
-   drawn for a navy sky and dissolves on the blue masthead */
-.sh-header__meteor{position:absolute;top:22px;right:38%;width:220px;height:2px;background:linear-gradient(90deg,rgba(255,255,255,0),#fff);transform:rotate(-22deg);transform-origin:right;animation:sh-meteor 9s cubic-bezier(.2,.6,.3,1) infinite;opacity:0}
-.sh-header__meteor-head{position:absolute;top:22px;right:38%;width:5px;height:5px;background:#fff;transform:rotate(45deg);animation:sh-meteor-head 9s cubic-bezier(.2,.6,.3,1) infinite;opacity:0}
+   drawn for a navy sky and dissolves on the blue masthead. It runs along the
+   top 20px of the band at 6 degrees, which is the only strip of the masthead
+   with no control in it — measured: the highest button starts at y25. */
+.sh-header__meteor{position:absolute;top:2px;right:38%;width:220px;height:2px;background:linear-gradient(90deg,rgba(255,255,255,0),#fff);transform:rotate(-6deg);transform-origin:right;animation:sh-meteor 9s cubic-bezier(.2,.6,.3,1) infinite;opacity:0}
+.sh-header__meteor-head{position:absolute;top:2px;right:38%;width:5px;height:5px;background:#fff;transform:rotate(45deg);animation:sh-meteor-head 9s cubic-bezier(.2,.6,.3,1) infinite;opacity:0}
 .sh-header__star.sh-header__star--1{position:absolute;top:30px;right:22%;width:4px;height:4px;background:#fff;transform:rotate(45deg);opacity:.35;animation:sh-twinkle 5s ease-in-out infinite}
 .sh-header__star.sh-header__star--2{position:absolute;top:70px;right:9%;width:3px;height:3px;background:#fff;transform:rotate(45deg);opacity:.25;animation:sh-twinkle 7s ease-in-out infinite 2s}
 .sh-header__star.sh-header__star--3{position:absolute;top:44px;left:14%;width:3px;height:3px;background:#fff;transform:rotate(45deg);opacity:.3;animation:sh-twinkle 6s ease-in-out infinite 1s}
@@ -149,7 +151,7 @@
    so travelling -640px along it also dropped the streak 240px — clean out of
    the sky, which clips. The head already does it in this order, which is why
    the head was the only part that ever showed. */
-@keyframes sh-meteor{0%,72%{transform:translateX(0)rotate(-22deg)scaleX(.2);opacity:0}76%{opacity:.9}88%{transform:translateX(-640px)rotate(-22deg)scaleX(1);opacity:0}100%{opacity:0}}
+@keyframes sh-meteor{0%,72%{transform:translateX(0)rotate(-6deg)scaleX(.2);opacity:0}76%{opacity:.9}88%{transform:translateX(-640px)rotate(-6deg)scaleX(1);opacity:0}100%{opacity:0}}
 @keyframes sh-meteor-head{0%,72%{transform:rotate(45deg)translate(0,0);opacity:0}75%{opacity:1}88%{transform:rotate(45deg)translate(-420px,420px);opacity:0}100%{opacity:0}}
 @keyframes sh-twinkle{0%,100%{opacity:.25;transform:rotate(45deg)scale(.8)}50%{opacity:1;transform:rotate(45deg)scale(1.15)}}
 
