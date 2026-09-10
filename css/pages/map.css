@@ -4,7 +4,7 @@ p{font-family:var(--sh-serif);line-height:2}/* toolbar */
 .sh-map-tools{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;padding:12px 0;background:#fff;border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border)}
 html[data-compact] .sh-map-tools{top:var(--sh-compact-h,92px)}
 .sh-map-tools__group{display:flex;flex-wrap:wrap;gap:6px}
-.sh-map-chip{display:inline-flex;align-items:center;gap:6px;min-height:34px;padding:0 12px;border:1px solid var(--color-border);background:#fff;color:var(--sh-navy);font-family:var(--sh-font);font-size:12px;font-weight:800;cursor:pointer;transition:background .15s ease,color .15s ease,border-color .15s ease}
+.sh-map-chip{display:inline-flex;align-items:center;gap:6px;min-height:34px;padding:0 12px;border:1px solid var(--color-border);background:#fff;color:var(--sh-navy);font-family:var(--sh-font);font-size:12px;font-weight:800;cursor:pointer;transition:background .16s ease,color .16s ease,border-color .16s ease}
 @media (hover:hover){.sh-map-chip:hover{border-color:var(--sh-blue);color:var(--sh-blue)}}
 .sh-map-chip[aria-pressed="true"]{background:var(--sh-blue);border-color:var(--sh-blue);color:#fff}   /* selected is blue: blue points */
 .sh-map-chip--ghost{margin-inline-start:auto;color:var(--sh-blue)}

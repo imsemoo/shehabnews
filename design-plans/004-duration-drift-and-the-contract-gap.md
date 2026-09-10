@@ -1,6 +1,6 @@
 # 004 — The leftover duration drift, and the band the contract never wrote
 
-- **Status**: TODO — needs one decision before step 3
+- **Status**: DONE — both decisions answered yes; executed and shipped in ?v=236
 - **Commit**: 4b55cd8
 - **Severity**: LOW (the drift) · MEDIUM (the gap)
 - **Category**: Easing & duration · Cohesion & tokens

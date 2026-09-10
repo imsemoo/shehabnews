@@ -1,6 +1,6 @@
 # 001 — Put the 30 page-sheet picture scales on the signed curve and the contract's band
 
-- **Status**: TODO
+- **Status**: DONE — executed and shipped in ?v=236
 - **Commit**: 4b55cd8
 - **Severity**: MEDIUM
 - **Category**: Cohesion & tokens · Easing & duration

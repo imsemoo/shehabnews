@@ -1,6 +1,6 @@
 /* شهاب — author: page layout, one-off styles (scoped by section), and what
    the old per-page sheet still owned (keyframes, p/input, its own a{transition}). */
-a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background .16s ease,gap .16s ease,transform .3s ease}
+a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background .16s ease,gap .16s ease,transform .35s cubic-bezier(.2,.7,.2,1)}
 .sh-author-body__nav-1{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--sh-mute);padding:22px 0 0}
 .sh-author-author-hero__section-1{position:relative;background:var(--color-surface-soft);margin-top:16px;overflow:hidden;display:grid;grid-template-columns:300px minmax(0,1fr);gap:44px;padding:40px;align-items:center}
 .sh-author-author-hero__span-1{display:none}
@@ -122,19 +122,19 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 @media (hover:hover){.sh-author-author-closing__a-1:hover{background:var(--sh-navy);color:#fff;border-color:var(--sh-navy);gap:18px}}
 
 /* ---- image tiles (converted from background spans): the picture is an <img> that lazy-loads ---- */
-.sh-author-latest-by-author__span-1 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
+.sh-author-latest-by-author__span-1 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .sh-author-latest-by-author__span-9 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 .sh-author-latest-by-author__span-10 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 .sh-author-latest-by-author__span-11 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 .sh-author-latest-by-author__span-12 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 .sh-author-latest-by-author__span-13 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-.sh-author-top-stories__span-1 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
+.sh-author-top-stories__span-1 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .sh-author-author-rail__span-1 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 .sh-author-author-rail__span-4 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 .sh-author-author-rail__span-5 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-.sh-author-author-files__span-5 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
-.sh-author-author-files__span-11 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
-.sh-author-author-files__span-12 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
+.sh-author-author-files__span-5 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.sh-author-author-files__span-11 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.sh-author-author-files__span-12 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 a:hover .sh-author-latest-by-author__span-1 img{transform:scale(1.04)}
 a:hover .sh-author-top-stories__span-1 img{transform:scale(1.04)}
 a:hover .sh-author-author-files__span-5 img{transform:scale(1.04)}

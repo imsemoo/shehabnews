@@ -9,13 +9,13 @@
    لحظة واحدة فقط. */
 a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background .16s ease,gap .16s ease}/* ================================================================== tiles */
 .sh-ph-tile{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);isolation:isolate}
-.sh-ph-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+.sh-ph-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 a:hover .sh-ph-tile img,a:focus-visible .sh-ph-tile img{transform:scale(1.03)}
 .sh-ph-tile__scrim{position:absolute;inset:0;z-index:1;pointer-events:none}
 .sh-ph-tile__n{position:absolute;top:12px;inset-inline-end:12px;z-index:2;display:inline-flex;align-items:center;gap:6px;padding:3px 9px;background:rgba(10,26,51,.82);color:#fff;font-family:var(--sh-font);font-size:11.5px;font-weight:700;font-variant-numeric:tabular-nums}
 .sh-ph-tile__n .sh-i{font-size:10px}
 /* hover: a quiet wash and the camera mark — the picture stays the picture */
-.sh-ph-tile__hover{position:absolute;inset:0;z-index:2;display:grid;place-items:center;background:rgba(10,26,51,0);opacity:0;transition:opacity .25s ease,background .25s ease;pointer-events:none}
+.sh-ph-tile__hover{position:absolute;inset:0;z-index:2;display:grid;place-items:center;background:rgba(10,26,51,0);opacity:0;transition:opacity .25s ease,background .16s ease;pointer-events:none}
 .sh-ph-tile__cam{width:40px;height:40px;display:grid;place-items:center;background:rgba(10,26,51,.85);color:#fff}
 .sh-ph-tile__cam .sh-i{font-size:14px}
 a:hover .sh-ph-tile__hover,a:focus-visible .sh-ph-tile__hover{opacity:1;background:rgba(10,26,51,.16)}
