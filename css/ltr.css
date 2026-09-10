@@ -76,6 +76,10 @@ html[dir="ltr"] media-player.sh-vs--lite .sh-lite__wait{right:50%;left:auto;marg
 html[dir="ltr"] media-player.sh-vs--lite .sh-lite__top{direction:ltr}
 html[dir="ltr"] media-player.sh-vs--lite .sh-lite__body{direction:ltr}
 html[dir="ltr"] media-player.sh-vs--lite .sh-lite__fill{right:0;left:auto}
+html[dir="ltr"] .vds-menu-items{direction:ltr}
+html[dir="ltr"] .vds-chapters-radio-group .vds-thumbnail, html[dir="ltr"] .vds-chapters-radio-group media-thumbnail{margin-left:0;margin-right:0}
+html[dir="ltr"] .vds-chapter-radio[aria-checked="true"]{border-right:0;border-left:0;padding-right:var(--item-padding);padding-left:0}
+html[dir="ltr"] .vds-chapter-radio[aria-checked="true"]::after{right:auto;left:auto}
 
 /* ---- css/responsive.css ---- */
 @layer responsive{

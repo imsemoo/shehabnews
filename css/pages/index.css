@@ -395,13 +395,10 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 @media (hover:hover){.sh-vid__arrow:hover{background:rgba(255,255,255,.12)}}
 .sh-vid__arrow:focus-visible{outline:2px solid #fff;outline-offset:2px}
 .sh-vid__arrow[disabled]{opacity:.3;cursor:default}
-.sh-vid__rail{
-  display:flex;gap:16px;overflow-x:auto;overflow-y:hidden;padding:2px 0 6px;
-  scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;
-}
-.sh-vid__rail::-webkit-scrollbar{display:none}
+/* seven clips, one row, nothing to slide */
+.sh-vid__rail{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:16px;padding:2px 0 6px}
 .sh-vid__reel{
-  position:relative;flex:0 0 156px;aspect-ratio:9/16;overflow:hidden;scroll-snap-align:start;
+  position:relative;min-width:0;aspect-ratio:9/16;overflow:hidden;
   background:var(--sh-navy-2);color:#fff;isolation:isolate;outline-offset:3px;
 }
 @media (hover:hover){.sh-vid__reel:hover{color:#fff}}
@@ -409,11 +406,20 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-vid__reel-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .sh-vid__reel:hover .sh-vid__reel-img{transform:scale(1.05)}
 .sh-vid__reel::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.94) 0,rgba(10,26,51,.55) 34%,rgba(10,26,51,0) 62%);pointer-events:none}
+/* at rest a clip is its picture and its length; pointing at it brings the
+   section, the headline and the play mark up in one move. A screen with no
+   pointer never reveals, so there they all stay showing. */
+@media (hover:hover){
+  .sh-vid__reel::after,.sh-vid__reel-body,.sh-vid__reel-play{opacity:0;transition:opacity .2s ease}
+  .sh-vid__reel:hover::after,.sh-vid__reel:focus-visible::after,
+  .sh-vid__reel:hover .sh-vid__reel-body,.sh-vid__reel:focus-visible .sh-vid__reel-body,
+  .sh-vid__reel:hover .sh-vid__reel-play,.sh-vid__reel:focus-visible .sh-vid__reel-play{opacity:1}
+}
 .sh-vid__reel-len{position:absolute;top:10px;inset-inline-start:10px;z-index:2;display:inline-flex;align-items:center;gap:5px;padding:3px 7px;background:rgba(10,26,51,.72);font-size:11.5px;font-variant-numeric:tabular-nums;direction:ltr}
 .sh-vid__reel-len .sh-i{font-size:10px}
 .sh-vid__reel-play{
-  position:absolute;bottom:92px;inset-inline-end:12px;z-index:2;width:40px;height:40px;border-radius:50%;
-  display:grid;place-items:center;border:1.5px solid rgba(255,255,255,.85);background:rgba(10,26,51,.45);font-size:12px;
+  position:absolute;inset:0;margin:auto;z-index:2;width:44px;height:44px;border-radius:50%;
+  display:grid;place-items:center;border:1.5px solid rgba(255,255,255,.9);background:rgba(10,26,51,.5);font-size:13px;
   transition:background .18s ease,border-color .18s ease;
 }
 .sh-vid__reel-play .sh-i{margin-inline-start:-2px}
@@ -450,7 +456,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
   .sh-vid__title{font-size:17px}
   .sh-vid__item{grid-template-columns:112px minmax(0,1fr);padding:10px 14px}
   .sh-vid__reels{padding:20px 14px 18px}
-  .sh-vid__reel{flex-basis:150px}
+  .sh-vid__rail{grid-template-columns:repeat(3,minmax(0,1fr))}
   .sh-vid__reels-nav{display:none}
   .sh-vid__progs{grid-template-columns:repeat(2,minmax(0,1fr))}
   .sh-vid__prog--all{grid-column:1/-1}
@@ -509,26 +515,23 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-desk2{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:0 48px;padding:0 0 64px;align-items:stretch}
 .sh-desk2 > .sh-op{display:flex;flex-direction:column;min-width:0}
 .sh-op__head,.sh-sp__head{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--sh-hair-2);padding-bottom:12px}
-.sh-op__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:0 26px;margin-top:20px;align-items:stretch;flex:1 1 auto;min-height:0}
-.sh-op__lead{display:flex;flex-direction:column;gap:14px;color:var(--sh-ink);padding-inline-end:26px;border-inline-end:1px solid var(--sh-hair)}
-@media (hover:hover){.sh-op__lead:hover{color:var(--sh-ink)}}
-.sh-op__portrait{position:relative;flex:1 1 240px;min-height:240px;overflow:hidden;background:var(--sh-navy-2)}
-.sh-op__portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;transition:transform .8s cubic-bezier(.2,.75,.2,1)}
-.sh-op__lead:hover .sh-op__portrait img{transform:scale(1.03)}
-.sh-op__lead-body{position:relative;display:flex;flex-direction:column;gap:10px;padding-top:2px}
-.sh-op__glyph{display:none}
-.sh-op__lead-t{position:relative;font-family:var(--sh-font);font-size:20px;font-weight:800;line-height:1.5;color:var(--sh-navy);text-wrap:balance}
-.sh-op__lead:hover .sh-op__lead-t{color:var(--sh-blue)}
+.sh-op__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-top:20px;align-items:stretch;flex:1 1 auto;min-height:0}
+.sh-op__list{display:flex;flex-direction:column}
+.sh-op__list:first-child{padding-inline-end:26px;border-inline-end:1px solid var(--sh-hair)}
+.sh-op__list:last-child{padding-inline-start:26px}
 .sh-op__by{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--sh-mute)}
 .sh-op__by b{font-family:var(--sh-font);font-size:13px;font-weight:800;color:var(--sh-navy)}
-.sh-op__list{display:flex;flex-direction:column}
-.sh-op__row{flex:1 1 auto;display:grid;grid-template-columns:52px minmax(0,1fr);gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--color-border-soft);color:var(--sh-ink)}
+.sh-op__row{flex:1 1 auto;display:grid;grid-template-columns:56px minmax(0,1fr);gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--color-border-soft);color:var(--sh-ink)}
 .sh-op__row:first-child{padding-top:0}
 .sh-op__row:last-child{border-bottom:0;padding-bottom:0}
-@media (hover:hover){.sh-op__row:hover{color:var(--sh-blue)}}
+/* a columnist's head shot is a portrait, not a news picture: it is round, and
+   it carries the house mark the way a paper marks its own writers */
+.sh-op__avatar{position:relative;width:56px;height:56px;flex:none}
+.sh-op__face{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:center top;background:var(--sh-navy-2);box-shadow:0 0 0 1px var(--sh-hair-2)}
+.sh-op__badge{position:absolute;inset-block-end:0;inset-inline-start:0;width:14px;height:12px;background:var(--sh-blue);box-shadow:0 0 0 3px #fff}
 .sh-op__row > span{display:flex;flex-direction:column;gap:5px;min-width:0}
-.sh-op__face{width:52px;height:52px;object-fit:cover;object-position:center top;background:var(--sh-navy-2);flex:none}
 .sh-op__t{font-family:var(--sh-font);font-size:14px;font-weight:700;line-height:1.6;text-wrap:pretty;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+@media (hover:hover){.sh-op__row:hover .sh-op__t{color:var(--sh-blue)}}
 .sh-op__row .sh-op__by b{font-size:12px}
 .sh-sp__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:16px 14px;margin-top:20px}
 .sh-sp__big{grid-column:1/-1;position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:var(--sh-navy-2);color:#fff}
@@ -552,17 +555,14 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 @media (max-width:900px){
   .sh-desk2{grid-template-columns:minmax(0,1fr);gap:44px 0}
   .sh-desk2 > .sh-op{display:block}
-  .sh-op__grid{grid-template-columns:minmax(0,1fr);gap:8px 0}
-  .sh-op__lead{flex-direction:row;gap:16px;align-items:stretch;padding-inline-end:0;border-inline-end:0;padding-bottom:14px;border-bottom:1px solid var(--sh-hair-2)}
-  .sh-op__portrait{flex:0 0 168px;min-height:168px}
-  .sh-op__lead-body{justify-content:center}
+  .sh-op__grid{grid-template-columns:minmax(0,1fr);gap:0}
+  .sh-op__list:first-child{padding-inline-end:0;border-inline-end:0}
+  .sh-op__list:last-child{padding-inline-start:0;border-top:1px solid var(--color-border-soft)}
+  .sh-op__list:last-child .sh-op__row:first-child{padding-top:12px}
 }
 @media (max-width:640px){
   .sh-sp__grid{grid-template-columns:minmax(0,1fr)}
   .sh-sp__wire{border-inline-start:0;padding-inline-start:0;border-top:1px solid var(--sh-hair-2);padding-top:8px}
-  .sh-op__portrait{flex-basis:112px;min-height:112px}
-  .sh-op__lead-t{font-size:17px}
-  .sh-op__glyph{font-size:80px;top:-20px}
 }
 
 /* ============================================================================

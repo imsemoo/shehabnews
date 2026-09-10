@@ -202,3 +202,33 @@ media-player.sh-vs--lite .sh-lite__slider:focus-visible{outline:2px solid var(--
 @media (prefers-reduced-motion:reduce){
   media-player .vds-buffering-spinner,media-player [class*="buffering"]{animation:none}
 }
+
+/* ---- the menus are portalled out of the player, so they are addressed by their
+        own classes: the house surface, and RTL geometry the library writes in
+        physical directions ---- */
+.vds-menu-items{
+  border-radius:0;direction:rtl;font-family:var(--sh-font);
+  background:var(--sh-navy);color:#fff;border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 18px 40px -18px rgba(0,0,0,.8);
+}
+.vds-menu-items .vds-menu-item,.vds-menu-items .vds-menu-button,.vds-menu-items .vds-radio,
+.vds-menu-items .vds-menu-section{border-radius:0}
+.vds-chapters-radio-group .vds-thumbnail,.vds-chapters-radio-group media-thumbnail{
+  margin-right:0;margin-inline-end:12px;
+}
+.vds-chapter-radio[aria-checked="true"]{
+  border-left:0;border-inline-start:2px solid var(--sh-blue);
+  padding-left:var(--item-padding);padding-inline-start:var(--item-padding);
+  background:rgba(126,168,221,.14);
+}
+.vds-chapter-radio[aria-checked="true"]::after{left:auto;inset-inline-start:0;background:var(--sh-blue)}
+.vds-chapters-radio-group .vds-chapter-radio-label{
+  white-space:normal;line-height:1.7;font-family:var(--sh-font);font-weight:700;color:#fff;
+}
+.vds-chapters-radio-group .vds-chapter-radio-start-time{
+  font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;
+  background:rgba(255,255,255,.12);color:var(--sh-on-dark-82);
+}
+/* the library builds "10 sec" by hand, outside its translation map; the start
+   time already answers the question, so the English label does not ship */
+.vds-chapters-radio-group .vds-chapter-radio-duration{display:none}
