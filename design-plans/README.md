@@ -96,3 +96,32 @@ overflow and console errors.
   video 6 live spans, photos 17, files 12, sections 6, author 5, all reporting
   `0.8s cubic-bezier(0.2, 0.7, 0.2, 1)`. Whether 0.8s reads as settled or as slow on the
   denser grids is a judgement for the client, not for a measurement.
+
+## 001 revisited, after looking at it in a browser
+
+Plan 001 moved every card picture to the contract's 0.8s band. Sampled on
+`video.html` at 1280 — a 514px picture, `scale(1.06)`, 30.8px of travel:
+
+| | at 0.8s | at 0.5s |
+| --- | --- | --- |
+| 80% of the travel | 274ms | ~190ms |
+| edge still moving a whole pixel until | 525ms | 414ms |
+
+The first number was fine; the second was not. Eight of these share one viewport
+halfway down `video.html`, so sweeping the pointer across the grid left two or
+three pictures still creeping half a second behind it.
+
+The band was not wrong, it was written for the wrong picture: `index.css` runs
+its **one** lead picture at 1.2s and that reads as deliberate because you aim at
+it and nothing else moves. So `DESIGN.md:345` now names both:
+
+> 0.35–0.5s for a lift or a deck, **0.5s for a card or grid picture, 0.8–1.2s for
+> a page's one lead picture** or a crossfade settle.
+
+and the 30 declarations sit at `transform .5s cubic-bezier(.2,.7,.2,1)`. The
+curve half of 001 stands; only the duration moved.
+
+Also found while measuring: four `:hover` rules in `css/pages/video.css` were not
+inside `@media (hover:hover)` — two scaling a play disc, two recolouring one — so
+on a touch screen the disc stayed enlarged and dark blue after a tap until
+something else was tapped. All 41 hover rules in that sheet are gated now.

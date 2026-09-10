@@ -342,7 +342,7 @@ The one highlighted line in a report: a 30px blue quote glyph, the line in Almar
 A live element is a 5–7px red circle pulsing 1.4–1.6s (`sh-pulse`), beside a bold navy head in Almarai 800. On the article the story-updates block is exactly that — dot, head, list — with no tinted panel and no side stripe (feed contexts keep the blue-tint panel with a red inline-start stripe).
 
 ### Motion
-Colour and background change in 0.16–0.18s ease; arrows step in 0.2s; a panel, a veil or a toast fades in 0.22–0.3s ease; anything that moves or scales rides `cubic-bezier(.2,.7,.2,1)` — 0.35–0.5s for a lift or a deck, 0.8–1.2s for a picture's hover scale or a crossfade settle. `prefers-reduced-motion: reduce` removes every transition, animation and hover transform, and stops every pulse.
+Colour and background change in 0.16–0.18s ease; arrows step in 0.2s; a panel, a veil or a toast fades in 0.22–0.3s ease; anything that moves or scales rides `cubic-bezier(.2,.7,.2,1)` — 0.35–0.5s for a lift or a deck, 0.5s for a card or grid picture, 0.8–1.2s for a page's one lead picture or a crossfade settle. `prefers-reduced-motion: reduce` removes every transition, animation and hover transform, and stops every pulse.
 
 ## Do's and Don'ts
 
