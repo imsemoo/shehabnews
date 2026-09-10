@@ -22,7 +22,7 @@ import os, re, json
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 
-V = '211'
+V = '212'
 SITE = 'https://shehabnews.com/'
 ORG = 'وكالة شهاب للأنباء'
 OG_IMG = SITE + 'assets/images/og-default.jpg'
@@ -41,7 +41,7 @@ PAGES = {
     'reels':       ('ريلز شهاب', 'مقاطع قصيرة من برامج شهاب: سين صريح، أخبار شلومو، قصة صورة، الحكاية، حديث اليوم.', 'collection', None),
     'shorts':      ('شورتس شهاب', 'مقاطع رأسية قصيرة من شهاب بملء الشاشة.', 'collection', None),
     'photos':      ('الصور', 'عدسة شهاب: ألبومات مصوّرة وانفوجرافيك من فلسطين.', 'gallery', None),
-    'files':       ('ملفات شهاب', 'الملفات الخاصة والتغطيات المعمّقة: وثائق، خرائط، وخطوط زمنية.', 'collection', None),
+    'files':       ('ملفات شهاب', 'ملفات شهاب والتغطيات المعمّقة: وثائق، خرائط، وخطوط زمنية.', 'collection', None),
     'author':      (None, 'مواد الكاتب على شهاب.', 'profile', None),
     'search':      ('البحث', 'ابحث في أخبار وتقارير وصور وفيديوهات شهاب.', 'search', None),
     'sections':    ('أقسام شهاب', 'خريطة أقسام شهاب ومكاتبها وفريق التحرير.', 'collection', None),

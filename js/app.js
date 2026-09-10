@@ -6,9 +6,23 @@
   /* A list with nothing in it should say so rather than render as a blank
      column; the block is in the markup and waits for its list to be empty. */
   document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('[data-sh-empty-for]').forEach(function (box) {
-      box.hidden = !!document.querySelector(box.getAttribute('data-sh-empty-for'));
-    });
+    var boxes = [].slice.call(document.querySelectorAll('[data-sh-empty-for]'));
+    if (!boxes.length) return;
+    function settle() {
+      boxes.forEach(function (box) {
+        box.hidden = !!document.querySelector(box.getAttribute('data-sh-empty-for'));
+      });
+    }
+    settle();
+    // the data desk and the live feed fill their lists after this runs, so the
+    // question gets asked again whenever the page grows something
+    var main = document.querySelector('main') || document.body;
+    var queued = false;
+    new MutationObserver(function () {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(function () { queued = false; settle(); });
+    }).observe(main, { childList: true, subtree: true });
   });
 
   /* An image that never arrives leaves the browser's broken frame, which reads
@@ -17,7 +31,9 @@
   document.addEventListener('error', function (e) {
     var img = e.target;
     if (!img || img.tagName !== 'IMG' || img.hasAttribute('data-sh-noimg')) return;
-    if (img.closest('[data-sh-lightbox], .sh-lightbox')) return;   // the viewer draws its own
+    if (img.closest('[data-sh-viewer]')) return;   // the open viewer draws its own plate
+    // note: [data-sh-lightbox] marks the grid that OPENS the viewer, not the viewer,
+    // and skipping it left every thumbnail on photos.html showing a broken frame
     if (img.classList.contains('sh-noimg__logo')) return;         // never plate the plate's own mark
     img.setAttribute('data-sh-noimg', '');
     var r = img.getBoundingClientRect();
@@ -301,6 +317,7 @@
       box.appendChild(bar);
       box.appendChild(stage);
       box.appendChild(foot);
+      box.setAttribute('data-sh-viewer', '');
       document.body.appendChild(box);
 
       closeEl.addEventListener('click', close);

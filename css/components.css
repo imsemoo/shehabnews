@@ -76,6 +76,8 @@
 .sh-noimg__d{position:absolute;inset:0;background:linear-gradient(to left top,transparent 49.6%,rgba(126,168,221,.22) 49.8%,rgba(126,168,221,.22) 50.2%,transparent 50.4%)}
 .sh-noimg__logo{position:absolute;inset:0;margin:auto;width:34%;height:auto;opacity:.14}
 .sh-list__num.sh-list__num--big{font-family:var(--sh-font);font-size:22px;font-weight:800;color:var(--color-text-faint);line-height:1.1;font-variant-numeric:tabular-nums;text-align:center}
+/* the phone floor shrinks this to 18px, where the contrast bar rises to 4.5 */
+@media (max-width:640px){.sh-list__num.sh-list__num--big{color:var(--color-text-muted)}}
 .sh-mt-28{margin-top:28px}
 .sh-rail__link{color:var(--sh-ink-2);padding:6px 0}
 @media (hover:hover){.sh-rail__link:hover{color:var(--sh-blue)}}

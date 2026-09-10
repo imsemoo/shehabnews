@@ -194,3 +194,6 @@ media-player.sh-vs--lite .sh-lite__slider:hover,media-player.sh-vs--lite .sh-lit
 media-player.sh-vs--lite .sh-lite__track{position:absolute;inset-inline:0;bottom:0;height:var(--sh-track);background:rgba(255,255,255,.28);transition:height .15s ease}
 media-player.sh-vs--lite .sh-lite__fill{position:absolute;left:0;top:0;bottom:0;width:var(--slider-fill,0%);background:var(--sh-blue)}
 media-player.sh-vs--lite .sh-lite__slider:focus-visible{outline:2px solid var(--sh-sky);outline-offset:-2px}
+
+/* the ring still reads as waiting when it does not turn */
+@media (prefers-reduced-motion:reduce){media-player.sh-vs--lite .sh-lite__wait{animation:none;opacity:1}}

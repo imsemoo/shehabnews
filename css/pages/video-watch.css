@@ -52,7 +52,7 @@ p{font-family:var(--sh-serif);line-height:2.05}
 .sh-video-watch-video-info__span-18{display:none}
 .sh-video-watch-related-videos__section-1{margin-top:34px}
 .sh-video-watch-related-videos__div-1{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding-top:13px}
-.sh-video-watch-related-videos__h2-1{font-family:var(--sh-font);font-size:20px;font-weight:800;margin:0;color:var(--sh-navy);display:flex;align-items:center;gap:10px}
+.sh-video-watch-related-videos__h2-1{gap:10px}
 .sh-video-watch-related-videos__a-1{color:var(--sh-blue)}
 @media (hover:hover){.sh-video-watch-related-videos__a-1:hover{color:var(--sh-blue)}}
 .sh-video-watch-related-videos__div-2{display:grid;grid-template-columns:minmax(min(100%,320px),1.5fr) minmax(min(100%,260px),1fr);gap:28px;margin-top:20px;align-items:start}
@@ -78,7 +78,7 @@ a:hover .sh-video-watch-related-videos__span-5{background:var(--sh-blue);border-
 .sh-video-watch-related-videos__span-15{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem%20Old%20City%20Street.jpg?width=800");background-size:cover;background-position:center 45%}
 .sh-video-watch-more-videos__section-1{margin-top:32px}
 .sh-video-watch-more-videos__div-1{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;border-top:1px solid var(--sh-hair-2);padding-top:13px}
-.sh-video-watch-more-videos__h2-1{font-family:var(--sh-font);font-size:17px;font-weight:800;margin:0;color:var(--sh-navy);display:flex;align-items:center;gap:10px}
+.sh-video-watch-more-videos__h2-1{gap:10px}
 .sh-video-watch-more-videos__span-1{flex:1}
 .sh-video-watch-more-videos__span-2{display:inline-flex;align-items:center;gap:8px;font-family:var(--sh-font);font-size:12px;font-weight:800;color:var(--sh-navy);border-bottom:2px solid var(--sh-blue);padding-bottom:4px;white-space:nowrap}
 .sh-video-watch-more-videos__span-3{display:inline-flex;font-family:var(--sh-font);font-size:12px;font-weight:700;color:var(--sh-mute);padding-bottom:4px;white-space:nowrap}
