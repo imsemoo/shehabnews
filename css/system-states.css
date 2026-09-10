@@ -19,7 +19,9 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2.05}
 @keyframes sh-meteor-head{0%,72%{transform:rotate(45deg) translate(0,0);opacity:0}75%{opacity:1}88%{transform:rotate(45deg) translate(-420px,420px);opacity:0}100%{opacity:0}}
 @keyframes sh-twinkle{0%,100%{opacity:.25;transform:rotate(45deg) scale(.8)}50%{opacity:1;transform:rotate(45deg) scale(1.15)}}
 @keyframes sh-meteor-footer{0%{transform:translate(0,0);opacity:0}10%{opacity:1}100%{transform:translate(-520px,260px);opacity:0}}
-@media (prefers-reduced-motion: reduce){.sh-anim [style*="animation"]{animation:none !important}}
+/* the guard has to beat a style attribute, and the sky decorations sit
+   outside .sh-anim, so it is written for the whole page */
+@media (prefers-reduced-motion: reduce){[style*="animation"]{animation:none !important}}
 .sh-menu:hover>.sh-drop,.sh-menu:focus-within>.sh-drop{opacity:1 !important;visibility:visible !important;transform:none !important}
 
 @media (hover:hover){.sh-x1:hover{color:#fff !important}}
