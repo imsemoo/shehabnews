@@ -1768,6 +1768,7 @@ window.SH_I18N_EN = {
   "مراسل ميداني": "Field correspondent",
   "مراسلة الوكالة": "Contact the agency",
   "مراسلنا من شرق خانيونس: تحرّكات آليات قرب «الخط الأصفر» منذ الصباح": "Our correspondent east of Khan Younis: vehicle movements near the \"yellow line\" since morning",
+  "مراسلو شهاب في الميدان": "Shehab correspondents in the field",
   "مراسلو شهاب ينقلون التطورات من الميدان، وتُضاف كل مادة جديدة إلى هذا الوسم تلقائيًا.": "Shehab's correspondents report developments from the ground, and every new item is added to this tag automatically.",
   "مراسلو شهاب ينقلون تطوّرات الميدان في قطاع غزة: قصف جباليا شمالًا، حركة العائدين على شارع الرشيد، وأوضاع مخيمات النزوح في المواسي — مع تحديثات متواصلة من غرفة الأخبار.": "Shehab's correspondents report developments on the ground in the Gaza Strip: the shelling of Jabalia in the north, the flow of returnees along al-Rashid Street, and conditions in the displacement camps in Al-Mawasi, with continuous updates from the newsroom.",
   "مرتبط بالتغطية": "Related to this coverage",

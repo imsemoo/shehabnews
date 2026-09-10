@@ -104,6 +104,8 @@ html[dir="ltr"] .sh-contact-contact-info__span-11{direction:ltr}
 
 /* ---- css/pages/coverage.css ---- */
 html[dir="ltr"] .sh-coverage-coverage-hero__img-1{object-position:left center}
+html[dir="ltr"] .sh-coverage-coverage-hero__section-1::before{background:linear-gradient(to right,rgba(10,26,51,.97) 0%,rgba(10,26,51,.92) 40%,rgba(10,26,51,.7) 70%,rgba(10,26,51,.5) 100%)}
+@media (max-width:640px){html[dir="ltr"] .sh-coverage-coverage-hero__section-1::before{background:linear-gradient(to right,rgba(10,26,51,.95) 0%,rgba(10,26,51,.9) 55%,rgba(10,26,51,.78) 100%)}}
 
 /* ---- css/pages/files.css ---- */
 html[dir="ltr"] .sh-fl-hero__scrim{background:linear-gradient(to right,rgba(10,26,51,.96) 0%,rgba(10,26,51,.88) 36%,rgba(10,26,51,.42) 60%,rgba(10,26,51,.16) 100%),linear-gradient(to top,rgba(10,26,51,.55) 0%,rgba(10,26,51,0) 45%),linear-gradient(to left,rgba(10,26,51,1) 0%,rgba(10,26,51,0) 12%)}
