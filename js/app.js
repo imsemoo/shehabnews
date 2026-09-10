@@ -1590,7 +1590,62 @@
     });
   }
 
-  /* 17. فيديو شهاب — the playlist feeds the small player (a row's data-sh-src /
+  /* 17. Numbers that arrive. --------------------------------------------
+     An element marked [data-sh-count] runs from zero up to the value that is
+     already in it, once, the first time it comes into view. The value comes
+     from whatever painted it -- the day counter above, or data/figures.json --
+     so the run never invents a number, and the element is restored to exactly
+     the text it had, grouping and all, on the last frame.
+
+     The value can land after the element is already on screen, because the
+     figures are fetched, so an element that is still a dash when it appears is
+     watched until it is not. A reader who asked for less motion, or a browser
+     with no observer, simply keeps the final number. */
+  function counters() {
+    var els = [].slice.call(document.querySelectorAll('[data-sh-count]'));
+    if (!els.length || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var nf = new Intl.NumberFormat('en-US');
+
+    function run(el) {
+      if (el.hasAttribute('data-sh-counted')) return true;
+      var text = String(el.textContent).trim();
+      var to = parseInt(text.replace(/[^0-9]/g, ''), 10);
+      if (!to) return false;
+      el.setAttribute('data-sh-counted', '');
+      var grouped = text.indexOf(',') !== -1;
+      // long numbers get a little longer to travel, but never past 1.6s
+      var dur = Math.min(1600, 700 + String(to).length * 180), t0 = 0;
+      function frame(t) {
+        if (!t0) t0 = t;
+        var p = Math.min(1, (t - t0) / dur);
+        var v = Math.round(to * (1 - Math.pow(1 - p, 3)));   // ease-out: quick, then settles
+        el.textContent = grouped ? nf.format(v) : String(v);
+        if (p < 1) requestAnimationFrame(frame);
+        else el.textContent = text;
+      }
+      requestAnimationFrame(frame);
+      return true;
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target;
+        if (run(el)) { io.unobserve(el); return; }
+        if (el.__shWait) return;
+        el.__shWait = new MutationObserver(function () {
+          if (!run(el)) return;
+          el.__shWait.disconnect();
+          io.unobserve(el);
+        });
+        el.__shWait.observe(el, { childList: true, characterData: true, subtree: true });
+      });
+    }, { threshold: 0.35 });
+    els.forEach(function (el) { io.observe(el); });
+  }
+
+  /* 18. فيديو شهاب — the playlist feeds the small player (a row's data-sh-src /
          data-sh-poster / data-sh-chip / data-sh-meta and its own title go into
          the player, which starts), and the reels rail slides with its arrows.
          The player itself is player() above, on the same hooks. ------------ */
@@ -1638,7 +1693,7 @@
     });
   }
 
-  /* 18. كاريكاتير اليوم — one drawing at a time in the aside card. The arrows,
+  /* 19. كاريكاتير اليوم — one drawing at a time in the aside card. The arrows,
          the keyboard arrows while the card has focus, and a swipe on the stage
          all move it; RTL, so forward is leftward (ArrowLeft = next, a drag to
          the left = next). Slides are links, so a drag must not count as a
@@ -1811,7 +1866,7 @@
   }
 
   function init() {
-    paintDate(); tabs(); galleries(); menus(); hero(); liveCoverage();
+    paintDate(); tabs(); galleries(); menus(); hero(); liveCoverage(); counters();
     lightbox(); player(); loadMore(); pager(); files(); filters(); hubs(); wire(); binders(); since(); videoDeck(); carica(); lens();
     if (document.documentElement.hasAttribute('data-sh-veil')) transition();   // the logo veil is opt-in; View Transitions do the page change now
     setInterval(paintDate, 60000);

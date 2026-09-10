@@ -90,25 +90,17 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
        does the separating: no filled chips, no row icons. --sh-lc-spine
        derives the time column, the hairline and the nodes from one number. */
 .sh-lc{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:0 48px;align-items:stretch;margin-top:20px}
-.sh-lc__lead{color:#fff}@media (hover:hover){.sh-lc__lead:hover{color:#fff}}
-.sh-lc__lead{position:relative;display:block;overflow:hidden;aspect-ratio:16/10;background:var(--sh-navy-2)}
+.sh-lc__lead{display:flex;flex-direction:column;gap:14px;color:var(--sh-ink)}
+.sh-lc__lead-pic{position:relative;display:block;overflow:hidden;aspect-ratio:16/9;background:var(--sh-navy-2)}
 .sh-lc__lead-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-.sh-lc__lead:hover .sh-lc__lead-img{transform:scale(1.03)}
+@media (hover:hover){.sh-lc__lead:hover .sh-lc__lead-img{transform:scale(1.03)}}
+@media (hover:hover){.sh-lc__lead:hover .sh-lc__lead-t{color:var(--sh-blue)}}
 .sh-lc__lead:focus-visible{outline:2px solid var(--sh-sky);outline-offset:-4px}
-.sh-lc__lead::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.92) 0,rgba(10,26,51,.42) 42%,rgba(10,26,51,0) 68%)}
-/* The coverage is running, and the photograph says so the way a news frame
-   does: one red header across the top edge carrying the live mark and the
-   picture's own location. It replaces the floating navy chip, so the photo
-   still wears a single ornament. */
-.sh-lc__frame{position:absolute;inset-block-start:0;inset-inline:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:28px;padding:5px 12px;background:var(--sh-red);font-family:var(--sh-font);font-size:11.5px;color:#fff}
-.sh-lc__live{display:inline-flex;align-items:center;gap:7px;flex:none;font-weight:800;letter-spacing:.02em}
-.sh-lc__live-dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:sh-pulse 1.6s ease-in-out infinite;flex:none}
 /* the update the reader is pointing at owns the strip under the headline */
 .sh-lc__lead-meta[data-answered] [data-sh-lc-where]{display:none}
-.sh-lc__loc{min-width:0;font-weight:700;color:rgba(255,255,255,.88);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sh-lc__lead-body{position:absolute;inset:auto 0 0 0;z-index:1;display:flex;flex-direction:column;gap:10px;padding:0 24px 22px}
-.sh-lc__lead-t{font-family:var(--sh-font);font-size:clamp(20px,1.6vw,22px);font-weight:800;line-height:1.45;text-wrap:balance}
-.sh-lc__lead-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-family:var(--sh-font);font-size:12px;color:var(--sh-on-dark-72);font-variant-numeric:tabular-nums}
+.sh-lc__lead-body{display:flex;flex-direction:column;gap:9px}
+.sh-lc__lead-t{font-family:var(--sh-font);font-size:clamp(19px,1.5vw,21px);font-weight:800;line-height:1.45;text-wrap:balance;transition:color .16s ease}
+.sh-lc__lead-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-family:var(--sh-font);font-size:12px;color:var(--sh-mute);font-variant-numeric:tabular-nums}
 .sh-lc__lead-dot{width:7px;height:7px;border-radius:50%;background:var(--sh-red);animation:sh-pulse 1.6s ease-in-out infinite;flex:none}
 .sh-lc__col{display:flex;flex-direction:column;min-height:0}
 .sh-lc__col-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:10px;border-bottom:1px solid var(--sh-hair)}
@@ -138,7 +130,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 /* the answering node stays red over the hover blue: it marks which update the strip is reading */
 .sh-lc__row[data-answering] .sh-lc__node{background:var(--sh-red);border-color:var(--sh-red)}
 .sh-lc__row[data-answering] .sh-lc__time{color:var(--sh-red)}
-.sh-index-files__section-1{padding:64px 0 64px}   /* sits in the band rhythm: 56 white above and below, like .sh-lens/.sh-vid/.sh-rep */
+.sh-index-files__section-1{padding:64px 0 40px}   /* the shelf closes on a dark band, so the white below it is half the usual gap */
 @media (max-width:640px){
   .sh-index-files__section-1{padding:44px 0 44px}
 }
@@ -473,7 +465,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
    and carries its title on the picture; the four beside it carry theirs under
    the picture, on paper, with the desk as a kicker. Titles only.
    ========================================================================== */
-.sh-rep{padding:64px 0 64px}   /* 56 white below the video band before the title */
+.sh-rep{padding:40px 0 64px}   /* the shelf above already left its own white */
 @media (max-width:640px){
   .sh-vid{padding:44px 0 44px}
   .sh-rep{padding-top:44px}
@@ -631,7 +623,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
    tag, the count of days since 7 October 2023 kept by js/app.js, and the way
    into the live coverage.
    ========================================================================== */
-.sh-gaza{position:relative;height:320px;overflow:hidden;background:var(--sh-navy-2);color:#fff;isolation:isolate}
+.sh-gaza{position:relative;height:auto;padding:40px 0 34px;overflow:hidden;background:var(--sh-navy-2);color:#fff;isolation:isolate}
 .sh-gaza__photo{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;opacity:.62;
 }
@@ -640,8 +632,8 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-gaza__beam{display:none}
 @keyframes sh-gaza-beam{from{transform:translateX(-120%)}to{transform:translateX(420%)}}
 .sh-gaza__in{
-  position:relative;max-width:var(--sh-container);margin:0 auto;padding:0 32px;height:100%;
-  display:grid;grid-template-columns:minmax(0,1.2fr) auto minmax(0,1fr);align-items:center;gap:36px;
+  position:relative;max-width:var(--sh-container);margin:0 auto;padding:0 32px;
+  display:grid;grid-template-columns:minmax(0,1.05fr) auto minmax(0,1fr);align-items:center;gap:20px 36px;
 }
 .sh-gaza__live{display:inline-flex;align-items:center;gap:8px;font-family:var(--sh-font);font-size:11.5px;font-weight:800;color:var(--sh-on-dark-72);letter-spacing:.02em}
 .sh-gaza__dot{width:8px;height:8px;border-radius:50%;background:var(--color-red-soft);box-shadow:0 0 0 0 rgba(224,48,47,.6);animation:sh-gaza-pulse 1.8s ease-out infinite}
@@ -650,24 +642,24 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-gaza__title .sh-mark{width:20px;height:17px;background:#fff;flex:none}
 .sh-gaza__sub{font-size:13px;line-height:1.7;color:var(--sh-on-dark-72);margin:12px 0 0;max-width:46ch}
 .sh-gaza__day{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 40px;border-inline:0;border-inline-start:1px solid rgba(255,255,255,.18);align-self:stretch}
-.sh-gaza__n{font-family:var(--sh-font);font-size:34px;font-weight:800;line-height:.95;font-variant-numeric:tabular-nums;direction:ltr}
-.sh-gaza__l{font-size:12px;color:var(--sh-on-dark-72);margin-top:8px}
-.sh-gaza__foot{display:flex;flex-direction:column;align-items:flex-end;gap:14px;text-align:end}
-.sh-gaza__cta{
-  display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border:1px solid rgba(255,255,255,.55);
-  color:#fff;font-family:var(--sh-font);font-size:12px;font-weight:800;transition:background .2s ease,color .2s ease;
-}
-.sh-gaza__cta .sh-mark{width:14px;height:12px;background:currentColor}
-@media (hover:hover){.sh-gaza__cta:hover{background:#fff;color:var(--sh-navy)}}
-.sh-gaza__credit{font-size:11.5px;color:var(--sh-on-dark-55)}
+.sh-gaza__n{font-family:var(--sh-font);font-size:clamp(54px,5.6vw,86px);font-weight:800;line-height:.9;letter-spacing:-.02em;font-variant-numeric:tabular-nums;direction:ltr}
+.sh-gaza__l{font-size:12.5px;color:var(--sh-on-dark-72);margin-top:10px}
+/* the three sourced figures beside it: the same numbers the data desk shows */
+.sh-gaza__figs{list-style:none;display:flex;flex-direction:column;gap:12px;margin:0;padding:0}
+.sh-gaza__figs li{display:flex;align-items:baseline;gap:10px;font-size:12.5px;color:var(--sh-on-dark-72);line-height:1.5}
+.sh-gaza__figs b{font-family:var(--sh-font);font-size:20px;font-weight:800;color:#fff;direction:ltr;min-width:0}
+.sh-gaza__credit{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;margin:0;font-size:11.5px;color:var(--sh-on-dark-72);border-top:1px solid rgba(255,255,255,.16);padding-top:14px}
+.sh-gaza__more{font-weight:800;color:#fff;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.sh-gaza__photo-credit{margin-inline-start:auto;color:var(--sh-on-dark-72)}
 @media (max-width:760px){
   .sh-gaza{height:auto;padding:28px 0 26px}
   .sh-gaza__in{grid-template-columns:minmax(0,1fr);gap:22px;padding:0 16px}
   .sh-gaza__title{font-size:20px}
   .sh-gaza__day{flex-direction:row;align-items:baseline;justify-content:flex-start;gap:12px;padding:16px 0;border-inline:0;border-inline-start:0;border-block:1px solid rgba(255,255,255,.18)}
-  .sh-gaza__n{font-size:26px}
+  .sh-gaza__n{font-size:clamp(44px,13vw,58px)}
   .sh-gaza__l{margin-top:0}
-  .sh-gaza__foot{flex-direction:row;justify-content:space-between;align-items:center;text-align:start}
+  .sh-gaza__figs b{font-size:18px}
+  .sh-gaza__photo-credit{margin-inline-start:0}
 }
 @media (prefers-reduced-motion:reduce){
   .sh-gaza__photo,.sh-gaza__beam,.sh-gaza__dot{animation:none}
@@ -777,12 +769,11 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
   .sh-lc__lead{aspect-ratio:3/2}
   .sh-lc__lead-body{padding:0 16px 16px;gap:8px}
   .sh-lc__lead-t{font-size:20px}
-  .sh-lc__frame{padding:5px 10px;gap:10px}
   .sh-lc__list{--sh-lc-spine:48px}
   .sh-lc__row{column-gap:12px}
 }
 @media (prefers-reduced-motion:reduce){
-  .sh-lc__lead-dot,.sh-lc__live-dot,.sh-lc__node,.sh-lc__row{animation:none}
+  .sh-lc__lead-dot,.sh-lc__node,.sh-lc__row{animation:none}
   .sh-lc__lead-img,.sh-lc__node,.sh-lc__t{transition:none}
   .sh-lc__lead:hover .sh-lc__lead-img{transform:none}
 }
