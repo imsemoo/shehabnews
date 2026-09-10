@@ -41,11 +41,15 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-index-hero__span-19{position:absolute;right:0;top:0;height:100%;background:var(--sh-blue);width:0;animation:none}
 .sh-index-hero__span-20{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/Dome%20of%20the%20Al-Aqsa%20Mosque%20%2820160%29.jpg?width=1800);background-size:cover;background-position:center 40%;opacity:0.5;transform:scale(1);filter:none;transition:transform .8s ease,opacity .8s ease}
 .sh-index-hero__div-6{position:absolute;bottom:22px;inset-inline-end:28px;display:flex;gap:8px;z-index:2}
-.sh-index-hero__aside-1{display:flex;flex-direction:column;height:500px;overflow:hidden;}
+.sh-index-hero__aside-1{display:flex;flex-direction:column;min-height:500px;}
+/* the phone layer flattens this column to its content (responsive.css sets
+   height:auto), so the desktop floor has to step aside there too */
+@media (max-width:900px){.sh-index-hero__aside-1{min-height:0}}
 /* at the container's full 1400 the slides are ~970 wide; 540 tall keeps the
    open picture near the 1.8:1 it was designed at instead of a 2:1 letterbox */
 @media (min-width:1400px){
-  .sh-index-hero__div-1,.sh-index-hero__aside-1{height:540px}
+  .sh-index-hero__div-1{height:540px}
+  .sh-index-hero__aside-1{min-height:540px}
 }
 .sh-index-hero__div-7{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 0 12px;border-bottom:1px solid var(--sh-hair-2)}
 .sh-index-hero__h2-1{font-family:var(--sh-font);font-size:20px;font-weight:700;margin:0;display:flex;align-items:center;gap:10px;color:var(--sh-navy)}
@@ -765,4 +769,10 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
   .sh-lc__lead-dot,.sh-lc__node,.sh-lc__row{animation:none}
   .sh-lc__lead-img,.sh-lc__node,.sh-lc__t{transition:none}
   .sh-lc__lead:hover .sh-lc__lead-img{transform:none}
+}
+
+/* the live marks read as live by colour and label; the beat is the extra */
+@media (prefers-reduced-motion:reduce){
+  .sh-index-live-coverage__span-2,.sh-lc__row:first-of-type .sh-lc__node,
+  .sh-lc__row[data-breaking] .sh-lc__node{animation:none}
 }

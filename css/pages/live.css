@@ -83,7 +83,7 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2.05}
 .sh-live-updates__head{display:flex;align-items:center;gap:8px;margin-bottom:4px}
 .sh-live-updates__tag{font-family:var(--sh-font);font-size:10px;font-weight:800;padding:2px 7px;background:var(--sh-navy);color:#fff}
 .sh-live-updates__tag--red{background:var(--sh-red)}
-.sh-live-updates__t{font-family:var(--sh-font);font-size:14.5px;font-weight:800;line-height:1.5;color:var(--sh-navy);margin:0}
+.sh-live-updates__t{font-family:var(--sh-font);font-size:15px;font-weight:800;line-height:1.5;color:var(--sh-navy);margin:0}
 .sh-live-updates__p{margin:4px 0 0;font-size:14px;color:#2c3a4e;line-height:1.9}
 .sh-live-rail .sh-rail__item{border-bottom:1px solid var(--color-border-soft)}
 
@@ -235,3 +235,6 @@ p{font-family:'Noto Naskh Arabic',Georgia,serif;line-height:2.05}
 .sh-live-sched__body b{font-size:12.5px}
 .sh-live-sched__tag{padding:4px 6px}
 @media (max-width:900px){.sh-live-stage__grid{grid-template-columns:1fr}}
+
+/* the same rule the replay state already uses, for a reader who asked */
+@media (prefers-reduced-motion:reduce){.sh-live-stage__dot{animation:none}}

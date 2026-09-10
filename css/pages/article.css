@@ -28,7 +28,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 @media (hover:hover){.sh-art__author:hover{color:var(--sh-blue)}}
 .sh-art__meta{display:flex;flex-wrap:wrap;align-items:center;gap:0 7px;font-family:var(--sh-font);font-size:12.5px;color:var(--sh-mute);font-variant-numeric:tabular-nums;line-height:1.7}
 .sh-art__meta .sh-link{color:var(--sh-blue);font-weight:800}
-.sh-art__sep{color:var(--color-border)}
+.sh-art__sep{color:var(--color-text-muted)}
 .sh-art__share{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .sh-art__share-a{width:38px;height:38px;display:grid;place-items:center;background:var(--color-surface-soft);color:var(--sh-navy)}
 .sh-art__share-a .sh-i{font-size:14px}
@@ -103,7 +103,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 .sh-art__quote-by .sh-more__arrow{color:var(--sh-blue)}
 /* context: key facts set as sentences, the number leads */
 .sh-art__ctx{margin:40px 0}
-.sh-art__ctx-h{display:flex;align-items:center;gap:11px;font-family:var(--sh-font);font-size:clamp(21px,1.9vw,25px);font-weight:800;line-height:1.5;color:var(--sh-navy);margin:0 0 12px}
+.sh-art__ctx-h{display:flex;align-items:center;gap:11px;font-family:var(--sh-font);font-size:clamp(17px,1.5vw,20px);font-weight:800;line-height:1.5;color:var(--sh-navy);margin:0 0 12px}
 .sh-art__ctx-h .sh-mark{width:16px;height:13px;background:var(--sh-blue)}
 .sh-art__ctx-l{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-family:var(--sh-serif);font-size:.9em;line-height:1.95;color:var(--sh-ink-2)}
 .sh-art__ctx-l b{font-family:var(--sh-font);font-weight:800;color:var(--sh-navy);font-size:1.05em;margin-inline-end:6px;font-variant-numeric:tabular-nums}

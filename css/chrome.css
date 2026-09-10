@@ -84,7 +84,7 @@ body[data-bf-on] .sh-totop{bottom:84px}
 .sh-toast[data-on]{opacity:1;transform:none}
 
 /* ---- ad slots: the size is reserved before the creative arrives (no CLS) ---- */
-.sh-ad{position:relative;display:grid;place-items:center;background:var(--color-surface-warm);border:1px solid var(--color-border-soft);color:var(--color-text-faint);font-family:var(--sh-font);font-size:11.5px;overflow:hidden}
+.sh-ad{position:relative;display:grid;place-items:center;background:var(--color-surface-warm);border:1px solid var(--color-border-soft);color:var(--color-text-muted);font-family:var(--sh-font);font-size:11.5px;overflow:hidden}
 .sh-ad::before{content:"إعلان";position:absolute;top:6px;inset-inline-end:8px;font-size:10px;font-weight:700;opacity:.7}
 .sh-ad--leader{aspect-ratio:970/120;margin:40px 0}
 .sh-ad__note{text-align:center;padding:10px}

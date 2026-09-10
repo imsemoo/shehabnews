@@ -197,3 +197,8 @@ media-player.sh-vs--lite .sh-lite__slider:focus-visible{outline:2px solid var(--
 
 /* the ring still reads as waiting when it does not turn */
 @media (prefers-reduced-motion:reduce){media-player.sh-vs--lite .sh-lite__wait{animation:none;opacity:1}}
+
+/* Vidstack spins its own buffering ring; the ring alone still reads as waiting */
+@media (prefers-reduced-motion:reduce){
+  media-player .vds-buffering-spinner,media-player [class*="buffering"]{animation:none}
+}
