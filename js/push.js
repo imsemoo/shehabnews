@@ -46,12 +46,12 @@
   }
   function enable() {
     return Notification.requestPermission().then(function (perm) {
-      if (perm !== 'granted') { ShUI.toast('لم يُسمح بالتنبيهات في المتصفح'); paint(); return; }
+      if (perm !== 'granted') { ShUI.toast('المتصفح يمنع التنبيهات. اسمح بها من إعدادات الموقع.'); paint(); return; }
       return navigator.serviceWorker.ready.then(function (reg) {
         return subscribe(reg).catch(function () { return null; }).then(function () {
           store('sh-notify', '1');
           paint();
-          reg.showNotification('تم تفعيل تنبيهات العاجل', { body: 'هتوصلك أخبار شهاب العاجلة أول بأول.', icon: 'assets/images/icon-192.png', badge: 'assets/images/icon-192.png', dir: 'rtl', lang: 'ar', tag: 'sh-welcome', data: { url: 'coverage.html' } });
+          reg.showNotification('تم تفعيل تنبيهات العاجل', { body: 'تصلك أخبار شهاب العاجلة فور نشرها.', icon: 'assets/images/icon-192.png', badge: 'assets/images/icon-192.png', dir: 'rtl', lang: 'ar', tag: 'sh-welcome', data: { url: 'coverage.html' } });
         });
       });
     });

@@ -35,7 +35,7 @@
   }
 
   ShFigures.ready.then(function (data) {
-    if (!data) { host.innerHTML = '<p class="sh-fig__err">تعذّر تحميل الأرقام الآن.</p>'; return; }
+    if (!data) { host.innerHTML = '<p class="sh-fig__err">تعذّر تحميل الأرقام.</p>'; return; }
     var figs = data.figures || {};
     host.innerHTML = (data.groups || []).map(function (g) {
       return '<section class="sh-fig-group" aria-labelledby="fg-' + esc(g.title) + '"><h2 class="sh-section__title sh-section__title--md" id="fg-' + esc(g.title) + '"><span class="sh-mark sh-mark--md"></span>' + esc(g.title) + '</h2>' +

@@ -46,7 +46,7 @@
     'Closed-Captions On': 'تشغيل الترجمة',
     'Connected': 'متصل',
     'Continue': 'متابعة',
-    'Connecting': 'جارٍ الاتصال',
+    'Connecting': 'جارٍ الاتصال…',
     'Default': 'افتراضي',
     'Disabled': 'معطّل',
     'Disconnected': 'غير متصل',
@@ -101,7 +101,7 @@
   setTimeout(function () {
     if (window.customElements && !customElements.get('media-player') && document.querySelector('media-player')) {
       console.warn('[شهاب] Vidstack ما اتحمّلش. صفحات الفيديو بتشتغل على http:// (شغّل السيرفر المحلي) مش من file://.');
-      document.querySelectorAll('media-player[data-sh-vs]').forEach(function (el) { showError(el, 'المشغّل لا يعمل من الملف مباشرة — افتح الصفحة عبر السيرفر المحلي.', false); });
+      document.querySelectorAll('media-player[data-sh-vs]').forEach(function (el) { showError(el, 'المشغّل لا يعمل من الملف مباشرة — افتح الصفحة عبر الخادم المحلي.', false); });
     }
   }, 4000);
 
@@ -125,7 +125,7 @@
       box.className = 'sh-vs__error';
       box.setAttribute('role', 'alert');
       box.innerHTML = '<span class="sh-vs__error-mark"></span><p class="sh-vs__error-text"></p>' +
-        '<button type="button" class="sh-vs__error-btn">' + ShUI.icon('rotate-right', 'solid') + 'إعادة المحاولة</button>';
+        '<button type="button" class="sh-vs__error-btn">' + ShUI.icon('rotate-right', 'solid') + 'أعد المحاولة</button>';
       el.appendChild(box);
     }
     box.querySelector('.sh-vs__error-text').textContent = text;
@@ -203,7 +203,7 @@
 
     el.addEventListener('hls-error', function (e) {
       var d = e.detail;
-      if (d && d.fatal && !fallback(d.details || d.type)) showError(el, 'تعذّر تشغيل البث الآن. تحقّق من الاتصال ثم أعد المحاولة.');
+      if (d && d.fatal && !fallback(d.details || d.type)) showError(el, 'تعذّر تشغيل البث. تحقّق من الاتصال ثم أعد المحاولة.');
     });
     el.addEventListener('error', function (e) {
       var d = e.detail;

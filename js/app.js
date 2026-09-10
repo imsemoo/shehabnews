@@ -999,7 +999,7 @@
       empty.setAttribute('data-sh-empty', '');
       empty.style.cssText = 'display:none;grid-column:1/-1;margin:0;padding:26px 0;' +
         "font-family:'Almarai',sans-serif;font-size:13.5px;color:#8a95a6";
-      empty.textContent = 'لا توجد أخبار في هذا القسم حاليًا.';
+      empty.textContent = 'لا مواد منشورة في هذا القسم';
       items[0].parentNode.appendChild(empty);
 
       function apply(link) {

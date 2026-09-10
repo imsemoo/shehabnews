@@ -191,14 +191,14 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         if (!input || !input.value.trim()) { say('err', 'اكتب بريدك الإلكتروني أولًا.'); input && input.focus(); return; }
-        if (!input.checkValidity()) { say('err', 'البريد الإلكتروني غير صحيح.'); input.focus(); return; }
+        if (!input.checkValidity()) { say('err', 'صيغة البريد غير صحيحة — مثال: name@example.com'); input.focus(); return; }
         if (btn) btn.disabled = true;
         say('', 'جارٍ الاشتراك…');
         var body = new FormData(form);
         fetch(form.getAttribute('action') || '/api/newsletter', { method: 'POST', body: body, headers: { 'Accept': 'application/json' } })
           .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.json().catch(function () { return {}; }); })
-          .then(function () { say('ok', 'تم الاشتراك. راجع بريدك لتأكيد الاشتراك.'); form.reset(); })
-          .catch(function () { say('err', 'تعذّر الاشتراك الآن. حاول مرة أخرى بعد قليل.'); })
+          .then(function () { say('ok', 'تم الاشتراك. أرسلنا رسالة تأكيد إلى بريدك.'); form.reset(); })
+          .catch(function () { say('err', 'تعذّر الاشتراك. أعد المحاولة بعد قليل.'); })
           .then(function () { if (btn) btn.disabled = false; });
       });
     });

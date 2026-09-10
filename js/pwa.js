@@ -61,7 +61,7 @@
     if (!deferred) return;
     deferred.prompt();
     deferred.userChoice.then(function (r) {
-      if (r && r.outcome === 'accepted') ShUI.toast('تم تثبيت شهاب على جهازك');
+      if (r && r.outcome === 'accepted') ShUI.toast('تم تثبيت شهاب. افتحه من شاشة الجهاز.');
       deferred = null;
       btn.hidden = true;
     });
