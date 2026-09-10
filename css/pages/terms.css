@@ -21,3 +21,24 @@ h2{scroll-margin-top:24px}
 @media (hover:hover){.sh-terms-terms-body__a-2:hover{background:var(--sh-navy);border-color:var(--sh-navy);color:#fff;gap:17px}}
 .sh-terms-terms-body__span-2{display:none}
 .sh-terms-body__div-1{height:40px}
+
+/* A press has to answer on a touch screen, where :hover never fires: the ground
+   steps to navy for as long as the control is held. No transform and no radius —
+   the timing is the colour transition the control already carries. */
+body[data-sh-page="terms"] :where(.sh-more,.sh-pager__btn,.sh-chip,.sh-tag,.sh-btn):active{
+  background:var(--sh-navy);color:#fff;border-color:var(--sh-navy);
+}
+body[data-sh-page="terms"] :where(.sh-band,.sh-navy,[class*="--on-dark"]) :where(a,button):active{
+  background:rgba(255,255,255,.18);
+}
+body[data-sh-page="terms"] :where(.sh-list__row,.sh-card,.sh-fig,.sh-op__row):active{
+  background:var(--color-surface-soft);
+}
+
+/* the burger and its chevron live in the shared css/responsive.css, which feeds
+   the four locked pages, so their guard is written here, per page */
+@media (prefers-reduced-motion:reduce){
+  body[data-sh-page="terms"] .sh-nav-toggle span,
+  body[data-sh-page="terms"] header nav .sh-menu > a > span:last-child{transition:none}
+  body[data-sh-page="terms"] a{transition:none}
+}

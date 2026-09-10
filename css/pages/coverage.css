@@ -161,3 +161,23 @@ p{font-family:var(--sh-serif);line-height:1.95}
 @media (prefers-reduced-motion:reduce){
   .sh-coverage-coverage-hero__span-1,.sh-coverage-timeline__span-3,.sh-coverage-timeline__span-35{animation:none}
 }
+
+/* A press has to answer on a touch screen, where :hover never fires: the ground
+   steps to navy for as long as the control is held. No transform and no radius —
+   the timing is the colour transition the control already carries. */
+body[data-sh-page="coverage"] :where(.sh-more,.sh-pager__btn,.sh-chip,.sh-tag,.sh-btn):active{
+  background:var(--sh-navy);color:#fff;border-color:var(--sh-navy);
+}
+body[data-sh-page="coverage"] :where(.sh-band,.sh-navy,[class*="--on-dark"]) :where(a,button):active{
+  background:rgba(255,255,255,.18);
+}
+body[data-sh-page="coverage"] :where(.sh-list__row,.sh-card,.sh-fig,.sh-op__row):active{
+  background:var(--color-surface-soft);
+}
+
+/* the burger and its chevron live in the shared css/responsive.css, which feeds
+   the four locked pages, so their guard is written here, per page */
+@media (prefers-reduced-motion:reduce){
+  body[data-sh-page="coverage"] .sh-nav-toggle span,
+  body[data-sh-page="coverage"] header nav .sh-menu > a > span:last-child{transition:none}
+}
