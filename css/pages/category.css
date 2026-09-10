@@ -26,20 +26,25 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 .sh-category-section-stream__span-2{color:var(--sh-mute);font-variant-numeric:tabular-nums;font-weight:700}
 .sh-category-section-stream__span-3{display:block;font-family:var(--sh-font);font-size:20px;font-weight:800;line-height:1.65;margin-top:8px;color:var(--sh-navy);text-wrap:pretty}
 .sh-category-section-stream__span-4{display:block;font-family:var(--sh-serif);font-size:13px;line-height:1.9;color:var(--sh-ink-2);margin-top:8px;max-width:58ch}
-.sh-category-section-stream__span-5{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=900");background-size:cover;background-position:center}
+.sh-category-section-stream__span-5{position:absolute;inset:0}
+.sh-category-section-stream__span-5 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 .sh-category-section-stream__a-3{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 148px;gap:20px;align-items:center;padding:14px 0;border-bottom:1px solid var(--color-border-soft)}
 @media (hover:hover){.sh-category-section-stream__a-3:hover{color:var(--sh-blue)}}
 .sh-category-section-stream__span-6{position:absolute;top:21px;inset-inline-start:-25.5px;width:6px;height:6px;background:var(--sh-hair-2);transform:rotate(45deg);box-shadow:0 0 0 3px #fff}
 .sh-category-section-stream__span-7{display:block;font-family:var(--sh-font);font-size:15px;font-weight:700;line-height:1.7;margin-top:6px;color:var(--sh-ink);text-wrap:pretty}
-.sh-category-section-stream__span-8{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=500");background-size:cover;background-position:center}
+.sh-category-section-stream__span-8{position:absolute;inset:0}
+.sh-category-section-stream__span-8 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 .sh-category-section-stream__a-4{position:relative;display:block;padding:12px 0;border-bottom:1px solid var(--color-border-soft)}
 @media (hover:hover){.sh-category-section-stream__a-4:hover{color:var(--sh-blue)}}
 .sh-category-section-stream__span-9{position:absolute;top:17px;inset-inline-start:-25.5px;width:6px;height:6px;background:var(--sh-red);transform:rotate(45deg);box-shadow:0 0 0 3px #fff}
 .sh-category-section-stream__span-10{color:var(--sh-red);font-weight:700}
-.sh-category-section-stream__span-11{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/UNRWA%20el-Sheikh%20Radwan%20health%20center%2C%20February%202024.jpg?width=500");background-size:cover;background-position:center}
+.sh-category-section-stream__span-11{position:absolute;inset:0}
+.sh-category-section-stream__span-11 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 .sh-category-section-stream__span-12{position:absolute;top:17px;inset-inline-start:-25.5px;width:6px;height:6px;background:var(--sh-grey-3);transform:rotate(45deg);box-shadow:0 0 0 3px #fff}
-.sh-category-section-stream__span-13{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=900");background-size:cover;background-position:center}
-.sh-category-section-stream__span-14{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=500");background-size:cover;background-position:center}
+.sh-category-section-stream__span-13{position:absolute;inset:0}
+.sh-category-section-stream__span-13 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.sh-category-section-stream__span-14{position:absolute;inset:0}
+.sh-category-section-stream__span-14 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 .sh-category-section-stream__div-3{display:none}
 .sh-category-category-body__div-2{display:flex;align-items:center;gap:10px;margin:34px 0}
 .sh-category-category-body__span-1{font-size:11.5px;font-weight:800;color:var(--sh-mute);font-family:var(--sh-font)}
@@ -53,13 +58,16 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease,background
 .sh-category-video-module__a-2{display:block;color:var(--sh-ink)}
 @media (hover:hover){.sh-category-video-module__a-2:hover{color:var(--sh-blue)}}
 .sh-category-video-module__span-1{position:relative;display:block;background:var(--sh-navy-2);overflow:hidden}
-.sh-category-video-module__span-2{display:block;width:100%;aspect-ratio:16/9;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Israeli%20airstrikes%20on%20Gaza%20Strip%20during%20Gaza%20War%2023-25.jpg?width=600");background-size:cover;background-position:center;opacity:.85}
+.sh-category-video-module__span-2{display:block;width:100%;aspect-ratio:16/9;opacity:.85}
+.sh-category-video-module__span-2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 .sh-category-video-module__span-3{width:38px;height:38px;background:var(--color-scrim);display:flex;align-items:center;justify-content:center}
 .sh-category-video-module__i-1{font-size:12px;color:#fff;margin-inline-start:2px}
 .sh-category-video-module__span-4{position:absolute;bottom:8px;inset-inline-end:8px;background:var(--color-scrim);color:#fff;font-size:11.5px;padding:2px 8px;font-variant-numeric:tabular-nums}
 .sh-category-video-module__span-5{display:block;font-family:var(--sh-font);font-size:13px;font-weight:700;line-height:1.7;margin-top:10px;text-wrap:pretty}
-.sh-category-video-module__span-6{display:block;width:100%;aspect-ratio:16/9;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=600");background-size:cover;background-position:center;opacity:.85}
-.sh-category-video-module__span-7{display:block;width:100%;aspect-ratio:16/9;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/What%20remains%20of%20the%20houses%20in%20Gaza%20after%20the%20airstrikes%20during%20the%20winter%20season.jpg?width=600");background-size:cover;background-position:center;opacity:.85}
+.sh-category-video-module__span-6{display:block;width:100%;aspect-ratio:16/9;opacity:.85}
+.sh-category-video-module__span-6 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.sh-category-video-module__span-7{display:block;width:100%;aspect-ratio:16/9;opacity:.85}
+.sh-category-video-module__span-7 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 .sh-category-load-more__div-1{display:flex;align-items:center;gap:16px;margin-top:36px}
 .sh-category-load-more__span-1{flex:1;height:1px;background:var(--sh-hair-2)}
 .sh-category-load-more__a-1{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--color-border);color:var(--sh-navy);font-family:var(--sh-font);font-size:13px;font-weight:800;padding:11px 28px}

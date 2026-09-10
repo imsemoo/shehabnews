@@ -13,7 +13,8 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-index-hero__div-1{display:flex;height:500px;background:var(--sh-navy);color:#fff;position:relative;overflow:hidden}
 .sh-index-hero__a-1{position:relative;overflow:hidden;display:block;color:#fff;flex-basis:64px;flex-grow:0;min-width:64px;transition:flex-grow .8s cubic-bezier(.2,.75,.2,1);cursor:pointer;border-right:1px solid rgba(255,255,255,.22);background:var(--sh-navy-2)}
 @media (hover:hover){.sh-index-hero__a-1:hover{color:#fff}}
-.sh-index-hero__span-1{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=1800);background-size:cover;background-position:center 30%;opacity:0.5;transform:scale(1);filter:none;transition:transform .8s ease,opacity .8s ease}
+.sh-index-hero__span-1{position:absolute;inset:0;opacity:0.5;transform:scale(1);filter:none;transition:transform .8s ease,opacity .8s ease}
+.sh-index-hero__span-1 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
 .sh-index-hero__span-2{position:absolute;inset:0;background:var(--sh-navy-2);opacity:0.4;transition:opacity .8s ease;pointer-events:none}
 .sh-index-hero__span-3{position:absolute;top:0;right:0;bottom:0;width:64px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:22px 0 20px;opacity:1;transition:opacity .4s ease;pointer-events:none}
 .sh-index-hero__span-4{font-family:var(--sh-font);font-size:12px;font-weight:700;color:#fff;font-variant-numeric:tabular-nums;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.35);width:22px;text-align:center}
@@ -32,14 +33,16 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-index-hero__span-13{position:absolute;right:0;top:0;height:100%;background:var(--sh-blue);width:0;animation:none;animation-play-state:running}
 .sh-index-hero__a-2{position:relative;overflow:hidden;display:block;color:#fff;flex-basis:64px;flex-grow:1;min-width:64px;transition:flex-grow .8s cubic-bezier(.2,.75,.2,1);cursor:pointer;border-right:1px solid rgba(255,255,255,.22);background:var(--sh-navy-2)}
 @media (hover:hover){.sh-index-hero__a-2:hover{color:#fff}}
-.sh-index-hero__span-14{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=1800);background-size:cover;background-position:center 40%;opacity:1;transform:scale(1);filter:none;transition:transform .8s ease,opacity .8s ease}
+.sh-index-hero__span-14{position:absolute;inset:0;opacity:1;transform:scale(1);filter:none;transition:transform .8s ease,opacity .8s ease}
+.sh-index-hero__span-14 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
 .sh-index-hero__span-15{position:absolute;inset:0;background:var(--sh-navy-2);opacity:0;transition:opacity .8s ease;pointer-events:none}
 .sh-index-hero__span-16{position:absolute;top:0;right:0;bottom:0;width:64px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:22px 0 20px;opacity:0;transition:opacity .4s ease;pointer-events:none}
 .sh-index-hero__span-17{position:absolute;top:20px;right:24px;background:var(--sh-navy);color:#fff;font-size:11.5px;padding:5px 10px;opacity:1;transition:opacity .5s ease .3s;white-space:nowrap;display:flex;align-items:center;gap:8px}
 .sh-index-hero__div-5{position:absolute;inset:auto 0 0 0;background:var(--color-scrim);padding:14px 24px 0;opacity:1;transform:translateY(0px);transition:opacity .5s ease .25s,transform .6s cubic-bezier(.2,.7,.2,1) .2s;min-width:min(640px,100%);pointer-events:none}
 .sh-index-hero__span-18{background:var(--sh-red);color:#fff;padding:3px 9px;font-weight:700;font-family:var(--sh-font);font-size:11.5px}
 .sh-index-hero__span-19{position:absolute;right:0;top:0;height:100%;background:var(--sh-blue);width:0;animation:none}
-.sh-index-hero__span-20{position:absolute;inset:0;background-image:url(https://commons.wikimedia.org/wiki/Special:FilePath/Dome%20of%20the%20Al-Aqsa%20Mosque%20%2820160%29.jpg?width=1800);background-size:cover;background-position:center 40%;opacity:0.5;transform:scale(1);filter:none;transition:transform .8s ease,opacity .8s ease}
+.sh-index-hero__span-20{position:absolute;inset:0;opacity:0.5;transform:scale(1);filter:none;transition:transform .8s ease,opacity .8s ease}
+.sh-index-hero__span-20 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
 .sh-index-hero__div-6{position:absolute;bottom:22px;inset-inline-end:28px;display:flex;gap:8px;z-index:2}
 .sh-index-hero__aside-1{display:flex;flex-direction:column;min-height:500px;}
 /* the phone layer flattens this column to its content (responsive.css sets

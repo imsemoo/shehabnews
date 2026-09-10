@@ -14,7 +14,8 @@ p{font-family:var(--sh-serif);line-height:2.05}
 .sh-tag-tag-lead__a-1{position:relative;display:block;background:var(--sh-navy-2);color:#fff;overflow:hidden}
 @media (hover:hover){.sh-tag-tag-lead__a-1:hover{color:#fff}}
 .sh-tag-tag-lead__span-1{position:relative;display:block;overflow:hidden;height:100%;min-height:330px}
-.sh-tag-tag-lead__span-2{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Damage%20in%20Gaza%20Strip%20during%20the%20October%202023%20-%2029.jpg?width=800");background-size:cover;background-position:center 48%}
+.sh-tag-tag-lead__span-2{position:absolute;inset:0}
+.sh-tag-tag-lead__span-2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 48%}
 .sh-tag-tag-lead__span-3{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,26,51,.93),rgba(10,26,51,.15) 62%)}
 .sh-tag-tag-lead__span-4{position:absolute;top:0;inset-inline-start:16px;background:var(--sh-navy);color:#fff;font-family:var(--sh-font);font-size:11.5px;font-weight:800;padding:7px 11px 9px;display:flex;flex-direction:column;align-items:center;gap:7px}
 .sh-tag-tag-lead__span-5{display:none}   /* a decorative hairline; the plate separates its two words with its gap */
@@ -29,24 +30,33 @@ p{font-family:var(--sh-serif);line-height:2.05}
 .sh-tag-tag-lead__span-11{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--sh-mute)}
 .sh-tag-tag-lead__span-12{display:block;font-family:var(--sh-font);font-size:15px;font-weight:700;line-height:1.65;margin-top:7px;color:var(--sh-ink);text-wrap:pretty}
 .sh-tag-tag-lead__span-13{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:4/3}
-.sh-tag-tag-lead__span-14{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Gaza%20el-mina%20view.jpg?width=800");background-size:cover;background-position:center 40%}
-.sh-tag-tag-lead__span-15{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=800");background-size:cover;background-position:center 40%}
-.sh-tag-tag-lead__span-16{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20showing%20destruction%20in%20Rafah%20after%20Israeli%20forces%20withdrawal%20and%20as%20the%20ceasefire%20took%20hold%2C%20Gaza%20Strip.jpg?width=800");background-size:cover;background-position:center 40%}
+.sh-tag-tag-lead__span-14{position:absolute;inset:0}
+.sh-tag-tag-lead__span-14 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.sh-tag-tag-lead__span-15{position:absolute;inset:0}
+.sh-tag-tag-lead__span-15 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.sh-tag-tag-lead__span-16{position:absolute;inset:0}
+.sh-tag-tag-lead__span-16 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
 .sh-tag-tag-listing__section-1{margin-top:26px}
 .sh-tag-tag-listing__div-1{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding-top:12px}
 .sh-tag-tag-listing__a-1{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--color-border-soft)}
 @media (hover:hover){.sh-tag-tag-listing__a-1:hover{color:var(--sh-blue)}}
 .sh-tag-tag-listing__span-1{position:relative;display:block;overflow:hidden;background:var(--sh-navy-2);aspect-ratio:16/9}
-.sh-tag-tag-listing__span-2{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Omar%20Mukhtar%20panorama%20-%20panoramio.jpg?width=1200");background-size:cover;background-position:center 42%}
+.sh-tag-tag-listing__span-2{position:absolute;inset:0}
+.sh-tag-tag-listing__span-2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%}
 .sh-tag-tag-listing__span-3{display:block;font-family:var(--sh-font);font-size:15px;font-weight:700;line-height:1.7;margin-top:7px;color:var(--sh-ink);text-wrap:pretty}
 .sh-tag-tag-listing__span-4{color:var(--sh-blue)}   /* the arrow blade paints in currentColor */
-.sh-tag-tag-listing__span-5{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Fishermen%20in%20Gaza.jpg?width=800");background-size:cover;background-position:center 42%}
-.sh-tag-tag-listing__span-6{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/An%20aerial%20view%20of%20Al-Mawasi%20area%20where%20displaced%20Palestinians%20live%20in%20tents%2C%20Gaza%20Strip.jpg?width=800");background-size:cover;background-position:center 42%}
-.sh-tag-tag-listing__span-7{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/School%20Children%20in%20Hebron%20%287555041186%29.jpg?width=800");background-size:cover;background-position:center 42%}
-.sh-tag-tag-listing__span-8{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Displaced%20Palestinians%20during%20their%20journey%20back%20to%20Gaza%20and%20the%20north%20via%20Al-Rasheed%20Street..jpg?width=800");background-size:cover;background-position:center 42%}
+.sh-tag-tag-listing__span-5{position:absolute;inset:0}
+.sh-tag-tag-listing__span-5 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%}
+.sh-tag-tag-listing__span-6{position:absolute;inset:0}
+.sh-tag-tag-listing__span-6 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%}
+.sh-tag-tag-listing__span-7{position:absolute;inset:0}
+.sh-tag-tag-listing__span-7 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%}
+.sh-tag-tag-listing__span-8{position:absolute;inset:0}
+.sh-tag-tag-listing__span-8 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%}
 .sh-tag-tag-listing__span-9{width:34px;height:34px;background:var(--sh-navy);color:#fff;display:flex;align-items:center;justify-content:center}   /* a badge on a picture sits on a navy plate */
 .sh-tag-tag-listing__i-1{font-size:12px}
-.sh-tag-tag-listing__span-10{position:absolute;inset:0;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem%20Old%20City%20Street.jpg?width=800");background-size:cover;background-position:center 42%}
+.sh-tag-tag-listing__span-10{position:absolute;inset:0}
+.sh-tag-tag-listing__span-10 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%}
 .sh-tag-tag-listing__div-2{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:20px}
 .sh-tag-tag-listing__span-11{font-size:11.5px;color:var(--sh-mute);font-variant-numeric:tabular-nums}
 .sh-tag-tag-listing__div-3{display:flex;align-items:center;gap:8px}

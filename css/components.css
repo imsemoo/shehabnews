@@ -725,3 +725,9 @@ html[data-sh-bo-open]{overflow:hidden}
   .sh-pagehead__stats[style*="--sh-ph-cols:3"] span{font-size:11.5px;line-height:1.5}
 }
 @media (prefers-reduced-motion:reduce){.sh-pagehead__rail a{transition:none}}
+
+/* A picture that used to be a CSS background. It is an element now so that a
+   failure reaches js/app.js and gets the «بلا صورة» plate — a background never
+   fires an error event. The plate copies this class onto itself, which is what
+   keeps it filling the same frame. */
+.sh-bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}

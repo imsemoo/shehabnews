@@ -26,7 +26,12 @@
 @media (hover:hover){.sh-lang__opt:not(.sh-lang__opt--on):hover{background:var(--sh-on-dark-16);color:#fff}}
 .sh-lang__opt:focus-visible{outline:2px solid var(--sh-sky);outline-offset:1px}
 .sh-header__body{position:relative;z-index:3}
-.sh-header__sky{display:none}
+/* The masthead sky. It was switched off whole in a1de199, which took the
+   documented meteor and its stars down with the three 1400px arcs — and it is
+   the arcs the contract objects to («Don't draw decorative circles»), not the
+   meteor. So the layer is back and the arcs alone stay down. */
+.sh-header__sky{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.sh-header__arc{display:none}
 .sh-header__arc.sh-header__arc--1{position:absolute;width:1400px;height:1400px;border:1px solid rgba(255,255,255,.09);border-radius:50%;right:-520px;top:-1160px}
 .sh-header__arc.sh-header__arc--2{position:absolute;width:1400px;height:1400px;border:1px solid rgba(255,255,255,.07);border-radius:50%;right:-560px;top:-1120px}
 .sh-header__arc.sh-header__arc--3{position:absolute;width:1100px;height:1100px;border:1px solid var(--sh-on-dark-08);border-radius:50%;left:-620px;top:-880px}
@@ -160,4 +165,9 @@
 }
 @media (max-width:640px){
   .sh-live{padding:9px 12px;font-size:12px;gap:7px}
+}
+
+/* a sky that streaks is the extra, not the meaning */
+@media (prefers-reduced-motion:reduce){
+  .sh-header__meteor,.sh-header__meteor-head,.sh-header__star{animation:none;opacity:0}
 }
