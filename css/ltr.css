@@ -8,8 +8,8 @@
 html[dir="ltr"] .sh-header__arc.sh-header__arc--1{left:-520px;right:auto}
 html[dir="ltr"] .sh-header__arc.sh-header__arc--2{left:-560px;right:auto}
 html[dir="ltr"] .sh-header__arc.sh-header__arc--3{right:-620px;left:auto}
-html[dir="ltr"] .sh-header__meteor{left:38%;right:auto;transform-origin:left}
-html[dir="ltr"] .sh-header__meteor-head{left:calc(38% + 41px);right:auto}
+html[dir="ltr"] .sh-header__sky-origin{right:50%;left:auto}
+html[dir="ltr"] .sh-header__spark{right:-4px;left:auto}
 html[dir="ltr"] .sh-header__star.sh-header__star--1{left:22%;right:auto}
 html[dir="ltr"] .sh-header__star.sh-header__star--2{left:9%;right:auto}
 html[dir="ltr"] .sh-header__star.sh-header__star--3{right:14%;left:auto}
@@ -196,13 +196,12 @@ html[dir="ltr"] .sr-only{inset-inline-start:0}
 
 /* ---- hand-written: sideways motion. Mirroring a keyframe means negating
    both the angle and the X step, so each one gets an LTR twin. Only the
-   four that actually run are twinned; centring translates are untouched. ---- */
+   two that actually run are twinned; centring translates are untouched.
+   The masthead meteor is not one of them: it rides an offset-path from the
+   right into the ش, which sits on the right of the wordmark in both
+   directions, so header.css serves LTR as it is. ---- */
 @keyframes sh-fx-marquee-ltr{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 html[dir="ltr"] .sh-fx__track{animation-name:sh-fx-marquee-ltr}
-@keyframes sh-meteor-ltr{0%,72%{transform:rotate(22deg)translateX(0)scaleX(.2);opacity:0}76%{opacity:.9}88%{transform:rotate(22deg)translateX(640px)scaleX(1);opacity:0}100%{opacity:0}}
-html[dir="ltr"] .sh-header__meteor{transform:rotate(22deg);animation-name:sh-meteor-ltr}
-@keyframes sh-meteor-head-ltr{0%,72%{transform:rotate(-45deg)translate(0,0);opacity:0}75%{opacity:1}88%{transform:rotate(-45deg)translate(420px,420px);opacity:0}100%{opacity:0}}
-html[dir="ltr"] .sh-header__meteor-head{transform:rotate(-45deg);animation-name:sh-meteor-head-ltr}
 @keyframes sh-paper-out-ltr{0%{transform:translateX(-28%);opacity:0}100%{transform:translateX(0);opacity:1}}
 html[dir="ltr"] .sh-index-files__div-4{animation-name:sh-paper-out-ltr}
 

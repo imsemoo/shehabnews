@@ -35,17 +35,27 @@
 .sh-header__arc.sh-header__arc--1{position:absolute;width:1400px;height:1400px;border:1px solid rgba(255,255,255,.09);border-radius:50%;right:-520px;top:-1160px}
 .sh-header__arc.sh-header__arc--2{position:absolute;width:1400px;height:1400px;border:1px solid rgba(255,255,255,.07);border-radius:50%;right:-560px;top:-1120px}
 .sh-header__arc.sh-header__arc--3{position:absolute;width:1100px;height:1100px;border:1px solid var(--sh-on-dark-08);border-radius:50%;left:-620px;top:-880px}
-/* the tail is 2px of solid white at its head: a 1px line at 90% opacity was
-   drawn for a navy sky and dissolves on the blue masthead. It runs along the
-   top 20px of the band at 6 degrees, which is the only strip of the masthead
-   with no control in it — measured: the highest button starts at y25.
-   The streak travels leftward, so its head is its LEFT end: the gradient is
-   bright there and fades behind (it used to be the other way round, a dim
-   smear running ahead of a bright point), and the head diamond starts on that
-   end and moves with it — its keyframes below are the left end's own path
-   (translateX −640 plus the growth from scaleX .2 to 1, and the 6° drop). */
-.sh-header__meteor{position:absolute;top:2px;right:38%;width:220px;height:2px;background:linear-gradient(90deg,#fff,rgba(255,255,255,0));transform:rotate(-6deg);transform-origin:right;animation:sh-meteor 9s cubic-bezier(.2,.6,.3,1) infinite;opacity:0}
-.sh-header__meteor-head{position:absolute;top:5px;right:calc(38% + 41px);width:5px;height:5px;background:#fff;transform:rotate(45deg);animation:sh-meteor-head 9s cubic-bezier(.2,.6,.3,1) infinite;opacity:0}
+/* The meteor lands on its name. It comes in from above the lead buttons — the
+   top 20px strip is the one band of the masthead with no control in it — and
+   arcs down into the ش of the wordmark, where a spark bursts and the logo
+   flashes once. The path is drawn in px from the masthead's centre-top
+   (.sh-header__sky-origin is a 0×0 box at left:50%), so it holds at any
+   width: the lead buttons start 229px inside the container's edge, the
+   wordmark is 84px wide, and the descent happens in the empty pocket between
+   them. The ش is on the right of the wordmark in both directions, so the same
+   path serves LTR — nothing here is mirrored (tools/ltr.py leaves offset-path
+   and a two-value translate() alone). Chosen from the eight proofs of
+   2026-09-12; the pass is the first 1.3s of a 9s cycle, 1.5s after load. */
+/* direction:ltr on the origin box: Chrome measures a path() from the element's
+   own static box, and in an RTL container a 220px streak sits 220px left of
+   the origin, which moved the whole path — the meteor died left of the
+   wordmark while the spark flashed on the ش. An LTR box starts at the origin
+   in both directions. */
+.sh-header__sky-origin{position:absolute;top:0;left:50%;width:0;height:0;overflow:visible;direction:ltr}
+.sh-header__meteor{position:absolute;width:220px;height:2px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.6) 60%,#fff);offset-path:path("M 700 6 C 520 6 330 8 40 30");offset-anchor:100% 50%;offset-rotate:auto;offset-distance:0%;opacity:0;animation:sh-meteor 9s cubic-bezier(.5,0,.8,.6) 1.5s infinite}
+.sh-header__spark{position:absolute;top:-4px;left:-4px;width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 12px 5px rgba(255,255,255,.8);transform:translate(40px,30px) scale(0);opacity:0;animation:sh-meteor-spark 9s ease-out 1.5s infinite}
+/* no offset-path (Safari 15 and older): no meteor, rather than a streak stuck at the centre */
+@supports not (offset-path:path("M 0 0 L 1 1")){.sh-header__sky-origin{display:none}.sh-masthead__logo-img{animation:none}}
 /* the stars sit in the two strips with nothing in them — the top 20px and
    the gap between the controls (which end at y63) and the nav (y88). At
    top:30 and top:44 they twinkled inside the «الآن» button and the search
@@ -54,7 +64,7 @@
 .sh-header__star.sh-header__star--2{position:absolute;top:70px;right:9%;width:3px;height:3px;background:#fff;transform:rotate(45deg);opacity:.25;animation:sh-twinkle 7s ease-in-out infinite 2s}
 .sh-header__star.sh-header__star--3{position:absolute;top:74px;left:14%;width:3px;height:3px;background:#fff;transform:rotate(45deg);opacity:.3;animation:sh-twinkle 6s ease-in-out infinite 1s}
 /* the compact masthead (64px, the nav behind a toggle) has no empty strip left */
-@media (max-width:900px){.sh-header__sky{display:none}}
+@media (max-width:900px){.sh-header__sky{display:none}.sh-masthead__logo-img{animation:none}}
 .sh-header__inner{max-width:var(--sh-container);margin:0 auto;padding:0 32px;position:relative}
 .sh-masthead{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:88px}
 .sh-masthead__lead{display:flex;align-items:center;gap:16px;justify-self:start}
@@ -73,7 +83,7 @@
 .sh-tnum{font-variant-numeric:tabular-nums}
 .sh-masthead__logo{justify-self:center;position:relative;display:block;padding:6px 18px;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
 @media (hover:hover){.sh-masthead__logo:hover{transform:translateY(-2px)}}
-.sh-masthead__logo-img{height:54px;width:auto;position:relative;filter:drop-shadow(0 6px 18px rgba(10,26,51,.35))}
+.sh-masthead__logo-img{height:54px;width:auto;position:relative;filter:drop-shadow(0 6px 18px rgba(10,26,51,.35));animation:sh-meteor-land 9s ease-out 1.5s infinite}   /* the flash as the meteor arrives; the keyframes rest on this same shadow */
 .sh-masthead__logo-star{display:none}
 .sh-masthead__tools{display:flex;align-items:center;gap:12px;justify-self:end}
 /* ---- the audio brief: same chrome as the search field beside it ---- */
@@ -158,13 +168,13 @@
   .sh-ticker__tag-dot{animation:none}
 }
 @keyframes sh-ticker{0%{transform:translateX(-100%)}100%{transform:translateX(0)}}
-/* translateX comes before rotate: after the rotation the x axis is tilted 22°,
-   so travelling -640px along it also dropped the streak 240px — clean out of
-   the sky, which clips. The head already does it in this order, which is why
-   the head was the only part that ever showed. */
-@keyframes sh-meteor{0%,72%{transform:translateX(0)rotate(-6deg)scaleX(.2);opacity:0}76%{opacity:.9}88%{transform:translateX(-640px)rotate(-6deg)scaleX(1);opacity:0}100%{opacity:0}}
-/* the streak's left end: x = −640 − 176·cos6° ≈ −815, y = +176·sin6° ≈ +18 */
-@keyframes sh-meteor-head{0%,72%{transform:translate(0,0)rotate(45deg);opacity:0}75%{opacity:1}88%{transform:translate(-815px,18px)rotate(45deg);opacity:0}100%{opacity:0}}
+/* the pass: in from the right and faster as it falls (ease-in), gone as it
+   meets the wordmark at 14.4% of the cycle; the spark and the flash follow
+   at 13.5–24%. The logo keyframes rest on its own drop-shadow, so nothing
+   changes between passes. */
+@keyframes sh-meteor{0%{offset-distance:0%;opacity:0}3%{opacity:1}11%{opacity:1}14.4%,100%{offset-distance:100%;opacity:0}}
+@keyframes sh-meteor-spark{0%,13.5%{transform:translate(40px,30px) scale(0);opacity:0}14.5%{transform:translate(40px,30px) scale(1);opacity:1}20%,100%{transform:translate(40px,30px) scale(2.2);opacity:0}}
+@keyframes sh-meteor-land{0%,12%{filter:drop-shadow(0 6px 18px rgba(10,26,51,.35))}14.5%{filter:drop-shadow(0 0 16px rgba(255,255,255,.95)) drop-shadow(0 6px 18px rgba(10,26,51,.35))}24%,100%{filter:drop-shadow(0 6px 18px rgba(10,26,51,.35))}}
 @keyframes sh-twinkle{0%,100%{opacity:.25;transform:rotate(45deg)scale(.8)}50%{opacity:1;transform:rotate(45deg)scale(1.15)}}
 
 /* ---- compact: the search collapses to its button, the live label to its icon
@@ -191,7 +201,8 @@
 /* the star rules carry two classes each, so the guard has to as well or it
    loses the cascade and the sky keeps twinkling for a reader who asked it not to */
 @media (prefers-reduced-motion:reduce){
-  .sh-header__meteor,.sh-header__meteor-head{animation:none;opacity:0}
+  .sh-header__meteor,.sh-header__spark{animation:none;opacity:0}
+  .sh-masthead__logo-img{animation:none}
   .sh-header__star.sh-header__star--1,
   .sh-header__star.sh-header__star--2,
   .sh-header__star.sh-header__star--3{animation:none;opacity:.28}

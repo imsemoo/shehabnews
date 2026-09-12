@@ -30,7 +30,7 @@ html[data-compact] .sh-header__body{position:fixed;top:0;left:0;right:0;z-index:
 html[data-compact] .sh-header__sky{display:none}
 html[data-compact] .sh-masthead{height:54px}
 html[data-compact] .sh-masthead__logo{padding:4px 14px}
-html[data-compact] .sh-masthead__logo-img{height:34px;filter:none}
+html[data-compact] .sh-masthead__logo-img{height:34px;filter:none;animation:none}   /* the sky is off while compact, so the landing flash is too */
 html[data-compact] .sh-masthead__logo-star{display:none}
 html[data-compact] .sh-nav{min-height:38px;font-size:13px}
 html[data-compact] .sh-nav__link,html[data-compact] .sh-nav__link.sh-nav__link--current{padding:9px 0 7px}
