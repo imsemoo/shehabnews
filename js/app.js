@@ -1198,12 +1198,17 @@
           id = e.pointerId; x0 = e.clientX; dx = 0; moved = 0;
           deck.setAttribute('data-drag', '');
           view.setAttribute('data-paused', '');
-          if (deck.setPointerCapture) { try { deck.setPointerCapture(id); } catch (err) {} }
         });
         deck.addEventListener('pointermove', function (e) {
           if (id === null || e.pointerId !== id) return;
           dx = e.clientX - x0;
-          if (Math.abs(dx) > 4) moved = 1;
+          if (!moved && Math.abs(dx) > 4) {
+            moved = 1;
+            /* capture only once it is a drag. A pointer captured on pointerdown
+               retargets the click to the deck itself, so the arrows and the
+               peeking cards -- found through e.target -- never received one. */
+            if (deck.setPointerCapture) { try { deck.setPointerCapture(id); } catch (err) {} }
+          }
           top.style.transform = 'translateX(' + dx + 'px) rotate(' + (dx / 60).toFixed(2) + 'deg)';
           var nx = cards[cur.i + 1];
           if (nx) {

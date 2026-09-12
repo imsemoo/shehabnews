@@ -252,6 +252,9 @@ html[data-sh-hubview-open]{overflow:hidden}
 .sh-hubcard__read .sh-mark{width:13px;height:11px;background:currentColor}
 /* the two halves of the photograph are the page turn */
 .sh-hubview__tap{position:absolute;top:0;height:100%;width:32%;z-index:4;background:none;border:0;cursor:pointer;color:var(--sh-navy);opacity:0;transition:opacity .2s ease}
+/* both arrows show on the open story (they used to appear on hover only, which
+   read as one arrow missing); full strength under the pointer */
+.sh-hubcard[data-state="on"] .sh-hubview__tap{opacity:.8}
 .sh-hubcard[data-state="on"] .sh-hubview__tap:hover,.sh-hubcard[data-state="on"] .sh-hubview__tap:focus-visible{opacity:1}
 .sh-hubview__tap--prev{inset-inline-start:0}
 .sh-hubview__tap--next{inset-inline-end:0}

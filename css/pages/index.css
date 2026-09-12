@@ -95,8 +95,13 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-lc{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:0 48px;align-items:stretch;margin-top:20px}
 .sh-lc__lead{display:flex;flex-direction:column;gap:14px;color:var(--sh-ink)}
 .sh-lc__lead-pic{position:relative;display:block;overflow:hidden;aspect-ratio:16/9;background:var(--sh-navy-2)}
-.sh-lc__lead-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-@media (hover:hover){.sh-lc__lead:hover .sh-lc__lead-img{transform:scale(1.03)}}
+/* the poster keeps moving, slowly: a 44-second drift out and back, the same
+   gesture as the Gaza coast. It reads as a live frame without a GIF (which
+   would weigh megabytes and lose the poster's colours) and stops under
+   prefers-reduced-motion below. The hover zoom went: an animation on
+   transform overrides it anyway. */
+.sh-lc__lead-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;animation:sh-lc-drift 44s ease-in-out infinite alternate}
+@keyframes sh-lc-drift{from{transform:scale(1) translateX(0)}to{transform:scale(1.06) translateX(-1.2%)}}
 @media (hover:hover){.sh-lc__lead:hover .sh-lc__lead-t{color:var(--sh-blue)}}
 .sh-lc__lead:focus-visible{outline:2px solid var(--sh-sky);outline-offset:-4px}
 /* the update the reader is pointing at owns the strip under the headline */
@@ -496,7 +501,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-rep__pic img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .sh-rep__tile:hover .sh-rep__pic img{transform:scale(1.04)}
 .sh-rep__t{font-family:var(--sh-font);font-size:14px;font-weight:700;line-height:1.6;text-wrap:pretty;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.sh-rep__k{display:inline-block;margin-inline-end:8px;color:var(--sh-blue);font-size:11.5px;font-weight:800}
+.sh-rep__k{display:inline-block;margin-inline-end:8px}   /* the desk is not a link of its own (the tile is): it reads like the rest of the headline */
 @media (max-width:900px){
   .sh-rep__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .sh-rep__lead{grid-column:1/-1;grid-row:auto;aspect-ratio:16/9}
@@ -608,7 +613,7 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 @media (prefers-reduced-motion:reduce){
   .sh-rep__lead-img,.sh-rep__pic img,.sh-gal__tile img,.sh-gal__tile::after,.sh-car__slide{transition:none}
 }
-.sh-index-social__section-1{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,1.6fr);gap:0 24px;padding:0 0 64px;border-top:1px solid var(--sh-hair-2)}
+.sh-index-social__section-1{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0 24px;padding:0 0 64px;border-top:1px solid var(--sh-hair-2)}   /* five channels; the newsletter form lives in the footer */
 .sh-index-social__a-1{padding:26px 0 0;display:flex;align-items:center;gap:14px;color:var(--sh-ink);transition:color .2s ease}
 @media (hover:hover){.sh-index-social__a-1:hover{color:var(--sh-blue)}}
 .sh-index-social__i-1{font-size:18px;color:var(--sh-blue);line-height:1;width:22px;text-align:center;transition:transform .3s cubic-bezier(.2,.75,.2,1)}
@@ -655,9 +660,11 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
 .sh-gaza__figs{list-style:none;display:flex;flex-direction:column;gap:12px;margin:0;padding:0}
 .sh-gaza__figs li{display:flex;align-items:baseline;gap:10px;font-size:12.5px;color:var(--sh-on-dark-72);line-height:1.5}
 .sh-gaza__figs b{font-family:var(--sh-font);font-size:20px;font-weight:800;color:#fff;direction:ltr;min-width:0}
-.sh-gaza__credit{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;margin:0;font-size:11.5px;color:var(--sh-on-dark-72);border-top:1px solid rgba(255,255,255,.16);padding-top:14px}
-.sh-gaza__more{font-weight:800;color:#fff;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
-.sh-gaza__photo-credit{margin-inline-start:auto;color:var(--sh-on-dark-72)}
+/* the way into the data desk: the house CTA, under the lead (the sources line
+   and the photo credit that used to close the band are gone) */
+.sh-gaza__btn{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 22px;margin-top:20px;background:var(--sh-blue);color:#fff;font-family:var(--sh-font);font-size:12.5px;font-weight:800;line-height:1;transition:background .18s ease,gap .25s ease}
+@media (hover:hover){.sh-gaza__btn:hover{background:var(--color-brand-blue-deep);color:#fff;gap:16px}}
+.sh-gaza__btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
 @media (max-width:760px){
   .sh-gaza{height:auto;padding:28px 0 26px}
   .sh-gaza__in{grid-template-columns:minmax(0,1fr);gap:22px;padding:0 16px}
@@ -666,7 +673,6 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
   .sh-gaza__n{font-size:clamp(44px,13vw,58px)}
   .sh-gaza__l{margin-top:0}
   .sh-gaza__figs b{font-size:18px}
-  .sh-gaza__photo-credit{margin-inline-start:0}
 }
 @media (prefers-reduced-motion:reduce){
   .sh-gaza__photo,.sh-gaza__beam,.sh-gaza__dot{animation:none}
@@ -780,9 +786,8 @@ a{transition:color .16s ease,opacity .16s ease,border-color .16s ease}
   .sh-lc__row{column-gap:12px}
 }
 @media (prefers-reduced-motion:reduce){
-  .sh-lc__lead-dot,.sh-lc__node,.sh-lc__row{animation:none}
-  .sh-lc__lead-img,.sh-lc__node,.sh-lc__t{transition:none}
-  .sh-lc__lead:hover .sh-lc__lead-img{transform:none}
+  .sh-lc__lead-dot,.sh-lc__node,.sh-lc__row,.sh-lc__lead-img{animation:none}
+  .sh-lc__node,.sh-lc__t{transition:none}
 }
 
 /* the live marks read as live by colour and label; the beat is the extra */
